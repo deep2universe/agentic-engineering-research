@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+  <defs>
+    <linearGradient id="bg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="sh4">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="480" fill="url(#bg4)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Tool Chaining Patterns</text>
+
+  <!-- === Sequential === -->
+  <text x="150" y="85" text-anchor="middle" fill="#818CF8" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Sequential Chaining</text>
+  <text x="150" y="103" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Lineare Verkettung — Output wird Input</text>
+
+  <rect x="30" y="120" width="80" height="50" rx="8" fill="#4F46E5" filter="url(#sh4)"/>
+  <text x="70" y="150" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Agent A</text>
+
+  <line x1="110" y1="145" x2="135" y2="145" stroke="#6366F1" stroke-width="2" marker-end="url(#arrow)"/>
+  <polygon points="135,145 125,139 125,151" fill="#6366F1"/>
+
+  <rect x="140" y="120" width="80" height="50" rx="8" fill="#4338CA" filter="url(#sh4)"/>
+  <text x="180" y="150" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Agent B</text>
+
+  <polygon points="245,145 235,139 235,151" fill="#6366F1"/>
+
+  <rect x="250" y="120" width="80" height="50" rx="8" fill="#3730A3" filter="url(#sh4)"/>
+  <text x="290" y="150" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Agent C</text>
+
+  <!-- Pipeline metaphor -->
+  <rect x="30" y="185" width="300" height="28" rx="6" fill="#1E1B4B" stroke="#4F46E5" stroke-width="1"/>
+  <text x="180" y="204" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="10">Pipeline: A → B → C → Ergebnis</text>
+
+  <!-- === Concurrent === -->
+  <text x="480" y="85" text-anchor="middle" fill="#34D399" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Concurrent Execution</text>
+  <text x="480" y="103" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Parallele Spezialisten — unabhaengige Analyse</text>
+
+  <!-- Input -->
+  <rect x="440" y="120" width="80" height="40" rx="8" fill="#065F46" filter="url(#sh4)"/>
+  <text x="480" y="145" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Task</text>
+
+  <!-- Fan out -->
+  <line x1="480" y1="160" x2="410" y2="185" stroke="#10B981" stroke-width="1.5"/>
+  <line x1="480" y1="160" x2="480" y2="185" stroke="#10B981" stroke-width="1.5"/>
+  <line x1="480" y1="160" x2="550" y2="185" stroke="#10B981" stroke-width="1.5"/>
+
+  <rect x="375" y="185" width="70" height="35" rx="6" fill="#047857" filter="url(#sh4)"/>
+  <text x="410" y="207" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Agent 1</text>
+
+  <rect x="445" y="185" width="70" height="35" rx="6" fill="#047857" filter="url(#sh4)"/>
+  <text x="480" y="207" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Agent 2</text>
+
+  <rect x="515" y="185" width="70" height="35" rx="6" fill="#047857" filter="url(#sh4)"/>
+  <text x="550" y="207" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Agent 3</text>
+
+  <!-- === Hierarchical === -->
+  <text x="760" y="85" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Hierarchical</text>
+  <text x="760" y="103" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Manager delegiert an Unter-Agents</text>
+
+  <!-- Manager -->
+  <rect x="710" y="115" width="100" height="45" rx="8" fill="#92400E" filter="url(#sh4)"/>
+  <text x="760" y="135" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Manager</text>
+  <text x="760" y="152" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="9">Top-Level</text>
+
+  <!-- Sub-agents -->
+  <line x1="735" y1="160" x2="700" y2="185" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="785" y1="160" x2="820" y2="185" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <rect x="660" y="185" width="80" height="35" rx="6" fill="#78350F" filter="url(#sh4)"/>
+  <text x="700" y="207" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Sub-A</text>
+
+  <rect x="780" y="185" width="80" height="35" rx="6" fill="#78350F" filter="url(#sh4)"/>
+  <text x="820" y="207" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Sub-B</text>
+
+  <!-- Comparison Table -->
+  <rect x="40" y="260" width="820" height="180" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+
+  <!-- Header row -->
+  <rect x="40" y="260" width="820" height="36" rx="12" fill="#334155"/>
+  <rect x="40" y="280" width="820" height="16" fill="#334155"/>
+  <text x="180" y="283" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Pattern</text>
+  <text x="400" y="283" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Staerke</text>
+  <text x="650" y="283" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Use Case</text>
+
+  <!-- Row 1 -->
+  <text x="180" y="320" text-anchor="middle" fill="#818CF8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Sequential</text>
+  <text x="400" y="320" text-anchor="middle" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="11">Einfach, deterministisch</text>
+  <text x="650" y="320" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">ETL, Pipelines, Workflows</text>
+
+  <line x1="60" y1="335" x2="840" y2="335" stroke="#334155" stroke-width="1"/>
+
+  <!-- Row 2 -->
+  <text x="180" y="365" text-anchor="middle" fill="#34D399" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Concurrent</text>
+  <text x="400" y="365" text-anchor="middle" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="11">Schnell, skalierbar</text>
+  <text x="650" y="365" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Multi-Perspektive, Analyse</text>
+
+  <line x1="60" y1="380" x2="840" y2="380" stroke="#334155" stroke-width="1"/>
+
+  <!-- Row 3 -->
+  <text x="180" y="410" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Hierarchical</text>
+  <text x="400" y="410" text-anchor="middle" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="11">Komplex, orchestriert</text>
+  <text x="650" y="410" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Grossprojekte, Multi-Agent</text>
+
+  <text x="450" y="465" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Die Wahl des Chaining Patterns bestimmt Latenz, Komplexitaet und Fehlertoleranz</text>
+</svg>

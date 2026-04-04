@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <defs>
+    <linearGradient id="bg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <linearGradient id="blue1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6"/>
+      <stop offset="100%" style="stop-color:#2563EB"/>
+    </linearGradient>
+    <linearGradient id="purple1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="green1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="amber1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#D97706"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow1">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" fill="url(#bg1)" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="45" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Tool Use — Ueberblick</text>
+  <text x="450" y="70" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13">LLM-basierte Agents interagieren mit externen Tools, APIs und Wissensquellen</text>
+
+  <!-- Central LLM Node -->
+  <circle cx="450" cy="260" r="70" fill="url(#blue1)" filter="url(#shadow1)" opacity="0.95"/>
+  <text x="450" y="252" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="24" font-weight="700">LLM</text>
+  <text x="450" y="275" text-anchor="middle" fill="#BFDBFE" font-family="system-ui, sans-serif" font-size="11">Agent Core</text>
+
+  <!-- Surrounding Tool Nodes -->
+  <!-- APIs (top-left) -->
+  <line x1="395" y1="210" x2="230" y2="140" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+  <rect x="140" y="100" width="130" height="60" rx="12" fill="url(#purple1)" filter="url(#shadow1)" opacity="0.9"/>
+  <text x="205" y="127" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">APIs</text>
+  <text x="205" y="147" text-anchor="middle" fill="#DDD6FE" font-family="system-ui, sans-serif" font-size="10">REST, GraphQL, gRPC</text>
+
+  <!-- Datenbanken (top-right) -->
+  <line x1="505" y1="210" x2="670" y2="140" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+  <rect x="610" y="100" width="130" height="60" rx="12" fill="url(#green1)" filter="url(#shadow1)" opacity="0.9"/>
+  <text x="675" y="127" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Datenbanken</text>
+  <text x="675" y="147" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">SQL, Vector, Graph</text>
+
+  <!-- Code Execution (left) -->
+  <line x1="380" y1="260" x2="230" y2="270" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+  <rect x="80" y="240" width="150" height="60" rx="12" fill="url(#amber1)" filter="url(#shadow1)" opacity="0.9"/>
+  <text x="155" y="267" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Code Execution</text>
+  <text x="155" y="287" text-anchor="middle" fill="#FEF3C7" font-family="system-ui, sans-serif" font-size="10">Sandbox, REPL, CLI</text>
+
+  <!-- File System (right) -->
+  <line x1="520" y1="260" x2="670" y2="270" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+  <rect x="670" y="240" width="150" height="60" rx="12" fill="#DC2626" filter="url(#shadow1)" opacity="0.9"/>
+  <text x="745" y="267" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">File System</text>
+  <text x="745" y="287" text-anchor="middle" fill="#FECACA" font-family="system-ui, sans-serif" font-size="10">Read, Write, Search</text>
+
+  <!-- Wissensquellen (bottom-left) -->
+  <line x1="395" y1="310" x2="230" y2="400" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+  <rect x="120" y="375" width="150" height="60" rx="12" fill="url(#blue1)" filter="url(#shadow1)" opacity="0.9"/>
+  <text x="195" y="402" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Wissensquellen</text>
+  <text x="195" y="422" text-anchor="middle" fill="#BFDBFE" font-family="system-ui, sans-serif" font-size="10">RAG, Docs, Embeddings</text>
+
+  <!-- Web (bottom-right) -->
+  <line x1="505" y1="310" x2="670" y2="400" stroke="#3B82F6" stroke-width="2" stroke-dasharray="6,4" opacity="0.6"/>
+  <rect x="620" y="375" width="150" height="60" rx="12" fill="url(#purple1)" filter="url(#shadow1)" opacity="0.9"/>
+  <text x="695" y="402" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="600">Web / Browser</text>
+  <text x="695" y="422" text-anchor="middle" fill="#DDD6FE" font-family="system-ui, sans-serif" font-size="10">Scraping, Search</text>
+
+  <!-- Bottom annotation -->
+  <rect x="280" y="470" width="340" height="36" rx="8" fill="#1E293B" stroke="#334155" stroke-width="1"/>
+  <text x="450" y="493" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Function Calling = Kernfaehigkeit moderner AI Agents</text>
+</svg>
