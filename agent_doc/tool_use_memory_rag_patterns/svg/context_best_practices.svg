@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="cbg9" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="cs9">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#cbg9)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Context Engineering — Best Practices</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">10 Empfehlungen fuer optimales Context Management</text>
+
+  <!-- Two columns -->
+  <!-- Left: 1-5 -->
+  <rect x="30" y="80" width="410" height="55" rx="8" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="55" cy="107" r="13" fill="#DC2626"/>
+  <text x="55" y="112" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">1</text>
+  <text x="80" y="103" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Context als knappe Ressource</text>
+  <text x="80" y="120" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Jeder Token hat Kosten — Attention Budget</text>
+
+  <rect x="30" y="143" width="410" height="55" rx="8" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="55" cy="170" r="13" fill="#2563EB"/>
+  <text x="55" y="175" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">2</text>
+  <text x="80" y="166" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Dynamic Context Assembly</text>
+  <text x="80" y="183" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Pro Request implementieren</text>
+
+  <rect x="30" y="206" width="410" height="55" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="55" cy="233" r="13" fill="#059669"/>
+  <text x="55" y="238" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">3</text>
+  <text x="80" y="229" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Hierarchical Summarization</text>
+  <text x="80" y="246" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Progressive Komprimierung nach Alter</text>
+
+  <rect x="30" y="269" width="410" height="55" rx="8" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="55" cy="296" r="13" fill="#7C3AED"/>
+  <text x="55" y="301" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">4</text>
+  <text x="80" y="292" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Context Pruning aktiv betreiben</text>
+  <text x="80" y="309" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Veraltete Informationen entfernen</text>
+
+  <rect x="30" y="332" width="410" height="55" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="55" cy="359" r="13" fill="#D97706"/>
+  <text x="55" y="364" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">5</text>
+  <text x="80" y="355" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Progressive Disclosure</text>
+  <text x="80" y="372" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Nur noetige Infos laden</text>
+
+  <!-- Right: 6-10 -->
+  <rect x="460" y="80" width="410" height="55" rx="8" fill="#1E293B" stroke="#06B6D4" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="485" cy="107" r="13" fill="#0891B2"/>
+  <text x="485" y="112" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">6</text>
+  <text x="510" y="103" fill="#67E8F9" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Tool Loadout unter 30 Tools</text>
+  <text x="510" y="120" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Oder Tool Search nutzen</text>
+
+  <rect x="460" y="143" width="410" height="55" rx="8" fill="#1E293B" stroke="#EC4899" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="485" cy="170" r="13" fill="#DB2777"/>
+  <text x="485" y="175" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">7</text>
+  <text x="510" y="166" fill="#F9A8D4" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Filesystem-Offloading</text>
+  <text x="510" y="183" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Fuer langlebige Agent-Sessions</text>
+
+  <rect x="460" y="206" width="410" height="55" rx="8" fill="#1E293B" stroke="#84CC16" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="485" cy="233" r="13" fill="#65A30D"/>
+  <text x="485" y="238" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">8</text>
+  <text x="510" y="229" fill="#BEF264" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Versionskontrollierte MD-Dateien</text>
+  <text x="510" y="246" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Persistenter Projekt-Context (CLAUDE.md)</text>
+
+  <rect x="460" y="269" width="410" height="55" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="485" cy="296" r="13" fill="#D97706"/>
+  <text x="485" y="301" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">9</text>
+  <text x="510" y="292" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Context Anxiety beachten</text>
+  <text x="510" y="309" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Bei Modellen entschaerfen</text>
+
+  <rect x="460" y="332" width="410" height="55" rx="8" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" filter="url(#cs9)"/>
+  <circle cx="485" cy="359" r="13" fill="#DC2626"/>
+  <text x="485" y="364" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="9" font-weight="700">10</text>
+  <text x="510" y="355" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Lost-in-the-Middle vermeiden</text>
+  <text x="510" y="372" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Kritische Infos am Anfang/Ende platzieren</text>
+
+  <!-- Summary -->
+  <rect x="150" y="410" width="600" height="40" rx="8" fill="#334155"/>
+  <text x="450" y="428" text-anchor="middle" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Context Engineering = Ganzheitliche Informationsumgebung statt einzelner Prompts</text>
+  <text x="450" y="445" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Qualitaet &gt; Quantitaet — Signal &gt; Noise — Dynamisch &gt; Statisch</text>
+
+  <text x="450" y="485" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Context Engineering Best Practices 2025/2026</text>
+</svg>

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+  <defs>
+    <linearGradient id="cbg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="cs6">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="300" fill="url(#cbg6)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Agentic Context Engineering (ACE)</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Context als selbst-aktualisierendes Playbook (Forschung 2025)</text>
+
+  <!-- Feedback loop -->
+  <!-- Context Box -->
+  <rect x="100" y="90" width="200" height="80" rx="12" fill="#1E293B" stroke="#8B5CF6" stroke-width="2" filter="url(#cs6)"/>
+  <text x="200" y="125" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Context</text>
+  <text x="200" y="148" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Playbook mit Infos</text>
+
+  <!-- Arrow right -->
+  <line x1="300" y1="130" x2="350" y2="130" stroke="#8B5CF6" stroke-width="2"/>
+  <polygon points="350,130 340,123 340,137" fill="#8B5CF6"/>
+  <text x="325" y="120" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="9">Feeds</text>
+
+  <!-- LLM -->
+  <rect x="350" y="90" width="200" height="80" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#cs6)"/>
+  <text x="450" y="125" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="14" font-weight="700">LLM Inferenz</text>
+  <text x="450" y="148" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Generiert Output</text>
+
+  <!-- Arrow right -->
+  <line x1="550" y1="130" x2="600" y2="130" stroke="#3B82F6" stroke-width="2"/>
+  <polygon points="600,130 590,123 590,137" fill="#3B82F6"/>
+  <text x="575" y="120" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="9">Output</text>
+
+  <!-- Performance -->
+  <rect x="600" y="90" width="200" height="80" rx="12" fill="#1E293B" stroke="#10B981" stroke-width="2" filter="url(#cs6)"/>
+  <text x="700" y="125" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Performance</text>
+  <text x="700" y="148" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Bewertung</text>
+
+  <!-- Feedback loop back -->
+  <path d="M 700 170 L 700 210 L 200 210 L 200 170" fill="none" stroke="#F59E0B" stroke-width="2.5"/>
+  <polygon points="200,170 193,183 207,183" fill="#F59E0B"/>
+  <text x="450" y="230" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Feedback-Loop: Context aktualisiert sich selbst</text>
+
+  <!-- Key features -->
+  <rect x="100" y="250" width="200" height="30" rx="6" fill="#334155"/>
+  <text x="200" y="270" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="10">Selbstverbessernd</text>
+
+  <rect x="350" y="250" width="200" height="30" rx="6" fill="#334155"/>
+  <text x="450" y="270" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="10">Automatisch optimiert</text>
+
+  <rect x="600" y="250" width="200" height="30" rx="6" fill="#334155"/>
+  <text x="700" y="270" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="10">Leistungsbasiert</text>
+</svg>

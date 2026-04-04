@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="cbg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="cs1">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="400" fill="url(#cbg1)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Context Engineering — Ueberblick</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Die Weiterentwicklung von Prompt Engineering</text>
+
+  <!-- Evolution arrow -->
+  <rect x="60" y="90" width="310" height="80" rx="12" fill="#1E293B" stroke="#64748B" stroke-width="1.5" filter="url(#cs1)"/>
+  <text x="215" y="118" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Prompt Engineering</text>
+  <text x="215" y="140" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="11">"Wie sollte ich das formulieren?"</text>
+  <text x="215" y="160" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Fokus: Einzelner Prompt</text>
+
+  <!-- Evolution arrow -->
+  <text x="395" y="135" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="28" font-weight="700">&#x27A1;</text>
+
+  <rect x="430" y="90" width="430" height="80" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="2" filter="url(#cs1)"/>
+  <text x="645" y="118" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Context Engineering</text>
+  <text x="645" y="140" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="11">"Welche Informationen braucht das Modell gerade?"</text>
+  <text x="645" y="160" text-anchor="middle" fill="#D97706" font-family="system-ui, sans-serif" font-size="10">Fokus: Gesamte Informationsumgebung</text>
+
+  <!-- Four pillars -->
+  <text x="450" y="210" text-anchor="middle" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="14" font-weight="600">Die vier Sauelen des Context Engineering</text>
+
+  <rect x="50" y="230" width="190" height="90" rx="10" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#cs1)"/>
+  <text x="145" y="258" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Prompt</text>
+  <text x="145" y="278" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">System Instructions</text>
+  <text x="145" y="295" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">+ User Messages</text>
+
+  <rect x="260" y="230" width="190" height="90" rx="10" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#cs1)"/>
+  <text x="355" y="258" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Retrieval</text>
+  <text x="355" y="278" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">RAG-Ergebnisse</text>
+  <text x="355" y="295" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">+ Dokumente</text>
+
+  <rect x="470" y="230" width="190" height="90" rx="10" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5" filter="url(#cs1)"/>
+  <text x="565" y="258" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Tool Output</text>
+  <text x="565" y="278" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Function Results</text>
+  <text x="565" y="295" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">+ API Responses</text>
+
+  <rect x="680" y="230" width="190" height="90" rx="10" fill="#1E293B" stroke="#EC4899" stroke-width="1.5" filter="url(#cs1)"/>
+  <text x="775" y="258" text-anchor="middle" fill="#F9A8D4" font-family="system-ui, sans-serif" font-size="13" font-weight="700">History</text>
+  <text x="775" y="278" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Konversationsverlauf</text>
+  <text x="775" y="295" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">+ Summaries</text>
+
+  <!-- Bottom definition -->
+  <rect x="120" y="345" width="660" height="38" rx="8" fill="#334155"/>
+  <text x="450" y="367" text-anchor="middle" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Anthropic: "Strategien, die den optimalen Satz an Tokens waehrend der LLM-Inferenz kuratieren"</text>
+</svg>
