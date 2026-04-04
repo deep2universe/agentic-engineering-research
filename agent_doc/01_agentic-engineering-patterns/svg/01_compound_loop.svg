@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bgCL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="shCL"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="400" fill="url(#bgCL)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Compound Engineering Loop</text>
+  <text x="400" y="55" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b">nach Simon Willison — Mensch und Agent im iterativen Zyklus</text>
+
+  <!-- Developer -->
+  <g filter="url(#shCL)">
+    <rect x="40" y="120" width="160" height="180" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+    <rect x="40" y="120" width="160" height="35" rx="12" fill="#3b82f6" opacity="0.15"/>
+    <text x="120" y="144" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#60a5fa">Entwickler</text>
+    <circle cx="120" y="180" r="20" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="120" y="185" text-anchor="middle" font-family="Segoe UI, Arial" font-size="16" fill="#60a5fa">D</text>
+    <text x="120" y="225" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Definiert Aufgabe</text>
+    <text x="120" y="240" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Reviewt Ergebnis</text>
+    <text x="120" y="255" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Gibt Feedback</text>
+    <text x="120" y="270" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Korrigiert Kurs</text>
+  </g>
+
+  <!-- Agent -->
+  <g filter="url(#shCL)">
+    <rect x="590" y="120" width="160" height="180" rx="12" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
+    <rect x="590" y="120" width="160" height="35" rx="12" fill="#a855f7" opacity="0.15"/>
+    <text x="670" y="144" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#c084fc">Agent</text>
+    <circle cx="670" y="180" r="20" fill="#2e1065" stroke="#a855f7" stroke-width="1.5"/>
+    <text x="670" y="185" text-anchor="middle" font-family="Segoe UI, Arial" font-size="16" fill="#c084fc">A</text>
+    <text x="670" y="225" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Plant Umsetzung</text>
+    <text x="670" y="240" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Führt Code aus</text>
+    <text x="670" y="255" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Testet Ergebnis</text>
+    <text x="670" y="270" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Iteriert</text>
+  </g>
+
+  <!-- Top arrow: Aufgabe → Agent -->
+  <path d="M200,155 Q400,80 590,155" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+  <polygon points="590,155 580,148 582,158" fill="#3b82f6"/>
+  <rect x="330" y="90" width="130" height="28" rx="6" fill="#1e293b" stroke="#3b82f6" stroke-width="1"/>
+  <text x="395" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#60a5fa">Aufgabe</text>
+
+  <!-- Bottom arrow: Feedback ← Review -->
+  <path d="M590,265 Q400,340 200,265" fill="none" stroke="#a855f7" stroke-width="2.5"/>
+  <polygon points="200,265 210,258 212,268" fill="#a855f7"/>
+  <rect x="325" y="298" width="140" height="28" rx="6" fill="#1e293b" stroke="#a855f7" stroke-width="1"/>
+  <text x="395" y="316" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#c084fc">Review + Feedback</text>
+
+  <!-- Center: iteration indicator -->
+  <circle cx="400" cy="210" r="30" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,4" opacity="0.4"/>
+  <text x="400" y="206" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#f59e0b">Iterativer</text>
+  <text x="400" y="218" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#f59e0b">Zyklus</text>
+
+  <!-- Bottom message -->
+  <rect x="180" y="360" width="440" height="30" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="380" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#f59e0b" font-style="italic">"Agentic Engineering ersetzt nicht den Entwickler — es verstärkt dessen Expertise."</text>
+</svg>

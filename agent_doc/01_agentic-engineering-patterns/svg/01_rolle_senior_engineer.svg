@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <linearGradient id="bgSE" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="shSE"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="350" fill="url(#bgSE)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Rolle des Senior Engineers im Agentic-Zeitalter</text>
+
+  <!-- Left: "Weniger" (fading) -->
+  <g filter="url(#shSE)">
+    <rect x="40" y="65" width="310" height="240" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" opacity="0.8"/>
+    <rect x="40" y="65" width="310" height="35" rx="10" fill="#ef4444" opacity="0.1"/>
+    <text x="195" y="88" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#fca5a5">Weniger</text>
+    <text x="195" y="103" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Fokus verschiebt sich weg von...</text>
+
+    <rect x="60" y="120" width="270" height="35" rx="6" fill="#1c1917" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+    <text x="195" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#fca5a5">Grundlegenden Code schreiben</text>
+
+    <rect x="60" y="165" width="270" height="35" rx="6" fill="#1c1917" stroke="#ef4444" stroke-width="1" opacity="0.4"/>
+    <text x="195" y="187" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#fca5a5" opacity="0.8">Routine-Implementierungen</text>
+
+    <rect x="60" y="210" width="270" height="35" rx="6" fill="#1c1917" stroke="#ef4444" stroke-width="1" opacity="0.3"/>
+    <text x="195" y="232" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#fca5a5" opacity="0.6">Boilerplate-Aufgaben</text>
+  </g>
+
+  <!-- Arrow -->
+  <text x="400" y="190" text-anchor="middle" font-family="Segoe UI, Arial" font-size="28" fill="#f59e0b">→</text>
+
+  <!-- Right: "Mehr" (glowing) -->
+  <g filter="url(#shSE)">
+    <rect x="450" y="65" width="310" height="240" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="450" y="65" width="310" height="35" rx="10" fill="#10b981" opacity="0.1"/>
+    <text x="605" y="88" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#6ee7b7">Mehr</text>
+    <text x="605" y="103" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Fokus verschiebt sich hin zu...</text>
+
+    <rect x="470" y="120" width="270" height="35" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+    <text x="605" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#6ee7b7">System-Architektur entwerfen</text>
+
+    <rect x="470" y="165" width="270" height="35" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+    <text x="605" y="187" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#6ee7b7">Guardrails + Ziele definieren</text>
+
+    <rect x="470" y="210" width="270" height="35" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+    <text x="605" y="232" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#6ee7b7">Agent-Outputs validieren</text>
+
+    <rect x="470" y="255" width="270" height="35" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5"/>
+    <text x="605" y="277" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#6ee7b7">Context Engineering</text>
+  </g>
+
+  <!-- Bottom -->
+  <text x="400" y="335" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b" font-style="italic">Agent-Outputs reviewen wie Code von einem neuen Junior-Entwickler</text>
+</svg>

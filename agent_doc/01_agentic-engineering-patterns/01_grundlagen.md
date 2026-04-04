@@ -9,6 +9,8 @@
 
 ### Abgrenzung: Workflow vs. Agent
 
+![Workflow vs. Agent — Fundamentale Unterscheidung](svg/01_workflow_vs_agent.svg)
+
 Anthropic definiert eine fundamentale Unterscheidung:
 
 | Eigenschaft | Workflow | Agent |
@@ -41,6 +43,8 @@ Agents eignen sich für Anwendungen, die:
 
 ### Der Agentic Loop
 
+![Der Agentic Loop — 5 Phasen im Zyklus](svg/01_agentic_loop.svg)
+
 Der grundlegende Zyklus eines Agents:
 
 ```
@@ -66,6 +70,8 @@ Der grundlegende Zyklus eines Agents:
 
 ### Autonomie-Level
 
+![8 Autonomie-Level des Agentic Engineering](svg/01_autonomie_level.svg)
+
 Die 8 Level des Agentic Engineering (nach AICraftGuide 2026):
 
 | Level | Bezeichnung | Beschreibung |
@@ -81,6 +87,8 @@ Die 8 Level des Agentic Engineering (nach AICraftGuide 2026):
 
 ### Compound Engineering Loop
 
+![Compound Engineering Loop](svg/01_compound_loop.svg)
+
 Simon Willison beschreibt den **Compound Engineering Loop** als zentrales Konzept:
 
 1. Der Entwickler gibt dem Agent eine Aufgabe
@@ -92,6 +100,8 @@ Simon Willison beschreibt den **Compound Engineering Loop** als zentrales Konzep
 Dieses Modell betont: **Agentic Engineering ersetzt nicht den Entwickler — es verstärkt dessen Expertise.**
 
 ## Die Rolle des Senior Engineers im Agentic-Zeitalter
+
+![Rolle des Senior Engineers](svg/01_rolle_senior_engineer.svg)
 
 Senior Engineers und Architekten verschieben ihren Fokus:
 

@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700">
+  <defs>
+    <linearGradient id="bgLoop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="glow2"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="sh2"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="700" height="700" fill="url(#bgLoop)" rx="12"/>
+
+  <text x="350" y="40" text-anchor="middle" font-family="Segoe UI, Arial" font-size="22" font-weight="bold" fill="#e2e8f0">Der Agentic Loop</text>
+  <text x="350" y="62" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#64748b">Grundlegender Zyklus eines jeden Agents</text>
+
+  <!-- Circular arrangement of 5 phases -->
+  <!-- Phase 1: Observation (top) -->
+  <g filter="url(#sh2)">
+    <rect x="235" y="95" width="230" height="70" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="260" cy="130" r="16" fill="#22d3ee" opacity="0.2"/>
+    <text x="260" y="135" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" fill="#22d3ee" font-weight="bold">1</text>
+    <text x="290" y="122" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#67e8f9">Beobachtung</text>
+    <text x="290" y="142" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Input / Context empfangen</text>
+  </g>
+
+  <!-- Arrow 1→2 -->
+  <path d="M465,145 Q530,180 510,230" fill="none" stroke="#22d3ee" stroke-width="2" opacity="0.6"/>
+  <polygon points="510,230 505,220 515,220" fill="#22d3ee" opacity="0.6"/>
+
+  <!-- Phase 2: Reasoning (right) -->
+  <g filter="url(#sh2)">
+    <rect x="400" y="240" width="230" height="70" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <circle cx="425" cy="275" r="16" fill="#8b5cf6" opacity="0.2"/>
+    <text x="425" y="280" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" fill="#8b5cf6" font-weight="bold">2</text>
+    <text x="455" y="267" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#a78bfa">Reasoning</text>
+    <text x="455" y="287" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Situation analysieren</text>
+  </g>
+
+  <!-- Arrow 2→3 -->
+  <path d="M530,310 Q540,370 470,400" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+  <polygon points="470,400 480,395 478,405" fill="#8b5cf6" opacity="0.6"/>
+
+  <!-- Phase 3: Planning (bottom right) -->
+  <g filter="url(#sh2)">
+    <rect x="330" y="390" width="230" height="70" rx="12" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+    <circle cx="355" cy="425" r="16" fill="#f97316" opacity="0.2"/>
+    <text x="355" y="430" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" fill="#f97316" font-weight="bold">3</text>
+    <text x="385" y="417" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#fb923c">Planung</text>
+    <text x="385" y="437" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Nächste Schritte bestimmen</text>
+  </g>
+
+  <!-- Arrow 3→4 -->
+  <path d="M330,440 Q260,460 220,440" fill="none" stroke="#f97316" stroke-width="2" opacity="0.6"/>
+  <polygon points="220,440 230,435 228,445" fill="#f97316" opacity="0.6"/>
+
+  <!-- Phase 4: Action (bottom left) -->
+  <g filter="url(#sh2)">
+    <rect x="100" y="390" width="230" height="70" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="125" cy="425" r="16" fill="#10b981" opacity="0.2"/>
+    <text x="125" y="430" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" fill="#10b981" font-weight="bold">4</text>
+    <text x="155" y="417" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#34d399">Aktion</text>
+    <text x="155" y="437" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Tool aufrufen / Output</text>
+  </g>
+
+  <!-- Arrow 4→5 -->
+  <path d="M135,390 Q110,350 130,310" fill="none" stroke="#10b981" stroke-width="2" opacity="0.6"/>
+  <polygon points="130,310 125,320 135,318" fill="#10b981" opacity="0.6"/>
+
+  <!-- Phase 5: Reflection (left) -->
+  <g filter="url(#sh2)">
+    <rect x="60" y="240" width="230" height="70" rx="12" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+    <circle cx="85" cy="275" r="16" fill="#ec4899" opacity="0.2"/>
+    <text x="85" y="280" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" fill="#ec4899" font-weight="bold">5</text>
+    <text x="115" y="267" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#f472b6">Reflexion</text>
+    <text x="115" y="287" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Ergebnis bewerten</text>
+  </g>
+
+  <!-- Arrow 5→1 (loop back) -->
+  <path d="M180,240 Q170,180 235,145" fill="none" stroke="#ec4899" stroke-width="2" opacity="0.6"/>
+  <polygon points="235,145 225,148 228,140" fill="#ec4899" opacity="0.6"/>
+
+  <!-- Center: Loop indicator -->
+  <circle cx="350" cy="300" r="50" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.3" filter="url(#glow2)"/>
+  <text x="350" y="296" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#f59e0b" font-weight="bold">Loop bis</text>
+  <text x="350" y="312" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#f59e0b" font-weight="bold">Ziel erreicht</text>
+
+  <!-- Goal exit -->
+  <rect x="250" y="530" width="200" height="50" rx="10" fill="#10b981" opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+  <text x="350" y="555" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" fill="#34d399" font-weight="bold">Ziel erreicht</text>
+  <text x="350" y="572" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7">Finale Antwort</text>
+  <line x1="350" y1="475" x2="350" y2="530" stroke="#10b981" stroke-width="2" stroke-dasharray="6,4" opacity="0.5"/>
+
+  <!-- Bottom note -->
+  <text x="350" y="620" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b" font-style="italic">Jede Iteration erweitert das Kontextwissen des Agents</text>
+
+  <!-- Decorative circles -->
+  <circle cx="350" cy="300" r="130" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.3"/>
+  <circle cx="350" cy="300" r="160" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.2"/>
+</svg>
