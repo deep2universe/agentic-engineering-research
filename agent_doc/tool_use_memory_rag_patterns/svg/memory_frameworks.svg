@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="mbg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="ms4">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#mbg4)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Memory Frameworks 2026</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Die vier fuehrenden Frameworks im Vergleich</text>
+
+  <!-- Mem0 -->
+  <rect x="40" y="85" width="400" height="175" rx="12" fill="#1E293B" stroke="#10B981" stroke-width="2" filter="url(#ms4)"/>
+  <rect x="40" y="85" width="400" height="34" rx="12" fill="#059669"/>
+  <rect x="40" y="105" width="400" height="14" fill="#059669"/>
+  <text x="240" y="107" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Mem0</text>
+
+  <rect x="330" y="92" width="100" height="22" rx="4" fill="#065F46"/>
+  <text x="380" y="108" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="9" font-weight="700">48K+ Stars</text>
+
+  <text x="65" y="140" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Ausgereifteste Long-Term Memory-Loesung</text>
+  <text x="65" y="162" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Architektur: Universal Memory Layer</text>
+  <text x="65" y="182" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Lernt kontinuierlich aus User-Interaktionen</text>
+
+  <!-- Performance -->
+  <rect x="65" y="200" width="350" height="22" rx="4" fill="#064E3B"/>
+  <text x="90" y="216" fill="#34D399" font-family="system-ui, sans-serif" font-size="10">Graph-Variante: F1 51.55 | J 58.13 (Temporal Reasoning)</text>
+  <rect x="65" y="228" width="120" height="22" rx="4" fill="#065F46" stroke="#10B981" stroke-width="1"/>
+  <text x="125" y="244" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="10" font-weight="700">TOP PERFORMER</text>
+
+  <!-- Zep -->
+  <rect x="460" y="85" width="400" height="175" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#ms4)"/>
+  <rect x="460" y="85" width="400" height="34" rx="12" fill="#2563EB"/>
+  <rect x="460" y="105" width="400" height="14" fill="#2563EB"/>
+  <text x="660" y="107" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Zep</text>
+
+  <rect x="750" y="92" width="100" height="22" rx="4" fill="#1E3A5F"/>
+  <text x="800" y="108" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="9" font-weight="700">Production</text>
+
+  <text x="485" y="140" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Hybrid Vector + Graph Architektur</text>
+  <text x="485" y="162" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Temporal Knowledge Graph (Graphiti)</text>
+  <text x="485" y="182" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Semantic + Episodic + Entity Summaries</text>
+
+  <rect x="485" y="200" width="350" height="22" rx="4" fill="#1E3A5F"/>
+  <text x="510" y="216" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="10">Open-Domain: F1 49.56 | J 76.60 (hoechste J-Score)</text>
+  <rect x="485" y="228" width="140" height="22" rx="4" fill="#1E3A5F" stroke="#3B82F6" stroke-width="1"/>
+  <text x="555" y="244" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="10" font-weight="700">LANGZEIT-SESSIONS</text>
+
+  <!-- Letta -->
+  <rect x="40" y="280" width="400" height="175" rx="12" fill="#1E293B" stroke="#8B5CF6" stroke-width="2" filter="url(#ms4)"/>
+  <rect x="40" y="280" width="400" height="34" rx="12" fill="#7C3AED"/>
+  <rect x="40" y="300" width="400" height="14" fill="#7C3AED"/>
+  <text x="240" y="302" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">Letta (MemGPT)</text>
+
+  <rect x="330" y="287" width="100" height="22" rx="4" fill="#2E1065"/>
+  <text x="380" y="303" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="9" font-weight="700">Platform</text>
+
+  <text x="65" y="335" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="600">OS-inspirierte Memory-Architektur</text>
+  <text x="65" y="357" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Virtual Context Management</text>
+  <text x="65" y="377" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Self-Editing Memory — Agents verwalten aktiv</text>
+
+  <!-- Three tier badges -->
+  <rect x="65" y="395" width="100" height="20" rx="4" fill="#312E81"/>
+  <text x="115" y="410" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="9">Core (RAM)</text>
+  <rect x="175" y="395" width="100" height="20" rx="4" fill="#312E81"/>
+  <text x="225" y="410" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="9">Archival (Disk)</text>
+  <rect x="285" y="395" width="100" height="20" rx="4" fill="#312E81"/>
+  <text x="335" y="410" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="9">Recall (History)</text>
+
+  <rect x="65" y="423" width="120" height="22" rx="4" fill="#2E1065" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="125" y="439" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="10" font-weight="700">SELF-EDITING</text>
+
+  <!-- LangGraph -->
+  <rect x="460" y="280" width="400" height="175" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="2" filter="url(#ms4)"/>
+  <rect x="460" y="280" width="400" height="34" rx="12" fill="#D97706"/>
+  <rect x="460" y="300" width="400" height="14" fill="#D97706"/>
+  <text x="660" y="302" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="15" font-weight="700">LangChain / LangGraph</text>
+
+  <rect x="750" y="287" width="100" height="22" rx="4" fill="#78350F"/>
+  <text x="800" y="303" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="9" font-weight="700">Multi-Agent</text>
+
+  <text x="485" y="335" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Graph-basierter Ansatz</text>
+  <text x="485" y="357" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Stateful Multi-Agent Applications</text>
+  <text x="485" y="377" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Explizites State Management + Control Flow</text>
+
+  <rect x="485" y="395" width="100" height="20" rx="4" fill="#78350F"/>
+  <text x="535" y="410" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="9">State Graphs</text>
+  <rect x="595" y="395" width="100" height="20" rx="4" fill="#78350F"/>
+  <text x="645" y="410" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="9">Checkpoints</text>
+  <rect x="705" y="395" width="100" height="20" rx="4" fill="#78350F"/>
+  <text x="755" y="410" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="9">Modulare Bausteine</text>
+
+  <rect x="485" y="423" width="150" height="22" rx="4" fill="#78350F" stroke="#F59E0B" stroke-width="1"/>
+  <text x="560" y="439" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="10" font-weight="700">STATE MANAGEMENT</text>
+
+  <text x="450" y="485" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Jedes Framework hat eine spezifische Staerke — Auswahl nach Use Case und Architektur-Anforderungen</text>
+</svg>

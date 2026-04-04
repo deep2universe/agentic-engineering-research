@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <linearGradient id="mbg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="ms1">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="450" fill="url(#mbg1)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Memory fuer AI Agents — Ueberblick</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Kritischste Komponente: Informationen ueber Sessions hinweg behalten</text>
+
+  <!-- Brain metaphor - central -->
+  <circle cx="450" cy="220" r="90" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-dasharray="8,4" opacity="0.4"/>
+  <circle cx="450" cy="220" r="60" fill="none" stroke="#8B5CF6" stroke-width="2" opacity="0.6"/>
+  <circle cx="450" cy="220" r="30" fill="#7C3AED" filter="url(#ms1)"/>
+  <text x="450" y="225" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">LLM</text>
+
+  <!-- Context Window Label on inner ring -->
+  <text x="450" y="155" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Context Window</text>
+  <text x="450" y="290" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">"brutal endlich"</text>
+
+  <!-- Challenges radiating outward -->
+  <!-- Left: Lost Persona -->
+  <rect x="40" y="100" width="200" height="60" rx="10" fill="#7F1D1D" filter="url(#ms1)"/>
+  <text x="140" y="125" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Persona-Konsistenz</text>
+  <text x="140" y="145" text-anchor="middle" fill="#FDA4AF" font-family="system-ui, sans-serif" font-size="10">Verlust bei langen Dialogen</text>
+  <line x1="240" y1="130" x2="360" y2="195" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Right: Entity Drift -->
+  <rect x="660" y="100" width="200" height="60" rx="10" fill="#7F1D1D" filter="url(#ms1)"/>
+  <text x="760" y="125" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Entity Drift</text>
+  <text x="760" y="145" text-anchor="middle" fill="#FDA4AF" font-family="system-ui, sans-serif" font-size="10">Fakten werden instabil</text>
+  <line x1="660" y1="130" x2="540" y2="195" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Bottom-Left: Signal Compression -->
+  <rect x="40" y="260" width="200" height="60" rx="10" fill="#7F1D1D" filter="url(#ms1)"/>
+  <text x="140" y="285" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Signal-Komprimierung</text>
+  <text x="140" y="305" text-anchor="middle" fill="#FDA4AF" font-family="system-ui, sans-serif" font-size="10">Fruehere Signale gehen verloren</text>
+  <line x1="240" y1="290" x2="360" y2="245" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Bottom-Right: Fixed Window -->
+  <rect x="660" y="260" width="200" height="60" rx="10" fill="#7F1D1D" filter="url(#ms1)"/>
+  <text x="760" y="285" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Festes Context Window</text>
+  <text x="760" y="305" text-anchor="middle" fill="#FDA4AF" font-family="system-ui, sans-serif" font-size="10">Begrenzte Kapazitaet</text>
+  <line x1="660" y1="290" x2="540" y2="245" stroke="#EF4444" stroke-width="1.5" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Solution arrow -->
+  <rect x="280" y="370" width="340" height="50" rx="10" fill="#065F46" stroke="#10B981" stroke-width="1.5" filter="url(#ms1)"/>
+  <text x="450" y="393" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Loesung: Memory Patterns</text>
+  <text x="450" y="411" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">STM + LTM + Episodic + Semantic + Procedural</text>
+</svg>

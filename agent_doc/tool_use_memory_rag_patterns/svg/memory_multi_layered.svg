@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380">
+  <defs>
+    <linearGradient id="mbg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="ms6">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="380" fill="url(#mbg6)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Multi-Layered Memory Architecture (2026)</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Geschichtete Architektur fuer langfristige Context-Retention</text>
+
+  <!-- Three stacked layers -->
+  <!-- Short-Term (top) -->
+  <rect x="150" y="85" width="600" height="75" rx="14" fill="#1E293B" stroke="#EF4444" stroke-width="2" filter="url(#ms6)"/>
+  <circle cx="200" cy="122" r="18" fill="#DC2626"/>
+  <text x="200" y="127" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">STM</text>
+  <text x="450" y="115" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Short-Term Memory</text>
+  <text x="450" y="140" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Sofortiger Zugriff · Aktuelle Session · Begrenzt</text>
+  <text x="700" y="128" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="20">&#x26A1;</text>
+
+  <!-- Bidirectional arrows -->
+  <line x1="450" y1="160" x2="450" y2="175" stroke="#64748B" stroke-width="1.5"/>
+  <polygon points="450,175 444,168 456,168" fill="#64748B"/>
+  <polygon points="450,160 444,167 456,167" fill="#64748B"/>
+
+  <!-- Working Memory (middle) -->
+  <rect x="150" y="180" width="600" height="75" rx="14" fill="#1E293B" stroke="#F59E0B" stroke-width="2" filter="url(#ms6)"/>
+  <circle cx="200" cy="217" r="18" fill="#D97706"/>
+  <text x="200" y="222" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">WM</text>
+  <text x="450" y="210" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Working Memory</text>
+  <text x="450" y="235" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Aktive Verarbeitung · Reasoning · Zwischen-Ergebnisse</text>
+  <text x="700" y="223" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="20">&#x2699;</text>
+
+  <!-- Bidirectional arrows -->
+  <line x1="450" y1="255" x2="450" y2="270" stroke="#64748B" stroke-width="1.5"/>
+  <polygon points="450,270 444,263 456,263" fill="#64748B"/>
+  <polygon points="450,255 444,262 456,262" fill="#64748B"/>
+
+  <!-- Long-Term Memory (bottom) -->
+  <rect x="150" y="275" width="600" height="75" rx="14" fill="#1E293B" stroke="#8B5CF6" stroke-width="2" filter="url(#ms6)"/>
+  <circle cx="200" cy="312" r="18" fill="#7C3AED"/>
+  <text x="200" y="317" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">LTM</text>
+  <text x="450" y="305" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Long-Term Memory</text>
+  <text x="450" y="330" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="11">Persistent · Vector/Graph DB · Unbegrenzt · Erweiterte Interaktionen</text>
+  <text x="700" y="318" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="20">&#x1F4BE;</text>
+
+  <!-- Side labels -->
+  <text x="100" y="195" text-anchor="end" fill="#64748B" font-family="system-ui, sans-serif" font-size="10" transform="rotate(-90, 100, 195)">Geschwindigkeit</text>
+  <text x="800" y="195" fill="#64748B" font-family="system-ui, sans-serif" font-size="10" transform="rotate(90, 800, 195)">Kapazitaet</text>
+
+  <!-- Research badge -->
+  <rect x="310" y="360" width="280" height="22" rx="4" fill="#334155"/>
+  <text x="450" y="376" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Forschungsthema Maerz 2026 · Hauptfokusbereich</text>
+</svg>
