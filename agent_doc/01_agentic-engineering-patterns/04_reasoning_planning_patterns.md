@@ -8,6 +8,8 @@ Reasoning- und Planning-Patterns bilden das kognitive Fundament von Agent-System
 
 ## Pattern 1: ReAct (Reasoning + Acting)
 
+![ReAct Pattern — Thought → Action → Observation](svg/04_react_pattern.svg)
+
 ### Beschreibung
 ReAct (Yao et al., 2022) ist das fundamentalste Agentic Pattern. Es kombiniert Reasoning (Denken) mit Acting (Handeln) in einem alternierenden Zyklus von **Thought → Action → Observation**.
 
@@ -46,6 +48,8 @@ Action: respond("Aktuell 15°C in Berlin...")
 
 ## Pattern 2: Chain of Thought (CoT)
 
+![Chain of Thought — Varianten](svg/04_chain_of_thought.svg)
+
 ### Beschreibung
 Chain of Thought zwingt das LLM, seine Denkschritte explizit zu formulieren, bevor es eine Antwort gibt. Dies verbessert die Qualität bei komplexen Reasoning-Aufgaben erheblich.
 
@@ -83,6 +87,8 @@ Vorgegebenes Format für die Denkschritte:
 
 ## Pattern 3: Tree of Thought (ToT)
 
+![Tree of Thought — Parallele Pfad-Exploration](svg/04_tree_of_thought.svg)
+
 ### Beschreibung
 Tree of Thought erweitert Chain of Thought, indem der Agent mehrere Reasoning-Pfade parallel exploriert und jeden Pfad bewertet, bevor er sich festlegt. Es ist besonders mächtig für Aufgaben, bei denen der initiale Reasoning-Pfad in eine Sackgasse führen könnte.
 
@@ -119,6 +125,8 @@ Problem
 ---
 
 ## Pattern 4: Reflection / Self-Critique
+
+![Reflection / Self-Critique — Iterative Selbstbewertung](svg/04_reflection.svg)
 
 ### Beschreibung
 Der Agent generiert einen initialen Output und wechselt dann explizit in einen Kritik-Modus, um seine eigene Arbeit zu bewerten. Bei identifizierten Problemen überarbeitet er den Output iterativ.
@@ -166,6 +174,8 @@ Phase 4: Re-Evaluation
 ---
 
 ## Pattern 5: Plan-and-Execute
+
+![Plan-and-Execute — Planung und Ausführung getrennt](svg/04_plan_and_execute.svg)
 
 ### Beschreibung
 Der Agent erstellt zuerst einen vollständigen Plan und führt dann die einzelnen Schritte systematisch aus. Dies trennt die strategische Planung von der taktischen Ausführung.
@@ -241,6 +251,8 @@ Prompt 4: "Erstelle eine Synthese unter Berücksichtigung der Widersprüche und 
 ---
 
 ## Pattern 7: Agentic Loop mit Abbruchbedingungen
+
+![Agentic Loop — Abbruchbedingungen](svg/04_agentic_loop_abbruch.svg)
 
 ### Beschreibung
 Der Agent arbeitet in einer Schleife, bis eine definierte Abbruchbedingung erfüllt ist. Kritisch: Die Abbruchbedingungen müssen sorgfältig definiert werden, um Endlosschleifen zu vermeiden.

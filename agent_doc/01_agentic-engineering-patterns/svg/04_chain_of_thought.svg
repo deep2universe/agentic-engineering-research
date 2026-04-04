@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 320">
+  <defs>
+    <linearGradient id="bg04b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh04b"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="850" height="320" fill="url(#bg04b)" rx="12"/>
+
+  <text x="425" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Chain of Thought — Varianten</text>
+
+  <!-- Zero-Shot -->
+  <g filter="url(#sh04b)">
+    <rect x="30" y="65" width="240" height="120" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect x="30" y="65" width="240" height="28" rx="8" fill="#6366f1" opacity="0.12"/>
+    <text x="150" y="84" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#a5b4fc">Zero-Shot CoT</text>
+    <text x="50" y="110" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Prompt:</text>
+    <text x="50" y="128" font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1" font-style="italic">"Let's think step by step..."</text>
+    <text x="50" y="150" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">→ LLM formuliert selbst Schritte</text>
+    <rect x="50" y="160" width="200" height="15" rx="3" fill="#6366f1" opacity="0.1"/>
+    <text x="150" y="172" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#6366f1">Minimaler Aufwand</text>
+  </g>
+
+  <!-- Few-Shot -->
+  <g filter="url(#sh04b)">
+    <rect x="300" y="65" width="240" height="120" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="300" y="65" width="240" height="28" rx="8" fill="#8b5cf6" opacity="0.12"/>
+    <text x="420" y="84" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#c4b5fd">Few-Shot CoT</text>
+    <text x="320" y="110" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Beispiele mit Denkschritten</text>
+    <text x="320" y="128" font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1" font-style="italic">im Prompt bereitstellen</text>
+    <text x="320" y="150" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">→ LLM folgt dem Muster</text>
+    <rect x="320" y="160" width="200" height="15" rx="3" fill="#8b5cf6" opacity="0.1"/>
+    <text x="420" y="172" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#8b5cf6">Höhere Qualität</text>
+  </g>
+
+  <!-- Structured -->
+  <g filter="url(#sh04b)">
+    <rect x="570" y="65" width="250" height="120" rx="8" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+    <rect x="570" y="65" width="250" height="28" rx="8" fill="#ec4899" opacity="0.12"/>
+    <text x="695" y="84" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#f9a8d4">Structured CoT</text>
+    <text x="590" y="107" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">1. Problem verstehen</text>
+    <text x="590" y="121" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">2. Relevante Infos identifizieren</text>
+    <text x="590" y="135" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">3. Lösungsansatz wählen</text>
+    <text x="590" y="149" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">4. Schritt-für-Schritt lösen</text>
+    <text x="590" y="163" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">5. Ergebnis validieren</text>
+    <rect x="590" y="168" width="210" height="11" rx="3" fill="#ec4899" opacity="0.1"/>
+    <text x="695" y="177" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#ec4899">Maximale Kontrolle + Nachvollziehbarkeit</text>
+  </g>
+
+  <!-- Bottom: Flow visualization -->
+  <rect x="100" y="210" width="650" height="80" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" filter="url(#sh04b)"/>
+  <text x="425" y="235" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#f59e0b" font-weight="bold">CoT Wirkungsprinzip</text>
+
+  <!-- Chain visualization -->
+  <circle cx="180" cy="265" r="15" fill="#6366f1" opacity="0.3" stroke="#6366f1" stroke-width="1"/>
+  <text x="180" y="269" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#a5b4fc">Frage</text>
+  <line x1="195" y1="265" x2="240" y2="265" stroke="#6366f1" stroke-width="1.5"/>
+
+  <circle cx="260" cy="265" r="15" fill="#8b5cf6" opacity="0.3" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="260" y="269" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#c4b5fd">Denk 1</text>
+  <line x1="275" y1="265" x2="320" y2="265" stroke="#8b5cf6" stroke-width="1.5"/>
+
+  <circle cx="340" cy="265" r="15" fill="#a855f7" opacity="0.3" stroke="#a855f7" stroke-width="1"/>
+  <text x="340" y="269" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#d8b4fe">Denk 2</text>
+  <line x1="355" y1="265" x2="400" y2="265" stroke="#a855f7" stroke-width="1.5"/>
+
+  <circle cx="420" cy="265" r="15" fill="#d946ef" opacity="0.3" stroke="#d946ef" stroke-width="1"/>
+  <text x="420" y="269" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#e879f9">Denk 3</text>
+  <line x1="435" y1="265" x2="480" y2="265" stroke="#d946ef" stroke-width="1.5"/>
+
+  <circle cx="500" cy="265" r="15" fill="#ec4899" opacity="0.3" stroke="#ec4899" stroke-width="1"/>
+  <text x="500" y="269" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#f9a8d4">Denk 4</text>
+  <line x1="515" y1="265" x2="560" y2="265" stroke="#ec4899" stroke-width="1.5"/>
+
+  <circle cx="580" cy="265" r="15" fill="#ef4444" opacity="0.3" stroke="#ef4444" stroke-width="1"/>
+  <text x="580" y="269" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#fca5a5">Prüfen</text>
+  <line x1="595" y1="265" x2="640" y2="265" stroke="#ef4444" stroke-width="1.5"/>
+
+  <circle cx="660" cy="265" r="18" fill="#10b981" opacity="0.3" stroke="#10b981" stroke-width="1.5"/>
+  <text x="660" y="269" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#6ee7b7">Antwort</text>
+
+  <!-- Bottom -->
+  <text x="425" y="310" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b" font-style="italic">Explizite Denkschritte verbessern die Qualität bei komplexem Reasoning erheblich</text>
+</svg>
