@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280">
+  <defs>
+    <linearGradient id="gbg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="gs5">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="280" fill="url(#gbg5)" rx="16"/>
+  <text x="450" y="35" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Gesamtbericht — Context Engineering</text>
+
+  <!-- Core principles -->
+  <rect x="40" y="60" width="260" height="65" rx="8" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" filter="url(#gs5)"/>
+  <text x="170" y="85" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Endliche Ressource</text>
+  <text x="170" y="105" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Attention Budget, Degradation</text>
+  <text x="170" y="118" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Lost-in-the-Middle</text>
+
+  <rect x="320" y="60" width="260" height="65" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#gs5)"/>
+  <text x="450" y="85" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="12" font-weight="700">High-Signal Tokens</text>
+  <text x="450" y="105" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Minimaler Satz maximaler Wirkung</text>
+  <text x="450" y="118" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Qualitaet &gt; Quantitaet</text>
+
+  <rect x="600" y="60" width="260" height="65" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#gs5)"/>
+  <text x="730" y="85" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Context Anxiety</text>
+  <text x="730" y="105" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Modelle reagieren auf Grenzen</text>
+  <text x="730" y="118" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Proaktive Zusammenfassung</text>
+
+  <!-- Techniques row -->
+  <rect x="40" y="145" width="120" height="40" rx="6" fill="#334155"/>
+  <text x="100" y="170" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Dynamic Assembly</text>
+
+  <rect x="170" y="145" width="120" height="40" rx="6" fill="#334155"/>
+  <text x="230" y="170" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Summary Compress</text>
+
+  <rect x="300" y="145" width="120" height="40" rx="6" fill="#334155"/>
+  <text x="360" y="170" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Hier. Summary</text>
+
+  <rect x="430" y="145" width="120" height="40" rx="6" fill="#334155"/>
+  <text x="490" y="170" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Pruning</text>
+
+  <rect x="560" y="145" width="120" height="40" rx="6" fill="#334155"/>
+  <text x="620" y="170" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Offloading</text>
+
+  <rect x="690" y="145" width="120" height="40" rx="6" fill="#334155"/>
+  <text x="750" y="170" text-anchor="middle" fill="#F9A8D4" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Disclosure</text>
+
+  <!-- ACE -->
+  <rect x="150" y="205" width="600" height="40" rx="8" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="450" y="225" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="700">ACE: Selbst-aktualisierendes Playbook basierend auf Performance-Feedback</text>
+  <text x="450" y="240" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Context Engineering ersetzt Prompt Engineering — Ganzheitliche Informationsumgebung</text>
+
+  <text x="450" y="275" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Context Windows wachsen (1M-10M) — aber intelligentes Management bleibt entscheidend</text>
+</svg>

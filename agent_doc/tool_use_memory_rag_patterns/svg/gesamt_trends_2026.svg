@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+  <defs>
+    <linearGradient id="gbg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="gs7">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="560" fill="url(#gbg7)" rx="16"/>
+  <text x="450" y="35" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Zusammenfassung und Trends 2026</text>
+
+  <!-- 7 Trends -->
+  <rect x="30" y="55" width="410" height="60" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#gs7)"/>
+  <circle cx="60" cy="85" r="15" fill="#059669"/>
+  <text x="60" y="90" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">1</text>
+  <text x="90" y="80" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Agent-Kostenoptimierung als Prioritaet</text>
+  <text x="90" y="98" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Plan-and-Execute (-90%) · Model Tiering (-40-60%)</text>
+
+  <rect x="460" y="55" width="410" height="60" rx="8" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#gs7)"/>
+  <circle cx="490" cy="85" r="15" fill="#2563EB"/>
+  <text x="490" y="90" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">2</text>
+  <text x="520" y="80" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="11" font-weight="700">MCP als universeller Standard</text>
+  <text x="520" y="98" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Herstellerneutral unter Linux Foundation</text>
+
+  <rect x="30" y="125" width="410" height="60" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#gs7)"/>
+  <circle cx="60" cy="155" r="15" fill="#D97706"/>
+  <text x="60" y="160" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">3</text>
+  <text x="90" y="150" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Context Eng. ersetzt Prompt Eng.</text>
+  <text x="90" y="168" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Ganzheitliche Informationsumgebung</text>
+
+  <rect x="460" y="125" width="410" height="60" rx="8" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5" filter="url(#gs7)"/>
+  <circle cx="490" cy="155" r="15" fill="#7C3AED"/>
+  <text x="490" y="160" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">4</text>
+  <text x="520" y="150" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Unified Memory Management</text>
+  <text x="520" y="168" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Memory als Tool-Aktionen, nicht separate Komponente</text>
+
+  <rect x="30" y="195" width="410" height="60" rx="8" fill="#1E293B" stroke="#EC4899" stroke-width="1.5" filter="url(#gs7)"/>
+  <circle cx="60" cy="225" r="15" fill="#DB2777"/>
+  <text x="60" y="230" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">5</text>
+  <text x="90" y="220" fill="#F9A8D4" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Agentic RAG als dominantes Pattern</text>
+  <text x="90" y="238" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Selbstkorrigierend, agent-gesteuert</text>
+
+  <rect x="460" y="195" width="410" height="60" rx="8" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" filter="url(#gs7)"/>
+  <circle cx="490" cy="225" r="15" fill="#DC2626"/>
+  <text x="490" y="230" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">6</text>
+  <text x="520" y="220" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Governance + Observability</text>
+  <text x="520" y="238" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">89% Observability · HitL = 2x Einsparungen</text>
+
+  <rect x="245" y="265" width="410" height="60" rx="8" fill="#1E293B" stroke="#06B6D4" stroke-width="1.5" filter="url(#gs7)"/>
+  <circle cx="275" cy="295" r="15" fill="#0891B2"/>
+  <text x="275" y="300" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">7</text>
+  <text x="305" y="290" fill="#67E8F9" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Multi-Agent-Systeme</text>
+  <text x="305" y="308" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Orchestrierte Spezialisten-Teams statt Allzweck-Agents</text>
+
+  <!-- Architecture diagram -->
+  <text x="450" y="355" text-anchor="middle" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Empfohlene Architektur 2026</text>
+
+  <!-- Orchestrator -->
+  <rect x="350" y="370" width="200" height="40" rx="8" fill="#D97706" filter="url(#gs7)"/>
+  <text x="450" y="395" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Orchestrator</text>
+
+  <!-- Three agents -->
+  <line x1="400" y1="410" x2="200" y2="440" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="450" y1="410" x2="450" y2="440" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="500" y1="410" x2="700" y2="440" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <rect x="100" y="440" width="200" height="40" rx="8" fill="#2563EB" filter="url(#gs7)"/>
+  <text x="200" y="465" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Tool Agent (MCP)</text>
+
+  <rect x="350" y="440" width="200" height="40" rx="8" fill="#059669" filter="url(#gs7)"/>
+  <text x="450" y="465" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="600">RAG Agent (Agentic)</text>
+
+  <rect x="600" y="440" width="200" height="40" rx="8" fill="#7C3AED" filter="url(#gs7)"/>
+  <text x="700" y="465" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Memory Agent</text>
+
+  <!-- Backends -->
+  <line x1="200" y1="480" x2="200" y2="500" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="450" y1="480" x2="450" y2="500" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="700" y1="480" x2="700" y2="500" stroke="#64748B" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <rect x="120" y="500" width="160" height="25" rx="4" fill="#334155"/>
+  <text x="200" y="517" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">External APIs/Tools</text>
+
+  <rect x="370" y="500" width="160" height="25" rx="4" fill="#334155"/>
+  <text x="450" y="517" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Vector DB + Reranker</text>
+
+  <rect x="620" y="500" width="160" height="25" rx="4" fill="#334155"/>
+  <text x="700" y="517" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Graph/Vector DB</text>
+
+  <text x="450" y="550" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">7 Uebergreifende Trends + Empfohlene Multi-Agent Architektur 2026</text>
+</svg>
