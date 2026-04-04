@@ -8,6 +8,8 @@
 
 ## Inhaltsverzeichnis
 
+![Guide Map — Übersicht aller Kapitel](svg/00_guide_map.svg)
+
 | Nr. | Dokument | Inhalt |
 |-----|----------|--------|
 | 01 | [Grundlagen und Definitionen](01_grundlagen.md) | Was ist Agentic Engineering? Kernkonzepte, Abgrenzungen |
@@ -30,6 +32,8 @@
 Agentic Engineering ist die Disziplin des Entwerfens, Bauens und Betreibens von KI-Agent-Systemen, die autonom Aufgaben ausführen können. Dieser Guide dokumentiert die etablierten Prinzipien und Patterns, die sich bis 2026 als Standard herauskristallisiert haben.
 
 ### Kernaussagen
+
+![6 Kernaussagen des Agentic Engineering](svg/00_kernaussagen.svg)
 
 1. **Einfachheit vor Komplexität** — Die erfolgreichsten Agent-Implementierungen nutzen einfache, komponierbare Patterns statt komplexer Frameworks (Anthropic).
 
