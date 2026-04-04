@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <linearGradient id="bg12a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh12"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="350" fill="url(#bg12a)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Agentic Coding — Kernpatterns (Willison)</text>
+
+  <!-- 6 Pattern cards in 2 rows -->
+  <!-- Row 1 -->
+  <g filter="url(#sh12)">
+    <rect x="30" y="65" width="230" height="110" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <rect x="30" y="65" width="230" height="25" rx="8" fill="#6366f1" opacity="0.12"/>
+    <text x="145" y="83" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#a5b4fc" font-weight="bold">Understanding Code</text>
+    <text x="45" y="105" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Linear Walkthroughs</text>
+    <text x="45" y="120" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Interactive Explanations</text>
+    <text x="45" y="140" font-family="Segoe UI, Arial" font-size="9" fill="#6366f1" font-style="italic">"Erkläre das Warum, nicht das Was"</text>
+    <text x="45" y="162" font-family="Segoe UI, Arial" font-size="16" fill="#6366f1" opacity="0.3">📖</text>
+  </g>
+
+  <g filter="url(#sh12)">
+    <rect x="285" y="65" width="230" height="110" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="285" y="65" width="230" height="25" rx="8" fill="#f59e0b" opacity="0.12"/>
+    <text x="400" y="83" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fbbf24" font-weight="bold">Hoard Knowledge</text>
+    <text x="300" y="105" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">CLAUDE.md / Rules Files</text>
+    <text x="300" y="120" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Prompt-Bibliothek</text>
+    <text x="300" y="140" font-family="Segoe UI, Arial" font-size="9" fill="#f59e0b" font-style="italic">"Kodifiziere institutionelles Wissen"</text>
+    <text x="300" y="162" font-family="Segoe UI, Arial" font-size="16" fill="#f59e0b" opacity="0.3">📦</text>
+  </g>
+
+  <g filter="url(#sh12)">
+    <rect x="540" y="65" width="230" height="110" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="540" y="65" width="230" height="25" rx="8" fill="#10b981" opacity="0.12"/>
+    <text x="655" y="83" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#6ee7b7" font-weight="bold">Agentic Testing</text>
+    <text x="555" y="105" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Code ausführen + Output prüfen</text>
+    <text x="555" y="120" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Screenshot-Analyse, API-Tests</text>
+    <text x="555" y="140" font-family="Segoe UI, Arial" font-size="9" fill="#10b981" font-style="italic">"Führe aus, prüfe, korrigiere"</text>
+    <text x="555" y="162" font-family="Segoe UI, Arial" font-size="16" fill="#10b981" opacity="0.3">🧪</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g filter="url(#sh12)">
+    <rect x="30" y="200" width="230" height="110" rx="8" fill="#1e293b" stroke="#ec4899" stroke-width="1.5"/>
+    <rect x="30" y="200" width="230" height="25" rx="8" fill="#ec4899" opacity="0.12"/>
+    <text x="145" y="218" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#f472b6" font-weight="bold">Git + Agents</text>
+    <text x="45" y="240" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Häufig committen, Branches nutzen</text>
+    <text x="45" y="255" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Branch als Sandbox für Agent</text>
+    <text x="45" y="275" font-family="Segoe UI, Arial" font-size="9" fill="#ec4899" font-style="italic">"Passt nicht? Branch löschen."</text>
+  </g>
+
+  <g filter="url(#sh12)">
+    <rect x="285" y="200" width="230" height="110" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+    <rect x="285" y="200" width="230" height="25" rx="8" fill="#a855f7" opacity="0.12"/>
+    <text x="400" y="218" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#c084fc" font-weight="bold">Subagents</text>
+    <text x="300" y="240" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Explore, Parallel, Specialist</text>
+    <text x="300" y="255" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Isolierter Context pro Agent</text>
+    <text x="300" y="275" font-family="Segoe UI, Arial" font-size="9" fill="#a855f7" font-style="italic">"Klarer, eingegrenzter Auftrag"</text>
+  </g>
+
+  <g filter="url(#sh12)">
+    <rect x="540" y="200" width="230" height="110" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+    <rect x="540" y="200" width="230" height="25" rx="8" fill="#ef4444" opacity="0.12"/>
+    <text x="655" y="218" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fca5a5" font-weight="bold">Anti-Patterns</text>
+    <text x="555" y="240" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Unreviewed Code weitergeben</text>
+    <text x="555" y="255" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Blindes Vertrauen in Output</text>
+    <text x="555" y="275" font-family="Segoe UI, Arial" font-size="9" fill="#ef4444" font-style="italic">"Immer git diff reviewen!"</text>
+  </g>
+
+  <!-- Bottom -->
+  <text x="400" y="340" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#f59e0b" font-style="italic">"Agentic Engineering ersetzt nicht den Entwickler — es verstärkt dessen Expertise." — Simon Willison</text>
+</svg>

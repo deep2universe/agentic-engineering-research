@@ -23,6 +23,8 @@ AI-Agent-Observability unterscheidet sich fundamental von traditionellem Softwar
 
 ## Pattern 1: Structured Tracing
 
+![Structured Tracing — Agent Observability](svg/10_structured_tracing.svg)
+
 ### Beschreibung
 Jede Agent-Interaktion wird als vollständiger Trace erfasst, der den kompletten Entscheidungspfad rekonstruiert: LLM-Calls, Tool-Aufrufe, Retrieval-Schritte und Zwischenentscheidungen.
 
@@ -76,6 +78,8 @@ OpenTelemetry (OTEL) hat sich als Standard für Agent-Telemetrie etabliert. Es v
 ---
 
 ## Pattern 3: Quality Evaluation
+
+![Quality Evaluation Workflow](svg/10_evaluation_workflow.svg)
 
 ### Beschreibung
 Systematische Bewertung der Agent-Output-Qualität durch automatisierte und menschliche Evaluation.

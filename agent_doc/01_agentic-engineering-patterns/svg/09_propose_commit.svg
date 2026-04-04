@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280">
+  <defs>
+    <linearGradient id="bg09a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh09"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="280" fill="url(#bg09a)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Grundprinzip: Propose ≠ Commit</text>
+  <text x="400" y="53" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b">Strikte Trennung zwischen Vorschlag und Ausführung</text>
+
+  <!-- Agent proposes -->
+  <rect x="40" y="80" width="200" height="100" rx="10" fill="#1e293b" stroke="#a855f7" stroke-width="2" filter="url(#sh09)"/>
+  <rect x="40" y="80" width="200" height="28" rx="10" fill="#a855f7" opacity="0.12"/>
+  <text x="140" y="99" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#c084fc">Agent</text>
+  <text x="60" y="122" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Erstellt Vorschlag</text>
+  <text x="60" y="138" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Speichert in Durable Store</text>
+  <text x="60" y="154" font-family="Segoe UI, Arial" font-size="10" fill="#f59e0b">→ Wartet auf Freigabe</text>
+
+  <!-- Arrow: Propose -->
+  <line x1="240" y1="130" x2="295" y2="130" stroke="#a855f7" stroke-width="2"/>
+  <polygon points="295,130 288,125 288,135" fill="#a855f7"/>
+  <text x="268" y="120" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#a855f7">Propose</text>
+
+  <!-- Human reviews -->
+  <rect x="300" y="80" width="200" height="100" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="2" filter="url(#sh09)"/>
+  <rect x="300" y="80" width="200" height="28" rx="10" fill="#22d3ee" opacity="0.12"/>
+  <text x="400" y="99" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#67e8f9">Mensch</text>
+  <text x="320" y="122" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Reviewt Vorschlag</text>
+  <text x="320" y="140" font-family="Segoe UI, Arial" font-size="10" fill="#10b981">✓ Genehmigt</text>
+  <text x="320" y="156" font-family="Segoe UI, Arial" font-size="10" fill="#ef4444">✗ Ablehnt</text>
+  <text x="320" y="172" font-family="Segoe UI, Arial" font-size="10" fill="#f59e0b">⟲ Modifiziert</text>
+
+  <!-- Arrow: Commit -->
+  <line x1="500" y1="130" x2="555" y2="130" stroke="#10b981" stroke-width="2"/>
+  <polygon points="555,130 548,125 548,135" fill="#10b981"/>
+  <text x="528" y="120" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#10b981">Commit</text>
+
+  <!-- System executes -->
+  <rect x="560" y="80" width="200" height="100" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2" filter="url(#sh09)"/>
+  <rect x="560" y="80" width="200" height="28" rx="10" fill="#10b981" opacity="0.12"/>
+  <text x="660" y="99" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#6ee7b7">System</text>
+  <text x="580" y="122" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Führt genehmigte Aktion</text>
+  <text x="580" y="138" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">aus (mit Verifikation)</text>
+  <text x="580" y="158" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Idempotency Key prüfen</text>
+
+  <!-- Key rule box -->
+  <rect x="150" y="210" width="500" height="50" rx="8" fill="#ef4444" opacity="0.06" stroke="#ef4444" stroke-width="1.5" filter="url(#sh09)"/>
+  <text x="400" y="232" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#fca5a5" font-weight="bold">Verhindert: Agent handelt erst und fragt dann</text>
+  <text x="400" y="250" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Durable Store + Idempotency Key garantieren: Keine Aktion ohne explizite Genehmigung</text>
+</svg>

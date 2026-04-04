@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <!-- Layer gradients -->
+    <linearGradient id="layer1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#22c55e" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#22c55e" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="layer2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#84cc16" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#84cc16" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="layer3" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.06"/>
+    </linearGradient>
+    <linearGradient id="layer4" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.06"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="440" y="36" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="700">Graceful Degradation &#x2014; Schichtmodell</text>
+  <text x="440" y="56" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="12">Schrittweise Reduktion der Funktionalit&#xE4;t bei zunehmenden Ausfällen</text>
+
+  <!-- Resource status header -->
+  <text x="680" y="82" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="11" font-weight="600">Verf&#xFC;gbare Ressourcen</text>
+  <line x1="590" y1="86" x2="770" y2="86" stroke="#334155" stroke-width="0.5"/>
+
+  <!-- ===== Layer 1: Full Functionality (green, widest) ===== -->
+  <!-- Trapezoid shape for pyramid effect -->
+  <polygon points="80,100 800,100 770,185 110,185" fill="url(#layer1)" stroke="#22c55e" stroke-width="2" rx="8" filter="url(#glow)"/>
+  <!-- Status indicator -->
+  <circle cx="60" cy="142" r="10" fill="#22c55e" opacity="0.25" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="60" y="147" text-anchor="middle" fill="#22c55e" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700">&#x2713;</text>
+  <!-- Layer content -->
+  <text x="200" y="130" fill="#22c55e" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="700">Level 1: Volle Funktionalit&#xE4;t</text>
+  <text x="200" y="150" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Recherche + Analyse + Visualisierung + Zusammenfassung</text>
+  <text x="200" y="170" fill="#64748b" font-family="monospace" font-size="10">Alle LLM-Provider + Tools + Cache + Datenbanken</text>
+  <!-- Resource badges -->
+  <rect x="590" y="116" width="55" height="20" rx="4" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="617" y="130" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="9">LLM</text>
+  <rect x="652" y="116" width="55" height="20" rx="4" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="679" y="130" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="9">Tools</text>
+  <rect x="714" y="116" width="55" height="20" rx="4" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="741" y="130" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="9">DB</text>
+  <rect x="590" y="142" width="55" height="20" rx="4" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="617" y="156" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="9">Search</text>
+  <rect x="652" y="142" width="55" height="20" rx="4" fill="#22c55e" opacity="0.2" stroke="#22c55e" stroke-width="0.8"/>
+  <text x="679" y="156" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="9">Viz</text>
+
+  <!-- ===== Layer 2: Without Visualization (yellow-green) ===== -->
+  <polygon points="110,195 770,195 740,275 140,275" fill="url(#layer2)" stroke="#84cc16" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="88" cy="235" r="10" fill="#84cc16" opacity="0.25" stroke="#84cc16" stroke-width="1.5"/>
+  <text x="88" y="240" text-anchor="middle" fill="#84cc16" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700">&#x25BC;</text>
+  <text x="220" y="222" fill="#84cc16" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="700">Level 2: Ohne Visualisierung</text>
+  <text x="220" y="242" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Recherche + Analyse + Zusammenfassung (Text only)</text>
+  <text x="220" y="262" fill="#64748b" font-family="monospace" font-size="10">Visualisierungs-Tools ausgefallen</text>
+  <!-- Resource badges -->
+  <rect x="610" y="210" width="55" height="20" rx="4" fill="#84cc16" opacity="0.2" stroke="#84cc16" stroke-width="0.8"/>
+  <text x="637" y="224" text-anchor="middle" fill="#84cc16" font-family="monospace" font-size="9">LLM</text>
+  <rect x="672" y="210" width="55" height="20" rx="4" fill="#84cc16" opacity="0.2" stroke="#84cc16" stroke-width="0.8"/>
+  <text x="699" y="224" text-anchor="middle" fill="#84cc16" font-family="monospace" font-size="9">Tools</text>
+  <rect x="610" y="236" width="55" height="20" rx="4" fill="#84cc16" opacity="0.2" stroke="#84cc16" stroke-width="0.8"/>
+  <text x="637" y="250" text-anchor="middle" fill="#84cc16" font-family="monospace" font-size="9">Search</text>
+  <rect x="672" y="236" width="55" height="20" rx="4" fill="#475569" opacity="0.3" stroke="#475569" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="699" y="250" text-anchor="middle" fill="#475569" font-family="monospace" font-size="9" text-decoration="line-through">Viz</text>
+
+  <!-- ===== Layer 3: Without Research (orange) ===== -->
+  <polygon points="140,285 740,285 710,360 170,360" fill="url(#layer3)" stroke="#f59e0b" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="118" cy="322" r="10" fill="#f59e0b" opacity="0.25" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="118" y="327" text-anchor="middle" fill="#f59e0b" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700">&#x25BC;</text>
+  <text x="245" y="312" fill="#f59e0b" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="700">Level 3: Ohne Recherche</text>
+  <text x="245" y="332" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Analyse + Zusammenfassung (aus vorhandenen Daten)</text>
+  <text x="245" y="352" fill="#64748b" font-family="monospace" font-size="10">Such-APIs und externe Quellen nicht erreichbar</text>
+  <!-- Resource badges -->
+  <rect x="630" y="305" width="55" height="20" rx="4" fill="#f59e0b" opacity="0.2" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="657" y="319" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="9">LLM</text>
+  <rect x="692" y="305" width="55" height="20" rx="4" fill="#475569" opacity="0.3" stroke="#475569" stroke-width="0.8" stroke-dasharray="3,2"/>
+  <text x="719" y="319" text-anchor="middle" fill="#475569" font-family="monospace" font-size="9" text-decoration="line-through">Search</text>
+
+  <!-- ===== Layer 4: Basic Knowledge Only (red, narrowest) ===== -->
+  <polygon points="170,370 710,370 680,430 200,430" fill="url(#layer4)" stroke="#ef4444" stroke-width="2" filter="url(#glow)"/>
+  <circle cx="148" cy="400" r="10" fill="#ef4444" opacity="0.25" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="148" y="405" text-anchor="middle" fill="#ef4444" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700">!</text>
+  <text x="275" y="393" fill="#ef4444" font-family="Segoe UI, system-ui, sans-serif" font-size="15" font-weight="700">Level 4: Nur Basis-Wissen</text>
+  <text x="275" y="413" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Statische Antworten aus Cache / eingebettetes Wissen</text>
+  <!-- Resource badges -->
+  <rect x="640" y="390" width="55" height="20" rx="4" fill="#ef4444" opacity="0.2" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="667" y="404" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="9">Cache</text>
+
+  <!-- Degradation arrow on left side -->
+  <line x1="30" y1="110" x2="30" y2="420" stroke="#64748b" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="26,420 30,430 34,420" fill="#64748b"/>
+  <text x="20" y="270" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10" transform="rotate(-90,20,270)" text-anchor="middle">Zunehmende Degradation</text>
+</svg>

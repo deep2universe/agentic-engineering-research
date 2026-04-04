@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+  <defs>
+    <linearGradient id="bg08c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh08c"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="480" fill="url(#bg08c)" rx="12"/>
+
+  <text x="450" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">OWASP AI Agent Security Top 10 (2026)</text>
+
+  <!-- Risk bars — horizontal bar chart style -->
+  <g font-family="Segoe UI, Arial">
+    <!-- 1. Prompt Injection -->
+    <rect x="50" y="60" width="800" height="35" rx="5" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" filter="url(#sh08c)"/>
+    <rect x="50" y="60" width="800" height="35" rx="5" fill="#ef4444" opacity="0.08"/>
+    <circle cx="75" cy="77" r="11" fill="#ef4444" opacity="0.3"/><text x="75" y="82" text-anchor="middle" font-size="10" fill="#ef4444" font-weight="bold">1</text>
+    <text x="95" y="82" font-size="12" fill="#fca5a5" font-weight="bold">Prompt Injection</text>
+    <text x="350" y="82" font-size="10" fill="#94a3b8">Direkte und indirekte Manipulation über Prompts</text>
+
+    <!-- 2. Excessive Agency -->
+    <rect x="50" y="100" width="720" height="35" rx="5" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+    <rect x="50" y="100" width="720" height="35" rx="5" fill="#f97316" opacity="0.06"/>
+    <circle cx="75" cy="117" r="11" fill="#f97316" opacity="0.3"/><text x="75" y="122" text-anchor="middle" font-size="10" fill="#f97316" font-weight="bold">2</text>
+    <text x="95" y="122" font-size="12" fill="#fdba74" font-weight="bold">Excessive Agency</text>
+    <text x="350" y="122" font-size="10" fill="#94a3b8">Agent hat mehr Berechtigungen als nötig</text>
+
+    <!-- 3. Supply Chain -->
+    <rect x="50" y="140" width="660" height="35" rx="5" fill="#1e293b" stroke="#eab308" stroke-width="1.5"/>
+    <rect x="50" y="140" width="660" height="35" rx="5" fill="#eab308" opacity="0.05"/>
+    <circle cx="75" cy="157" r="11" fill="#eab308" opacity="0.3"/><text x="75" y="162" text-anchor="middle" font-size="10" fill="#eab308" font-weight="bold">3</text>
+    <text x="95" y="162" font-size="12" fill="#fde68a" font-weight="bold">Supply Chain</text>
+    <text x="350" y="162" font-size="10" fill="#94a3b8">Kompromittierte Frameworks, Tools, Plugins</text>
+
+    <!-- 4. Data Leakage -->
+    <rect x="50" y="180" width="600" height="35" rx="5" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+    <circle cx="75" cy="197" r="11" fill="#a855f7" opacity="0.3"/><text x="75" y="202" text-anchor="middle" font-size="10" fill="#a855f7" font-weight="bold">4</text>
+    <text x="95" y="202" font-size="12" fill="#d8b4fe" font-weight="bold">Sensitive Data Leakage</text>
+    <text x="350" y="202" font-size="10" fill="#94a3b8">Ungewollte Preisgabe sensibler Daten</text>
+
+    <!-- 5. Output Handling -->
+    <rect x="50" y="220" width="540" height="35" rx="5" fill="#1e293b" stroke="#ec4899" stroke-width="1.5"/>
+    <circle cx="75" cy="237" r="11" fill="#ec4899" opacity="0.3"/><text x="75" y="242" text-anchor="middle" font-size="10" fill="#ec4899" font-weight="bold">5</text>
+    <text x="95" y="242" font-size="12" fill="#f9a8d4" font-weight="bold">Output Handling</text>
+    <text x="350" y="242" font-size="10" fill="#94a3b8">Unsichere Verarbeitung von Agent-Outputs</text>
+
+    <!-- 6. Memory Poisoning -->
+    <rect x="50" y="260" width="480" height="35" rx="5" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <circle cx="75" cy="277" r="11" fill="#22d3ee" opacity="0.3"/><text x="75" y="282" text-anchor="middle" font-size="10" fill="#22d3ee" font-weight="bold">6</text>
+    <text x="95" y="282" font-size="12" fill="#67e8f9" font-weight="bold">Memory Poisoning</text>
+    <text x="350" y="282" font-size="10" fill="#94a3b8">Manipulation des Agent-Gedächtnisses</text>
+
+    <!-- 7. Insecure Plugin -->
+    <rect x="50" y="300" width="420" height="35" rx="5" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <circle cx="75" cy="317" r="11" fill="#6366f1" opacity="0.3"/><text x="75" y="322" text-anchor="middle" font-size="10" fill="#6366f1" font-weight="bold">7</text>
+    <text x="95" y="322" font-size="12" fill="#a5b4fc" font-weight="bold">Insecure Plugin Design</text>
+    <text x="350" y="322" font-size="10" fill="#94a3b8">Verwundbare Tools</text>
+
+    <!-- 8. Model DoS -->
+    <rect x="50" y="340" width="360" height="35" rx="5" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="75" cy="357" r="11" fill="#10b981" opacity="0.3"/><text x="75" y="362" text-anchor="middle" font-size="10" fill="#10b981" font-weight="bold">8</text>
+    <text x="95" y="362" font-size="12" fill="#6ee7b7" font-weight="bold">Model DoS</text>
+    <text x="270" y="362" font-size="10" fill="#94a3b8">Überlastung</text>
+
+    <!-- 9. Overreliance -->
+    <rect x="50" y="380" width="300" height="35" rx="5" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5"/>
+    <circle cx="75" cy="397" r="11" fill="#3b82f6" opacity="0.3"/><text x="75" y="402" text-anchor="middle" font-size="10" fill="#3b82f6" font-weight="bold">9</text>
+    <text x="95" y="402" font-size="12" fill="#60a5fa" font-weight="bold">Overreliance</text>
+    <text x="255" y="402" font-size="10" fill="#94a3b8">Blindes Vertrauen</text>
+
+    <!-- 10. Insufficient Logging -->
+    <rect x="50" y="420" width="240" height="35" rx="5" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+    <circle cx="75" cy="437" r="11" fill="#64748b" opacity="0.3"/><text x="75" y="442" text-anchor="middle" font-size="10" fill="#94a3b8" font-weight="bold">10</text>
+    <text x="95" y="442" font-size="12" fill="#cbd5e1" font-weight="bold">Insufficient Logging</text>
+  </g>
+
+  <!-- Risk scale -->
+  <text x="870" y="82" text-anchor="end" font-family="Segoe UI, Arial" font-size="9" fill="#ef4444">Kritisch</text>
+  <text x="870" y="442" text-anchor="end" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Niedrig</text>
+  <line x1="860" y1="70" x2="860" y2="450" stroke="#334155" stroke-width="1" stroke-dasharray="4,3"/>
+</svg>

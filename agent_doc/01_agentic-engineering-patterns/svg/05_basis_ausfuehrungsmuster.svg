@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480">
+  <defs>
+    <linearGradient id="bg05a" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh05a"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+    <marker id="arr05aCyan" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#22d3ee"/></marker>
+    <marker id="arr05aGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#34d399"/></marker>
+    <marker id="arr05aAmber" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#fbbf24"/></marker>
+  </defs>
+  <rect width="900" height="480" fill="url(#bg05a)" rx="12"/>
+
+  <text x="450" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Basis-Ausführungsmuster für Multi-Agent-Systeme</text>
+
+  <!-- ═══════════════ SEQUENTIAL (Pipeline) ═══════════════ -->
+  <rect x="20" y="55" width="270" height="410" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5" filter="url(#sh05a)"/>
+  <text x="155" y="82" text-anchor="middle" font-family="Segoe UI, Arial" font-size="15" font-weight="bold" fill="#67e8f9">Sequential (Pipeline)</text>
+  <text x="155" y="100" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Lineare Abfolge — einfach und vorhersagbar</text>
+
+  <!-- Input -->
+  <rect x="95" y="120" width="120" height="34" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="155" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Input</text>
+  <line x1="155" y1="154" x2="155" y2="175" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr05aCyan)"/>
+
+  <!-- Agent A -->
+  <rect x="85" y="180" width="140" height="36" rx="6" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="155" y="203" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#67e8f9">Agent A</text>
+  <line x1="155" y1="216" x2="155" y2="237" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr05aCyan)"/>
+
+  <!-- Agent B -->
+  <rect x="85" y="242" width="140" height="36" rx="6" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="155" y="265" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#67e8f9">Agent B</text>
+  <line x1="155" y1="278" x2="155" y2="299" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr05aCyan)"/>
+
+  <!-- Agent C -->
+  <rect x="85" y="304" width="140" height="36" rx="6" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="155" y="327" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#67e8f9">Agent C</text>
+  <line x1="155" y1="340" x2="155" y2="361" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr05aCyan)"/>
+
+  <!-- Ergebnis -->
+  <rect x="85" y="366" width="140" height="34" rx="6" fill="#164e63" stroke="#22d3ee" stroke-width="2"/>
+  <text x="155" y="388" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="bold" fill="#67e8f9">Ergebnis</text>
+
+  <!-- Beschreibung -->
+  <text x="155" y="425" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">A → B → C</text>
+  <text x="155" y="440" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Jeder Schritt baut auf</text>
+  <text x="155" y="453" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">dem vorherigen auf</text>
+
+  <!-- ═══════════════ LOOP ═══════════════ -->
+  <rect x="310" y="55" width="280" height="410" rx="10" fill="#0f172a" stroke="#34d399" stroke-width="1.5" filter="url(#sh05a)"/>
+  <text x="450" y="82" text-anchor="middle" font-family="Segoe UI, Arial" font-size="15" font-weight="bold" fill="#6ee7b7">Loop (Iterativ)</text>
+  <text x="450" y="100" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Wiederholung bis Qualität erreicht</text>
+
+  <!-- Input -->
+  <rect x="390" y="120" width="120" height="34" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="450" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Input</text>
+  <line x1="450" y1="154" x2="450" y2="175" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr05aGreen)"/>
+
+  <!-- Agent A -->
+  <rect x="380" y="180" width="140" height="36" rx="6" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+  <text x="450" y="203" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#6ee7b7">Agent A</text>
+  <line x1="450" y1="216" x2="450" y2="237" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr05aGreen)"/>
+
+  <!-- Agent B -->
+  <rect x="380" y="242" width="140" height="36" rx="6" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+  <text x="450" y="265" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#6ee7b7">Agent B</text>
+  <line x1="450" y1="278" x2="450" y2="299" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr05aGreen)"/>
+
+  <!-- Evaluator -->
+  <rect x="375" y="304" width="150" height="36" rx="6" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="450" y="327" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#fbbf24">Evaluator</text>
+
+  <!-- Loop-Pfeil zurück zu Agent A -->
+  <path d="M 375,322 L 340,322 L 340,198 L 380,198" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr05aAmber)"/>
+  <text x="332" y="265" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#fbbf24" transform="rotate(-90, 332, 265)">Retry</text>
+
+  <!-- OK-Pfeil nach unten -->
+  <line x1="450" y1="340" x2="450" y2="370" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr05aGreen)"/>
+  <text x="470" y="360" font-family="Segoe UI, Arial" font-size="9" fill="#34d399">OK</text>
+
+  <!-- Ergebnis -->
+  <rect x="380" y="375" width="140" height="34" rx="6" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+  <text x="450" y="397" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="bold" fill="#6ee7b7">Ergebnis</text>
+
+  <!-- Beschreibung -->
+  <text x="450" y="430" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Evaluator prüft Qualität.</text>
+  <text x="450" y="443" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Bei Mängeln: zurück zum Start.</text>
+  <text x="450" y="456" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Max-Iterations als Abbruch.</text>
+
+  <!-- ═══════════════ PARALLEL ═══════════════ -->
+  <rect x="610" y="55" width="270" height="410" rx="10" fill="#0f172a" stroke="#fbbf24" stroke-width="1.5" filter="url(#sh05a)"/>
+  <text x="745" y="82" text-anchor="middle" font-family="Segoe UI, Arial" font-size="15" font-weight="bold" fill="#fcd34d">Parallel (Fan-Out / Fan-In)</text>
+  <text x="745" y="100" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Gleichzeitige Bearbeitung, dann Merge</text>
+
+  <!-- Input -->
+  <rect x="685" y="120" width="120" height="34" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+  <text x="745" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Input</text>
+
+  <!-- Fork-Linien -->
+  <line x1="705" y1="154" x2="670" y2="180" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr05aAmber)"/>
+  <line x1="745" y1="154" x2="745" y2="180" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr05aAmber)"/>
+  <line x1="785" y1="154" x2="820" y2="180" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr05aAmber)"/>
+
+  <!-- Agent A -->
+  <rect x="625" y="185" width="90" height="36" rx="6" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="670" y="208" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fcd34d">Agent A</text>
+
+  <!-- Agent B -->
+  <rect x="700" y="185" width="90" height="36" rx="6" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5" transform="translate(0,0)"/>
+  <text x="745" y="208" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fcd34d">Agent B</text>
+  <!-- korrigiere Position Agent B separat -->
+  <rect x="625" y="185" width="90" height="80" rx="6" fill="none" stroke="none"/>
+
+  <!-- Parallel-Säulen -->
+  <!-- Agent A -->
+  <rect x="625" y="185" width="80" height="36" rx="6" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="665" y="208" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fcd34d">Agent A</text>
+
+  <!-- Agent B -->
+  <rect x="715" y="185" width="80" height="36" rx="6" fill="#1e293b" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="755" y="208" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fcd34d">Agent B</text>
+
+  <!-- Agent C -->
+  <rect x="805" y="185" width="80" height="36" rx="6" fill="#0f172a" stroke="#fbbf24" stroke-width="1.5"/>
+  <text x="845" y="208" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fcd34d">Agent C</text>
+
+  <!-- Parallel-Indikator -->
+  <text x="665" y="240" text-anchor="middle" font-family="Segoe UI, Arial" font-size="18" fill="#fbbf24">⚡</text>
+  <text x="755" y="240" text-anchor="middle" font-family="Segoe UI, Arial" font-size="18" fill="#fbbf24">⚡</text>
+  <text x="845" y="240" text-anchor="middle" font-family="Segoe UI, Arial" font-size="18" fill="#fbbf24">⚡</text>
+
+  <!-- Join-Linien zum Aggregator -->
+  <line x1="665" y1="248" x2="730" y2="280" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr05aAmber)"/>
+  <line x1="755" y1="248" x2="755" y2="280" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr05aAmber)"/>
+  <line x1="845" y1="248" x2="780" y2="280" stroke="#fbbf24" stroke-width="1.5" marker-end="url(#arr05aAmber)"/>
+
+  <!-- Aggregator -->
+  <rect x="695" y="285" width="120" height="40" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <text x="755" y="302" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fbbf24">Aggregator</text>
+  <text x="755" y="316" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Merge Ergebnisse</text>
+
+  <line x1="755" y1="325" x2="755" y2="355" stroke="#34d399" stroke-width="1.5" marker-end="url(#arr05aGreen)"/>
+
+  <!-- Ergebnis -->
+  <rect x="695" y="360" width="120" height="34" rx="6" fill="#422006" stroke="#fbbf24" stroke-width="2"/>
+  <text x="755" y="382" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="bold" fill="#fcd34d">Ergebnis</text>
+
+  <!-- Beschreibung -->
+  <text x="745" y="416" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Fan-Out: parallele Bearbeitung.</text>
+  <text x="745" y="429" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Fan-In: Aggregator sammelt</text>
+  <text x="745" y="442" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">und vereint Ergebnisse.</text>
+</svg>

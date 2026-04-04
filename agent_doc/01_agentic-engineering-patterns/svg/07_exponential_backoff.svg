@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="jitterGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.1"/>
+      <stop offset="50%" stop-color="#8b5cf6" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowWhite" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#94a3b8" stroke-width="1.2"/>
+    </marker>
+    <marker id="arrowOrange" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#f97316" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="420" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="440" y="38" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="700">Exponential Backoff mit Jitter</text>
+  <text x="440" y="58" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="12">Wartezeit = min(base &#xD7; 2^attempt + random_jitter, max_delay)</text>
+
+  <!-- Timeline axis -->
+  <line x1="60" y1="320" x2="820" y2="320" stroke="#334155" stroke-width="1.5" marker-end="url(#arrowWhite)"/>
+  <text x="835" y="325" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Zeit</text>
+
+  <!-- Y axis label -->
+  <text x="28" y="200" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="11" transform="rotate(-90,28,200)" text-anchor="middle">Wartezeit</text>
+
+  <!-- Grid lines -->
+  <line x1="60" y1="280" x2="780" y2="280" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="60" y1="230" x2="780" y2="230" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="60" y1="170" x2="780" y2="170" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="60" y1="110" x2="780" y2="110" stroke="#1e293b" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- Y axis labels -->
+  <text x="50" y="284" text-anchor="end" fill="#64748b" font-family="monospace" font-size="10">1s</text>
+  <text x="50" y="234" text-anchor="end" fill="#64748b" font-family="monospace" font-size="10">2s</text>
+  <text x="50" y="174" text-anchor="end" fill="#64748b" font-family="monospace" font-size="10">4s</text>
+  <text x="50" y="114" text-anchor="end" fill="#64748b" font-family="monospace" font-size="10">8s</text>
+
+  <!-- Jitter bands (scatter zones) -->
+  <rect x="108" y="268" width="70" height="24" rx="4" fill="url(#jitterGrad)"/>
+  <rect x="248" y="216" width="90" height="28" rx="4" fill="url(#jitterGrad)"/>
+  <rect x="418" y="148" width="110" height="44" rx="4" fill="url(#jitterGrad)"/>
+  <rect x="608" y="78" width="130" height="64" rx="4" fill="url(#jitterGrad)"/>
+
+  <!-- Jitter scatter dots Attempt 1 -->
+  <circle cx="118" cy="275" r="2.5" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="130" cy="285" r="2" fill="#a78bfa" opacity="0.5"/>
+  <circle cx="145" cy="272" r="2.5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="158" cy="288" r="2" fill="#a78bfa" opacity="0.4"/>
+  <circle cx="168" cy="278" r="2" fill="#a78bfa" opacity="0.55"/>
+
+  <!-- Jitter scatter dots Attempt 2 -->
+  <circle cx="260" cy="225" r="2.5" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="278" cy="237" r="2" fill="#a78bfa" opacity="0.5"/>
+  <circle cx="295" cy="220" r="2.5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="315" cy="240" r="2" fill="#a78bfa" opacity="0.4"/>
+  <circle cx="328" cy="228" r="2" fill="#a78bfa" opacity="0.55"/>
+
+  <!-- Jitter scatter dots Attempt 3 -->
+  <circle cx="435" cy="160" r="2.5" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="455" cy="180" r="2" fill="#a78bfa" opacity="0.5"/>
+  <circle cx="475" cy="153" r="2.5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="498" cy="186" r="2" fill="#a78bfa" opacity="0.4"/>
+  <circle cx="515" cy="168" r="2" fill="#a78bfa" opacity="0.55"/>
+
+  <!-- Jitter scatter dots Attempt 4 -->
+  <circle cx="625" cy="95" r="2.5" fill="#a78bfa" opacity="0.6"/>
+  <circle cx="650" cy="125" r="2" fill="#a78bfa" opacity="0.5"/>
+  <circle cx="675" cy="85" r="2.5" fill="#a78bfa" opacity="0.7"/>
+  <circle cx="700" cy="132" r="2" fill="#a78bfa" opacity="0.4"/>
+  <circle cx="722" cy="105" r="2" fill="#a78bfa" opacity="0.55"/>
+
+  <!-- Exponential curve (base, no jitter) -->
+  <path d="M100,280 C170,280 190,230 270,230 C350,230 370,170 460,170 C540,170 570,110 660,110" fill="none" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,3" filter="url(#glow)"/>
+
+  <!-- Attempt 1 - Failure -->
+  <circle cx="100" cy="320" r="9" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+  <text x="100" y="324" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="11" font-weight="700">&#x2717;</text>
+  <text x="100" y="348" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Req 1</text>
+  <line x1="109" y1="311" x2="135" y2="285" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="143" y="296" fill="#c4b5fd" font-family="monospace" font-size="9">~1s</text>
+
+  <!-- Attempt 2 - Failure -->
+  <circle cx="210" cy="320" r="9" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+  <text x="210" y="324" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="11" font-weight="700">&#x2717;</text>
+  <text x="210" y="348" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Req 2</text>
+  <line x1="220" y1="311" x2="265" y2="240" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="273" y="250" fill="#c4b5fd" font-family="monospace" font-size="9">~2s</text>
+
+  <!-- Attempt 3 - Failure -->
+  <circle cx="370" cy="320" r="9" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+  <text x="370" y="324" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="11" font-weight="700">&#x2717;</text>
+  <text x="370" y="348" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Req 3</text>
+  <line x1="380" y1="311" x2="450" y2="180" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="458" y="190" fill="#c4b5fd" font-family="monospace" font-size="9">~4s</text>
+
+  <!-- Attempt 4 - Failure -->
+  <circle cx="560" cy="320" r="9" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+  <text x="560" y="324" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="11" font-weight="700">&#x2717;</text>
+  <text x="560" y="348" text-anchor="middle" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Req 4</text>
+  <line x1="572" y1="311" x2="645" y2="120" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="653" y="128" fill="#c4b5fd" font-family="monospace" font-size="9">~8s</text>
+
+  <!-- Fallback / Escalation -->
+  <rect x="718" y="303" width="110" height="34" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="2"/>
+  <text x="773" y="324" text-anchor="middle" fill="#f97316" font-family="Segoe UI, system-ui, sans-serif" font-size="12" font-weight="700">Eskalation</text>
+  <line x1="578" y1="320" x2="716" y2="320" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowOrange)"/>
+
+  <!-- Legend -->
+  <rect x="60" y="370" width="760" height="40" rx="6" fill="#0f172a" opacity="0.6"/>
+
+  <circle cx="90" cy="390" r="6" fill="#0f172a" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="90" y="394" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="8" font-weight="700">&#x2717;</text>
+  <text x="105" y="394" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Fehlgeschlagen</text>
+
+  <line x1="225" y1="390" x2="255" y2="390" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,3"/>
+  <text x="265" y="394" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Basis-Backoff (2&#x207F;)</text>
+
+  <rect x="420" y="383" width="30" height="14" rx="3" fill="url(#jitterGrad)" stroke="#8b5cf6" stroke-width="0.5"/>
+  <text x="458" y="394" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Jitter-Streuband</text>
+
+  <line x1="600" y1="390" x2="630" y2="390" stroke="#f97316" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="640" y="394" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Fallback / Eskalation</text>
+</svg>

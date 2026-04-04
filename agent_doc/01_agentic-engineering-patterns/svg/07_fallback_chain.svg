@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrFail" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#ef4444" stroke-width="1.2"/>
+    </marker>
+    <marker id="arrOk" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#22c55e" stroke-width="1.2"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="380" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="20" font-weight="700">Fallback Chain &#x2014; Geordnete Provider-Kaskade</text>
+  <text x="450" y="56" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="12">Jeder Fallback wird nur bei Fehler des vorherigen Providers aktiviert</text>
+
+  <!-- ===== Node 1: Primary GPT-4o (green) ===== -->
+  <rect x="30" y="90" width="145" height="105" rx="12" fill="#0f172a" stroke="#22c55e" stroke-width="2.5" filter="url(#glow)"/>
+  <rect x="30" y="90" width="145" height="28" rx="12" fill="#22c55e" opacity="0.15"/>
+  <text x="102" y="109" text-anchor="middle" fill="#22c55e" font-family="Segoe UI, system-ui, sans-serif" font-size="10" font-weight="700">PRIMARY</text>
+  <text x="102" y="140" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700">GPT-4o</text>
+  <text x="102" y="160" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Latenz: ~800ms</text>
+  <text x="102" y="178" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Prio: 1 (bevorzugt)</text>
+  <!-- Priority badge -->
+  <circle cx="158" cy="98" r="10" fill="#22c55e" opacity="0.3"/>
+  <text x="158" y="102" text-anchor="middle" fill="#22c55e" font-family="monospace" font-size="10" font-weight="700">1</text>
+
+  <!-- Arrow 1->2 (fail) -->
+  <line x1="175" y1="142" x2="205" y2="142" stroke="#ef4444" stroke-width="1.8" marker-end="url(#arrFail)"/>
+  <rect x="178" y="118" width="30" height="16" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="193" y="129" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="8" font-weight="700">FAIL</text>
+
+  <!-- ===== Node 2: Fallback 1 Claude (yellow-green) ===== -->
+  <rect x="210" y="90" width="145" height="105" rx="12" fill="#0f172a" stroke="#f59e0b" stroke-width="2" filter="url(#glow)"/>
+  <rect x="210" y="90" width="145" height="28" rx="12" fill="#f59e0b" opacity="0.12"/>
+  <text x="282" y="109" text-anchor="middle" fill="#f59e0b" font-family="Segoe UI, system-ui, sans-serif" font-size="10" font-weight="700">FALLBACK 1</text>
+  <text x="282" y="140" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700">Claude</text>
+  <text x="282" y="160" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Latenz: ~1200ms</text>
+  <text x="282" y="178" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Prio: 2</text>
+  <circle cx="338" cy="98" r="10" fill="#f59e0b" opacity="0.25"/>
+  <text x="338" y="102" text-anchor="middle" fill="#f59e0b" font-family="monospace" font-size="10" font-weight="700">2</text>
+
+  <!-- Arrow 2->3 (fail) -->
+  <line x1="355" y1="142" x2="385" y2="142" stroke="#ef4444" stroke-width="1.8" marker-end="url(#arrFail)"/>
+  <rect x="358" y="118" width="30" height="16" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="373" y="129" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="8" font-weight="700">FAIL</text>
+
+  <!-- ===== Node 3: Fallback 2 Gemini (orange) ===== -->
+  <rect x="390" y="90" width="145" height="105" rx="12" fill="#0f172a" stroke="#f97316" stroke-width="2" filter="url(#glow)"/>
+  <rect x="390" y="90" width="145" height="28" rx="12" fill="#f97316" opacity="0.12"/>
+  <text x="462" y="109" text-anchor="middle" fill="#f97316" font-family="Segoe UI, system-ui, sans-serif" font-size="10" font-weight="700">FALLBACK 2</text>
+  <text x="462" y="140" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="14" font-weight="700">Gemini</text>
+  <text x="462" y="160" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Latenz: ~1500ms</text>
+  <text x="462" y="178" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Prio: 3</text>
+  <circle cx="518" cy="98" r="10" fill="#f97316" opacity="0.25"/>
+  <text x="518" y="102" text-anchor="middle" fill="#f97316" font-family="monospace" font-size="10" font-weight="700">3</text>
+
+  <!-- Arrow 3->4 (fail) -->
+  <line x1="535" y1="142" x2="565" y2="142" stroke="#ef4444" stroke-width="1.8" marker-end="url(#arrFail)"/>
+  <rect x="538" y="118" width="30" height="16" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="553" y="129" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="8" font-weight="700">FAIL</text>
+
+  <!-- ===== Node 4: Cached Response (dark orange) ===== -->
+  <rect x="570" y="90" width="145" height="105" rx="12" fill="#0f172a" stroke="#ea580c" stroke-width="2" filter="url(#glow)"/>
+  <rect x="570" y="90" width="145" height="28" rx="12" fill="#ea580c" opacity="0.12"/>
+  <text x="642" y="109" text-anchor="middle" fill="#ea580c" font-family="Segoe UI, system-ui, sans-serif" font-size="10" font-weight="700">CACHE</text>
+  <text x="642" y="137" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700">Cached</text>
+  <text x="642" y="155" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700">Response</text>
+  <text x="642" y="178" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Letzte g&#xFC;ltige Antwort</text>
+  <circle cx="698" cy="98" r="10" fill="#ea580c" opacity="0.25"/>
+  <text x="698" y="102" text-anchor="middle" fill="#ea580c" font-family="monospace" font-size="10" font-weight="700">4</text>
+
+  <!-- Arrow 4->5 (fail) -->
+  <line x1="715" y1="142" x2="745" y2="142" stroke="#ef4444" stroke-width="1.8" marker-end="url(#arrFail)"/>
+  <rect x="718" y="118" width="30" height="16" rx="3" fill="#1e293b" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="733" y="129" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="8" font-weight="700">FAIL</text>
+
+  <!-- ===== Node 5: Graceful Error (red) ===== -->
+  <rect x="750" y="90" width="120" height="105" rx="12" fill="#0f172a" stroke="#ef4444" stroke-width="2" filter="url(#glow)"/>
+  <rect x="750" y="90" width="120" height="28" rx="12" fill="#ef4444" opacity="0.12"/>
+  <text x="810" y="109" text-anchor="middle" fill="#ef4444" font-family="Segoe UI, system-ui, sans-serif" font-size="10" font-weight="700">DEFAULT</text>
+  <text x="810" y="137" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700">Graceful</text>
+  <text x="810" y="155" text-anchor="middle" fill="#f1f5f9" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="700">Error</text>
+  <text x="810" y="178" text-anchor="middle" fill="#64748b" font-family="Segoe UI, system-ui, sans-serif" font-size="10">Fehlermeldung</text>
+  <circle cx="853" cy="98" r="10" fill="#ef4444" opacity="0.25"/>
+  <text x="853" y="102" text-anchor="middle" fill="#ef4444" font-family="monospace" font-size="10" font-weight="700">5</text>
+
+  <!-- Success arrows down from each node -->
+  <line x1="102" y1="195" x2="102" y2="230" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrOk)"/>
+  <line x1="282" y1="195" x2="282" y2="230" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrOk)"/>
+  <line x1="462" y1="195" x2="462" y2="230" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrOk)"/>
+  <line x1="642" y1="195" x2="642" y2="230" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrOk)"/>
+
+  <!-- Success result box -->
+  <rect x="60" y="235" width="660" height="40" rx="8" fill="#0f172a" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="390" y="260" text-anchor="middle" fill="#22c55e" font-family="Segoe UI, system-ui, sans-serif" font-size="13" font-weight="600">&#x2713; Erfolgreiche Antwort an den Client</text>
+
+  <!-- Gradient bar showing degradation -->
+  <rect x="30" y="295" width="840" height="8" rx="4" fill="#0f172a"/>
+  <rect x="30" y="295" width="168" height="8" rx="4" fill="#22c55e" opacity="0.7"/>
+  <rect x="198" y="295" width="168" height="8" fill="#84cc16" opacity="0.5"/>
+  <rect x="366" y="295" width="168" height="8" fill="#f59e0b" opacity="0.5"/>
+  <rect x="534" y="295" width="168" height="8" fill="#ea580c" opacity="0.5"/>
+  <rect x="702" y="295" width="168" height="8" rx="4" fill="#ef4444" opacity="0.5"/>
+  <text x="30" y="320" fill="#22c55e" font-family="Segoe UI, system-ui, sans-serif" font-size="9">Beste Qualit&#xE4;t</text>
+  <text x="870" y="320" text-anchor="end" fill="#ef4444" font-family="Segoe UI, system-ui, sans-serif" font-size="9">Minimale Qualit&#xE4;t</text>
+
+  <!-- Legend -->
+  <rect x="60" y="335" width="780" height="35" rx="6" fill="#0f172a" opacity="0.5"/>
+  <line x1="90" y1="352" x2="112" y2="352" stroke="#ef4444" stroke-width="1.8" marker-end="url(#arrFail)"/>
+  <text x="125" y="356" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Fehler &#x2192; n&#xE4;chster Fallback</text>
+  <line x1="330" y1="352" x2="352" y2="352" stroke="#22c55e" stroke-width="1.8" marker-end="url(#arrOk)"/>
+  <text x="365" y="356" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Erfolg &#x2192; Antwort liefern</text>
+  <rect x="560" y="345" width="20" height="14" rx="3" fill="#22c55e" opacity="0.4"/>
+  <text x="565" y="356" text-anchor="middle" fill="#f1f5f9" font-family="monospace" font-size="7">N</text>
+  <text x="588" y="356" fill="#94a3b8" font-family="Segoe UI, system-ui, sans-serif" font-size="11">Priorit&#xE4;t (1 = h&#xF6;chste)</text>
+</svg>

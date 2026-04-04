@@ -9,6 +9,8 @@ Tool Use ist die Fähigkeit eines Agents, externe APIs aufzurufen, Code auszufü
 
 ### Pattern 1: Function Calling
 
+![Function Calling — Ablauf](svg/06_function_calling_flow.svg)
+
 #### Beschreibung
 Das LLM generiert strukturierte Tool-Aufrufe (JSON), die von der Laufzeitumgebung ausgeführt und deren Ergebnisse zurück an das LLM geleitet werden.
 
@@ -73,6 +75,8 @@ Der Agent muss aus einer Menge verfügbarer Tools das richtige auswählen. Dies 
 
 ### Pattern 5: Model Context Protocol (MCP)
 
+![MCP Architektur — Standardisiertes Tool-Ökosystem](svg/06_mcp_architektur.svg)
+
 #### Beschreibung
 MCP (Anthropic, 2024) standardisiert die Verbindung zwischen LLMs und externen Datenquellen/Tools. Es definiert ein einheitliches Protokoll für Tool-Discovery, -Aufruf und -Ergebnisrückgabe.
 
@@ -94,6 +98,8 @@ MCP (Anthropic, 2024) standardisiert die Verbindung zwischen LLMs und externen D
 ## Teil B: Context Engineering
 
 ### Definition
+
+![Context Engineering — 4 Kerntechniken](svg/06_context_engineering.svg)
 
 > "Context Engineering is the practice of deciding what information an AI model sees, when it sees it, and how it is structured at runtime."
 > — Anthropic, Effective Context Engineering for AI Agents (2026)
@@ -181,6 +187,8 @@ Der System-Prompt ist das Fundament eines zuverlässigen Agents. Er definiert Ro
 ---
 
 ### Technik 6: Memory Management
+
+![Memory-Typen — Von kurzfristig bis langfristig](svg/06_memory_typen.svg)
 
 #### Beschreibung
 Langfristiges Kontextbewusstsein durch verschiedene Gedächtnis-Formen:

@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="clientGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4338ca"/>
+    </linearGradient>
+    <linearGradient id="srv1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    <linearGradient id="srv2" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="srv3" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" fill="#f1f5f9" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700">Model Context Protocol (MCP) -- Architektur</text>
+  <line x1="270" y1="50" x2="630" y2="50" stroke="#0ea5e9" stroke-width="2" opacity="0.6"/>
+
+  <!-- MCP Client -->
+  <g filter="url(#sh)">
+    <rect x="40" y="100" width="210" height="240" rx="14" fill="url(#clientGrad)" opacity="0.95"/>
+    <text x="145" y="130" text-anchor="middle" fill="#e0e7ff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">MCP CLIENT</text>
+    <!-- LLM Box -->
+    <rect x="70" y="148" width="150" height="50" rx="8" fill="#1e1b4b" opacity="0.7"/>
+    <text x="145" y="172" text-anchor="middle" fill="#a5b4fc" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="600">LLM</text>
+    <text x="145" y="188" text-anchor="middle" fill="#818cf8" font-family="'Fira Code', monospace" font-size="9">Claude / GPT / Gemini</text>
+    <!-- Discovery -->
+    <rect x="70" y="210" width="150" height="36" rx="6" fill="#312e81" opacity="0.7"/>
+    <text x="145" y="227" text-anchor="middle" fill="#c7d2fe" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">Tool Discovery</text>
+    <text x="145" y="240" text-anchor="middle" fill="#a5b4fc" font-family="'Fira Code', monospace" font-size="9">initialize() / list_tools()</text>
+    <!-- Protocol -->
+    <rect x="70" y="258" width="150" height="28" rx="6" fill="#312e81" opacity="0.5"/>
+    <text x="145" y="277" text-anchor="middle" fill="#818cf8" font-family="'Fira Code', monospace" font-size="9">JSON-RPC 2.0 / stdio</text>
+    <!-- Capabilities -->
+    <text x="145" y="310" text-anchor="middle" fill="#c7d2fe" font-family="Inter, system-ui, sans-serif" font-size="9">Sampling | Roots | Notifications</text>
+    <text x="145" y="328" text-anchor="middle" fill="#818cf8" font-family="Inter, system-ui, sans-serif" font-size="8" opacity="0.7">Capabilities Negotiation</text>
+  </g>
+
+  <!-- Protocol Label vertical -->
+  <text x="330" y="260" text-anchor="middle" fill="#475569" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700" letter-spacing="3" transform="rotate(-90,330,260)">STANDARDISIERTES PROTOKOLL</text>
+
+  <!-- Connection lines Client -> Servers -->
+  <line x1="250" y1="170" x2="405" y2="120" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)" stroke-dasharray="6,3" opacity="0.5"/>
+  <line x1="250" y1="220" x2="405" y2="225" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)" stroke-dasharray="6,3" opacity="0.5"/>
+  <line x1="250" y1="270" x2="405" y2="335" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)" stroke-dasharray="6,3" opacity="0.5"/>
+
+  <!-- Server 1: GitHub -->
+  <g filter="url(#sh)">
+    <rect x="415" y="72" width="240" height="105" rx="10" fill="url(#srv1)" opacity="0.95"/>
+    <text x="535" y="96" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700">MCP Server: GitHub</text>
+    <g transform="translate(428, 108)">
+      <rect width="68" height="22" rx="5" fill="#0c4a6e" opacity="0.8"/>
+      <text x="34" y="15" text-anchor="middle" fill="#7dd3fc" font-family="'Fira Code', monospace" font-size="9">Tools</text>
+    </g>
+    <g transform="translate(504, 108)">
+      <rect width="72" height="22" rx="5" fill="#0c4a6e" opacity="0.8"/>
+      <text x="36" y="15" text-anchor="middle" fill="#7dd3fc" font-family="'Fira Code', monospace" font-size="9">Resources</text>
+    </g>
+    <g transform="translate(584, 108)">
+      <rect width="60" height="22" rx="5" fill="#0c4a6e" opacity="0.8"/>
+      <text x="30" y="15" text-anchor="middle" fill="#7dd3fc" font-family="'Fira Code', monospace" font-size="9">Prompts</text>
+    </g>
+    <text x="535" y="155" text-anchor="middle" fill="#bae6fd" font-family="'Fira Code', monospace" font-size="9">create_issue, search_repos, list_prs</text>
+  </g>
+
+  <!-- Server 2: Database -->
+  <g filter="url(#sh)">
+    <rect x="415" y="187" width="240" height="105" rx="10" fill="url(#srv2)" opacity="0.95"/>
+    <text x="535" y="211" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700">MCP Server: Database</text>
+    <g transform="translate(428, 223)">
+      <rect width="68" height="22" rx="5" fill="#022c22" opacity="0.8"/>
+      <text x="34" y="15" text-anchor="middle" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9">Tools</text>
+    </g>
+    <g transform="translate(504, 223)">
+      <rect width="72" height="22" rx="5" fill="#022c22" opacity="0.8"/>
+      <text x="36" y="15" text-anchor="middle" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9">Resources</text>
+    </g>
+    <g transform="translate(584, 223)">
+      <rect width="60" height="22" rx="5" fill="#022c22" opacity="0.8"/>
+      <text x="30" y="15" text-anchor="middle" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9">Prompts</text>
+    </g>
+    <text x="535" y="270" text-anchor="middle" fill="#a7f3d0" font-family="'Fira Code', monospace" font-size="9">query, schema_info, migrate</text>
+  </g>
+
+  <!-- Server 3: Filesystem -->
+  <g filter="url(#sh)">
+    <rect x="415" y="302" width="240" height="105" rx="10" fill="url(#srv3)" opacity="0.95"/>
+    <text x="535" y="326" text-anchor="middle" fill="#1c1917" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700">MCP Server: Filesystem</text>
+    <g transform="translate(428, 338)">
+      <rect width="68" height="22" rx="5" fill="#78350f" opacity="0.8"/>
+      <text x="34" y="15" text-anchor="middle" fill="#fde68a" font-family="'Fira Code', monospace" font-size="9">Tools</text>
+    </g>
+    <g transform="translate(504, 338)">
+      <rect width="72" height="22" rx="5" fill="#78350f" opacity="0.8"/>
+      <text x="36" y="15" text-anchor="middle" fill="#fde68a" font-family="'Fira Code', monospace" font-size="9">Resources</text>
+    </g>
+    <g transform="translate(584, 338)">
+      <rect width="60" height="22" rx="5" fill="#78350f" opacity="0.8"/>
+      <text x="30" y="15" text-anchor="middle" fill="#fde68a" font-family="'Fira Code', monospace" font-size="9">Prompts</text>
+    </g>
+    <text x="535" y="385" text-anchor="middle" fill="#fef3c7" font-family="'Fira Code', monospace" font-size="9">read_file, write_file, search</text>
+  </g>
+
+  <!-- Plug & Play Box -->
+  <g filter="url(#sh)">
+    <rect x="700" y="150" width="165" height="160" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <text x="782" y="176" text-anchor="middle" fill="#94a3b8" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="700">PLUG &amp; PLAY</text>
+    <line x1="720" y1="184" x2="845" y2="184" stroke="#334155" stroke-width="1"/>
+    <text x="782" y="206" text-anchor="middle" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="10">+ Slack Server</text>
+    <text x="782" y="224" text-anchor="middle" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="10">+ Jira Server</text>
+    <text x="782" y="242" text-anchor="middle" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="10">+ Notion Server</text>
+    <text x="782" y="260" text-anchor="middle" fill="#cbd5e1" font-family="Inter, system-ui, sans-serif" font-size="10">+ Custom Server</text>
+    <text x="782" y="284" text-anchor="middle" fill="#475569" font-family="Inter, system-ui, sans-serif" font-size="9">beliebig erweiterbar</text>
+    <text x="782" y="298" text-anchor="middle" fill="#475569" font-family="Inter, system-ui, sans-serif" font-size="9">ohne LLM-Aenderung</text>
+  </g>
+
+  <!-- Dotted lines to Plug&Play -->
+  <line x1="655" y1="125" x2="700" y2="170" stroke="#334155" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="655" y1="240" x2="700" y2="230" stroke="#334155" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="655" y1="355" x2="700" y2="290" stroke="#334155" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Bottom legend -->
+  <rect x="100" y="418" width="700" height="26" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" opacity="0.8"/>
+  <text x="450" y="435" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10">Ein Client -- viele Server -- standardisiertes JSON-RPC Protokoll -- jeder Server bietet Tools, Resources &amp; Prompt Templates</text>
+</svg>

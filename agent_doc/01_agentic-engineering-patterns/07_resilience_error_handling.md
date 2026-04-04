@@ -8,6 +8,8 @@ Agent-Systeme operieren in nicht-deterministischen Umgebungen mit externen Abhä
 
 ## Pattern 1: Exponential Backoff mit Jitter
 
+![Exponential Backoff mit Jitter](svg/07_exponential_backoff.svg)
+
 ### Beschreibung
 Bei transienten Fehlern (Rate Limits, Netzwerk-Timeouts) wird mit exponentiell steigenden Wartezeiten wiederholt. Jitter (zufällige Variation) verhindert das "Thundering Herd"-Problem bei Multi-Agent-Systemen.
 
@@ -35,6 +37,8 @@ Versuch 4: Warte 8s + random(0, 4.0s)
 ---
 
 ## Pattern 2: Circuit Breaker
+
+![Circuit Breaker — Zustandsmaschine](svg/07_circuit_breaker.svg)
 
 ### Beschreibung
 Verhindert kaskierende Fehler, indem Anfragen an nicht reagierende Services temporär blockiert werden. Hat drei Zustände:
@@ -78,6 +82,8 @@ circuit_breaker:
 
 ## Pattern 3: Fallback Chain
 
+![Fallback Chain — Geordnete Alternativen](svg/07_fallback_chain.svg)
+
 ### Beschreibung
 Geordnete Liste alternativer Ausführungspfade. Wenn der primäre Pfad fehlschlägt, wird der nächste in der Kette versucht.
 
@@ -100,6 +106,8 @@ Fallback Chain:
 ---
 
 ## Pattern 4: Graceful Degradation
+
+![Graceful Degradation — Schichtweise Reduktion](svg/07_graceful_degradation.svg)
 
 ### Beschreibung
 Das System liefert weiterhin nützliche (wenn auch reduzierte) Ergebnisse, selbst wenn Teilkomponenten ausfallen.

@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460">
+  <defs>
+    <linearGradient id="bg05h" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh05h"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+    <marker id="arr05hDown" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto"><path d="M0,0 L4,6 L8,0" fill="#475569"/></marker>
+  </defs>
+  <rect width="880" height="460" fill="url(#bg05h)" rx="12"/>
+
+  <text x="440" y="32" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Hierarchical Multi-Agent System</text>
+  <text x="440" y="52" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b">Baumstruktur mit Supervisor, Team Leads und spezialisierten Workern</text>
+
+  <!-- ═══════════════ EBENE 1: TOP SUPERVISOR ═══════════════ -->
+  <!-- Ebenen-Label -->
+  <rect x="15" y="73" width="70" height="20" rx="4" fill="#7c3aed" opacity="0.3"/>
+  <text x="50" y="87" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#c4b5fd">Ebene 1</text>
+
+  <rect x="355" y="70" width="170" height="50" rx="10" fill="#312e81" stroke="#818cf8" stroke-width="2" filter="url(#sh05h)"/>
+  <text x="440" y="93" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" font-weight="bold" fill="#c7d2fe">Top Supervisor</text>
+  <text x="440" y="110" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#818cf8">Strategie und Delegation</text>
+
+  <!-- Verbindungslinien Ebene 1 → Ebene 2 -->
+  <line x1="390" y1="120" x2="160" y2="170" stroke="#818cf8" stroke-width="1.5" opacity="0.7"/>
+  <line x1="440" y1="120" x2="440" y2="170" stroke="#818cf8" stroke-width="1.5" opacity="0.7"/>
+  <line x1="490" y1="120" x2="720" y2="170" stroke="#818cf8" stroke-width="1.5" opacity="0.7"/>
+
+  <!-- ═══════════════ EBENE 2: TEAM LEADS ═══════════════ -->
+  <rect x="15" y="183" width="70" height="20" rx="4" fill="#22d3ee" opacity="0.2"/>
+  <text x="50" y="197" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#67e8f9">Ebene 2</text>
+
+  <!-- Research Lead -->
+  <rect x="85" y="175" width="150" height="50" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="2" filter="url(#sh05h)"/>
+  <text x="160" y="198" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#67e8f9">Research Lead</text>
+  <text x="160" y="215" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#06b6d4">Recherche und Analyse</text>
+
+  <!-- Development Lead -->
+  <rect x="365" y="175" width="150" height="50" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="2" filter="url(#sh05h)"/>
+  <text x="440" y="198" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#6ee7b7">Dev Lead</text>
+  <text x="440" y="215" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#10b981">Implementierung</text>
+
+  <!-- QA Lead -->
+  <rect x="645" y="175" width="150" height="50" rx="8" fill="#1e293b" stroke="#fbbf24" stroke-width="2" filter="url(#sh05h)"/>
+  <text x="720" y="198" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#fcd34d">QA Lead</text>
+  <text x="720" y="215" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#f59e0b">Qualitätssicherung</text>
+
+  <!-- Verbindungslinien Ebene 2 → Ebene 3 -->
+  <!-- Research -->
+  <line x1="130" y1="225" x2="100" y2="280" stroke="#22d3ee" stroke-width="1.2" opacity="0.6"/>
+  <line x1="190" y1="225" x2="220" y2="280" stroke="#22d3ee" stroke-width="1.2" opacity="0.6"/>
+  <!-- Dev -->
+  <line x1="410" y1="225" x2="380" y2="280" stroke="#34d399" stroke-width="1.2" opacity="0.6"/>
+  <line x1="470" y1="225" x2="500" y2="280" stroke="#34d399" stroke-width="1.2" opacity="0.6"/>
+  <!-- QA -->
+  <line x1="690" y1="225" x2="660" y2="280" stroke="#fbbf24" stroke-width="1.2" opacity="0.6"/>
+  <line x1="750" y1="225" x2="780" y2="280" stroke="#fbbf24" stroke-width="1.2" opacity="0.6"/>
+
+  <!-- ═══════════════ EBENE 3: WORKER ═══════════════ -->
+  <rect x="15" y="293" width="70" height="20" rx="4" fill="#34d399" opacity="0.2"/>
+  <text x="50" y="307" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#6ee7b7">Ebene 3</text>
+
+  <!-- Research Worker 1 -->
+  <rect x="40" y="285" width="120" height="44" rx="6" fill="#1e293b" stroke="#0e7490" stroke-width="1.2" filter="url(#sh05h)"/>
+  <text x="100" y="305" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#67e8f9">Web Searcher</text>
+  <text x="100" y="320" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#475569">Quellen finden</text>
+
+  <!-- Research Worker 2 -->
+  <rect x="170" y="285" width="120" height="44" rx="6" fill="#1e293b" stroke="#0e7490" stroke-width="1.2" filter="url(#sh05h)"/>
+  <text x="230" y="305" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#67e8f9">Summarizer</text>
+  <text x="230" y="320" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#475569">Inhalte verdichten</text>
+
+  <!-- Dev Worker 1 -->
+  <rect x="320" y="285" width="120" height="44" rx="6" fill="#1e293b" stroke="#059669" stroke-width="1.2" filter="url(#sh05h)"/>
+  <text x="380" y="305" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7">Coder</text>
+  <text x="380" y="320" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#475569">Code schreiben</text>
+
+  <!-- Dev Worker 2 -->
+  <rect x="450" y="285" width="120" height="44" rx="6" fill="#1e293b" stroke="#059669" stroke-width="1.2" filter="url(#sh05h)"/>
+  <text x="510" y="305" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7">Reviewer</text>
+  <text x="510" y="320" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#475569">Code Review</text>
+
+  <!-- QA Worker 1 -->
+  <rect x="600" y="285" width="120" height="44" rx="6" fill="#1e293b" stroke="#d97706" stroke-width="1.2" filter="url(#sh05h)"/>
+  <text x="660" y="305" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fcd34d">Test Runner</text>
+  <text x="660" y="320" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#475569">Tests ausführen</text>
+
+  <!-- QA Worker 2 -->
+  <rect x="730" y="285" width="120" height="44" rx="6" fill="#1e293b" stroke="#d97706" stroke-width="1.2" filter="url(#sh05h)"/>
+  <text x="790" y="305" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fcd34d">Bug Reporter</text>
+  <text x="790" y="320" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#475569">Bugs dokumentieren</text>
+
+  <!-- ═══════════════ LEGENDE / KEY INSIGHTS ═══════════════ -->
+  <rect x="40" y="360" width="800" height="85" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+
+  <text x="60" y="382" font-family="Segoe UI, Arial" font-size="11" font-weight="bold" fill="#e2e8f0">Kernprinzipien</text>
+
+  <!-- Spalte 1 -->
+  <circle cx="72" cy="402" r="4" fill="#818cf8"/>
+  <text x="82" y="406" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Delegation: Jede Ebene delegiert nur an direkte Untergebene</text>
+
+  <circle cx="72" cy="422" r="4" fill="#22d3ee"/>
+  <text x="82" y="426" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Spezialisierung: Worker sind auf eine Aufgabe fokussiert</text>
+
+  <!-- Spalte 2 -->
+  <circle cx="470" cy="402" r="4" fill="#34d399"/>
+  <text x="480" y="406" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Skalierung: Neue Teams/Worker ohne Gesamtänderung</text>
+
+  <circle cx="470" cy="422" r="4" fill="#fbbf24"/>
+  <text x="480" y="426" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Isolation: Team-Fehler bleiben im Team eingedämmt</text>
+</svg>

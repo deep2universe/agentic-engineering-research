@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 950 500">
+  <defs>
+    <linearGradient id="bg11" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh11"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="950" height="500" fill="url(#bg11)" rx="12"/>
+
+  <text x="475" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Framework-Landschaft 2026</text>
+
+  <!-- LangGraph -->
+  <g filter="url(#sh11)">
+    <rect x="30" y="65" width="280" height="190" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect x="30" y="65" width="280" height="30" rx="10" fill="#6366f1" opacity="0.12"/>
+    <text x="170" y="86" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#a5b4fc">LangGraph</text>
+    <text x="50" y="112" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Paradigma:</text>
+    <text x="130" y="112" font-family="Segoe UI, Arial" font-size="10" fill="#e2e8f0">Graph-basierte State Machine</text>
+    <text x="50" y="132" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">State:</text>
+    <text x="130" y="132" font-family="Segoe UI, Arial" font-size="10" fill="#e2e8f0">Checkpoint-basiert, persistent</text>
+    <text x="50" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Kontrolle:</text>
+    <text x="130" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#10b981">Sehr hoch</text>
+    <text x="50" y="172" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">HITL:</text>
+    <text x="130" y="172" font-family="Segoe UI, Arial" font-size="10" fill="#10b981">Nativ</text>
+    <rect x="50" y="190" width="240" height="22" rx="4" fill="#6366f1" opacity="0.1"/>
+    <text x="170" y="205" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#a5b4fc">Produktion (Klarna, Replit, Elastic)</text>
+    <!-- Lernkurve bar -->
+    <text x="50" y="235" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Lernkurve:</text>
+    <rect x="120" y="225" width="170" height="10" rx="3" fill="#1e3a5f"/>
+    <rect x="120" y="225" width="140" height="10" rx="3" fill="#6366f1" opacity="0.6"/>
+    <text x="265" y="235" font-family="Segoe UI, Arial" font-size="8" fill="#6366f1">Steil</text>
+  </g>
+
+  <!-- CrewAI -->
+  <g filter="url(#sh11)">
+    <rect x="335" y="65" width="280" height="190" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2"/>
+    <rect x="335" y="65" width="280" height="30" rx="10" fill="#ec4899" opacity="0.12"/>
+    <text x="475" y="86" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#f472b6">CrewAI</text>
+    <text x="355" y="112" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Paradigma:</text>
+    <text x="435" y="112" font-family="Segoe UI, Arial" font-size="10" fill="#e2e8f0">Role-based Multi-Agent</text>
+    <text x="355" y="132" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">State:</text>
+    <text x="435" y="132" font-family="Segoe UI, Arial" font-size="10" fill="#e2e8f0">Aufgaben-basiert</text>
+    <text x="355" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Kontrolle:</text>
+    <text x="435" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#f59e0b">Mittel</text>
+    <text x="355" y="172" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">HITL:</text>
+    <text x="435" y="172" font-family="Segoe UI, Arial" font-size="10" fill="#f59e0b">Limitiert</text>
+    <rect x="355" y="190" width="240" height="22" rx="4" fill="#ec4899" opacity="0.1"/>
+    <text x="475" y="205" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#f472b6">Schnelle Prototypen, wenig Boilerplate</text>
+    <text x="355" y="235" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Lernkurve:</text>
+    <rect x="425" y="225" width="170" height="10" rx="3" fill="#1e3a5f"/>
+    <rect x="425" y="225" width="50" height="10" rx="3" fill="#ec4899" opacity="0.6"/>
+    <text x="570" y="235" font-family="Segoe UI, Arial" font-size="8" fill="#ec4899">Flach</text>
+  </g>
+
+  <!-- OpenAI Agents SDK -->
+  <g filter="url(#sh11)">
+    <rect x="640" y="65" width="280" height="190" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="640" y="65" width="280" height="30" rx="10" fill="#10b981" opacity="0.12"/>
+    <text x="780" y="86" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#6ee7b7">OpenAI Agents SDK</text>
+    <text x="660" y="112" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Paradigma:</text>
+    <text x="740" y="112" font-family="Segoe UI, Arial" font-size="10" fill="#e2e8f0">Swarm/Handoff-Modell</text>
+    <text x="660" y="132" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">State:</text>
+    <text x="740" y="132" font-family="Segoe UI, Arial" font-size="10" fill="#e2e8f0">Kontext-Übergabe</text>
+    <text x="660" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Kontrolle:</text>
+    <text x="740" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#ef4444">Niedrig</text>
+    <text x="660" y="172" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">HITL:</text>
+    <text x="740" y="172" font-family="Segoe UI, Arial" font-size="10" fill="#10b981">Built-in</text>
+    <rect x="660" y="190" width="240" height="22" rx="4" fill="#10b981" opacity="0.1"/>
+    <text x="780" y="205" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#6ee7b7">Leichtgewichtig, Handoff-Semantik</text>
+    <text x="660" y="235" font-family="Segoe UI, Arial" font-size="9" fill="#64748b">Lernkurve:</text>
+    <rect x="730" y="225" width="170" height="10" rx="3" fill="#1e3a5f"/>
+    <rect x="730" y="225" width="50" height="10" rx="3" fill="#10b981" opacity="0.6"/>
+    <text x="875" y="235" font-family="Segoe UI, Arial" font-size="8" fill="#10b981">Flach</text>
+  </g>
+
+  <!-- Decision matrix bottom -->
+  <rect x="40" y="280" width="870" height="190" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1" filter="url(#sh11)"/>
+  <text x="475" y="305" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#f59e0b">Empfehlung nach Anwendungsfall</text>
+
+  <rect x="60" y="320" width="260" height="60" rx="8" fill="#6366f1" opacity="0.08" stroke="#6366f1" stroke-width="1"/>
+  <text x="190" y="342" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#a5b4fc" font-weight="bold">Produktion / Enterprise</text>
+  <text x="190" y="362" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">→ LangGraph + LangSmith</text>
+
+  <rect x="345" y="320" width="260" height="60" rx="8" fill="#ec4899" opacity="0.08" stroke="#ec4899" stroke-width="1"/>
+  <text x="475" y="342" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#f472b6" font-weight="bold">Prototyp / Schnellstart</text>
+  <text x="475" y="362" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">→ CrewAI / OpenAI SDK</text>
+
+  <rect x="630" y="320" width="260" height="60" rx="8" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="1"/>
+  <text x="760" y="342" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#fbbf24" font-weight="bold">Grundsätzlich</text>
+  <text x="760" y="362" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">→ Starte ohne Framework</text>
+
+  <text x="475" y="410" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">→ Füge Framework hinzu, wenn die Komplexität es erfordert</text>
+  <text x="475" y="428" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b" font-style="italic">Wähle basierend auf dem Anwendungsfall, nicht dem Hype</text>
+
+  <!-- Claude Code special mention -->
+  <rect x="60" y="400" width="260" height="55" rx="8" fill="#a855f7" opacity="0.06" stroke="#a855f7" stroke-width="1"/>
+  <text x="190" y="420" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#d8b4fe" font-weight="bold">Claude Code (Anthropic)</text>
+  <text x="190" y="438" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Kein Framework — ein Agent selbst</text>
+</svg>

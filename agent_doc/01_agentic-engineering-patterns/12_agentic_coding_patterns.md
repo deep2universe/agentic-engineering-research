@@ -11,6 +11,8 @@ Simon Willison hat 2026 einen umfassenden Guide zu **Agentic Engineering Pattern
 
 ## Kernkonzept: Der Compound Engineering Loop
 
+![Agentic Coding — Kernpatterns nach Willison](svg/12_compound_engineering.svg)
+
 ### Beschreibung
 Der Compound Engineering Loop ist der zentrale Arbeitszyklus im Agentic Engineering:
 
@@ -154,6 +156,8 @@ Komplexe Aufgaben werden an spezialisierte Sub-Agents delegiert, die in einem ei
 ---
 
 ## Pattern: Testing und QA
+
+![Agentic QA Workflow — Red/Green TDD](svg/12_tdd_workflow.svg)
 
 ### Red/Green TDD
 ```

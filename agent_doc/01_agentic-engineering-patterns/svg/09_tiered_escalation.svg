@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320">
+  <defs>
+    <linearGradient id="bg09c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh09c"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="320" fill="url(#bg09c)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Tiered Escalation</text>
+
+  <!-- Tier 1 -->
+  <rect x="40" y="65" width="170" height="200" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="2" filter="url(#sh09c)"/>
+  <rect x="40" y="65" width="170" height="28" rx="8" fill="#10b981" opacity="0.12"/>
+  <text x="125" y="84" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#6ee7b7">Tier 1: Auto</text>
+  <text x="60" y="110" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Risiko: niedrig</text>
+  <text x="60" y="128" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Confidence: &gt; 0.9</text>
+  <text x="60" y="148" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7" font-weight="bold">SLA: Sofort</text>
+  <rect x="55" y="165" width="140" height="25" rx="4" fill="#10b981" opacity="0.08"/>
+  <text x="125" y="182" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Informationsabfragen</text>
+  <rect x="55" y="195" width="140" height="25" rx="4" fill="#10b981" opacity="0.08"/>
+  <text x="125" y="212" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Formatierung</text>
+  <!-- Volume indicator -->
+  <rect x="55" y="230" width="140" height="18" rx="4" fill="#10b981" opacity="0.15"/>
+  <rect x="55" y="230" width="120" height="18" rx="4" fill="#10b981" opacity="0.3"/>
+  <text x="125" y="243" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#10b981">~80% aller Tasks</text>
+
+  <!-- Arrow -->
+  <text x="222" y="165" font-family="Segoe UI, Arial" font-size="16" fill="#475569">→</text>
+
+  <!-- Tier 2 -->
+  <rect x="235" y="65" width="170" height="200" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#sh09c)"/>
+  <rect x="235" y="65" width="170" height="28" rx="8" fill="#f59e0b" opacity="0.12"/>
+  <text x="320" y="84" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#fbbf24">Tier 2: Team</text>
+  <text x="255" y="110" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Risiko: mittel</text>
+  <text x="255" y="128" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Confidence: 0.7–0.9</text>
+  <text x="255" y="148" font-family="Segoe UI, Arial" font-size="10" fill="#fbbf24" font-weight="bold">SLA: 15 min</text>
+  <rect x="250" y="165" width="140" height="25" rx="4" fill="#f59e0b" opacity="0.08"/>
+  <text x="320" y="182" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Daten-Änderungen</text>
+  <rect x="250" y="195" width="140" height="25" rx="4" fill="#f59e0b" opacity="0.08"/>
+  <text x="320" y="212" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">E-Mail-Versand</text>
+  <rect x="250" y="230" width="140" height="18" rx="4" fill="#f59e0b" opacity="0.15"/>
+  <rect x="250" y="230" width="60" height="18" rx="4" fill="#f59e0b" opacity="0.3"/>
+  <text x="320" y="243" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#f59e0b">~15%</text>
+
+  <text x="417" y="165" font-family="Segoe UI, Arial" font-size="16" fill="#475569">→</text>
+
+  <!-- Tier 3 -->
+  <rect x="430" y="65" width="170" height="200" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="2" filter="url(#sh09c)"/>
+  <rect x="430" y="65" width="170" height="28" rx="8" fill="#f97316" opacity="0.12"/>
+  <text x="515" y="84" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#fb923c">Tier 3: Lead</text>
+  <text x="450" y="110" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Risiko: hoch</text>
+  <text x="450" y="128" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Finanz-Transaktionen</text>
+  <text x="450" y="148" font-family="Segoe UI, Arial" font-size="10" fill="#fb923c" font-weight="bold">SLA: 1 Stunde</text>
+  <rect x="445" y="165" width="140" height="25" rx="4" fill="#f97316" opacity="0.08"/>
+  <text x="515" y="182" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Vertragsentwürfe</text>
+  <rect x="445" y="230" width="140" height="18" rx="4" fill="#f97316" opacity="0.15"/>
+  <rect x="445" y="230" width="25" height="18" rx="4" fill="#f97316" opacity="0.3"/>
+  <text x="515" y="243" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#f97316">~4%</text>
+
+  <text x="612" y="165" font-family="Segoe UI, Arial" font-size="16" fill="#475569">→</text>
+
+  <!-- Tier 4 -->
+  <rect x="625" y="65" width="155" height="200" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="2" filter="url(#sh09c)"/>
+  <rect x="625" y="65" width="155" height="28" rx="8" fill="#ef4444" opacity="0.12"/>
+  <text x="702" y="84" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#fca5a5">Tier 4: Mgmt</text>
+  <text x="645" y="110" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Risiko: kritisch</text>
+  <text x="645" y="128" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Löschungen</text>
+  <text x="645" y="148" font-family="Segoe UI, Arial" font-size="10" fill="#fca5a5" font-weight="bold">SLA: 24 Stunden</text>
+  <rect x="640" y="165" width="125" height="25" rx="4" fill="#ef4444" opacity="0.08"/>
+  <text x="702" y="182" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Sicherheitsänderungen</text>
+  <rect x="640" y="230" width="125" height="18" rx="4" fill="#ef4444" opacity="0.15"/>
+  <rect x="640" y="230" width="12" height="18" rx="4" fill="#ef4444" opacity="0.3"/>
+  <text x="702" y="243" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#ef4444">~1%</text>
+
+  <!-- Bottom -->
+  <text x="400" y="295" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#f59e0b" font-weight="bold">Zunehmende Autorität und Prüftiefe →</text>
+  <text x="400" y="312" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Timeout-Handling: Bei SLA-Überschreitung → Weiterleitung an nächsten Reviewer</text>
+</svg>

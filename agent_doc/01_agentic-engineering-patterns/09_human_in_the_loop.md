@@ -11,6 +11,8 @@ Human-in-the-Loop (HITL) ist ein AI-Governance-Ansatz, bei dem trainierte Mensch
 
 ## Grundprinzip: Propose ≠ Commit
 
+![Propose ≠ Commit — Trennung von Vorschlag und Ausführung](svg/09_propose_commit.svg)
+
 Die zuverlässigste Grundregel für HITL: **Strikte Trennung zwischen Vorschlag und Ausführung.**
 
 ```
@@ -29,6 +31,8 @@ Dies verhindert, dass der Agent "erst handelt und dann fragt".
 ---
 
 ## Pattern 1: Confidence-Based Routing
+
+![Confidence-Based Routing — Automatisierung nach Konfidenz](svg/09_confidence_routing.svg)
 
 ### Beschreibung
 Der Agent bewertet seine eigene Konfidenz. Aufgaben mit hoher Konfidenz werden automatisch verarbeitet, Aufgaben mit niedriger Konfidenz an Menschen eskaliert.
@@ -56,6 +60,8 @@ Agent Output + Confidence Score
 ---
 
 ## Pattern 2: Tiered Escalation
+
+![Tiered Escalation — 4 Eskalationsstufen](svg/09_tiered_escalation.svg)
 
 ### Beschreibung
 Aktionen werden basierend auf Risiko-Klassifikation und Confidence Scores an progressiv höhere Autoritätslevel eskaliert.
