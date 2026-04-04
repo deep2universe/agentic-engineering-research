@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 280">
+  <defs>
+    <linearGradient id="cbg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="cs7">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="280" fill="url(#cbg7)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Versionskontrollierte Context-Dateien</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Persistenter, strukturierter Context fuer Coding Agents</text>
+
+  <!-- Git repo metaphor -->
+  <rect x="60" y="85" width="300" height="160" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="2" filter="url(#cs7)"/>
+  <rect x="60" y="85" width="300" height="30" rx="12" fill="#D97706"/>
+  <rect x="60" y="103" width="300" height="12" fill="#D97706"/>
+  <text x="210" y="105" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">CLAUDE.md / README</text>
+
+  <!-- File entries -->
+  <text x="85" y="138" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="11" font-family="monospace">&#x1F4C4; Projektstruktur</text>
+  <text x="85" y="160" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="11" font-family="monospace">&#x1F3A8; Code-Stil</text>
+  <text x="85" y="182" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="11" font-family="monospace">&#x1F527; Build + Test</text>
+  <text x="85" y="204" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="11" font-family="monospace">&#x1F4CB; Konventionen</text>
+  <text x="85" y="226" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="11" font-family="monospace">&#x1F4DC; Regeln</text>
+
+  <!-- Arrow -->
+  <line x1="370" y1="165" x2="420" y2="165" stroke="#F59E0B" stroke-width="2"/>
+  <polygon points="420,165 410,158 410,172" fill="#F59E0B"/>
+  <text x="395" y="155" text-anchor="middle" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="9">git</text>
+
+  <!-- Agent using it -->
+  <rect x="430" y="100" width="200" height="130" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#cs7)"/>
+  <text x="530" y="135" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Coding Agent</text>
+  <text x="530" y="158" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Liest CLAUDE.md</text>
+  <text x="530" y="175" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Versteht Projekt</text>
+  <text x="530" y="192" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Folgt Konventionen</text>
+  <text x="530" y="215" text-anchor="middle" fill="#2563EB" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Strukturierter Context</text>
+
+  <!-- Benefits -->
+  <rect x="660" y="100" width="200" height="130" rx="12" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#cs7)"/>
+  <text x="760" y="130" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Vorteile</text>
+  <text x="685" y="155" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">&#x2713; Persistent</text>
+  <text x="685" y="175" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">&#x2713; Versioniert</text>
+  <text x="685" y="195" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">&#x2713; Team-weit</text>
+  <text x="685" y="215" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">&#x2713; Strukturiert</text>
+
+  <text x="450" y="270" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Best Practice: Markdown-Dateien im Repository als persistenten Agent-Context pflegen</text>
+</svg>

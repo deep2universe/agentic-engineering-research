@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300">
+  <defs>
+    <linearGradient id="cbg8" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="cs8">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="300" fill="url(#cbg8)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Context Windows 2026</text>
+
+  <!-- Bar chart of context sizes -->
+  <text x="100" y="80" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Context Window Groessen wachsen stetig:</text>
+
+  <!-- Bars -->
+  <text x="80" y="120" text-anchor="end" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">128K</text>
+  <rect x="100" y="108" width="80" height="20" rx="4" fill="#334155"/>
+  <rect x="100" y="108" width="80" height="20" rx="4" fill="#6366F1" opacity="0.6"/>
+
+  <text x="80" y="150" text-anchor="end" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">200K</text>
+  <rect x="100" y="138" width="125" height="20" rx="4" fill="#334155"/>
+  <rect x="100" y="138" width="125" height="20" rx="4" fill="#3B82F6" opacity="0.7"/>
+
+  <text x="80" y="180" text-anchor="end" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">1M</text>
+  <rect x="100" y="168" width="350" height="20" rx="4" fill="#334155"/>
+  <rect x="100" y="168" width="350" height="20" rx="4" fill="#10B981" opacity="0.7"/>
+
+  <text x="80" y="210" text-anchor="end" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="10" font-weight="600">10M</text>
+  <rect x="100" y="198" width="700" height="20" rx="4" fill="#334155"/>
+  <rect x="100" y="198" width="700" height="20" rx="4" fill="#F59E0B" opacity="0.5"/>
+
+  <!-- Scale markers -->
+  <text x="190" y="120" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="8">GPT-4 Level</text>
+  <text x="235" y="150" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="8">Claude 3.5</text>
+  <text x="460" y="180" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="8">Claude 4.6 / Gemini 2.5</text>
+  <text x="810" y="210" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="8">Gemini</text>
+
+  <!-- Key insight -->
+  <rect x="100" y="240" width="700" height="40" rx="10" fill="#334155" stroke="#EF4444" stroke-width="1.5"/>
+  <text x="450" y="258" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Groessere Fenster ersetzen NICHT intelligentes Context Management</text>
+  <text x="450" y="275" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Effektive Nutzung &gt; Groesse — Qualitaet des Context bleibt entscheidend</text>
+</svg>

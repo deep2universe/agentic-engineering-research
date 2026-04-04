@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620">
+  <defs>
+    <linearGradient id="mbg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="ms3">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="620" fill="url(#mbg3)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Memory-Architektur-Patterns</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Von statisch bis selbst-editierend — Evolution der Memory-Architekturen</text>
+
+  <!-- Evolution Arrow -->
+  <rect x="100" y="80" width="700" height="6" rx="3" fill="#334155"/>
+  <rect x="100" y="80" width="700" height="6" rx="3" fill="url(#evo_grad)"/>
+  <defs>
+    <linearGradient id="evo_grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366F1"/>
+      <stop offset="33%" style="stop-color:#3B82F6"/>
+      <stop offset="66%" style="stop-color:#10B981"/>
+      <stop offset="100%" style="stop-color:#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <text x="100" y="75" fill="#6366F1" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Einfach</text>
+  <text x="800" y="75" text-anchor="end" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Komplex</text>
+
+  <!-- Pattern 1: Static STM + Trigger LTM -->
+  <rect x="40" y="105" width="200" height="150" rx="10" fill="#1E293B" stroke="#6366F1" stroke-width="1.5" filter="url(#ms3)"/>
+  <text x="140" y="130" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.1 Static STM +</text>
+  <text x="140" y="148" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Trigger-based LTM</text>
+
+  <rect x="65" y="165" width="60" height="30" rx="6" fill="#312E81"/>
+  <text x="95" y="185" text-anchor="middle" fill="#C7D2FE" font-family="system-ui, sans-serif" font-size="9">STM</text>
+  <text x="135" y="183" fill="#64748B" font-family="system-ui, sans-serif" font-size="14">→</text>
+  <rect x="155" y="165" width="60" height="30" rx="6" fill="#312E81"/>
+  <text x="185" y="185" text-anchor="middle" fill="#C7D2FE" font-family="system-ui, sans-serif" font-size="9">LTM</text>
+  <text x="140" y="220" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Trigger-Regeln</text>
+  <text x="140" y="245" text-anchor="middle" fill="#4F46E5" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Traditionell</text>
+
+  <!-- Pattern 2: Static STM + Agent LTM -->
+  <rect x="265" y="105" width="200" height="150" rx="10" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#ms3)"/>
+  <text x="365" y="130" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.2 Static STM +</text>
+  <text x="365" y="148" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Agent-based LTM</text>
+
+  <rect x="290" y="165" width="60" height="30" rx="6" fill="#1E3A5F"/>
+  <text x="320" y="185" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="9">STM</text>
+  <rect x="370" y="160" width="70" height="40" rx="6" fill="#2563EB" filter="url(#ms3)"/>
+  <text x="405" y="178" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Agent</text>
+  <text x="405" y="192" text-anchor="middle" fill="#BFDBFE" font-family="system-ui, sans-serif" font-size="8">entscheidet</text>
+  <text x="365" y="220" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Agent steuert LTM</text>
+  <text x="365" y="245" text-anchor="middle" fill="#3B82F6" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Erweitert</text>
+
+  <!-- Pattern 3: Unified (Agentic) -->
+  <rect x="490" y="105" width="200" height="150" rx="10" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#ms3)"/>
+  <text x="590" y="130" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.3 Unified Memory</text>
+  <text x="590" y="148" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Management</text>
+
+  <rect x="530" y="168" width="120" height="35" rx="6" fill="#059669" filter="url(#ms3)"/>
+  <text x="590" y="185" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="10" font-weight="700">Memory als Tools</text>
+  <text x="590" y="198" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="8">save/get/update/delete</text>
+  <text x="590" y="222" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">End-to-End-Optimierung</text>
+  <text x="590" y="245" text-anchor="middle" fill="#10B981" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Januar 2026</text>
+
+  <!-- Pattern 4: OS-inspired (Letta/MemGPT) -->
+  <rect x="660" y="105" width="210" height="150" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#ms3)"/>
+  <text x="765" y="130" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.4 OS-inspiriert</text>
+  <text x="765" y="148" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="700">(Letta/MemGPT)</text>
+
+  <rect x="685" y="162" width="160" height="18" rx="4" fill="#78350F"/>
+  <text x="765" y="176" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Core (RAM)</text>
+  <rect x="685" y="183" width="160" height="18" rx="4" fill="#92400E"/>
+  <text x="765" y="197" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Archival (Disk)</text>
+  <rect x="685" y="204" width="160" height="18" rx="4" fill="#78350F"/>
+  <text x="765" y="218" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Recall (History)</text>
+  <text x="765" y="245" text-anchor="middle" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Self-Editing</text>
+
+  <!-- === OS-inspired Detail (bottom half) === -->
+  <text x="450" y="295" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="16" font-weight="700">OS-inspirierte Architektur im Detail (Letta/MemGPT)</text>
+
+  <!-- Three tiers visualization -->
+  <!-- Core Memory (RAM) -->
+  <rect x="60" y="320" width="250" height="140" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#ms3)"/>
+  <rect x="60" y="320" width="250" height="30" rx="12" fill="#2563EB"/>
+  <rect x="60" y="338" width="250" height="12" fill="#2563EB"/>
+  <text x="185" y="342" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Core Memory (RAM)</text>
+  <text x="185" y="375" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="11">Immer im Context sichtbar</text>
+  <text x="185" y="395" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="11">In System Instructions eingebettet</text>
+  <text x="185" y="415" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="10">Persistente Kerninformationen</text>
+  <rect x="130" y="430" width="110" height="20" rx="4" fill="#1E3A5F"/>
+  <text x="185" y="445" text-anchor="middle" fill="#3B82F6" font-family="system-ui, sans-serif" font-size="9" font-weight="700">SCHNELL · KLEIN</text>
+
+  <!-- Archival Memory (Disk) -->
+  <rect x="330" y="320" width="250" height="140" rx="12" fill="#1E293B" stroke="#8B5CF6" stroke-width="2" filter="url(#ms3)"/>
+  <rect x="330" y="320" width="250" height="30" rx="12" fill="#7C3AED"/>
+  <rect x="330" y="338" width="250" height="12" fill="#7C3AED"/>
+  <text x="455" y="342" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Archival Memory (Disk)</text>
+  <text x="455" y="375" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="11">Externer Vector Store</text>
+  <text x="455" y="395" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="11">Langfristiger Speicher</text>
+  <text x="455" y="415" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="10">Grosse Informationsmengen</text>
+  <rect x="400" y="430" width="110" height="20" rx="4" fill="#2E1065"/>
+  <text x="455" y="445" text-anchor="middle" fill="#8B5CF6" font-family="system-ui, sans-serif" font-size="9" font-weight="700">GROSS · DURCHSUCHBAR</text>
+
+  <!-- Recall Memory (History) -->
+  <rect x="600" y="320" width="250" height="140" rx="12" fill="#1E293B" stroke="#10B981" stroke-width="2" filter="url(#ms3)"/>
+  <rect x="600" y="320" width="250" height="30" rx="12" fill="#059669"/>
+  <rect x="600" y="338" width="250" height="12" fill="#059669"/>
+  <text x="725" y="342" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Recall Memory (History)</text>
+  <text x="725" y="375" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="11">Konversationshistorie</text>
+  <text x="725" y="395" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="11">Vergangene Interaktionen</text>
+  <text x="725" y="415" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="10">Abrufbare Sessions</text>
+  <rect x="670" y="430" width="110" height="20" rx="4" fill="#064E3B"/>
+  <text x="725" y="445" text-anchor="middle" fill="#10B981" font-family="system-ui, sans-serif" font-size="9" font-weight="700">TEMPORAL · ABRUFBAR</text>
+
+  <!-- Virtual Context Management -->
+  <rect x="150" y="485" width="600" height="50" rx="10" fill="#334155" stroke="#F59E0B" stroke-width="1.5"/>
+  <text x="450" y="508" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Virtual Context Management</text>
+  <text x="450" y="528" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Daten zwischen "Virtual Context" (alle Daten) und "Physical Context" (Window) verschieben</text>
+
+  <!-- Arrows between tiers -->
+  <line x1="310" y1="390" x2="330" y2="390" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <line x1="580" y1="390" x2="600" y2="390" stroke="#64748B" stroke-width="1.5" stroke-dasharray="3,3"/>
+
+  <text x="450" y="600" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Agents sind aktive Teilnehmer ihres eigenen Memory Managements (Self-Editing)</text>
+</svg>

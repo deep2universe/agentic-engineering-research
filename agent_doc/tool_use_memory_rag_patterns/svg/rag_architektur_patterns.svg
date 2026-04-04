@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700">
+  <defs>
+    <linearGradient id="rbg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="rs3">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="700" fill="url(#rbg3)" rx="16"/>
+  <text x="450" y="35" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">RAG-Architektur-Patterns</text>
+  <text x="450" y="55" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">7 Varianten — von Naive bis Graph RAG</text>
+
+  <!-- Row 1: Naive, Self-RAG, CRAG -->
+  <!-- Naive RAG -->
+  <rect x="30" y="75" width="270" height="165" rx="10" fill="#1E293B" stroke="#64748B" stroke-width="1.5" filter="url(#rs3)"/>
+  <rect x="30" y="75" width="270" height="28" rx="10" fill="#475569"/>
+  <rect x="30" y="93" width="270" height="10" fill="#475569"/>
+  <text x="165" y="96" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.1 Naive RAG (Baseline)</text>
+  <text x="55" y="125" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Einfache Pipeline:</text>
+  <!-- Mini flow -->
+  <rect x="55" y="140" width="60" height="24" rx="4" fill="#334155"/>
+  <text x="85" y="157" text-anchor="middle" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="9">Query</text>
+  <text x="122" y="155" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">→</text>
+  <rect x="135" y="140" width="60" height="24" rx="4" fill="#334155"/>
+  <text x="165" y="157" text-anchor="middle" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="9">Retrieve</text>
+  <text x="202" y="155" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">→</text>
+  <rect x="215" y="140" width="65" height="24" rx="4" fill="#334155"/>
+  <text x="247" y="157" text-anchor="middle" fill="#CBD5E1" font-family="system-ui, sans-serif" font-size="9">Generate</text>
+  <text x="165" y="190" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Begrenzt bei komplexen Queries</text>
+  <rect x="55" y="205" width="80" height="22" rx="4" fill="#334155"/>
+  <text x="95" y="221" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9" font-weight="600">BASELINE</text>
+
+  <!-- Self-RAG -->
+  <rect x="315" y="75" width="270" height="165" rx="10" fill="#1E293B" stroke="#6366F1" stroke-width="1.5" filter="url(#rs3)"/>
+  <rect x="315" y="75" width="270" height="28" rx="10" fill="#4F46E5"/>
+  <rect x="315" y="93" width="270" height="10" fill="#4F46E5"/>
+  <text x="450" y="96" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.2 Self-RAG</text>
+  <text x="340" y="125" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Reflexionsmechanismen:</text>
+  <text x="340" y="145" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; Reflection Tokens eingebaut</text>
+  <text x="340" y="163" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; Retrieval-Notwendigkeit pruefen</text>
+  <text x="340" y="181" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; Selbst-Bewertung der Antwort</text>
+  <rect x="340" y="200" width="120" height="22" rx="4" fill="#312E81"/>
+  <text x="400" y="216" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="9" font-weight="600">REFLECTION TOKENS</text>
+
+  <!-- Corrective RAG -->
+  <rect x="600" y="75" width="270" height="165" rx="10" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" filter="url(#rs3)"/>
+  <rect x="600" y="75" width="270" height="28" rx="10" fill="#DC2626"/>
+  <rect x="600" y="93" width="270" height="10" fill="#DC2626"/>
+  <text x="735" y="96" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.3 Corrective RAG</text>
+  <text x="625" y="125" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Externer Evaluator:</text>
+  <!-- Three paths -->
+  <rect x="625" y="140" width="70" height="22" rx="4" fill="#065F46"/>
+  <text x="660" y="155" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="8">Correct</text>
+  <rect x="705" y="140" width="70" height="22" rx="4" fill="#7F1D1D"/>
+  <text x="740" y="155" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="8">Incorrect</text>
+  <rect x="785" y="140" width="70" height="22" rx="4" fill="#78350F"/>
+  <text x="820" y="155" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="8">Ambiguous</text>
+  <text x="625" y="185" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">+ Echtzeit-Websuche</text>
+  <text x="625" y="203" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">+ Query-Verfeinerung</text>
+  <rect x="625" y="215" width="80" height="18" rx="4" fill="#7F1D1D"/>
+  <text x="665" y="228" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="8" font-weight="600">3 PFADE</text>
+
+  <!-- Row 2: Adaptive, Agentic, Hybrid, Graph -->
+  <!-- Adaptive RAG -->
+  <rect x="30" y="260" width="200" height="155" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#rs3)"/>
+  <rect x="30" y="260" width="200" height="28" rx="10" fill="#D97706"/>
+  <rect x="30" y="278" width="200" height="10" fill="#D97706"/>
+  <text x="130" y="281" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.4 Adaptive RAG</text>
+  <text x="55" y="310" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Query-Classifier:</text>
+  <rect x="55" y="325" width="150" height="18" rx="4" fill="#78350F"/>
+  <text x="130" y="338" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="9">Single-Step → Multi-Step</text>
+  <rect x="55" y="348" width="150" height="18" rx="4" fill="#78350F"/>
+  <text x="130" y="361" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="9">oder Bypass Retrieval</text>
+  <rect x="55" y="380" width="80" height="20" rx="4" fill="#78350F" stroke="#F59E0B" stroke-width="1"/>
+  <text x="95" y="395" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="8" font-weight="700">EFFIZIENT</text>
+
+  <!-- Agentic RAG (highlighted) -->
+  <rect x="245" y="260" width="230" height="155" rx="10" fill="#1E293B" stroke="#10B981" stroke-width="2.5" filter="url(#rs3)"/>
+  <rect x="245" y="260" width="230" height="28" rx="10" fill="#059669"/>
+  <rect x="245" y="278" width="230" height="10" fill="#059669"/>
+  <text x="360" y="281" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.5 Agentic RAG</text>
+  <!-- Pipeline steps -->
+  <text x="270" y="310" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">1. Query Decomposition</text>
+  <text x="270" y="325" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">2. Parallel Execution</text>
+  <text x="270" y="340" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">3. Result Grading</text>
+  <text x="270" y="355" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">4. Self-Correction</text>
+  <text x="270" y="370" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">5. Synthesis</text>
+  <!-- Performance -->
+  <rect x="375" y="310" width="85" height="35" rx="6" fill="#065F46"/>
+  <text x="417" y="327" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="10" font-weight="700">78%</text>
+  <text x="417" y="340" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="7">Complex</text>
+  <rect x="375" y="350" width="85" height="35" rx="6" fill="#065F46"/>
+  <text x="417" y="367" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="10" font-weight="700">94.5%</text>
+  <text x="417" y="380" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="7">HotpotQA</text>
+  <rect x="270" y="393" width="100" height="18" rx="4" fill="#065F46" stroke="#10B981" stroke-width="1"/>
+  <text x="320" y="406" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="8" font-weight="700">DOMINANT 2026</text>
+
+  <!-- Hybrid RAG -->
+  <rect x="490" y="260" width="200" height="155" rx="10" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#rs3)"/>
+  <rect x="490" y="260" width="200" height="28" rx="10" fill="#2563EB"/>
+  <rect x="490" y="278" width="200" height="10" fill="#2563EB"/>
+  <text x="590" y="281" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.6 Hybrid RAG</text>
+  <text x="515" y="310" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Dense + Sparse Retrieval</text>
+  <text x="515" y="330" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Balance:</text>
+  <rect x="515" y="340" width="150" height="16" rx="3" fill="#1E3A5F"/>
+  <text x="590" y="352" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="8">Accuracy · Cost · Governance</text>
+  <rect x="515" y="393" width="150" height="18" rx="4" fill="#1E3A5F" stroke="#3B82F6" stroke-width="1"/>
+  <text x="590" y="406" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="8" font-weight="700">ENTERPRISE BASELINE</text>
+
+  <!-- Graph RAG -->
+  <rect x="705" y="260" width="170" height="155" rx="10" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5" filter="url(#rs3)"/>
+  <rect x="705" y="260" width="170" height="28" rx="10" fill="#7C3AED"/>
+  <rect x="705" y="278" width="170" height="10" fill="#7C3AED"/>
+  <text x="790" y="281" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3.7 Graph RAG</text>
+  <text x="730" y="310" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="10">Knowledge Graphs</text>
+  <text x="730" y="330" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Tiefes Reasoning</text>
+  <text x="730" y="350" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Beziehungsfragen</text>
+  <rect x="730" y="368" width="120" height="16" rx="3" fill="#2E1065"/>
+  <text x="790" y="380" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="8">Hohe Komplexitaet</text>
+  <rect x="730" y="393" width="120" height="18" rx="4" fill="#2E1065" stroke="#8B5CF6" stroke-width="1"/>
+  <text x="790" y="406" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="8" font-weight="700">SPEZIALIST</text>
+
+  <!-- Agentic RAG Detail Section -->
+  <text x="450" y="450" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="16" font-weight="700">Agentic RAG — Retrieval Pipeline im Detail</text>
+
+  <!-- 5-step pipeline -->
+  <rect x="40" y="475" width="150" height="60" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#rs3)"/>
+  <text x="115" y="498" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Query Analysis</text>
+  <text x="115" y="515" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Zerlegen in Sub-Queries</text>
+  <text x="115" y="528" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="14" font-weight="700">1</text>
+
+  <polygon points="200,505 215,498 215,512" fill="#10B981"/>
+
+  <rect x="220" y="475" width="150" height="60" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#rs3)"/>
+  <text x="295" y="498" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Parallel Exec</text>
+  <text x="295" y="515" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Sub-Queries parallel</text>
+  <text x="295" y="528" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="14" font-weight="700">2</text>
+
+  <polygon points="380,505 395,498 395,512" fill="#10B981"/>
+
+  <rect x="400" y="475" width="150" height="60" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#rs3)"/>
+  <text x="475" y="498" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Result Grading</text>
+  <text x="475" y="515" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Relevanz bewerten</text>
+  <text x="475" y="528" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="14" font-weight="700">3</text>
+
+  <polygon points="560,505 575,498 575,512" fill="#10B981"/>
+
+  <rect x="580" y="475" width="150" height="60" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#rs3)"/>
+  <text x="655" y="498" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Self-Correction</text>
+  <text x="655" y="515" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="9">Query reformulieren</text>
+  <text x="655" y="528" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="14" font-weight="700">4</text>
+
+  <!-- Feedback loop arrow from step 4 back to step 1 -->
+  <path d="M 655 535 L 655 555 L 115 555 L 115 535" fill="none" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <polygon points="115,535 108,545 122,545" fill="#F59E0B"/>
+  <text x="385" y="568" text-anchor="middle" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="9">Loop bei ungenuegenden Ergebnissen</text>
+
+  <polygon points="740,505 755,498 755,512" fill="#10B981"/>
+
+  <rect x="760" y="475" width="110" height="60" rx="8" fill="#059669" filter="url(#rs3)"/>
+  <text x="815" y="498" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Synthesis</text>
+  <text x="815" y="515" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">Strukturierte Antwort</text>
+  <text x="815" y="528" text-anchor="middle" fill="#D1FAE5" font-family="system-ui, sans-serif" font-size="14" font-weight="700">5</text>
+
+  <text x="450" y="600" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">RAG-Architektur-Patterns — Auswahl nach Komplexitaet, Performance und Kosten</text>
+</svg>

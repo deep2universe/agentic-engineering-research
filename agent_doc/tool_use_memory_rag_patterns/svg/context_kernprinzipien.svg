@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440">
+  <defs>
+    <linearGradient id="cbg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="cs2">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="440" fill="url(#cbg2)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Kernprinzipien des Context Engineering</text>
+
+  <!-- Principle 1: Finite Resource -->
+  <rect x="40" y="70" width="260" height="310" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#cs2)"/>
+  <rect x="40" y="70" width="260" height="34" rx="12" fill="#2563EB"/>
+  <rect x="40" y="90" width="260" height="14" fill="#2563EB"/>
+  <text x="170" y="93" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Endliche Ressource</text>
+
+  <!-- Tank metaphor -->
+  <rect x="100" y="120" width="140" height="160" rx="8" fill="#0F172A" stroke="#3B82F6" stroke-width="1.5"/>
+  <rect x="102" y="200" width="136" height="78" rx="6" fill="#2563EB" opacity="0.3"/>
+  <text x="170" y="245" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Attention Budget</text>
+  <text x="170" y="260" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="9">Jeder Token verbraucht</text>
+
+  <!-- Level markers -->
+  <text x="85" y="138" fill="#3B82F6" font-family="system-ui, sans-serif" font-size="8">100%</text>
+  <text x="85" y="205" fill="#3B82F6" font-family="system-ui, sans-serif" font-size="8">50%</text>
+  <text x="85" y="275" fill="#3B82F6" font-family="system-ui, sans-serif" font-size="8">0%</text>
+
+  <text x="170" y="310" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Abnehmender</text>
+  <text x="170" y="325" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Grenznutzen</text>
+  <text x="170" y="348" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Wie RAM bei Menschen</text>
+  <text x="170" y="370" text-anchor="middle" fill="#2563EB" font-family="system-ui, sans-serif" font-size="10" font-weight="700">JEDER TOKEN HAT KOSTEN</text>
+
+  <!-- Principle 2: Degradation -->
+  <rect x="320" y="70" width="260" height="310" rx="12" fill="#1E293B" stroke="#EF4444" stroke-width="2" filter="url(#cs2)"/>
+  <rect x="320" y="70" width="260" height="34" rx="12" fill="#DC2626"/>
+  <rect x="320" y="90" width="260" height="14" fill="#DC2626"/>
+  <text x="450" y="93" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Degradationsmuster</text>
+
+  <!-- U-curve attention -->
+  <text x="450" y="125" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11" font-weight="600">U-foermige Attention Curve</text>
+
+  <!-- U-curve visualization -->
+  <path d="M 350 155 Q 355 145, 370 150 Q 400 180, 450 190 Q 500 180, 530 150 Q 545 145, 550 155" fill="none" stroke="#EF4444" stroke-width="2.5"/>
+  <text x="360" y="145" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="8">Anfang</text>
+  <text x="450" y="210" text-anchor="middle" fill="#7F1D1D" font-family="system-ui, sans-serif" font-size="8">MITTE</text>
+  <text x="540" y="145" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="8">Ende</text>
+
+  <!-- Three degradation types -->
+  <rect x="345" y="225" width="210" height="26" rx="6" fill="#7F1D1D"/>
+  <text x="450" y="243" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="10">Lost-in-the-Middle</text>
+
+  <rect x="345" y="258" width="210" height="26" rx="6" fill="#7F1D1D"/>
+  <text x="450" y="276" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="10">U-foermige Attention</text>
+
+  <rect x="345" y="291" width="210" height="26" rx="6" fill="#7F1D1D"/>
+  <text x="450" y="309" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="10">Attention Scarcity</text>
+
+  <text x="450" y="348" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Vorhersehbare Muster</text>
+  <text x="450" y="370" text-anchor="middle" fill="#DC2626" font-family="system-ui, sans-serif" font-size="10" font-weight="700">MITTE WIRD IGNORIERT</text>
+
+  <!-- Principle 3: Minimal High-Signal -->
+  <rect x="600" y="70" width="260" height="310" rx="12" fill="#1E293B" stroke="#10B981" stroke-width="2" filter="url(#cs2)"/>
+  <rect x="600" y="70" width="260" height="34" rx="12" fill="#059669"/>
+  <rect x="600" y="90" width="260" height="14" fill="#059669"/>
+  <text x="730" y="93" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">High-Signal Tokens</text>
+
+  <!-- Signal/Noise bars -->
+  <text x="730" y="125" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Minimaler Token-Satz</text>
+
+  <!-- Before -->
+  <text x="625" y="155" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Vorher:</text>
+  <rect x="680" y="145" width="160" height="14" rx="3" fill="#334155"/>
+  <rect x="680" y="145" width="40" height="14" rx="3" fill="#059669" opacity="0.8"/>
+  <rect x="725" y="145" width="10" height="14" rx="3" fill="#059669" opacity="0.8"/>
+  <rect x="780" y="145" width="20" height="14" rx="3" fill="#059669" opacity="0.8"/>
+  <text x="820" y="155" fill="#64748B" font-family="system-ui, sans-serif" font-size="8">viel Noise</text>
+
+  <!-- After -->
+  <text x="625" y="190" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Nachher:</text>
+  <rect x="680" y="180" width="80" height="14" rx="3" fill="#059669" opacity="0.9"/>
+  <text x="770" y="190" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="8" font-weight="600">nur Signal!</text>
+
+  <!-- Focus -->
+  <text x="730" y="230" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">Kleinster Satz an Tokens</text>
+  <text x="730" y="248" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">der die Wahrscheinlichkeit</text>
+  <text x="730" y="266" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">der gewuenschten Ergebnisse</text>
+  <text x="730" y="284" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="10">maximiert.</text>
+
+  <rect x="640" y="300" width="180" height="28" rx="6" fill="#064E3B"/>
+  <text x="730" y="319" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="10" font-weight="700">Qualitaet &gt; Quantitaet</text>
+
+  <text x="730" y="370" text-anchor="middle" fill="#059669" font-family="system-ui, sans-serif" font-size="10" font-weight="700">SIGNAL MAXIMIEREN</text>
+
+  <!-- Footer -->
+  <text x="450" y="415" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Context als knappe Ressource behandeln — mit Degradationsmustern rechnen — Signal maximieren</text>
+</svg>

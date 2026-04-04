@@ -2,6 +2,8 @@
 
 ## 1. Ueberblick
 
+![MCP Ueberblick](svg/mcp_ueberblick.svg)
+
 Das Model Context Protocol (MCP) ist ein offener Standard, der von Anthropic im November 2024 eingefuehrt wurde und definiert, wie LLMs sich mit externen Tools und Datenquellen verbinden. MCP hat sich zum **Industriestandard** entwickelt mit:
 
 - **97 Millionen monatliche SDK-Downloads**
@@ -13,6 +15,8 @@ Das Model Context Protocol (MCP) ist ein offener Standard, der von Anthropic im 
 ---
 
 ## 2. Architektur
+
+![MCP Architektur](svg/mcp_architektur.svg)
 
 ### 2.1 Client-Server-Modell
 
@@ -36,6 +40,8 @@ MCP basiert auf einem Client-Server-Modell mit JSON-RPC-basiertem Protokoll:
 ---
 
 ## 3. Core Primitives
+
+![MCP Core Primitives](svg/mcp_core_primitives.svg)
 
 MCP definiert drei Kern-Primitives, die Server exponieren koennen:
 
@@ -68,6 +74,8 @@ Jeder Primitive-Typ hat zugehoerige Methoden:
 
 ## 4. Spezifikations-Updates (November 2025)
 
+![Spezifikations-Updates](svg/mcp_spec_updates.svg)
+
 Die November 2025-Spezifikation brachte wesentliche Erweiterungen:
 
 - **Asynchrone Operationen**: Unterstuetzung fuer lang laufende Tasks
@@ -81,6 +89,8 @@ Die Spezifikation erweitert MCP ueber synchrones Tool Calling hinaus zu einer Ar
 ---
 
 ## 5. MCP 2026 Roadmap
+
+![MCP Roadmap 2026](svg/mcp_roadmap_2026.svg)
 
 Die Roadmap wechselt von Release-basierter Planung zu **Working Groups als primaeres Entwicklungsvehikel**.
 
@@ -123,6 +133,8 @@ Die Roadmap wechselt von Release-basierter Planung zu **Working Groups als prima
 
 ## 6. MCP Patterns und Best Practices
 
+![MCP Patterns und Best Practices](svg/mcp_patterns_best_practices.svg)
+
 ### 6.1 Tool-Design
 
 - **Klare, praezise Beschreibungen** fuer jedes Tool (Prompt Engineering fuer Tools)
@@ -156,6 +168,8 @@ Fruehe MCP-Implementierungen hatten Sicherheitsluecken:
 
 ## 7. Entwicklungsflexibilitaet
 
+![Entwicklungsflexibilitaet](svg/mcp_entwicklungsflexibilitaet.svg)
+
 MCP kann in **jeder Programmiersprache** implementiert werden, die:
 - Auf stdout drucken kann (fuer Stdio Transport)
 - Einen HTTP-Endpoint bereitstellen kann (fuer Streamable HTTP)
@@ -165,6 +179,8 @@ Entwickler koennen ihren bevorzugten Technology Stack waehlen.
 ---
 
 ## 8. Zusammenfassung
+
+![MCP Zusammenfassung](svg/mcp_zusammenfassung.svg)
 
 MCP hat sich innerhalb eines Jahres vom internen Experiment zum Industriestandard entwickelt. Die wichtigsten Entwicklungen 2026:
 

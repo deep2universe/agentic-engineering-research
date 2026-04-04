@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 340">
+  <defs>
+    <linearGradient id="gbg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="gs2">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="340" fill="url(#gbg2)" rx="16"/>
+  <text x="450" y="35" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="20" font-weight="700">Gesamtbericht — Tool Use Patterns</text>
+
+  <!-- Workflow -->
+  <text x="450" y="65" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Context Assembly → Tool Decision → Tool Execution → Response Generation</text>
+
+  <!-- Table-like layout -->
+  <rect x="30" y="85" width="200" height="100" rx="8" fill="#1E293B" stroke="#6366F1" stroke-width="1.5" filter="url(#gs2)"/>
+  <text x="130" y="108" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="12" font-weight="700">ReAct</text>
+  <text x="130" y="128" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Reasoning + Action</text>
+  <text x="130" y="145" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Loop</text>
+  <rect x="65" y="155" width="130" height="18" rx="4" fill="#312E81"/>
+  <text x="130" y="169" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="8" font-weight="600">STANDARD</text>
+
+  <rect x="245" y="85" width="200" height="100" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#gs2)"/>
+  <text x="345" y="108" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Plan-and-Execute</text>
+  <text x="345" y="128" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Frontier plant,</text>
+  <text x="345" y="145" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">guenstigere fuehren aus</text>
+  <rect x="280" y="155" width="130" height="18" rx="4" fill="#065F46"/>
+  <text x="345" y="169" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="8" font-weight="600">-90% KOSTEN</text>
+
+  <rect x="460" y="85" width="200" height="100" rx="8" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#gs2)"/>
+  <text x="560" y="108" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Tool Search</text>
+  <text x="560" y="128" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">RAG auf Tools,</text>
+  <text x="560" y="145" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">unter 30 laden</text>
+  <rect x="495" y="155" width="130" height="18" rx="4" fill="#1E3A5F"/>
+  <text x="560" y="169" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="8" font-weight="600">3X ACCURACY</text>
+
+  <rect x="675" y="85" width="200" height="100" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#gs2)"/>
+  <text x="775" y="108" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Model Tiering</text>
+  <text x="775" y="128" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Guenstig: Routing</text>
+  <text x="775" y="145" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Teuer: Reasoning</text>
+  <rect x="710" y="155" width="130" height="18" rx="4" fill="#78350F"/>
+  <text x="775" y="169" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="8" font-weight="600">-40-60% KOSTEN</text>
+
+  <!-- Tool Selection + Chaining + Security row -->
+  <rect x="30" y="205" width="270" height="55" rx="8" fill="#1E293B" stroke="#8B5CF6" stroke-width="1" filter="url(#gs2)"/>
+  <text x="165" y="230" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Tool Selection: Direct | Search | Dynamic</text>
+  <text x="165" y="248" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Prompt Engineering fuer Tools</text>
+
+  <rect x="315" y="205" width="270" height="55" rx="8" fill="#1E293B" stroke="#06B6D4" stroke-width="1" filter="url(#gs2)"/>
+  <text x="450" y="230" text-anchor="middle" fill="#67E8F9" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Tool Chaining: Seq | Concurrent | Hierarch</text>
+  <text x="450" y="248" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Verkettung fuer komplexe Workflows</text>
+
+  <rect x="600" y="205" width="270" height="55" rx="8" fill="#1E293B" stroke="#EF4444" stroke-width="1" filter="url(#gs2)"/>
+  <text x="735" y="230" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Sicherheit: Angriffserfolg &gt;50%</text>
+  <text x="735" y="248" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Prompt Injection, Tool Poisoning</text>
+
+  <text x="450" y="300" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Kostenoptimierung von Agents ist eine erstklassige architektonische Angelegenheit 2026</text>
+</svg>

@@ -2,11 +2,15 @@
 
 ## 1. Ueberblick
 
+![Tool Use Ueberblick](svg/tool_use_ueberblick.svg)
+
 Tool Use (auch Function Calling genannt) ist eine der Kernfaehigkeiten moderner LLM-basierter Agents. Es ermoeglicht LLMs die Interaktion mit externen Tools, APIs und Wissensquellen. Wenn ein LLM eine Anfrage erhaelt, die Informationen oder Aktionen jenseits seiner Trainingsdaten erfordert, kann es entscheiden, eine externe Funktion aufzurufen.
 
 ---
 
 ## 2. Function Calling Patterns
+
+![Function Calling Patterns](svg/tool_use_function_calling.svg)
 
 ### 2.1 Grundlegender Function Calling Workflow
 
@@ -36,6 +40,8 @@ Ein leistungsfaehiges Modell erstellt eine Strategie, die guenstigere Modelle au
 
 ## 3. Tool Selection Patterns
 
+![Tool Selection Patterns](svg/tool_use_selection_patterns.svg)
+
 ### 3.1 Direkte Tool Selection
 
 Das LLM waehlt basierend auf den Tool-Beschreibungen direkt das passende Tool aus. Die Qualitaet der Funktionsbeschreibungen bestimmt direkt, wie zuverlaessig das LLM die richtige Funktion auswaehlt -- dies ist im Wesentlichen **Prompt Engineering fuer Tools**.
@@ -61,6 +67,8 @@ Ein gaengiges Produktionsmuster ist Model Tiering: ein schnelles, guenstiges Mod
 
 ## 4. Tool Chaining Patterns
 
+![Tool Chaining Patterns](svg/tool_use_chaining_patterns.svg)
+
 ### 4.1 Sequential Chaining
 
 Agents werden in einer vordefinierten, linearen Reihenfolge verkettet, wobei jeder Agent die Ausgabe des vorherigen Agents verarbeitet.
@@ -77,6 +85,8 @@ Eine mehrstufige "Befehlskette" von AI Agents, bei der ein Top-Level Manager-Age
 
 ## 5. Sicherheitsaspekte beim Tool Use
 
+![Sicherheitsaspekte](svg/tool_use_sicherheit.svg)
+
 Function Calling birgt erhebliche Sicherheitsrisiken:
 
 - **Direct Prompt Injection**: Boesartige Eingaben, die den Agent manipulieren.
@@ -92,6 +102,8 @@ Function-Calling Agents sind anfaellig fuer **semantischen Drift** unter Paraphr
 
 ## 6. Standards und Protokolle
 
+![Standards und Protokolle](svg/tool_use_standards.svg)
+
 ### 6.1 Model Context Protocol (MCP)
 
 MCP ist der gewinnende Standard fuer die Tool- und Datenintegrationsschicht. Es ist jetzt die Standardmethode, wie LLMs sich mit externen Tools und Datenquellen verbinden -- mit ueber 75 Connectors allein in Claude.
@@ -103,6 +115,8 @@ Googles A2A-Protokoll loest das Problem, wie Agents miteinander kommunizieren, m
 ---
 
 ## 7. Best Practices (Zusammenfassung)
+
+![Best Practices](svg/tool_use_best_practices.svg)
 
 1. **Tool-Beschreibungen sorgfaeltig gestalten** -- sie sind das Prompt Engineering fuer Tools.
 2. **Tool Search implementieren** bei mehr als 30 Tools.

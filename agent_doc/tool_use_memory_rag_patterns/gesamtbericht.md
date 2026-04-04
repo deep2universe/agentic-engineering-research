@@ -18,6 +18,8 @@
 
 ## 1. Einfuehrung
 
+![Gesamtbericht Einfuehrung](svg/gesamt_einfuehrung.svg)
+
 Dieses Dokument fasst die aktuellen Erkenntnisse zu Tool Use, Memory und RAG Patterns fuer AI Agents zusammen, basierend auf einer umfassenden Recherche von ueber 70 Quellen (Stand: April 2026). Die detaillierten Einzelberichte befinden sich in separaten Dateien:
 
 - `tool_use_patterns.md` -- Function Calling, Tool Selection, Tool Chaining
@@ -30,6 +32,8 @@ Dieses Dokument fasst die aktuellen Erkenntnisse zu Tool Use, Memory und RAG Pat
 ---
 
 ## 2. Tool Use Patterns
+
+![Tool Use Patterns](svg/gesamt_tool_use.svg)
 
 ### 2.1 Function Calling als Kernfaehigkeit
 
@@ -63,6 +67,8 @@ Function Calling birgt erhebliche Risiken (Angriffserfolgsraten >50%): Prompt In
 ---
 
 ## 3. Memory Patterns
+
+![Memory Patterns](svg/gesamt_memory.svg)
 
 ### 3.1 Memory-Typen (Standard 2026)
 
@@ -106,6 +112,8 @@ Zentrales Pattern: Aeltere Konversationssegmente werden progressiv komprimiert. 
 
 ## 4. RAG Patterns
 
+![RAG Patterns](svg/gesamt_rag.svg)
+
 ### 4.1 Evolution von RAG
 
 RAG hat sich von einer einfachen Retrieve-Generate-Pipeline zu einem **Context Engine** entwickelt:
@@ -145,6 +153,8 @@ Dominantes Pattern 2026 mit Agent-Controlled Retrieval Loop:
 
 ## 5. Context Engineering und Context Management
 
+![Context Engineering](svg/gesamt_context_engineering.svg)
+
 ### 5.1 Definition
 
 Context Engineering ist die Weiterentwicklung von Prompt Engineering. Es umfasst die Gestaltung der **gesamten Informationsumgebung** eines LLM -- nicht nur den Prompt, sondern auch Retrieval-Ergebnisse, Tool-Outputs und Konversationshistorie.
@@ -183,6 +193,8 @@ Best Practice fuer Coding Agents: Markdown-Dateien im Repository pflegen (z.B. C
 ---
 
 ## 6. MCP (Model Context Protocol)
+
+![MCP](svg/gesamt_mcp.svg)
 
 ### 6.1 Status 2026
 
@@ -224,6 +236,8 @@ Erweitert MCP ueber synchrones Tool Calling hinaus:
 ---
 
 ## 7. Zusammenfassung und Trends 2026
+
+![Trends 2026](svg/gesamt_trends_2026.svg)
 
 ### 7.1 Uebergreifende Trends
 

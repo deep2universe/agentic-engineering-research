@@ -2,6 +2,8 @@
 
 ## 1. Ueberblick
 
+![RAG Ueberblick](svg/rag_ueberblick.svg)
+
 Retrieval-Augmented Generation (RAG) hat sich von einem relativ einfachen Retriever-Generator-Pipeline zu einer ausgereiften Enterprise-Intelligence-Architektur mit multimodalen Faehigkeiten, hybriden Retrieval Engines und erweiterten Filtering-Schichten entwickelt. RAG treibt stillschweigend die meisten modernen AI Agents, Copilots und Chat-Systeme an.
 
 Im Jahr 2026 befindet sich RAG in einer **modularen und agentischen Phase**: Moderne Systeme sind nicht mehr linear, sondern iterativ und selbstkorrigierend.
@@ -9,6 +11,8 @@ Im Jahr 2026 befindet sich RAG in einer **modularen und agentischen Phase**: Mod
 ---
 
 ## 2. Evolution: Von RAG zum Context Engine
+
+![RAG Evolution](svg/rag_evolution.svg)
 
 RAG durchlaeuft eine tiefgreifende Metamorphose und entwickelt sich vom spezifischen Pattern "Retrieval-Augmented Generation" zu einem **Context Engine** mit "intelligenter Retrieval" als Kernfaehigkeit.
 
@@ -23,6 +27,8 @@ RAG durchlaeuft eine tiefgreifende Metamorphose und entwickelt sich vom spezifis
 ---
 
 ## 3. RAG-Architektur-Patterns
+
+![RAG Architektur Patterns](svg/rag_architektur_patterns.svg)
 
 ### 3.1 Naive RAG (Baseline)
 
@@ -82,6 +88,8 @@ Nutzt Knowledge Graphs fuer strukturierte Informationsextraktion:
 
 ## 4. Enterprise RAG (2026)
 
+![Enterprise RAG](svg/rag_enterprise.svg)
+
 ### 4.1 Governance-Anforderungen
 
 Enterprise RAG scheitert ohne Governance:
@@ -101,6 +109,8 @@ Der Trend geht zu **Knowledge Runtimes**, die Retrieval, Verification, Reasoning
 
 ## 5. RAG vs. Long Context Windows
 
+![RAG vs Context Windows](svg/rag_vs_context_windows.svg)
+
 Trotz wachsender Context Windows (bis 10M Tokens 2026) bleibt RAG relevant:
 - **Kosteneffizienz**: RAG ist guenstiger als volle Context-Auslastung
 - **Aktualitaet**: RAG kann auf aktuelle Daten zugreifen
@@ -110,6 +120,8 @@ Trotz wachsender Context Windows (bis 10M Tokens 2026) bleibt RAG relevant:
 ---
 
 ## 6. Best Practices
+
+![RAG Best Practices](svg/rag_best_practices.svg)
 
 1. **Hybrid RAG als Enterprise-Baseline** verwenden.
 2. **Agentic RAG** fuer komplexe, mehrstufige Anfragen einsetzen.

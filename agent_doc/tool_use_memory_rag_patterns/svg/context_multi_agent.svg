@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="cbg5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="cs5">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="400" fill="url(#cbg5)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Multi-Agent Context-Architekturen</text>
+
+  <!-- Pattern 1: Agents as Tools -->
+  <rect x="30" y="70" width="270" height="280" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#cs5)"/>
+  <rect x="30" y="70" width="270" height="32" rx="12" fill="#2563EB"/>
+  <rect x="30" y="90" width="270" height="12" fill="#2563EB"/>
+  <text x="165" y="92" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Agents as Tools</text>
+  <text x="165" y="125" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="11">(Google ADK)</text>
+
+  <!-- Root Agent -->
+  <rect x="90" y="145" width="150" height="45" rx="8" fill="#2563EB" filter="url(#cs5)"/>
+  <text x="165" y="167" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Root Agent</text>
+  <text x="165" y="183" text-anchor="middle" fill="#BFDBFE" font-family="system-ui, sans-serif" font-size="9">Instructions + Context</text>
+
+  <!-- Sub-agents as tools -->
+  <line x1="130" y1="190" x2="100" y2="220" stroke="#3B82F6" stroke-width="1.5"/>
+  <line x1="200" y1="190" x2="230" y2="220" stroke="#3B82F6" stroke-width="1.5"/>
+
+  <rect x="55" y="220" width="90" height="40" rx="6" fill="#1E3A5F"/>
+  <text x="100" y="238" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Sub-Agent A</text>
+  <text x="100" y="252" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="7">als Funktion</text>
+
+  <rect x="185" y="220" width="90" height="40" rx="6" fill="#1E3A5F"/>
+  <text x="230" y="238" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="9" font-weight="600">Sub-Agent B</text>
+  <text x="230" y="252" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="7">als Funktion</text>
+
+  <text x="165" y="290" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Sub-Agents haben nur</text>
+  <text x="165" y="305" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">begrenzten Session-Context</text>
+  <rect x="95" y="320" width="140" height="20" rx="4" fill="#1E3A5F"/>
+  <text x="165" y="335" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="8" font-weight="700">ISOLATION</text>
+
+  <!-- Pattern 2: Agent Transfer -->
+  <rect x="315" y="70" width="270" height="280" rx="12" fill="#1E293B" stroke="#10B981" stroke-width="2" filter="url(#cs5)"/>
+  <rect x="315" y="70" width="270" height="32" rx="12" fill="#059669"/>
+  <rect x="315" y="90" width="270" height="12" fill="#059669"/>
+  <text x="450" y="92" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Agent Transfer</text>
+  <text x="450" y="125" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="11">(Hierarchy)</text>
+
+  <!-- Control transfer -->
+  <rect x="375" y="145" width="150" height="45" rx="8" fill="#059669" filter="url(#cs5)"/>
+  <text x="450" y="167" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Parent Agent</text>
+  <text x="450" y="183" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">Uebergibt Kontrolle</text>
+
+  <!-- Transfer arrow -->
+  <line x1="450" y1="190" x2="450" y2="220" stroke="#10B981" stroke-width="2"/>
+  <polygon points="450,220 443,210 457,210" fill="#10B981"/>
+  <text x="470" y="210" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="8">Transfer</text>
+
+  <rect x="375" y="225" width="150" height="45" rx="8" fill="#065F46" filter="url(#cs5)"/>
+  <text x="450" y="247" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Sub-Agent</text>
+  <text x="450" y="263" text-anchor="middle" fill="#A7F3D0" font-family="system-ui, sans-serif" font-size="9">Erbt Session-Context</text>
+
+  <text x="450" y="295" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Sub-Agent erbt eine Sicht</text>
+  <text x="450" y="310" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">auf die Session und steuert</text>
+  <rect x="380" y="320" width="140" height="20" rx="4" fill="#064E3B"/>
+  <text x="450" y="335" text-anchor="middle" fill="#34D399" font-family="system-ui, sans-serif" font-size="8" font-weight="700">CONTEXT-VERERBUNG</text>
+
+  <!-- Pattern 3: Orchestrator -->
+  <rect x="600" y="70" width="270" height="280" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="2" filter="url(#cs5)"/>
+  <rect x="600" y="70" width="270" height="32" rx="12" fill="#D97706"/>
+  <rect x="600" y="90" width="270" height="12" fill="#D97706"/>
+  <text x="735" y="92" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Orchestrator</text>
+  <text x="735" y="125" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="11">("Puppeteer")</text>
+
+  <!-- Orchestrator -->
+  <rect x="670" y="145" width="130" height="40" rx="8" fill="#D97706" filter="url(#cs5)"/>
+  <text x="735" y="170" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">Orchestrator</text>
+
+  <!-- Fan out to specialists -->
+  <line x1="700" y1="185" x2="650" y2="215" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="735" y1="185" x2="735" y2="215" stroke="#F59E0B" stroke-width="1.5"/>
+  <line x1="770" y1="185" x2="820" y2="215" stroke="#F59E0B" stroke-width="1.5"/>
+
+  <rect x="615" y="215" width="70" height="35" rx="6" fill="#78350F"/>
+  <text x="650" y="237" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="8" font-weight="600">Spezialist 1</text>
+
+  <rect x="700" y="215" width="70" height="35" rx="6" fill="#78350F"/>
+  <text x="735" y="237" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="8" font-weight="600">Spezialist 2</text>
+
+  <rect x="785" y="215" width="70" height="35" rx="6" fill="#78350F"/>
+  <text x="820" y="237" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="8" font-weight="600">Spezialist 3</text>
+
+  <text x="735" y="280" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Orchestrierte Teams</text>
+  <text x="735" y="295" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">statt Allzweck-Agents</text>
+  <rect x="665" y="320" width="140" height="20" rx="4" fill="#78350F"/>
+  <text x="735" y="335" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="8" font-weight="700">SPEZIALISIERUNG</text>
+
+  <text x="450" y="385" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Drei Patterns: Isolation (Tools) | Vererbung (Transfer) | Koordination (Orchestrator)</text>
+</svg>

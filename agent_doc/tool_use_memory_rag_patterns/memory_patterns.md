@@ -2,11 +2,15 @@
 
 ## 1. Ueberblick
 
+![Memory Ueberblick](svg/memory_ueberblick.svg)
+
 Memory ist eine der kritischsten Komponenten moderner AI Agents. Die Faehigkeit von LLMs, Informationen ueber erweiterte Sitzungen hinweg zu behalten, bleibt durch feste Context Windows und unkontrollierte Memory-Akkumulation begrenzt. Mit zunehmender Dialoglaenge werden fruehere kontextuelle Signale komprimiert oder verworfen, was zu Verlust von Persona-Konsistenz, Entity Drift und faktischer Instabilitaet fuehrt.
 
 ---
 
 ## 2. Memory-Typen
+
+![Memory-Typen](svg/memory_typen.svg)
 
 ### 2.1 Short-Term Memory (In-Context Memory)
 
@@ -48,6 +52,8 @@ Procedural Memory kodiert Verhaltensmuster:
 
 ## 3. Memory-Architektur-Patterns
 
+![Memory Architektur Patterns](svg/memory_architektur_patterns.svg)
+
 ### 3.1 Static STM mit Trigger-basiertem LTM
 
 Traditionelles Pattern, bei dem Short-Term Memory statisch verwaltet wird und Long-Term Memory durch definierte Trigger aktiviert wird.
@@ -75,6 +81,8 @@ Letta (vormals MemGPT) fuehrt ein **LLM-as-Operating-System**-Paradigma ein mit 
 ---
 
 ## 4. Memory Frameworks (2026)
+
+![Memory Frameworks](svg/memory_frameworks.svg)
 
 ### 4.1 Mem0
 
@@ -109,6 +117,8 @@ Letta (vormals MemGPT) fuehrt ein **LLM-as-Operating-System**-Paradigma ein mit 
 
 ## 5. Hierarchical Summarization
 
+![Hierarchical Summarization](svg/memory_hierarchical_summarization.svg)
+
 Ein zentrales Pattern fuer Memory Management:
 
 - Aeltere Konversationssegmente werden komprimiert, waehrend wesentliche Informationen erhalten bleiben
@@ -119,6 +129,8 @@ Ein zentrales Pattern fuer Memory Management:
 
 ## 6. Multi-Layered Memory Architecture (2026)
 
+![Multi-Layered Memory Architecture](svg/memory_multi_layered.svg)
+
 Ein Forschungsthema von Maerz 2026: Experimentelle Evaluation der langfristigen Context-Retention durch geschichtete Short-Term, Working und Long-Term Memory-Systeme.
 
 Hierarchische Memory-Architekturen sind ein **Hauptfokusbereich 2026**, die es Modellen ermoeglichen, grosse Informationsmengen ueber erweiterte Interaktionen hinweg zu verarbeiten und zu erinnern.
@@ -126,6 +138,8 @@ Hierarchische Memory-Architekturen sind ein **Hauptfokusbereich 2026**, die es M
 ---
 
 ## 7. Best Practices
+
+![Memory Best Practices](svg/memory_best_practices.svg)
 
 1. **Memory als Tool-Aktionen exponieren** -- Agents sollten autonom ueber Speichern, Abrufen und Loeschen entscheiden koennen.
 2. **Hierarchische Summarization einsetzen** -- aeltere Informationen progressiv komprimieren.

@@ -2,6 +2,8 @@
 
 ## 1. Ueberblick
 
+![Context Engineering Ueberblick](svg/context_ueberblick.svg)
+
 Context Engineering ist die natuerliche Weiterentwicklung von Prompt Engineering. Waehrend Prompt Engineering fragt "Wie sollte ich das formulieren?", fragt Context Engineering "Welche Informationen braucht das Modell gerade Zugriff auf?". Es umfasst die Gestaltung der gesamten Informationsumgebung, die ein LLM erhaelt -- nicht nur den Prompt, sondern auch abgerufenes Wissen, Tool-Ergebnisse und Konversationshistorie.
 
 Bei Anthropic wird Context Engineering als die Menge an Strategien definiert, die den optimalen Satz an Tokens (Informationen) waehrend der LLM-Inferenz kuratieren und pflegen.
@@ -9,6 +11,8 @@ Bei Anthropic wird Context Engineering als die Menge an Strategien definiert, di
 ---
 
 ## 2. Kernprinzipien
+
+![Kernprinzipien](svg/context_kernprinzipien.svg)
 
 ### 2.1 Context als endliche Ressource
 
@@ -28,6 +32,8 @@ Effektives Context Engineering bedeutet, den **kleinsten moeglichen Satz an High
 ---
 
 ## 3. Context Engineering Techniken
+
+![Context Engineering Techniken](svg/context_techniken.svg)
 
 ### 3.1 Dynamic Context Assembly
 
@@ -73,6 +79,8 @@ RAG auf Tool-Beschreibungen anwenden:
 
 ## 4. Context Window Anxiety Management
 
+![Context Window Anxiety](svg/context_anxiety.svg)
+
 Modelle wie Claude Sonnet 4.5 zeigen "Context Anxiety" -- sie werden sich der Annaeherung an Context Window-Grenzen bewusst und:
 - Fassen proaktiv Fortschritte zusammen
 - Treffen entschiedene Schritte, um Aufgaben abzuschliessen
@@ -83,6 +91,8 @@ Dies ist ein zu beachtendes Phaenomen bei der Agent-Entwicklung.
 ---
 
 ## 5. Multi-Agent Context-Architekturen
+
+![Multi-Agent Context-Architekturen](svg/context_multi_agent.svg)
 
 ### 5.1 Agents as Tools (Google ADK)
 
@@ -100,6 +110,8 @@ Die Kontrolle wird an einen Sub-Agent uebergeben, der eine Sicht auf die Session
 
 ## 6. Agentic Context Engineering (ACE)
 
+![Agentic Context Engineering](svg/context_ace.svg)
+
 Ein neuer Forschungsansatz (2025), bei dem sich der Context wie ein **Playbook entwickelt, das sich selbst aktualisiert** basierend auf Model-Performance-Feedback:
 - Context evolves basierend auf Leistungsrueckmeldungen
 - Selbstverbessernde Kontexte fuer Language Models
@@ -108,6 +120,8 @@ Ein neuer Forschungsansatz (2025), bei dem sich der Context wie ein **Playbook e
 ---
 
 ## 7. Versionskontrollierte Context-Dateien
+
+![Versionskontrollierte Context-Dateien](svg/context_versionskontrolle.svg)
 
 Anbieter agentischer Tools wie Claude Code empfehlen die Pflege von **versionskontrollierten Markdown-Dateien**, die Aspekte beschreiben wie:
 - Projektstruktur
@@ -121,6 +135,8 @@ Diese dienen als persistenter, strukturierter Context fuer Coding Agents.
 
 ## 8. Context Windows 2026: Aktuelle Groessen
 
+![Context Windows 2026](svg/context_windows_2026.svg)
+
 Die Context Window-Groessen wachsen stetig:
 - Aktuelle Modelle bieten 1M bis 10M Tokens
 - Trotzdem bleibt die effektive Nutzung des Context (nicht nur die Groesse) der entscheidende Faktor
@@ -129,6 +145,8 @@ Die Context Window-Groessen wachsen stetig:
 ---
 
 ## 9. Best Practices (Zusammenfassung)
+
+![Best Practices](svg/context_best_practices.svg)
 
 1. **Context als knappe Ressource behandeln** -- jeder Token hat Kosten.
 2. **Dynamic Context Assembly** pro Request implementieren.

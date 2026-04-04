@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bg7" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="sh7">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="500" fill="url(#bg7)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Tool Use — Best Practices</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">9 zentrale Empfehlungen fuer produktionsreife AI Agents</text>
+
+  <!-- Grid of 9 practices -->
+  <!-- Row 1 -->
+  <rect x="40" y="85" width="260" height="110" rx="10" fill="#1E293B" stroke="#6366F1" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="65" cy="110" r="14" fill="#4F46E5"/>
+  <text x="65" y="115" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">1</text>
+  <text x="160" y="110" text-anchor="middle" fill="#C7D2FE" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Tool-Beschreibungen</text>
+  <text x="160" y="132" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Sorgfaeltig gestalten —</text>
+  <text x="160" y="147" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Prompt Engineering fuer Tools</text>
+  <rect x="85" y="160" width="170" height="20" rx="4" fill="#312E81"/>
+  <text x="170" y="175" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="9" font-weight="600">SELECTION ACCURACY</text>
+
+  <rect x="320" y="85" width="260" height="110" rx="10" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="345" cy="110" r="14" fill="#2563EB"/>
+  <text x="345" y="115" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">2</text>
+  <text x="440" y="110" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Tool Search</text>
+  <text x="440" y="132" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Implementieren bei &gt;30 Tools</text>
+  <text x="440" y="147" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">RAG auf Tool-Definitionen</text>
+  <rect x="365" y="160" width="170" height="20" rx="4" fill="#1E3A5F"/>
+  <text x="450" y="175" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="9" font-weight="600">3X BESSERE ACCURACY</text>
+
+  <rect x="600" y="85" width="260" height="110" rx="10" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="625" cy="110" r="14" fill="#059669"/>
+  <text x="625" y="115" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">3</text>
+  <text x="720" y="110" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="12" font-weight="700">ReAct / Plan-Execute</text>
+  <text x="720" y="132" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Je nach Komplexitaet waehlen</text>
+  <text x="720" y="147" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Plan-Execute: -90% Kosten</text>
+  <rect x="645" y="160" width="170" height="20" rx="4" fill="#064E3B"/>
+  <text x="730" y="175" text-anchor="middle" fill="#34D399" font-family="system-ui, sans-serif" font-size="9" font-weight="600">KOSTENOPTIMIERUNG</text>
+
+  <!-- Row 2 -->
+  <rect x="40" y="215" width="260" height="110" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="65" cy="240" r="14" fill="#D97706"/>
+  <text x="65" y="245" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">4</text>
+  <text x="160" y="240" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Model Tiering</text>
+  <text x="160" y="262" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Guenstiges Modell: Triage</text>
+  <text x="160" y="277" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Teures Modell: Reasoning</text>
+  <rect x="85" y="290" width="170" height="20" rx="4" fill="#78350F"/>
+  <text x="170" y="305" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="9" font-weight="600">-40-60% KOSTEN</text>
+
+  <rect x="320" y="215" width="260" height="110" rx="10" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="345" cy="240" r="14" fill="#7C3AED"/>
+  <text x="345" y="245" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">5</text>
+  <text x="440" y="240" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Thought Paths</text>
+  <text x="440" y="262" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Begruendung vor Tool Call</text>
+  <text x="440" y="277" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Observation danach</text>
+  <rect x="365" y="290" width="170" height="20" rx="4" fill="#2E1065"/>
+  <text x="450" y="305" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="9" font-weight="600">EXPLIZIT HALTEN</text>
+
+  <rect x="600" y="215" width="260" height="110" rx="10" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="625" cy="240" r="14" fill="#DC2626"/>
+  <text x="625" y="245" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">6</text>
+  <text x="720" y="240" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Sicherheit</text>
+  <text x="720" y="262" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Prompt Injection Schutz</text>
+  <text x="720" y="277" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Tool Poisoning verhindern</text>
+  <rect x="645" y="290" width="170" height="20" rx="4" fill="#7F1D1D"/>
+  <text x="730" y="305" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="9" font-weight="600">KRITISCH</text>
+
+  <!-- Row 3 -->
+  <rect x="40" y="345" width="260" height="100" rx="10" fill="#1E293B" stroke="#06B6D4" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="65" cy="370" r="14" fill="#0891B2"/>
+  <text x="65" y="375" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">7</text>
+  <text x="160" y="370" text-anchor="middle" fill="#67E8F9" font-family="system-ui, sans-serif" font-size="12" font-weight="700">MCP Standard</text>
+  <text x="160" y="392" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Als Integrationsstandard nutzen</text>
+
+  <rect x="320" y="345" width="260" height="100" rx="10" fill="#1E293B" stroke="#EC4899" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="345" cy="370" r="14" fill="#DB2777"/>
+  <text x="345" y="375" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">8</text>
+  <text x="440" y="370" text-anchor="middle" fill="#F9A8D4" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Governance</text>
+  <text x="440" y="392" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Human-in-the-Loop: 2x Einsparungen</text>
+
+  <rect x="600" y="345" width="260" height="100" rx="10" fill="#1E293B" stroke="#84CC16" stroke-width="1.5" filter="url(#sh7)"/>
+  <circle cx="625" cy="370" r="14" fill="#65A30D"/>
+  <text x="625" y="375" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="12" font-weight="700">9</text>
+  <text x="720" y="370" text-anchor="middle" fill="#BEF264" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Observability</text>
+  <text x="720" y="392" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">89% haben es implementiert</text>
+
+  <text x="450" y="480" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Tool Use Best Practices — Architektonische Grundlagen fuer produktionsreife AI Agents</text>
+</svg>

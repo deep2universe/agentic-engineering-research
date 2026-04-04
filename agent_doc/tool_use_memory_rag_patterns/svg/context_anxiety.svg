@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320">
+  <defs>
+    <linearGradient id="cbg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="cs4">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="320" fill="url(#cbg4)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Context Window Anxiety</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">Modelle werden sich der Context-Grenzen bewusst und reagieren</text>
+
+  <!-- Context bar filling up -->
+  <rect x="80" y="90" width="740" height="50" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Fill gradient showing anxiety zone -->
+  <rect x="82" y="92" width="500" height="46" rx="8" fill="#2563EB" opacity="0.3"/>
+  <rect x="582" y="92" width="100" height="46" rx="8" fill="#F59E0B" opacity="0.3"/>
+  <rect x="682" y="92" width="134" height="46" rx="0 8 8 0" fill="#EF4444" opacity="0.3"/>
+
+  <text x="332" y="120" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Normaler Betrieb</text>
+  <text x="632" y="120" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Anxiety Zone</text>
+  <text x="750" y="120" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Grenze</text>
+
+  <!-- Anxiety behaviors -->
+  <text x="450" y="175" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Claude Sonnet 4.5 zeigt proaktive Verhaltensaenderungen:</text>
+
+  <rect x="60" y="195" width="250" height="65" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#cs4)"/>
+  <text x="185" y="222" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Proaktive Zusammenfassung</text>
+  <text x="185" y="245" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Fasst Fortschritte zusammen</text>
+
+  <rect x="325" y="195" width="250" height="65" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#cs4)"/>
+  <text x="450" y="222" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Entschiedene Schritte</text>
+  <text x="450" y="245" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Versucht Aufgaben abzuschliessen</text>
+
+  <rect x="590" y="195" width="250" height="65" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#cs4)"/>
+  <text x="715" y="222" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Auch wenn genug da ist</text>
+  <text x="715" y="245" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">False Positive bei Anxiety</text>
+
+  <!-- Warning -->
+  <rect x="200" y="280" width="500" height="28" rx="6" fill="#78350F" stroke="#F59E0B" stroke-width="1"/>
+  <text x="450" y="299" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Bei Agent-Entwicklung beachten und ggf. entschaerfen</text>
+</svg>
