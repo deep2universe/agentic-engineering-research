@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440">
+  <defs>
+    <linearGradient id="mcpbg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="mcps6">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="440" fill="url(#mcpbg6)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">MCP Patterns und Best Practices</text>
+
+  <!-- Multi-Agent Collaboration -->
+  <rect x="40" y="70" width="400" height="200" rx="12" fill="#1E293B" stroke="#3B82F6" stroke-width="2" filter="url(#mcps6)"/>
+  <rect x="40" y="70" width="400" height="30" rx="12" fill="#2563EB"/>
+  <rect x="40" y="88" width="400" height="12" fill="#2563EB"/>
+  <text x="240" y="90" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Multi-Agent Collaboration via MCP</text>
+
+  <!-- Agent squad visualization -->
+  <rect x="85" y="115" width="95" height="40" rx="6" fill="#1E3A5F"/>
+  <text x="132" y="133" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Diagnose</text>
+  <text x="132" y="148" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="8">Agent</text>
+
+  <text x="190" y="138" fill="#3B82F6" font-family="system-ui, sans-serif" font-size="12">→</text>
+
+  <rect x="205" y="115" width="95" height="40" rx="6" fill="#1E3A5F"/>
+  <text x="252" y="133" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Behebung</text>
+  <text x="252" y="148" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="8">Agent</text>
+
+  <text x="310" y="138" fill="#3B82F6" font-family="system-ui, sans-serif" font-size="12">→</text>
+
+  <rect x="325" y="115" width="95" height="40" rx="6" fill="#1E3A5F"/>
+  <text x="372" y="133" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Validierung</text>
+  <text x="372" y="148" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="8">Agent</text>
+
+  <text x="240" y="180" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="11" font-weight="600">+ Dokumentations-Agent</text>
+  <text x="240" y="205" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">"Agent Squads" — dynamisch</text>
+  <text x="240" y="222" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">basierend auf Aufgabe orchestriert</text>
+  <rect x="160" y="237" width="160" height="20" rx="4" fill="#1E3A5F"/>
+  <text x="240" y="252" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="9" font-weight="700">STANDARD 2026</text>
+
+  <!-- MCP + A2A -->
+  <rect x="460" y="70" width="400" height="200" rx="12" fill="#1E293B" stroke="#8B5CF6" stroke-width="2" filter="url(#mcps6)"/>
+  <rect x="460" y="70" width="400" height="30" rx="12" fill="#7C3AED"/>
+  <rect x="460" y="88" width="400" height="12" fill="#7C3AED"/>
+  <text x="660" y="90" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="13" font-weight="700">MCP + A2A (Agent-to-Agent)</text>
+
+  <!-- Two protocol boxes -->
+  <rect x="485" y="115" width="170" height="70" rx="8" fill="#2563EB" opacity="0.15" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="570" y="140" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="14" font-weight="700">MCP</text>
+  <text x="570" y="158" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="9">Agent → Tools/Daten</text>
+  <text x="570" y="175" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="8">Integration</text>
+
+  <text x="670" y="155" fill="#64748B" font-family="system-ui, sans-serif" font-size="16" font-weight="700">+</text>
+
+  <rect x="685" y="115" width="170" height="70" rx="8" fill="#7C3AED" opacity="0.15" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="770" y="140" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="14" font-weight="700">A2A</text>
+  <text x="770" y="158" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="9">Agent → Agent</text>
+  <text x="770" y="175" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="8">Kommunikation</text>
+
+  <rect x="530" y="200" width="260" height="30" rx="6" fill="#334155"/>
+  <text x="660" y="220" text-anchor="middle" fill="#E2E8F0" font-family="system-ui, sans-serif" font-size="11" font-weight="600">= Multi-Agent Infrastruktur</text>
+  <text x="660" y="255" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">150+ Organisationen unterstuetzen A2A</text>
+
+  <!-- Security + Tool Design -->
+  <rect x="40" y="290" width="400" height="120" rx="12" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" filter="url(#mcps6)"/>
+  <text x="240" y="318" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Security Best Practices</text>
+  <text x="65" y="345" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; OAuth 2.1 Support als kritisches Update</text>
+  <text x="65" y="365" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; Prinzip der minimalen Rechte</text>
+  <text x="65" y="385" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; Input-Validierung fuer alle Tool-Aufrufe</text>
+
+  <rect x="460" y="290" width="400" height="120" rx="12" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#mcps6)"/>
+  <text x="660" y="318" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Tool-Design Empfehlungen</text>
+  <text x="485" y="345" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; Klare, praezise Beschreibungen</text>
+  <text x="485" y="365" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; Wohldefinierte Input/Output-Parameter</text>
+  <text x="485" y="385" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">&#x2022; Fehlerbehandlung einbauen</text>
+
+  <text x="450" y="432" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">MCP Patterns — Multi-Agent, A2A-Integration, Security, Tool-Design</text>
+</svg>
