@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="rbg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="rs2">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="400" fill="url(#rbg2)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Evolution: Von RAG zum Context Engine</text>
+
+  <!-- Evolution timeline -->
+  <rect x="60" y="80" width="780" height="6" rx="3" fill="#334155"/>
+  <defs>
+    <linearGradient id="evo2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#64748B"/>
+      <stop offset="25%" style="stop-color:#6366F1"/>
+      <stop offset="50%" style="stop-color:#3B82F6"/>
+      <stop offset="75%" style="stop-color:#10B981"/>
+      <stop offset="100%" style="stop-color:#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect x="60" y="80" width="780" height="6" rx="3" fill="url(#evo2)"/>
+
+  <!-- Phase markers -->
+  <circle cx="100" cy="83" r="8" fill="#64748B" stroke="#0F172A" stroke-width="2"/>
+  <circle cx="260" cy="83" r="8" fill="#6366F1" stroke="#0F172A" stroke-width="2"/>
+  <circle cx="420" cy="83" r="8" fill="#3B82F6" stroke="#0F172A" stroke-width="2"/>
+  <circle cx="600" cy="83" r="8" fill="#10B981" stroke="#0F172A" stroke-width="2"/>
+  <circle cx="800" cy="83" r="8" fill="#F59E0B" stroke="#0F172A" stroke-width="2"/>
+
+  <!-- Phase 1: Naive RAG -->
+  <rect x="30" y="105" width="140" height="120" rx="10" fill="#1E293B" stroke="#64748B" stroke-width="1.5" filter="url(#rs2)"/>
+  <text x="100" y="130" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Naive RAG</text>
+  <line x1="50" y1="140" x2="150" y2="140" stroke="#334155" stroke-width="1"/>
+  <text x="100" y="160" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Query → Retrieve</text>
+  <text x="100" y="175" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">→ Generate</text>
+  <text x="100" y="210" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="9" font-style="italic">Einfache Pipeline</text>
+
+  <!-- Phase 2: Advanced RAG -->
+  <rect x="190" y="105" width="140" height="120" rx="10" fill="#1E293B" stroke="#6366F1" stroke-width="1.5" filter="url(#rs2)"/>
+  <text x="260" y="130" text-anchor="middle" fill="#A5B4FC" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Advanced RAG</text>
+  <line x1="210" y1="140" x2="310" y2="140" stroke="#334155" stroke-width="1"/>
+  <text x="260" y="160" text-anchor="middle" fill="#818CF8" font-family="system-ui, sans-serif" font-size="10">Pre-Retrieval</text>
+  <text x="260" y="175" text-anchor="middle" fill="#818CF8" font-family="system-ui, sans-serif" font-size="10">Post-Retrieval</text>
+  <text x="260" y="190" text-anchor="middle" fill="#818CF8" font-family="system-ui, sans-serif" font-size="10">Optimierungen</text>
+  <text x="260" y="210" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="9" font-style="italic">Qualitaetsstufen</text>
+
+  <!-- Phase 3: Modular RAG -->
+  <rect x="350" y="105" width="140" height="120" rx="10" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#rs2)"/>
+  <text x="420" y="130" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Modular RAG</text>
+  <line x1="370" y1="140" x2="470" y2="140" stroke="#334155" stroke-width="1"/>
+  <text x="420" y="160" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="10">Flexible</text>
+  <text x="420" y="175" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="10">austauschbare</text>
+  <text x="420" y="190" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="10">Komponenten</text>
+  <text x="420" y="210" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="9" font-style="italic">Baukasten</text>
+
+  <!-- Phase 4: Agentic RAG -->
+  <rect x="520" y="105" width="160" height="120" rx="10" fill="#1E293B" stroke="#10B981" stroke-width="2" filter="url(#rs2)"/>
+  <text x="600" y="130" text-anchor="middle" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Agentic RAG</text>
+  <line x1="540" y1="140" x2="660" y2="140" stroke="#334155" stroke-width="1"/>
+  <text x="600" y="160" text-anchor="middle" fill="#34D399" font-family="system-ui, sans-serif" font-size="10">Agent-gesteuert</text>
+  <text x="600" y="175" text-anchor="middle" fill="#34D399" font-family="system-ui, sans-serif" font-size="10">selbstkorrigierend</text>
+  <text x="600" y="190" text-anchor="middle" fill="#34D399" font-family="system-ui, sans-serif" font-size="10">iterativ</text>
+  <text x="600" y="210" text-anchor="middle" fill="#059669" font-family="system-ui, sans-serif" font-size="9" font-weight="600">DOMINANT 2026</text>
+
+  <!-- Phase 5: Context Engine -->
+  <rect x="710" y="105" width="160" height="120" rx="10" fill="#1E293B" stroke="#F59E0B" stroke-width="2" filter="url(#rs2)"/>
+  <text x="790" y="130" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="13" font-weight="700">Context Engine</text>
+  <line x1="730" y1="140" x2="850" y2="140" stroke="#334155" stroke-width="1"/>
+  <text x="790" y="160" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="10">Intelligenter Retrieval</text>
+  <text x="790" y="175" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="10">Context Engineering</text>
+  <text x="790" y="190" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="10">integriert</text>
+  <text x="790" y="210" text-anchor="middle" fill="#D97706" font-family="system-ui, sans-serif" font-size="9" font-weight="600">ZUKUNFT 2026+</text>
+
+  <!-- Evolution arrows -->
+  <text x="175" y="165" fill="#475569" font-family="system-ui, sans-serif" font-size="16">&#x27A1;</text>
+  <text x="335" y="165" fill="#475569" font-family="system-ui, sans-serif" font-size="16">&#x27A1;</text>
+  <text x="500" y="165" fill="#475569" font-family="system-ui, sans-serif" font-size="16">&#x27A1;</text>
+  <text x="685" y="165" fill="#475569" font-family="system-ui, sans-serif" font-size="16">&#x27A1;</text>
+
+  <!-- Key insight -->
+  <rect x="150" y="260" width="600" height="50" rx="10" fill="#334155" stroke="#8B5CF6" stroke-width="1.5"/>
+  <text x="450" y="283" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="13" font-weight="600">RAG entwickelt sich vom spezifischen Pattern zum Context Engine</text>
+  <text x="450" y="302" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">"Intelligenter Retrieval" als Kernfaehigkeit der naechsten Generation</text>
+
+  <!-- Complexity/Capability scale -->
+  <text x="100" y="340" fill="#64748B" font-family="system-ui, sans-serif" font-size="9">Einfach</text>
+  <rect x="150" y="335" width="600" height="8" rx="4" fill="#334155"/>
+  <rect x="150" y="335" width="600" height="8" rx="4" fill="url(#evo2)" opacity="0.7"/>
+  <text x="800" y="340" fill="#F59E0B" font-family="system-ui, sans-serif" font-size="9">Komplex</text>
+  <text x="450" y="365" text-anchor="middle" fill="#64748B" font-family="system-ui, sans-serif" font-size="10">Komplexitaet und Faehigkeiten</text>
+
+  <text x="450" y="392" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">RAG Evolution 2023-2026</text>
+</svg>

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <linearGradient id="rbg6" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="rs6">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="420" fill="url(#rbg6)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">RAG — Best Practices</text>
+  <text x="450" y="62" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="12">8 Empfehlungen fuer produktionsreife RAG-Systeme</text>
+
+  <!-- Two columns of 4 practices each -->
+  <!-- Left column -->
+  <rect x="40" y="85" width="400" height="72" rx="8" fill="#1E293B" stroke="#3B82F6" stroke-width="1.5" filter="url(#rs6)"/>
+  <circle cx="70" cy="121" r="16" fill="#2563EB"/>
+  <text x="70" y="126" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">1</text>
+  <text x="100" y="112" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Hybrid RAG als Enterprise-Baseline</text>
+  <text x="100" y="132" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Balance: Accuracy · Cost · Governance</text>
+  <rect x="320" y="100" width="100" height="20" rx="4" fill="#1E3A5F"/>
+  <text x="370" y="114" text-anchor="middle" fill="#60A5FA" font-family="system-ui, sans-serif" font-size="8" font-weight="700">PRODUKTION</text>
+
+  <rect x="40" y="167" width="400" height="72" rx="8" fill="#1E293B" stroke="#10B981" stroke-width="1.5" filter="url(#rs6)"/>
+  <circle cx="70" cy="203" r="16" fill="#059669"/>
+  <text x="70" y="208" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">2</text>
+  <text x="100" y="194" fill="#6EE7B7" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Agentic RAG fuer komplexe Anfragen</text>
+  <text x="100" y="214" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Mehrstufig, self-correcting, iterativ</text>
+  <rect x="320" y="182" width="100" height="20" rx="4" fill="#064E3B"/>
+  <text x="370" y="196" text-anchor="middle" fill="#34D399" font-family="system-ui, sans-serif" font-size="8" font-weight="700">KOMPLEX</text>
+
+  <rect x="40" y="249" width="400" height="72" rx="8" fill="#1E293B" stroke="#8B5CF6" stroke-width="1.5" filter="url(#rs6)"/>
+  <circle cx="70" cy="285" r="16" fill="#7C3AED"/>
+  <text x="70" y="290" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">3</text>
+  <text x="100" y="276" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Self-Correction implementieren</text>
+  <text x="100" y="296" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Retrieval-Ergebnisse kritisch bewerten</text>
+
+  <rect x="40" y="331" width="400" height="72" rx="8" fill="#1E293B" stroke="#EF4444" stroke-width="1.5" filter="url(#rs6)"/>
+  <circle cx="70" cy="367" r="16" fill="#DC2626"/>
+  <text x="70" y="372" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">4</text>
+  <text x="100" y="358" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Governance vor Retrieval</text>
+  <text x="100" y="378" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Access Controls + Metadata zuerst</text>
+  <rect x="320" y="346" width="100" height="20" rx="4" fill="#7F1D1D"/>
+  <text x="370" y="360" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="8" font-weight="700">PFLICHT</text>
+
+  <!-- Right column -->
+  <rect x="460" y="85" width="400" height="72" rx="8" fill="#1E293B" stroke="#F59E0B" stroke-width="1.5" filter="url(#rs6)"/>
+  <circle cx="490" cy="121" r="16" fill="#D97706"/>
+  <text x="490" y="126" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">5</text>
+  <text x="520" y="112" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Query Decomposition</text>
+  <text x="520" y="132" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Komplexe Fragen in Sub-Queries zerlegen</text>
+
+  <rect x="460" y="167" width="400" height="72" rx="8" fill="#1E293B" stroke="#06B6D4" stroke-width="1.5" filter="url(#rs6)"/>
+  <circle cx="490" cy="203" r="16" fill="#0891B2"/>
+  <text x="490" y="208" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">6</text>
+  <text x="520" y="194" fill="#67E8F9" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Adaptive Strategien</text>
+  <text x="520" y="214" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Je nach Query-Komplexitaet anpassen</text>
+
+  <rect x="460" y="249" width="400" height="72" rx="8" fill="#1E293B" stroke="#EC4899" stroke-width="1.5" filter="url(#rs6)"/>
+  <circle cx="490" cy="285" r="16" fill="#DB2777"/>
+  <text x="490" y="290" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">7</text>
+  <text x="520" y="276" fill="#F9A8D4" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Chunking optimieren</text>
+  <text x="520" y="296" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Richtige Granularitaet der Segmentierung</text>
+
+  <rect x="460" y="331" width="400" height="72" rx="8" fill="#1E293B" stroke="#84CC16" stroke-width="1.5" filter="url(#rs6)"/>
+  <circle cx="490" cy="367" r="16" fill="#65A30D"/>
+  <text x="490" y="372" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="11" font-weight="700">8</text>
+  <text x="520" y="358" fill="#BEF264" font-family="system-ui, sans-serif" font-size="12" font-weight="700">Reranking einsetzen</text>
+  <text x="520" y="378" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Ergebnisse nach Relevanz neu sortieren</text>
+
+  <text x="450" y="415" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">RAG Best Practices — Governance, Adaptive Retrieval, Qualitaetssicherung</text>
+</svg>

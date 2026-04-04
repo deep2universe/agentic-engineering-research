@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420">
+  <defs>
+    <linearGradient id="rbg4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F172A"/>
+      <stop offset="100%" style="stop-color:#1E293B"/>
+    </linearGradient>
+    <filter id="rs4">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="420" fill="url(#rbg4)" rx="16"/>
+  <text x="450" y="40" text-anchor="middle" fill="#F8FAFC" font-family="system-ui, sans-serif" font-size="22" font-weight="700">Enterprise RAG (2026)</text>
+
+  <!-- Three pillars -->
+  <!-- Governance -->
+  <rect x="40" y="70" width="260" height="220" rx="12" fill="#1E293B" stroke="#EF4444" stroke-width="2" filter="url(#rs4)"/>
+  <rect x="40" y="70" width="260" height="34" rx="12" fill="#DC2626"/>
+  <rect x="40" y="90" width="260" height="14" fill="#DC2626"/>
+  <text x="170" y="93" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Governance</text>
+  <text x="170" y="130" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Pflicht vor Retrieval!</text>
+
+  <rect x="65" y="148" width="210" height="28" rx="6" fill="#7F1D1D"/>
+  <text x="170" y="167" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11">Access Controls</text>
+
+  <rect x="65" y="184" width="210" height="28" rx="6" fill="#7F1D1D"/>
+  <text x="170" y="203" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11">Metadata-Management</text>
+
+  <rect x="65" y="220" width="210" height="28" rx="6" fill="#7F1D1D"/>
+  <text x="170" y="239" text-anchor="middle" fill="#FCA5A5" font-family="system-ui, sans-serif" font-size="11">Context-Qualitaet</text>
+
+  <text x="170" y="275" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10" font-style="italic">Enterprise RAG scheitert</text>
+  <text x="170" y="290" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10" font-style="italic">ohne Governance</text>
+
+  <!-- Multimodal -->
+  <rect x="320" y="70" width="260" height="220" rx="12" fill="#1E293B" stroke="#8B5CF6" stroke-width="2" filter="url(#rs4)"/>
+  <rect x="320" y="70" width="260" height="34" rx="12" fill="#7C3AED"/>
+  <rect x="320" y="90" width="260" height="14" fill="#7C3AED"/>
+  <text x="450" y="93" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Multimodale RAG</text>
+
+  <!-- Cross-modal boxes -->
+  <rect x="345" y="120" width="70" height="45" rx="6" fill="#2E1065"/>
+  <text x="380" y="140" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Text</text>
+  <text x="380" y="156" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="16">&#x1F4C4;</text>
+
+  <rect x="425" y="120" width="70" height="45" rx="6" fill="#2E1065"/>
+  <text x="460" y="140" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Bild</text>
+  <text x="460" y="156" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="16">&#x1F5BC;</text>
+
+  <rect x="505" y="120" width="55" height="45" rx="6" fill="#2E1065"/>
+  <text x="532" y="140" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="10" font-weight="600">Code</text>
+  <text x="532" y="156" text-anchor="middle" fill="#A78BFA" font-family="system-ui, sans-serif" font-size="16">&#x1F4BB;</text>
+
+  <text x="450" y="190" text-anchor="middle" fill="#C4B5FD" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Cross-Modal RAG</text>
+  <text x="450" y="210" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Verbesserte AI-Infrastruktur</text>
+  <text x="450" y="228" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">fuer Tensor-Berechnung</text>
+  <text x="450" y="248" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">und -Speicherung</text>
+
+  <!-- Knowledge Runtimes -->
+  <rect x="600" y="70" width="260" height="220" rx="12" fill="#1E293B" stroke="#F59E0B" stroke-width="2" filter="url(#rs4)"/>
+  <rect x="600" y="70" width="260" height="34" rx="12" fill="#D97706"/>
+  <rect x="600" y="90" width="260" height="14" fill="#D97706"/>
+  <text x="730" y="93" text-anchor="middle" fill="#FFF" font-family="system-ui, sans-serif" font-size="14" font-weight="700">Knowledge Runtimes</text>
+
+  <text x="730" y="125" text-anchor="middle" fill="#FCD34D" font-family="system-ui, sans-serif" font-size="11" font-weight="600">Integrierte Operationen:</text>
+
+  <rect x="625" y="140" width="210" height="22" rx="4" fill="#78350F"/>
+  <text x="730" y="156" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="10">Retrieval</text>
+  <rect x="625" y="167" width="210" height="22" rx="4" fill="#78350F"/>
+  <text x="730" y="183" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="10">Verification + Reasoning</text>
+  <rect x="625" y="194" width="210" height="22" rx="4" fill="#78350F"/>
+  <text x="730" y="210" text-anchor="middle" fill="#FDE68A" font-family="system-ui, sans-serif" font-size="10">Access Control + Audit</text>
+
+  <text x="730" y="245" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10" font-style="italic">Wie Container-Orchestratoren</text>
+  <text x="730" y="262" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10" font-style="italic">fuer Wissens-Workloads</text>
+  <rect x="660" y="272" width="140" height="18" rx="4" fill="#78350F" stroke="#F59E0B" stroke-width="1"/>
+  <text x="730" y="285" text-anchor="middle" fill="#FBBF24" font-family="system-ui, sans-serif" font-size="8" font-weight="700">TREND 2026</text>
+
+  <!-- Bottom: RAG vs Long Context -->
+  <rect x="100" y="320" width="700" height="70" rx="12" fill="#334155" stroke="#3B82F6" stroke-width="1.5"/>
+  <text x="450" y="345" text-anchor="middle" fill="#93C5FD" font-family="system-ui, sans-serif" font-size="14" font-weight="700">RAG bleibt trotz 10M Token Context Windows relevant</text>
+  <text x="220" y="375" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Kosteneffizienz</text>
+  <text x="370" y="375" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Aktualitaet</text>
+  <text x="520" y="375" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Skalierbarkeit</text>
+  <text x="670" y="375" text-anchor="middle" fill="#94A3B8" font-family="system-ui, sans-serif" font-size="10">Praezision</text>
+
+  <text x="450" y="412" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="10">Enterprise RAG 2026 — Governance, Multimodal, Knowledge Runtimes</text>
+</svg>
