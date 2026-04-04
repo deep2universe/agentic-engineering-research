@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 620">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#0f172a"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="620" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Header -->
+  <rect x="30" y="20" width="940" height="60" rx="10" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <text x="500" y="58" text-anchor="middle" font-family="Segoe UI, Arial" font-size="24" font-weight="bold" fill="white">Agentic Engineering: Guide Map</text>
+
+  <!-- Connection lines -->
+  <g stroke="#4f46e5" stroke-width="2" stroke-dasharray="6,4" opacity="0.5">
+    <line x1="260" y1="160" x2="260" y2="200"/>
+    <line x1="500" y1="160" x2="500" y2="200"/>
+    <line x1="740" y1="160" x2="740" y2="200"/>
+    <line x1="260" y1="300" x2="260" y2="340"/>
+    <line x1="500" y1="300" x2="500" y2="340"/>
+    <line x1="740" y1="300" x2="740" y2="340"/>
+    <line x1="260" y1="440" x2="260" y2="480"/>
+    <line x1="500" y1="440" x2="500" y2="480"/>
+    <line x1="740" y1="440" x2="740" y2="480"/>
+  </g>
+
+  <!-- Row 1 -->
+  <!-- Card 01 -->
+  <rect x="50" y="100" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="130" font-family="Segoe UI, Arial" font-size="11" fill="#818cf8" font-weight="bold">01</text>
+  <text x="100" y="130" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Grundlagen</text>
+  <text x="70" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Definitionen, Agentic Loop</text>
+  <text x="70" y="168" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Autonomie-Level, Rollen</text>
+  <circle cx="230" cy="120" r="12" fill="#6366f1" opacity="0.3"/><text x="230" y="124" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#a5b4fc">F</text>
+
+  <!-- Card 02 -->
+  <rect x="290" y="100" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="320" y="130" font-family="Segoe UI, Arial" font-size="11" fill="#a78bfa" font-weight="bold">02</text>
+  <text x="340" y="130" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Architektur</text>
+  <text x="310" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">10 Design-Prinzipien</text>
+  <text x="310" y="168" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">ACI, Separation of Concerns</text>
+  <circle cx="470" cy="120" r="12" fill="#8b5cf6" opacity="0.3"/><text x="470" y="124" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#c4b5fd">P</text>
+
+  <!-- Card 03 -->
+  <rect x="530" y="100" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#a78bfa" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="560" y="130" font-family="Segoe UI, Arial" font-size="11" fill="#c4b5fd" font-weight="bold">03</text>
+  <text x="580" y="130" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Workflows</text>
+  <text x="550" y="152" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Chaining, Routing, Parallel</text>
+  <text x="550" y="168" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Orchestrator, Evaluator</text>
+  <circle cx="710" cy="120" r="12" fill="#a78bfa" opacity="0.3"/><text x="710" y="124" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#c4b5fd">W</text>
+
+  <!-- Row 2 -->
+  <!-- Card 04 -->
+  <rect x="50" y="240" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#ec4899" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="270" font-family="Segoe UI, Arial" font-size="11" fill="#f472b6" font-weight="bold">04</text>
+  <text x="100" y="270" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Reasoning</text>
+  <text x="70" y="292" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">ReAct, CoT, Tree of Thought</text>
+  <text x="70" y="308" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Reflection, Plan-and-Execute</text>
+  <circle cx="230" cy="260" r="12" fill="#ec4899" opacity="0.3"/><text x="230" y="264" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#f9a8d4">R</text>
+
+  <!-- Card 05 -->
+  <rect x="290" y="240" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#f97316" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="320" y="270" font-family="Segoe UI, Arial" font-size="11" fill="#fb923c" font-weight="bold">05</text>
+  <text x="340" y="270" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Multi-Agent</text>
+  <text x="310" y="292" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Supervisor, Swarm, Hierarchy</text>
+  <text x="310" y="308" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Scatter-Gather, A2A, Ensemble</text>
+  <circle cx="470" cy="260" r="12" fill="#f97316" opacity="0.3"/><text x="470" y="264" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fdba74">M</text>
+
+  <!-- Card 06 -->
+  <rect x="530" y="240" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#14b8a6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="560" y="270" font-family="Segoe UI, Arial" font-size="11" fill="#2dd4bf" font-weight="bold">06</text>
+  <text x="580" y="270" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Tool Use &amp; Context</text>
+  <text x="550" y="292" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Function Calling, MCP</text>
+  <text x="550" y="308" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Memory, RAG, Compression</text>
+  <circle cx="710" cy="260" r="12" fill="#14b8a6" opacity="0.3"/><text x="710" y="264" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#5eead4">T</text>
+
+  <!-- Row 3 -->
+  <!-- Card 07 -->
+  <rect x="50" y="380" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#ef4444" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="410" font-family="Segoe UI, Arial" font-size="11" fill="#f87171" font-weight="bold">07</text>
+  <text x="100" y="410" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Resilience</text>
+  <text x="70" y="432" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Retry, Circuit Breaker</text>
+  <text x="70" y="448" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Fallback, Degradation</text>
+  <circle cx="230" cy="400" r="12" fill="#ef4444" opacity="0.3"/><text x="230" y="404" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fca5a5">E</text>
+
+  <!-- Card 08 -->
+  <rect x="290" y="380" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#eab308" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="320" y="410" font-family="Segoe UI, Arial" font-size="11" fill="#facc15" font-weight="bold">08</text>
+  <text x="340" y="410" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Safety &amp; Security</text>
+  <text x="310" y="432" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Guardrails, Sandboxing</text>
+  <text x="310" y="448" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Defense-in-Depth, OWASP</text>
+  <circle cx="470" cy="400" r="12" fill="#eab308" opacity="0.3"/><text x="470" y="404" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fde68a">S</text>
+
+  <!-- Card 09 -->
+  <rect x="530" y="380" width="200" height="100" rx="8" fill="url(#cardGrad)" stroke="#22d3ee" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="560" y="410" font-family="Segoe UI, Arial" font-size="11" fill="#67e8f9" font-weight="bold">09</text>
+  <text x="580" y="410" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Human-in-Loop</text>
+  <text x="550" y="432" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Approval, Escalation</text>
+  <text x="550" y="448" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Confidence Routing</text>
+  <circle cx="710" cy="400" r="12" fill="#22d3ee" opacity="0.3"/><text x="710" y="404" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#a5f3fc">H</text>
+
+  <!-- Row 4 -->
+  <!-- Card 10 -->
+  <rect x="50" y="520" width="200" height="80" rx="8" fill="url(#cardGrad)" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="80" y="550" font-family="Segoe UI, Arial" font-size="11" fill="#34d399" font-weight="bold">10</text>
+  <text x="100" y="550" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Observability</text>
+  <text x="70" y="572" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Tracing, Evaluation, Kosten</text>
+
+  <!-- Card 11 -->
+  <rect x="290" y="520" width="200" height="80" rx="8" fill="url(#cardGrad)" stroke="#3b82f6" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="320" y="550" font-family="Segoe UI, Arial" font-size="11" fill="#60a5fa" font-weight="bold">11</text>
+  <text x="340" y="550" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Frameworks</text>
+  <text x="310" y="572" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">LangGraph, CrewAI, AutoGen</text>
+
+  <!-- Card 12 -->
+  <rect x="530" y="520" width="200" height="80" rx="8" fill="url(#cardGrad)" stroke="#d946ef" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="560" y="550" font-family="Segoe UI, Arial" font-size="11" fill="#e879f9" font-weight="bold">12</text>
+  <text x="580" y="550" font-family="Segoe UI, Arial" font-size="13" fill="#e2e8f0" font-weight="bold">Coding Patterns</text>
+  <text x="550" y="572" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Willison, TDD, Git, Subagents</text>
+
+  <!-- Legend -->
+  <rect x="770" y="100" width="200" height="200" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1" opacity="0.9"/>
+  <text x="870" y="125" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#94a3b8" font-weight="bold">Legende</text>
+  <circle cx="790" y="145" r="5" fill="#6366f1"/><text x="805" y="149" font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1">Fundament</text>
+  <circle cx="790" y="170" r="5" fill="#ec4899"/><text x="805" y="174" font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1">Kognition</text>
+  <circle cx="790" y="195" r="5" fill="#f97316"/><text x="805" y="199" font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1">Koordination</text>
+  <circle cx="790" y="220" r="5" fill="#ef4444"/><text x="805" y="224" font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1">Robustheit</text>
+  <circle cx="790" y="245" r="5" fill="#10b981"/><text x="805" y="249" font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1">Betrieb</text>
+  <circle cx="790" y="270" r="5" fill="#d946ef"/><text x="805" y="274" font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1">Praxis</text>
+</svg>

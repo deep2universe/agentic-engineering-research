@@ -8,6 +8,8 @@ Anthropic hat fünf fundamentale Workflow-Patterns identifiziert, die als Bauste
 
 ## Pattern 1: Prompt Chaining
 
+![Prompt Chaining — Sequentielle Verarbeitung mit Gates](svg/03_prompt_chaining.svg)
+
 ### Beschreibung
 Sequentielle Verarbeitung, bei der jeder Schritt auf dem vorherigen aufbaut. Die Aufgabe wird in eine Kette von LLM-Calls aufgeteilt, wobei der Output eines Schritts zum Input des nächsten wird.
 
@@ -41,6 +43,8 @@ Input → [LLM Step 1] → Gate/Validation → [LLM Step 2] → Gate → [LLM St
 ---
 
 ## Pattern 2: Routing
+
+![Routing Pattern — Kostenoptimierung](svg/03_routing.svg)
 
 ### Beschreibung
 Intelligente Klassifikation und Weiterleitung von Anfragen an spezialisierte Handler. Ein Router analysiert den Input und entscheidet, welcher spezialisierte Agent oder Workflow die Aufgabe bearbeiten soll.
@@ -78,6 +82,8 @@ Input → [Classifier LLM]
 ---
 
 ## Pattern 3: Parallelisierung
+
+![Parallelisierung — Sectioning vs. Voting](svg/03_parallelisierung.svg)
 
 ### Beschreibung
 Gleichzeitige Ausführung mehrerer unabhängiger Teilaufgaben. Tritt in zwei Varianten auf:
@@ -118,6 +124,8 @@ Input ──→├→ [LLM Call 2] ──┼→ [Majority Vote / Best-of-N] → 
 ---
 
 ## Pattern 4: Orchestrator-Worker
+
+![Orchestrator-Worker Pattern](svg/03_orchestrator_worker.svg)
 
 ### Beschreibung
 Ein zentraler Orchestrator-Agent zerlegt Aufgaben dynamisch, delegiert sie an Worker-Agents und synthetisiert die Ergebnisse. Der entscheidende Unterschied zur Parallelisierung: Die Teilaufgaben sind *nicht vordefiniert*, sondern werden vom Orchestrator *basierend auf dem Input* bestimmt.
@@ -161,6 +169,8 @@ Orchestrator erhält: "Refactore das Authentication-Modul"
 ---
 
 ## Pattern 5: Evaluator-Optimizer
+
+![Evaluator-Optimizer Pattern](svg/03_evaluator_optimizer.svg)
 
 ### Beschreibung
 Ein LLM generiert eine Antwort, ein zweites LLM evaluiert und gibt Feedback. Dieser Zyklus wiederholt sich, bis die Qualitätskriterien erfüllt sind.

@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <defs>
+    <linearGradient id="bg09b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh09b"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="350" fill="url(#bg09b)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Confidence-Based Routing</text>
+
+  <!-- Agent Output + Score -->
+  <rect x="40" y="80" width="180" height="60" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="2" filter="url(#sh09b)"/>
+  <text x="130" y="105" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#c084fc" font-weight="bold">Agent Output</text>
+  <text x="130" y="125" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">+ Confidence Score</text>
+
+  <!-- Decision diamond -->
+  <line x1="220" y1="110" x2="270" y2="110" stroke="#a855f7" stroke-width="2"/>
+
+  <!-- Score >= 0.9 -->
+  <line x1="270" y1="110" x2="350" y2="70" stroke="#10b981" stroke-width="2"/>
+  <rect x="355" y="50" width="400" height="40" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5" filter="url(#sh09b)"/>
+  <rect x="355" y="50" width="120" height="40" rx="8" fill="#10b981" opacity="0.1"/>
+  <text x="415" y="75" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#6ee7b7" font-weight="bold">≥ 0.9</text>
+  <text x="570" y="75" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Automatische Ausführung</text>
+  <rect x="695" y="58" width="50" height="24" rx="4" fill="#10b981" opacity="0.2"/>
+  <text x="720" y="75" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#10b981">AUTO</text>
+
+  <!-- Score 0.7-0.9 -->
+  <line x1="270" y1="110" x2="350" y2="125" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="355" y="105" width="400" height="40" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" filter="url(#sh09b)"/>
+  <rect x="355" y="105" width="120" height="40" rx="8" fill="#f59e0b" opacity="0.1"/>
+  <text x="415" y="130" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fbbf24" font-weight="bold">0.7–0.9</text>
+  <text x="570" y="130" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Async Review (Agent führt aus, Mensch reviewt)</text>
+  <rect x="695" y="113" width="50" height="24" rx="4" fill="#f59e0b" opacity="0.2"/>
+  <text x="720" y="130" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#f59e0b">ASYNC</text>
+
+  <!-- Score 0.5-0.7 -->
+  <line x1="270" y1="110" x2="350" y2="180" stroke="#f97316" stroke-width="2"/>
+  <rect x="355" y="160" width="400" height="40" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5" filter="url(#sh09b)"/>
+  <rect x="355" y="160" width="120" height="40" rx="8" fill="#f97316" opacity="0.1"/>
+  <text x="415" y="185" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fb923c" font-weight="bold">0.5–0.7</text>
+  <text x="570" y="185" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Synchrone Genehmigung (Agent wartet)</text>
+  <rect x="695" y="168" width="50" height="24" rx="4" fill="#f97316" opacity="0.2"/>
+  <text x="720" y="185" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#f97316">SYNC</text>
+
+  <!-- Score < 0.5 -->
+  <line x1="270" y1="110" x2="350" y2="235" stroke="#ef4444" stroke-width="2"/>
+  <rect x="355" y="215" width="400" height="40" rx="8" fill="#1e293b" stroke="#ef4444" stroke-width="1.5" filter="url(#sh09b)"/>
+  <rect x="355" y="215" width="120" height="40" rx="8" fill="#ef4444" opacity="0.1"/>
+  <text x="415" y="240" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fca5a5" font-weight="bold">&lt; 0.5</text>
+  <text x="570" y="240" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Vollständige menschliche Bearbeitung</text>
+  <rect x="695" y="223" width="50" height="24" rx="4" fill="#ef4444" opacity="0.2"/>
+  <text x="720" y="240" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#ef4444">HUMAN</text>
+
+  <!-- Confidence scale bottom -->
+  <rect x="200" y="290" width="400" height="30" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <rect x="200" y="290" width="100" height="30" rx="6" fill="#ef4444" opacity="0.1"/>
+  <rect x="300" y="290" width="100" height="30" rx="6" fill="#f97316" opacity="0.1"/>
+  <rect x="400" y="290" width="100" height="30" rx="6" fill="#f59e0b" opacity="0.1"/>
+  <rect x="500" y="290" width="100" height="30" rx="6" fill="#10b981" opacity="0.1"/>
+  <text x="250" y="310" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#ef4444">Niedrig</text>
+  <text x="550" y="310" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#10b981">Hoch</text>
+  <text x="400" y="340" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Confidence Score — Schwellwerte müssen kalibriert werden</text>
+</svg>

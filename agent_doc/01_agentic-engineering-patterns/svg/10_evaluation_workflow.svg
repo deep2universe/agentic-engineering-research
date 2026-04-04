@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 300">
+  <defs>
+    <linearGradient id="bg10b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh10b"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="850" height="300" fill="url(#bg10b)" rx="12"/>
+
+  <text x="425" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Quality Evaluation Workflow</text>
+
+  <!-- Step 1 -->
+  <rect x="30" y="70" width="120" height="70" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5" filter="url(#sh10b)"/>
+  <text x="90" y="98" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#a5b4fc" font-weight="bold">1. Traces</text>
+  <text x="90" y="116" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">erfassen</text>
+  <line x1="150" y1="105" x2="175" y2="105" stroke="#6366f1" stroke-width="1.5"/>
+  <polygon points="175,105 170,100 170,110" fill="#6366f1"/>
+
+  <!-- Step 2 -->
+  <rect x="180" y="70" width="120" height="70" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh10b)"/>
+  <text x="240" y="98" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#c4b5fd" font-weight="bold">2. Stichprobe</text>
+  <text x="240" y="116" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">auswählen</text>
+  <line x1="300" y1="105" x2="325" y2="105" stroke="#8b5cf6" stroke-width="1.5"/>
+  <polygon points="325,105 320,100 320,110" fill="#8b5cf6"/>
+
+  <!-- Step 3 -->
+  <rect x="330" y="70" width="120" height="70" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1.5" filter="url(#sh10b)"/>
+  <text x="390" y="93" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fdba74" font-weight="bold">3. LLM-as-</text>
+  <text x="390" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fdba74" font-weight="bold">Judge</text>
+  <text x="390" y="126" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Auto-Evaluation</text>
+  <line x1="450" y1="105" x2="475" y2="105" stroke="#f97316" stroke-width="1.5"/>
+  <polygon points="475,105 470,100 470,110" fill="#f97316"/>
+
+  <!-- Step 4 -->
+  <rect x="480" y="70" width="120" height="70" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5" filter="url(#sh10b)"/>
+  <text x="540" y="93" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#67e8f9" font-weight="bold">4. Human</text>
+  <text x="540" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#67e8f9" font-weight="bold">Eval</text>
+  <text x="540" y="126" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Stichprobenartig</text>
+  <line x1="600" y1="105" x2="625" y2="105" stroke="#22d3ee" stroke-width="1.5"/>
+  <polygon points="625,105 620,100 620,110" fill="#22d3ee"/>
+
+  <!-- Step 5 -->
+  <rect x="630" y="70" width="120" height="70" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5" filter="url(#sh10b)"/>
+  <text x="690" y="98" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7" font-weight="bold">5. Kalibrierung</text>
+  <text x="690" y="116" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">LLM vs. Human</text>
+
+  <!-- Feedback loop -->
+  <path d="M690,140 Q690,185 400,185 Q90,185 90,155" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <polygon points="90,155 85,163 95,163" fill="#f59e0b"/>
+  <text x="400" y="200" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#f59e0b">6. Ergebnisse → Verbesserungszyklus</text>
+
+  <!-- Three evaluation methods comparison -->
+  <rect x="50" y="220" width="230" height="60" rx="8" fill="#1e293b" stroke="#f97316" stroke-width="1" filter="url(#sh10b)"/>
+  <text x="165" y="242" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fdba74" font-weight="bold">LLM-as-Judge</text>
+  <text x="165" y="260" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Günstig, skalierbar, eigene Biases</text>
+
+  <rect x="310" y="220" width="230" height="60" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="1" filter="url(#sh10b)"/>
+  <text x="425" y="242" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#67e8f9" font-weight="bold">Human Evaluation</text>
+  <text x="425" y="260" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Gold-Standard, teuer, unverzichtbar</text>
+
+  <rect x="570" y="220" width="230" height="60" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1" filter="url(#sh10b)"/>
+  <text x="685" y="242" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#6ee7b7" font-weight="bold">Automated Metrics</text>
+  <text x="685" y="260" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">ROUGE, Tests, Task Completion</text>
+</svg>

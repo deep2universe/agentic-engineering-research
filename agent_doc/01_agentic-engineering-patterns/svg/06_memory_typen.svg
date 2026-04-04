@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="layer1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <linearGradient id="layer2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="layer3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="layer4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0ea5e9"/>
+      <stop offset="100%" style="stop-color:#0284c7"/>
+    </linearGradient>
+    <linearGradient id="layer5" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <filter id="sh">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <rect width="880" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="440" y="38" text-anchor="middle" fill="#f1f5f9" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700">Die 5 Memory-Typen</text>
+  <line x1="310" y1="50" x2="570" y2="50" stroke="#8b5cf6" stroke-width="2" opacity="0.6"/>
+
+  <!-- Axis labels -->
+  <text x="30" y="80" fill="#475569" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">KURZFRISTIG</text>
+  <text x="30" y="420" fill="#475569" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="600">LANGFRISTIG</text>
+  <line x1="42" y1="90" x2="42" y2="405" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.5"/>
+  <!-- Arrow down -->
+  <polygon points="37,400 42,412 47,400" fill="#334155" opacity="0.5"/>
+
+  <!-- ========== Layer 1: Short-term Memory ========== -->
+  <g filter="url(#sh)">
+    <rect x="70" y="72" width="780" height="58" rx="10" fill="url(#layer1)" opacity="0.92"/>
+    <text x="90" y="98" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">Short-term Memory</text>
+    <text x="90" y="118" fill="#fecaca" font-family="Inter, system-ui, sans-serif" font-size="10">Context Window des aktuellen Gespraechs</text>
+    <!-- Right side details -->
+    <rect x="480" y="82" width="110" height="22" rx="5" fill="#991b1b" opacity="0.7"/>
+    <text x="535" y="97" text-anchor="middle" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="9">Context Window</text>
+    <rect x="600" y="82" width="90" height="22" rx="5" fill="#991b1b" opacity="0.7"/>
+    <text x="645" y="97" text-anchor="middle" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="9">Messages[]</text>
+    <rect x="700" y="82" width="130" height="22" rx="5" fill="#991b1b" opacity="0.7"/>
+    <text x="765" y="97" text-anchor="middle" fill="#fca5a5" font-family="'Fira Code', monospace" font-size="9">Dauer: 1 Session</text>
+    <text x="630" y="118" fill="#fecaca" font-family="Inter, system-ui, sans-serif" font-size="9">Geht verloren wenn Session endet -- begrenzt durch Token-Limit</text>
+  </g>
+
+  <!-- ========== Layer 2: Working Memory ========== -->
+  <g filter="url(#sh)">
+    <rect x="70" y="142" width="780" height="58" rx="10" fill="url(#layer2)" opacity="0.92"/>
+    <text x="90" y="168" fill="#1c1917" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">Working Memory</text>
+    <text x="90" y="188" fill="#451a03" font-family="Inter, system-ui, sans-serif" font-size="10">Scratchpad / Zwischenergebnisse waehrend eines Tasks</text>
+    <rect x="480" y="152" width="90" height="22" rx="5" fill="#92400e" opacity="0.7"/>
+    <text x="525" y="167" text-anchor="middle" fill="#fde68a" font-family="'Fira Code', monospace" font-size="9">Scratchpad</text>
+    <rect x="580" y="152" width="80" height="22" rx="5" fill="#92400e" opacity="0.7"/>
+    <text x="620" y="167" text-anchor="middle" fill="#fde68a" font-family="'Fira Code', monospace" font-size="9">Notepad</text>
+    <rect x="670" y="152" width="160" height="22" rx="5" fill="#92400e" opacity="0.7"/>
+    <text x="750" y="167" text-anchor="middle" fill="#fde68a" font-family="'Fira Code', monospace" font-size="9">Dauer: 1 Task / mehrere Turns</text>
+    <text x="630" y="188" fill="#451a03" font-family="Inter, system-ui, sans-serif" font-size="9">Agent schreibt/liest aktiv -- aehnlich einem Arbeitsgedaechtnis</text>
+  </g>
+
+  <!-- ========== Layer 3: Long-term Memory ========== -->
+  <g filter="url(#sh)">
+    <rect x="70" y="212" width="780" height="58" rx="10" fill="url(#layer3)" opacity="0.92"/>
+    <text x="90" y="238" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">Long-term Memory</text>
+    <text x="90" y="258" fill="#d1fae5" font-family="Inter, system-ui, sans-serif" font-size="10">Persistenter Speicher ueber Sessions hinweg</text>
+    <rect x="480" y="222" width="100" height="22" rx="5" fill="#065f46" opacity="0.7"/>
+    <text x="530" y="237" text-anchor="middle" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9">Vector Store</text>
+    <rect x="590" y="222" width="60" height="22" rx="5" fill="#065f46" opacity="0.7"/>
+    <text x="620" y="237" text-anchor="middle" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9">RAG</text>
+    <rect x="660" y="222" width="170" height="22" rx="5" fill="#065f46" opacity="0.7"/>
+    <text x="745" y="237" text-anchor="middle" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9">Dauer: persistent / unbegrenzt</text>
+    <text x="630" y="258" fill="#d1fae5" font-family="Inter, system-ui, sans-serif" font-size="9">Embeddings, Factual Knowledge, User Preferences</text>
+  </g>
+
+  <!-- ========== Layer 4: Episodic Memory ========== -->
+  <g filter="url(#sh)">
+    <rect x="70" y="282" width="780" height="58" rx="10" fill="url(#layer4)" opacity="0.92"/>
+    <text x="90" y="308" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">Episodic Memory</text>
+    <text x="90" y="328" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="10">Erinnerungen an vergangene Erfahrungen &amp; Reflexionen</text>
+    <rect x="480" y="292" width="90" height="22" rx="5" fill="#0c4a6e" opacity="0.7"/>
+    <text x="525" y="307" text-anchor="middle" fill="#7dd3fc" font-family="'Fira Code', monospace" font-size="9">Reflexions</text>
+    <rect x="580" y="292" width="75" height="22" rx="5" fill="#0c4a6e" opacity="0.7"/>
+    <text x="617" y="307" text-anchor="middle" fill="#7dd3fc" font-family="'Fira Code', monospace" font-size="9">Journals</text>
+    <rect x="665" y="292" width="165" height="22" rx="5" fill="#0c4a6e" opacity="0.7"/>
+    <text x="747" y="307" text-anchor="middle" fill="#7dd3fc" font-family="'Fira Code', monospace" font-size="9">Dauer: persistent / abrufbar</text>
+    <text x="630" y="328" fill="#bae6fd" font-family="Inter, system-ui, sans-serif" font-size="9">"Beim letzten Mal hat Strategie X besser funktioniert als Y"</text>
+  </g>
+
+  <!-- ========== Layer 5: Semantic Memory ========== -->
+  <g filter="url(#sh)">
+    <rect x="70" y="352" width="780" height="58" rx="10" fill="url(#layer5)" opacity="0.92"/>
+    <text x="90" y="378" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700">Semantic Memory</text>
+    <text x="90" y="398" fill="#ddd6fe" font-family="Inter, system-ui, sans-serif" font-size="10">Strukturiertes Wissen ueber Entitaeten &amp; Relationen</text>
+    <rect x="480" y="362" width="120" height="22" rx="5" fill="#5b21b6" opacity="0.7"/>
+    <text x="540" y="377" text-anchor="middle" fill="#c4b5fd" font-family="'Fira Code', monospace" font-size="9">Knowledge Graph</text>
+    <rect x="610" y="362" width="80" height="22" rx="5" fill="#5b21b6" opacity="0.7"/>
+    <text x="650" y="377" text-anchor="middle" fill="#c4b5fd" font-family="'Fira Code', monospace" font-size="9">Ontologie</text>
+    <rect x="700" y="362" width="130" height="22" rx="5" fill="#5b21b6" opacity="0.7"/>
+    <text x="765" y="377" text-anchor="middle" fill="#c4b5fd" font-family="'Fira Code', monospace" font-size="9">Dauer: permanent</text>
+    <text x="630" y="398" fill="#ddd6fe" font-family="Inter, system-ui, sans-serif" font-size="9">Entities, Relations, Triplets -- strukturiertes Weltwissen</text>
+  </g>
+
+  <!-- Bottom legend -->
+  <text x="440" y="438" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10">Von fluechtig (Context Window) bis permanent (Knowledge Graph) -- jeder Typ hat seine Rolle im Agentic System</text>
+</svg>

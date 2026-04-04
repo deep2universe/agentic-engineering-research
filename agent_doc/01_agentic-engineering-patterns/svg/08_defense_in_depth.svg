@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg08b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh08b"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg08b)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Defense-in-Depth Architektur</text>
+  <text x="400" y="53" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b">Vier Sicherheitsschichten — keine einzelne Schicht reicht aus</text>
+
+  <!-- Layer 1: Outermost -->
+  <rect x="50" y="75" width="700" height="340" rx="14" fill="none" stroke="#22d3ee" stroke-width="2.5" opacity="0.6"/>
+  <rect x="60" y="80" width="200" height="28" rx="6" fill="#22d3ee" opacity="0.15"/>
+  <text x="160" y="99" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#67e8f9" font-weight="bold">Layer 1: Input Validation</text>
+  <text x="310" y="99" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Prompt Injection Detection · Input Sanitization · Schema Validation</text>
+
+  <!-- Layer 2 -->
+  <rect x="90" y="120" width="620" height="270" rx="12" fill="none" stroke="#6366f1" stroke-width="2.5" opacity="0.6"/>
+  <rect x="100" y="125" width="220" height="28" rx="6" fill="#6366f1" opacity="0.15"/>
+  <text x="210" y="144" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#a5b4fc" font-weight="bold">Layer 2: Execution Guardrails</text>
+  <text x="350" y="144" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Tool Permissions · Rate Limiting · Sandbox</text>
+
+  <!-- Layer 3 -->
+  <rect x="130" y="165" width="540" height="200" rx="10" fill="none" stroke="#f59e0b" stroke-width="2.5" opacity="0.6"/>
+  <rect x="140" y="170" width="200" height="28" rx="6" fill="#f59e0b" opacity="0.15"/>
+  <text x="240" y="189" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#fbbf24" font-weight="bold">Layer 3: Output Validation</text>
+  <text x="370" y="189" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">PII Detection · Content Filter · Response Check</text>
+
+  <!-- Layer 4: Innermost -->
+  <rect x="170" y="210" width="460" height="130" rx="8" fill="none" stroke="#10b981" stroke-width="2.5" opacity="0.6"/>
+  <rect x="180" y="215" width="230" height="28" rx="6" fill="#10b981" opacity="0.15"/>
+  <text x="295" y="234" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#6ee7b7" font-weight="bold">Layer 4: Monitoring &amp; Detection</text>
+
+  <!-- Core: Agent -->
+  <rect x="280" y="260" width="240" height="60" rx="10" fill="#1e293b" stroke="#e2e8f0" stroke-width="2" filter="url(#sh08b)"/>
+  <text x="400" y="285" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" fill="#e2e8f0" font-weight="bold">Agent System</text>
+  <text x="400" y="305" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Anomaly Detection · Behavioral Analysis · Audit Log</text>
+
+  <!-- Arrows: Attack from outside -->
+  <line x1="20" y1="250" x2="50" y2="250" stroke="#ef4444" stroke-width="2"/>
+  <polygon points="50,250 43,245 43,255" fill="#ef4444"/>
+  <text x="15" y="240" font-family="Segoe UI, Arial" font-size="9" fill="#ef4444" text-anchor="end">Angriff</text>
+
+  <!-- Blocked indicators -->
+  <text x="65" y="250" font-family="Segoe UI, Arial" font-size="14" fill="#22d3ee">|</text>
+  <text x="105" y="250" font-family="Segoe UI, Arial" font-size="14" fill="#6366f1">|</text>
+  <text x="145" y="250" font-family="Segoe UI, Arial" font-size="14" fill="#f59e0b">|</text>
+  <text x="185" y="250" font-family="Segoe UI, Arial" font-size="14" fill="#10b981">|</text>
+
+  <!-- Bottom label -->
+  <rect x="200" y="420" width="400" height="25" rx="6" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1"/>
+  <text x="400" y="437" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fca5a5" font-weight="bold">Jede Schicht reduziert das Risiko — zusammen maximaler Schutz</text>
+</svg>

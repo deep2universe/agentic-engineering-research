@@ -2,6 +2,8 @@
 
 ## Überblick
 
+![Framework-Landschaft 2026 — Vergleich und Empfehlung](svg/11_framework_vergleich.svg)
+
 Drei Frameworks dominieren die AI-Agent-Orchestrierung in 2026: **LangGraph**, **CrewAI** und **AutoGen**. Daneben haben **OpenAI Agents SDK**, **Google ADK** und **Claude Code** (als Coding-Agent) bedeutende Marktanteile.
 
 ---

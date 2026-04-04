@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+  <defs>
+    <linearGradient id="bgAL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="stairGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6"/><stop offset="50%" style="stop-color:#8b5cf6"/><stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+    <filter id="shAL"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="520" fill="url(#bgAL)" rx="12"/>
+
+  <text x="450" y="38" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">8 Autonomie-Level des Agentic Engineering</text>
+
+  <!-- Staircase visualization — each step higher = more autonomy -->
+  <!-- Level 0 -->
+  <rect x="50" y="440" width="95" height="40" rx="4" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5" filter="url(#shAL)"/>
+  <text x="97" y="455" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#60a5fa" font-weight="bold">L0</text>
+  <text x="97" y="470" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Manual</text>
+
+  <!-- Level 1 -->
+  <rect x="155" y="400" width="95" height="80" rx="4" fill="#1e3a5f" stroke="#4f84f6" stroke-width="1.5" filter="url(#shAL)"/>
+  <text x="202" y="415" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#60a5fa" font-weight="bold">L1</text>
+  <text x="202" y="430" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Assisted</text>
+  <text x="202" y="445" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">Autocomplete</text>
+
+  <!-- Level 2 -->
+  <rect x="260" y="360" width="95" height="120" rx="4" fill="#1e2b5f" stroke="#6366f1" stroke-width="1.5" filter="url(#shAL)"/>
+  <text x="307" y="375" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#818cf8" font-weight="bold">L2</text>
+  <text x="307" y="390" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Prompted</text>
+  <text x="307" y="405" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">Einzelaufgaben</text>
+
+  <!-- Level 3 -->
+  <rect x="365" y="320" width="95" height="160" rx="4" fill="#251e5f" stroke="#7c3aed" stroke-width="1.5" filter="url(#shAL)"/>
+  <text x="412" y="335" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#a78bfa" font-weight="bold">L3</text>
+  <text x="412" y="350" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Supervised</text>
+  <text x="412" y="365" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">Agent plant,</text>
+  <text x="412" y="377" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">Mensch reviewt</text>
+
+  <!-- Level 4 -->
+  <rect x="470" y="280" width="95" height="200" rx="4" fill="#2e1e5f" stroke="#8b5cf6" stroke-width="1.5" filter="url(#shAL)"/>
+  <text x="517" y="295" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#c084fc" font-weight="bold">L4</text>
+  <text x="517" y="310" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Collaborative</text>
+  <text x="517" y="325" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">Gemeinsam</text>
+  <text x="517" y="337" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">iterativ</text>
+
+  <!-- Level 5 -->
+  <rect x="575" y="240" width="95" height="240" rx="4" fill="#3e1e5f" stroke="#a855f7" stroke-width="1.5" filter="url(#shAL)"/>
+  <text x="622" y="255" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#d8b4fe" font-weight="bold">L5</text>
+  <text x="622" y="270" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Delegated</text>
+  <text x="622" y="285" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">Selbstständig</text>
+
+  <!-- Level 6 -->
+  <rect x="680" y="200" width="95" height="280" rx="4" fill="#4e1e50" stroke="#d946ef" stroke-width="1.5" filter="url(#shAL)"/>
+  <text x="727" y="215" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#e879f9" font-weight="bold">L6</text>
+  <text x="727" y="230" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Orchestrated</text>
+  <text x="727" y="245" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">Multi-Agent</text>
+
+  <!-- Level 7 -->
+  <rect x="785" y="160" width="95" height="320" rx="4" fill="#5e1e45" stroke="#ec4899" stroke-width="1.5" filter="url(#shAL)"/>
+  <text x="832" y="175" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#f9a8d4" font-weight="bold">L7</text>
+  <text x="832" y="190" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Autonomous</text>
+  <text x="832" y="205" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#64748b">Voll autonom</text>
+
+  <!-- Arrow: Autonomie -->
+  <line x1="50" y1="140" x2="870" y2="140" stroke="url(#stairGrad)" stroke-width="2" opacity="0.4"/>
+  <polygon points="870,140 858,135 858,145" fill="#ec4899" opacity="0.5"/>
+  <text x="460" y="130" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Zunehmende Autonomie</text>
+
+  <!-- Arrow: Human Control -->
+  <line x1="870" y1="500" x2="50" y2="500" stroke="url(#stairGrad)" stroke-width="2" opacity="0.4"/>
+  <polygon points="50,500 62,495 62,505" fill="#3b82f6" opacity="0.5"/>
+  <text x="460" y="515" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#94a3b8">Zunehmende menschliche Kontrolle</text>
+
+  <!-- Most common zone highlight -->
+  <rect x="355" y="70" width="220" height="50" rx="8" fill="#f59e0b" opacity="0.1" stroke="#f59e0b" stroke-width="1"/>
+  <text x="465" y="92" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#fbbf24" font-weight="bold">Sweet Spot 2026</text>
+  <text x="465" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fcd34d">Level 3–4 für die meisten Anwendungen</text>
+  <line x1="412" y1="120" x2="412" y2="320" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3" opacity="0.3"/>
+  <line x1="517" y1="120" x2="517" y2="280" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3" opacity="0.3"/>
+</svg>

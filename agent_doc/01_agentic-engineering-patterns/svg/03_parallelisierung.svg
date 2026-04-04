@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <linearGradient id="bg03c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh03c"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="900" height="400" fill="url(#bg03c)" rx="12"/>
+
+  <text x="450" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Parallelisierung — Sectioning vs. Voting</text>
+
+  <!-- Left: Sectioning -->
+  <rect x="30" y="60" width="410" height="310" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5" filter="url(#sh03c)"/>
+  <text x="235" y="88" text-anchor="middle" font-family="Segoe UI, Arial" font-size="16" font-weight="bold" fill="#67e8f9">Sectioning</text>
+  <text x="235" y="106" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Verschiedene Aspekte parallel bearbeiten</text>
+
+  <!-- Input -->
+  <rect x="55" y="130" width="80" height="40" rx="6" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="95" y="155" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#67e8f9">Input</text>
+
+  <!-- Fork lines -->
+  <line x1="135" y1="140" x2="175" y2="140" stroke="#22d3ee" stroke-width="1.5"/>
+  <line x1="135" y1="150" x2="175" y2="165" stroke="#22d3ee" stroke-width="1.5"/>
+  <line x1="135" y1="160" x2="175" y2="190" stroke="#22d3ee" stroke-width="1.5"/>
+
+  <!-- Parallel agents -->
+  <rect x="180" y="122" width="120" height="35" rx="6" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="240" y="144" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#a5b4fc">Agent A: Aspekt 1</text>
+  <rect x="180" y="165" width="120" height="35" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+  <text x="240" y="187" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#c4b5fd">Agent B: Aspekt 2</text>
+  <rect x="180" y="208" width="120" height="35" rx="6" fill="#1e293b" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="240" y="230" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#d8b4fe">Agent C: Aspekt 3</text>
+
+  <!-- Join lines -->
+  <line x1="300" y1="140" x2="340" y2="165" stroke="#6366f1" stroke-width="1.5"/>
+  <line x1="300" y1="182" x2="340" y2="170" stroke="#8b5cf6" stroke-width="1.5"/>
+  <line x1="300" y1="225" x2="340" y2="175" stroke="#a855f7" stroke-width="1.5"/>
+
+  <!-- Aggregator -->
+  <rect x="340" y="150" width="80" height="40" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+  <text x="380" y="167" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#6ee7b7" font-weight="bold">Aggregator</text>
+  <text x="380" y="181" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#94a3b8">Zusammenführen</text>
+
+  <!-- Parallel indicator -->
+  <rect x="170" y="260" width="140" height="22" rx="4" fill="#22d3ee" opacity="0.1"/>
+  <text x="240" y="275" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#22d3ee">⚡ Gleichzeitig</text>
+
+  <!-- Benefits -->
+  <text x="235" y="310" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#10b981">✓ Latenz-Reduktion</text>
+  <text x="235" y="328" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#10b981">��� Unabhängige Teilaufgaben</text>
+  <text x="235" y="346" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#ef4444">✗ Aggregation kann komplex sein</text>
+
+  <!-- Divider -->
+  <line x1="455" y1="75" x2="455" y2="355" stroke="#334155" stroke-width="1" stroke-dasharray="6,4"/>
+
+  <!-- Right: Voting -->
+  <rect x="470" y="60" width="410" height="310" rx="10" fill="#0f172a" stroke="#f97316" stroke-width="1.5" filter="url(#sh03c)"/>
+  <text x="675" y="88" text-anchor="middle" font-family="Segoe UI, Arial" font-size="16" font-weight="bold" fill="#fb923c">Voting</text>
+  <text x="675" y="106" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b">Gleiche Aufgabe mehrfach für Redundanz</text>
+
+  <!-- Input -->
+  <rect x="495" y="130" width="80" height="40" rx="6" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <text x="535" y="155" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fb923c">Input</text>
+
+  <!-- Fork lines -->
+  <line x1="575" y1="140" x2="615" y2="140" stroke="#f97316" stroke-width="1.5"/>
+  <line x1="575" y1="150" x2="615" y2="165" stroke="#f97316" stroke-width="1.5"/>
+  <line x1="575" y1="160" x2="615" y2="190" stroke="#f97316" stroke-width="1.5"/>
+
+  <!-- Same task, different runs -->
+  <rect x="620" y="122" width="120" height="35" rx="6" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <text x="680" y="144" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fdba74">LLM Call 1</text>
+  <rect x="620" y="165" width="120" height="35" rx="6" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <text x="680" y="187" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fdba74">LLM Call 2</text>
+  <rect x="620" y="208" width="120" height="35" rx="6" fill="#1e293b" stroke="#f97316" stroke-width="1.5"/>
+  <text x="680" y="230" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fdba74">LLM Call 3</text>
+
+  <!-- Join lines -->
+  <line x1="740" y1="140" x2="780" y2="165" stroke="#f97316" stroke-width="1.5"/>
+  <line x1="740" y1="182" x2="780" y2="170" stroke="#f97316" stroke-width="1.5"/>
+  <line x1="740" y1="225" x2="780" y2="175" stroke="#f97316" stroke-width="1.5"/>
+
+  <!-- Vote -->
+  <rect x="780" y="150" width="80" height="40" rx="6" fill="#1e293b" stroke="#eab308" stroke-width="1.5"/>
+  <text x="820" y="167" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#fbbf24" font-weight="bold">Majority</text>
+  <text x="820" y="181" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#94a3b8">Vote</text>
+
+  <!-- Same task indicator -->
+  <rect x="610" y="260" width="140" height="22" rx="4" fill="#f97316" opacity="0.1"/>
+  <text x="680" y="275" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#f97316">Gleiche Aufgabe N×</text>
+
+  <!-- Benefits -->
+  <text x="675" y="310" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#10b981">✓ Höhere Zuverlässigkeit</text>
+  <text x="675" y="328" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#10b981">✓ Konsens reduziert Fehler</text>
+  <text x="675" y="346" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#ef4444">✗ Höhere Token-Kosten (N×)</text>
+</svg>

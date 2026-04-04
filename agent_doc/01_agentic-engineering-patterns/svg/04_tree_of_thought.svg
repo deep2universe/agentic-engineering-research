@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 420">
+  <defs>
+    <linearGradient id="bg04c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh04c"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="750" height="420" fill="url(#bg04c)" rx="12"/>
+
+  <text x="375" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Tree of Thought — Parallele Pfad-Exploration</text>
+  <text x="375" y="53" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b">Mehrere Reasoning-Pfade explorieren, bewerten und den besten wählen</text>
+
+  <!-- Root: Problem -->
+  <rect x="300" y="75" width="150" height="40" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#sh04c)"/>
+  <text x="375" y="100" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#fbbf24" font-weight="bold">Problem</text>
+
+  <!-- Branch lines -->
+  <line x1="325" y1="115" x2="150" y2="160" stroke="#6366f1" stroke-width="2"/>
+  <line x1="375" y1="115" x2="375" y2="160" stroke="#8b5cf6" stroke-width="2"/>
+  <line x1="425" y1="115" x2="600" y2="160" stroke="#a855f7" stroke-width="2"/>
+
+  <!-- Ansatz A -->
+  <rect x="60" y="160" width="180" height="55" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5" filter="url(#sh04c)"/>
+  <text x="150" y="180" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#a5b4fc" font-weight="bold">Ansatz A</text>
+  <rect x="175" y="192" width="55" height="16" rx="4" fill="#f59e0b" opacity="0.2"/>
+  <text x="202" y="203" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#fbbf24">7/10</text>
+
+  <!-- Ansatz B -->
+  <rect x="285" y="160" width="180" height="55" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5" filter="url(#sh04c)"/>
+  <text x="375" y="180" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#c4b5fd" font-weight="bold">Ansatz B</text>
+  <rect x="400" y="192" width="55" height="16" rx="4" fill="#ef4444" opacity="0.2"/>
+  <text x="427" y="203" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#ef4444">5/10</text>
+
+  <!-- Ansatz C -->
+  <rect x="510" y="160" width="180" height="55" rx="8" fill="#1e293b" stroke="#a855f7" stroke-width="1.5" filter="url(#sh04c)"/>
+  <text x="600" y="180" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#d8b4fe" font-weight="bold">Ansatz C</text>
+  <rect x="625" y="192" width="55" height="16" rx="4" fill="#10b981" opacity="0.2"/>
+  <text x="652" y="203" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#10b981">9/10</text>
+
+  <!-- Pruning X on B -->
+  <line x1="340" y1="215" x2="340" y2="255" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <text x="375" y="250" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" fill="#ef4444" opacity="0.6">✗</text>
+  <text x="375" y="275" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#ef4444">Pruning</text>
+
+  <!-- Continue A -->
+  <line x1="150" y1="215" x2="150" y2="260" stroke="#6366f1" stroke-width="1.5"/>
+  <rect x="70" y="260" width="160" height="40" rx="6" fill="#1e293b" stroke="#6366f1" stroke-width="1"/>
+  <text x="150" y="278" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#a5b4fc">Lösung A₁</text>
+  <rect x="165" y="284" width="55" height="12" rx="3" fill="#f59e0b" opacity="0.15"/>
+  <text x="192" y="293" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#fbbf24">8/10</text>
+
+  <!-- Continue C (winning) -->
+  <line x1="600" y1="215" x2="600" y2="260" stroke="#a855f7" stroke-width="2"/>
+  <rect x="510" y="260" width="180" height="40" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <text x="600" y="278" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7" font-weight="bold">Lösung C₁</text>
+  <rect x="625" y="284" width="55" height="12" rx="3" fill="#10b981" opacity="0.2"/>
+  <text x="652" y="293" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#10b981">9.5/10 ✓</text>
+
+  <!-- Winner arrow -->
+  <line x1="600" y1="300" x2="600" y2="335" stroke="#10b981" stroke-width="2"/>
+  <polygon points="600,335 595,328 605,328" fill="#10b981"/>
+  <rect x="530" y="340" width="140" height="30" rx="6" fill="#052e16" stroke="#10b981" stroke-width="1.5" filter="url(#sh04c)"/>
+  <text x="600" y="360" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#6ee7b7" font-weight="bold">Gewählt!</text>
+
+  <!-- Process labels -->
+  <g font-family="Segoe UI, Arial" font-size="9" fill="#64748b">
+    <text x="40" y="148">Branching</text>
+    <text x="40" y="248">Evaluation</text>
+    <text x="40" y="330">Selection</text>
+    <line x1="35" y1="70" x2="35" y2="370" stroke="#334155" stroke-width="1" stroke-dasharray="4,3"/>
+  </g>
+
+  <!-- Bottom insight -->
+  <text x="375" y="405" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#64748b" font-style="italic">Besonders mächtig bei Aufgaben, wo der initiale Pfad in eine Sackgasse führen könnte</text>
+</svg>

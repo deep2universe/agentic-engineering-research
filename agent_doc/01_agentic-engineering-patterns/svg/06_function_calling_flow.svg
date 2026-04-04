@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="llmGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="runtimeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="contextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="reasonGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <marker id="arrowOrange" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arrowPurple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8b5cf6"/>
+    </marker>
+    <marker id="arrowIndigo" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="420" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="440" y="38" text-anchor="middle" fill="#f1f5f9" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="700">Function Calling -- Ablauf</text>
+  <line x1="300" y1="50" x2="580" y2="50" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Step 1: LLM generates JSON Tool Call -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="80" width="180" height="130" rx="12" fill="url(#llmGrad)" opacity="0.95"/>
+    <rect x="50" y="88" width="50" height="20" rx="4" fill="#4338ca"/>
+    <text x="75" y="102" text-anchor="middle" fill="#e0e7ff" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700">STEP 1</text>
+    <text x="120" y="128" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700">LLM</text>
+    <text x="120" y="150" text-anchor="middle" fill="#c7d2fe" font-family="Inter, system-ui, sans-serif" font-size="11">generiert strukturierten</text>
+    <text x="120" y="166" text-anchor="middle" fill="#c7d2fe" font-family="Inter, system-ui, sans-serif" font-size="11">JSON Tool Call</text>
+    <!-- JSON icon -->
+    <rect x="72" y="178" width="96" height="22" rx="5" fill="#1e1b4b" opacity="0.8"/>
+    <text x="120" y="193" text-anchor="middle" fill="#a5b4fc" font-family="'Fira Code', monospace" font-size="9">{"tool":"..","q":".."}</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="210" y1="145" x2="268" y2="145" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrowOrange)"/>
+  <rect x="218" y="122" width="42" height="16" rx="4" fill="#451a03" opacity="0.9"/>
+  <text x="239" y="133" text-anchor="middle" fill="#fbbf24" font-family="'Fira Code', monospace" font-size="9" font-weight="600">JSON</text>
+
+  <!-- Step 2: Runtime executes -->
+  <g filter="url(#shadow)">
+    <rect x="280" y="80" width="180" height="130" rx="12" fill="url(#runtimeGrad)" opacity="0.95"/>
+    <rect x="300" y="88" width="50" height="20" rx="4" fill="#92400e"/>
+    <text x="325" y="102" text-anchor="middle" fill="#fef3c7" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700">STEP 2</text>
+    <text x="370" y="128" text-anchor="middle" fill="#1c1917" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700">Runtime</text>
+    <text x="370" y="150" text-anchor="middle" fill="#451a03" font-family="Inter, system-ui, sans-serif" font-size="11">parst JSON und</text>
+    <text x="370" y="166" text-anchor="middle" fill="#451a03" font-family="Inter, system-ui, sans-serif" font-size="11">fuehrt Tool aus</text>
+    <!-- Execution icons -->
+    <rect x="310" y="178" width="120" height="22" rx="5" fill="#78350f" opacity="0.6"/>
+    <text x="370" y="193" text-anchor="middle" fill="#fde68a" font-family="'Fira Code', monospace" font-size="9">API / DB / Code</text>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="460" y1="145" x2="518" y2="145" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <rect x="466" y="122" width="48" height="16" rx="4" fill="#022c22" opacity="0.9"/>
+  <text x="490" y="133" text-anchor="middle" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9" font-weight="600">Result</text>
+
+  <!-- Step 3: Result back to Context -->
+  <g filter="url(#shadow)">
+    <rect x="530" y="80" width="180" height="130" rx="12" fill="url(#contextGrad)" opacity="0.95"/>
+    <rect x="550" y="88" width="50" height="20" rx="4" fill="#065f46"/>
+    <text x="575" y="102" text-anchor="middle" fill="#d1fae5" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700">STEP 3</text>
+    <text x="620" y="128" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="700">LLM Context</text>
+    <text x="620" y="150" text-anchor="middle" fill="#d1fae5" font-family="Inter, system-ui, sans-serif" font-size="11">Tool-Result wird als</text>
+    <text x="620" y="166" text-anchor="middle" fill="#d1fae5" font-family="Inter, system-ui, sans-serif" font-size="11">Message angehaengt</text>
+    <rect x="564" y="178" width="112" height="22" rx="5" fill="#022c22" opacity="0.6"/>
+    <text x="620" y="193" text-anchor="middle" fill="#6ee7b7" font-family="'Fira Code', monospace" font-size="9">role: tool_result</text>
+  </g>
+
+  <!-- Arrow 3 -> 4 -->
+  <line x1="710" y1="145" x2="758" y2="145" stroke="#8b5cf6" stroke-width="2.5" marker-end="url(#arrowPurple)"/>
+
+  <!-- Step 4: Next Reasoning Step -->
+  <g filter="url(#shadow)">
+    <rect x="770" y="80" width="85" height="130" rx="12" fill="url(#reasonGrad)" opacity="0.95"/>
+    <rect x="780" y="88" width="50" height="20" rx="4" fill="#5b21b6"/>
+    <text x="805" y="102" text-anchor="middle" fill="#ede9fe" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700">STEP 4</text>
+    <text x="812" y="132" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700">Naechster</text>
+    <text x="812" y="150" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700">Reasoning</text>
+    <text x="812" y="168" text-anchor="middle" fill="#fff" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700">Schritt</text>
+    <text x="812" y="195" text-anchor="middle" fill="#ddd6fe" font-family="Inter, system-ui, sans-serif" font-size="9">oder: fertig</text>
+  </g>
+
+  <!-- Cycle arrow: Step 4 -> Step 1 -->
+  <path d="M 812 210 L 812 350 Q 812 370 792 370 L 140 370 Q 120 370 120 350 L 120 218"
+        fill="none" stroke="#6366f1" stroke-width="2.5" marker-end="url(#arrowIndigo)" stroke-dasharray="8,4" opacity="0.7"/>
+  <rect x="380" y="356" width="130" height="26" rx="8" fill="#1e1b4b" stroke="#4338ca" stroke-width="1" opacity="0.9"/>
+  <text x="445" y="374" text-anchor="middle" fill="#a5b4fc" font-family="Inter, system-ui, sans-serif" font-size="11" font-weight="600">Zyklus wiederholen</text>
+
+  <!-- Bottom explanation -->
+  <text x="440" y="410" text-anchor="middle" fill="#64748b" font-family="Inter, system-ui, sans-serif" font-size="10">Das LLM steuert den Ablauf -- die Runtime ist reine Ausfuehrungsschicht -- Ergebnisse fliessen als Messages zurueck in den Context</text>
+</svg>

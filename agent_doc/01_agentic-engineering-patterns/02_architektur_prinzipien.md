@@ -2,6 +2,8 @@
 
 ## Überblick
 
+![10 Architektur-Prinzipien — Übersicht](svg/02_prinzipien_uebersicht.svg)
+
 Die folgenden Prinzipien haben sich als fundamentale Leitlinien für den Entwurf und Betrieb von Agent-Systemen etabliert. Sie stammen aus der Praxis führender Organisationen (Anthropic, Google, OpenAI) und der Community.
 
 ---
@@ -46,6 +48,8 @@ Jeder Planungsschritt des Agents muss explizit sichtbar sein. Der Agent soll sei
 
 ## Prinzip 3: Sorgfältiges Agent-Computer-Interface (ACI) Design
 
+![ACI Design — Checkliste und Interaction Flow](svg/02_aci_design.svg)
+
 > "The agent-computer interface requires just as much thought as human-computer interface design."
 > — Anthropic
 
@@ -70,6 +74,8 @@ Die Schnittstellen, über die der Agent mit Tools, APIs und Systemen interagiert
 ---
 
 ## Prinzip 4: Separation of Concerns
+
+![Separation of Concerns — Pipeline of Agents](svg/02_separation_of_concerns.svg)
 
 ### Beschreibung
 Jeder Agent, jedes Tool und jeder Workflow-Schritt sollte eine klar definierte, einzelne Verantwortlichkeit haben.

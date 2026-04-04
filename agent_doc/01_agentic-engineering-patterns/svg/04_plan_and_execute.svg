@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380">
+  <defs>
+    <linearGradient id="bg04e" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh04e"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="380" fill="url(#bg04e)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Plan-and-Execute</text>
+  <text x="400" y="53" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b">Strategische Planung getrennt von taktischer Ausführung</text>
+
+  <!-- Phase 1: Planning -->
+  <rect x="40" y="75" width="250" height="200" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2" filter="url(#sh04e)"/>
+  <rect x="40" y="75" width="250" height="30" rx="10" fill="#f59e0b" opacity="0.12"/>
+  <text x="165" y="96" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#fbbf24">Phase 1: Planning</text>
+
+  <g font-family="Segoe UI, Arial" font-size="10" fill="#cbd5e1">
+    <rect x="60" y="115" width="210" height="22" rx="4" fill="#f59e0b" opacity="0.06"/>
+    <text x="70" y="130" fill="#fcd34d">1.</text><text x="85" y="130">Datenmodell definieren</text>
+    <rect x="60" y="142" width="210" height="22" rx="4" fill="#f59e0b" opacity="0.06"/>
+    <text x="70" y="157" fill="#fcd34d">2.</text><text x="85" y="157">Database Schema erstellen</text>
+    <rect x="60" y="169" width="210" height="22" rx="4" fill="#f59e0b" opacity="0.06"/>
+    <text x="70" y="184" fill="#fcd34d">3.</text><text x="85" y="184">CRUD-Endpoints bauen</text>
+    <rect x="60" y="196" width="210" height="22" rx="4" fill="#f59e0b" opacity="0.06"/>
+    <text x="70" y="211" fill="#fcd34d">4.</text><text x="85" y="211">Auth implementieren</text>
+    <rect x="60" y="223" width="210" height="22" rx="4" fill="#f59e0b" opacity="0.06"/>
+    <text x="70" y="238" fill="#fcd34d">5.</text><text x="85" y="238">Tests schreiben</text>
+  </g>
+
+  <!-- Arrow from Planning to Execution -->
+  <line x1="290" y1="175" x2="330" y2="175" stroke="#f59e0b" stroke-width="2.5"/>
+  <polygon points="330,175 323,170 323,180" fill="#f59e0b"/>
+
+  <!-- Phase 2: Execution -->
+  <rect x="340" y="75" width="230" height="200" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2" filter="url(#sh04e)"/>
+  <rect x="340" y="75" width="230" height="30" rx="10" fill="#6366f1" opacity="0.12"/>
+  <text x="455" y="96" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="bold" fill="#a5b4fc">Phase 2: Execution</text>
+
+  <!-- Progress bars -->
+  <g font-family="Segoe UI, Arial" font-size="9">
+    <text x="360" y="125" fill="#94a3b8">Schritt 1</text>
+    <rect x="420" y="115" width="130" height="12" rx="3" fill="#1e3a5f"/>
+    <rect x="420" y="115" width="130" height="12" rx="3" fill="#10b981" opacity="0.6"/>
+    <text x="555" y="125" fill="#10b981">✓</text>
+
+    <text x="360" y="150" fill="#94a3b8">Schritt 2</text>
+    <rect x="420" y="140" width="130" height="12" rx="3" fill="#1e3a5f"/>
+    <rect x="420" y="140" width="130" height="12" rx="3" fill="#10b981" opacity="0.6"/>
+    <text x="555" y="150" fill="#10b981">✓</text>
+
+    <text x="360" y="175" fill="#94a3b8">Schritt 3</text>
+    <rect x="420" y="165" width="130" height="12" rx="3" fill="#1e3a5f"/>
+    <rect x="420" y="165" width="80" height="12" rx="3" fill="#f59e0b" opacity="0.6"/>
+    <text x="555" y="175" fill="#f59e0b">▸</text>
+
+    <text x="360" y="200" fill="#94a3b8">Schritt 4</text>
+    <rect x="420" y="190" width="130" height="12" rx="3" fill="#1e3a5f"/>
+    <text x="555" y="200" fill="#64748b">○</text>
+
+    <text x="360" y="225" fill="#94a3b8">Schritt 5</text>
+    <rect x="420" y="215" width="130" height="12" rx="3" fill="#1e3a5f"/>
+    <text x="555" y="225" fill="#64748b">○</text>
+  </g>
+  <text x="455" y="260" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Status-Update nach jedem Schritt</text>
+
+  <!-- Phase 3: Replanning -->
+  <rect x="590" y="75" width="180" height="200" rx="10" fill="#1e293b" stroke="#ec4899" stroke-width="2" filter="url(#sh04e)"/>
+  <rect x="590" y="75" width="180" height="30" rx="10" fill="#ec4899" opacity="0.12"/>
+  <text x="680" y="96" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" font-weight="bold" fill="#f472b6">Phase 3: Replan</text>
+
+  <text x="610" y="125" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Wenn ein Schritt</text>
+  <text x="610" y="142" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">fehlschlägt oder</text>
+  <text x="610" y="159" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">neue Informationen</text>
+  <text x="610" y="176" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">auftreten:</text>
+  <text x="610" y="200" font-family="Segoe UI, Arial" font-size="11" fill="#f472b6" font-weight="bold">→ Plan dynamisch</text>
+  <text x="610" y="218" font-family="Segoe UI, Arial" font-size="11" fill="#f472b6" font-weight="bold">   anpassen</text>
+
+  <!-- Loop back arrow from Replan to Execution -->
+  <path d="M680,275 Q680,300 490,310 Q340,315 340,285" fill="none" stroke="#ec4899" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="500" y="325" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#ec4899">Adaptive Replanning</text>
+
+  <!-- Bottom -->
+  <rect x="200" y="345" width="400" height="25" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="400" y="362" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#f59e0b" font-style="italic">Strategische Planung + taktische Ausführung + adaptive Anpassung</text>
+</svg>

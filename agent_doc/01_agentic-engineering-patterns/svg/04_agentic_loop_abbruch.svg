@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 300">
+  <defs>
+    <linearGradient id="bg04f" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh04f"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="700" height="300" fill="url(#bg04f)" rx="12"/>
+
+  <text x="350" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Agentic Loop — Abbruchbedingungen</text>
+  <text x="350" y="53" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#64748b">Kritisch: Endlosschleifen verhindern</text>
+
+  <!-- Central loop -->
+  <circle cx="170" cy="170" r="60" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="8,4" opacity="0.5"/>
+  <text x="170" y="165" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#a5b4fc" font-weight="bold">Agent</text>
+  <text x="170" y="182" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Loop</text>
+
+  <!-- Curved arrow on circle -->
+  <path d="M210,120 Q240,110 235,140" fill="none" stroke="#6366f1" stroke-width="2"/>
+  <polygon points="235,140 230,132 238,134" fill="#6366f1"/>
+
+  <!-- Exit conditions -->
+  <g filter="url(#sh04f)">
+    <rect x="300" y="70" width="370" height="200" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="300" y="70" width="370" height="28" rx="10" fill="#f59e0b" opacity="0.12"/>
+    <text x="485" y="89" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="bold" fill="#fbbf24">Abbruchbedingungen</text>
+
+    <!-- Conditions -->
+    <g font-family="Segoe UI, Arial" font-size="11">
+      <rect x="320" y="108" width="180" height="28" rx="5" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1"/>
+      <text x="410" y="126" text-anchor="middle" fill="#fca5a5">max_iterations: 10</text>
+      <text x="520" y="126" fill="#64748b" font-size="9">Hard Limit</text>
+
+      <rect x="320" y="144" width="180" height="28" rx="5" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1"/>
+      <text x="410" y="162" text-anchor="middle" fill="#6ee7b7">quality_threshold: 0.9</text>
+      <text x="520" y="162" fill="#64748b" font-size="9">Qualitätsziel</text>
+
+      <rect x="320" y="180" width="180" height="28" rx="5" fill="#f97316" opacity="0.1" stroke="#f97316" stroke-width="1"/>
+      <text x="410" y="198" text-anchor="middle" fill="#fdba74">timeout_seconds: 120</text>
+      <text x="520" y="198" fill="#64748b" font-size="9">Zeitlimit</text>
+
+      <rect x="320" y="216" width="180" height="28" rx="5" fill="#8b5cf6" opacity="0.1" stroke="#8b5cf6" stroke-width="1"/>
+      <text x="410" y="234" text-anchor="middle" fill="#c4b5fd">no_progress_count: 3</text>
+      <text x="520" y="234" fill="#64748b" font-size="9">Stagnation</text>
+    </g>
+  </g>
+
+  <!-- Exit arrows from loop to conditions -->
+  <line x1="230" y1="155" x2="300" y2="122" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="230" y1="170" x2="300" y2="158" stroke="#10b981" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="230" y1="185" x2="300" y2="194" stroke="#f97316" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="230" y1="200" x2="300" y2="230" stroke="#8b5cf6" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+
+  <!-- Bottom -->
+  <text x="350" y="290" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#ef4444" font-weight="bold">Best Practice: IMMER ein Hard Limit setzen + Stagnations-Erkennung</text>
+</svg>

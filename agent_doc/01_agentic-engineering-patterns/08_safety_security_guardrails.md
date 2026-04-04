@@ -8,6 +8,8 @@ Die Absicherung von Agent-Systemen ist eine der kritischsten Herausforderungen i
 
 ## Das "Lethal Trifecta" (Airia, 2026)
 
+![Das Lethal Trifecta — Drei kritische Verwundbarkeitsfaktoren](svg/08_lethal_trifecta.svg)
+
 Drei Faktoren, die zusammen eine kritische Verwundbarkeit erzeugen:
 
 1. **Zugang zu privaten Daten** — Der Agent kann sensible Informationen lesen
@@ -42,6 +44,8 @@ Drei Faktoren, die zusammen eine kritische Verwundbarkeit erzeugen:
 ---
 
 ## Defense-in-Depth Architektur
+
+![Defense-in-Depth — Vier Sicherheitsschichten](svg/08_defense_in_depth.svg)
 
 ```
 ┌──────────────────────────────────────┐
@@ -203,6 +207,8 @@ Regeln und Constraints für das Verhalten des Agents, die über einfache Input/O
 ---
 
 ## OWASP AI Agent Security Top 10 (2026)
+
+![OWASP AI Agent Security Top 10](svg/08_owasp_top10.svg)
 
 | Rang | Risiko | Beschreibung |
 |------|--------|--------------|

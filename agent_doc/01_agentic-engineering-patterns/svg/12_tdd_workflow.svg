@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 280">
+  <defs>
+    <linearGradient id="bg12b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sh12b"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="800" height="280" fill="url(#bg12b)" rx="12"/>
+
+  <text x="400" y="35" text-anchor="middle" font-family="Segoe UI, Arial" font-size="20" font-weight="bold" fill="#e2e8f0">Agentic QA Workflow — Red/Green TDD</text>
+
+  <!-- Steps -->
+  <g filter="url(#sh12b)">
+    <rect x="30" y="65" width="110" height="80" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="85" y="95" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#a5b4fc" font-weight="bold">1. Bestehende</text>
+    <text x="85" y="110" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#a5b4fc" font-weight="bold">Tests laufen</text>
+    <text x="85" y="130" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#10b981">Alle grün?</text>
+  </g>
+  <line x1="140" y1="105" x2="160" y2="105" stroke="#475569" stroke-width="1.5"/>
+
+  <g filter="url(#sh12b)">
+    <rect x="165" y="65" width="110" height="80" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="220" y="95" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7" font-weight="bold">2. Feature</text>
+    <text x="220" y="110" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7" font-weight="bold">implementieren</text>
+  </g>
+  <line x1="275" y1="105" x2="295" y2="105" stroke="#475569" stroke-width="1.5"/>
+
+  <g filter="url(#sh12b)">
+    <rect x="300" y="65" width="110" height="80" rx="8" fill="#ef4444" opacity="0.1" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="355" y="95" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fca5a5" font-weight="bold">3. Test RED</text>
+    <text x="355" y="113" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Fehlschlagender</text>
+    <text x="355" y="126" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Test zuerst</text>
+  </g>
+  <line x1="410" y1="105" x2="430" y2="105" stroke="#475569" stroke-width="1.5"/>
+
+  <g filter="url(#sh12b)">
+    <rect x="435" y="65" width="110" height="80" rx="8" fill="#10b981" opacity="0.1" stroke="#10b981" stroke-width="1.5"/>
+    <text x="490" y="95" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#6ee7b7" font-weight="bold">4. Code GREEN</text>
+    <text x="490" y="113" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Implementieren</text>
+    <text x="490" y="126" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">bis Test besteht</text>
+  </g>
+  <line x1="545" y1="105" x2="565" y2="105" stroke="#475569" stroke-width="1.5"/>
+
+  <g filter="url(#sh12b)">
+    <rect x="570" y="65" width="110" height="80" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="625" y="95" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fbbf24" font-weight="bold">5. Alle Tests</text>
+    <text x="625" y="110" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#fbbf24" font-weight="bold">laufen</text>
+  </g>
+  <line x1="680" y1="105" x2="700" y2="105" stroke="#475569" stroke-width="1.5"/>
+
+  <g filter="url(#sh12b)">
+    <rect x="705" y="65" width="75" height="80" rx="8" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="742" y="98" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#67e8f9" font-weight="bold">6. Beweis</text>
+    <text x="742" y="115" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">Screenshot</text>
+    <text x="742" y="130" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#94a3b8">/ Output</text>
+  </g>
+
+  <!-- Error loop from Step 5 back to Step 4 -->
+  <path d="M625,145 Q625,175 490,175 Q490,150 490,145" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="560" y="188" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#ef4444">Bei Fehler: analysieren + korrigieren</text>
+
+  <!-- Bottom: key principles -->
+  <rect x="100" y="210" width="600" height="50" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1" filter="url(#sh12b)"/>
+  <text x="400" y="232" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#f59e0b" font-weight="bold">Kernprinzipien für Agentic Coding</text>
+  <text x="400" y="250" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#94a3b8">Nie unreviewed Code weiterleiten · Immer git diff reviewen · Kleine, atomare Aufgaben</text>
+</svg>

@@ -8,6 +8,8 @@ Multi-Agent-Systeme koordinieren mehrere spezialisierte Agents, um komplexe Aufg
 
 ## Basis-Ausführungsmuster
 
+![Basis-Ausführungsmuster — Sequential, Loop, Parallel](svg/05_basis_ausfuehrungsmuster.svg)
+
 ### Sequential (Pipeline)
 ```
 Agent A → Agent B → Agent C → Ergebnis
@@ -31,6 +33,8 @@ Unabhängige Agents arbeiten gleichzeitig, Ergebnisse werden aggregiert.
 ---
 
 ## Pattern 1: Supervisor (Hierarchisch)
+
+![Supervisor vs. Swarm — Zwei Paradigmen im Vergleich](svg/05_supervisor_vs_swarm.svg)
 
 ### Beschreibung
 Ein übergeordneter Supervisor-Agent koordiniert mehrere untergeordnete Worker-Agents. Der Supervisor trifft alle Routing- und Orchestrierungsentscheidungen.
@@ -90,6 +94,8 @@ Agents kommunizieren direkt miteinander ohne zentralen Koordinator. Jeder Agent 
 ---
 
 ## Pattern 3: Hierarchical Multi-Agent
+
+![Hierarchical Multi-Agent — Organigramm für Agents](svg/05_hierarchical_multi_agent.svg)
 
 ### Beschreibung
 Verschachtelte Supervisor-Hierarchie. Ein Top-Level-Supervisor delegiert an Mid-Level-Supervisors, die wiederum an Worker-Agents delegieren.
@@ -215,6 +221,8 @@ Mehrere Agents verarbeiten dieselbe Aufgabe unabhängig. Die Ergebnisse werden a
 ---
 
 ## Kommunikations-Patterns zwischen Agents
+
+![Kommunikations-Patterns — 5 Ansätze im Vergleich](svg/05_kommunikations_patterns.svg)
 
 ### Direct Message Passing
 Agents senden Nachrichten direkt an spezifische andere Agents.
