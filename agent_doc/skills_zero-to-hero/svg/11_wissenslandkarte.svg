@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg11" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="s11"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/></filter>
+    <filter id="g11"><feGaussianBlur stdDeviation="2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1100" height="650" fill="url(#bg11)" rx="16"/>
+  <text x="550" y="40" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Wissenslandkarte — Skills im Agentic Engineering</text>
+  <line x1="300" y1="50" x2="800" y2="50" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Central Node -->
+  <circle cx="550" cy="320" r="55" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="3" filter="g11"/>
+  <text x="550" y="312" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">SKILLS</text>
+  <text x="550" y="330" text-anchor="middle" fill="#a5b4fc" font-size="10">Agentic</text>
+  <text x="550" y="344" text-anchor="middle" fill="#a5b4fc" font-size="10">Engineering</text>
+
+  <!-- Branch 1: Grundlagen (top-left) -->
+  <line x1="505" y1="280" x2="200" y2="120" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+  <g filter="s11" transform="translate(60, 70)">
+    <rect width="280" height="140" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="280" height="30" rx="12" fill="#064e3b"/>
+    <text x="140" y="20" text-anchor="middle" fill="#6ee7b7" font-size="12" font-weight="700">1 · GRUNDLAGEN</text>
+    <text x="15" y="52" fill="#94a3b8" font-size="10">• Definition: SKILL.md + Ressourcen</text>
+    <text x="15" y="68" fill="#94a3b8" font-size="10">• Standard: agentskills.io (30+ Plattformen)</text>
+    <text x="15" y="84" fill="#94a3b8" font-size="10">• Anatomie: Frontmatter + Body</text>
+    <text x="15" y="100" fill="#94a3b8" font-size="10">• Lebenszyklus: Discovery → Execution</text>
+    <text x="15" y="116" fill="#94a3b8" font-size="10">• Ökosystem: Skills · MCP · A2A</text>
+    <text x="15" y="132" fill="#64748b" font-size="9">→ Kapitel 01–03, 08</text>
+  </g>
+
+  <!-- Branch 2: Design (top-right) -->
+  <line x1="595" y1="280" x2="900" y2="120" stroke="#8b5cf6" stroke-width="2" opacity="0.5"/>
+  <g filter="s11" transform="translate(760, 70)">
+    <rect width="280" height="140" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="0" y="0" width="280" height="30" rx="12" fill="#312e81"/>
+    <text x="140" y="20" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="700">2 · DESIGN</text>
+    <text x="15" y="52" fill="#94a3b8" font-size="10">• 10 Kernprinzipien</text>
+    <text x="15" y="68" fill="#94a3b8" font-size="10">• 10 Design Patterns</text>
+    <text x="15" y="84" fill="#94a3b8" font-size="10">• Freiheitsgrade (Brücke ↔ Feld)</text>
+    <text x="15" y="100" fill="#94a3b8" font-size="10">• Composition (horizontal/vertikal)</text>
+    <text x="15" y="116" fill="#94a3b8" font-size="10">• Anti-Patterns (12 + 4 Security)</text>
+    <text x="15" y="132" fill="#64748b" font-size="9">→ Kapitel 04–05, 09–10</text>
+  </g>
+
+  <!-- Branch 3: Praxis (left) -->
+  <line x1="495" y1="330" x2="280" y2="380" stroke="#f59e0b" stroke-width="2" opacity="0.5"/>
+  <g filter="s11" transform="translate(60, 340)">
+    <rect width="260" height="130" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="0" y="0" width="260" height="30" rx="12" fill="#451a03"/>
+    <text x="130" y="20" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="700">3 · ERSTELLUNG</text>
+    <text x="15" y="52" fill="#94a3b8" font-size="10">• 7-Phasen-Methodik</text>
+    <text x="15" y="68" fill="#94a3b8" font-size="10">• Evaluation-Driven Development</text>
+    <text x="15" y="84" fill="#94a3b8" font-size="10">• Claude A/B Workflow</text>
+    <text x="15" y="100" fill="#94a3b8" font-size="10">• Naming + Description Regeln</text>
+    <text x="15" y="116" fill="#64748b" font-size="9">→ Kapitel 06</text>
+  </g>
+
+  <!-- Branch 4: Claude Code (right) -->
+  <line x1="605" y1="330" x2="820" y2="380" stroke="#06b6d4" stroke-width="2" opacity="0.5"/>
+  <g filter="s11" transform="translate(780, 340)">
+    <rect width="260" height="130" rx="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+    <rect x="0" y="0" width="260" height="30" rx="12" fill="#0c4a6e"/>
+    <text x="130" y="20" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="700">4 · CLAUDE CODE</text>
+    <text x="15" y="52" fill="#94a3b8" font-size="10">• Bundled + Custom Skills</text>
+    <text x="15" y="68" fill="#94a3b8" font-size="10">• Speicherorte &amp; Prioritäten</text>
+    <text x="15" y="84" fill="#94a3b8" font-size="10">• Subagents &amp; Hooks</text>
+    <text x="15" y="100" fill="#94a3b8" font-size="10">• Shell-Preprocessing</text>
+    <text x="15" y="116" fill="#64748b" font-size="9">→ Kapitel 07</text>
+  </g>
+
+  <!-- Branch 5: Markt (bottom) -->
+  <line x1="550" y1="375" x2="550" y2="500" stroke="#dc2626" stroke-width="2" opacity="0.5"/>
+  <g filter="s11" transform="translate(340, 500)">
+    <rect width="420" height="120" rx="12" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <rect x="0" y="0" width="420" height="30" rx="12" fill="#450a0a"/>
+    <text x="210" y="20" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">5 · MARKT &amp; ZUKUNFT</text>
+    <g transform="translate(15, 45)">
+      <rect width="120" height="55" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <text x="60" y="20" text-anchor="middle" fill="#6ee7b7" font-size="13" font-weight="700">7,84 Mrd. $</text>
+      <text x="60" y="38" text-anchor="middle" fill="#64748b" font-size="9">AI-Agent-Markt</text>
+      <text x="60" y="50" text-anchor="middle" fill="#64748b" font-size="8">→ 52,62 Mrd. bis 2030</text>
+    </g>
+    <g transform="translate(150, 45)">
+      <rect width="120" height="55" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <text x="60" y="20" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700">40%</text>
+      <text x="60" y="38" text-anchor="middle" fill="#64748b" font-size="9">Enterprise-Apps</text>
+      <text x="60" y="50" text-anchor="middle" fill="#64748b" font-size="8">mit AI Agents (Gartner)</text>
+    </g>
+    <g transform="translate(285, 45)">
+      <rect width="120" height="55" rx="6" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+      <text x="60" y="20" text-anchor="middle" fill="#fca5a5" font-size="13" font-weight="700">14%</text>
+      <text x="60" y="38" text-anchor="middle" fill="#64748b" font-size="9">Produktionsreife</text>
+      <text x="60" y="50" text-anchor="middle" fill="#64748b" font-size="8">Agentic AI</text>
+    </g>
+  </g>
+</svg>

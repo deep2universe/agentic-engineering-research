@@ -8,6 +8,8 @@ Skills existieren nicht isoliert — sie sind Teil eines wachsenden Ökosystems 
 
 ## Die drei Säulen der Agentic AI Infrastruktur
 
+![Drei Säulen der Agentic AI Infrastruktur](svg/08_drei_saeulen.svg)
+
 ### 1. Agent Skills Standard — "Was Agents können"
 
 **Was**: Offener Standard für prozedurales Wissen in wiederverwendbaren Modulen
@@ -157,6 +159,8 @@ Format: `ServerName:tool_name`
 ---
 
 ## Framework-Integration
+
+![Framework-Abstraktionsebenen](svg/08_framework_vergleich.svg)
 
 ### Vollständige Framework-Vergleichsmatrix
 

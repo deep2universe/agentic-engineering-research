@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg10" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="s10"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="1100" height="600" fill="url(#bg10)" rx="16"/>
+  <text x="550" y="38" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Anti-Patterns und Fallstricke — Übersicht</text>
+  <line x1="320" y1="48" x2="780" y2="48" stroke="#dc2626" stroke-width="2" opacity="0.6"/>
+
+  <!-- Design Anti-Patterns -->
+  <text x="80" y="80" fill="#fca5a5" font-size="14" font-weight="700">Design Anti-Patterns</text>
+
+  <!-- Row 1 -->
+  <g filter="s10" transform="translate(40, 95)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fca5a5" font-size="20">🏗️</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="600">#1 Monolith</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Ein Skill für alles</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Single Responsibility</text>
+  </g>
+  <g filter="s10" transform="translate(215, 95)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fca5a5" font-size="20">📖</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="600">#2 Über-Erklärung</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Agent weiß es schon</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Conciseness</text>
+  </g>
+  <g filter="s10" transform="translate(390, 95)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fca5a5" font-size="20">🪆</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="600">#3 Tiefe Referenzen</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">A → B → C → D</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Max. 1 Ebene</text>
+  </g>
+  <g filter="s10" transform="translate(565, 95)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fca5a5" font-size="20">🔢</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="600">#4 Voodoo Constants</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Magic Numbers</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Werte begründen</text>
+  </g>
+  <g filter="s10" transform="translate(740, 95)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fca5a5" font-size="20">💥</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="600">#5 Error-Delegation</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Agent interpretiert</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Im Skript behandeln</text>
+  </g>
+  <g filter="s10" transform="translate(915, 95)">
+    <rect width="145" height="90" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="72" y="22" text-anchor="middle" fill="#fca5a5" font-size="20">🔀</text>
+    <text x="72" y="42" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="600">#6 Zu viele Opt.</text>
+    <text x="72" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Kein Standard</text>
+    <text x="72" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Ein Default</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g filter="s10" transform="translate(40, 200)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fbbf24" font-size="20">🪟</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">#7 Windows-Pfade</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Backslashes</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Forward-Slashes</text>
+  </g>
+  <g filter="s10" transform="translate(215, 200)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fbbf24" font-size="20">📅</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">#8 Zeitabhängig</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Veraltet schnell</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Keine Datumsangaben</text>
+  </g>
+  <g filter="s10" transform="translate(390, 200)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fbbf24" font-size="20">🔤</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">#9 Begriffe-Mix</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Inkonsistenz</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Ein Begriff/Konzept</text>
+  </g>
+  <g filter="s10" transform="translate(565, 200)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fbbf24" font-size="20">🔑</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">#10 Keine Keywords</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Nicht aktiviert</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ Trigger-Begriffe</text>
+  </g>
+  <g filter="s10" transform="translate(740, 200)">
+    <rect width="160" height="90" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="80" y="22" text-anchor="middle" fill="#fbbf24" font-size="20">🍴</text>
+    <text x="80" y="42" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">#11 Task ohne Fork</text>
+    <text x="80" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Token-Verschwendung</text>
+    <text x="80" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ context: fork</text>
+  </g>
+  <g filter="s10" transform="translate(915, 200)">
+    <rect width="145" height="90" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="72" y="22" text-anchor="middle" fill="#fbbf24" font-size="20">🧪</text>
+    <text x="72" y="42" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">#12 Keine Eval</text>
+    <text x="72" y="58" text-anchor="middle" fill="#94a3b8" font-size="9">Eingebildet</text>
+    <text x="72" y="72" text-anchor="middle" fill="#64748b" font-size="8">→ 3+ Evaluierungen</text>
+  </g>
+
+  <!-- Security Anti-Patterns -->
+  <text x="80" y="325" fill="#f87171" font-size="14" font-weight="700">Security Anti-Patterns</text>
+
+  <g filter="s10" transform="translate(40, 340)">
+    <rect width="245" height="100" rx="10" fill="#1e293b" stroke="#dc2626" stroke-width="2"/>
+    <rect x="0" y="0" width="245" height="30" rx="10" fill="#450a0a"/>
+    <text x="122" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">S1: Unbekannte Quellen</text>
+    <text x="20" y="52" fill="#94a3b8" font-size="10">Bösartige Anweisungen</text>
+    <text x="20" y="68" fill="#94a3b8" font-size="10">Datenexfiltration</text>
+    <text x="20" y="84" fill="#6ee7b7" font-size="9" font-weight="600">→ Nur vertrauenswürdige Quellen</text>
+  </g>
+  <g filter="s10" transform="translate(305, 340)">
+    <rect width="245" height="100" rx="10" fill="#1e293b" stroke="#dc2626" stroke-width="2"/>
+    <rect x="0" y="0" width="245" height="30" rx="10" fill="#450a0a"/>
+    <text x="122" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">S2: Externe URLs</text>
+    <text x="20" y="52" fill="#94a3b8" font-size="10">Prompt Injection Risiko</text>
+    <text x="20" y="68" fill="#94a3b8" font-size="10">Unkontrollierter Content</text>
+    <text x="20" y="84" fill="#6ee7b7" font-size="9" font-weight="600">→ URLs minimieren, auditieren</text>
+  </g>
+  <g filter="s10" transform="translate(570, 340)">
+    <rect width="245" height="100" rx="10" fill="#1e293b" stroke="#dc2626" stroke-width="2"/>
+    <rect x="0" y="0" width="245" height="30" rx="10" fill="#450a0a"/>
+    <text x="122" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">S3: Breite Permissions</text>
+    <text x="20" y="52" fill="#94a3b8" font-size="10">Tool-Missbrauch möglich</text>
+    <text x="20" y="68" fill="#94a3b8" font-size="10">Mehr Zugriff als nötig</text>
+    <text x="20" y="84" fill="#6ee7b7" font-size="9" font-weight="600">→ allowed-tools: Least Privilege</text>
+  </g>
+  <g filter="s10" transform="translate(835, 340)">
+    <rect width="225" height="100" rx="10" fill="#1e293b" stroke="#dc2626" stroke-width="2"/>
+    <rect x="0" y="0" width="225" height="30" rx="10" fill="#450a0a"/>
+    <text x="112" y="20" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">S4: Sensible Daten</text>
+    <text x="20" y="52" fill="#94a3b8" font-size="10">API Keys im Skill</text>
+    <text x="20" y="68" fill="#94a3b8" font-size="10">Credentials exposed</text>
+    <text x="20" y="84" fill="#6ee7b7" font-size="9" font-weight="600">→ Umgebungsvariablen nutzen</text>
+  </g>
+
+  <!-- Stats bar -->
+  <g filter="s10" transform="translate(40, 465)">
+    <rect width="1020" height="50" rx="10" fill="#0f172a" stroke="#dc2626" stroke-width="1"/>
+    <text x="130" y="30" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="600">341 bösartige Skills</text>
+    <text x="370" y="30" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="600">7,1% leaken API Keys</text>
+    <text x="610" y="30" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="600">82% MCP-Server: Path Traversal</text>
+    <text x="870" y="30" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="600">67% Code Injection</text>
+  </g>
+
+  <!-- Severity legend -->
+  <text x="80" y="555" fill="#64748b" font-size="10">Schweregrad:</text>
+  <rect x="160" y="543" width="12" height="12" rx="2" fill="#dc2626"/><text x="178" y="554" fill="#94a3b8" font-size="10">Kritisch</text>
+  <rect x="240" y="543" width="12" height="12" rx="2" fill="#f59e0b"/><text x="258" y="554" fill="#94a3b8" font-size="10">Hoch</text>
+  <rect x="300" y="543" width="12" height="12" rx="2" fill="#10b981"/><text x="318" y="554" fill="#94a3b8" font-size="10">Lösung</text>
+</svg>

@@ -8,6 +8,8 @@ Dieses Kapitel behandelt fortgeschrittene Skill-Patterns für Senior-Architekten
 
 ## Pattern: Multi-Agent Skill Orchestration
 
+![Multi-Agent Orchestration](svg/09_multi_agent_orchestration.svg)
+
 ### Problem
 Komplexe Aufgaben erfordern mehrere spezialisierte Agents, die koordiniert zusammenarbeiten.
 
