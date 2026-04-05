@@ -8,6 +8,8 @@ Diese Landkarte ist eine vollständige Referenz aller Wissenspunkte zum Thema Sk
 
 ## Landkarte: Hauptbereiche
 
+![Wissenslandkarte](svg/11_wissenslandkarte.svg)
+
 ```
                         SKILLS IM AGENTIC ENGINEERING
                                     │

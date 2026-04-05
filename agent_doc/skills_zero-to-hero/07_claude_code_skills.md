@@ -55,6 +55,8 @@ EOF
 
 ### Speicherorte und Prioritäten
 
+![Speicherorte-Hierarchie](svg/07_speicherorte_hierarchie.svg)
+
 | Ebene | Pfad | Geltungsbereich |
 |-------|------|----------------|
 | **Enterprise** | Managed Settings | Alle Nutzer der Organisation |
@@ -100,6 +102,8 @@ Bei Namenskonflikt: Skill hat Vorrang vor Command.
 ---
 
 ## Invocation-Kontrolle
+
+![Invocation-Kontrolle](svg/07_invocation_kontrolle.svg)
 
 ### Konfigurationsmatrix
 

@@ -6,6 +6,8 @@ Semantic Kernel ist Microsofts AI-Orchestrierungs-Framework mit ueber 27.000 Git
 
 ## Kern-Architektur
 
+![Semantic Kernel Architektur](../skills_zero-to-hero/svg/fw_semantic_kernel.svg)
+
 Die Architektur basiert auf drei Saeulen:
 
 ### 1. Plugins (Skills)

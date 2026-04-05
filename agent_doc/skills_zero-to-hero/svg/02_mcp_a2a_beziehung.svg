@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg02c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="s02c"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="1100" height="400" fill="url(#bg02c)" rx="16"/>
+  <text x="550" y="38" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Komplementäre Standards — Agent Skills · MCP · A2A</text>
+  <line x1="280" y1="48" x2="820" y2="48" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Agent Skills -->
+  <g filter="s02c" transform="translate(60, 80)">
+    <rect width="300" height="280" rx="14" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="50" rx="14" fill="#312e81"/>
+    <text x="150" y="32" text-anchor="middle" fill="#c4b5fd" font-size="16" font-weight="700">Agent Skills Standard</text>
+    <text x="150" y="75" text-anchor="middle" fill="#a5b4fc" font-size="28">🧠</text>
+    <text x="150" y="105" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="600">"WAS Agents können"</text>
+    <line x1="30" y1="120" x2="270" y2="120" stroke="#4c1d95" stroke-width="1"/>
+    <text x="150" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">Prozedurales Wissen</text>
+    <text x="150" y="165" text-anchor="middle" fill="#94a3b8" font-size="11">Workflows &amp; Anweisungen</text>
+    <text x="150" y="185" text-anchor="middle" fill="#94a3b8" font-size="11">Ressourcen &amp; Templates</text>
+    <rect x="30" y="210" width="240" height="40" rx="8" fill="#0f172a" stroke="#4c1d95" stroke-width="1"/>
+    <text x="150" y="228" text-anchor="middle" fill="#a5b4fc" font-size="10" font-weight="600">agentskills.io</text>
+    <text x="150" y="244" text-anchor="middle" fill="#64748b" font-size="10">30+ Plattformen · SKILL.md Format</text>
+    <rect x="30" y="265" width="100" height="22" rx="4" fill="#4c1d95"/><text x="80" y="280" text-anchor="middle" fill="#c4b5fd" font-size="9" font-weight="600">Prompt-basiert</text>
+    <rect x="140" y="265" width="80" height="22" rx="4" fill="#4c1d95"/><text x="180" y="280" text-anchor="middle" fill="#c4b5fd" font-size="9" font-weight="600">Modular</text>
+    <rect x="230" y="265" width="60" height="22" rx="4" fill="#4c1d95"/><text x="260" y="280" text-anchor="middle" fill="#c4b5fd" font-size="9" font-weight="600">Offen</text>
+  </g>
+
+  <!-- MCP -->
+  <g filter="s02c" transform="translate(400, 80)">
+    <rect width="300" height="280" rx="14" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="50" rx="14" fill="#0c4a6e"/>
+    <text x="150" y="32" text-anchor="middle" fill="#67e8f9" font-size="16" font-weight="700">MCP (Model Context Protocol)</text>
+    <text x="150" y="75" text-anchor="middle" fill="#67e8f9" font-size="28">🔌</text>
+    <text x="150" y="105" text-anchor="middle" fill="#67e8f9" font-size="14" font-weight="600">"WIE Agents auf Tools zugreifen"</text>
+    <line x1="30" y1="120" x2="270" y2="120" stroke="#164e63" stroke-width="1"/>
+    <text x="150" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">Tool Discovery &amp; Aufruf</text>
+    <text x="150" y="165" text-anchor="middle" fill="#94a3b8" font-size="11">Resource Access</text>
+    <text x="150" y="185" text-anchor="middle" fill="#94a3b8" font-size="11">Prompt Templates</text>
+    <rect x="30" y="210" width="240" height="40" rx="8" fill="#0f172a" stroke="#164e63" stroke-width="1"/>
+    <text x="150" y="228" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="600">modelcontextprotocol.io</text>
+    <text x="150" y="244" text-anchor="middle" fill="#64748b" font-size="10">97 Mio. Downloads · 10k+ Server</text>
+    <rect x="30" y="265" width="100" height="22" rx="4" fill="#164e63"/><text x="80" y="280" text-anchor="middle" fill="#67e8f9" font-size="9" font-weight="600">Code-basiert</text>
+    <rect x="140" y="265" width="80" height="22" rx="4" fill="#164e63"/><text x="180" y="280" text-anchor="middle" fill="#67e8f9" font-size="9" font-weight="600">JSON-RPC</text>
+    <rect x="230" y="265" width="60" height="22" rx="4" fill="#164e63"/><text x="260" y="280" text-anchor="middle" fill="#67e8f9" font-size="9" font-weight="600">Offen</text>
+  </g>
+
+  <!-- A2A -->
+  <g filter="s02c" transform="translate(740, 80)">
+    <rect width="300" height="280" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="50" rx="14" fill="#064e3b"/>
+    <text x="150" y="32" text-anchor="middle" fill="#6ee7b7" font-size="16" font-weight="700">A2A (Agent-to-Agent)</text>
+    <text x="150" y="75" text-anchor="middle" fill="#6ee7b7" font-size="28">🔗</text>
+    <text x="150" y="105" text-anchor="middle" fill="#6ee7b7" font-size="14" font-weight="600">"WIE Agents kommunizieren"</text>
+    <line x1="30" y1="120" x2="270" y2="120" stroke="#065f46" stroke-width="1"/>
+    <text x="150" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">Agent Discovery</text>
+    <text x="150" y="165" text-anchor="middle" fill="#94a3b8" font-size="11">Task Delegation</text>
+    <text x="150" y="185" text-anchor="middle" fill="#94a3b8" font-size="11">Ergebnis-Austausch</text>
+    <rect x="30" y="210" width="240" height="40" rx="8" fill="#0f172a" stroke="#065f46" stroke-width="1"/>
+    <text x="150" y="228" text-anchor="middle" fill="#6ee7b7" font-size="10" font-weight="600">Google A2A Protocol</text>
+    <text x="150" y="244" text-anchor="middle" fill="#64748b" font-size="10">150+ Organisationen</text>
+    <rect x="30" y="265" width="100" height="22" rx="4" fill="#065f46"/><text x="80" y="280" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">Multi-Agent</text>
+    <rect x="140" y="265" width="80" height="22" rx="4" fill="#065f46"/><text x="180" y="280" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">HTTP</text>
+    <rect x="230" y="265" width="60" height="22" rx="4" fill="#065f46"/><text x="260" y="280" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">Offen</text>
+  </g>
+</svg>

@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg08b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="s08b"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="1100" height="500" fill="url(#bg08b)" rx="16"/>
+  <text x="550" y="38" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Framework-Integration — Abstraktionsebenen</text>
+  <line x1="310" y1="48" x2="790" y2="48" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Abstraction levels -->
+  <!-- High-Level -->
+  <g filter="s08b" transform="translate(60, 75)">
+    <rect width="980" height="120" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="0" y="0" width="160" height="120" rx="12" fill="#312e81"/>
+    <text x="80" y="45" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="700">HIGH-LEVEL</text>
+    <text x="80" y="65" text-anchor="middle" fill="#a5b4fc" font-size="10">Skills/Plugins</text>
+    <text x="80" y="85" text-anchor="middle" fill="#a5b4fc" font-size="10">mit Metadaten</text>
+    <text x="80" y="100" text-anchor="middle" fill="#a5b4fc" font-size="10">&amp; Discovery</text>
+
+    <g transform="translate(190, 15)">
+      <rect width="180" height="85" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
+      <text x="90" y="22" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="600">Claude Agent SDK</text>
+      <text x="90" y="40" text-anchor="middle" fill="#94a3b8" font-size="10">SKILL.md Standard</text>
+      <text x="90" y="55" text-anchor="middle" fill="#94a3b8" font-size="10">3-Stufen Discovery</text>
+      <text x="90" y="70" text-anchor="middle" fill="#64748b" font-size="9">Prompt-basiert</text>
+    </g>
+    <g transform="translate(395, 15)">
+      <rect width="180" height="85" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
+      <text x="90" y="22" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="600">Semantic Kernel</text>
+      <text x="90" y="40" text-anchor="middle" fill="#94a3b8" font-size="10">Plugins (nativ + semantisch)</text>
+      <text x="90" y="55" text-anchor="middle" fill="#94a3b8" font-size="10">Planner-Orchestrierung</text>
+      <text x="90" y="70" text-anchor="middle" fill="#64748b" font-size="9">C#, Python, Java</text>
+    </g>
+  </g>
+
+  <!-- Mid-Level -->
+  <g filter="s08b" transform="translate(60, 215)">
+    <rect width="980" height="120" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="0" y="0" width="160" height="120" rx="12" fill="#451a03"/>
+    <text x="80" y="45" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">MID-LEVEL</text>
+    <text x="80" y="65" text-anchor="middle" fill="#fcd34d" font-size="10">Tool-Abstraktionen</text>
+    <text x="80" y="85" text-anchor="middle" fill="#fcd34d" font-size="10">mit Typ-Sicherheit</text>
+
+    <g transform="translate(190, 15)">
+      <rect width="170" height="85" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+      <text x="85" y="22" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="600">LangChain</text>
+      <text x="85" y="40" text-anchor="middle" fill="#94a3b8" font-size="10">Tools + LangGraph</text>
+      <text x="85" y="55" text-anchor="middle" fill="#94a3b8" font-size="10">Graph-basierte Flows</text>
+      <text x="85" y="70" text-anchor="middle" fill="#64748b" font-size="9">Größtes Ecosystem</text>
+    </g>
+    <g transform="translate(385, 15)">
+      <rect width="170" height="85" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+      <text x="85" y="22" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="600">CrewAI</text>
+      <text x="85" y="40" text-anchor="middle" fill="#94a3b8" font-size="10">BaseTool + @tool</text>
+      <text x="85" y="55" text-anchor="middle" fill="#94a3b8" font-size="10">Team-Metapher</text>
+      <text x="85" y="70" text-anchor="middle" fill="#64748b" font-size="9">80+ Built-in Tools</text>
+    </g>
+    <g transform="translate(580, 15)">
+      <rect width="170" height="85" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+      <text x="85" y="22" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="600">Bedrock Agents</text>
+      <text x="85" y="40" text-anchor="middle" fill="#94a3b8" font-size="10">Action Groups</text>
+      <text x="85" y="55" text-anchor="middle" fill="#94a3b8" font-size="10">OpenAPI Schema</text>
+      <text x="85" y="70" text-anchor="middle" fill="#64748b" font-size="9">AWS-managed</text>
+    </g>
+  </g>
+
+  <!-- Low-Level -->
+  <g filter="s08b" transform="translate(60, 355)">
+    <rect width="980" height="120" rx="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+    <rect x="0" y="0" width="160" height="120" rx="12" fill="#0c4a6e"/>
+    <text x="80" y="45" text-anchor="middle" fill="#67e8f9" font-size="14" font-weight="700">LOW-LEVEL</text>
+    <text x="80" y="65" text-anchor="middle" fill="#a5f3fc" font-size="10">Direktes Function</text>
+    <text x="80" y="85" text-anchor="middle" fill="#a5f3fc" font-size="10">Calling, minimale</text>
+    <text x="80" y="100" text-anchor="middle" fill="#a5f3fc" font-size="10">Abstraktion</text>
+
+    <g transform="translate(190, 15)">
+      <rect width="200" height="85" rx="8" fill="#0f172a" stroke="#06b6d4" stroke-width="1"/>
+      <text x="100" y="22" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="600">OpenAI Agents SDK</text>
+      <text x="100" y="40" text-anchor="middle" fill="#94a3b8" font-size="10">@function_tool + Handoffs</text>
+      <text x="100" y="55" text-anchor="middle" fill="#94a3b8" font-size="10">Structured Outputs</text>
+      <text x="100" y="70" text-anchor="middle" fill="#64748b" font-size="9">Minimale Abstraktionen</text>
+    </g>
+  </g>
+</svg>

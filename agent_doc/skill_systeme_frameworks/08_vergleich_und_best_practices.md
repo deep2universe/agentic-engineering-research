@@ -2,6 +2,8 @@
 
 ## Vergleichsmatrix
 
+![Framework-Vergleichsmatrix](../skills_zero-to-hero/svg/fw_vergleichsmatrix.svg)
+
 | Kriterium | LangChain/LangGraph | CrewAI | AutoGen | OpenAI Agents SDK | Claude Agent SDK | Semantic Kernel | Bedrock Agents |
 |-----------|-------------------|--------|---------|-------------------|-----------------|----------------|---------------|
 | **Skill-Konzept** | Tools + Skills (SKILL.md) | Tools (BaseTool/@tool) | Components + Extensions | Function Calling + Hosted Tools | Agent Skills (SKILL.md) | Plugins (nativ + semantisch) | Action Groups |

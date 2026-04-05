@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 520" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg01" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="purple01" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/><stop offset="100%" style="stop-color:#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="cyan01" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0891b2"/><stop offset="100%" style="stop-color:#06b6d4"/>
+    </linearGradient>
+    <filter id="s01"><feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#000" flood-opacity="0.4"/></filter>
+    <filter id="g01"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="1100" height="520" fill="url(#bg01)" rx="16"/>
+  <text x="550" y="42" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Capability-Hierarchie im Agentic Engineering</text>
+  <line x1="300" y1="52" x2="800" y2="52" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Agent System outer box -->
+  <rect x="60" y="75" width="980" height="420" rx="16" fill="none" stroke="#334155" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="80" y="100" fill="#64748b" font-size="13" font-weight="600">AGENT SYSTEM</text>
+
+  <!-- Agent Orchestrator -->
+  <rect x="100" y="115" width="900" height="250" rx="14" fill="#1e1b4b" opacity="0.5" filter="s01"/>
+  <rect x="100" y="115" width="900" height="250" rx="14" fill="none" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="550" y="145" text-anchor="middle" fill="#a5b4fc" font-size="16" font-weight="700">Agent (Orchestrator)</text>
+  <text x="550" y="163" text-anchor="middle" fill="#64748b" font-size="11">Reasoning · Tool Selection · Task Planning</text>
+
+  <!-- Skills -->
+  <g>
+    <!-- Skill A -->
+    <rect x="150" y="185" width="230" height="155" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="150" y="185" width="230" height="30" rx="10" fill="url(#purple01)"/>
+    <text x="265" y="205" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Skill A — Code Review</text>
+    <text x="170" y="235" fill="#94a3b8" font-size="11">Wissensvermittlung</text>
+    <text x="170" y="253" fill="#94a3b8" font-size="11">Handlungsanleitung</text>
+    <text x="170" y="271" fill="#94a3b8" font-size="11">Capability Extension</text>
+    <!-- Tool inside Skill A -->
+    <rect x="170" y="285" width="80" height="40" rx="6" fill="#0c4a6e" stroke="#0891b2" stroke-width="1"/>
+    <text x="210" y="309" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="600">Tools</text>
+    <rect x="265" y="285" width="95" height="40" rx="6" fill="#0c4a6e" stroke="#0891b2" stroke-width="1"/>
+    <text x="312" y="309" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="600">Templates</text>
+  </g>
+
+  <g>
+    <!-- Skill B -->
+    <rect x="435" y="185" width="230" height="155" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="435" y="185" width="230" height="30" rx="10" fill="url(#purple01)"/>
+    <text x="550" y="205" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Skill B — Deploy</text>
+    <text x="455" y="235" fill="#94a3b8" font-size="11">Wissensvermittlung</text>
+    <text x="455" y="253" fill="#94a3b8" font-size="11">Handlungsanleitung</text>
+    <text x="455" y="271" fill="#94a3b8" font-size="11">Capability Extension</text>
+    <rect x="455" y="285" width="80" height="40" rx="6" fill="#0c4a6e" stroke="#0891b2" stroke-width="1"/>
+    <text x="495" y="309" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="600">Scripts</text>
+    <rect x="550" y="285" width="95" height="40" rx="6" fill="#0c4a6e" stroke="#0891b2" stroke-width="1"/>
+    <text x="597" y="309" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="600">Validation</text>
+  </g>
+
+  <g>
+    <!-- Skill C -->
+    <rect x="720" y="185" width="230" height="155" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <rect x="720" y="185" width="230" height="30" rx="10" fill="url(#purple01)"/>
+    <text x="835" y="205" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Skill C — Testing</text>
+    <text x="740" y="235" fill="#94a3b8" font-size="11">Wissensvermittlung</text>
+    <text x="740" y="253" fill="#94a3b8" font-size="11">Handlungsanleitung</text>
+    <text x="740" y="271" fill="#94a3b8" font-size="11">Capability Extension</text>
+    <rect x="740" y="285" width="80" height="40" rx="6" fill="#0c4a6e" stroke="#0891b2" stroke-width="1"/>
+    <text x="780" y="309" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="600">Runner</text>
+    <rect x="835" y="285" width="95" height="40" rx="6" fill="#0c4a6e" stroke="#0891b2" stroke-width="1"/>
+    <text x="882" y="309" text-anchor="middle" fill="#67e8f9" font-size="10" font-weight="600">Reports</text>
+  </g>
+
+  <!-- Infrastructure -->
+  <rect x="100" y="385" width="900" height="50" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="550" y="415" text-anchor="middle" fill="#64748b" font-size="14" font-weight="600">Infrastruktur — MCP · Runtime · VM · Context Window</text>
+
+  <!-- Legend -->
+  <rect x="100" y="455" width="14" height="14" rx="3" fill="#6366f1"/>
+  <text x="122" y="467" fill="#94a3b8" font-size="11">Skill (Modulares Wissenspaket)</text>
+  <rect x="350" y="455" width="14" height="14" rx="3" fill="#0891b2"/>
+  <text x="372" y="467" fill="#94a3b8" font-size="11">Tool / Ressource (Ausführbare Einheit)</text>
+  <rect x="640" y="455" width="14" height="14" rx="3" fill="#334155"/>
+  <text x="662" y="467" fill="#94a3b8" font-size="11">Infrastruktur (Runtime-Schicht)</text>
+</svg>

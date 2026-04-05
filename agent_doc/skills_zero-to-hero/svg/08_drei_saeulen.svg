@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg08" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="s08"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="1100" height="480" fill="url(#bg08)" rx="16"/>
+  <text x="550" y="38" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Drei Säulen der Agentic AI Infrastruktur</text>
+  <line x1="310" y1="48" x2="790" y2="48" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Foundation bar -->
+  <rect x="60" y="400" width="980" height="60" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+  <text x="550" y="430" text-anchor="middle" fill="#64748b" font-size="14" font-weight="600">Anforderung → Agent mit Skills → MCP Server / Andere Agents → Ergebnis</text>
+  <text x="550" y="450" text-anchor="middle" fill="#475569" font-size="11">Standards arbeiten komplementär zusammen — nicht konkurrierend</text>
+
+  <!-- Pillar 1: Agent Skills -->
+  <g filter="s08" transform="translate(60, 70)">
+    <rect width="310" height="310" rx="14" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <!-- Header -->
+    <rect x="0" y="0" width="310" height="55" rx="14" fill="#312e81"/>
+    <text x="155" y="24" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Agent Skills Standard</text>
+    <text x="155" y="44" text-anchor="middle" fill="#c4b5fd" font-size="11">agentskills.io</text>
+    <!-- Icon area -->
+    <rect x="20" y="70" width="270" height="60" rx="8" fill="#1e1b4b"/>
+    <text x="155" y="96" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="700">Was Agents können</text>
+    <text x="155" y="118" text-anchor="middle" fill="#a5b4fc" font-size="11">Prozedurales Wissen · Workflows · Module</text>
+    <!-- Stats -->
+    <g transform="translate(20, 145)">
+      <rect width="125" height="44" rx="6" fill="#0f172a" stroke="#4c1d95" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="700">30+</text>
+      <text x="62" y="36" text-anchor="middle" fill="#64748b" font-size="9">Plattformen</text>
+    </g>
+    <g transform="translate(160, 145)">
+      <rect width="130" height="44" rx="6" fill="#0f172a" stroke="#4c1d95" stroke-width="1"/>
+      <text x="65" y="20" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="700">96k+</text>
+      <text x="65" y="36" text-anchor="middle" fill="#64748b" font-size="9">Skills verfügbar</text>
+    </g>
+    <!-- Key features -->
+    <text x="30" y="220" fill="#94a3b8" font-size="11">• SKILL.md Format (YAML + MD)</text>
+    <text x="30" y="240" fill="#94a3b8" font-size="11">• 3-Stufen Progressive Disclosure</text>
+    <text x="30" y="260" fill="#94a3b8" font-size="11">• Prompt-basiert &amp; modular</text>
+    <text x="30" y="280" fill="#94a3b8" font-size="11">• Plattformübergreifend portabel</text>
+  </g>
+
+  <!-- Pillar 2: MCP -->
+  <g filter="s08" transform="translate(395, 70)">
+    <rect width="310" height="310" rx="14" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+    <rect x="0" y="0" width="310" height="55" rx="14" fill="#0c4a6e"/>
+    <text x="155" y="24" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Model Context Protocol</text>
+    <text x="155" y="44" text-anchor="middle" fill="#67e8f9" font-size="11">modelcontextprotocol.io</text>
+    <rect x="20" y="70" width="270" height="60" rx="8" fill="#0e3347"/>
+    <text x="155" y="96" text-anchor="middle" fill="#67e8f9" font-size="14" font-weight="700">Wie Agents auf Tools zugreifen</text>
+    <text x="155" y="118" text-anchor="middle" fill="#a5f3fc" font-size="11">Tool-Discovery · Aufruf · Ergebnis</text>
+    <g transform="translate(20, 145)">
+      <rect width="125" height="44" rx="6" fill="#0f172a" stroke="#164e63" stroke-width="1"/>
+      <text x="62" y="20" text-anchor="middle" fill="#67e8f9" font-size="14" font-weight="700">97M</text>
+      <text x="62" y="36" text-anchor="middle" fill="#64748b" font-size="9">SDK-Downloads/Mo</text>
+    </g>
+    <g transform="translate(160, 145)">
+      <rect width="130" height="44" rx="6" fill="#0f172a" stroke="#164e63" stroke-width="1"/>
+      <text x="65" y="20" text-anchor="middle" fill="#67e8f9" font-size="14" font-weight="700">10k+</text>
+      <text x="65" y="36" text-anchor="middle" fill="#64748b" font-size="9">MCP Server</text>
+    </g>
+    <text x="30" y="220" fill="#94a3b8" font-size="11">• Tools, Resources, Prompts</text>
+    <text x="30" y="240" fill="#94a3b8" font-size="11">• Linux Foundation (AAIF)</text>
+    <text x="30" y="260" fill="#94a3b8" font-size="11">• JSON-RPC basiert</text>
+    <text x="30" y="280" fill="#94a3b8" font-size="11">• Multi-Server Support</text>
+  </g>
+
+  <!-- Pillar 3: A2A -->
+  <g filter="s08" transform="translate(730, 70)">
+    <rect width="310" height="310" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="310" height="55" rx="14" fill="#064e3b"/>
+    <text x="155" y="24" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">Agent-to-Agent (A2A)</text>
+    <text x="155" y="44" text-anchor="middle" fill="#6ee7b7" font-size="11">Google Protocol</text>
+    <rect x="20" y="70" width="270" height="60" rx="8" fill="#052e16"/>
+    <text x="155" y="96" text-anchor="middle" fill="#6ee7b7" font-size="14" font-weight="700">Wie Agents kommunizieren</text>
+    <text x="155" y="118" text-anchor="middle" fill="#bbf7d0" font-size="11">Discovery · Delegation · Austausch</text>
+    <g transform="translate(20, 145)">
+      <rect width="270" height="44" rx="6" fill="#0f172a" stroke="#065f46" stroke-width="1"/>
+      <text x="135" y="20" text-anchor="middle" fill="#6ee7b7" font-size="14" font-weight="700">150+ Organisationen</text>
+      <text x="135" y="36" text-anchor="middle" fill="#64748b" font-size="9">Breite Industrie-Unterstützung</text>
+    </g>
+    <text x="30" y="220" fill="#94a3b8" font-size="11">• Agent Cards für Discovery</text>
+    <text x="30" y="240" fill="#94a3b8" font-size="11">• Task-basierte Delegation</text>
+    <text x="30" y="260" fill="#94a3b8" font-size="11">• HTTP-basiert</text>
+    <text x="30" y="280" fill="#94a3b8" font-size="11">• Multi-Agent Workflows</text>
+  </g>
+</svg>

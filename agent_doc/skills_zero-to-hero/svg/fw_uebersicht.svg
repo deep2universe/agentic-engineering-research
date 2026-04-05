@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 450" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgFW0" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sFW0"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="1100" height="450" fill="url(#bgFW0)" rx="16"/>
+  <text x="550" y="38" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Skill-Systeme in AI Agent Frameworks — Überblick</text>
+  <line x1="280" y1="48" x2="820" y2="48" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- 5 Key Insights -->
+  <g filter="sFW0" transform="translate(40, 70)">
+    <rect width="490" height="60" rx="10" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <circle cx="30" cy="30" r="16" fill="#312e81"/><text x="30" y="35" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="700">1</text>
+    <text x="58" y="26" fill="#c4b5fd" font-size="12" font-weight="600">Function Calling ist universelle Grundlage</text>
+    <text x="58" y="44" fill="#94a3b8" font-size="10">Alle Frameworks basieren auf strukturierten Funktionsaufrufen</text>
+  </g>
+  <g filter="sFW0" transform="translate(550, 70)">
+    <rect width="510" height="60" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <circle cx="30" cy="30" r="16" fill="#064e3b"/><text x="30" y="35" text-anchor="middle" fill="#6ee7b7" font-size="14" font-weight="700">2</text>
+    <text x="58" y="26" fill="#6ee7b7" font-size="12" font-weight="600">Zwei aufkommende Standards</text>
+    <text x="58" y="44" fill="#94a3b8" font-size="10">SKILL.md (Anthropic) + MCP (Model Context Protocol)</text>
+  </g>
+  <g filter="sFW0" transform="translate(40, 145)">
+    <rect width="330" height="60" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <circle cx="30" cy="30" r="16" fill="#451a03"/><text x="30" y="35" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">3</text>
+    <text x="58" y="26" fill="#fbbf24" font-size="12" font-weight="600">Tool Calling ist Commodity</text>
+    <text x="58" y="44" fill="#94a3b8" font-size="10">Differenzierung: Management &amp; Testing</text>
+  </g>
+  <g filter="sFW0" transform="translate(390, 145)">
+    <rect width="330" height="60" rx="10" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <circle cx="30" cy="30" r="16" fill="#450a0a"/><text x="30" y="35" text-anchor="middle" fill="#fca5a5" font-size="14" font-weight="700">4</text>
+    <text x="58" y="26" fill="#fca5a5" font-size="12" font-weight="600">Memory ist die größte Lücke</text>
+    <text x="58" y="44" fill="#94a3b8" font-size="10">Nur wenige mit echtem semantischem Memory</text>
+  </g>
+  <g filter="sFW0" transform="translate(740, 145)">
+    <rect width="320" height="60" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+    <circle cx="30" cy="30" r="16" fill="#0c4a6e"/><text x="30" y="35" text-anchor="middle" fill="#67e8f9" font-size="14" font-weight="700">5</text>
+    <text x="58" y="26" fill="#67e8f9" font-size="12" font-weight="600">Microsoft konsolidiert</text>
+    <text x="58" y="44" fill="#94a3b8" font-size="10">AutoGen + Semantic Kernel → Agent Framework</text>
+  </g>
+
+  <!-- Framework Cards -->
+  <g transform="translate(40, 230)">
+    <g filter="sFW0"><rect width="140" height="90" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" fill="#c4b5fd" font-size="11" font-weight="700">LangChain</text>
+    <text x="70" y="38" text-anchor="middle" fill="#94a3b8" font-size="9">Tools + LangGraph</text>
+    <text x="70" y="52" text-anchor="middle" fill="#6ee7b7" font-size="8">MCP ✓  SKILL.md ✓</text>
+    <rect x="10" y="62" width="120" height="18" rx="4" fill="#0f172a"/>
+    <text x="70" y="75" text-anchor="middle" fill="#64748b" font-size="8">Größtes Ecosystem</text></g>
+
+    <g filter="sFW0" transform="translate(155, 0)"><rect width="140" height="90" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" fill="#6ee7b7" font-size="11" font-weight="700">CrewAI</text>
+    <text x="70" y="38" text-anchor="middle" fill="#94a3b8" font-size="9">BaseTool + Crew</text>
+    <text x="70" y="52" text-anchor="middle" fill="#6ee7b7" font-size="8">MCP ✓  Memory ✓</text>
+    <rect x="10" y="62" width="120" height="18" rx="4" fill="#0f172a"/>
+    <text x="70" y="75" text-anchor="middle" fill="#64748b" font-size="8">Team-Metapher</text></g>
+
+    <g filter="sFW0" transform="translate(310, 0)"><rect width="140" height="90" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="700">AutoGen</text>
+    <text x="70" y="38" text-anchor="middle" fill="#94a3b8" font-size="9">Components</text>
+    <text x="70" y="52" text-anchor="middle" fill="#f59e0b" font-size="8">⚠ Wartungsmodus</text>
+    <rect x="10" y="62" width="120" height="18" rx="4" fill="#0f172a"/>
+    <text x="70" y="75" text-anchor="middle" fill="#64748b" font-size="8">→ MS Agent FW</text></g>
+
+    <g filter="sFW0" transform="translate(465, 0)"><rect width="140" height="90" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" fill="#67e8f9" font-size="11" font-weight="700">OpenAI SDK</text>
+    <text x="70" y="38" text-anchor="middle" fill="#94a3b8" font-size="9">Function Calling</text>
+    <text x="70" y="52" text-anchor="middle" fill="#67e8f9" font-size="8">SKILL.md ✓  Handoffs</text>
+    <rect x="10" y="62" width="120" height="18" rx="4" fill="#0f172a"/>
+    <text x="70" y="75" text-anchor="middle" fill="#64748b" font-size="8">Minimale Abstraktion</text></g>
+
+    <g filter="sFW0" transform="translate(620, 0)"><rect width="140" height="90" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="70" y="22" text-anchor="middle" fill="#c4b5fd" font-size="11" font-weight="700">Claude SDK</text>
+    <text x="70" y="38" text-anchor="middle" fill="#94a3b8" font-size="9">SKILL.md Standard</text>
+    <text x="70" y="52" text-anchor="middle" fill="#6ee7b7" font-size="8">MCP ✓  SKILL.md ✓</text>
+    <rect x="10" y="62" width="120" height="18" rx="4" fill="#0f172a"/>
+    <text x="70" y="75" text-anchor="middle" fill="#64748b" font-size="8">Standard-Autor</text></g>
+
+    <g filter="sFW0" transform="translate(775, 0)"><rect width="140" height="90" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="70" y="22" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="700">Semantic Kernel</text>
+    <text x="70" y="38" text-anchor="middle" fill="#94a3b8" font-size="9">Plugins (nativ+sem.)</text>
+    <text x="70" y="52" text-anchor="middle" fill="#6ee7b7" font-size="8">MCP ✓  SKILL.md ✓</text>
+    <rect x="10" y="62" width="120" height="18" rx="4" fill="#0f172a"/>
+    <text x="70" y="75" text-anchor="middle" fill="#64748b" font-size="8">Enterprise-ready</text></g>
+
+    <g filter="sFW0" transform="translate(930, 0)"><rect width="130" height="90" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="65" y="22" text-anchor="middle" fill="#fca5a5" font-size="11" font-weight="700">Bedrock</text>
+    <text x="65" y="38" text-anchor="middle" fill="#94a3b8" font-size="9">Action Groups</text>
+    <text x="65" y="52" text-anchor="middle" fill="#fca5a5" font-size="8">Proprietär · AWS</text>
+    <rect x="8" y="62" width="114" height="18" rx="4" fill="#0f172a"/>
+    <text x="65" y="75" text-anchor="middle" fill="#64748b" font-size="8">Managed Service</text></g>
+  </g>
+
+  <!-- Bottom: Standards -->
+  <g transform="translate(40, 350)">
+    <rect width="1020" height="80" rx="10" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="510" y="22" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Aufkommende Standards für Interoperabilität</text>
+    <g transform="translate(150, 35)">
+      <rect width="280" height="35" rx="8" fill="#312e81" stroke="#8b5cf6" stroke-width="1.5"/>
+      <text x="140" y="15" text-anchor="middle" fill="#c4b5fd" font-size="12" font-weight="700">SKILL.md</text>
+      <text x="140" y="30" text-anchor="middle" fill="#94a3b8" font-size="9">Prompt-basierte Skills · 30+ Plattformen</text>
+    </g>
+    <g transform="translate(570, 35)">
+      <rect width="280" height="35" rx="8" fill="#0c4a6e" stroke="#06b6d4" stroke-width="1.5"/>
+      <text x="140" y="15" text-anchor="middle" fill="#67e8f9" font-size="12" font-weight="700">MCP (Model Context Protocol)</text>
+      <text x="140" y="30" text-anchor="middle" fill="#94a3b8" font-size="9">Tool-Server-Kommunikation · Linux Foundation</text>
+    </g>
+  </g>
+</svg>

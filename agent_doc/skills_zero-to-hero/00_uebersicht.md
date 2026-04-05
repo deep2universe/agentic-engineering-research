@@ -5,6 +5,12 @@
 
 ---
 
+## Guide-Struktur Visualisierung
+
+![Skills Zero to Hero — Guide-Struktur](svg/00_guide_uebersicht.svg)
+
+---
+
 ## Zielgruppe
 
 Dieser Guide richtet sich an erfahrene Software-Entwickler und -Architekten, die Skills im Kontext von Agentic Engineering verstehen, planen und erstellen wollen. Vorausgesetzt werden Grundkenntnisse in LLM-basierter Entwicklung und Agent-Architektur.

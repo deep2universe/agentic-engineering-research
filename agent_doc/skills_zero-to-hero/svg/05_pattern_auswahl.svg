@@ -1,0 +1,257 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+    <marker id="arrowWhite" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#475569"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#10b981"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect width="1100" height="480" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Titel -->
+  <text x="550" y="32" text-anchor="middle" fill="url(#headerGrad)" font-size="18" font-weight="700" filter="url(#glow)">Welches Pattern brauche ich?</text>
+  <line x1="380" y1="40" x2="720" y2="40" stroke="#6366f1" stroke-width="1" opacity="0.4"/>
+
+  <!-- START Node -->
+  <g filter="url(#shadow)">
+    <rect x="460" y="52" width="180" height="34" rx="17" fill="#6366f1"/>
+    <text x="550" y="74" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">START: Was ist das Ziel?</text>
+  </g>
+
+  <!-- Verbindungslinien von START -->
+  <!-- Links: Konsistenter Output -->
+  <line x1="460" y1="69" x2="330" y2="69" stroke="#475569" stroke-width="1.2" marker-end="url(#arrowWhite)"/>
+  <!-- Mitte-Links runter -->
+  <line x1="505" y1="86" x2="505" y2="115" stroke="#475569" stroke-width="1.2" marker-end="url(#arrowWhite)"/>
+  <!-- Mitte-Rechts runter -->
+  <line x1="595" y1="86" x2="595" y2="115" stroke="#475569" stroke-width="1.2" marker-end="url(#arrowWhite)"/>
+  <!-- Rechts: Komplexe Aufgabe -->
+  <line x1="640" y1="69" x2="770" y2="69" stroke="#475569" stroke-width="1.2" marker-end="url(#arrowWhite)"/>
+
+  <!-- ============ ZWEIG 1: Konsistenter Output (Links) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="180" y="54" width="150" height="30" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="255" y="73" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Konsistenter Output?</text>
+  </g>
+  <!-- Ja -->
+  <line x1="210" y1="84" x2="210" y2="115" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="196" y="103" fill="#10b981" font-size="8" font-weight="600">Ja</text>
+  <!-- Nein -->
+  <line x1="300" y1="84" x2="300" y2="115" stroke="#dc2626" stroke-width="1" marker-end="url(#arrowRed)"/>
+  <text x="305" y="103" fill="#dc2626" font-size="8" font-weight="600">Nein</text>
+
+  <!-- Pattern: Template -->
+  <g filter="url(#shadow)">
+    <rect x="148" y="118" width="124" height="38" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="210" y="135" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="700">Template Pattern</text>
+    <text x="210" y="149" text-anchor="middle" fill="#94a3b8" font-size="8">Feste Vorlagen</text>
+  </g>
+
+  <!-- Frage: Braucht Beispiele? -->
+  <g filter="url(#shadow)">
+    <rect x="238" y="118" width="130" height="38" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="303" y="135" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Braucht Beispiele?</text>
+    <text x="303" y="149" text-anchor="middle" fill="#94a3b8" font-size="8">Fuer Format-Klarheit</text>
+  </g>
+  <line x1="303" y1="156" x2="303" y2="182" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="289" y="173" fill="#10b981" font-size="8" font-weight="600">Ja</text>
+
+  <!-- Pattern: Examples -->
+  <g filter="url(#shadow)">
+    <rect x="240" y="185" width="126" height="38" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="303" y="202" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="700">Examples Pattern</text>
+    <text x="303" y="216" text-anchor="middle" fill="#94a3b8" font-size="8">I/O-Paare</text>
+  </g>
+
+  <!-- ============ ZWEIG 2: Mehrere Schritte (Mitte-Links) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="430" y="118" width="150" height="30" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="505" y="137" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Mehrere Schritte noetig?</text>
+  </g>
+  <!-- Ja -->
+  <line x1="468" y1="148" x2="468" y2="182" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="454" y="169" fill="#10b981" font-size="8" font-weight="600">Ja</text>
+  <!-- Nein -->
+  <line x1="542" y1="148" x2="542" y2="182" stroke="#dc2626" stroke-width="1" marker-end="url(#arrowRed)"/>
+  <text x="547" y="169" fill="#dc2626" font-size="8" font-weight="600">Nein</text>
+
+  <!-- Frage: Bedingungen? -->
+  <g filter="url(#shadow)">
+    <rect x="390" y="185" width="156" height="30" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="468" y="204" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Bedingte Verzweigungen?</text>
+  </g>
+  <!-- Ja -->
+  <line x1="430" y1="215" x2="430" y2="248" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="416" y="235" fill="#10b981" font-size="8" font-weight="600">Ja</text>
+  <!-- Nein -->
+  <line x1="506" y1="215" x2="506" y2="248" stroke="#dc2626" stroke-width="1" marker-end="url(#arrowRed)"/>
+  <text x="511" y="235" fill="#dc2626" font-size="8" font-weight="600">Nein</text>
+
+  <!-- Pattern: Conditional Workflow -->
+  <g filter="url(#shadow)">
+    <rect x="368" y="251" width="126" height="38" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="431" y="268" text-anchor="middle" fill="#06b6d4" font-size="10" font-weight="700">Conditional</text>
+    <text x="431" y="282" text-anchor="middle" fill="#06b6d4" font-size="10" font-weight="700">Workflow</text>
+  </g>
+
+  <!-- Pattern: Workflow -->
+  <g filter="url(#shadow)">
+    <rect x="502" y="251" width="126" height="38" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="565" y="268" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">Workflow Pattern</text>
+    <text x="565" y="282" text-anchor="middle" fill="#94a3b8" font-size="8">Checkliste</text>
+  </g>
+
+  <!-- Frage: Visuelle Ausgabe (Mitte Nein-Zweig) -->
+  <g filter="url(#shadow)">
+    <rect x="490" y="185" width="140" height="30" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="560" y="204" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Visuelle Ausgabe?</text>
+  </g>
+  <line x1="560" y1="215" x2="560" y2="248" stroke="#10b981" stroke-width="1"/>
+
+  <!-- ============ ZWEIG 3: Qualitaet sichern (Mitte-Rechts) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="556" y="118" width="150" height="30" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="631" y="137" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Qualitaet sichern?</text>
+  </g>
+  <!-- Ja + Iterativ -->
+  <line x1="600" y1="148" x2="600" y2="182" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="580" y="169" fill="#10b981" font-size="8" font-weight="600">Iterativ</text>
+  <!-- Ja + Vorab -->
+  <line x1="660" y1="148" x2="660" y2="182" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="665" y="169" fill="#06b6d4" font-size="8" font-weight="600">Vorab</text>
+
+  <!-- Pattern: Feedback-Loop -->
+  <g filter="url(#shadow)">
+    <rect x="538" y="185" width="126" height="38" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="601" y="202" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="700">Feedback-Loop</text>
+    <text x="601" y="216" text-anchor="middle" fill="#94a3b8" font-size="8">Validator</text>
+  </g>
+
+  <!-- Pattern: Plan-Validate-Execute -->
+  <g filter="url(#shadow)">
+    <rect x="670" y="185" width="126" height="38" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="733" y="202" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">Plan-Validate-</text>
+    <text x="733" y="216" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">Execute</text>
+  </g>
+
+  <!-- ============ ZWEIG 4: Komplexe Aufgabe (Rechts) ============ -->
+  <g filter="url(#shadow)">
+    <rect x="770" y="54" width="150" height="30" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="845" y="73" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Komplexe Aufgabe?</text>
+  </g>
+  <!-- Links: Kontext -->
+  <line x1="810" y1="84" x2="810" y2="115" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="782" y="103" fill="#10b981" font-size="8" font-weight="600">Kontext</text>
+  <!-- Rechts: Delegation -->
+  <line x1="880" y1="84" x2="880" y2="115" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="886" y="103" fill="#06b6d4" font-size="8" font-weight="600">Teilen</text>
+
+  <!-- Frage: Dynamischer Kontext -->
+  <g filter="url(#shadow)">
+    <rect x="740" y="118" width="140" height="38" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="810" y="135" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Braucht externen</text>
+    <text x="810" y="149" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="600">Kontext zur Laufzeit?</text>
+  </g>
+  <line x1="780" y1="156" x2="780" y2="182" stroke="#10b981" stroke-width="1" marker-end="url(#arrowGreen)"/>
+  <text x="766" y="173" fill="#10b981" font-size="8" font-weight="600">Ja</text>
+  <line x1="840" y1="156" x2="840" y2="182" stroke="#dc2626" stroke-width="1" marker-end="url(#arrowRed)"/>
+  <text x="845" y="173" fill="#dc2626" font-size="8" font-weight="600">Nein</text>
+
+  <!-- Pattern: Dynamic Context Injection -->
+  <g filter="url(#shadow)">
+    <rect x="714" y="185" width="132" height="38" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="780" y="202" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="700">Dynamic Context</text>
+    <text x="780" y="216" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="700">Injection</text>
+  </g>
+
+  <!-- Pattern: Progressive Reference -->
+  <g filter="url(#shadow)">
+    <rect x="852" y="185" width="126" height="38" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="915" y="202" text-anchor="middle" fill="#06b6d4" font-size="10" font-weight="700">Progressive</text>
+    <text x="915" y="216" text-anchor="middle" fill="#06b6d4" font-size="10" font-weight="700">Reference</text>
+  </g>
+
+  <!-- Pattern: Subagent-Delegation -->
+  <g filter="url(#shadow)">
+    <rect x="890" y="118" width="126" height="38" rx="8" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <text x="953" y="135" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="700">Subagent-</text>
+    <text x="953" y="149" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="700">Delegation</text>
+  </g>
+
+  <!-- Pattern: Visual Output (unten) -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="185" width="126" height="38" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="133" y="202" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="700">Visual Output</text>
+    <text x="133" y="216" text-anchor="middle" fill="#94a3b8" font-size="8">SVG, Diagramme</text>
+  </g>
+  <!-- Verbindung von Start links-unten -->
+  <line x1="460" y1="80" x2="196" y2="80" stroke="#475569" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5"/>
+  <line x1="196" y1="80" x2="133" y2="182" stroke="#475569" stroke-width="0.8" stroke-dasharray="4,3" opacity="0.5" marker-end="url(#arrowWhite)"/>
+
+  <!-- ============ LEGENDE ============ -->
+  <g transform="translate(30, 310)" filter="url(#shadow)">
+    <rect width="1040" height="140" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="520" y="22" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Kombinations-Empfehlungen</text>
+    <line x1="40" y1="32" x2="1000" y2="32" stroke="#334155" stroke-width="0.5"/>
+
+    <!-- Kombination 1 -->
+    <rect x="20" y="44" width="230" height="80" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.8"/>
+    <text x="135" y="62" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700">Code-Generierung</text>
+    <text x="135" y="78" text-anchor="middle" fill="#94a3b8" font-size="9">Template + Feedback-Loop</text>
+    <text x="135" y="92" text-anchor="middle" fill="#94a3b8" font-size="9">+ Examples</text>
+    <rect x="40" y="100" width="190" height="4" rx="2" fill="#10b981" opacity="0.3"/>
+    <rect x="40" y="100" width="170" height="4" rx="2" fill="#10b981" opacity="0.6"/>
+    <text x="135" y="116" text-anchor="middle" fill="#475569" font-size="8">Haeufigste Kombination</text>
+
+    <!-- Kombination 2 -->
+    <rect x="270" y="44" width="230" height="80" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.8"/>
+    <text x="385" y="62" text-anchor="middle" fill="#6366f1" font-size="10" font-weight="700">Dokumentation</text>
+    <text x="385" y="78" text-anchor="middle" fill="#94a3b8" font-size="9">Template + Progressive Ref</text>
+    <text x="385" y="92" text-anchor="middle" fill="#94a3b8" font-size="9">+ Visual Output</text>
+    <rect x="290" y="100" width="190" height="4" rx="2" fill="#6366f1" opacity="0.3"/>
+    <rect x="290" y="100" width="140" height="4" rx="2" fill="#6366f1" opacity="0.6"/>
+    <text x="385" y="116" text-anchor="middle" fill="#475569" font-size="8">Ideal fuer Guides</text>
+
+    <!-- Kombination 3 -->
+    <rect x="520" y="44" width="230" height="80" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.8"/>
+    <text x="635" y="62" text-anchor="middle" fill="#f59e0b" font-size="10" font-weight="700">Refactoring</text>
+    <text x="635" y="78" text-anchor="middle" fill="#94a3b8" font-size="9">Plan-Validate-Execute</text>
+    <text x="635" y="92" text-anchor="middle" fill="#94a3b8" font-size="9">+ Dynamic Context + Workflow</text>
+    <rect x="540" y="100" width="190" height="4" rx="2" fill="#f59e0b" opacity="0.3"/>
+    <rect x="540" y="100" width="150" height="4" rx="2" fill="#f59e0b" opacity="0.6"/>
+    <text x="635" y="116" text-anchor="middle" fill="#475569" font-size="8">Sicher und gruendlich</text>
+
+    <!-- Kombination 4 -->
+    <rect x="770" y="44" width="250" height="80" rx="6" fill="#0f172a" stroke="#334155" stroke-width="0.8"/>
+    <text x="895" y="62" text-anchor="middle" fill="#dc2626" font-size="10" font-weight="700">Multi-Repo-Operationen</text>
+    <text x="895" y="78" text-anchor="middle" fill="#94a3b8" font-size="9">Subagent-Delegation</text>
+    <text x="895" y="92" text-anchor="middle" fill="#94a3b8" font-size="9">+ Conditional Workflow</text>
+    <rect x="790" y="100" width="210" height="4" rx="2" fill="#dc2626" opacity="0.3"/>
+    <rect x="790" y="100" width="120" height="4" rx="2" fill="#dc2626" opacity="0.6"/>
+    <text x="895" y="116" text-anchor="middle" fill="#475569" font-size="8">Fuer grosse Systeme</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="550" y="472" text-anchor="middle" fill="#475569" font-size="9">Entscheidungsbaum -- Patterns koennen und sollen kombiniert werden</text>
+</svg>

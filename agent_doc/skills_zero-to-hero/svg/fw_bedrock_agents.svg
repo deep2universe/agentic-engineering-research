@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="awsGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.03"/>
+    </linearGradient>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#06b6d4"/>
+    </marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Segoe UI', system-ui, sans-serif; fill: #e2e8f0; }
+    .title { font-size: 18px; font-weight: 700; fill: #f8fafc; }
+    .subtitle { font-size: 11px; fill: #94a3b8; }
+    .label { font-size: 12px; font-weight: 600; }
+    .small { font-size: 10px; fill: #94a3b8; }
+    .tiny { font-size: 9px; fill: #cbd5e1; }
+    .badge { font-size: 9px; font-weight: 700; }
+    .code { font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 9px; fill: #cbd5e1; }
+  </style>
+
+  <!-- Hintergrund -->
+  <rect width="1100" height="400" rx="12" fill="url(#bgGrad)"/>
+  <rect x="0.5" y="0.5" width="1099" height="399" rx="12" fill="none" stroke="#334155" stroke-width="1"/>
+
+  <!-- Titel -->
+  <text x="550" y="32" text-anchor="middle" class="title">Amazon Bedrock Agents — Supervisor-Architektur</text>
+  <text x="550" y="48" text-anchor="middle" class="subtitle">Supervisor-Agent orchestriert Subagents | Action Groups | Knowledge Bases | AWS-Ecosystem</text>
+
+  <!-- ═══════════════ SUPERVISOR AGENT (Zentral) ═══════════════ -->
+  <rect x="370" y="65" width="220" height="60" rx="10" fill="#f59e0b" fill-opacity="0.15" stroke="#f59e0b" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="380" y="72" width="38" height="20" rx="4" fill="#f59e0b"/>
+  <text x="399" y="86" text-anchor="middle" class="badge" fill="#fff">BOSS</text>
+  <text x="425" y="90" class="label" fill="#fbbf24">Supervisor Agent</text>
+  <text x="380" y="112" class="small">Routing, Planung, Ergebnis-Aggregation</text>
+
+  <!-- ═══════════════ SUBAGENTS (darunter) ═══════════════ -->
+  <!-- Subagent 1 -->
+  <rect x="30" y="160" width="185" height="55" rx="6" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.6" filter="url(#shadow)"/>
+  <circle cx="48" cy="188" r="10" fill="#6366f1" fill-opacity="0.3" stroke="#6366f1"/>
+  <text x="48" y="192" text-anchor="middle" class="badge" fill="#a5b4fc">1</text>
+  <text x="65" y="182" class="label" fill="#a5b4fc">Research Agent</text>
+  <text x="65" y="197" class="small">Knowledge Base Abfragen</text>
+
+  <!-- Subagent 2 -->
+  <rect x="235" y="160" width="185" height="55" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.6" filter="url(#shadow)"/>
+  <circle cx="253" cy="188" r="10" fill="#10b981" fill-opacity="0.3" stroke="#10b981"/>
+  <text x="253" y="192" text-anchor="middle" class="badge" fill="#6ee7b7">2</text>
+  <text x="270" y="182" class="label" fill="#6ee7b7">Action Agent</text>
+  <text x="270" y="197" class="small">API-Calls via Action Groups</text>
+
+  <!-- Subagent 3 -->
+  <rect x="440" y="160" width="185" height="55" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-opacity="0.6" filter="url(#shadow)"/>
+  <circle cx="458" cy="188" r="10" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4"/>
+  <text x="458" y="192" text-anchor="middle" class="badge" fill="#67e8f9">3</text>
+  <text x="475" y="182" class="label" fill="#67e8f9">Code Agent</text>
+  <text x="475" y="197" class="small">Code Interpretation</text>
+
+  <!-- Verbindungen Supervisor → Subagents -->
+  <path d="M420 125 L122 160" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arrowPurple)" opacity="0.7"/>
+  <path d="M480 125 L327 160" stroke="#10b981" stroke-width="1.5" marker-end="url(#arrowGreen)" opacity="0.7"/>
+  <path d="M520 125 L532 160" stroke="#06b6d4" stroke-width="1.5" marker-end="url(#arrowCyan)" opacity="0.7"/>
+
+  <!-- ═══════════════ ACTION GROUPS (Mitte links) ═══════════════ -->
+  <rect x="30" y="235" width="250" height="150" rx="8" fill="#1e293b" stroke="#10b981" stroke-opacity="0.3" filter="url(#shadow)"/>
+  <rect x="30" y="235" width="250" height="26" rx="8" fill="#10b981" fill-opacity="0.2"/>
+  <rect x="30" y="254" width="250" height="7" fill="#1e293b"/>
+  <text x="155" y="253" text-anchor="middle" class="label" fill="#6ee7b7">Action Groups</text>
+
+  <!-- OpenAPI Schema -->
+  <rect x="42" y="268" width="110" height="50" rx="4" fill="#0f172a" stroke="#10b981" stroke-opacity="0.4"/>
+  <text x="97" y="284" text-anchor="middle" class="badge" fill="#6ee7b7">OpenAPI Schema</text>
+  <text x="52" y="299" class="code">paths:</text>
+  <text x="52" y="310" class="code">  /orders: get</text>
+
+  <!-- Function Detail -->
+  <rect x="160" y="268" width="110" height="50" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.4"/>
+  <text x="215" y="284" text-anchor="middle" class="badge" fill="#fbbf24">Function Detail</text>
+  <text x="170" y="299" class="code">name: getOrder</text>
+  <text x="170" y="310" class="code">params: [orderId]</text>
+
+  <!-- Lambda -->
+  <rect x="42" y="332" width="228" height="40" rx="4" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-opacity="0.3"/>
+  <rect x="52" y="338" width="14" height="14" rx="2" fill="#f59e0b" fill-opacity="0.4"/>
+  <text x="59" y="349" text-anchor="middle" class="tiny" fill="#fbbf24">λ</text>
+  <text x="75" y="349" class="small" fill="#fbbf24">Lambda Function — Backend-Logik</text>
+  <text x="75" y="363" class="tiny">Verarbeitung, DB-Zugriff, externe APIs</text>
+
+  <!-- ═══════════════ KNOWLEDGE BASES + GUARDRAILS (Mitte) ═══════════════ -->
+  <rect x="300" y="235" width="250" height="150" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-opacity="0.3" filter="url(#shadow)"/>
+  <rect x="300" y="235" width="250" height="26" rx="8" fill="#06b6d4" fill-opacity="0.2"/>
+  <rect x="300" y="254" width="250" height="7" fill="#1e293b"/>
+  <text x="425" y="253" text-anchor="middle" class="label" fill="#67e8f9">Knowledge Bases + Guardrails</text>
+
+  <!-- Knowledge Base -->
+  <rect x="312" y="268" width="226" height="50" rx="4" fill="#0f172a" stroke="#06b6d4" stroke-opacity="0.4"/>
+  <rect x="322" y="274" width="10" height="10" rx="2" fill="#06b6d4"/>
+  <text x="340" y="284" class="label" fill="#67e8f9">Knowledge Bases</text>
+  <text x="322" y="300" class="small">S3-Dokumente → Embeddings → Vector Store</text>
+  <text x="322" y="312" class="tiny">OpenSearch, Pinecone, Aurora PostgreSQL</text>
+
+  <!-- Guardrails -->
+  <rect x="312" y="328" width="226" height="45" rx="4" fill="#dc2626" fill-opacity="0.08" stroke="#dc2626" stroke-opacity="0.4"/>
+  <rect x="322" y="334" width="10" height="10" rx="2" fill="#dc2626"/>
+  <text x="340" y="344" class="label" fill="#fca5a5">Guardrails</text>
+  <text x="322" y="360" class="small" fill="#fca5a5">Content Filter, Denied Topics, PII Redaction</text>
+  <text x="322" y="372" class="tiny">Sicherheitsschicht vor jeder Antwort</text>
+
+  <!-- ═══════════════ AWS ECOSYSTEM (Rechts) ═══════════════ -->
+  <rect x="570" y="130" width="510" height="255" rx="8" fill="url(#awsGrad)" stroke="#f59e0b" stroke-opacity="0.2" filter="url(#shadow)"/>
+  <rect x="570" y="130" width="510" height="26" rx="8" fill="#f59e0b" fill-opacity="0.15"/>
+  <rect x="570" y="149" width="510" height="7" fill="url(#awsGrad)"/>
+  <text x="825" y="148" text-anchor="middle" class="label" fill="#fbbf24">AWS Ecosystem Integration</text>
+
+  <!-- Lambda -->
+  <rect x="585" y="165" width="115" height="60" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.5"/>
+  <rect x="595" y="172" width="22" height="22" rx="4" fill="#f59e0b" fill-opacity="0.3"/>
+  <text x="606" y="187" text-anchor="middle" class="badge" fill="#fbbf24">λ</text>
+  <text x="625" y="187" class="label" fill="#fbbf24">Lambda</text>
+  <text x="595" y="207" class="small">Serverless</text>
+  <text x="595" y="217" class="small">Compute</text>
+
+  <!-- S3 -->
+  <rect x="710" y="165" width="115" height="60" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.5"/>
+  <rect x="720" y="172" width="22" height="22" rx="4" fill="#10b981" fill-opacity="0.3"/>
+  <text x="731" y="187" text-anchor="middle" class="badge" fill="#6ee7b7">S3</text>
+  <text x="750" y="187" class="label" fill="#6ee7b7">S3</text>
+  <text x="720" y="207" class="small">Dokumente,</text>
+  <text x="720" y="217" class="small">Data Sources</text>
+
+  <!-- CloudWatch -->
+  <rect x="835" y="165" width="115" height="60" rx="6" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.5"/>
+  <rect x="845" y="172" width="22" height="22" rx="4" fill="#6366f1" fill-opacity="0.3"/>
+  <text x="856" y="187" text-anchor="middle" class="badge" fill="#a5b4fc">CW</text>
+  <text x="875" y="187" class="label" fill="#a5b4fc">CloudWatch</text>
+  <text x="845" y="207" class="small">Monitoring,</text>
+  <text x="845" y="217" class="small">Logging, Traces</text>
+
+  <!-- IAM -->
+  <rect x="960" y="165" width="110" height="60" rx="6" fill="#0f172a" stroke="#dc2626" stroke-opacity="0.5"/>
+  <rect x="970" y="172" width="22" height="22" rx="4" fill="#dc2626" fill-opacity="0.3"/>
+  <text x="981" y="187" text-anchor="middle" class="badge" fill="#fca5a5">IA</text>
+  <text x="1000" y="187" class="label" fill="#fca5a5">IAM</text>
+  <text x="970" y="207" class="small">Rollen,</text>
+  <text x="970" y="217" class="small">Policies</text>
+
+  <!-- Agent-Architektur-Detail -->
+  <rect x="585" y="240" width="485" height="55" rx="6" fill="#0f172a" stroke="#334155"/>
+  <text x="595" y="258" class="label" fill="#e2e8f0">Supervisor-Pattern im Detail</text>
+  <text x="595" y="275" class="small">Supervisor Agent empfaengt User-Anfrage → waehlt passende(n) Subagent(s)</text>
+  <text x="595" y="288" class="small">→ delegiert Aufgaben → aggregiert Ergebnisse → liefert Antwort</text>
+
+  <!-- Bedrock Models -->
+  <rect x="585" y="305" width="485" height="65" rx="6" fill="#6366f1" fill-opacity="0.06" stroke="#6366f1" stroke-opacity="0.2" stroke-dasharray="3,3"/>
+  <text x="595" y="323" class="label" fill="#a5b4fc">Foundation Models (Bedrock)</text>
+  <rect x="595" y="332" width="75" height="18" rx="3" fill="#6366f1" fill-opacity="0.2"/>
+  <text x="632" y="345" text-anchor="middle" class="tiny" fill="#a5b4fc">Claude 3/4</text>
+  <rect x="678" y="332" width="75" height="18" rx="3" fill="#10b981" fill-opacity="0.2"/>
+  <text x="715" y="345" text-anchor="middle" class="tiny" fill="#6ee7b7">Llama 3</text>
+  <rect x="761" y="332" width="75" height="18" rx="3" fill="#f59e0b" fill-opacity="0.2"/>
+  <text x="798" y="345" text-anchor="middle" class="tiny" fill="#fbbf24">Titan</text>
+  <rect x="844" y="332" width="85" height="18" rx="3" fill="#06b6d4" fill-opacity="0.2"/>
+  <text x="886" y="345" text-anchor="middle" class="tiny" fill="#67e8f9">Mistral</text>
+  <rect x="937" y="332" width="120" height="18" rx="3" fill="#dc2626" fill-opacity="0.2"/>
+  <text x="997" y="345" text-anchor="middle" class="tiny" fill="#fca5a5">Custom Models</text>
+
+  <text x="595" y="363" class="tiny" fill="#94a3b8">Model-agnostisch: Jeder Subagent kann ein anderes FM verwenden</text>
+</svg>

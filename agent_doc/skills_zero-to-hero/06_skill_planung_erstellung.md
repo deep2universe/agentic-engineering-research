@@ -6,6 +6,8 @@ Dieses Kapitel beschreibt die Methodik, um Skills systematisch zu planen, zu ers
 
 ---
 
+![Skill-Erstellungsprozess](svg/06_erstellungsprozess.svg)
+
 ## Phase 1: Bedarfsanalyse
 
 ### Schritt 1: Wiederkehrende Muster identifizieren
@@ -91,6 +93,8 @@ Evaluierungen ausführen → mit Baseline vergleichen → verfeinern.
 ## Phase 3: Skill-Erstellung
 
 ### Der Claude-A/Claude-B Workflow
+
+![Claude A/B Workflow](svg/06_claude_ab_workflow.svg)
 
 Der effektivste Skill-Entwicklungsprozess nutzt zwei Claude-Instanzen:
 

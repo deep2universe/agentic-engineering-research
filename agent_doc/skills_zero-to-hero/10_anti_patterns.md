@@ -6,6 +6,8 @@ Dieses Kapitel dokumentiert die häufigsten Fehler bei der Skill-Erstellung und 
 
 ---
 
+![Anti-Patterns und Fallstricke — Übersicht](svg/10_anti_patterns_dashboard.svg)
+
 ## Anti-Pattern 1: Der Monolith-Skill
 
 ### Problem

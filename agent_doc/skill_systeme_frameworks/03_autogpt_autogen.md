@@ -1,5 +1,7 @@
 # AutoGPT und AutoGen - Skills und Erweiterbarkeit
 
+![AutoGPT &amp; AutoGen — Evolution und Konsolidierung](../skills_zero-to-hero/svg/fw_autogpt_autogen.svg)
+
 ## AutoGPT
 
 ### Ueberblick

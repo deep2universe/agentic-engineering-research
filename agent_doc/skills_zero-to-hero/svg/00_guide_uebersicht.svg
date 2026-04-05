@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#10b981"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#d97706"/>
+      <stop offset="100%" style="stop-color:#f59e0b"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="700" fill="url(#bgGrad)" rx="16"/>
+
+  <!-- Title -->
+  <text x="550" y="48" text-anchor="middle" fill="#e2e8f0" font-size="24" font-weight="700">Skills Zero to Hero — Guide-Struktur</text>
+  <line x1="350" y1="58" x2="750" y2="58" stroke="url(#accentGrad)" stroke-width="2"/>
+
+  <!-- Central Hub -->
+  <circle cx="550" cy="320" r="70" fill="none" stroke="url(#accentGrad)" stroke-width="3" filter="glow"/>
+  <circle cx="550" cy="320" r="60" fill="#1e1b4b" opacity="0.8"/>
+  <text x="550" y="312" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">SKILLS</text>
+  <text x="550" y="330" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">ZERO TO</text>
+  <text x="550" y="348" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">HERO</text>
+
+  <!-- Phase 1: Einstieg (Left top) -->
+  <g filter="shadow">
+    <rect x="40" y="90" width="260" height="180" rx="12" fill="#1e293b" stroke="#4f46e5" stroke-width="1.5"/>
+    <rect x="40" y="90" width="260" height="36" rx="12" fill="url(#accentGrad)"/>
+    <text x="170" y="114" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Einstieg (Kap. 01–03)</text>
+    <text x="60" y="148" fill="#94a3b8" font-size="12">01</text>
+    <text x="85" y="148" fill="#e2e8f0" font-size="12">Grundlagen: Was sind Skills?</text>
+    <text x="60" y="172" fill="#94a3b8" font-size="12">02</text>
+    <text x="85" y="172" fill="#e2e8f0" font-size="12">Agent Skills Standard</text>
+    <text x="60" y="196" fill="#94a3b8" font-size="12">03</text>
+    <text x="85" y="196" fill="#e2e8f0" font-size="12">Anatomie eines Skills</text>
+    <rect x="56" y="220" width="90" height="24" rx="4" fill="#312e81"/>
+    <text x="101" y="236" text-anchor="middle" fill="#a5b4fc" font-size="10">Fundament</text>
+  </g>
+  <!-- Connector -->
+  <line x1="300" y1="180" x2="490" y2="290" stroke="#4f46e5" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+
+  <!-- Phase 2: Design (Right top) -->
+  <g filter="shadow">
+    <rect x="800" y="90" width="260" height="180" rx="12" fill="#1e293b" stroke="#059669" stroke-width="1.5"/>
+    <rect x="800" y="90" width="260" height="36" rx="12" fill="url(#greenGrad)"/>
+    <text x="930" y="114" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Design (Kap. 04–06)</text>
+    <text x="820" y="148" fill="#94a3b8" font-size="12">04</text>
+    <text x="845" y="148" fill="#e2e8f0" font-size="12">Prinzipien für Skill-Design</text>
+    <text x="820" y="172" fill="#94a3b8" font-size="12">05</text>
+    <text x="845" y="172" fill="#e2e8f0" font-size="12">Design Patterns für Skills</text>
+    <text x="820" y="196" fill="#94a3b8" font-size="12">06</text>
+    <text x="845" y="196" fill="#e2e8f0" font-size="12">Skills planen und erstellen</text>
+    <rect x="816" y="220" width="90" height="24" rx="4" fill="#064e3b"/>
+    <text x="861" y="236" text-anchor="middle" fill="#6ee7b7" font-size="10">Architektur</text>
+  </g>
+  <line x1="800" y1="180" x2="620" y2="290" stroke="#059669" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+
+  <!-- Phase 3: Praxis (Left bottom) -->
+  <g filter="shadow">
+    <rect x="40" y="420" width="260" height="155" rx="12" fill="#1e293b" stroke="#d97706" stroke-width="1.5"/>
+    <rect x="40" y="420" width="260" height="36" rx="12" fill="url(#orangeGrad)"/>
+    <text x="170" y="444" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Praxis (Kap. 07)</text>
+    <text x="60" y="478" fill="#94a3b8" font-size="12">07</text>
+    <text x="85" y="478" fill="#e2e8f0" font-size="12">Skills in Claude Code</text>
+    <text x="85" y="498" fill="#94a3b8" font-size="11">Bundled Skills, Custom Skills,</text>
+    <text x="85" y="514" fill="#94a3b8" font-size="11">Hooks, Subagents, Sharing</text>
+    <rect x="56" y="530" width="110" height="24" rx="4" fill="#451a03"/>
+    <text x="111" y="546" text-anchor="middle" fill="#fbbf24" font-size="10">Implementierung</text>
+  </g>
+  <line x1="300" y1="497" x2="490" y2="360" stroke="#d97706" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+
+  <!-- Phase 4: Vertiefung (Right bottom) -->
+  <g filter="shadow">
+    <rect x="800" y="420" width="260" height="180" rx="12" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <rect x="800" y="420" width="260" height="36" rx="12" fill="#dc2626"/>
+    <text x="930" y="444" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Vertiefung (Kap. 08–11)</text>
+    <text x="820" y="478" fill="#94a3b8" font-size="12">08</text>
+    <text x="845" y="478" fill="#e2e8f0" font-size="12">Skill-Ökosystem</text>
+    <text x="820" y="502" fill="#94a3b8" font-size="12">09</text>
+    <text x="845" y="502" fill="#e2e8f0" font-size="12">Fortgeschrittene Patterns</text>
+    <text x="820" y="526" fill="#94a3b8" font-size="12">10</text>
+    <text x="845" y="526" fill="#e2e8f0" font-size="12">Anti-Patterns &amp; Fallstricke</text>
+    <text x="820" y="550" fill="#94a3b8" font-size="12">11</text>
+    <text x="845" y="550" fill="#e2e8f0" font-size="12">Wissenslandkarte</text>
+    <rect x="816" y="568" width="90" height="24" rx="4" fill="#450a0a"/>
+    <text x="861" y="584" text-anchor="middle" fill="#fca5a5" font-size="10">Expertise</text>
+  </g>
+  <line x1="800" y1="510" x2="620" y2="360" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.6"/>
+
+  <!-- Market Stats Bar -->
+  <g filter="shadow">
+    <rect x="340" y="620" width="420" height="60" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="550" y="643" text-anchor="middle" fill="#94a3b8" font-size="11">Marktzahlen Q1 2026</text>
+    <text x="410" y="665" text-anchor="middle" fill="#6ee7b7" font-size="12" font-weight="600">7,84 Mrd. $</text>
+    <text x="550" y="665" text-anchor="middle" fill="#a5b4fc" font-size="12" font-weight="600">30+ Plattformen</text>
+    <text x="690" y="665" text-anchor="middle" fill="#fbbf24" font-size="12" font-weight="600">96k+ Skills</text>
+  </g>
+
+  <!-- Flow arrows between phases -->
+  <path d="M170 270 C170 310 170 360 170 420" stroke="#4f46e5" stroke-width="1" fill="none" stroke-dasharray="4,4" opacity="0.4"/>
+  <path d="M300 180 C500 100 600 100 800 180" stroke="#059669" stroke-width="1" fill="none" stroke-dasharray="4,4" opacity="0.4"/>
+  <path d="M930 270 C930 310 930 360 930 420" stroke="#dc2626" stroke-width="1" fill="none" stroke-dasharray="4,4" opacity="0.4"/>
+</svg>
