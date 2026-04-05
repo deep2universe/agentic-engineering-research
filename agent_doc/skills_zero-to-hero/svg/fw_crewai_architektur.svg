@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <marker id="arrowDown" markerWidth="8" markerHeight="6" refX="4" refY="6" orient="auto">
+      <path d="M0,0 L4,6 L8,0" fill="#6366f1"/>
+    </marker>
+    <marker id="arrowRight" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="#06b6d4"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: 'Segoe UI', system-ui, sans-serif; fill: #e2e8f0; }
+    .title { font-size: 16px; font-weight: 700; fill: #f8fafc; }
+    .subtitle { font-size: 11px; fill: #94a3b8; }
+    .label { font-size: 12px; font-weight: 600; }
+    .small { font-size: 10px; fill: #cbd5e1; }
+    .tiny { font-size: 9px; fill: #94a3b8; }
+    .badge { font-size: 8px; font-weight: 600; }
+  </style>
+
+  <!-- Hintergrund -->
+  <rect width="1100" height="400" fill="url(#bgGrad)" rx="8"/>
+
+  <!-- Titel -->
+  <text x="550" y="30" text-anchor="middle" class="title">CrewAI -- Team-Metapher Architektur</text>
+  <text x="550" y="46" text-anchor="middle" class="subtitle">Agents + Tasks + Crew = Autonomes Team</text>
+
+  <!-- Crew Container (aeusserer Rahmen) -->
+  <rect x="30" y="58" width="740" height="330" rx="12" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="8,4" filter="url(#shadow)"/>
+  <rect x="30" y="58" width="130" height="24" rx="6" fill="#10b981" opacity="0.2"/>
+  <text x="95" y="74" text-anchor="middle" class="label" fill="#6ee7b7">Crew (Container)</text>
+
+  <!-- Agent 1 -->
+  <rect x="55" y="95" width="210" height="140" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="55" y="95" width="210" height="26" rx="8" fill="#6366f1" opacity="0.2"/>
+  <circle cx="75" cy="108" r="8" fill="#6366f1" opacity="0.7"/>
+  <text x="88" y="112" class="label" fill="#a5b4fc">Agent: Researcher</text>
+
+  <text x="70" y="140" class="small" fill="#a5b4fc">Role:</text>
+  <text x="105" y="140" class="small">"Senior Researcher"</text>
+  <text x="70" y="158" class="small" fill="#a5b4fc">Goal:</text>
+  <text x="105" y="158" class="small">"Finde relevante Daten"</text>
+  <text x="70" y="176" class="small" fill="#a5b4fc">Backstory:</text>
+  <text x="128" y="176" class="small">"Erfahrener Analyst"</text>
+  <text x="70" y="197" class="small" fill="#a5b4fc">Tools:</text>
+  <rect x="105" y="187" width="65" height="16" rx="3" fill="#6366f1" opacity="0.2"/>
+  <text x="137" y="199" text-anchor="middle" class="badge" fill="#a5b4fc">WebSearch</text>
+  <rect x="175" y="187" width="75" height="16" rx="3" fill="#6366f1" opacity="0.2"/>
+  <text x="212" y="199" text-anchor="middle" class="badge" fill="#a5b4fc">FileReader</text>
+
+  <text x="70" y="224" class="tiny" fill="#6366f1">LLM: GPT-4 / Claude</text>
+
+  <!-- Agent 2 -->
+  <rect x="285" y="95" width="210" height="140" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="285" y="95" width="210" height="26" rx="8" fill="#06b6d4" opacity="0.2"/>
+  <circle cx="305" cy="108" r="8" fill="#06b6d4" opacity="0.7"/>
+  <text x="318" y="112" class="label" fill="#67e8f9">Agent: Writer</text>
+
+  <text x="300" y="140" class="small" fill="#67e8f9">Role:</text>
+  <text x="335" y="140" class="small">"Content Writer"</text>
+  <text x="300" y="158" class="small" fill="#67e8f9">Goal:</text>
+  <text x="335" y="158" class="small">"Erstelle Bericht"</text>
+  <text x="300" y="176" class="small" fill="#67e8f9">Backstory:</text>
+  <text x="358" y="176" class="small">"Technischer Autor"</text>
+  <text x="300" y="197" class="small" fill="#67e8f9">Tools:</text>
+  <rect x="335" y="187" width="65" height="16" rx="3" fill="#06b6d4" opacity="0.2"/>
+  <text x="367" y="199" text-anchor="middle" class="badge" fill="#67e8f9">FileWriter</text>
+
+  <text x="300" y="224" class="tiny" fill="#06b6d4">LLM: GPT-4 / Claude</text>
+
+  <!-- Agent 3 -->
+  <rect x="515" y="95" width="210" height="140" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="515" y="95" width="210" height="26" rx="8" fill="#f59e0b" opacity="0.2"/>
+  <circle cx="535" cy="108" r="8" fill="#f59e0b" opacity="0.7"/>
+  <text x="548" y="112" class="label" fill="#fbbf24">Agent: Reviewer</text>
+
+  <text x="530" y="140" class="small" fill="#fbbf24">Role:</text>
+  <text x="565" y="140" class="small">"Quality Reviewer"</text>
+  <text x="530" y="158" class="small" fill="#fbbf24">Goal:</text>
+  <text x="565" y="158" class="small">"Pruefe Qualitaet"</text>
+  <text x="530" y="176" class="small" fill="#fbbf24">Backstory:</text>
+  <text x="588" y="176" class="small">"Senior Editor"</text>
+  <text x="530" y="197" class="small" fill="#fbbf24">Tools:</text>
+  <rect x="565" y="187" width="55" height="16" rx="3" fill="#f59e0b" opacity="0.2"/>
+  <text x="592" y="199" text-anchor="middle" class="badge" fill="#fbbf24">Linter</text>
+
+  <text x="530" y="224" class="tiny" fill="#f59e0b">LLM: GPT-4 / Claude</text>
+
+  <!-- Tasks-Zeile -->
+  <rect x="55" y="250" width="210" height="50" rx="6" fill="#0f172a" stroke="#6366f1" stroke-width="1" filter="url(#shadow)"/>
+  <text x="160" y="270" text-anchor="middle" class="small" fill="#a5b4fc">Task: Research durchfuehren</text>
+  <text x="160" y="285" text-anchor="middle" class="tiny">Expected: Strukturierter Report</text>
+
+  <rect x="285" y="250" width="210" height="50" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-width="1" filter="url(#shadow)"/>
+  <text x="390" y="270" text-anchor="middle" class="small" fill="#67e8f9">Task: Bericht schreiben</text>
+  <text x="390" y="285" text-anchor="middle" class="tiny">Expected: Markdown-Dokument</text>
+
+  <rect x="515" y="250" width="210" height="50" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-width="1" filter="url(#shadow)"/>
+  <text x="620" y="270" text-anchor="middle" class="small" fill="#fbbf24">Task: Review &amp; Feedback</text>
+  <text x="620" y="285" text-anchor="middle" class="tiny">Expected: Freigabe / Korrekturen</text>
+
+  <!-- Verbindungspfeile Agent -> Task -->
+  <line x1="160" y1="235" x2="160" y2="250" stroke="#6366f1" stroke-width="1.2" marker-end="url(#arrowDown)"/>
+  <line x1="390" y1="235" x2="390" y2="250" stroke="#06b6d4" stroke-width="1.2"/>
+  <line x1="620" y1="235" x2="620" y2="250" stroke="#f59e0b" stroke-width="1.2"/>
+
+  <!-- Sequentielle Pfeile zwischen Tasks -->
+  <line x1="265" y1="275" x2="285" y2="275" stroke="#06b6d4" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+  <line x1="495" y1="275" x2="515" y2="275" stroke="#06b6d4" stroke-width="1.5" marker-end="url(#arrowRight)"/>
+
+  <!-- Flow-Label -->
+  <rect x="55" y="315" width="670" height="22" rx="4" fill="#10b981" opacity="0.08"/>
+  <text x="390" y="331" text-anchor="middle" class="tiny" fill="#10b981">Delegation &amp; Context-Sharing zwischen Agents moeglich (allow_delegation=True)</text>
+
+  <!-- Process Types (rechts) -->
+  <rect x="800" y="65" width="280" height="320" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="800" y="65" width="280" height="28" rx="10" fill="#10b981" opacity="0.15"/>
+  <text x="940" y="84" text-anchor="middle" class="label" fill="#6ee7b7">Process Types</text>
+
+  <!-- Sequential -->
+  <rect x="820" y="105" width="240" height="110" rx="8" fill="#0f172a" stroke="#6366f1" stroke-width="1"/>
+  <text x="940" y="124" text-anchor="middle" class="small" fill="#a5b4fc" font-weight="600">Sequential Process</text>
+
+  <rect x="840" y="135" width="50" height="22" rx="4" fill="#6366f1" opacity="0.3"/>
+  <text x="865" y="150" text-anchor="middle" class="badge" fill="#a5b4fc">Agent1</text>
+  <line x1="890" y1="146" x2="910" y2="146" stroke="#6366f1" stroke-width="1" marker-end="url(#arrowRight)"/>
+  <rect x="910" y="135" width="50" height="22" rx="4" fill="#06b6d4" opacity="0.3"/>
+  <text x="935" y="150" text-anchor="middle" class="badge" fill="#67e8f9">Agent2</text>
+  <line x1="960" y1="146" x2="980" y2="146" stroke="#06b6d4" stroke-width="1" marker-end="url(#arrowRight)"/>
+  <rect x="980" y="135" width="50" height="22" rx="4" fill="#f59e0b" opacity="0.3"/>
+  <text x="1005" y="150" text-anchor="middle" class="badge" fill="#fbbf24">Agent3</text>
+
+  <text x="940" y="185" text-anchor="middle" class="tiny">Tasks werden der Reihe nach</text>
+  <text x="940" y="197" text-anchor="middle" class="tiny">abgearbeitet (Pipeline)</text>
+
+  <!-- Hierarchical -->
+  <rect x="820" y="225" width="240" height="145" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+  <text x="940" y="244" text-anchor="middle" class="small" fill="#fbbf24" font-weight="600">Hierarchical Process</text>
+
+  <rect x="905" y="257" width="70" height="24" rx="4" fill="#f59e0b" opacity="0.3"/>
+  <text x="940" y="273" text-anchor="middle" class="badge" fill="#fbbf24">Manager</text>
+
+  <line x1="920" y1="281" x2="880" y2="300" stroke="#f59e0b" stroke-width="1"/>
+  <line x1="940" y1="281" x2="940" y2="300" stroke="#f59e0b" stroke-width="1"/>
+  <line x1="960" y1="281" x2="1000" y2="300" stroke="#f59e0b" stroke-width="1"/>
+
+  <rect x="855" y="300" width="52" height="20" rx="4" fill="#6366f1" opacity="0.3"/>
+  <text x="881" y="314" text-anchor="middle" class="badge" fill="#a5b4fc">Agent1</text>
+  <rect x="914" y="300" width="52" height="20" rx="4" fill="#06b6d4" opacity="0.3"/>
+  <text x="940" y="314" text-anchor="middle" class="badge" fill="#67e8f9">Agent2</text>
+  <rect x="975" y="300" width="52" height="20" rx="4" fill="#10b981" opacity="0.3"/>
+  <text x="1001" y="314" text-anchor="middle" class="badge" fill="#6ee7b7">Agent3</text>
+
+  <text x="940" y="345" text-anchor="middle" class="tiny">Manager-Agent delegiert Tasks</text>
+  <text x="940" y="357" text-anchor="middle" class="tiny">an passende Team-Mitglieder</text>
+
+  <!-- Verbindungslinie Crew -> Process -->
+  <line x1="770" y1="220" x2="800" y2="220" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,3"/>
+</svg>

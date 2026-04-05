@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgOA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="sOA"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="1100" height="400" fill="url(#bgOA)" rx="16"/>
+  <text x="550" y="38" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">OpenAI Agents SDK — Minimale Abstraktionen</text>
+  <line x1="310" y1="48" x2="790" y2="48" stroke="#06b6d4" stroke-width="2" opacity="0.6"/>
+
+  <!-- 3 Core Primitives -->
+  <text x="550" y="78" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="600">3 CORE PRIMITIVES</text>
+
+  <g filter="sOA" transform="translate(120, 90)">
+    <rect width="260" height="110" rx="12" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+    <rect x="0" y="0" width="260" height="32" rx="12" fill="#0c4a6e"/>
+    <text x="130" y="22" text-anchor="middle" fill="#67e8f9" font-size="14" font-weight="700">Agents</text>
+    <text x="130" y="56" text-anchor="middle" fill="#94a3b8" font-size="11">LLMs mit Instruktionen</text>
+    <text x="130" y="74" text-anchor="middle" fill="#94a3b8" font-size="11">und Tools ausgestattet</text>
+    <text x="130" y="92" text-anchor="middle" fill="#67e8f9" font-size="10">System Prompt + Tool Definitions</text>
+  </g>
+
+  <g filter="sOA" transform="translate(420, 90)">
+    <rect width="260" height="110" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="260" height="32" rx="12" fill="#064e3b"/>
+    <text x="130" y="22" text-anchor="middle" fill="#6ee7b7" font-size="14" font-weight="700">Handoffs</text>
+    <text x="130" y="56" text-anchor="middle" fill="#94a3b8" font-size="11">Agents delegieren an</text>
+    <text x="130" y="74" text-anchor="middle" fill="#94a3b8" font-size="11">andere Agents</text>
+    <text x="130" y="92" text-anchor="middle" fill="#6ee7b7" font-size="10">Elegante Agent-Delegation</text>
+  </g>
+
+  <g filter="sOA" transform="translate(720, 90)">
+    <rect width="260" height="110" rx="12" fill="#1e293b" stroke="#dc2626" stroke-width="2"/>
+    <rect x="0" y="0" width="260" height="32" rx="12" fill="#450a0a"/>
+    <text x="130" y="22" text-anchor="middle" fill="#fca5a5" font-size="14" font-weight="700">Guardrails</text>
+    <text x="130" y="56" text-anchor="middle" fill="#94a3b8" font-size="11">Validierung von Inputs</text>
+    <text x="130" y="74" text-anchor="middle" fill="#94a3b8" font-size="11">und Outputs</text>
+    <text x="130" y="92" text-anchor="middle" fill="#fca5a5" font-size="10">Safety &amp; Compliance</text>
+  </g>
+
+  <!-- 5 Tool Categories -->
+  <text x="550" y="230" text-anchor="middle" fill="#94a3b8" font-size="12" font-weight="600">5 TOOL-KATEGORIEN</text>
+
+  <g transform="translate(40, 245)">
+    <g filter="sOA"><rect width="195" height="65" rx="8" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5"/>
+    <text x="97" y="22" text-anchor="middle" fill="#c4b5fd" font-size="11" font-weight="600">Hosted OpenAI Tools</text>
+    <text x="97" y="40" text-anchor="middle" fill="#94a3b8" font-size="9">WebSearch · FileSearch</text>
+    <text x="97" y="54" text-anchor="middle" fill="#94a3b8" font-size="9">CodeInterpreter</text></g>
+
+    <g filter="sOA" transform="translate(210, 0)"><rect width="195" height="65" rx="8" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="97" y="22" text-anchor="middle" fill="#fbbf24" font-size="11" font-weight="600">Local/Runtime Tools</text>
+    <text x="97" y="40" text-anchor="middle" fill="#94a3b8" font-size="9">ComputerTool · ShellTool</text>
+    <text x="97" y="54" text-anchor="middle" fill="#94a3b8" font-size="9">ApplyPatchTool</text></g>
+
+    <g filter="sOA" transform="translate(420, 0)"><rect width="195" height="65" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="97" y="22" text-anchor="middle" fill="#67e8f9" font-size="11" font-weight="600">Function Calling</text>
+    <text x="97" y="40" text-anchor="middle" fill="#94a3b8" font-size="9">@function_tool Decorator</text>
+    <text x="97" y="54" text-anchor="middle" fill="#94a3b8" font-size="9">Structured Outputs</text></g>
+
+    <g filter="sOA" transform="translate(630, 0)"><rect width="195" height="65" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="97" y="22" text-anchor="middle" fill="#6ee7b7" font-size="11" font-weight="600">Agents as Tools</text>
+    <text x="97" y="40" text-anchor="middle" fill="#94a3b8" font-size="9">Sub-Agents als Tools</text>
+    <text x="97" y="54" text-anchor="middle" fill="#94a3b8" font-size="9">ohne vollen Handoff</text></g>
+
+    <g filter="sOA" transform="translate(840, 0)"><rect width="195" height="65" rx="8" fill="#1e293b" stroke="#64748b" stroke-width="1.5"/>
+    <text x="97" y="22" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600">Codex Tool (Exp.)</text>
+    <text x="97" y="40" text-anchor="middle" fill="#94a3b8" font-size="9">Workspace-scoped</text>
+    <text x="97" y="54" text-anchor="middle" fill="#94a3b8" font-size="9">Codex Tasks</text></g>
+  </g>
+
+  <!-- Bottom bar -->
+  <g transform="translate(200, 340)">
+    <rect width="700" height="40" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+    <text x="350" y="17" text-anchor="middle" fill="#e2e8f0" font-size="11" font-weight="600">Philosophie: Wenige, durchdachte Abstraktionen</text>
+    <text x="350" y="33" text-anchor="middle" fill="#64748b" font-size="10">Provider-agnostisch · Integriertes Tracing · Python + TypeScript</text>
+  </g>
+</svg>

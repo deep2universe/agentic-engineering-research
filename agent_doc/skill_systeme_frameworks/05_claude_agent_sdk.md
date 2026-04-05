@@ -6,6 +6,8 @@ Anthropic hat mit dem Claude Agent SDK und dem Agent Skills Standard einen bedeu
 
 ## Agent Skills Standard
 
+![Claude Agent SDK — SKILL.md &amp; Discovery](../skills_zero-to-hero/svg/fw_claude_agent_sdk.svg)
+
 ### Entstehung
 - **Oktober 2025:** Erstmalige oeffentliche Vorstellung von Agent Skills
 - **Dezember 2025:** Veroeffentlichung als offener Standard fuer plattformuebergreifende Portabilitaet

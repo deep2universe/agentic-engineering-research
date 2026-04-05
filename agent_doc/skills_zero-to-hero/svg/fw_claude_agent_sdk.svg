@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 420">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="tierGrad1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="tierGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.08"/>
+    </linearGradient>
+    <linearGradient id="tierGrad3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: 'Segoe UI', system-ui, sans-serif; fill: #e2e8f0; }
+    .title { font-size: 18px; font-weight: 700; fill: #f8fafc; }
+    .subtitle { font-size: 11px; fill: #94a3b8; }
+    .label { font-size: 12px; font-weight: 600; }
+    .small { font-size: 10px; fill: #94a3b8; }
+    .tiny { font-size: 9px; fill: #cbd5e1; }
+    .badge { font-size: 9px; font-weight: 700; }
+    .code { font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 9px; fill: #cbd5e1; }
+  </style>
+
+  <!-- Hintergrund -->
+  <rect width="1100" height="420" rx="12" fill="url(#bgGrad)"/>
+  <rect x="0.5" y="0.5" width="1099" height="419" rx="12" fill="none" stroke="#334155" stroke-width="1"/>
+
+  <!-- Titel -->
+  <text x="550" y="32" text-anchor="middle" class="title">Claude Agent SDK — SKILL.md Progressive Discovery</text>
+  <text x="550" y="48" text-anchor="middle" class="subtitle">Drei-Stufen-Laden: Minimaler Token-Verbrauch bei maximaler Funktionalitaet</text>
+
+  <!-- ═══════════════ LINKE SEITE: SKILL.md Format ═══════════════ -->
+  <rect x="20" y="65" width="310" height="290" rx="8" fill="#1e293b" stroke="#334155" filter="url(#shadow)"/>
+  <rect x="20" y="65" width="310" height="30" rx="8" fill="#6366f1" fill-opacity="0.2"/>
+  <rect x="20" y="87" width="310" height="8" fill="#1e293b"/>
+  <circle cx="38" cy="80" r="5" fill="#6366f1"/>
+  <text x="50" y="84" class="label" fill="#a5b4fc">SKILL.md Dateiformat</text>
+
+  <!-- YAML Frontmatter -->
+  <rect x="32" y="102" width="286" height="110" rx="5" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.4"/>
+  <rect x="32" y="102" width="286" height="20" rx="5" fill="#6366f1" fill-opacity="0.15"/>
+  <rect x="32" y="117" width="286" height="5" fill="#0f172a"/>
+  <text x="44" y="116" class="badge" fill="#a5b4fc">YAML FRONTMATTER</text>
+  <text x="44" y="135" class="code">---</text>
+  <text x="44" y="148" class="code"><tspan fill="#f59e0b">name:</tspan> deploy-aws</text>
+  <text x="44" y="161" class="code"><tspan fill="#f59e0b">description:</tspan> Deploy to AWS ECS</text>
+  <text x="44" y="174" class="code"><tspan fill="#f59e0b">triggers:</tspan> [deploy, aws, ecs]</text>
+  <text x="44" y="187" class="code"><tspan fill="#f59e0b">tools:</tspan> [Bash, Read, Write]</text>
+  <text x="44" y="200" class="code">---</text>
+
+  <!-- Markdown Body -->
+  <rect x="32" y="220" width="286" height="125" rx="5" fill="#0f172a" stroke="#10b981" stroke-opacity="0.4"/>
+  <rect x="32" y="220" width="286" height="20" rx="5" fill="#10b981" fill-opacity="0.15"/>
+  <rect x="32" y="235" width="286" height="5" fill="#0f172a"/>
+  <text x="44" y="234" class="badge" fill="#6ee7b7">MARKDOWN BODY</text>
+  <text x="44" y="254" class="code"><tspan fill="#06b6d4"># Anweisungen</tspan></text>
+  <text x="44" y="267" class="code">Schritt-fuer-Schritt Instruktionen</text>
+  <text x="44" y="280" class="code">fuer den Agenten...</text>
+  <text x="44" y="296" class="code"><tspan fill="#06b6d4"># Resources</tspan></text>
+  <text x="44" y="309" class="code">- config/deploy.yaml</text>
+  <text x="44" y="322" class="code">- scripts/ecs-deploy.sh</text>
+  <text x="44" y="335" class="code">- templates/task-def.json</text>
+
+  <!-- ═══════════════ MITTE: Drei-Stufen-Discovery ═══════════════ -->
+  <!-- Stufe 1 -->
+  <rect x="355" y="65" width="370" height="80" rx="8" fill="url(#tierGrad1)" stroke="#6366f1" stroke-opacity="0.5" filter="url(#shadow)"/>
+  <rect x="365" y="73" width="50" height="22" rx="4" fill="#6366f1"/>
+  <text x="390" y="88" text-anchor="middle" class="badge" fill="#fff">TIER 1</text>
+  <text x="425" y="88" class="label" fill="#a5b4fc">Startup — Index laden</text>
+  <text x="365" y="108" class="small">Nur Name + Description + Triggers aus Frontmatter</text>
+  <text x="365" y="122" class="small">Alle Skills gescannt, aber nur ~50 Token pro Skill</text>
+  <rect x="610" y="75" width="100" height="20" rx="10" fill="#6366f1" fill-opacity="0.3" stroke="#6366f1" stroke-opacity="0.6"/>
+  <text x="660" y="89" text-anchor="middle" class="badge" fill="#a5b4fc">~50 Token/Skill</text>
+
+  <!-- Pfeil 1→2 -->
+  <path d="M540 145 L540 155" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="555" y="155" class="tiny" fill="#6366f1">Trigger Match</text>
+  <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" fill="#6366f1"/>
+  </marker>
+
+  <!-- Stufe 2 -->
+  <rect x="355" y="160" width="370" height="80" rx="8" fill="url(#tierGrad2)" stroke="#10b981" stroke-opacity="0.5" filter="url(#shadow)"/>
+  <rect x="365" y="168" width="50" height="22" rx="4" fill="#10b981"/>
+  <text x="390" y="183" text-anchor="middle" class="badge" fill="#fff">TIER 2</text>
+  <text x="425" y="183" class="label" fill="#6ee7b7">On Trigger — Body laden</text>
+  <text x="365" y="203" class="small">Markdown-Anweisungen werden in den Kontext injiziert</text>
+  <text x="365" y="217" class="small">Erst bei Bedarf — kein Token-Overhead fuer inaktive Skills</text>
+  <rect x="610" y="170" width="100" height="20" rx="10" fill="#10b981" fill-opacity="0.3" stroke="#10b981" stroke-opacity="0.6"/>
+  <text x="660" y="184" text-anchor="middle" class="badge" fill="#6ee7b7">Full Body</text>
+
+  <!-- Pfeil 2→3 -->
+  <path d="M540 240 L540 250" stroke="#10b981" stroke-width="2"/>
+  <text x="555" y="250" class="tiny" fill="#10b981">Ausfuehrung</text>
+
+  <!-- Stufe 3 -->
+  <rect x="355" y="255" width="370" height="80" rx="8" fill="url(#tierGrad3)" stroke="#f59e0b" stroke-opacity="0.5" filter="url(#shadow)"/>
+  <rect x="365" y="263" width="50" height="22" rx="4" fill="#f59e0b"/>
+  <text x="390" y="278" text-anchor="middle" class="badge" fill="#fff">TIER 3</text>
+  <text x="425" y="278" class="label" fill="#fbbf24">Execution — Resources laden</text>
+  <text x="365" y="298" class="small">Referenzierte Dateien und Konfigurationen gelesen</text>
+  <text x="365" y="312" class="small">Tools aktiviert, Agent fuehrt Aktionen aus</text>
+  <rect x="610" y="265" width="100" height="20" rx="10" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b" stroke-opacity="0.6"/>
+  <text x="660" y="279" text-anchor="middle" class="badge" fill="#fbbf24">+ Resources</text>
+
+  <!-- ═══════════════ RECHTE SEITE: Plattform-Kompatibilitaet ═══════════════ -->
+  <rect x="750" y="65" width="330" height="290" rx="8" fill="#1e293b" stroke="#334155" filter="url(#shadow)"/>
+  <rect x="750" y="65" width="330" height="30" rx="8" fill="#06b6d4" fill-opacity="0.2"/>
+  <rect x="750" y="87" width="330" height="8" fill="#1e293b"/>
+  <circle cx="768" cy="80" r="5" fill="#06b6d4"/>
+  <text x="780" y="84" class="label" fill="#67e8f9">Plattformuebergreifend</text>
+
+  <!-- Plattform-Icons -->
+  <rect x="765" y="102" width="145" height="44" rx="6" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.5"/>
+  <circle cx="783" cy="124" r="8" fill="#6366f1" fill-opacity="0.3" stroke="#6366f1"/>
+  <text x="783" y="128" text-anchor="middle" class="badge" fill="#a5b4fc">C</text>
+  <text x="798" y="120" class="small" fill="#e2e8f0">Claude Code</text>
+  <text x="798" y="132" class="tiny" fill="#6366f1">Nativ</text>
+
+  <rect x="920" y="102" width="145" height="44" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.5"/>
+  <circle cx="938" cy="124" r="8" fill="#10b981" fill-opacity="0.3" stroke="#10b981"/>
+  <text x="938" y="128" text-anchor="middle" class="badge" fill="#6ee7b7">V</text>
+  <text x="953" y="120" class="small" fill="#e2e8f0">VS Code</text>
+  <text x="953" y="132" class="tiny" fill="#10b981">Extension</text>
+
+  <rect x="765" y="155" width="145" height="44" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.5"/>
+  <circle cx="783" cy="177" r="8" fill="#f59e0b" fill-opacity="0.3" stroke="#f59e0b"/>
+  <text x="783" y="181" text-anchor="middle" class="badge" fill="#fbbf24">Cu</text>
+  <text x="798" y="173" class="small" fill="#e2e8f0">Cursor</text>
+  <text x="798" y="185" class="tiny" fill="#f59e0b">.cursor/skills/</text>
+
+  <rect x="920" y="155" width="145" height="44" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-opacity="0.5"/>
+  <circle cx="938" cy="177" r="8" fill="#06b6d4" fill-opacity="0.3" stroke="#06b6d4"/>
+  <text x="938" y="181" text-anchor="middle" class="badge" fill="#67e8f9">Cx</text>
+  <text x="953" y="173" class="small" fill="#e2e8f0">Codex</text>
+  <text x="953" y="185" class="tiny" fill="#06b6d4">AGENTS.md Compat</text>
+
+  <rect x="765" y="208" width="145" height="44" rx="6" fill="#0f172a" stroke="#dc2626" stroke-opacity="0.5"/>
+  <circle cx="783" cy="230" r="8" fill="#dc2626" fill-opacity="0.3" stroke="#dc2626"/>
+  <text x="783" y="234" text-anchor="middle" class="badge" fill="#fca5a5">G</text>
+  <text x="798" y="226" class="small" fill="#e2e8f0">Gemini CLI</text>
+  <text x="798" y="238" class="tiny" fill="#dc2626">GEMINI.md Compat</text>
+
+  <!-- Gemeinsamer Standard -->
+  <rect x="765" y="268" width="300" height="75" rx="6" fill="#6366f1" fill-opacity="0.08" stroke="#6366f1" stroke-opacity="0.3" stroke-dasharray="4,3"/>
+  <text x="915" y="288" text-anchor="middle" class="label" fill="#a5b4fc">Gemeinsamer Standard: SKILL.md</text>
+  <text x="915" y="305" text-anchor="middle" class="small">Eine Datei — ueberall nutzbar</text>
+  <text x="915" y="320" text-anchor="middle" class="small">YAML Frontmatter = universelle Metadaten</text>
+  <text x="915" y="335" text-anchor="middle" class="small">Markdown Body = plattformunabhaengige Logik</text>
+
+  <!-- Footer -->
+  <line x1="20" y1="370" x2="1080" y2="370" stroke="#334155" stroke-width="0.5"/>
+  <text x="20" y="390" class="small">Vorteile: Kein SDK noetig | Versionierbar in Git | Progressive Token-Effizienz | Plattformneutral</text>
+  <rect x="820" y="378" width="260" height="22" rx="4" fill="#6366f1" fill-opacity="0.12" stroke="#6366f1" stroke-opacity="0.3"/>
+  <text x="950" y="393" text-anchor="middle" class="badge" fill="#a5b4fc">AUFKOMMENDER STANDARD — SKILL.md</text>
+
+  <!-- Verbindungspfeile Links → Mitte -->
+  <path d="M330 150 Q342 150 355 120" stroke="#6366f1" stroke-width="1.5" fill="none" stroke-dasharray="4,3" opacity="0.5"/>
+  <path d="M330 270 Q342 270 355 290" stroke="#10b981" stroke-width="1.5" fill="none" stroke-dasharray="4,3" opacity="0.5"/>
+</svg>

@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.4"/>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="pluginGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="plannerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="memoryGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+  <style>
+    text { font-family: 'Segoe UI', system-ui, sans-serif; fill: #e2e8f0; }
+    .title { font-size: 18px; font-weight: 700; fill: #f8fafc; }
+    .subtitle { font-size: 11px; fill: #94a3b8; }
+    .label { font-size: 12px; font-weight: 600; }
+    .small { font-size: 10px; fill: #94a3b8; }
+    .tiny { font-size: 9px; fill: #cbd5e1; }
+    .badge { font-size: 9px; font-weight: 700; }
+    .code { font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: 9px; fill: #cbd5e1; }
+  </style>
+
+  <!-- Hintergrund -->
+  <rect width="1100" height="400" rx="12" fill="url(#bgGrad)"/>
+  <rect x="0.5" y="0.5" width="1099" height="399" rx="12" fill="none" stroke="#334155" stroke-width="1"/>
+
+  <!-- Titel -->
+  <text x="550" y="32" text-anchor="middle" class="title">Semantic Kernel — Drei Saeulen der Skill-Architektur</text>
+  <text x="550" y="48" text-anchor="middle" class="subtitle">Plugins + Planners + Memory | Microsoft Agent Framework Fusion mit AutoGen</text>
+
+  <!-- ═══════════════ SAEULE 1: Plugins ═══════════════ -->
+  <rect x="20" y="62" width="340" height="265" rx="8" fill="url(#pluginGrad)" stroke="#6366f1" stroke-opacity="0.4" filter="url(#shadow)"/>
+  <rect x="20" y="62" width="340" height="28" rx="8" fill="#6366f1" fill-opacity="0.3"/>
+  <rect x="20" y="82" width="340" height="8" fill="url(#pluginGrad)"/>
+  <text x="190" y="81" text-anchor="middle" class="label" fill="#a5b4fc">PLUGINS</text>
+
+  <!-- Native Plugins -->
+  <rect x="32" y="98" width="155" height="145" rx="6" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.5"/>
+  <rect x="32" y="98" width="155" height="22" rx="6" fill="#6366f1" fill-opacity="0.2"/>
+  <rect x="32" y="114" width="155" height="6" fill="#0f172a"/>
+  <text x="110" y="113" text-anchor="middle" class="badge" fill="#a5b4fc">NATIVE PLUGINS</text>
+  <text x="42" y="135" class="code" fill="#6366f1">// C# Beispiel</text>
+  <text x="42" y="148" class="code">[KernelFunction]</text>
+  <text x="42" y="161" class="code">[Description("Get weather")]</text>
+  <text x="42" y="174" class="code"><tspan fill="#06b6d4">public async</tspan> Task</text>
+  <text x="42" y="187" class="code">  GetWeather(string city)</text>
+  <rect x="42" y="197" width="60" height="16" rx="3" fill="#6366f1" fill-opacity="0.2"/>
+  <text x="72" y="209" text-anchor="middle" class="tiny" fill="#a5b4fc">C#</text>
+  <rect x="108" y="197" width="60" height="16" rx="3" fill="#10b981" fill-opacity="0.2"/>
+  <text x="138" y="209" text-anchor="middle" class="tiny" fill="#6ee7b7">Python</text>
+  <rect x="42" y="218" width="60" height="16" rx="3" fill="#f59e0b" fill-opacity="0.2"/>
+  <text x="72" y="230" text-anchor="middle" class="tiny" fill="#fbbf24">Java</text>
+
+  <!-- Semantic Plugins -->
+  <rect x="197" y="98" width="155" height="145" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.5"/>
+  <rect x="197" y="98" width="155" height="22" rx="6" fill="#10b981" fill-opacity="0.2"/>
+  <rect x="197" y="114" width="155" height="6" fill="#0f172a"/>
+  <text x="275" y="113" text-anchor="middle" class="badge" fill="#6ee7b7">SEMANTIC PLUGINS</text>
+  <text x="207" y="135" class="code" fill="#10b981">// Prompt Template</text>
+  <text x="207" y="148" class="code"><tspan fill="#f59e0b">skprompt.txt:</tspan></text>
+  <text x="207" y="161" class="code">Summarize {{$input}}</text>
+  <text x="207" y="174" class="code">in {{$style}} style</text>
+  <text x="207" y="190" class="code" fill="#10b981">// config.json:</text>
+  <text x="207" y="203" class="code">temperature: 0.7</text>
+  <text x="207" y="216" class="code">max_tokens: 500</text>
+  <text x="207" y="229" class="code">top_p: 0.9</text>
+
+  <!-- Plugin-Zusammenfassung -->
+  <rect x="32" y="250" width="320" height="30" rx="4" fill="#0f172a" stroke="#334155"/>
+  <text x="192" y="269" text-anchor="middle" class="small" fill="#e2e8f0">Code-Funktionen + Prompt-Templates = Unified Skill Layer</text>
+
+  <!-- Verbindung Plugin → Annotation -->
+  <rect x="32" y="286" width="320" height="30" rx="4" fill="#6366f1" fill-opacity="0.08" stroke="#6366f1" stroke-opacity="0.2" stroke-dasharray="3,3"/>
+  <text x="192" y="305" text-anchor="middle" class="tiny" fill="#a5b4fc">[KernelFunction] + [Description] = Automatische Discovery</text>
+
+  <!-- ═══════════════ SAEULE 2: Planners ═══════════════ -->
+  <rect x="380" y="62" width="340" height="265" rx="8" fill="url(#plannerGrad)" stroke="#10b981" stroke-opacity="0.4" filter="url(#shadow)"/>
+  <rect x="380" y="62" width="340" height="28" rx="8" fill="#10b981" fill-opacity="0.3"/>
+  <rect x="380" y="82" width="340" height="8" fill="url(#plannerGrad)"/>
+  <text x="550" y="81" text-anchor="middle" class="label" fill="#6ee7b7">PLANNERS</text>
+
+  <!-- Planner-Typen -->
+  <rect x="392" y="98" width="316" height="50" rx="6" fill="#0f172a" stroke="#10b981" stroke-opacity="0.4"/>
+  <circle cx="410" cy="123" r="10" fill="#10b981" fill-opacity="0.2" stroke="#10b981"/>
+  <text x="410" y="127" text-anchor="middle" class="badge" fill="#6ee7b7">S</text>
+  <text x="428" y="118" class="label" fill="#6ee7b7">Sequential Planner</text>
+  <text x="428" y="132" class="small">Lineare Schritt-fuer-Schritt Ausfuehrung</text>
+
+  <rect x="392" y="156" width="316" height="50" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-opacity="0.4"/>
+  <circle cx="410" cy="181" r="10" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4"/>
+  <text x="410" y="185" text-anchor="middle" class="badge" fill="#67e8f9">H</text>
+  <text x="428" y="176" class="label" fill="#67e8f9">Handlebars Planner</text>
+  <text x="428" y="190" class="small">Template-basierte Orchestrierung</text>
+
+  <rect x="392" y="214" width="316" height="50" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.4"/>
+  <circle cx="410" cy="239" r="10" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b"/>
+  <text x="410" y="243" text-anchor="middle" class="badge" fill="#fbbf24">A</text>
+  <text x="428" y="234" class="label" fill="#fbbf24">Auto Function Calling</text>
+  <text x="428" y="248" class="small">LLM entscheidet welche Plugins wann</text>
+
+  <!-- Orchestrierung -->
+  <rect x="392" y="272" width="316" height="45" rx="4" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-opacity="0.2" stroke-dasharray="3,3"/>
+  <text x="550" y="290" text-anchor="middle" class="tiny" fill="#6ee7b7">Planner waehlt Plugins, bestimmt Reihenfolge,</text>
+  <text x="550" y="303" text-anchor="middle" class="tiny" fill="#6ee7b7">uebergibt Ergebnisse zwischen Schritten</text>
+
+  <!-- ═══════════════ SAEULE 3: Memory ═══════════════ -->
+  <rect x="740" y="62" width="340" height="265" rx="8" fill="url(#memoryGrad)" stroke="#f59e0b" stroke-opacity="0.4" filter="url(#shadow)"/>
+  <rect x="740" y="62" width="340" height="28" rx="8" fill="#f59e0b" fill-opacity="0.3"/>
+  <rect x="740" y="82" width="340" height="8" fill="url(#memoryGrad)"/>
+  <text x="910" y="81" text-anchor="middle" class="label" fill="#fbbf24">MEMORY</text>
+
+  <!-- Memory-Typen -->
+  <rect x="752" y="98" width="316" height="42" rx="6" fill="#0f172a" stroke="#f59e0b" stroke-opacity="0.4"/>
+  <rect x="762" y="104" width="8" height="8" rx="2" fill="#f59e0b"/>
+  <text x="778" y="114" class="label" fill="#fbbf24">Semantic Memory</text>
+  <text x="778" y="128" class="small">Embedding-basierte Aehnlichkeitssuche</text>
+
+  <rect x="752" y="148" width="316" height="42" rx="6" fill="#0f172a" stroke="#06b6d4" stroke-opacity="0.4"/>
+  <rect x="762" y="154" width="8" height="8" rx="2" fill="#06b6d4"/>
+  <text x="778" y="164" class="label" fill="#67e8f9">Volatile Memory</text>
+  <text x="778" y="178" class="small">In-Memory Kontext fuer laufende Session</text>
+
+  <rect x="752" y="198" width="316" height="42" rx="6" fill="#0f172a" stroke="#6366f1" stroke-opacity="0.4"/>
+  <rect x="762" y="204" width="8" height="8" rx="2" fill="#6366f1"/>
+  <text x="778" y="214" class="label" fill="#a5b4fc">Vector Store Connectors</text>
+  <text x="778" y="228" class="small">Azure AI Search, Qdrant, Pinecone, Chroma</text>
+
+  <!-- Context-Flow -->
+  <rect x="752" y="248" width="316" height="68" rx="4" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-opacity="0.2" stroke-dasharray="3,3"/>
+  <text x="910" y="266" text-anchor="middle" class="tiny" fill="#fbbf24">Memory speist Kontext in jeden Plugin-Aufruf:</text>
+  <text x="910" y="282" text-anchor="middle" class="code">kernel.Memory.SaveAsync(collection,</text>
+  <text x="910" y="295" text-anchor="middle" class="code">  text, id, description)</text>
+  <text x="910" y="308" text-anchor="middle" class="code">kernel.Memory.SearchAsync(query, limit)</text>
+
+  <!-- ═══════════════ FOOTER: AutoGen Fusion ═══════════════ -->
+  <rect x="20" y="340" width="1060" height="48" rx="8" fill="#06b6d4" fill-opacity="0.08" stroke="#06b6d4" stroke-opacity="0.3" filter="url(#shadow)"/>
+
+  <!-- Fusion-Pfeil -->
+  <text x="40" y="362" class="label" fill="#67e8f9">Semantic Kernel</text>
+  <text x="175" y="362" class="small" fill="#94a3b8">+</text>
+  <text x="195" y="362" class="label" fill="#6ee7b7">AutoGen</text>
+  <rect x="260" y="350" width="16" height="16" rx="3" fill="#06b6d4" fill-opacity="0.3"/>
+  <text x="268" y="362" text-anchor="middle" class="badge" fill="#67e8f9">=</text>
+  <text x="290" y="362" class="label" fill="#f8fafc">Microsoft Agent Framework</text>
+
+  <line x1="500" y1="348" x2="500" y2="380" stroke="#334155" stroke-width="0.5"/>
+
+  <text x="520" y="358" class="small" fill="#94a3b8">SK liefert: Plugin-System, Memory, Connectors</text>
+  <text x="520" y="373" class="small" fill="#94a3b8">AutoGen liefert: Multi-Agent-Patterns, Group Chat, Code Execution</text>
+
+  <rect x="960" y="349" width="110" height="22" rx="4" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-opacity="0.4"/>
+  <text x="1015" y="364" text-anchor="middle" class="badge" fill="#67e8f9">UNIFIED PLATFORM</text>
+</svg>

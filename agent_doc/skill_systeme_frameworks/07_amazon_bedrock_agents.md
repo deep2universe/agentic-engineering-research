@@ -6,6 +6,8 @@ Amazon Bedrock Agents ist AWSs vollstaendig verwalteter Service fuer die Erstell
 
 ## Action Groups
 
+![Amazon Bedrock Agents Architektur](../skills_zero-to-hero/svg/fw_bedrock_agents.svg)
+
 ### Definition
 Action Groups sind Sammlungen von Aktionen, die ein Agent fuer den Benutzer ausfuehren soll. Jede Action Group enthaelt Schemas, die die Parameter definieren, die der Agent vom Benutzer abfragen muss.
 

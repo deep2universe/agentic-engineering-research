@@ -6,6 +6,8 @@ Das OpenAI Agents SDK ist ein Open-Source-SDK fuer Python und TypeScript, das al
 
 ## Core Primitives
 
+![OpenAI Agents SDK — Minimale Abstraktionen](../skills_zero-to-hero/svg/fw_openai_agents_sdk.svg)
+
 Das SDK basiert auf drei Grundkonzepten:
 
 1. **Agents:** LLMs ausgestattet mit Instruktionen und Tools

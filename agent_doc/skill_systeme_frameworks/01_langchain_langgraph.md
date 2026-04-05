@@ -6,6 +6,8 @@ LangChain ist eines der aeltesten und am weitesten verbreiteten AI Agent Framewo
 
 ## Architektur-Konzepte
 
+![LangChain/LangGraph Architektur](../skills_zero-to-hero/svg/fw_langchain_architektur.svg)
+
 ### Chains (klassisch)
 Chains bilden das Rueckgrat von LangChains modularem System. Sie verknuepfen mehrere AI-Tasks zu sequenziellen Workflows. Jede Chain nimmt einen Input, verarbeitet ihn und gibt den Output an die naechste Chain weiter.
 

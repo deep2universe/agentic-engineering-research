@@ -6,6 +6,8 @@ CrewAI verfolgt ein "organisatorisches Architektur"-Paradigma, bei dem Entwickle
 
 ## Kern-Architektur
 
+![CrewAI Team-Metapher Architektur](../skills_zero-to-hero/svg/fw_crewai_architektur.svg)
+
 ### Agents
 - **Role:** Die Funktion des Agents (z.B. "Senior Research Analyst")
 - **Goal:** Das Ziel im OKR-Stil
