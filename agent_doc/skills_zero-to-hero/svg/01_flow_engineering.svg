@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 380" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg01d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <marker id="arw01" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#6366f1"/>
+    </marker>
+    <marker id="arwG01" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#10b981"/>
+    </marker>
+    <filter id="s01d"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="1100" height="380" fill="url(#bg01d)" rx="16"/>
+  <text x="550" y="38" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Compound Engineering Loop mit Skills</text>
+  <line x1="330" y1="48" x2="770" y2="48" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Developer -->
+  <g filter="s01d" transform="translate(60, 90)">
+    <rect width="140" height="100" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="70" y="40" text-anchor="middle" fill="#a5b4fc" font-size="28">👨‍💻</text>
+    <text x="70" y="68" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">Entwickler</text>
+    <text x="70" y="85" text-anchor="middle" fill="#94a3b8" font-size="10">Domänenexperte</text>
+  </g>
+
+  <!-- Arrow: Dev -> Task -->
+  <line x1="200" y1="140" x2="260" y2="140" stroke="#6366f1" stroke-width="2" marker-end="url(#arw01)"/>
+  <text x="230" y="132" text-anchor="middle" fill="#94a3b8" font-size="9">Aufgabe</text>
+
+  <!-- Agent -->
+  <g filter="s01d" transform="translate(270, 75)">
+    <rect width="180" height="130" rx="12" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="90" y="35" text-anchor="middle" fill="#c4b5fd" font-size="28">🤖</text>
+    <text x="90" y="60" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="700">AI Agent</text>
+    <text x="90" y="78" text-anchor="middle" fill="#94a3b8" font-size="10">Reasoning + Orchestration</text>
+    <line x1="20" y1="90" x2="160" y2="90" stroke="#4c1d95" stroke-width="1"/>
+    <text x="90" y="108" text-anchor="middle" fill="#a78bfa" font-size="10">nutzt Skills →</text>
+  </g>
+
+  <!-- Arrow: Agent -> Skills -->
+  <line x1="450" y1="140" x2="520" y2="140" stroke="#8b5cf6" stroke-width="2" marker-end="url(#arw01)"/>
+
+  <!-- Skills Fan -->
+  <g filter="s01d" transform="translate(530, 65)">
+    <rect width="280" height="155" rx="12" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
+    <text x="140" y="24" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Skills im Einsatz</text>
+
+    <rect x="15" y="38" width="120" height="28" rx="6" fill="#1e293b" stroke="#f59e0b" stroke-width="1"/>
+    <text x="75" y="56" text-anchor="middle" fill="#fbbf24" font-size="10">Skill A: Analyse</text>
+
+    <rect x="15" y="72" width="120" height="28" rx="6" fill="#1e293b" stroke="#06b6d4" stroke-width="1"/>
+    <text x="75" y="90" text-anchor="middle" fill="#67e8f9" font-size="10">Skill B: Implement</text>
+
+    <rect x="145" y="38" width="120" height="28" rx="6" fill="#1e293b" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="205" y="56" text-anchor="middle" fill="#c4b5fd" font-size="10">Skill C: Tests</text>
+
+    <rect x="145" y="72" width="120" height="28" rx="6" fill="#1e293b" stroke="#10b981" stroke-width="1"/>
+    <text x="205" y="90" text-anchor="middle" fill="#6ee7b7" font-size="10">Skill D: Commit</text>
+
+    <rect x="15" y="110" width="250" height="30" rx="6" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+    <text x="140" y="130" text-anchor="middle" fill="#94a3b8" font-size="10">Kodifiziertes Expertenwissen</text>
+  </g>
+
+  <!-- Arrow: Skills -> Output -->
+  <line x1="810" y1="140" x2="870" y2="140" stroke="#10b981" stroke-width="2" marker-end="url(#arwG01)"/>
+  <text x="840" y="132" text-anchor="middle" fill="#94a3b8" font-size="9">Output</text>
+
+  <!-- Output -->
+  <g filter="s01d" transform="translate(880, 90)">
+    <rect width="140" height="100" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="70" y="40" text-anchor="middle" fill="#6ee7b7" font-size="28">✅</text>
+    <text x="70" y="68" text-anchor="middle" fill="#6ee7b7" font-size="13" font-weight="700">Ergebnis</text>
+    <text x="70" y="85" text-anchor="middle" fill="#94a3b8" font-size="10">Code + Tests + Commit</text>
+  </g>
+
+  <!-- Feedback loop arrow (bottom) -->
+  <path d="M950 195 L950 290 L130 290 L130 195" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arwG01)" stroke-dasharray="8,4"/>
+  <text x="550" y="282" text-anchor="middle" fill="#6ee7b7" font-size="11" font-weight="600">Review &amp; Feedback Loop</text>
+
+  <!-- Bottom note -->
+  <rect x="280" y="320" width="540" height="40" rx="8" fill="#0f172a" stroke="#334155" stroke-width="1"/>
+  <text x="550" y="344" text-anchor="middle" fill="#94a3b8" font-size="11">"Hoard Things You Know How to Do" — Skills kodifizieren Expertenwissen für den Agent</text>
+</svg>

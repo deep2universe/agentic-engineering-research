@@ -13,6 +13,8 @@ Ein **Skill** ist ein modulares, wiederverwendbares Bündel aus Anweisungen, Met
 
 ### Die Capability-Hierarchie
 
+![Capability-Hierarchie im Agentic Engineering](svg/01_capability_hierarchie.svg)
+
 ```
 ┌─────────────────────────────────────────────────┐
 │                  Agent System                     │
@@ -37,6 +39,8 @@ Ein **Skill** ist ein modulares, wiederverwendbares Bündel aus Anweisungen, Met
 
 ### Abgrenzung: Skills vs. verwandte Konzepte
 
+![Skills vs. verwandte Konzepte](svg/01_skill_vs_konzepte.svg)
+
 | Konzept | Beschreibung | Persistenz | Granularität |
 |---------|-------------|-----------|--------------|
 | **Prompt** | Einmalige Anweisung für eine Konversation | Transient | Fein |
@@ -60,6 +64,8 @@ Ein **Skill** ist ein modulares, wiederverwendbares Bündel aus Anweisungen, Met
 ---
 
 ## Die drei Funktionen eines Skills
+
+![Die drei Funktionen eines Skills](svg/01_drei_funktionen.svg)
 
 ### 1. Wissensvermittlung (Reference Content)
 
@@ -91,6 +97,8 @@ Skills erweitern die Fähigkeiten des Agents durch mitgelieferte Skripte und Res
 ---
 
 ## Skills im Kontext des Agentic Engineering 2026
+
+![Compound Engineering Loop](svg/01_flow_engineering.svg)
 
 ### Flow Engineering als Leit-Disziplin
 
