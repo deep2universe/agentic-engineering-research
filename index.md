@@ -49,4 +49,46 @@ Detailberichte zu Tool Use, Memory, RAG, Context Engineering und MCP.
 
 ---
 
+## Skills Zero to Hero
+
+Vollstaendiger Guide zum Thema Skills im Agentic Engineering.
+
+| Nr. | Kapitel | Inhalt |
+|-----|---------|--------|
+| 00 | [Uebersicht](SZH-00-Uebersicht) | Guide Map, Kernaussagen, Marktzahlen |
+| 01 | [Grundlagen Skills](SZH-01-Grundlagen-Skills) | Was sind Skills? Definition, Abgrenzung |
+| 02 | [Agent Skills Standard](SZH-02-Agent-Skills-Standard) | Offener Standard, Spezifikation, Adoption |
+| 03 | [Skill Anatomie](SZH-03-Skill-Anatomie) | SKILL.md, Frontmatter, Verzeichnisstruktur |
+| 04 | [Skill Prinzipien](SZH-04-Skill-Prinzipien) | Kernprinzipien, Conciseness, Progressive Disclosure |
+| 05 | [Skill Patterns](SZH-05-Skill-Patterns) | Template, Workflow, Conditional, Composition |
+| 06 | [Skill Planung und Erstellung](SZH-06-Skill-Planung-Erstellung) | Methodik, Evaluation-Driven Development |
+| 07 | [Claude Code Skills](SZH-07-Claude-Code-Skills) | Bundled Skills, Custom Skills, Invocation |
+| 08 | [Skill Oekosystem](SZH-08-Skill-Oekosystem) | MCP, Plattformen, Cross-Tool-Kompatibilitaet |
+| 09 | [Advanced Patterns](SZH-09-Advanced-Patterns) | Dynamic Context Injection, Multi-Agent Skills |
+| 10 | [Anti-Patterns](SZH-10-Anti-Patterns) | Haeufige Fehler, Security-Risiken |
+| 11 | [Skill Landkarte](SZH-11-Skill-Landkarte) | Vollstaendige Wissenslandkarte |
+| -- | [Quellen](SZH-Quellen) | Alle Recherche-Quellen |
+| -- | [Best Practices Quellen](SZH-Best-Practices-Quellen) | Quellen zu Skill Design Best Practices |
+
+---
+
+## Skill-Systeme in AI Agent Frameworks
+
+Vergleich der Skill- und Tool-Systeme von sieben fuehrenden Frameworks.
+
+| Nr. | Kapitel | Inhalt |
+|-----|---------|--------|
+| 00 | [Uebersicht](SSF-00-Uebersicht) | Zusammenfassung, Erkenntnisse |
+| 01 | [LangChain und LangGraph](SSF-01-LangChain-LangGraph) | Tools und Skills Architektur |
+| 02 | [CrewAI](SSF-02-CrewAI) | Skills/Tools System |
+| 03 | [AutoGPT und AutoGen](SSF-03-AutoGPT-AutoGen) | Components und Skills |
+| 04 | [OpenAI Agents SDK](SSF-04-OpenAI-Agents-SDK) | Tool/Function Calling |
+| 05 | [Claude Agent SDK](SSF-05-Claude-Agent-SDK) | SKILL.md Standard |
+| 06 | [Semantic Kernel](SSF-06-Semantic-Kernel) | Skills/Plugins |
+| 07 | [Amazon Bedrock Agents](SSF-07-Amazon-Bedrock-Agents) | Action Groups |
+| 08 | [Vergleich und Best Practices](SSF-08-Vergleich-und-Best-Practices) | Vergleichsmatrix |
+| -- | [Quellen](SSF-Quellen) | Alle Recherche-Quellen |
+
+---
+
 *Quellcode: [agent_doc/](https://github.com/deep2universe/agentic-engineering-research/tree/main/agent_doc)*

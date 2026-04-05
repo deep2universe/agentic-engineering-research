@@ -30,6 +30,7 @@ nav_order: 1
 | 10 | [Observability und Evaluation](AEP-10-Observability-Evaluation) | Tracing, Monitoring, Testing, Benchmarking |
 | 11 | [Praxis: Frameworks und Implementierung](AEP-11-Frameworks-Implementierung) | LangGraph, CrewAI, AutoGen, Claude Code, OpenAI Agents SDK |
 | 12 | [Agentic Coding Patterns (Simon Willison)](AEP-12-Agentic-Coding-Patterns) | Patterns für die Arbeit mit Coding Agents |
+| 13 | [Agent-Skill-Architektur](13_agent_skill_architektur.md) | SKILL.md-Spezifikation, Progressive Disclosure, Skill Design Patterns, Decomposition, Orchestration, Composition |
 
 ---
 
