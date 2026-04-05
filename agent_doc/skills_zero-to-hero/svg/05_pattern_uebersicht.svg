@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 550" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect width="1100" height="550" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Titel -->
+  <text x="550" y="38" text-anchor="middle" fill="url(#headerGrad)" font-size="20" font-weight="700" filter="url(#glow)">10 Skill Design Patterns</text>
+  <line x1="350" y1="48" x2="750" y2="48" stroke="#6366f1" stroke-width="1" opacity="0.4"/>
+
+  <!-- Row 1: Patterns 1-5 -->
+  <!-- Pattern 1: Template -->
+  <g transform="translate(18, 62)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#6366f1" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#6366f1" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#6366f1" font-size="11" font-weight="700">01</text>
+    <!-- Icon: Document -->
+    <rect x="90" y="48" width="20" height="24" rx="2" fill="none" stroke="#6366f1" stroke-width="1.5"/>
+    <line x1="95" y1="56" x2="105" y2="56" stroke="#6366f1" stroke-width="1"/>
+    <line x1="95" y1="61" x2="105" y2="61" stroke="#6366f1" stroke-width="1"/>
+    <line x1="95" y1="66" x2="102" y2="66" stroke="#6366f1" stroke-width="1"/>
+    <text x="100" y="94" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Template</text>
+    <text x="100" y="108" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Pattern</text>
+    <line x1="30" y1="118" x2="170" y2="118" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="136" text-anchor="middle" fill="#94a3b8" font-size="10">Konsistenter Output</text>
+    <text x="100" y="150" text-anchor="middle" fill="#94a3b8" font-size="10">durch strukturierte</text>
+    <text x="100" y="164" text-anchor="middle" fill="#94a3b8" font-size="10">Vorlagen mit festen</text>
+    <text x="100" y="178" text-anchor="middle" fill="#94a3b8" font-size="10">Abschnitten und</text>
+    <text x="100" y="192" text-anchor="middle" fill="#94a3b8" font-size="10">Platzhaltern.</text>
+  </g>
+
+  <!-- Pattern 2: Workflow -->
+  <g transform="translate(232, 62)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#10b981" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#10b981" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#10b981" font-size="11" font-weight="700">02</text>
+    <!-- Icon: Checklist -->
+    <rect x="88" y="48" width="14" height="14" rx="2" fill="none" stroke="#10b981" stroke-width="1.5"/>
+    <polyline points="91,55 95,59 99,52" fill="none" stroke="#10b981" stroke-width="1.5"/>
+    <line x1="106" y1="54" x2="116" y2="54" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="88" y="64" width="14" height="14" rx="2" fill="none" stroke="#10b981" stroke-width="1.5"/>
+    <line x1="106" y1="70" x2="116" y2="70" stroke="#10b981" stroke-width="1.5"/>
+    <text x="100" y="100" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Workflow</text>
+    <text x="100" y="114" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Pattern</text>
+    <line x1="30" y1="124" x2="170" y2="124" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Schritt-fuer-Schritt</text>
+    <text x="100" y="156" text-anchor="middle" fill="#94a3b8" font-size="10">Checkliste mit</text>
+    <text x="100" y="170" text-anchor="middle" fill="#94a3b8" font-size="10">definierten Phasen</text>
+    <text x="100" y="184" text-anchor="middle" fill="#94a3b8" font-size="10">und klaren</text>
+    <text x="100" y="198" text-anchor="middle" fill="#94a3b8" font-size="10">Abhaengigkeiten.</text>
+  </g>
+
+  <!-- Pattern 3: Feedback-Loop -->
+  <g transform="translate(446, 62)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#f59e0b" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#f59e0b" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">03</text>
+    <!-- Icon: Loop arrows -->
+    <path d="M92,52 A12,12 0 1,1 108,52" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <polygon points="108,49 108,55 114,52" fill="#f59e0b"/>
+    <path d="M108,68 A12,12 0 1,1 92,68" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <polygon points="92,71 92,65 86,68" fill="#f59e0b"/>
+    <text x="100" y="100" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Feedback-Loop</text>
+    <text x="100" y="114" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Pattern</text>
+    <line x1="30" y1="124" x2="170" y2="124" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Iterative Validierung</text>
+    <text x="100" y="156" text-anchor="middle" fill="#94a3b8" font-size="10">mit automatischer</text>
+    <text x="100" y="170" text-anchor="middle" fill="#94a3b8" font-size="10">Fehlererkennung und</text>
+    <text x="100" y="184" text-anchor="middle" fill="#94a3b8" font-size="10">Korrekturschleife</text>
+    <text x="100" y="198" text-anchor="middle" fill="#94a3b8" font-size="10">bis zum Ziel.</text>
+  </g>
+
+  <!-- Pattern 4: Conditional Workflow -->
+  <g transform="translate(660, 62)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#06b6d4" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#06b6d4" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#06b6d4" font-size="11" font-weight="700">04</text>
+    <!-- Icon: Diamond/Decision -->
+    <polygon points="100,48 112,60 100,72 88,60" fill="none" stroke="#06b6d4" stroke-width="1.5"/>
+    <text x="100" y="63" text-anchor="middle" fill="#06b6d4" font-size="10">?</text>
+    <text x="100" y="100" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Conditional</text>
+    <text x="100" y="114" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Workflow</text>
+    <line x1="30" y1="124" x2="170" y2="124" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Input-basiertes</text>
+    <text x="100" y="156" text-anchor="middle" fill="#94a3b8" font-size="10">Routing zu unter-</text>
+    <text x="100" y="170" text-anchor="middle" fill="#94a3b8" font-size="10">schiedlichen Pfaden</text>
+    <text x="100" y="184" text-anchor="middle" fill="#94a3b8" font-size="10">je nach Kontext</text>
+    <text x="100" y="198" text-anchor="middle" fill="#94a3b8" font-size="10">und Bedingungen.</text>
+  </g>
+
+  <!-- Pattern 5: Examples -->
+  <g transform="translate(874, 62)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#dc2626" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#dc2626" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="700">05</text>
+    <!-- Icon: I/O arrows -->
+    <line x1="84" y1="56" x2="96" y2="56" stroke="#dc2626" stroke-width="1.5"/>
+    <polygon points="96,53 102,56 96,59" fill="#dc2626"/>
+    <rect x="102" y="50" width="12" height="12" rx="2" fill="none" stroke="#dc2626" stroke-width="1.5"/>
+    <line x1="84" y1="68" x2="96" y2="68" stroke="#dc2626" stroke-width="1.5" opacity="0.5"/>
+    <polygon points="96,65 102,68 96,71" fill="#dc2626" opacity="0.5"/>
+    <rect x="102" y="62" width="12" height="12" rx="2" fill="none" stroke="#dc2626" stroke-width="1.5" opacity="0.5"/>
+    <text x="100" y="100" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Examples</text>
+    <text x="100" y="114" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Pattern</text>
+    <line x1="30" y1="124" x2="170" y2="124" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Konkrete I/O-Paare</text>
+    <text x="100" y="156" text-anchor="middle" fill="#94a3b8" font-size="10">als Referenz fuer</text>
+    <text x="100" y="170" text-anchor="middle" fill="#94a3b8" font-size="10">erwartetes Format</text>
+    <text x="100" y="184" text-anchor="middle" fill="#94a3b8" font-size="10">und Qualitaets-</text>
+    <text x="100" y="198" text-anchor="middle" fill="#94a3b8" font-size="10">niveau.</text>
+  </g>
+
+  <!-- Row 2: Patterns 6-10 -->
+  <!-- Pattern 6: Progressive Reference -->
+  <g transform="translate(18, 286)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#06b6d4" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#06b6d4" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#06b6d4" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#06b6d4" font-size="11" font-weight="700">06</text>
+    <!-- Icon: Stacked layers -->
+    <rect x="90" y="48" width="20" height="6" rx="2" fill="#06b6d4" opacity="0.3"/>
+    <rect x="87" y="56" width="26" height="6" rx="2" fill="#06b6d4" opacity="0.5"/>
+    <rect x="84" y="64" width="32" height="6" rx="2" fill="#06b6d4" opacity="0.8"/>
+    <text x="100" y="94" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Progressive</text>
+    <text x="100" y="108" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Reference</text>
+    <line x1="30" y1="118" x2="170" y2="118" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="136" text-anchor="middle" fill="#94a3b8" font-size="10">Schrittweise</text>
+    <text x="100" y="150" text-anchor="middle" fill="#94a3b8" font-size="10">Offenlegung von</text>
+    <text x="100" y="164" text-anchor="middle" fill="#94a3b8" font-size="10">Referenzmaterial</text>
+    <text x="100" y="178" text-anchor="middle" fill="#94a3b8" font-size="10">je nach Bedarf</text>
+    <text x="100" y="192" text-anchor="middle" fill="#94a3b8" font-size="10">und Komplexitaet.</text>
+  </g>
+
+  <!-- Pattern 7: Plan-Validate-Execute -->
+  <g transform="translate(232, 286)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#10b981" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#10b981" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#10b981" font-size="11" font-weight="700">07</text>
+    <!-- Icon: Three phase arrows -->
+    <rect x="80" y="50" width="14" height="10" rx="2" fill="#10b981" opacity="0.4"/>
+    <polygon points="96,55 102,55 99,50 99,60 102,55" fill="#10b981" opacity="0.6"/>
+    <rect x="102" y="50" width="14" height="10" rx="2" fill="#10b981" opacity="0.6"/>
+    <polygon points="94,70 88,65 88,75" fill="#10b981" opacity="0.8"/>
+    <rect x="80" y="65" width="14" height="10" rx="2" fill="#10b981" opacity="0.8"/>
+    <text x="100" y="100" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Plan-Validate-</text>
+    <text x="100" y="114" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Execute</text>
+    <line x1="30" y1="124" x2="170" y2="124" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Erst planen, dann</text>
+    <text x="100" y="156" text-anchor="middle" fill="#94a3b8" font-size="10">Plan validieren,</text>
+    <text x="100" y="170" text-anchor="middle" fill="#94a3b8" font-size="10">dann ausfuehren.</text>
+    <text x="100" y="184" text-anchor="middle" fill="#94a3b8" font-size="10">Verhindert teure</text>
+    <text x="100" y="198" text-anchor="middle" fill="#94a3b8" font-size="10">Fehlentscheidungen.</text>
+  </g>
+
+  <!-- Pattern 8: Visual Output -->
+  <g transform="translate(446, 286)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#f59e0b" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#f59e0b" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#f59e0b" font-size="11" font-weight="700">08</text>
+    <!-- Icon: Image/Picture -->
+    <rect x="86" y="48" width="28" height="22" rx="2" fill="none" stroke="#f59e0b" stroke-width="1.5"/>
+    <circle cx="94" cy="56" r="3" fill="#f59e0b" opacity="0.6"/>
+    <polyline points="86,66 96,58 106,66 114,62" fill="none" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="100" y="94" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Visual</text>
+    <text x="100" y="108" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Output</text>
+    <line x1="30" y1="118" x2="170" y2="118" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="136" text-anchor="middle" fill="#94a3b8" font-size="10">Erzeugung visueller</text>
+    <text x="100" y="150" text-anchor="middle" fill="#94a3b8" font-size="10">Artefakte wie SVG,</text>
+    <text x="100" y="164" text-anchor="middle" fill="#94a3b8" font-size="10">Diagramme oder</text>
+    <text x="100" y="178" text-anchor="middle" fill="#94a3b8" font-size="10">Charts als Teil</text>
+    <text x="100" y="192" text-anchor="middle" fill="#94a3b8" font-size="10">des Skill-Outputs.</text>
+  </g>
+
+  <!-- Pattern 9: Dynamic Context Injection -->
+  <g transform="translate(660, 286)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#6366f1" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#6366f1" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#6366f1" font-size="11" font-weight="700">09</text>
+    <!-- Icon: Injection syringe / plug -->
+    <line x1="88" y1="68" x2="100" y2="56" stroke="#6366f1" stroke-width="1.5"/>
+    <circle cx="104" cy="52" r="5" fill="none" stroke="#6366f1" stroke-width="1.5"/>
+    <line x1="108" y1="48" x2="114" y2="42" stroke="#6366f1" stroke-width="1.5"/>
+    <circle cx="86" cy="70" r="3" fill="#6366f1" opacity="0.5"/>
+    <circle cx="80" cy="64" r="2" fill="#6366f1" opacity="0.3"/>
+    <text x="100" y="94" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Dynamic Context</text>
+    <text x="100" y="108" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Injection</text>
+    <line x1="30" y1="118" x2="170" y2="118" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="136" text-anchor="middle" fill="#94a3b8" font-size="10">Laufzeit-Einbindung</text>
+    <text x="100" y="150" text-anchor="middle" fill="#94a3b8" font-size="10">von Dateien, APIs</text>
+    <text x="100" y="164" text-anchor="middle" fill="#94a3b8" font-size="10">oder Codebase-Infos</text>
+    <text x="100" y="178" text-anchor="middle" fill="#94a3b8" font-size="10">als dynamischer</text>
+    <text x="100" y="192" text-anchor="middle" fill="#94a3b8" font-size="10">Prompt-Kontext.</text>
+  </g>
+
+  <!-- Pattern 10: Subagent-Delegation -->
+  <g transform="translate(874, 286)" filter="url(#shadow)">
+    <rect width="200" height="210" rx="10" fill="#1e293b" stroke="#dc2626" stroke-width="1.5"/>
+    <rect width="200" height="4" rx="2" fill="#dc2626" y="0"/>
+    <circle cx="100" cy="46" r="22" fill="#dc2626" opacity="0.15"/>
+    <text x="100" y="42" text-anchor="middle" fill="#dc2626" font-size="11" font-weight="700">10</text>
+    <!-- Icon: Agent hierarchy -->
+    <circle cx="100" cy="50" r="5" fill="#dc2626" opacity="0.7"/>
+    <line x1="95" y1="55" x2="86" y2="65" stroke="#dc2626" stroke-width="1"/>
+    <line x1="105" y1="55" x2="114" y2="65" stroke="#dc2626" stroke-width="1"/>
+    <circle cx="86" cy="68" r="4" fill="#dc2626" opacity="0.4"/>
+    <circle cx="114" cy="68" r="4" fill="#dc2626" opacity="0.4"/>
+    <text x="100" y="100" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Subagent-</text>
+    <text x="100" y="114" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="700">Delegation</text>
+    <line x1="30" y1="124" x2="170" y2="124" stroke="#334155" stroke-width="0.5"/>
+    <text x="100" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">Aufteilung komplexer</text>
+    <text x="100" y="156" text-anchor="middle" fill="#94a3b8" font-size="10">Aufgaben an spezia-</text>
+    <text x="100" y="170" text-anchor="middle" fill="#94a3b8" font-size="10">lisierte Subagenten</text>
+    <text x="100" y="184" text-anchor="middle" fill="#94a3b8" font-size="10">mit eigenen Skills</text>
+    <text x="100" y="198" text-anchor="middle" fill="#94a3b8" font-size="10">und Kontexten.</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="550" y="540" text-anchor="middle" fill="#475569" font-size="9">Skill Design Patterns -- Von einfach (links) bis komplex (rechts)</text>
+</svg>

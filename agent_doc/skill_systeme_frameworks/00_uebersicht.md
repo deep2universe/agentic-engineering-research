@@ -3,6 +3,10 @@
 ## Recherche-Datum
 2026-04-05
 
+## Visualisierung
+
+![Skill-Systeme in AI Agent Frameworks](../skills_zero-to-hero/svg/fw_uebersicht.svg)
+
 ## Zusammenfassung
 
 Diese Recherche analysiert die Skill- und Tool-Systeme von sieben fuehrenden AI Agent Frameworks. Die wichtigsten Erkenntnisse:

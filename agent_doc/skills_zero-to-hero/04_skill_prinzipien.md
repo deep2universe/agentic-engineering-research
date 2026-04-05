@@ -6,6 +6,8 @@ Dieses Kapitel dokumentiert die fundamentalen Prinzipien, nach denen Skills entw
 
 ---
 
+![Die 10 Prinzipien für Skill-Design](svg/04_zehn_prinzipien.svg)
+
 ## Prinzip 1: Conciseness (Prägnanz)
 
 > "The context window is a public good."
@@ -102,6 +104,8 @@ SKILL.md ist ein **Inhaltsverzeichnis**, kein Buch. Es zeigt den Weg zu Details,
 ---
 
 ## Prinzip 3: Appropriate Degrees of Freedom (Angemessene Freiheitsgrade)
+
+![Freiheitsgrade — Brücken-Feld-Analogie](svg/04_freiheitsgrade.svg)
 
 ### Kernaussage
 

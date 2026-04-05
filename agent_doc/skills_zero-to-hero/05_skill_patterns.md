@@ -6,6 +6,8 @@ Dieses Kapitel dokumentiert bewährte Design Patterns für die Skill-Erstellung.
 
 ---
 
+![Design Patterns Übersicht](svg/05_pattern_uebersicht.svg)
+
 ## Pattern 1: Template Pattern
 
 ### Problem
@@ -501,6 +503,8 @@ Falls nicht → überarbeiten und erneut prüfen.
 ---
 
 ## Pattern-Auswahlhilfe
+
+![Pattern-Auswahl Entscheidungsbaum](svg/05_pattern_auswahl.svg)
 
 | Anforderung | Empfohlenes Pattern |
 |------------|-------------------|

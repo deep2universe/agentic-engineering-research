@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="116%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="enterprise" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#dc2626"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="personal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="projekt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#818cf8"/>
+    </linearGradient>
+    <linearGradient id="plugin" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect width="1100" height="400" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Titel -->
+  <text x="60" y="42" fill="#e2e8f0" font-family="'Segoe UI', system-ui, sans-serif" font-size="20" font-weight="700">Skill-Speicherorte — Hierarchie &amp; Prioritaet</text>
+  <line x1="60" y1="52" x2="440" y2="52" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Gestapelte Ebenen -->
+  <!-- Enterprise -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="75" width="620" height="62" rx="8" fill="url(#enterprise)" opacity="0.92"/>
+    <rect x="120" y="75" width="620" height="62" rx="8" fill="none" stroke="#fca5a5" stroke-width="1" opacity="0.3"/>
+  </g>
+  <text x="145" y="100" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="700">Enterprise (Managed Settings)</text>
+  <text x="145" y="122" fill="#fecaca" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" opacity="0.9">IT-Admin gesteuert  ·  Hoechste Prioritaet  ·  Ueberschreibt alles</text>
+  <rect x="620" y="88" width="100" height="24" rx="4" fill="#000" opacity="0.25"/>
+  <text x="670" y="105" fill="#fca5a5" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">PRIO 1</text>
+
+  <!-- Personal -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="150" width="620" height="62" rx="8" fill="url(#personal)" opacity="0.92"/>
+    <rect x="120" y="150" width="620" height="62" rx="8" fill="none" stroke="#fde68a" stroke-width="1" opacity="0.3"/>
+  </g>
+  <text x="145" y="175" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="700">Personal</text>
+  <text x="260" y="175" fill="#fef3c7" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" opacity="0.85">~/.claude/skills/</text>
+  <text x="145" y="197" fill="#fef3c7" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" opacity="0.9">User-spezifisch  ·  Gilt in allen Projekten  ·  Persoenliche Workflows</text>
+  <rect x="620" y="163" width="100" height="24" rx="4" fill="#000" opacity="0.25"/>
+  <text x="670" y="180" fill="#fde68a" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">PRIO 2</text>
+
+  <!-- Projekt -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="225" width="620" height="62" rx="8" fill="url(#projekt)" opacity="0.92"/>
+    <rect x="120" y="225" width="620" height="62" rx="8" fill="none" stroke="#a5b4fc" stroke-width="1" opacity="0.3"/>
+  </g>
+  <text x="145" y="250" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="700">Projekt</text>
+  <text x="230" y="250" fill="#e0e7ff" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" opacity="0.85">.claude/skills/</text>
+  <text x="145" y="272" fill="#e0e7ff" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" opacity="0.9">Repo-spezifisch  ·  Versioniert mit Git  ·  Team-weit geteilt</text>
+  <rect x="620" y="238" width="100" height="24" rx="4" fill="#000" opacity="0.25"/>
+  <text x="670" y="255" fill="#c7d2fe" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">PRIO 3</text>
+
+  <!-- Plugin -->
+  <g filter="url(#shadow)">
+    <rect x="120" y="300" width="620" height="62" rx="8" fill="url(#plugin)" opacity="0.92"/>
+    <rect x="120" y="300" width="620" height="62" rx="8" fill="none" stroke="#67e8f9" stroke-width="1" opacity="0.3"/>
+  </g>
+  <text x="145" y="325" fill="#fff" font-family="'Segoe UI', system-ui, sans-serif" font-size="15" font-weight="700">Plugin</text>
+  <text x="220" y="325" fill="#cffafe" font-family="'Segoe UI', system-ui, sans-serif" font-size="13" opacity="0.85">&lt;plugin&gt;/skills/</text>
+  <text x="145" y="347" fill="#cffafe" font-family="'Segoe UI', system-ui, sans-serif" font-size="12" opacity="0.9">Von Drittanbietern  ·  npm/pip-Pakete  ·  Niedrigste Prioritaet</text>
+  <rect x="620" y="313" width="100" height="24" rx="4" fill="#000" opacity="0.25"/>
+  <text x="670" y="330" fill="#a5f3fc" font-family="'Segoe UI', system-ui, sans-serif" font-size="11" font-weight="600" text-anchor="middle">PRIO 4</text>
+
+  <!-- Prioritaetspfeil -->
+  <g filter="url(#glow)">
+    <!-- Pfeil-Linie -->
+    <line x1="82" y1="100" x2="82" y2="340" stroke="#e2e8f0" stroke-width="2.5" opacity="0.7"/>
+    <!-- Pfeilspitze oben -->
+    <polygon points="82,80 72,100 92,100" fill="#e2e8f0" opacity="0.8"/>
+    <!-- Pfeilspitze-Label -->
+    <text x="82" y="72" fill="#10b981" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">HOCH</text>
+    <text x="82" y="370" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="700" text-anchor="middle">NIEDRIG</text>
+  </g>
+  <text x="42" y="220" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle" transform="rotate(-90 42 220)">PRIORITAET</text>
+
+  <!-- Monorepo-Discovery Panel -->
+  <g filter="url(#shadow)">
+    <rect x="790" y="75" width="270" height="287" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 3"/>
+  </g>
+  <text x="925" y="100" fill="#10b981" font-family="'Segoe UI', system-ui, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Monorepo Discovery</text>
+  <line x1="810" y1="110" x2="1040" y2="110" stroke="#10b981" stroke-width="1" opacity="0.3"/>
+
+  <!-- Monorepo Illustration -->
+  <text x="815" y="138" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="11">Claude Code durchsucht</text>
+  <text x="815" y="155" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="11">automatisch uebergeordnete</text>
+  <text x="815" y="172" fill="#94a3b8" font-family="'Segoe UI', system-ui, sans-serif" font-size="11">Verzeichnisse nach Skills.</text>
+
+  <!-- Verzeichnisbaum -->
+  <text x="830" y="205" fill="#f59e0b" font-family="monospace" font-size="12" font-weight="600">monorepo/</text>
+  <text x="850" y="225" fill="#cbd5e1" font-family="monospace" font-size="11">├── .claude/skills/</text>
+  <text x="850" y="245" fill="#cbd5e1" font-family="monospace" font-size="11">├── packages/</text>
+  <text x="870" y="265" fill="#6366f1" font-family="monospace" font-size="11">│   ├── app-a/</text>
+  <text x="870" y="285" fill="#6366f1" font-family="monospace" font-size="11">│   │   └── .claude/skills/</text>
+  <text x="870" y="305" fill="#06b6d4" font-family="monospace" font-size="11">│   └── lib-b/</text>
+  <text x="870" y="325" fill="#06b6d4" font-family="monospace" font-size="11">│       └── .claude/skills/</text>
+
+  <!-- Merge-Hinweis -->
+  <rect x="810" y="335" width="230" height="18" rx="3" fill="#10b981" opacity="0.15"/>
+  <text x="925" y="349" fill="#10b981" font-family="'Segoe UI', system-ui, sans-serif" font-size="10" font-weight="600" text-anchor="middle">Alle Ebenen werden gemerged</text>
+</svg>

@@ -1,0 +1,253 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 400" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="112%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.45"/>
+    </filter>
+    <filter id="softGlow" x="-8%" y="-8%" width="116%" height="116%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="headerLine" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <!-- Klippen-Gradient -->
+    <linearGradient id="cliffGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#374151"/>
+      <stop offset="100%" stop-color="#1f2937"/>
+    </linearGradient>
+    <!-- Abgrund -->
+    <linearGradient id="abyssGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <!-- Feld-Gradient -->
+    <linearGradient id="fieldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.03"/>
+    </linearGradient>
+    <!-- Pfad-Gradient -->
+    <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0.03"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="400" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Header -->
+  <text x="550" y="36" text-anchor="middle" fill="#e2e8f0" font-size="20" font-weight="700" letter-spacing="0.5">Prinzip 3: Appropriate Degrees of Freedom — Die Brücken-Feld-Analogie</text>
+  <line x1="120" y1="48" x2="980" y2="48" stroke="url(#headerLine)" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- Freiheitsgrad-Skala -->
+  <rect x="150" y="58" width="800" height="6" rx="3" fill="#1e293b" stroke="#334155" stroke-width="0.5"/>
+  <rect x="150" y="58" width="200" height="6" rx="3" fill="#dc2626" opacity="0.5"/>
+  <rect x="350" y="58" width="300" height="6" rx="3" fill="#f59e0b" opacity="0.4"/>
+  <rect x="650" y="58" width="300" height="6" rx="3" fill="#10b981" opacity="0.4"/>
+  <text x="250" y="54" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="600">NIEDRIG</text>
+  <text x="500" y="54" text-anchor="middle" fill="#fde68a" font-size="9" font-weight="600">MITTEL</text>
+  <text x="800" y="54" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="600">HOCH</text>
+
+  <!-- ============================================ -->
+  <!-- SZENE 1: Schmale Brücke über Klippen         -->
+  <!-- ============================================ -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="78" width="320" height="265" rx="10" fill="#0f172a" stroke="#dc2626" stroke-width="1" opacity="0.85"/>
+
+    <!-- Klippe links -->
+    <path d="M70,240 L70,190 L100,180 L110,195 L120,178 L140,185 L140,240" fill="url(#cliffGrad)" stroke="#4b5563" stroke-width="1"/>
+    <!-- Klippe rechts -->
+    <path d="M260,240 L260,185 L280,178 L290,192 L300,180 L320,190 L330,240" fill="url(#cliffGrad)" stroke="#4b5563" stroke-width="1"/>
+
+    <!-- Abgrund -->
+    <rect x="140" y="220" width="120" height="40" fill="url(#abyssGrad)" opacity="0.8"/>
+    <!-- Abgrund-Linien (Tiefe) -->
+    <line x1="155" y1="230" x2="165" y2="255" stroke="#dc2626" stroke-width="0.4" opacity="0.3"/>
+    <line x1="185" y1="228" x2="190" y2="258" stroke="#dc2626" stroke-width="0.4" opacity="0.3"/>
+    <line x1="215" y1="230" x2="220" y2="255" stroke="#dc2626" stroke-width="0.4" opacity="0.3"/>
+    <line x1="245" y1="228" x2="240" y2="258" stroke="#dc2626" stroke-width="0.4" opacity="0.3"/>
+
+    <!-- Brücke -->
+    <rect x="138" y="202" width="124" height="8" rx="2" fill="#78716c" stroke="#a8a29e" stroke-width="0.5"/>
+    <!-- Brückenplanken -->
+    <line x1="150" y1="202" x2="150" y2="210" stroke="#a8a29e" stroke-width="0.5"/>
+    <line x1="170" y1="202" x2="170" y2="210" stroke="#a8a29e" stroke-width="0.5"/>
+    <line x1="190" y1="202" x2="190" y2="210" stroke="#a8a29e" stroke-width="0.5"/>
+    <line x1="210" y1="202" x2="210" y2="210" stroke="#a8a29e" stroke-width="0.5"/>
+    <line x1="230" y1="202" x2="230" y2="210" stroke="#a8a29e" stroke-width="0.5"/>
+    <line x1="250" y1="202" x2="250" y2="210" stroke="#a8a29e" stroke-width="0.5"/>
+
+    <!-- Figur auf Brücke -->
+    <circle cx="200" cy="190" r="6" fill="#dc2626" opacity="0.8"/>
+    <line x1="200" y1="196" x2="200" y2="202" stroke="#dc2626" stroke-width="1.5"/>
+
+    <!-- Pfeil (einziger Weg) -->
+    <path d="M168,194 L180,194" stroke="#fca5a5" stroke-width="1" marker-end="url(#arrowRed)"/>
+    <path d="M220,194 L232,194" stroke="#fca5a5" stroke-width="1"/>
+    <polygon points="232,191 238,194 232,197" fill="#fca5a5"/>
+
+    <!-- Warnschilder -->
+    <polygon points="90,168 97,155 104,168" fill="none" stroke="#dc2626" stroke-width="1"/>
+    <text x="97" y="166" text-anchor="middle" fill="#dc2626" font-size="8" font-weight="700">!</text>
+    <polygon points="296,168 303,155 310,168" fill="none" stroke="#dc2626" stroke-width="1"/>
+    <text x="303" y="166" text-anchor="middle" fill="#dc2626" font-size="8" font-weight="700">!</text>
+
+    <!-- Label -->
+    <text x="200" y="105" text-anchor="middle" fill="#dc2626" font-size="15" font-weight="700">Schmale Brücke</text>
+    <text x="200" y="121" text-anchor="middle" fill="#fca5a5" font-size="11">Niedrige Freiheit</text>
+    <text x="200" y="140" text-anchor="middle" fill="#94a3b8" font-size="10">Nur ein sicherer Weg.</text>
+    <text x="200" y="154" text-anchor="middle" fill="#94a3b8" font-size="10">Exakte Anweisungen nötig.</text>
+
+    <!-- Fels-Textur -->
+    <circle cx="85" cy="220" r="2" fill="#4b5563" opacity="0.4"/>
+    <circle cx="110" cy="230" r="1.5" fill="#4b5563" opacity="0.3"/>
+    <circle cx="290" cy="222" r="2" fill="#4b5563" opacity="0.4"/>
+    <circle cx="310" cy="228" r="1.5" fill="#4b5563" opacity="0.3"/>
+  </g>
+
+  <!-- Beispiel-Box Szene 1 -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="272" width="280" height="55" rx="6" fill="#dc2626" opacity="0.08" stroke="#dc2626" stroke-width="0.6"/>
+    <text x="78" y="290" fill="#fca5a5" font-size="10" font-weight="600">Beispiel: Datenbank-Migration</text>
+    <text x="78" y="306" fill="#94a3b8" font-size="9" font-family="monospace">python scripts/migrate.py --verify</text>
+    <text x="78" y="318" fill="#64748b" font-size="8" font-style="italic">"Ändere den Befehl nicht."</text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- SZENE 2: Pfad mit Leitplanken                -->
+  <!-- ============================================ -->
+  <g filter="url(#shadow)">
+    <rect x="390" y="78" width="320" height="265" rx="10" fill="url(#pathGrad)" stroke="#f59e0b" stroke-width="1" opacity="0.85"/>
+
+    <!-- Boden -->
+    <rect x="410" y="230" width="280" height="12" rx="3" fill="#1e293b" opacity="0.5"/>
+
+    <!-- Pfad -->
+    <rect x="490" y="186" width="120" height="48" rx="4" fill="#78716c" opacity="0.25" stroke="#a8a29e" stroke-width="0.4"/>
+
+    <!-- Leitplanken links -->
+    <rect x="488" y="186" width="4" height="48" rx="2" fill="#f59e0b" opacity="0.6"/>
+    <line x1="490" y1="192" x2="490" y2="198" stroke="#fbbf24" stroke-width="2"/>
+    <line x1="490" y1="206" x2="490" y2="212" stroke="#fbbf24" stroke-width="2"/>
+    <line x1="490" y1="220" x2="490" y2="226" stroke="#fbbf24" stroke-width="2"/>
+
+    <!-- Leitplanken rechts -->
+    <rect x="608" y="186" width="4" height="48" rx="2" fill="#f59e0b" opacity="0.6"/>
+    <line x1="610" y1="192" x2="610" y2="198" stroke="#fbbf24" stroke-width="2"/>
+    <line x1="610" y1="206" x2="610" y2="212" stroke="#fbbf24" stroke-width="2"/>
+    <line x1="610" y1="220" x2="610" y2="226" stroke="#fbbf24" stroke-width="2"/>
+
+    <!-- Figur auf Pfad -->
+    <circle cx="550" cy="200" r="6" fill="#f59e0b" opacity="0.8"/>
+    <line x1="550" y1="206" x2="550" y2="216" stroke="#f59e0b" stroke-width="1.5"/>
+
+    <!-- Bewegungspfeile (etwas Freiheit) -->
+    <path d="M540,208 L530,212" stroke="#fde68a" stroke-width="0.8" opacity="0.6"/>
+    <path d="M560,208 L570,212" stroke="#fde68a" stroke-width="0.8" opacity="0.6"/>
+    <path d="M550,210 L550,220" stroke="#fde68a" stroke-width="0.8" opacity="0.6"/>
+
+    <!-- Grashalme neben Pfad -->
+    <line x1="440" y1="230" x2="438" y2="218" stroke="#10b981" stroke-width="0.8" opacity="0.25"/>
+    <line x1="450" y1="230" x2="452" y2="220" stroke="#10b981" stroke-width="0.8" opacity="0.2"/>
+    <line x1="460" y1="230" x2="457" y2="219" stroke="#10b981" stroke-width="0.8" opacity="0.25"/>
+    <line x1="640" y1="230" x2="642" y2="218" stroke="#10b981" stroke-width="0.8" opacity="0.25"/>
+    <line x1="650" y1="230" x2="648" y2="220" stroke="#10b981" stroke-width="0.8" opacity="0.2"/>
+    <line x1="660" y1="230" x2="663" y2="219" stroke="#10b981" stroke-width="0.8" opacity="0.25"/>
+
+    <!-- Label -->
+    <text x="550" y="105" text-anchor="middle" fill="#f59e0b" font-size="15" font-weight="700">Pfad mit Leitplanken</text>
+    <text x="550" y="121" text-anchor="middle" fill="#fde68a" font-size="11">Mittlere Freiheit</text>
+    <text x="550" y="140" text-anchor="middle" fill="#94a3b8" font-size="10">Bevorzugtes Muster,</text>
+    <text x="550" y="154" text-anchor="middle" fill="#94a3b8" font-size="10">aber Variation akzeptabel.</text>
+  </g>
+
+  <!-- Beispiel-Box Szene 2 -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="272" width="280" height="55" rx="6" fill="#f59e0b" opacity="0.08" stroke="#f59e0b" stroke-width="0.6"/>
+    <text x="428" y="290" fill="#fde68a" font-size="10" font-weight="600">Beispiel: Report-Generierung</text>
+    <text x="428" y="306" fill="#94a3b8" font-size="9" font-family="monospace">generate_report(data, format=...)</text>
+    <text x="428" y="318" fill="#64748b" font-size="8" font-style="italic">"Template nutzen, nach Bedarf anpassen."</text>
+  </g>
+
+  <!-- ============================================ -->
+  <!-- SZENE 3: Offenes Feld                        -->
+  <!-- ============================================ -->
+  <g filter="url(#shadow)">
+    <rect x="740" y="78" width="320" height="265" rx="10" fill="url(#fieldGrad)" stroke="#10b981" stroke-width="1" opacity="0.85"/>
+
+    <!-- Boden / Wiese -->
+    <ellipse cx="900" cy="236" rx="140" ry="14" fill="#10b981" opacity="0.08"/>
+
+    <!-- Viele mögliche Pfade (gestrichelt) -->
+    <path d="M870,214 L820,178" stroke="#10b981" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    <path d="M880,214 L870,170" stroke="#10b981" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    <path d="M900,214 L920,172" stroke="#10b981" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    <path d="M910,214 L960,180" stroke="#10b981" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    <path d="M895,214 L880,176" stroke="#10b981" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+    <path d="M905,214 L940,175" stroke="#10b981" stroke-width="1" stroke-dasharray="3,3" opacity="0.3"/>
+
+    <!-- Ziel-Punkte -->
+    <circle cx="820" cy="175" r="4" fill="#10b981" opacity="0.4"/>
+    <circle cx="870" cy="167" r="4" fill="#10b981" opacity="0.4"/>
+    <circle cx="920" cy="169" r="4" fill="#10b981" opacity="0.4"/>
+    <circle cx="960" cy="177" r="4" fill="#10b981" opacity="0.4"/>
+    <circle cx="880" cy="173" r="4" fill="#10b981" opacity="0.4"/>
+    <circle cx="940" cy="172" r="4" fill="#10b981" opacity="0.4"/>
+
+    <!-- Figur (frei) -->
+    <circle cx="900" cy="206" r="6" fill="#10b981" opacity="0.8"/>
+    <line x1="900" y1="212" x2="900" y2="222" stroke="#10b981" stroke-width="1.5"/>
+
+    <!-- Freiheits-Symbol: Kreis mit Pfeilen in alle Richtungen -->
+    <circle cx="900" cy="214" r="18" fill="none" stroke="#10b981" stroke-width="0.5" stroke-dasharray="2,2" opacity="0.3"/>
+
+    <!-- Kleine Blumen/Natur-Elemente -->
+    <circle cx="790" cy="228" r="2" fill="#10b981" opacity="0.2"/>
+    <circle cx="810" cy="234" r="1.5" fill="#6ee7b7" opacity="0.15"/>
+    <circle cx="980" cy="226" r="2" fill="#10b981" opacity="0.2"/>
+    <circle cx="1000" cy="232" r="1.5" fill="#6ee7b7" opacity="0.15"/>
+    <circle cx="850" cy="238" r="1.5" fill="#34d399" opacity="0.15"/>
+    <circle cx="950" cy="236" r="1.5" fill="#34d399" opacity="0.15"/>
+
+    <!-- Label -->
+    <text x="900" y="105" text-anchor="middle" fill="#10b981" font-size="15" font-weight="700">Offenes Feld</text>
+    <text x="900" y="121" text-anchor="middle" fill="#6ee7b7" font-size="11">Hohe Freiheit</text>
+    <text x="900" y="140" text-anchor="middle" fill="#94a3b8" font-size="10">Viele Wege zum Ziel.</text>
+    <text x="900" y="154" text-anchor="middle" fill="#94a3b8" font-size="10">Allgemeine Richtung genügt.</text>
+  </g>
+
+  <!-- Beispiel-Box Szene 3 -->
+  <g filter="url(#shadow)">
+    <rect x="760" y="272" width="280" height="55" rx="6" fill="#10b981" opacity="0.08" stroke="#10b981" stroke-width="0.6"/>
+    <text x="778" y="290" fill="#6ee7b7" font-size="10" font-weight="600">Beispiel: Code Review</text>
+    <text x="778" y="306" fill="#94a3b8" font-size="9">Analysiere Struktur, prüfe Edge Cases,</text>
+    <text x="778" y="318" fill="#64748b" font-size="8" font-style="italic">"Schlage Verbesserungen vor."</text>
+  </g>
+
+  <!-- Entscheidungsmatrix unten -->
+  <g>
+    <rect x="60" y="340" width="280" height="18" rx="4" fill="#dc2626" opacity="0.06"/>
+    <text x="78" y="353" fill="#64748b" font-size="8">Fehlertoleranz: <tspan fill="#fca5a5">Niedrig</tspan> · Reversibilität: <tspan fill="#fca5a5">Schwer</tspan></text>
+
+    <rect x="410" y="340" width="280" height="18" rx="4" fill="#f59e0b" opacity="0.06"/>
+    <text x="428" y="353" fill="#64748b" font-size="8">Fehlertoleranz: <tspan fill="#fde68a">Mittel</tspan> · Reversibilität: <tspan fill="#fde68a">Teils</tspan></text>
+
+    <rect x="760" y="340" width="280" height="18" rx="4" fill="#10b981" opacity="0.06"/>
+    <text x="778" y="353" fill="#64748b" font-size="8">Fehlertoleranz: <tspan fill="#6ee7b7">Hoch</tspan> · Reversibilität: <tspan fill="#6ee7b7">Leicht</tspan></text>
+  </g>
+
+  <!-- Verbindungspfeile zwischen Szenen -->
+  <line x1="362" y1="210" x2="388" y2="210" stroke="#475569" stroke-width="1" stroke-dasharray="4,3"/>
+  <polygon points="386,207 392,210 386,213" fill="#475569"/>
+  <line x1="712" y1="210" x2="738" y2="210" stroke="#475569" stroke-width="1" stroke-dasharray="4,3"/>
+  <polygon points="736,207 742,210 736,213" fill="#475569"/>
+
+  <!-- Footer -->
+  <text x="550" y="390" text-anchor="middle" fill="#475569" font-size="9">Kapitel 04 — Prinzip 3: Appropriate Degrees of Freedom · Skills Zero-to-Hero</text>
+</svg>
