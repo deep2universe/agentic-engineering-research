@@ -11,6 +11,8 @@ Der **Agent Skills Standard** ist ein offener, plattformübergreifender Standard
 
 ## Geschichte und Adoption
 
+![Adoption Timeline](svg/02_adoption_timeline.svg)
+
 ### Timeline
 
 | Datum | Ereignis |
@@ -120,6 +122,8 @@ description: Beschreibung, was der Skill tut und wann er verwendet werden soll
 
 ### Dreistufiges Laden (Progressive Disclosure)
 
+![Progressive Disclosure — Dreistufiges Laden](svg/02_progressive_disclosure.svg)
+
 Der Agent Skills Standard implementiert ein dreistufiges Ladekonzept:
 
 ```
@@ -201,6 +205,8 @@ Aufruf: `/migrate-component SearchBar React Vue`
 ---
 
 ## Beziehung zu MCP und A2A
+
+![Komplementäre Standards](svg/02_mcp_a2a_beziehung.svg)
 
 ### Komplementäre Standards
 

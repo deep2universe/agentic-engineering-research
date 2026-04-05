@@ -61,6 +61,8 @@ effort: high                     # Reasoning-Intensität
 
 ## Verzeichnisstruktur
 
+![Skill-Verzeichnisstruktur](svg/03_verzeichnisstruktur.svg)
+
 ### Minimaler Skill
 
 ```
@@ -112,6 +114,8 @@ bigquery-analysis/
 ---
 
 ## Der Skill-Lebenszyklus
+
+![Skill-Lebenszyklus](svg/03_skill_lebenszyklus.svg)
 
 ### Phase 1: Discovery (Session-Start)
 

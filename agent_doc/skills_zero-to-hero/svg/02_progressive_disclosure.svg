@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 420" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg02b" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/><stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <filter id="s02b"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/></filter>
+  </defs>
+  <rect width="1100" height="420" fill="url(#bg02b)" rx="16"/>
+  <text x="550" y="38" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700">Dreistufiges Laden — Progressive Disclosure</text>
+  <line x1="310" y1="48" x2="790" y2="48" stroke="#6366f1" stroke-width="2" opacity="0.6"/>
+
+  <!-- Funnel metaphor: wide at top, narrow at bottom inverted — pyramid -->
+
+  <!-- Level 1 -->
+  <g filter="s02b" transform="translate(80, 80)">
+    <rect width="940" height="90" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="60" height="90" rx="12" fill="#064e3b"/>
+    <text x="30" y="40" text-anchor="middle" fill="#6ee7b7" font-size="22" font-weight="700">1</text>
+    <text x="30" y="60" text-anchor="middle" fill="#6ee7b7" font-size="9">IMMER</text>
+
+    <text x="90" y="28" fill="#6ee7b7" font-size="16" font-weight="700">Metadaten</text>
+    <text x="90" y="48" fill="#94a3b8" font-size="12">name + description aus YAML Frontmatter</text>
+    <text x="90" y="68" fill="#64748b" font-size="11">Geladen bei Session-Start · Im System Prompt verfügbar</text>
+
+    <!-- Token indicator -->
+    <g transform="translate(680, 20)">
+      <rect width="240" height="55" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+      <text x="120" y="22" text-anchor="middle" fill="#6ee7b7" font-size="13" font-weight="700">~100 Token / Skill</text>
+      <text x="120" y="40" text-anchor="middle" fill="#64748b" font-size="10">Budget: 1% des Context Window</text>
+      <!-- Small bar chart -->
+      <rect x="20" y="46" width="20" height="4" rx="2" fill="#10b981"/>
+      <rect x="20" y="46" width="200" height="4" rx="2" fill="#1e293b"/>
+    </g>
+  </g>
+
+  <!-- Arrow -->
+  <text x="550" y="188" text-anchor="middle" fill="#64748b" font-size="18">▼</text>
+  <text x="620" y="190" fill="#64748b" font-size="10">Aktivierung bei Relevanz</text>
+
+  <!-- Level 2 -->
+  <g filter="s02b" transform="translate(160, 200)">
+    <rect width="780" height="90" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="0" y="0" width="60" height="90" rx="12" fill="#451a03"/>
+    <text x="30" y="40" text-anchor="middle" fill="#fbbf24" font-size="22" font-weight="700">2</text>
+    <text x="30" y="60" text-anchor="middle" fill="#fbbf24" font-size="9">TRIGGER</text>
+
+    <text x="90" y="28" fill="#fbbf24" font-size="16" font-weight="700">Anweisungen</text>
+    <text x="90" y="48" fill="#94a3b8" font-size="12">SKILL.md Body — vollständige Instruktionen</text>
+    <text x="90" y="68" fill="#64748b" font-size="11">Geladen wenn Skill relevant wird oder /name aufgerufen</text>
+
+    <g transform="translate(520, 20)">
+      <rect width="240" height="55" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+      <text x="120" y="22" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="700">&lt;5.000 Token</text>
+      <text x="120" y="40" text-anchor="middle" fill="#64748b" font-size="10">SKILL.md Body typisch</text>
+      <rect x="20" y="46" width="80" height="4" rx="2" fill="#f59e0b"/>
+      <rect x="20" y="46" width="200" height="4" rx="2" fill="#1e293b"/>
+    </g>
+  </g>
+
+  <!-- Arrow -->
+  <text x="550" y="308" text-anchor="middle" fill="#64748b" font-size="18">▼</text>
+  <text x="620" y="310" fill="#64748b" font-size="10">Nur bei explizitem Bedarf</text>
+
+  <!-- Level 3 -->
+  <g filter="s02b" transform="translate(240, 320)">
+    <rect width="620" height="80" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <rect x="0" y="0" width="60" height="80" rx="12" fill="#312e81"/>
+    <text x="30" y="36" text-anchor="middle" fill="#c4b5fd" font-size="22" font-weight="700">3</text>
+    <text x="30" y="55" text-anchor="middle" fill="#c4b5fd" font-size="9">BEDARF</text>
+
+    <text x="90" y="26" fill="#c4b5fd" font-size="16" font-weight="700">Ressourcen</text>
+    <text x="90" y="46" fill="#94a3b8" font-size="12">Referenz-Dateien, Skripte, Templates</text>
+    <text x="90" y="65" fill="#64748b" font-size="11">Nur bei spezifischer Referenzierung geladen / ausgeführt</text>
+
+    <g transform="translate(380, 14)">
+      <rect width="220" height="50" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
+      <text x="110" y="22" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="700">Unbegrenzt</text>
+      <text x="110" y="38" text-anchor="middle" fill="#64748b" font-size="10">Skripte: nur Output als Token</text>
+      <rect x="15" y="44" width="190" height="4" rx="2" fill="#8b5cf6"/>
+    </g>
+  </g>
+</svg>
