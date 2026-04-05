@@ -1,0 +1,29 @@
+title: Agentic Engineering Research
+description: Prinzipien, Patterns und Best Practices fuer Agentic Engineering (Stand April 2026)
+remote_theme: just-the-docs/just-the-docs
+
+url: https://deep2universe.github.io
+baseurl: /agentic-engineering-research
+
+# Navigation
+nav_sort: case_sensitive
+heading_anchors: true
+
+# Suche
+search_enabled: true
+search.heading_level: 3
+
+# Footer
+footer_content: >-
+  Agentic Engineering Research &mdash;
+  <a href="https://github.com/deep2universe/agentic-engineering-research">Hauptrepo</a> &mdash;
+  Stand April 2026
+
+# Farben
+color_scheme: dark
+
+# Exclude
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
