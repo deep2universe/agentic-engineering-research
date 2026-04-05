@@ -43,6 +43,31 @@ Dieser Guide richtet sich an erfahrene Software-Entwickler und -Architekten, die
 
 ---
 
+## Marktzahlen und Kontext (Stand Q1 2026)
+
+- **Enterprise Agentic AI Markt**: 7,51 Mrd. USD (CAGR 27,3%)
+- **AI-Agent-Markt gesamt**: 7,84 Mrd. USD, Prognose 52,62 Mrd. USD bis 2030
+- **Gartner**: 40% der Enterprise-Anwendungen werden bis Ende 2026 AI Agents einbetten
+- **Agent Skills Standard**: 30+ Plattformen, 96.000+ Skills auf Community-Hubs
+- **Reifegradlücke**: Nur 14% der Unternehmen haben produktionsreife Agentic-AI-Lösungen
+- **Sicherheit**: 341 bösartige Skills identifiziert, 82% der MCP-Server anfällig für Path Traversal
+
+---
+
+## Ergänzende Recherche-Ergebnisse
+
+Die Subagenten-Recherche hat zusätzliche Verzeichnisse mit vertieftem Material erstellt:
+
+| Verzeichnis | Inhalt |
+|------------|--------|
+| `agent_doc/claude_code_skill_system/` | Claude Code Skill-System Übersicht |
+| `agent_doc/skill_systeme_frameworks/` | 8 Framework-Vergleiche (LangChain, CrewAI, OpenAI, etc.) |
+| `agent_doc/skill_design_best_practices/` | Recherche zu Skill Design Best Practices |
+| `agent_doc/mcp_und_tool_protokolle/` | MCP Spezifikation und Tool-Protokolle |
+| `agent_doc/agentic_ai_trends_2025_2026/` | Aktuelle Trends und Marktdaten |
+
+---
+
 ## Leseempfehlung
 
 - **Einstieg**: Kapitel 01–03 für Grundverständnis

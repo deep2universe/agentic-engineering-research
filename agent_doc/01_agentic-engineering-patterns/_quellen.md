@@ -1,6 +1,6 @@
 # Quellen — Agentic Engineering Prinzipien und Patterns
 
-**Letzte Aktualisierung:** 2026-04-04
+**Letzte Aktualisierung:** 2026-04-05
 
 ---
 
@@ -235,3 +235,151 @@
 - **URL:** https://resources.anthropic.com/hubfs/2026%20Agentic%20Coding%20Trends%20Report.pdf
   **Zusammenfassung:** Anthropics Agentic Coding Trends Report 2026. Wie Coding Agents die Softwareentwicklung verändern.
   **Datum:** 2026
+
+## Suchstring: "AI agent skill architecture patterns"
+
+- **URL:** https://developers.googleblog.com/developers-guide-to-building-adk-agents-with-skills/
+  **Zusammenfassung:** Google Developers Guide zum Bau von ADK Agents mit Skills. SkillToolset, Progressive Disclosure, SKILL.md-Format und dreistufiges Laden (L1 Metadata, L2 Instructions, L3 Resources).
+  **Datum:** 2026
+
+- **URL:** https://docs.databricks.com/aws/en/generative-ai/guide/agent-system-design-patterns
+  **Zusammenfassung:** Databricks Guide zu Agent System Design Patterns. Single-Agent vs. Multi-Agent Architektur-Entscheidungen.
+  **Datum:** 2026
+
+- **URL:** https://github.com/nibzard/awesome-agentic-patterns
+  **Zusammenfassung:** Kuratierter Katalog von Agentic AI Patterns auf GitHub. Sammlung etablierter und emergierender Patterns.
+  **Datum:** 2026
+
+- **URL:** https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-patterns/introduction.html
+  **Zusammenfassung:** AWS Prescriptive Guidance zu Agentic AI Patterns und Workflows. Referenzarchitekturen für Production-Agent-Systeme.
+  **Datum:** 2026
+
+## Suchstring: "multi-agent skill composition patterns"
+
+- **URL:** https://arxiv.org/html/2602.20867
+  **Zusammenfassung:** SoK: Agentic Skills — Beyond Tool Use in LLM Agents. Akademische Systematisierung von Agent Skills mit Taxonomie, sieben Design Patterns und Klassifikation nach Representation und Scope.
+  **Datum:** 2026-02
+
+- **URL:** https://docs.langchain.com/oss/python/langchain/multi-agent/skills
+  **Zusammenfassung:** LangChain Dokumentation zu Skills in Multi-Agent-Systemen. Progressive Disclosure und Skill-Orchestrierung.
+  **Datum:** 2026
+
+- **URL:** https://java.agentscope.io/en/multi-agent/skills.html
+  **Zusammenfassung:** AgentScope Java-Dokumentation zu Skills mit Progressive Disclosure Pattern.
+  **Datum:** 2026
+
+- **URL:** https://lavinigam.com/posts/adk-skill-design-patterns/
+  **Zusammenfassung:** 5 Agent Skill Design Patterns für ADK-Entwickler: Inline Checklist, File-Based, External Import, Skill Factory und Pipeline.
+  **Datum:** 2026
+
+- **URL:** https://spring.io/blog/2026/01/13/spring-ai-generic-agent-skills/
+  **Zusammenfassung:** Spring AI Agentic Patterns (Part 1): Agent Skills als modulare, wiederverwendbare Capabilities. Java/Spring-Implementierung der Skill-Architektur.
+  **Datum:** 2026-01-13
+
+- **URL:** https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering
+  **Zusammenfassung:** Sammlung von Agent Skills für Context Engineering, Multi-Agent-Architekturen und Production Agent Systems.
+  **Datum:** 2026
+
+## Suchstring: "agent skill sharing reusable capabilities SKILL.md specification 2026"
+
+- **URL:** https://agentskills.io/specification
+  **Zusammenfassung:** Offizielle Agent Skills Spezifikation. Definiert das SKILL.md-Format mit YAML-Frontmatter, Verzeichnisstruktur und Progressive Disclosure als plattformübergreifenden Standard.
+  **Datum:** 2025-12
+
+- **URL:** https://platform.claude.com/docs/en/agents-and-tools/agent-skills/overview
+  **Zusammenfassung:** Claude API-Dokumentation zu Agent Skills. Nativ unterstützt in Claude Code mit on-demand Loading.
+  **Datum:** 2026
+
+- **URL:** https://developers.openai.com/codex/skills
+  **Zusammenfassung:** OpenAI Codex Skills-Dokumentation. Liest Skills aus .agents/skills/ Verzeichnissen.
+  **Datum:** 2026
+
+- **URL:** https://code.visualstudio.com/docs/copilot/customization/agent-skills
+  **Zusammenfassung:** VS Code Dokumentation zu Agent Skills in GitHub Copilot. Native Skills-Unterstützung.
+  **Datum:** 2026
+
+- **URL:** https://learn.microsoft.com/en-us/agent-framework/agents/skills
+  **Zusammenfassung:** Microsoft Agent Framework Skills-Dokumentation. Skill-Architektur und Integration.
+  **Datum:** 2026
+
+- **URL:** https://github.com/skillmatic-ai/awesome-agent-skills
+  **Zusammenfassung:** Definitive Ressource für Agent Skills — modulare Capabilities, die die AI-Agent-Architektur revolutionieren. Kuratierte Sammlung.
+  **Datum:** 2026
+
+- **URL:** https://medium.com/@loccarrre/the-agent-skills-standard-how-a-simple-skill-md-file-turns-ai-agents-into-on-demand-specialists-172af1d9737d
+  **Zusammenfassung:** Erklärt wie SKILL.md-Dateien AI Agents in On-Demand-Spezialisten verwandeln. Praktische Einführung in den Standard.
+  **Datum:** 2026-02
+
+- **URL:** https://www.newsletter.swirlai.com/p/agent-skills-progressive-disclosure
+  **Zusammenfassung:** Agent Skills: Progressive Disclosure als System Design Pattern. Detaillierte Analyse des dreistufigen Ladens.
+  **Datum:** 2026
+
+## Suchstring: "agentic AI skill decomposition single responsibility composability idempotency"
+
+- **URL:** https://vikpande.substack.com/p/composability-in-agentic-systems
+  **Zusammenfassung:** Composability in Agentic Systems. Wie AI Agents als Plug-and-Play-Komponenten in größeren Systemen funktionieren. Explizite Input/Output-Schemas als APIs für AI.
+  **Datum:** 2026
+
+- **URL:** https://medium.com/data-science-collective/control-not-intelligence-the-missing-axis-in-agentic-ai-choosing-between-tool-subagents-and-707c78aef7bb
+  **Zusammenfassung:** Control, Not Intelligence: Die fehlende Achse in Agentic AI. Entscheidungshilfe zwischen Tool, Subagent und Skill basierend auf der Kontrollebene.
+  **Datum:** 2026-02
+
+- **URL:** https://arxiv.org/html/2602.19065v1
+  **Zusammenfassung:** Agentic Problem Frames: Systematischer Ansatz zum Engineering zuverlässiger Domain-Agents. Dekomposition, Kommunikation und Runtime Supervision als drei Design-Achsen.
+  **Datum:** 2026-02
+
+- **URL:** https://arxiv.org/html/2602.12430
+  **Zusammenfassung:** Agent Skills for Large Language Models: Architecture, Acquisition, Security, and the Path Forward. Akademische Analyse von Skill-Architekturen.
+  **Datum:** 2026-02
+
+## Suchstring: "Google ADK agent skill architecture progressive disclosure pattern"
+
+- **URL:** https://medium.com/google-cloud/introducing-skills-in-adk-teach-your-agent-new-tricks-one-skill-at-a-time-be319f9b1917
+  **Zusammenfassung:** Skills in ADK: On-Demand-Anweisungen für Agents. Dreistufiges Progressive Disclosure mit L1 Metadata (~100 Tokens), L2 Instructions (<5000 Tokens), L3 Resources.
+  **Datum:** 2026-02
+
+- **URL:** https://devengoratela.com/2026/02/skills-in-adk-on-demand-instructions-for-your-agents/
+  **Zusammenfassung:** Praktischer Guide zu Skills in Google ADK. SkillToolset-Integration und on-demand Loading.
+  **Datum:** 2026-02
+
+## Suchstring: "LangChain multi-agent architecture supervisor network hierarchical patterns"
+
+- **URL:** https://blog.langchain.com/choosing-the-right-multi-agent-architecture/
+  **Zusammenfassung:** Choosing the Right Multi-Agent Architecture. Vergleich von Supervisor, Network, Hierarchical und Handoffs-Patterns mit Entscheidungskriterien.
+  **Datum:** 2026
+
+- **URL:** https://langchain-ai.github.io/langgraph/tutorials/multi_agent/hierarchical_agent_teams/
+  **Zusammenfassung:** LangGraph Tutorial zu Hierarchical Agent Teams. Praktische Implementierung verschachtelter Supervisor-Architekturen.
+  **Datum:** 2026
+
+- **URL:** https://github.com/langchain-ai/langgraph-supervisor-py
+  **Zusammenfassung:** LangGraph Supervisor Library für hierarchische Multi-Agent-Systeme. Python-Implementierung.
+  **Datum:** 2026
+
+## Suchstring: "AI agent tool use patterns ReAct chain-of-thought"
+
+- **URL:** https://www.ibm.com/think/topics/react-agent
+  **Zusammenfassung:** IBM-Erklärung des ReAct-Agent-Frameworks. Thought-Action-Observation-Loop als Kernmechanismus.
+  **Datum:** 2026
+
+- **URL:** https://www.promptingguide.ai/techniques/react
+  **Zusammenfassung:** Prompt Engineering Guide zu ReAct. Kombination von Chain-of-Thought Reasoning mit externem Tool Use.
+  **Datum:** 2025
+
+- **URL:** https://www.autonoly.com/blog/685e784a08412e725c1d0f4c/chain-of-thought-react-and-reflection-the-complete-guide-to-ai-agent-reasoning-patterns
+  **Zusammenfassung:** Vollständiger Guide zu AI Agent Reasoning Patterns: Chain of Thought, ReAct und Reflection im Vergleich.
+  **Datum:** 2026
+
+- **URL:** https://www.wollenlabs.com/blog-posts/navigating-modern-llm-agent-architectures-multi-agents-plan-and-execute-rewoo-tree-of-thoughts-and-react
+  **Zusammenfassung:** Navigieren moderner LLM Agent-Architekturen: Multi-Agents, Plan-and-Execute, ReWOO, Tree of Thoughts und ReAct.
+  **Datum:** 2026
+
+## Suchstring: "Tree of Thought AI agent reasoning pattern"
+
+- **URL:** https://www.promptingguide.ai/techniques/tot
+  **Zusammenfassung:** Tree of Thoughts (ToT) Prompt Engineering Technik. Branching-basiertes Reasoning mit Evaluation und Pruning.
+  **Datum:** 2025
+
+- **URL:** https://proceedings.neurips.cc/paper_files/paper/2023/file/271db9922b8d1f4dd7aaef84ed5ac703-Paper-Conference.pdf
+  **Zusammenfassung:** Original-Paper: Tree of Thoughts: Deliberate Problem Solving with Large Language Models (NeurIPS 2023). Von Yao et al.
+  **Datum:** 2023

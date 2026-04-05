@@ -261,18 +261,31 @@ Entwickler → Aufgabe → Agent (nutzt Skills) → Output → Review → Feedba
 
 ---
 
-## Bereich 9: Zukunftstrends (2026+)
+## Bereich 9: Marktdaten und Zukunftstrends
 
+### Marktzahlen (Stand Q1 2026)
+| Metrik | Wert |
+|--------|------|
+| Enterprise Agentic AI Markt | 7,51 Mrd. USD (CAGR 27,3%) |
+| AI-Agent-Markt gesamt | 7,84 Mrd. USD → 52,62 Mrd. USD bis 2030 |
+| Enterprise-Apps mit AI Agents (Gartner) | 40% bis Ende 2026 |
+| Skills auf Community-Hubs | 96.000+ (SkillsMP) |
+| MCP-Server | 17.000+ |
+| Produktionsreife Agentic AI | Nur 14% der Unternehmen |
+| Bösartige Skills identifiziert | 341 |
+
+### Zukunftstrends
 | Trend | Status |
 |-------|--------|
 | Agent Skills Standard — Cross-Platform | Etabliert (30+ Produkte) |
 | MCP unter Linux Foundation | Etabliert |
-| Skill Marketplaces | Entstehend (150+ Skills) |
+| Skill Marketplaces | Entstehend (96.000+ Skills) |
 | Enterprise Skill Governance | Entstehend |
 | Skill Learning / Auto-Generierung | Forschung |
 | Multi-Agent Skill Sharing | Entstehend |
 | Skill Discovery Protocols | Forschung |
 | Skill Composition Engines | Entstehend |
+| Agentic Engineering als Disziplin | Etabliert (ICSE 2026 Workshop) |
 
 ---
 

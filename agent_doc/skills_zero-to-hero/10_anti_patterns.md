@@ -282,6 +282,13 @@ Evaluation-Driven Development:
 
 ## Security Anti-Patterns
 
+### Alarmierende Statistiken (Stand Q1 2026)
+
+- **341 bösartige Skills** auf Community-Hubs identifiziert (Datenexfiltration, Credential-Diebstahl)
+- **7,1% der Skills** auf ClawHub leaken API Keys durch hardcodierte Credentials
+- **82% der MCP-Server** anfällig für Path Traversal (CData-Audit von 2.600+ Servern)
+- **67% der MCP-Server** anfällig für Code Injection
+
 ### Anti-Pattern S1: Skills aus unbekannten Quellen
 
 **Risiko**: Bösartige Anweisungen, Datenexfiltration, Tool-Missbrauch

@@ -158,6 +158,27 @@ Format: `ServerName:tool_name`
 
 ## Framework-Integration
 
+### Vollständige Framework-Vergleichsmatrix
+
+| Kriterium | LangChain | CrewAI | OpenAI SDK | Claude SDK | Semantic Kernel | Bedrock |
+|-----------|-----------|--------|-----------|-----------|----------------|---------|
+| **Skill-Konzept** | Tools + SKILL.md | BaseTool/@tool | Function Calling | SKILL.md | Plugins | Action Groups |
+| **Discovery** | Dynamisch + MCP | Statisch pro Agent | Modell-getrieben | 3-Stufen Progressive | Planner-getrieben | Schema-basiert |
+| **MCP-Support** | Ja | Ja (nativ) | Nein | Ja (nativ) | Ja (nativ) | Nein |
+| **SKILL.md** | Ja | Nein | Ja (Codex) | Ja (Standard) | Ja | Nein |
+| **Multi-Agent** | Graph Nodes | Crew + Process | Handoffs | Tool-basiert | Agent Framework | Supervisor |
+| **Open Source** | Ja | Ja | Ja | Teilweise | Ja | Nein |
+
+> Detaillierte Framework-Analysen: siehe `agent_doc/skill_systeme_frameworks/`
+
+### Abstraktionsebenen
+
+| Ebene | Frameworks | Beschreibung |
+|-------|-----------|-------------|
+| **Low-Level** | OpenAI Agents SDK | Direktes Function Calling, minimale Abstraktion |
+| **Mid-Level** | LangChain, CrewAI, Bedrock | Tool-Abstraktionen mit Typ-Sicherheit |
+| **High-Level** | Claude SDK, Semantic Kernel | Prompt-basierte Skills mit Metadaten und Discovery |
+
 ### Skill-Konzepte in Major Frameworks
 
 | Framework | Skill-Äquivalent | Architektur |
