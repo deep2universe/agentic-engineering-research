@@ -24,6 +24,7 @@
 | 10 | [Observability und Evaluation](10_observability_evaluation.md) | Tracing, Monitoring, Testing, Benchmarking |
 | 11 | [Praxis: Frameworks und Implementierung](11_frameworks_implementierung.md) | LangGraph, CrewAI, AutoGen, Claude Code, OpenAI Agents SDK |
 | 12 | [Agentic Coding Patterns (Simon Willison)](12_agentic_coding_patterns.md) | Patterns für die Arbeit mit Coding Agents |
+| 13 | [Agent-Skill-Architektur](13_agent_skill_architektur.md) | SKILL.md-Spezifikation, Progressive Disclosure, Skill Design Patterns, Decomposition, Orchestration, Composition |
 
 ---
 
