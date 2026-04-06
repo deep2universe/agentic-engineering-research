@@ -25,6 +25,8 @@ Diese Deep Research umfasst sechs detaillierte Dokumente:
 
 ## 1. Executive Summary
 
+![Executive Summary](svg/guide_01_executive_summary.svg)
+
 COBOL ist nicht tot. Schaetzungen zufolge laufen 2026 immer noch **220+ Milliarden Lines of Code** in COBOL produktiv -- in Banken, Versicherungen, Behoerden, Logistik und Industrie. Die Sprache wird taeglich genutzt, aber:
 
 1. **COBOL-Entwickler werden knapp**: Die Generation, die diese Systeme gebaut hat, geht in Rente
@@ -60,6 +62,8 @@ Die **Modernisierung** dieser Systeme ist keine Option mehr -- sie ist unvermeid
 
 ## 2. Reading Guide -- Wo soll ich anfangen?
 
+![Reading Guide](svg/guide_02_reading_guide.svg)
+
 Je nach Rolle und Erkenntnisinteresse empfehle ich folgende Lesereihenfolge:
 
 ### Fuer den **Senior Architekten**, der eine Strategie entwickelt:
@@ -88,6 +92,8 @@ Je nach Rolle und Erkenntnisinteresse empfehle ich folgende Lesereihenfolge:
 ---
 
 ## 3. Decision Framework
+
+![Decision Framework](svg/guide_03_decision_framework.svg)
 
 ### 3.1 Die fundamentale Frage: Refactor, Replatform oder beides?
 
@@ -140,6 +146,8 @@ In der Praxis ist die beste Strategie selten **eine** Strategie, sondern eine **
 ---
 
 ## 4. Die AWS-Tool-Landschaft 2026 im Ueberblick
+
+![AWS Tool Landschaft 2026](svg/guide_04_aws_tool_landschaft.svg)
 
 ### 4.1 Empfohlene Tool-Kombination fuer Neuprojekte
 
@@ -196,6 +204,8 @@ In der Praxis ist die beste Strategie selten **eine** Strategie, sondern eine **
 
 ## 5. Die wichtigsten Risiken und wie man sie minimiert
 
+![Risiko-Matrix](svg/guide_05_risiken_matrix.svg)
+
 | Risiko | Wahrscheinlichkeit | Impact | Mitigation |
 |--------|-------------------|--------|------------|
 | **Big-Bang-Migration scheitert** | Hoch | Sehr hoch | Strangler Fig Pattern, Wave Planning |
@@ -212,6 +222,8 @@ In der Praxis ist die beste Strategie selten **eine** Strategie, sondern eine **
 ---
 
 ## 6. Strategische Empfehlung fuer Senior Architekten
+
+![Strategische Roadmap](svg/guide_06_strategische_roadmap.svg)
 
 Wenn ich als Architekt vor einer COBOL-Migration auf AWS stehe, wuerde ich folgenden Weg einschlagen:
 
@@ -250,6 +262,8 @@ Wenn ich als Architekt vor einer COBOL-Migration auf AWS stehe, wuerde ich folge
 
 ## 7. Referenzen und weiterfuehrende Dokumente
 
+![AWS Referenzen](svg/guide_07_referenzen.svg)
+
 Alle Quellen dieser Research sind in `_quellen.md` gepflegt. Die wichtigsten offiziellen AWS-Quellen:
 
 - **AWS Mainframe Modernization**: aws.amazon.com/mainframe-modernization
@@ -261,6 +275,8 @@ Alle Quellen dieser Research sind in `_quellen.md` gepflegt. Die wichtigsten off
 ---
 
 ## 8. Schlussbemerkung
+
+![Schlussbemerkung](svg/guide_08_schlussbemerkung.svg)
 
 COBOL-Migration ist eines der komplexesten und riskantesten IT-Projekte ueberhaupt. Die gute Nachricht: Mit modernen Tools wie AWS Transform, intelligenter Wave-Planung, konsequentem Testing und einem klaren Architektur-Ansatz **ist es machbar** -- und der Lohn ist ein zukunftsfaehiges, agiles, kostenoptimiertes System.
 

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="sh6" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="720" fill="url(#bg6)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Strategische Roadmap fuer Senior Architekten</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Fuenf Schritte vom Assessment bis zur kontinuierlichen Modernisierung</text>
+
+  <!-- Horizontal Timeline -->
+  <g transform="translate(60,140)">
+    <!-- Backbone -->
+    <line x1="50" y1="60" x2="970" y2="60" stroke="#cbd5e0" stroke-width="6" stroke-linecap="round"/>
+    <line x1="50" y1="60" x2="970" y2="60" stroke="url(#timeline_grad)" stroke-width="6" stroke-linecap="round"/>
+
+    <defs>
+      <linearGradient id="timeline_grad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="#1e3a5f"/>
+        <stop offset="0.25" stop-color="#2c5282"/>
+        <stop offset="0.5" stop-color="#dd6b20"/>
+        <stop offset="0.75" stop-color="#38a169"/>
+        <stop offset="1" stop-color="#805ad5"/>
+      </linearGradient>
+    </defs>
+
+    <!-- Step 1: Analyse -->
+    <g transform="translate(50,60)">
+      <circle r="32" fill="#1e3a5f" filter="url(#sh6)"/>
+      <text y="6" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">1</text>
+      <text y="-50" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a5f">4&#8211;8 Wochen</text>
+      <text x="0" y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Analyse</text>
+    </g>
+
+    <g transform="translate(0,140)" filter="url(#sh6)">
+      <rect width="180" height="120" rx="10" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+      <rect width="180" height="6" rx="3" fill="#1e3a5f"/>
+      <text x="14" y="28" font-size="10" font-weight="700" fill="#1e3a5f">Aktivitaeten</text>
+      <text x="14" y="46" font-size="9" fill="#4a5568">&#8226; AWS Transform Assessment</text>
+      <text x="14" y="60" font-size="9" fill="#4a5568">&#8226; Dependency Graph</text>
+      <text x="14" y="74" font-size="9" fill="#4a5568">&#8226; Business Logic Inventar</text>
+      <text x="14" y="88" font-size="9" fill="#4a5568">&#8226; Workshops mit Fachbereich</text>
+      <text x="14" y="102" font-size="9" fill="#4a5568">&#8226; Team-Skill-Audit</text>
+    </g>
+
+    <!-- Step 2: Strategie -->
+    <g transform="translate(280,60)">
+      <circle r="32" fill="#2c5282" filter="url(#sh6)"/>
+      <text y="6" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">2</text>
+      <text y="-50" text-anchor="middle" font-size="11" font-weight="700" fill="#2c5282">2&#8211;4 Wochen</text>
+      <text y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Strategie</text>
+    </g>
+
+    <g transform="translate(230,140)" filter="url(#sh6)">
+      <rect width="180" height="120" rx="10" fill="#fff" stroke="#2c5282" stroke-width="2"/>
+      <rect width="180" height="6" rx="3" fill="#2c5282"/>
+      <text x="14" y="28" font-size="10" font-weight="700" fill="#2c5282">Aktivitaeten</text>
+      <text x="14" y="46" font-size="9" fill="#4a5568">&#8226; Wave Plan (3&#8211;5 Waves)</text>
+      <text x="14" y="60" font-size="9" fill="#4a5568">&#8226; Refactor vs. Replatform</text>
+      <text x="14" y="74" font-size="9" fill="#4a5568">&#8226; Test-Strategie + Dual Run</text>
+      <text x="14" y="88" font-size="9" fill="#4a5568">&#8226; Operations-Modell</text>
+      <text x="14" y="102" font-size="9" fill="#4a5568">&#8226; Stakeholder-Alignment</text>
+    </g>
+
+    <!-- Step 3: Pilot -->
+    <g transform="translate(510,60)">
+      <circle r="32" fill="#dd6b20" filter="url(#sh6)"/>
+      <text y="6" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">3</text>
+      <text y="-50" text-anchor="middle" font-size="11" font-weight="700" fill="#dd6b20">8&#8211;12 Wochen</text>
+      <text y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Pilot-Wave</text>
+    </g>
+
+    <g transform="translate(460,140)" filter="url(#sh6)">
+      <rect width="180" height="120" rx="10" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+      <rect width="180" height="6" rx="3" fill="#dd6b20"/>
+      <text x="14" y="28" font-size="10" font-weight="700" fill="#dd6b20">Aktivitaeten</text>
+      <text x="14" y="46" font-size="9" fill="#4a5568">&#8226; Kleine, nicht-kritische App</text>
+      <text x="14" y="60" font-size="9" fill="#4a5568">&#8226; End-to-End-Workflow</text>
+      <text x="14" y="74" font-size="9" fill="#4a5568">&#8226; Lessons Learned dokumentieren</text>
+      <text x="14" y="88" font-size="9" fill="#4a5568">&#8226; Team-Skills aufbauen</text>
+      <text x="14" y="102" font-size="9" fill="#4a5568">&#8226; Pipeline produktivieren</text>
+    </g>
+
+    <!-- Step 4: Skalierung -->
+    <g transform="translate(740,60)">
+      <circle r="32" fill="#38a169" filter="url(#sh6)"/>
+      <text y="6" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">4</text>
+      <text y="-50" text-anchor="middle" font-size="11" font-weight="700" fill="#38a169">12+ Monate</text>
+      <text y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Skalierung</text>
+    </g>
+
+    <g transform="translate(690,140)" filter="url(#sh6)">
+      <rect width="180" height="120" rx="10" fill="#fff" stroke="#38a169" stroke-width="2"/>
+      <rect width="180" height="6" rx="3" fill="#38a169"/>
+      <text x="14" y="28" font-size="10" font-weight="700" fill="#38a169">Aktivitaeten</text>
+      <text x="14" y="46" font-size="9" fill="#4a5568">&#8226; Wave fuer Wave migrieren</text>
+      <text x="14" y="60" font-size="9" fill="#4a5568">&#8226; Continuous Improvement</text>
+      <text x="14" y="74" font-size="9" fill="#4a5568">&#8226; Operations-Modell aufbauen</text>
+      <text x="14" y="88" font-size="9" fill="#4a5568">&#8226; Mainframe Decommissioning</text>
+      <text x="14" y="102" font-size="9" fill="#4a5568">&#8226; Wave-Retros &amp; Adaption</text>
+    </g>
+
+    <!-- Step 5: Modernisierung -->
+    <g transform="translate(970,60)">
+      <circle r="32" fill="#805ad5" filter="url(#sh6)"/>
+      <text y="6" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">5</text>
+      <text y="-50" text-anchor="middle" font-size="11" font-weight="700" fill="#805ad5">laufend</text>
+      <text y="55" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Modernisierung</text>
+    </g>
+
+    <g transform="translate(810,290)" filter="url(#sh6)">
+      <rect width="180" height="120" rx="10" fill="#fff" stroke="#805ad5" stroke-width="2"/>
+      <rect width="180" height="6" rx="3" fill="#805ad5"/>
+      <text x="14" y="28" font-size="10" font-weight="700" fill="#805ad5">Aktivitaeten</text>
+      <text x="14" y="46" font-size="9" fill="#4a5568">&#8226; Reimagine kritischer Domains</text>
+      <text x="14" y="60" font-size="9" fill="#4a5568">&#8226; Cloud-Native Features</text>
+      <text x="14" y="74" font-size="9" fill="#4a5568">&#8226; Lambda + Step Functions</text>
+      <text x="14" y="88" font-size="9" fill="#4a5568">&#8226; Datenstrategie + Analytics</text>
+      <text x="14" y="102" font-size="9" fill="#4a5568">&#8226; Continuous Optimization</text>
+    </g>
+  </g>
+
+  <!-- Bottom: Cumulative timeline bar -->
+  <g transform="translate(60,560)">
+    <text x="0" y="0" font-size="13" font-weight="700" fill="#1a202c">Kumulierte Projektzeit</text>
+    <rect x="0" y="14" width="940" height="22" rx="11" fill="#e2e8f0"/>
+    <rect x="0" y="14" width="56" height="22" rx="11" fill="#1e3a5f"/>
+    <rect x="56" y="14" width="32" height="22" fill="#2c5282"/>
+    <rect x="88" y="14" width="92" height="22" fill="#dd6b20"/>
+    <rect x="180" y="14" width="380" height="22" fill="#38a169"/>
+    <rect x="560" y="14" width="380" height="22" rx="11" fill="#805ad5"/>
+
+    <text x="28" y="60" text-anchor="middle" font-size="9" fill="#4a5568">M0&#8211;2</text>
+    <text x="72" y="60" text-anchor="middle" font-size="9" fill="#4a5568">M2&#8211;3</text>
+    <text x="134" y="60" text-anchor="middle" font-size="9" fill="#4a5568">M3&#8211;6</text>
+    <text x="370" y="60" text-anchor="middle" font-size="9" fill="#4a5568">M6&#8211;18 (Skalierung)</text>
+    <text x="750" y="60" text-anchor="middle" font-size="9" fill="#4a5568">M18+ (Modernisierung)</text>
+
+    <text x="470" y="92" text-anchor="middle" font-size="11" font-style="italic" fill="#4a5568">Mit AWS Transform: 30&#8211;50 % Zeitreduktion gegenueber traditionellen Ansaetzen</text>
+  </g>
+</svg>

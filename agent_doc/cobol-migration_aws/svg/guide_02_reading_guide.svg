@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="sh" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="720" fill="url(#bg2)"/>
+  <text x="550" y="42" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Reading Guide &#8211; Wo soll ich anfangen?</text>
+  <text x="550" y="68" text-anchor="middle" font-size="14" fill="#4a5568">Vier rollenspezifische Lesepfade durch die Research-Dokumente</text>
+
+  <!-- Persona 1: Senior Architekt -->
+  <g transform="translate(60,110)" filter="url(#sh)">
+    <rect width="480" height="270" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="480" height="48" rx="12" fill="#1e3a5f"/>
+    <rect y="36" width="480" height="12" fill="#1e3a5f"/>
+    <circle cx="32" cy="24" r="14" fill="#fff"/>
+    <text x="32" y="29" text-anchor="middle" font-size="16" font-weight="700" fill="#1e3a5f">SA</text>
+    <text x="58" y="22" font-size="15" font-weight="700" fill="#fff">Senior Architekt</text>
+    <text x="58" y="38" font-size="11" fill="#cbd5e0">entwickelt die Strategie</text>
+
+    <g transform="translate(20,68)" font-size="12" fill="#2d3748">
+      <circle cx="10" cy="10" r="9" fill="#1e3a5f"/>
+      <text x="10" y="14" text-anchor="middle" fill="#fff" font-weight="700">1</text>
+      <text x="28" y="14" font-weight="600">cobol_migrations_guide.md</text>
+      <text x="28" y="28" fill="#718096">Executive Summary, Decision Framework</text>
+
+      <circle cx="10" cy="50" r="9" fill="#1e3a5f"/>
+      <text x="10" y="54" text-anchor="middle" fill="#fff" font-weight="700">2</text>
+      <text x="28" y="54" font-weight="600">best_practices_und_patterns.md</text>
+      <text x="28" y="68" fill="#718096">Sektion 1: Migrationsstrategie</text>
+
+      <circle cx="10" cy="90" r="9" fill="#1e3a5f"/>
+      <text x="10" y="94" text-anchor="middle" fill="#fff" font-weight="700">3</text>
+      <text x="28" y="94" font-weight="600">cobol_migration_weitere_tools.md</text>
+      <text x="28" y="108" fill="#718096">Anbieter-Vergleichsmatrix</text>
+
+      <circle cx="10" cy="130" r="9" fill="#1e3a5f"/>
+      <text x="10" y="134" text-anchor="middle" fill="#fff" font-weight="700">4</text>
+      <text x="28" y="134" font-weight="600">aws_mainframe + aws_transform Deep Dive</text>
+      <text x="28" y="148" fill="#718096">Tiefer Blick in die AWS-Tools</text>
+    </g>
+    <text x="240" y="248" text-anchor="middle" font-size="11" fill="#1e3a5f" font-weight="600">Fokus: Strategie, Architektur, langfristige Auswahl</text>
+  </g>
+
+  <!-- Persona 2: Senior Developer -->
+  <g transform="translate(560,110)" filter="url(#sh)">
+    <rect width="480" height="270" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="480" height="48" rx="12" fill="#dd6b20"/>
+    <rect y="36" width="480" height="12" fill="#dd6b20"/>
+    <circle cx="32" cy="24" r="14" fill="#fff"/>
+    <text x="32" y="29" text-anchor="middle" font-size="16" font-weight="700" fill="#dd6b20">SD</text>
+    <text x="58" y="22" font-size="15" font-weight="700" fill="#fff">Senior Developer</text>
+    <text x="58" y="38" font-size="11" fill="#fed7aa">will die Tools verstehen</text>
+
+    <g transform="translate(20,68)" font-size="12" fill="#2d3748">
+      <circle cx="10" cy="10" r="9" fill="#dd6b20"/>
+      <text x="10" y="14" text-anchor="middle" fill="#fff" font-weight="700">1</text>
+      <text x="28" y="14" font-weight="600">cobol_to_java_aws_migrationsguide.md</text>
+      <text x="28" y="28" fill="#718096">End-to-End Workflow, alle 8 Phasen</text>
+
+      <circle cx="10" cy="50" r="9" fill="#dd6b20"/>
+      <text x="10" y="54" text-anchor="middle" fill="#fff" font-weight="700">2</text>
+      <text x="28" y="54" font-weight="600">aws_transform_deep_dive.md</text>
+      <text x="28" y="68" fill="#718096">KI-Tools im Detail (Refactor, Reforge, Reimagine)</text>
+
+      <circle cx="10" cy="90" r="9" fill="#dd6b20"/>
+      <text x="10" y="94" text-anchor="middle" fill="#fff" font-weight="700">3</text>
+      <text x="28" y="94" font-weight="600">aws_mainframe_modernization_deep_dive.md</text>
+      <text x="28" y="108" fill="#718096">Runtime-Details, Blu Age &amp; Rocket</text>
+
+      <circle cx="10" cy="130" r="9" fill="#dd6b20"/>
+      <text x="10" y="134" text-anchor="middle" fill="#fff" font-weight="700">4</text>
+      <text x="28" y="134" font-weight="600">best_practices_und_patterns.md</text>
+      <text x="28" y="148" fill="#718096">Sektion 2: Technische Best Practices</text>
+    </g>
+    <text x="240" y="248" text-anchor="middle" font-size="11" fill="#dd6b20" font-weight="600">Fokus: Code, Tools, technische Tiefe</text>
+  </g>
+
+  <!-- Persona 3: Projektleiter -->
+  <g transform="translate(60,400)" filter="url(#sh)">
+    <rect width="480" height="270" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="480" height="48" rx="12" fill="#38a169"/>
+    <rect y="36" width="480" height="12" fill="#38a169"/>
+    <circle cx="32" cy="24" r="14" fill="#fff"/>
+    <text x="32" y="29" text-anchor="middle" font-size="16" font-weight="700" fill="#38a169">PL</text>
+    <text x="58" y="22" font-size="15" font-weight="700" fill="#fff">Projektleiter / Migration Manager</text>
+    <text x="58" y="38" font-size="11" fill="#c6f6d5">orchestriert das Projekt</text>
+
+    <g transform="translate(20,68)" font-size="12" fill="#2d3748">
+      <circle cx="10" cy="10" r="9" fill="#38a169"/>
+      <text x="10" y="14" text-anchor="middle" fill="#fff" font-weight="700">1</text>
+      <text x="28" y="14" font-weight="600">cobol_migrations_guide.md</text>
+      <text x="28" y="28" fill="#718096">Decision Framework, Risiken</text>
+
+      <circle cx="10" cy="50" r="9" fill="#38a169"/>
+      <text x="10" y="54" text-anchor="middle" fill="#fff" font-weight="700">2</text>
+      <text x="28" y="54" font-weight="600">aws_migration_hub.md</text>
+      <text x="28" y="68" fill="#718096">Wave Planning, Phasen, Orchestrierung</text>
+
+      <circle cx="10" cy="90" r="9" fill="#38a169"/>
+      <text x="10" y="94" text-anchor="middle" fill="#fff" font-weight="700">3</text>
+      <text x="28" y="94" font-weight="600">best_practices_und_patterns.md</text>
+      <text x="28" y="108" fill="#718096">Fallstricke, Risiken, Lessons Learned</text>
+
+      <circle cx="10" cy="130" r="9" fill="#38a169"/>
+      <text x="10" y="134" text-anchor="middle" fill="#fff" font-weight="700">4</text>
+      <text x="28" y="134" font-weight="600">cobol_to_java_aws_migrationsguide.md</text>
+      <text x="28" y="148" fill="#718096">Phasen 1&#8211;2 (Planung), 7&#8211;8 (Operations)</text>
+    </g>
+    <text x="240" y="248" text-anchor="middle" font-size="11" fill="#38a169" font-weight="600">Fokus: Waves, Risiken, Stakeholder, Timing</text>
+  </g>
+
+  <!-- Persona 4: CTO / Entscheider -->
+  <g transform="translate(560,400)" filter="url(#sh)">
+    <rect width="480" height="270" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="480" height="48" rx="12" fill="#805ad5"/>
+    <rect y="36" width="480" height="12" fill="#805ad5"/>
+    <circle cx="32" cy="24" r="14" fill="#fff"/>
+    <text x="32" y="29" text-anchor="middle" font-size="16" font-weight="700" fill="#805ad5">CTO</text>
+    <text x="58" y="22" font-size="15" font-weight="700" fill="#fff">CTO / Entscheider</text>
+    <text x="58" y="38" font-size="11" fill="#e9d8fd">trifft Investitions-Entscheidungen</text>
+
+    <g transform="translate(20,68)" font-size="12" fill="#2d3748">
+      <circle cx="10" cy="10" r="9" fill="#805ad5"/>
+      <text x="10" y="14" text-anchor="middle" fill="#fff" font-weight="700">1</text>
+      <text x="28" y="14" font-weight="600">cobol_migrations_guide.md</text>
+      <text x="28" y="28" fill="#718096">Executive Summary &#8211; das ist die Pflichtlektuere</text>
+
+      <circle cx="10" cy="50" r="9" fill="#805ad5"/>
+      <text x="10" y="54" text-anchor="middle" fill="#fff" font-weight="700">2</text>
+      <text x="28" y="54" font-weight="600">cobol_migration_weitere_tools.md</text>
+      <text x="28" y="68" fill="#718096">Anbieter-Vergleich, Empfehlungen</text>
+
+      <circle cx="10" cy="90" r="9" fill="#805ad5"/>
+      <text x="10" y="94" text-anchor="middle" fill="#fff" font-weight="700">3</text>
+      <text x="28" y="94" font-weight="600">best_practices_und_patterns.md</text>
+      <text x="28" y="108" fill="#718096">TCO-Analyse, Top-10-Fallstricke</text>
+
+      <circle cx="10" cy="130" r="9" fill="#805ad5"/>
+      <text x="10" y="134" text-anchor="middle" fill="#fff" font-weight="700">&#9733;</text>
+      <text x="28" y="134" font-weight="600">Time-to-Read: 30&#8211;45 Minuten</text>
+      <text x="28" y="148" fill="#718096">Genug Substanz fuer Entscheidungen, ohne Code-Tiefe</text>
+    </g>
+    <text x="240" y="248" text-anchor="middle" font-size="11" fill="#805ad5" font-weight="600">Fokus: TCO, Risiken, Vendor-Auswahl, Strategie</text>
+  </g>
+</svg>

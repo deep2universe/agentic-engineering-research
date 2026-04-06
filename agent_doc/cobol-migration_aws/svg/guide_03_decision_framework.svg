@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="sh3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bg3)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Decision Framework &#8211; Refactor, Replatform oder Hybrid?</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Vier Kernfragen fuehren zur richtigen Strategie &#8211; in der Praxis ist die Antwort meist eine Kombination</text>
+
+  <!-- Decision tree -->
+  <g transform="translate(60,90)">
+    <!-- Root question -->
+    <rect x="320" y="0" width="320" height="60" rx="8" fill="#1a202c" filter="url(#sh3)"/>
+    <text x="480" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Wie wichtig ist langfristige</text>
+    <text x="480" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#ffd166">Cloud-Native-Modernisierung?</text>
+
+    <!-- Branch lines -->
+    <line x1="430" y1="60" x2="200" y2="115" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="530" y1="60" x2="760" y2="115" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="280" y="92" font-size="11" font-weight="600" fill="#2c5282">Sehr wichtig</text>
+    <text x="660" y="92" font-size="11" font-weight="600" fill="#2c5282">Weniger wichtig</text>
+
+    <!-- Level 2 left -->
+    <rect x="60" y="120" width="280" height="60" rx="8" fill="#2c5282" filter="url(#sh3)"/>
+    <text x="200" y="142" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Wie hoch ist die</text>
+    <text x="200" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#ffd166">Risikotoleranz?</text>
+
+    <!-- Level 2 right -->
+    <rect x="620" y="120" width="280" height="60" rx="8" fill="#2c5282" filter="url(#sh3)"/>
+    <text x="760" y="142" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Wie schnell muss die</text>
+    <text x="760" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#ffd166">Migration erfolgen?</text>
+
+    <!-- Branches level 2 -->
+    <line x1="140" y1="180" x2="80" y2="225" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="260" y1="180" x2="320" y2="225" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="700" y1="180" x2="640" y2="225" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="820" y1="180" x2="880" y2="225" stroke="#4a5568" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <text x="80" y="208" font-size="10" font-weight="600" fill="#4a5568">Hoch</text>
+    <text x="320" y="208" font-size="10" font-weight="600" fill="#4a5568">Niedrig</text>
+    <text x="630" y="208" font-size="10" font-weight="600" fill="#4a5568">Schnell</text>
+    <text x="880" y="208" font-size="10" font-weight="600" fill="#4a5568">Langsamer</text>
+
+    <!-- Outcome boxes -->
+    <g filter="url(#sh3)">
+      <rect x="0" y="230" width="170" height="80" rx="10" fill="#dd6b20"/>
+      <text x="85" y="258" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">REFACTOR</text>
+      <text x="85" y="278" text-anchor="middle" font-size="11" fill="#fff5e6">AWS Transform</text>
+      <text x="85" y="294" text-anchor="middle" font-size="11" fill="#fff5e6">Blu Age Engine</text>
+    </g>
+    <g filter="url(#sh3)">
+      <rect x="240" y="230" width="170" height="80" rx="10" fill="#319795"/>
+      <text x="325" y="258" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">HYBRID</text>
+      <text x="325" y="278" text-anchor="middle" font-size="11" fill="#e6fffa">Phase 1: Replatform</text>
+      <text x="325" y="294" text-anchor="middle" font-size="11" fill="#e6fffa">Phase 2: Refactor</text>
+    </g>
+    <g filter="url(#sh3)">
+      <rect x="560" y="230" width="170" height="80" rx="10" fill="#38a169"/>
+      <text x="645" y="258" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">REPLATFORM</text>
+      <text x="645" y="278" text-anchor="middle" font-size="11" fill="#f0fff4">Rocket Software</text>
+      <text x="645" y="294" text-anchor="middle" font-size="11" fill="#f0fff4">Self-Managed</text>
+    </g>
+    <g filter="url(#sh3)">
+      <rect x="800" y="230" width="170" height="80" rx="10" fill="#319795"/>
+      <text x="885" y="258" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">HYBRID</text>
+      <text x="885" y="278" text-anchor="middle" font-size="11" fill="#e6fffa">Phased Approach</text>
+      <text x="885" y="294" text-anchor="middle" font-size="11" fill="#e6fffa">Strangler Fig</text>
+    </g>
+  </g>
+
+  <!-- Cost-Benefit Matrix -->
+  <g transform="translate(60,440)">
+    <text x="0" y="-5" font-size="15" font-weight="700" fill="#1a202c">Kosten-Nutzen-Matrix der Strategien</text>
+
+    <g filter="url(#sh3)">
+      <rect width="980" height="290" rx="10" fill="#fff" stroke="#cbd5e0"/>
+    </g>
+
+    <!-- Header row -->
+    <g font-size="11" font-weight="700" fill="#fff">
+      <rect x="0" y="0" width="220" height="36" fill="#2d3748" rx="10"/>
+      <rect x="10" y="0" width="210" height="36" fill="#2d3748"/>
+      <text x="14" y="22">Strategie</text>
+      <rect x="220" y="0" width="130" height="36" fill="#4a5568"/>
+      <text x="285" y="22" text-anchor="middle">Initiale Kosten</text>
+      <rect x="350" y="0" width="130" height="36" fill="#4a5568"/>
+      <text x="415" y="22" text-anchor="middle">Laufende Kosten</text>
+      <rect x="480" y="0" width="100" height="36" fill="#4a5568"/>
+      <text x="530" y="22" text-anchor="middle">Risiko</text>
+      <rect x="580" y="0" width="160" height="36" fill="#4a5568"/>
+      <text x="660" y="22" text-anchor="middle">Time-to-Value</text>
+      <rect x="740" y="0" width="240" height="36" fill="#4a5568" rx="10"/>
+      <rect x="740" y="0" width="230" height="36" fill="#4a5568"/>
+      <text x="860" y="22" text-anchor="middle">Zukunftsfaehigkeit</text>
+    </g>
+
+    <!-- Rows -->
+    <g font-size="12" fill="#2d3748">
+      <g transform="translate(0,40)">
+        <rect width="980" height="48" fill="#f7fafc"/>
+        <text x="14" y="20" font-weight="700">Status Quo (Retain)</text>
+        <text x="14" y="36" fill="#718096" font-size="10">Keine Aenderung</text>
+        <text x="285" y="28" text-anchor="middle">&#9679; niedrig</text>
+        <text x="415" y="28" text-anchor="middle" fill="#c53030">&#9679; sehr hoch &#8593;</text>
+        <text x="530" y="28" text-anchor="middle">&#9679; niedrig (kurz)</text>
+        <text x="660" y="28" text-anchor="middle">&#8211;</text>
+        <text x="860" y="28" text-anchor="middle" fill="#c53030">&#9679; sehr niedrig</text>
+      </g>
+      <g transform="translate(0,90)">
+        <rect width="980" height="48" fill="#fff"/>
+        <text x="14" y="20" font-weight="700">Replatform (Rocket)</text>
+        <text x="14" y="36" fill="#718096" font-size="10">Lift &amp; rekompilieren</text>
+        <text x="285" y="28" text-anchor="middle">&#9679; mittel</text>
+        <text x="415" y="28" text-anchor="middle">&#9679; mittel</text>
+        <text x="530" y="28" text-anchor="middle" fill="#38a169">&#9679; niedrig</text>
+        <text x="660" y="28" text-anchor="middle" fill="#38a169">3&#8211;9 Monate</text>
+        <text x="860" y="28" text-anchor="middle">&#9679; mittel</text>
+      </g>
+      <g transform="translate(0,140)">
+        <rect width="980" height="48" fill="#f7fafc"/>
+        <text x="14" y="20" font-weight="700">Refactor (AWS Transform)</text>
+        <text x="14" y="36" fill="#718096" font-size="10">Java Spring Boot</text>
+        <text x="285" y="28" text-anchor="middle" fill="#dd6b20">&#9679; hoch</text>
+        <text x="415" y="28" text-anchor="middle" fill="#38a169">&#9679; niedrig</text>
+        <text x="530" y="28" text-anchor="middle">&#9679; mittel</text>
+        <text x="660" y="28" text-anchor="middle">12&#8211;24 Monate</text>
+        <text x="860" y="28" text-anchor="middle" fill="#38a169">&#9679; hoch</text>
+      </g>
+      <g transform="translate(0,190)">
+        <rect width="980" height="48" fill="#fff"/>
+        <text x="14" y="20" font-weight="700">Reimagine (Microservices)</text>
+        <text x="14" y="36" fill="#718096" font-size="10">Cloud-Native Rebuild</text>
+        <text x="285" y="28" text-anchor="middle" fill="#c53030">&#9679; sehr hoch</text>
+        <text x="415" y="28" text-anchor="middle" fill="#38a169">&#9679; niedrig</text>
+        <text x="530" y="28" text-anchor="middle" fill="#c53030">&#9679; hoch</text>
+        <text x="660" y="28" text-anchor="middle">24&#8211;48 Monate</text>
+        <text x="860" y="28" text-anchor="middle" fill="#38a169">&#9679; sehr hoch</text>
+      </g>
+      <g transform="translate(0,240)">
+        <rect width="980" height="48" fill="#ebf8ff"/>
+        <text x="14" y="20" font-weight="700" fill="#2c5282">Hybrid (Phased) &#9733;</text>
+        <text x="14" y="36" fill="#2c5282" font-size="10">Empfohlen in Praxis</text>
+        <text x="285" y="28" text-anchor="middle">&#9679; verteilt</text>
+        <text x="415" y="28" text-anchor="middle">&#9679; sinkend</text>
+        <text x="530" y="28" text-anchor="middle" fill="#38a169">&#9679; niedrig&#8211;mittel</text>
+        <text x="660" y="28" text-anchor="middle">schnell + lang</text>
+        <text x="860" y="28" text-anchor="middle" fill="#38a169">&#9679; hoch</text>
+      </g>
+    </g>
+  </g>
+</svg>

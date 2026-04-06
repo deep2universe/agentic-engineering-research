@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="sh4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="780" fill="url(#bg4)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Die AWS-Tool-Landschaft 2026</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Empfohlener Stack fuer Neuprojekte &#8211; 7 Schichten von Discovery bis Operations</text>
+
+  <!-- Stack layers -->
+  <g transform="translate(60,90)">
+    <!-- Layer 1: Discovery -->
+    <g filter="url(#sh4)">
+      <rect width="980" height="68" rx="8" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="190" height="68" rx="8" fill="#1e3a5f"/>
+      <rect x="180" width="10" height="68" fill="#1e3a5f"/>
+      <text x="95" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">DISCOVERY</text>
+      <text x="95" y="48" text-anchor="middle" font-size="10" fill="#cbd5e0">&amp; Planning</text>
+      <g transform="translate(220,15)">
+        <rect width="200" height="40" rx="6" fill="#ed8936"/>
+        <text x="100" y="18" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">AWS Transform</text>
+        <text x="100" y="32" text-anchor="middle" font-size="10" fill="#fff5e6">Assessment Agent</text>
+      </g>
+      <text x="450" y="40" font-size="11" fill="#4a5568">&#8226; KI-gestuetzte Codebasis-Analyse  &#8226; Dependency Graph  &#8226; Wave Planning</text>
+    </g>
+
+    <!-- Layer 2: Code Transformation -->
+    <g transform="translate(0,80)" filter="url(#sh4)">
+      <rect width="980" height="92" rx="8" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="190" height="92" rx="8" fill="#1e3a5f"/>
+      <rect x="180" width="10" height="92" fill="#1e3a5f"/>
+      <text x="95" y="40" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">CODE</text>
+      <text x="95" y="56" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">TRANSFORMATION</text>
+      <g transform="translate(220,12)">
+        <rect width="220" height="32" rx="6" fill="#ed8936"/>
+        <text x="110" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">AWS Transform Refactor (Blu Age)</text>
+      </g>
+      <g transform="translate(220,48)">
+        <rect width="220" height="32" rx="6" fill="#ed8936" opacity="0.85"/>
+        <text x="110" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">AWS Transform Reforge (LLM)</text>
+      </g>
+      <g transform="translate(460,12)">
+        <rect width="220" height="32" rx="6" fill="#dd6b20"/>
+        <text x="110" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Kiro &#8211; Reimagine (optional)</text>
+      </g>
+      <g transform="translate(700,12)">
+        <rect width="260" height="68" rx="6" fill="#fef5e7" stroke="#ed8936"/>
+        <text x="130" y="20" text-anchor="middle" font-size="10" fill="#7c2d12" font-weight="700">COBOL &#8594; Java Spring Boot</text>
+        <text x="130" y="35" text-anchor="middle" font-size="10" fill="#7c2d12">JCL &#8594; Groovy &#8226; BMS &#8594; Angular</text>
+        <text x="130" y="52" text-anchor="middle" font-size="10" fill="#7c2d12">VSAM &#8594; Blusam &#8226; DB2 &#8594; Aurora</text>
+      </g>
+    </g>
+
+    <!-- Layer 3: Testing -->
+    <g transform="translate(0,184)" filter="url(#sh4)">
+      <rect width="980" height="58" rx="8" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="190" height="58" rx="8" fill="#1e3a5f"/>
+      <rect x="180" width="10" height="58" fill="#1e3a5f"/>
+      <text x="95" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">TESTING</text>
+      <g transform="translate(220,12)">
+        <rect width="240" height="32" rx="6" fill="#ed8936"/>
+        <text x="120" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">AWS Transform Testing Automation</text>
+      </g>
+      <text x="480" y="33" font-size="11" fill="#4a5568">Test Plans  &#8226;  Test Data Collection  &#8226;  Functional Equivalence Reports</text>
+    </g>
+
+    <!-- Layer 4: Runtime -->
+    <g transform="translate(0,254)" filter="url(#sh4)">
+      <rect width="980" height="92" rx="8" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="190" height="92" rx="8" fill="#1e3a5f"/>
+      <rect x="180" width="10" height="92" fill="#1e3a5f"/>
+      <text x="95" y="52" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">RUNTIME</text>
+      <g transform="translate(220,12)">
+        <rect width="280" height="32" rx="6" fill="#ed8936"/>
+        <text x="140" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">AWS M2 Self-Managed</text>
+      </g>
+      <g transform="translate(220,48)">
+        <rect width="135" height="32" rx="6" fill="#fed7aa" stroke="#dd6b20"/>
+        <text x="67" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="#7c2d12">Blu Age (Tomcat)</text>
+      </g>
+      <g transform="translate(365,48)">
+        <rect width="135" height="32" rx="6" fill="#fed7aa" stroke="#dd6b20"/>
+        <text x="67" y="20" text-anchor="middle" font-size="10" font-weight="700" fill="#7c2d12">Rocket Self-Managed</text>
+      </g>
+      <text x="520" y="32" font-size="10" fill="#4a5568">EC2  &#8226;  ECS  &#8226;  Fargate</text>
+      <text x="520" y="50" font-size="10" fill="#9b2c2c" font-weight="700">&#9888; Managed Runtime: nicht fuer Neukunden</text>
+      <text x="520" y="66" font-size="10" fill="#4a5568">Stand: November 2025</text>
+    </g>
+
+    <!-- Layer 5: Datenbanken -->
+    <g transform="translate(0,358)" filter="url(#sh4)">
+      <rect width="980" height="58" rx="8" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="190" height="58" rx="8" fill="#1e3a5f"/>
+      <rect x="180" width="10" height="58" fill="#1e3a5f"/>
+      <text x="95" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">DATENBANKEN</text>
+      <g transform="translate(220,12)">
+        <rect width="200" height="32" rx="6" fill="#3182ce"/>
+        <text x="100" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Aurora PostgreSQL</text>
+      </g>
+      <g transform="translate(430,12)">
+        <rect width="160" height="32" rx="6" fill="#3182ce"/>
+        <text x="80" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">DynamoDB</text>
+      </g>
+      <g transform="translate(600,12)">
+        <rect width="120" height="32" rx="6" fill="#3182ce"/>
+        <text x="60" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">S3</text>
+      </g>
+      <text x="730" y="32" font-size="10" fill="#4a5568">DB2-Ersatz / VSAM-Ersatz / Files</text>
+    </g>
+
+    <!-- Layer 6: CI/CD -->
+    <g transform="translate(0,428)" filter="url(#sh4)">
+      <rect width="980" height="58" rx="8" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="190" height="58" rx="8" fill="#1e3a5f"/>
+      <rect x="180" width="10" height="58" fill="#1e3a5f"/>
+      <text x="95" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">CI/CD</text>
+      <text x="95" y="46" text-anchor="middle" font-size="10" fill="#cbd5e0">&amp; IaC</text>
+      <g transform="translate(220,12)" font-size="10" font-weight="700">
+        <rect width="120" height="32" rx="6" fill="#805ad5"/>
+        <text x="60" y="20" text-anchor="middle" fill="#fff">CodePipeline</text>
+        <rect x="130" width="110" height="32" rx="6" fill="#805ad5"/>
+        <text x="185" y="20" text-anchor="middle" fill="#fff">CodeBuild</text>
+        <rect x="250" width="110" height="32" rx="6" fill="#805ad5"/>
+        <text x="305" y="20" text-anchor="middle" fill="#fff">Terraform</text>
+        <rect x="370" width="110" height="32" rx="6" fill="#805ad5"/>
+        <text x="425" y="20" text-anchor="middle" fill="#fff">CloudFormation</text>
+        <rect x="490" width="80" height="32" rx="6" fill="#805ad5"/>
+        <text x="530" y="20" text-anchor="middle" fill="#fff">CDK</text>
+        <rect x="580" width="80" height="32" rx="6" fill="#805ad5"/>
+        <text x="620" y="20" text-anchor="middle" fill="#fff">ECR</text>
+      </g>
+    </g>
+
+    <!-- Layer 7: Operations -->
+    <g transform="translate(0,498)" filter="url(#sh4)">
+      <rect width="980" height="58" rx="8" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="190" height="58" rx="8" fill="#1e3a5f"/>
+      <rect x="180" width="10" height="58" fill="#1e3a5f"/>
+      <text x="95" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">OPERATIONS</text>
+      <g transform="translate(220,12)" font-size="10" font-weight="700">
+        <rect width="180" height="32" rx="6" fill="#38a169"/>
+        <text x="90" y="20" text-anchor="middle" fill="#fff">CloudWatch</text>
+        <rect x="190" width="160" height="32" rx="6" fill="#38a169"/>
+        <text x="270" y="20" text-anchor="middle" fill="#fff">X-Ray (Tracing)</text>
+        <rect x="360" width="200" height="32" rx="6" fill="#38a169"/>
+        <text x="460" y="20" text-anchor="middle" fill="#fff">Systems Manager</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Wichtige Aenderungen 2025/26 -->
+  <g transform="translate(60,660)">
+    <rect width="980" height="100" rx="10" fill="#fef5e7" stroke="#dd6b20" filter="url(#sh4)"/>
+    <text x="20" y="22" font-size="13" font-weight="700" fill="#7c2d12">Wichtige Aenderungen 2025/2026</text>
+    <g font-size="10" fill="#7c2d12">
+      <text x="20" y="42">&#9656; <tspan font-weight="700">Mai 2025:</tspan>  AWS Transform GA als strategischer Modernisierungspfad</text>
+      <text x="20" y="58">&#9656; <tspan font-weight="700">Nov 2025:</tspan> Migration Hub und Refactor Spaces nehmen keine neuen Kunden mehr an</text>
+      <text x="20" y="74">&#9656; <tspan font-weight="700">2025:</tspan>  AWS Transform Mainframe-Transformationen werden kostenlos (vorher $0,103/LOC)</text>
+      <text x="500" y="42">&#9656; <tspan font-weight="700">Dez 2025:</tspan> AWS Transform Custom fuer beliebige Modernisierungen</text>
+      <text x="500" y="58">&#9656; <tspan font-weight="700">re:Invent 2025:</tspan> Reimagine + Automated Testing in AWS Transform</text>
+      <text x="500" y="74">&#9656; <tspan font-weight="700">Maerz 2026:</tspan> Blu Insights &#8594; AWS Transform for Mainframe Refactor</text>
+    </g>
+    <text x="490" y="92" text-anchor="middle" font-size="10" font-style="italic" fill="#9b2c2c">Die Landschaft hat sich grundlegend verschoben &#8211; Transform ist die neue Mitte.</text>
+  </g>
+</svg>
