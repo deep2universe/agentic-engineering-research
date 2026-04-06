@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgH1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shH" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrH" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="700" fill="url(#bgH1)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">AWS Migration Hub &#8211; Grundlagen</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Single Pane of Glass fuer Migrationsprojekte &#8211; aber seit November 2025 closed fuer Neukunden</text>
+
+  <!-- Single Pane of Glass metaphor -->
+  <g transform="translate(370,110)" filter="url(#shH)">
+    <rect width="360" height="220" rx="14" fill="#1e3a5f"/>
+    <rect x="20" y="20" width="320" height="180" rx="6" fill="#2d3748"/>
+    <text x="180" y="50" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">Migration Hub Dashboard</text>
+    <text x="180" y="68" text-anchor="middle" font-size="10" fill="#cbd5e0">Single Pane of Glass</text>
+
+    <!-- Mock dashboard -->
+    <g transform="translate(40,80)">
+      <rect width="80" height="40" rx="4" fill="#fff" opacity="0.9"/>
+      <text x="40" y="20" text-anchor="middle" font-size="9" fill="#4a5568">Servers</text>
+      <text x="40" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a5f">142</text>
+
+      <rect x="100" width="80" height="40" rx="4" fill="#fff" opacity="0.9"/>
+      <text x="140" y="20" text-anchor="middle" font-size="9" fill="#4a5568">Apps</text>
+      <text x="140" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#dd6b20">28</text>
+
+      <rect x="200" width="80" height="40" rx="4" fill="#fff" opacity="0.9"/>
+      <text x="240" y="20" text-anchor="middle" font-size="9" fill="#4a5568">Done</text>
+      <text x="240" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#38a169">63%</text>
+    </g>
+
+    <g transform="translate(40,135)">
+      <rect width="280" height="50" rx="4" fill="#fff" opacity="0.9"/>
+      <text x="14" y="18" font-size="9" font-weight="700" fill="#4a5568">Migration Progress</text>
+      <rect x="14" y="24" width="252" height="8" rx="4" fill="#e2e8f0"/>
+      <rect x="14" y="24" width="160" height="8" rx="4" fill="#38a169"/>
+      <text x="14" y="44" font-size="8" fill="#718096">Wave 1 &#8226; Wave 2 &#8226; Wave 3 &#8226; Wave 4</text>
+    </g>
+  </g>
+
+  <!-- Input sources around the hub -->
+  <g transform="translate(60,140)" filter="url(#shH)">
+    <rect width="220" height="60" rx="8" fill="#fff" stroke="#cbd5e0"/>
+    <text x="14" y="22" font-size="11" font-weight="700" fill="#2c5282">AWS Application</text>
+    <text x="14" y="36" font-size="11" font-weight="700" fill="#2c5282">Discovery Service</text>
+    <text x="14" y="50" font-size="9" fill="#718096">Server-Inventar &amp; Deps</text>
+  </g>
+  <line x1="280" y1="170" x2="365" y2="200" stroke="#4a5568" stroke-width="2" marker-end="url(#arrH)"/>
+
+  <g transform="translate(60,220)" filter="url(#shH)">
+    <rect width="220" height="60" rx="8" fill="#fff" stroke="#cbd5e0"/>
+    <text x="14" y="22" font-size="11" font-weight="700" fill="#2c5282">AWS DMS</text>
+    <text x="14" y="36" font-size="11" font-weight="700" fill="#2c5282">(Database Migration)</text>
+    <text x="14" y="50" font-size="9" fill="#718096">DB-Migration-Status</text>
+  </g>
+  <line x1="280" y1="250" x2="365" y2="240" stroke="#4a5568" stroke-width="2" marker-end="url(#arrH)"/>
+
+  <g transform="translate(60,300)" filter="url(#shH)">
+    <rect width="220" height="60" rx="8" fill="#fff" stroke="#cbd5e0"/>
+    <text x="14" y="22" font-size="11" font-weight="700" fill="#2c5282">AWS MGN</text>
+    <text x="14" y="36" font-size="11" font-weight="700" fill="#2c5282">(Application Migration)</text>
+    <text x="14" y="50" font-size="9" fill="#718096">Replication-Status</text>
+  </g>
+  <line x1="280" y1="330" x2="365" y2="280" stroke="#4a5568" stroke-width="2" marker-end="url(#arrH)"/>
+
+  <g transform="translate(820,140)" filter="url(#shH)">
+    <rect width="220" height="60" rx="8" fill="#fff" stroke="#cbd5e0"/>
+    <text x="14" y="22" font-size="11" font-weight="700" fill="#dd6b20">AWS Mainframe</text>
+    <text x="14" y="36" font-size="11" font-weight="700" fill="#dd6b20">Modernization</text>
+    <text x="14" y="50" font-size="9" fill="#718096">M2 Project Status</text>
+  </g>
+  <line x1="820" y1="170" x2="735" y2="200" stroke="#4a5568" stroke-width="2" marker-end="url(#arrH)"/>
+
+  <g transform="translate(820,220)" filter="url(#shH)">
+    <rect width="220" height="60" rx="8" fill="#fff" stroke="#cbd5e0"/>
+    <text x="14" y="22" font-size="11" font-weight="700" fill="#dd6b20">Refactor Spaces</text>
+    <text x="14" y="36" font-size="11" font-weight="700" fill="#dd6b20">(Strangler Fig)</text>
+    <text x="14" y="50" font-size="9" fill="#718096">Multi-Account Routing</text>
+  </g>
+  <line x1="820" y1="250" x2="735" y2="240" stroke="#4a5568" stroke-width="2" marker-end="url(#arrH)"/>
+
+  <g transform="translate(820,300)" filter="url(#shH)">
+    <rect width="220" height="60" rx="8" fill="#fff" stroke="#cbd5e0"/>
+    <text x="14" y="22" font-size="11" font-weight="700" fill="#dd6b20">Partner Tools</text>
+    <text x="14" y="36" font-size="11" font-weight="700" fill="#dd6b20">(SMS, ISVs)</text>
+    <text x="14" y="50" font-size="9" fill="#718096">Drittanbieter-Tracking</text>
+  </g>
+  <line x1="820" y1="330" x2="735" y2="280" stroke="#4a5568" stroke-width="2" marker-end="url(#arrH)"/>
+
+  <!-- Core capabilities -->
+  <g transform="translate(60,380)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Kernfunktionen</text>
+    <g transform="translate(0,15)" font-size="10">
+      <g filter="url(#shH)">
+        <rect width="240" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#1e3a5f"/>
+        <text x="14" y="28" font-weight="700" fill="#1e3a5f">Zentrales Tracking</text>
+        <text x="14" y="46" fill="#4a5568">Echtzeit-Verfolgung des</text>
+        <text x="14" y="60" fill="#4a5568">Migrationsfortschritts pro</text>
+        <text x="14" y="74" fill="#4a5568">Anwendung &amp; Datenprojekt.</text>
+        <text x="14" y="92" font-style="italic" fill="#718096">Status, Fehler, Issues</text>
+      </g>
+
+      <g transform="translate(255,0)" filter="url(#shH)">
+        <rect width="240" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#2c5282"/>
+        <text x="14" y="28" font-weight="700" fill="#2c5282">Dashboard &amp; Metriken</text>
+        <text x="14" y="46" fill="#4a5568">Statistiken zu Servern,</text>
+        <text x="14" y="60" fill="#4a5568">Anwendungen und Data</text>
+        <text x="14" y="74" fill="#4a5568">Collectors.</text>
+        <text x="14" y="92" font-style="italic" fill="#718096">High-Level KPIs</text>
+      </g>
+
+      <g transform="translate(510,0)" filter="url(#shH)">
+        <rect width="240" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#dd6b20"/>
+        <text x="14" y="28" font-weight="700" fill="#dd6b20">Network Visualization</text>
+        <text x="14" y="46" fill="#4a5568">Visualisierung von Servern</text>
+        <text x="14" y="60" fill="#4a5568">und Abhaengigkeiten,</text>
+        <text x="14" y="74" fill="#4a5568">Server-Rollen, Gruppen.</text>
+        <text x="14" y="92" font-style="italic" fill="#718096">Beschleunigt Planung</text>
+      </g>
+
+      <g transform="translate(765,0)" filter="url(#shH)">
+        <rect width="220" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="220" height="6" fill="#38a169"/>
+        <text x="14" y="28" font-weight="700" fill="#38a169">Strategy Recommend.</text>
+        <text x="14" y="46" fill="#4a5568">Automatisierte Analyse</text>
+        <text x="14" y="60" fill="#4a5568">mit Empfehlungen fuer</text>
+        <text x="14" y="74" fill="#4a5568">Rehost / Replatform / Refactor.</text>
+        <text x="14" y="92" font-style="italic" fill="#718096">7-Rs Framework</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom warning -->
+  <g transform="translate(60,540)" filter="url(#shH)">
+    <rect width="980" height="130" rx="12" fill="#fff5f5" stroke="#c53030" stroke-width="2"/>
+    <text x="20" y="32" font-size="16" font-weight="700" fill="#c53030">&#9888;  Wichtiger Hinweis &#8211; Stand November 2025</text>
+
+    <g transform="translate(20,52)">
+      <text font-size="12" fill="#742a2a">AWS Migration Hub nimmt seit dem <tspan font-weight="700">7. November 2025</tspan> keine neuen Kunden mehr an.</text>
+      <text y="18" font-size="12" fill="#742a2a">Bestehende Kunden koennen den Service weiterhin nutzen. AWS Migration Hub Refactor Spaces ist ebenfalls geschlossen.</text>
+      <text y="42" font-size="13" font-weight="700" fill="#c53030">Nachfolger:</text>
+      <text x="80" y="42" font-size="13" font-weight="700" fill="#dd6b20">AWS Transform</text>
+      <text y="60" font-size="11" fill="#742a2a">Eingefuehrt im Mai 2025, mit erweiterten Faehigkeiten und KI-gestuetzter Automatisierung.</text>
+    </g>
+  </g>
+</svg>

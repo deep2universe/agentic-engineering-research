@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 700" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgH4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shH4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrH4" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#dd6b20"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="700" fill="url(#bgH4)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">AWS Transform &#8211; Der Nachfolger</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Erster agentic AI Service fuer Mainframe-Modernisierung &#8211; Mai 2025 GA</text>
+
+  <!-- Big Migration Arrow visualization -->
+  <g transform="translate(60,110)">
+    <!-- Old Migration Hub -->
+    <g filter="url(#shH4)">
+      <rect width="380" height="200" rx="14" fill="#9b2c2c" opacity="0.95"/>
+      <text x="190" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">AWS Migration Hub</text>
+      <text x="190" y="58" text-anchor="middle" font-size="11" fill="#fed7aa">Single Pane of Glass</text>
+      <line x1="20" y1="74" x2="360" y2="74" stroke="#fed7aa" opacity="0.5"/>
+      <g font-size="11" fill="#fff5f5">
+        <text x="20" y="98">&#9656; Tracking-Tool fuer Migrationen</text>
+        <text x="20" y="118">&#9656; Refactor Spaces fuer Strangler Fig</text>
+        <text x="20" y="138">&#9656; Strategy Recommendations</text>
+        <text x="20" y="158">&#9656; Workflow Templates</text>
+      </g>
+      <text x="190" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">&#9888; Closed fuer Neukunden seit 11/2025</text>
+    </g>
+
+    <!-- Arrow -->
+    <g transform="translate(420,80)">
+      <line x1="0" y1="20" x2="120" y2="20" stroke="#dd6b20" stroke-width="6" marker-end="url(#arrH4)"/>
+      <text x="60" y="0" text-anchor="middle" font-size="13" font-weight="700" fill="#dd6b20">Nachfolger</text>
+      <text x="60" y="48" text-anchor="middle" font-size="10" fill="#7c2d12">Mai 2025</text>
+    </g>
+
+    <!-- New AWS Transform -->
+    <g transform="translate(560,0)" filter="url(#shH4)">
+      <rect width="420" height="200" rx="14" fill="#dd6b20"/>
+      <text x="210" y="40" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">AWS Transform</text>
+      <text x="210" y="58" text-anchor="middle" font-size="11" fill="#fed7aa">First Agentic-AI Service fuer Mainframes</text>
+      <line x1="20" y1="74" x2="400" y2="74" stroke="#fed7aa" opacity="0.5"/>
+      <g font-size="11" fill="#fff">
+        <text x="20" y="98">&#9656; Multi-Agent KI-Architektur</text>
+        <text x="20" y="118">&#9656; Refactor + Reforge + Reimagine</text>
+        <text x="20" y="138">&#9656; Automated Testing</text>
+        <text x="20" y="158">&#9656; Code-Konvertierung COBOL &#8594; Java</text>
+      </g>
+      <text x="210" y="186" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">&#10003; Strategischer Pfad fuer Neuprojekte</text>
+    </g>
+  </g>
+
+  <!-- Key metrics -->
+  <g transform="translate(60,340)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Schluesselmetriken AWS Transform</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shH4)">
+        <rect width="240" height="120" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#dd6b20"/>
+        <text x="120" y="46" text-anchor="middle" font-size="32" font-weight="800" fill="#dd6b20">1,5 Mio</text>
+        <text x="120" y="68" text-anchor="middle" font-size="11" fill="#4a5568">Lines of Code / Monat</text>
+        <text x="120" y="100" text-anchor="middle" font-size="10" font-style="italic" fill="#718096">migrierbarer Durchsatz</text>
+      </g>
+
+      <g transform="translate(255,0)" filter="url(#shH4)">
+        <rect width="240" height="120" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#dd6b20"/>
+        <text x="120" y="46" text-anchor="middle" font-size="32" font-weight="800" fill="#dd6b20">30 %</text>
+        <text x="120" y="68" text-anchor="middle" font-size="11" fill="#4a5568">niedrigere Projektkosten</text>
+        <text x="120" y="100" text-anchor="middle" font-size="10" font-style="italic" fill="#718096">vs. traditionelle Ansaetze</text>
+      </g>
+
+      <g transform="translate(510,0)" filter="url(#shH4)">
+        <rect width="240" height="120" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#dd6b20"/>
+        <text x="120" y="46" text-anchor="middle" font-size="22" font-weight="800" fill="#dd6b20">Stunden</text>
+        <text x="120" y="68" text-anchor="middle" font-size="11" fill="#4a5568">statt Monate fuer Analyse</text>
+        <text x="120" y="100" text-anchor="middle" font-size="10" font-style="italic" fill="#718096">komplexer COBOL-Codebases</text>
+      </g>
+
+      <g transform="translate(765,0)" filter="url(#shH4)">
+        <rect width="220" height="120" rx="10" fill="#1e3a5f"/>
+        <rect width="220" height="6" fill="#fbbf24"/>
+        <text x="110" y="46" text-anchor="middle" font-size="32" font-weight="800" fill="#fbbf24">$ 0</text>
+        <text x="110" y="68" text-anchor="middle" font-size="11" fill="#cbd5e0">Mainframe-Transformation</text>
+        <text x="110" y="100" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">kostenlos seit 2025</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Three core capabilities -->
+  <g transform="translate(60,510)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Drei Kernfaehigkeiten</text>
+
+    <g transform="translate(0,15)" filter="url(#shH4)">
+      <rect width="320" height="160" rx="10" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+      <text x="14" y="26" font-size="13" font-weight="700" fill="#dd6b20">1. Agentic AI</text>
+      <text x="14" y="46" font-size="10" fill="#4a5568">KI-Agenten automatisieren komplexe,</text>
+      <text x="14" y="60" font-size="10" fill="#4a5568">ressourcenintensive Aufgaben ueber alle</text>
+      <text x="14" y="74" font-size="10" fill="#4a5568">Modernisierungsphasen.</text>
+      <text x="14" y="98" font-size="10" font-weight="700" fill="#dd6b20">Unterstuetzte Technologien</text>
+      <text x="14" y="116" font-size="10" fill="#4a5568">COBOL &#8226; PL/I &#8226; JCL &#8226; CICS</text>
+      <text x="14" y="130" font-size="10" fill="#4a5568">DB2 &#8226; VSAM</text>
+      <text x="14" y="148" font-size="10" font-style="italic" fill="#718096">Code-Konvertierung COBOL &#8594; Java</text>
+    </g>
+
+    <g transform="translate(335,15)" filter="url(#shH4)">
+      <rect width="320" height="160" rx="10" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+      <text x="14" y="26" font-size="13" font-weight="700" fill="#dd6b20">2. Reimagine Capabilities</text>
+      <text x="14" y="46" font-size="10" fill="#4a5568">Modernisierung geht ueber 1:1-Konvertierung</text>
+      <text x="14" y="60" font-size="10" fill="#4a5568">hinaus. Ermoeglicht eine grundlegende</text>
+      <text x="14" y="74" font-size="10" fill="#4a5568">Neugestaltung der Architektur.</text>
+      <text x="14" y="98" font-size="10" font-weight="700" fill="#dd6b20">Reimagine-Phasen</text>
+      <text x="14" y="116" font-size="10" fill="#4a5568">Reverse Engineering &#8594; Forward</text>
+      <text x="14" y="130" font-size="10" fill="#4a5568">Engineering &#8594; Deploy &amp; Test</text>
+      <text x="14" y="148" font-size="10" font-style="italic" fill="#718096">Microservices als Zielarchitektur</text>
+    </g>
+
+    <g transform="translate(670,15)" filter="url(#shH4)">
+      <rect width="315" height="160" rx="10" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+      <text x="14" y="26" font-size="13" font-weight="700" fill="#dd6b20">3. Automated Testing</text>
+      <text x="14" y="46" font-size="10" fill="#4a5568">Integrierte Test-Automatisierung stellt</text>
+      <text x="14" y="60" font-size="10" fill="#4a5568">funktionale Aequivalenz zwischen</text>
+      <text x="14" y="74" font-size="10" fill="#4a5568">Mainframe und modernisiertem Code sicher.</text>
+      <text x="14" y="98" font-size="10" font-weight="700" fill="#dd6b20">Test-Faehigkeiten</text>
+      <text x="14" y="116" font-size="10" fill="#4a5568">Test Plans &#8226; Test Data Collection</text>
+      <text x="14" y="130" font-size="10" fill="#4a5568">Functional Parity Checks</text>
+      <text x="14" y="148" font-size="10" font-style="italic" fill="#718096">re:Invent 2025: re-Generation</text>
+    </g>
+  </g>
+</svg>

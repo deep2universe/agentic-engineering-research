@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgH3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shH3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bgH3)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Discovery und Assessment</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Drei Tools fuer drei Welten &#8211; klassisch, Mainframe-spezifisch, COBOL-tief</text>
+
+  <!-- Three discovery tools -->
+  <g transform="translate(60,100)">
+    <!-- Tool 1: ADS -->
+    <g filter="url(#shH3)">
+      <rect width="320" height="280" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="320" height="60" rx="12" fill="#2c5282"/>
+      <rect y="48" width="320" height="12" fill="#2c5282"/>
+      <text x="160" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">AWS Application</text>
+      <text x="160" y="46" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Discovery Service</text>
+
+      <text x="14" y="84" font-size="11" font-weight="700" fill="#2c5282">Klassische Server-Discovery</text>
+      <g font-size="10" fill="#4a5568">
+        <text x="14" y="106">&#9656; Agentless Collector</text>
+        <text x="20" y="120" fill="#718096">ohne Agent-Installation</text>
+        <text x="14" y="140">&#9656; Discovery Agent</text>
+        <text x="20" y="154" fill="#718096">tief installiert, Deps</text>
+        <text x="14" y="174">&#9656; Network Visualization</text>
+        <text x="20" y="188" fill="#718096">grafische Dependency-Map</text>
+      </g>
+      <text x="14" y="220" font-size="11" font-weight="700" fill="#2c5282">Geeignet fuer:</text>
+      <text x="14" y="236" font-size="10" fill="#4a5568">VMs, physische Server, Cloud</text>
+      <text x="14" y="250" font-size="10" fill="#4a5568">Workloads (Linux, Windows)</text>
+      <text x="14" y="270" font-size="10" font-style="italic" fill="#9b2c2c">&#9888; Nicht fuer Mainframes</text>
+    </g>
+
+    <!-- Tool 2: AWS Transform -->
+    <g transform="translate(340,0)" filter="url(#shH3)">
+      <rect width="320" height="280" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="320" height="60" rx="12" fill="#dd6b20"/>
+      <rect y="48" width="320" height="12" fill="#dd6b20"/>
+      <text x="160" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">AWS Transform</text>
+      <text x="160" y="46" text-anchor="middle" font-size="11" fill="#fed7aa">Mainframe-spezifisch</text>
+
+      <text x="14" y="84" font-size="11" font-weight="700" fill="#dd6b20">KI-Agenten kategorisieren</text>
+      <g font-size="10" fill="#4a5568">
+        <text x="14" y="106">&#9656; Codebase-Analyse mit AI</text>
+        <text x="20" y="120" fill="#718096">JCL, BMS, COBOL, Copybooks</text>
+        <text x="14" y="140">&#9656; Dependency Graph</text>
+        <text x="20" y="154" fill="#718096">deterministisch, AST-basiert</text>
+        <text x="14" y="174">&#9656; Cross-Program Deps</text>
+        <text x="20" y="188" fill="#718096">Middleware-Interaktionen</text>
+      </g>
+      <text x="14" y="220" font-size="11" font-weight="700" fill="#dd6b20">Geeignet fuer:</text>
+      <text x="14" y="236" font-size="10" fill="#4a5568">COBOL, PL/I, JCL, CICS,</text>
+      <text x="14" y="250" font-size="10" fill="#4a5568">DB2, VSAM, IMS</text>
+      <text x="14" y="270" font-size="10" font-style="italic" fill="#2f855a">&#10003; Empfohlen seit Mai 2025</text>
+    </g>
+
+    <!-- Tool 3: Blu Insights -->
+    <g transform="translate(680,0)" filter="url(#shH3)">
+      <rect width="320" height="280" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="320" height="60" rx="12" fill="#805ad5"/>
+      <rect y="48" width="320" height="12" fill="#805ad5"/>
+      <text x="160" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">AWS Blu Insights</text>
+      <text x="160" y="46" text-anchor="middle" font-size="11" fill="#e9d8fd">COBOL-Code-Analyse</text>
+
+      <text x="14" y="84" font-size="11" font-weight="700" fill="#805ad5">Tiefe Code-Inventarisierung</text>
+      <g font-size="10" fill="#4a5568">
+        <text x="14" y="106">&#9656; LOC, Cyclomatic Complexity</text>
+        <text x="20" y="120" fill="#718096">in Minuten statt Tagen</text>
+        <text x="14" y="140">&#9656; Nodes &amp; Edges Visualization</text>
+        <text x="20" y="154" fill="#718096">interaktive Tooltips</text>
+        <text x="14" y="174">&#9656; Pre-defined Queries</text>
+        <text x="20" y="188" fill="#718096">fertige Dependency-Reports</text>
+      </g>
+      <text x="14" y="220" font-size="11" font-weight="700" fill="#805ad5">COBOL-Varianten:</text>
+      <text x="14" y="236" font-size="10" fill="#4a5568">ANSI, Tandem, OpenVMS,</text>
+      <text x="14" y="250" font-size="10" fill="#4a5568">PL/1, NATURAL, RPG/400</text>
+      <text x="14" y="270" font-size="10" font-style="italic" fill="#553c9a">Maerz 2026 &#8594; Transform Refactor</text>
+    </g>
+  </g>
+
+  <!-- Business Logic Categorization -->
+  <g transform="translate(60,410)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Business Logic Extraction &#8211; vier hierarchische Ebenen</text>
+
+    <g transform="translate(0,15)" filter="url(#shH3)">
+      <rect width="980" height="180" rx="12" fill="#fff" stroke="#cbd5e0"/>
+
+      <g transform="translate(20,20)">
+        <rect width="220" height="140" rx="8" fill="#1e3a5f"/>
+        <text x="110" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Ebene 1</text>
+        <text x="110" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Line of Business</text>
+        <line x1="20" y1="68" x2="200" y2="68" stroke="#475569"/>
+        <text x="110" y="92" text-anchor="middle" font-size="10" fill="#cbd5e0">Hoechste fachliche Ebene</text>
+        <text x="110" y="118" text-anchor="middle" font-size="11" font-style="italic" fill="#94a3b8">Beispiel:</text>
+        <text x="110" y="132" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">Kreditkarten</text>
+      </g>
+
+      <g transform="translate(260,20)">
+        <rect width="220" height="140" rx="8" fill="#2c5282"/>
+        <text x="110" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Ebene 2</text>
+        <text x="110" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Business Functions</text>
+        <line x1="20" y1="68" x2="200" y2="68" stroke="#475569"/>
+        <text x="110" y="92" text-anchor="middle" font-size="10" fill="#cbd5e0">Geschaeftsdomains</text>
+        <text x="110" y="118" text-anchor="middle" font-size="11" font-style="italic" fill="#94a3b8">Beispiel:</text>
+        <text x="110" y="132" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">Rewards, Geschenkkarten</text>
+      </g>
+
+      <g transform="translate(500,20)">
+        <rect width="220" height="140" rx="8" fill="#dd6b20"/>
+        <text x="110" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Ebene 3</text>
+        <text x="110" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Business Features</text>
+        <line x1="20" y1="68" x2="200" y2="68" stroke="#475569"/>
+        <text x="110" y="92" text-anchor="middle" font-size="10" fill="#fed7aa">Konkrete Funktionalitaeten</text>
+        <text x="110" y="118" text-anchor="middle" font-size="11" font-style="italic" fill="#fed7aa">Beispiel:</text>
+        <text x="110" y="132" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">Transaktion, Batch-Job-Logik</text>
+      </g>
+
+      <g transform="translate(740,20)">
+        <rect width="220" height="140" rx="8" fill="#805ad5"/>
+        <text x="110" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Ebene 4</text>
+        <text x="110" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Component Level</text>
+        <line x1="20" y1="68" x2="200" y2="68" stroke="#475569"/>
+        <text x="110" y="92" text-anchor="middle" font-size="10" fill="#e9d8fd">Tiefste Ebene</text>
+        <text x="110" y="118" text-anchor="middle" font-size="11" font-style="italic" fill="#e9d8fd">Beispiel:</text>
+        <text x="110" y="132" text-anchor="middle" font-size="11" font-weight="600" fill="#fbbf24">COBOL/JCL Geschaeftsregeln</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Strategy Recommendations -->
+  <g transform="translate(60,620)" filter="url(#shH3)">
+    <rect width="980" height="120" rx="10" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="6" height="120" fill="#38a169"/>
+    <text x="22" y="28" font-size="13" font-weight="700" fill="#1a202c">Strategy Recommendations &#8211; Empfehlungen basierend auf Geschaeftszielen</text>
+    <g transform="translate(22,40)" font-size="11" fill="#4a5568">
+      <text y="20"><tspan font-weight="700" fill="#2f855a">&#9656; Lizenzkostenreduktion</tspan>     <tspan dx="20" font-weight="700" fill="#2f855a">&#9656; Migrationsgeschwindigkeit</tspan>     <tspan dx="20" font-weight="700" fill="#2f855a">&#9656; Reduktion operativer Aufwaende</tspan>     <tspan dx="20" font-weight="700" fill="#2f855a">&#9656; Modernisierung der Infrastruktur</tspan></text>
+      <text y="44">Liefert pro Anwendung mehrere Migrationspfade (Rehost, Replatform, Refactor) und ermoeglicht manuelle Ueberschreibungen.</text>
+      <text y="64" font-style="italic" fill="#718096">Vier Portfolio-Assessment-Phasen: Discovery &#8594; Prioritized Apps &#8594; Portfolio Analysis &#8594; Continuous Assessment</text>
+    </g>
+  </g>
+</svg>

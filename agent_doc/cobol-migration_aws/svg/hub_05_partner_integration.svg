@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgH5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shH5" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bgH5)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">AWS Mainframe Modernization Competency &#8211; Partner-Oekosystem</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Software (Technologie) und Services (Beratung &amp; Implementierung) Partner</text>
+
+  <!-- Software Partners -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Software Competency Partners (Technologie)</text>
+
+    <g transform="translate(0,15)" filter="url(#shH5)">
+      <rect width="475" height="280" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="475" height="36" rx="10" fill="#1e3a5f"/>
+      <rect y="24" width="475" height="12" fill="#1e3a5f"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#fff">Partner</text>
+      <text x="200" y="22" font-size="12" font-weight="700" fill="#fff">Schwerpunkt</text>
+
+      <g font-size="11" fill="#2d3748">
+        <g transform="translate(0,42)">
+          <rect width="475" height="46" fill="#f7fafc"/>
+          <text x="14" y="20" font-weight="700" fill="#dd6b20">Blu Age</text>
+          <text x="14" y="36" font-size="9" fill="#718096">AWS Tochter</text>
+          <text x="200" y="22" fill="#4a5568">Automated Refactoring Engine</text>
+          <text x="200" y="38" font-size="10" fill="#718096">COBOL zu Java &#8211; deterministisch</text>
+        </g>
+        <g transform="translate(0,90)">
+          <rect width="475" height="46" fill="#fff"/>
+          <text x="14" y="20" font-weight="700" fill="#dd6b20">Micro Focus / NTT DATA</text>
+          <text x="14" y="36" font-size="9" fill="#718096">Replatforming</text>
+          <text x="200" y="22" fill="#4a5568">Mainframe-kompatible Runtime</text>
+          <text x="200" y="38" font-size="10" fill="#718096">jetzt: Rocket Software</text>
+        </g>
+        <g transform="translate(0,138)">
+          <rect width="475" height="46" fill="#f7fafc"/>
+          <text x="14" y="20" font-weight="700" fill="#dd6b20">Heirloom Computing</text>
+          <text x="14" y="36" font-size="9" fill="#718096">ISV-Partner</text>
+          <text x="200" y="22" fill="#4a5568">COBOL-on-JVM (Elastic COBOL)</text>
+          <text x="200" y="38" font-size="10" fill="#718096">Cloud-native auf JVM</text>
+        </g>
+        <g transform="translate(0,186)">
+          <rect width="475" height="46" fill="#fff"/>
+          <text x="14" y="20" font-weight="700" fill="#dd6b20">AveriSource</text>
+          <text x="14" y="36" font-size="9" fill="#718096">seit Nov 2025</text>
+          <text x="200" y="22" fill="#4a5568">Code-Analyse und Modernisierung</text>
+          <text x="200" y="38" font-size="10" fill="#718096">Tiefe Codebase-Analyse</text>
+        </g>
+        <g transform="translate(0,234)">
+          <rect width="475" height="46" fill="#f7fafc"/>
+          <text x="14" y="20" font-weight="700" fill="#dd6b20">Precisely</text>
+          <text x="14" y="36" font-size="9" fill="#718096">Data CDC</text>
+          <text x="200" y="22" fill="#4a5568">Data Replication Mainframe &#8596; AWS</text>
+          <text x="200" y="38" font-size="10" fill="#718096">Change Data Capture</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Services Partners (Elite Launch Partner) -->
+  <g transform="translate(565,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Services Competency Partners (Beratung &amp; Implementation)</text>
+
+    <g transform="translate(0,15)" filter="url(#shH5)">
+      <rect width="475" height="280" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="475" height="36" rx="10" fill="#dd6b20"/>
+      <rect y="24" width="475" height="12" fill="#dd6b20"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#fff">Elite Launch Partner</text>
+      <text x="280" y="22" font-size="12" font-weight="700" fill="#fff">Schwerpunkt</text>
+
+      <g font-size="11" fill="#2d3748">
+        <g transform="translate(0,42)">
+          <rect width="475" height="46" fill="#fef5e7"/>
+          <text x="14" y="20" font-weight="700" fill="#7c2d12">Accenture</text>
+          <text x="14" y="36" font-size="9" fill="#9a3412">&#9733; Elite</text>
+          <text x="280" y="22" fill="#4a5568">Strategy + Application Transformation</text>
+          <text x="280" y="38" font-size="10" fill="#718096">Replatforming &amp; Cloud-Migration</text>
+        </g>
+        <g transform="translate(0,90)">
+          <rect width="475" height="46" fill="#fff"/>
+          <text x="14" y="20" font-weight="700" fill="#7c2d12">Cognizant</text>
+          <text x="14" y="36" font-size="9" fill="#9a3412">&#9733; Elite</text>
+          <text x="280" y="22" fill="#4a5568">End-to-End-Migration</text>
+          <text x="280" y="38" font-size="10" fill="#718096">Tier-1 Migrationsprojekte</text>
+        </g>
+        <g transform="translate(0,138)">
+          <rect width="475" height="46" fill="#fef5e7"/>
+          <text x="14" y="20" font-weight="700" fill="#7c2d12">DXC Technology</text>
+          <text x="14" y="36" font-size="9" fill="#9a3412">&#9733; Elite</text>
+          <text x="280" y="22" fill="#4a5568">Mainframe-Modernisierung</text>
+          <text x="280" y="38" font-size="10" fill="#718096">Globale Praxis</text>
+        </g>
+        <g transform="translate(0,186)">
+          <rect width="475" height="46" fill="#fff"/>
+          <text x="14" y="20" font-weight="700" fill="#7c2d12">HCLTech</text>
+          <text x="14" y="36" font-size="9" fill="#9a3412">&#9733; Elite</text>
+          <text x="280" y="22" fill="#4a5568">Mainframe Transformation</text>
+          <text x="280" y="38" font-size="10" fill="#718096">Indien-basierte Skalierung</text>
+        </g>
+        <g transform="translate(0,234)">
+          <rect width="475" height="46" fill="#fef5e7"/>
+          <text x="14" y="20" font-weight="700" fill="#7c2d12">Infosys + Kyndryl</text>
+          <text x="14" y="36" font-size="9" fill="#9a3412">&#9733; Elite</text>
+          <text x="280" y="22" fill="#4a5568">Cobalt + Hybrid Cloud Integration</text>
+          <text x="280" y="38" font-size="10" fill="#718096">Mainframe-as-a-Service</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Composability + ecosystem -->
+  <g transform="translate(60,420)" filter="url(#shH5)">
+    <rect width="980" height="180" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="6" height="180" fill="#805ad5"/>
+    <text x="22" y="32" font-size="14" font-weight="700" fill="#1a202c">AWS Transform Composability &#8211; Partner integrieren eigene Agenten</text>
+    <text x="22" y="56" font-size="11" fill="#4a5568">Die Elite Launch Partner haben den Service erfolgreich in Kundenprojekten eingesetzt. AWS Transform unterstuetzt</text>
+    <text x="22" y="72" font-size="11" fill="#4a5568">Composability &#8211; Partner koennen eigene KI-Agenten und Tools in die Transform-Plattform integrieren.</text>
+
+    <g transform="translate(22,100)">
+      <text font-size="11" font-weight="700" fill="#805ad5">Weitere wichtige Services Partner</text>
+      <g font-size="10" fill="#4a5568">
+        <text y="20">&#9656; <tspan font-weight="600">TCS</tspan> &#8211; Wiederholbare Prozesse fuer IT-Modernisierung und Cloud-Transition</text>
+        <text y="36">&#9656; <tspan font-weight="600">Deloitte</tspan> &#8211; Transformation mit innoWake-Technologie</text>
+        <text y="52">&#9656; <tspan font-weight="600">Wipro</tspan> &#8211; Mainframe-Modernisierung und Cloud-Migration</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Right: ROI Stats -->
+  <g transform="translate(60,620)" filter="url(#shH5)">
+    <rect width="980" height="120" rx="12" fill="#1e3a5f"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#fbbf24">Wirtschaftliche Aspekte (EPAM ROI-Analyse 2025)</text>
+    <g transform="translate(20,52)">
+      <g>
+        <text font-size="22" font-weight="800" fill="#fff">23,3 Mio $</text>
+        <text y="18" font-size="10" fill="#cbd5e0">Durchschn. jaehrliche Einsparungen</text>
+      </g>
+      <g transform="translate(280,0)">
+        <text font-size="22" font-weight="800" fill="#fff">7,2 Mio $</text>
+        <text y="18" font-size="10" fill="#cbd5e0">Projektkosten 2025 (vorher 9,1 Mio)</text>
+      </g>
+      <g transform="translate(560,0)">
+        <text font-size="22" font-weight="800" fill="#fff">21 %</text>
+        <text y="18" font-size="10" fill="#cbd5e0">Reduktion vs. Vorjahr</text>
+      </g>
+      <g transform="translate(800,0)">
+        <text font-size="22" font-weight="800" fill="#fbbf24">2x ROI</text>
+        <text y="18" font-size="10" fill="#cbd5e0">Mehr als verdoppelt</text>
+      </g>
+    </g>
+  </g>
+</svg>

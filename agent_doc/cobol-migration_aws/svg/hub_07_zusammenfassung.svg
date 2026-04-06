@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 580" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgH7" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shH7" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="580" fill="url(#bgH7)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Zusammenfassung &amp; strategische Empfehlung</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Wie sich die AWS-Mainframe-Landschaft 2025 grundlegend verschoben hat</text>
+
+  <!-- 5 evolution cards -->
+  <g transform="translate(60,110)">
+    <g filter="url(#shH7)">
+      <rect width="195" height="290" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="50" rx="12" fill="#9b2c2c"/>
+      <rect y="38" width="195" height="12" fill="#9b2c2c"/>
+      <text x="98" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Migration Hub</text>
+      <text x="14" y="76" font-size="22">&#9737;</text>
+      <text x="14" y="108" font-size="12" font-weight="700" fill="#1a202c">Tracking-Tool</text>
+      <text x="14" y="124" font-size="12" font-weight="700" fill="#1a202c">fuer Bestandskunden</text>
+      <line x1="14" y1="138" x2="180" y2="138" stroke="#cbd5e0"/>
+      <text x="14" y="160" font-size="10" fill="#4a5568">Bleibt ein zentrales Tracking-</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">Tool fuer bestehende Kunden,</text>
+      <text x="14" y="188" font-size="10" fill="#4a5568">aber nimmt seit 7. November</text>
+      <text x="14" y="202" font-size="10" fill="#4a5568">2025 keine Neukunden mehr</text>
+      <text x="14" y="216" font-size="10" fill="#4a5568">an.</text>
+      <text x="14" y="252" font-size="10" font-weight="700" fill="#9b2c2c">Status</text>
+      <text x="14" y="268" font-size="10" font-style="italic" fill="#742a2a">Closed fuer Neukunden</text>
+    </g>
+
+    <g transform="translate(205,0)" filter="url(#shH7)">
+      <rect width="195" height="290" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="50" rx="12" fill="#dd6b20"/>
+      <rect y="38" width="195" height="12" fill="#dd6b20"/>
+      <text x="98" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">AWS Transform</text>
+      <text x="14" y="76" font-size="22">&#9881;</text>
+      <text x="14" y="108" font-size="12" font-weight="700" fill="#1a202c">Strategischer</text>
+      <text x="14" y="124" font-size="12" font-weight="700" fill="#1a202c">Nachfolger mit AI</text>
+      <line x1="14" y1="138" x2="180" y2="138" stroke="#cbd5e0"/>
+      <text x="14" y="160" font-size="10" fill="#4a5568">Erster agentic AI Service</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">fuer Mainframe-Modern.,</text>
+      <text x="14" y="188" font-size="10" fill="#4a5568">deckt alle Phasen ab &#8211; von</text>
+      <text x="14" y="202" font-size="10" fill="#4a5568">Discovery bis Deployment.</text>
+      <text x="14" y="252" font-size="10" font-weight="700" fill="#dd6b20">Status</text>
+      <text x="14" y="268" font-size="10" font-style="italic" fill="#7c2d12">Strategisch empfohlen</text>
+    </g>
+
+    <g transform="translate(410,0)" filter="url(#shH7)">
+      <rect width="195" height="290" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="50" rx="12" fill="#805ad5"/>
+      <rect y="38" width="195" height="12" fill="#805ad5"/>
+      <text x="98" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Blu Insights</text>
+      <text x="14" y="76" font-size="22">&#9777;</text>
+      <text x="14" y="108" font-size="12" font-weight="700" fill="#1a202c">COBOL-Code-Analyse</text>
+      <text x="14" y="124" font-size="12" font-weight="700" fill="#1a202c">tief und visuell</text>
+      <line x1="14" y1="138" x2="180" y2="138" stroke="#cbd5e0"/>
+      <text x="14" y="160" font-size="10" fill="#4a5568">Bleibt das primaere Tool</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">fuer detaillierte COBOL-</text>
+      <text x="14" y="188" font-size="10" fill="#4a5568">Code-Analyse und</text>
+      <text x="14" y="202" font-size="10" fill="#4a5568">Dependency-Mapping.</text>
+      <text x="14" y="252" font-size="10" font-weight="700" fill="#805ad5">Status</text>
+      <text x="14" y="268" font-size="10" font-style="italic" fill="#553c9a">3/26 &#8594; Transform Refactor</text>
+    </g>
+
+    <g transform="translate(615,0)" filter="url(#shH7)">
+      <rect width="195" height="290" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="50" rx="12" fill="#1e3a5f"/>
+      <rect y="38" width="195" height="12" fill="#1e3a5f"/>
+      <text x="98" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">M2 Service</text>
+      <text x="14" y="76" font-size="22">&#9776;</text>
+      <text x="14" y="108" font-size="12" font-weight="700" fill="#1a202c">Runtime-Umgebung</text>
+      <text x="14" y="124" font-size="12" font-weight="700" fill="#1a202c">fuer Replatform/Refactor</text>
+      <line x1="14" y1="138" x2="180" y2="138" stroke="#cbd5e0"/>
+      <text x="14" y="160" font-size="10" fill="#4a5568">Bietet die Runtime fuer</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">replatformte oder refactorte</text>
+      <text x="14" y="188" font-size="10" fill="#4a5568">Anwendungen via Blu Age</text>
+      <text x="14" y="202" font-size="10" fill="#4a5568">und Rocket Software.</text>
+      <text x="14" y="252" font-size="10" font-weight="700" fill="#1e3a5f">Status</text>
+      <text x="14" y="268" font-size="10" font-style="italic" fill="#1e3a5f">Self-Managed aktiv</text>
+    </g>
+
+    <g transform="translate(820,0)" filter="url(#shH7)">
+      <rect width="195" height="290" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="50" rx="12" fill="#38a169"/>
+      <rect y="38" width="195" height="12" fill="#38a169"/>
+      <text x="98" y="32" text-anchor="middle" font-size="13" font-weight="700" fill="#fff">Partner-Oekosystem</text>
+      <text x="14" y="76" font-size="22">&#9881;</text>
+      <text x="14" y="108" font-size="12" font-weight="700" fill="#1a202c">Implementierung &amp;</text>
+      <text x="14" y="124" font-size="12" font-weight="700" fill="#1a202c">Beratung</text>
+      <line x1="14" y1="138" x2="180" y2="138" stroke="#cbd5e0"/>
+      <text x="14" y="160" font-size="10" fill="#4a5568">Starkes Oekosystem mit</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">Software- und Services-</text>
+      <text x="14" y="188" font-size="10" fill="#4a5568">Partnern via Mainframe</text>
+      <text x="14" y="202" font-size="10" fill="#4a5568">Modernization Competency.</text>
+      <text x="14" y="252" font-size="10" font-weight="700" fill="#38a169">Status</text>
+      <text x="14" y="268" font-size="10" font-style="italic" fill="#22543d">Aktiv und wachsend</text>
+    </g>
+  </g>
+
+  <!-- Bottom recommendation -->
+  <g transform="translate(60,430)" filter="url(#shH7)">
+    <rect width="980" height="130" rx="12" fill="#1e3a5f"/>
+    <text x="490" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">Strategische Empfehlung fuer neue Mainframe-Migrationsprojekte</text>
+    <text x="490" y="58" text-anchor="middle" font-size="13" fill="#fff">AWS empfiehlt fuer alle neuen Projekte den Einsatz von</text>
+    <text x="490" y="80" text-anchor="middle" font-size="18" font-weight="800" fill="#fbbf24">AWS Transform</text>
+    <text x="490" y="100" text-anchor="middle" font-size="12" fill="#cbd5e0">in Kombination mit einem validierten Mainframe Modernization Competency Partner.</text>
+    <text x="490" y="118" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">Bestehende Migration Hub-Workflows bleiben weiter unterstuetzt &#8211; aber sind kein Pfad fuer Neuinvestitionen.</text>
+  </g>
+</svg>

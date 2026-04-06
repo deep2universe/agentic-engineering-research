@@ -2,6 +2,8 @@
 
 ## 1. AWS Migration Hub Grundlagen
 
+![Migration Hub Grundlagen](svg/hub_01_grundlagen.svg)
+
 ### 1.1 Was ist AWS Migration Hub?
 
 AWS Migration Hub ist ein zentraler Service von Amazon Web Services, der als **Single Pane of Glass** fuer die Planung, Verfolgung und Steuerung von Migrationsprojekten dient. Der Service fuehrt selbst keine Migration durch, sondern aggregiert den Status aus verschiedenen AWS- und Partner-Tools und stellt eine einheitliche Sicht bereit.
@@ -31,6 +33,8 @@ Die Integration zwischen Migration Hub und AWS Mainframe Modernization erfolgt u
 ---
 
 ## 2. Orchestrierung und Projektmanagement
+
+![Orchestrierung und Projektmanagement](svg/hub_02_orchestrierung.svg)
 
 ### 2.1 Migration Hub Orchestrator
 
@@ -73,6 +77,8 @@ Migration Waves dauern typischerweise **4-8 Wochen** und werden nach folgenden K
 ---
 
 ## 3. Discovery und Assessment
+
+![Discovery und Assessment](svg/hub_03_discovery_assessment.svg)
 
 ### 3.1 AWS Application Discovery Service
 
@@ -129,6 +135,8 @@ Der Empfehlungsprozess liefert fuer jede Anwendung mehrere viable Migrationspfad
 
 ## 4. AWS Transform -- Der Nachfolger fuer Mainframe-Migrationen
 
+![AWS Transform Nachfolger](svg/hub_04_transform_nachfolger.svg)
+
 ### 4.1 Ueberblick
 
 AWS Transform wurde im **Mai 2025** als erster agentic AI Service fuer die Modernisierung von Mainframe-Workloads eingefuehrt. Er vereint und erweitert die Faehigkeiten mehrerer bestehender AWS-Services:
@@ -151,6 +159,8 @@ Integrierte Test-Automatisierung stellt die funktionale Aequivalenz zwischen dem
 ---
 
 ## 5. Partner-Integration
+
+![Partner Integration](svg/hub_05_partner_integration.svg)
 
 ### 5.1 AWS Mainframe Modernization Competency
 
@@ -195,6 +205,8 @@ Migration Hub integriert Partner-Tools fuer das Tracking. Unterstuetzte Partner-
 
 ## 6. Wirtschaftliche Aspekte
 
+![Wirtschaftliche Aspekte](svg/hub_06_wirtschaftliche_aspekte.svg)
+
 Laut der EPAM Mainframe Modernization ROI-Analyse (2025):
 
 - **Durchschnittliche jaehrliche Einsparungen**: Mindestens 23,3 Millionen USD nach der Migration
@@ -205,6 +217,8 @@ Laut der EPAM Mainframe Modernization ROI-Analyse (2025):
 ---
 
 ## 7. Zusammenfassung und Empfehlung
+
+![Zusammenfassung Hub](svg/hub_07_zusammenfassung.svg)
 
 Die AWS-Landschaft fuer Mainframe-/COBOL-Migrationen hat sich 2025 signifikant veraendert:
 
