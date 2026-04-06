@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="540" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Wichtige CLI-Flags im Überblick</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Gruppiert nach Einsatzzweck</text>
+
+  <g font-size="11" font-family="monospace">
+    <!-- Execution -->
+    <g transform="translate(40,90)">
+      <rect width="380" height="190" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+      <text x="16" y="26" fill="#58a6ff" font-weight="700" font-family="sans-serif" font-size="14">Execution</text>
+      <text x="16" y="52" fill="#c9d1d9">-p, --prompt &lt;text&gt;</text>   <text x="200" y="52" fill="#8b949e">One-Shot</text>
+      <text x="16" y="72" fill="#c9d1d9">--model &lt;id&gt;</text>          <text x="200" y="72" fill="#8b949e">Modell-Override</text>
+      <text x="16" y="92" fill="#c9d1d9">--agent &lt;name&gt;</text>        <text x="200" y="92" fill="#8b949e">Custom Agent</text>
+      <text x="16" y="112" fill="#c9d1d9">--add-dir &lt;path&gt;</text>     <text x="200" y="112" fill="#8b949e">Workspace+</text>
+      <text x="16" y="132" fill="#c9d1d9">--autopilot</text>           <text x="200" y="132" fill="#8b949e">vollautonom</text>
+      <text x="16" y="152" fill="#c9d1d9">--no-ask-user</text>         <text x="200" y="152" fill="#8b949e">keine Rückfragen</text>
+      <text x="16" y="172" fill="#c9d1d9">--resume · --continue</text> <text x="200" y="172" fill="#8b949e">Session resume</text>
+    </g>
+
+    <!-- Security -->
+    <g transform="translate(440,90)">
+      <rect width="380" height="190" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+      <text x="16" y="26" fill="#f85149" font-weight="700" font-family="sans-serif" font-size="14">Security / Approval</text>
+      <text x="16" y="52" fill="#3fb950">--allow-tool &lt;glob&gt;</text>    <text x="200" y="52" fill="#8b949e">Whitelist</text>
+      <text x="16" y="72" fill="#f85149">--deny-tool &lt;glob&gt;</text>     <text x="200" y="72" fill="#8b949e">Blacklist (gewinnt)</text>
+      <text x="16" y="92" fill="#d29922">--allow-all-tools</text>      <text x="200" y="92" fill="#8b949e">nur Sandbox!</text>
+      <text x="16" y="120" fill="#8b949e" font-family="sans-serif">Faustregel:</text>
+      <text x="16" y="140" fill="#c9d1d9" font-family="sans-serif">Deny &gt; Allow · niemals rm/env/curl offen</text>
+    </g>
+
+    <!-- Output -->
+    <g transform="translate(40,300)">
+      <rect width="380" height="210" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+      <text x="16" y="26" fill="#3fb950" font-weight="700" font-family="sans-serif" font-size="14">Output / UI</text>
+      <text x="16" y="52" fill="#c9d1d9">--output-format json</text>  <text x="220" y="52" fill="#8b949e">JSONL</text>
+      <text x="16" y="72" fill="#c9d1d9">--silent</text>              <text x="220" y="72" fill="#8b949e">kein UI-Rauschen</text>
+      <text x="16" y="92" fill="#c9d1d9">--log-level debug</text>     <text x="220" y="92" fill="#8b949e">Debug-Logs</text>
+      <text x="16" y="112" fill="#c9d1d9">--screen-reader</text>      <text x="220" y="112" fill="#8b949e">A11y</text>
+      <text x="16" y="132" fill="#c9d1d9">--no-banner</text>          <text x="220" y="132" fill="#8b949e">Startup sauber</text>
+      <text x="16" y="152" fill="#c9d1d9">--no-color</text>           <text x="220" y="152" fill="#8b949e">pipes-freundlich</text>
+    </g>
+
+    <!-- Examples -->
+    <g transform="translate(440,300)">
+      <rect width="380" height="210" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+      <text x="16" y="26" fill="#d29922" font-weight="700" font-family="sans-serif" font-size="14">Rezepte</text>
+      <rect x="16" y="40" width="348" height="50" rx="4" fill="#0d1117"/>
+      <text x="24" y="58" fill="#c9d1d9" font-size="10">copilot -p "/review --staged" \</text>
+      <text x="24" y="72" fill="#c9d1d9" font-size="10">  --silent --output-format json</text>
+      <rect x="16" y="100" width="348" height="50" rx="4" fill="#0d1117"/>
+      <text x="24" y="118" fill="#c9d1d9" font-size="10">copilot --autopilot \</text>
+      <text x="24" y="132" fill="#c9d1d9" font-size="10">  --allow-tool 'shell(git:*),edit'</text>
+      <rect x="16" y="160" width="348" height="40" rx="4" fill="#0d1117"/>
+      <text x="24" y="180" fill="#c9d1d9" font-size="10">copilot --resume --log-level debug</text>
+    </g>
+  </g>
+</svg>

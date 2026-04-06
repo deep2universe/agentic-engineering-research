@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="460" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Approval-Modi auf einen Blick</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Von maximaler Kontrolle bis Vollautonomie – Risiko steigt ↗</text>
+
+  <!-- gradient bar -->
+  <defs>
+    <linearGradient id="riskg" x1="0" x2="1">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="0.5" stop-color="#d29922"/>
+      <stop offset="1" stop-color="#f85149"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="90" width="780" height="12" rx="6" fill="url(#riskg)"/>
+  <text x="40" y="122" fill="#3fb950" font-size="11">niedrig</text>
+  <text x="820" y="122" text-anchor="end" fill="#f85149" font-size="11">hoch</text>
+
+  <g font-size="11">
+    <g transform="translate(40,140)">
+      <rect width="148" height="290" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+      <text x="74" y="24" text-anchor="middle" fill="#3fb950" font-weight="700" font-size="13">Interactive</text>
+      <text x="74" y="44" text-anchor="middle" fill="#8b949e">Default</text>
+      <text x="10" y="80" fill="#c9d1d9">Wann:</text>
+      <text x="10" y="100" fill="#8b949e">Workstation,</text>
+      <text x="10" y="116" fill="#8b949e">Produktion</text>
+      <text x="10" y="148" fill="#c9d1d9">Wie:</text>
+      <text x="10" y="168" fill="#8b949e">y / a / n pro</text>
+      <text x="10" y="184" fill="#8b949e">Tool-Call</text>
+    </g>
+
+    <g transform="translate(198,140)">
+      <rect width="148" height="290" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+      <text x="74" y="24" text-anchor="middle" fill="#58a6ff" font-weight="700" font-size="13">Allow-Listing</text>
+      <text x="74" y="44" text-anchor="middle" fill="#8b949e">Tägliche Arbeit</text>
+      <text x="10" y="80" fill="#c9d1d9">Wie:</text>
+      <text x="10" y="100" fill="#8b949e" font-family="monospace" font-size="10">--allow-tool</text>
+      <text x="10" y="116" fill="#8b949e" font-family="monospace" font-size="10">'shell(git:*),</text>
+      <text x="10" y="130" fill="#8b949e" font-family="monospace" font-size="10">view,edit'</text>
+    </g>
+
+    <g transform="translate(356,140)">
+      <rect width="148" height="290" rx="8" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+      <text x="74" y="24" text-anchor="middle" fill="#f778ba" font-weight="700" font-size="13">Plan-Mode</text>
+      <text x="74" y="44" text-anchor="middle" fill="#8b949e">Architektur</text>
+      <text x="10" y="80" fill="#c9d1d9">Wie:</text>
+      <text x="10" y="100" fill="#8b949e">Shift+Tab</text>
+      <text x="10" y="116" fill="#8b949e">/plan</text>
+      <text x="10" y="148" fill="#c9d1d9">Effekt:</text>
+      <text x="10" y="168" fill="#8b949e">denken ohne</text>
+      <text x="10" y="184" fill="#8b949e">ausführen</text>
+    </g>
+
+    <g transform="translate(514,140)">
+      <rect width="148" height="290" rx="8" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+      <text x="74" y="24" text-anchor="middle" fill="#d29922" font-weight="700" font-size="13">Autopilot</text>
+      <text x="74" y="44" text-anchor="middle" fill="#8b949e">Lange Tasks</text>
+      <text x="10" y="80" fill="#c9d1d9">Wie:</text>
+      <text x="10" y="100" fill="#8b949e">Shift+Tab</text>
+      <text x="10" y="116" fill="#8b949e">--autopilot</text>
+      <text x="10" y="148" fill="#c9d1d9">Sandbox:</text>
+      <text x="10" y="168" fill="#8b949e">empfohlen</text>
+    </g>
+
+    <g transform="translate(672,140)">
+      <rect width="148" height="290" rx="8" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+      <text x="74" y="24" text-anchor="middle" fill="#f85149" font-weight="700" font-size="13">Yolo / All</text>
+      <text x="74" y="44" text-anchor="middle" fill="#8b949e">VM/Container</text>
+      <text x="10" y="80" fill="#c9d1d9">Wie:</text>
+      <text x="10" y="100" fill="#8b949e">--allow-all-tools</text>
+      <text x="10" y="116" fill="#8b949e">/yolo</text>
+      <text x="10" y="148" fill="#f85149">⚠ nur isoliert</text>
+      <text x="10" y="168" fill="#f85149">⚠ Deny-Liste!</text>
+    </g>
+  </g>
+</svg>
