@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgM1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shM" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="620" fill="url(#bgM1)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">AWS Mainframe Modernization (M2)</text>
+  <text x="550" y="64" text-anchor="middle" font-size="14" fill="#4a5568">Zwei fundamentale Migrationspfade unter einem Dach</text>
+
+  <!-- Source Mainframe -->
+  <g transform="translate(60,140)" filter="url(#shM)">
+    <rect width="200" height="320" rx="14" fill="#1a202c"/>
+    <text x="100" y="42" text-anchor="middle" font-size="16" font-weight="700" fill="#fbbf24">MAINFRAME</text>
+    <text x="100" y="60" text-anchor="middle" font-size="11" fill="#cbd5e0">Source System</text>
+    <line x1="20" y1="78" x2="180" y2="78" stroke="#4a5568"/>
+    <g font-size="11" fill="#e2e8f0">
+      <text x="20" y="105">&#9656; COBOL Programs</text>
+      <text x="20" y="125">&#9656; PL/I, NATURAL, RPG</text>
+      <text x="20" y="145">&#9656; CICS Transactions</text>
+      <text x="20" y="165">&#9656; JCL Batch Jobs</text>
+      <text x="20" y="185">&#9656; BMS / MFS Maps</text>
+      <text x="20" y="205">&#9656; Copybooks</text>
+      <text x="20" y="225">&#9656; DB2 Tabellen</text>
+      <text x="20" y="245">&#9656; VSAM Files</text>
+      <text x="20" y="265">&#9656; IMS Segmente</text>
+    </g>
+    <text x="100" y="298" text-anchor="middle" font-size="9" fill="#718096" font-style="italic">220 Mrd. LOC weltweit</text>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#4a5568" stroke-width="2" fill="none">
+    <path d="M270 220 L330 165" marker-end="url(#arrowM)"/>
+    <path d="M270 380 L330 435" marker-end="url(#arrowM)"/>
+  </g>
+  <defs>
+    <marker id="arrowM" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+    </marker>
+  </defs>
+
+  <!-- Path 1: Refactor -->
+  <g transform="translate(340,140)" filter="url(#shM)">
+    <rect width="380" height="160" rx="12" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+    <rect width="380" height="48" rx="12" fill="#dd6b20"/>
+    <rect y="36" width="380" height="12" fill="#dd6b20"/>
+    <text x="190" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Pfad 1 &#9656; AUTOMATED REFACTORING</text>
+    <text x="190" y="40" text-anchor="middle" font-size="11" fill="#fed7aa">Blu Age Engine &#8226; deterministisch</text>
+
+    <g transform="translate(20,68)" font-size="11" fill="#2d3748">
+      <text font-weight="700" fill="#dd6b20">Output:</text>
+      <text x="60" font-weight="600">COBOL &#8594; Java (Spring Boot)</text>
+      <text y="20" fill="#718096">&#8226; Model-to-Model-Transformation, AST-basiert</text>
+      <text y="36" fill="#718096">&#8226; 85&#8211;95 % Automatisierung</text>
+      <text y="52" fill="#718096">&#8226; Vollstaendige Code-Aenderung &#8594; modern Stack</text>
+      <text y="68" fill="#718096">&#8226; JOBOL-Risiko: Reforge-Schritt empfohlen</text>
+    </g>
+  </g>
+
+  <!-- Path 2: Replatform -->
+  <g transform="translate(340,320)" filter="url(#shM)">
+    <rect width="380" height="160" rx="12" fill="#fff" stroke="#38a169" stroke-width="2"/>
+    <rect width="380" height="48" rx="12" fill="#38a169"/>
+    <rect y="36" width="380" height="12" fill="#38a169"/>
+    <text x="190" y="22" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Pfad 2 &#9656; REPLATFORMING</text>
+    <text x="190" y="40" text-anchor="middle" font-size="11" fill="#c6f6d5">Rocket Software (ehem. Micro Focus)</text>
+
+    <g transform="translate(20,68)" font-size="11" fill="#2d3748">
+      <text font-weight="700" fill="#38a169">Output:</text>
+      <text x="60" font-weight="600">COBOL bleibt COBOL</text>
+      <text y="20" fill="#718096">&#8226; Mainframe-Emulation auf Linux/EC2</text>
+      <text y="36" fill="#718096">&#8226; Minimale Code-Aenderungen, Re-Compile</text>
+      <text y="52" fill="#718096">&#8226; CICS, JCL, VSAM, IMS, DB2 emuliert</text>
+      <text y="68" fill="#718096">&#8226; 50&#8211;90 % Kostenreduktion vs. Mainframe</text>
+    </g>
+  </g>
+
+  <!-- AWS Cloud target -->
+  <g transform="translate(770,140)" filter="url(#shM)">
+    <rect width="270" height="340" rx="14" fill="#fef5e7" stroke="#dd6b20" stroke-width="2"/>
+    <text x="135" y="34" text-anchor="middle" font-size="16" font-weight="700" fill="#7c2d12">AWS CLOUD</text>
+    <text x="135" y="52" text-anchor="middle" font-size="10" fill="#9a3412">Target Runtime &amp; Services</text>
+    <line x1="20" y1="68" x2="250" y2="68" stroke="#dd6b20" opacity="0.4"/>
+
+    <g font-size="11" fill="#2d3748">
+      <text x="20" y="92" font-weight="700" fill="#dd6b20">Compute</text>
+      <text x="20" y="108" fill="#4a5568">EC2 &#8226; ECS &#8226; Fargate</text>
+
+      <text x="20" y="138" font-weight="700" fill="#dd6b20">Datenbanken</text>
+      <text x="20" y="154" fill="#4a5568">Aurora PostgreSQL &#8226; RDS</text>
+      <text x="20" y="168" fill="#4a5568">DynamoDB &#8226; S3</text>
+
+      <text x="20" y="198" font-weight="700" fill="#dd6b20">Networking</text>
+      <text x="20" y="214" fill="#4a5568">ALB &#8226; API Gateway &#8226; Route 53</text>
+
+      <text x="20" y="244" font-weight="700" fill="#dd6b20">CI/CD &amp; Ops</text>
+      <text x="20" y="260" fill="#4a5568">CodePipeline &#8226; CloudWatch</text>
+      <text x="20" y="274" fill="#4a5568">X-Ray &#8226; CloudFormation</text>
+
+      <text x="20" y="304" font-weight="700" fill="#dd6b20">Security</text>
+      <text x="20" y="320" fill="#4a5568">IAM &#8226; Secrets Manager &#8226; KMS</text>
+    </g>
+  </g>
+
+  <!-- Bottom comparison -->
+  <g transform="translate(60,500)">
+    <text x="0" y="0" font-size="13" font-weight="700" fill="#1a202c">Beide Pfade teilen die AWS-Infrastruktur &#8211; aber unterscheiden sich fundamental in Philosophie und Wartbarkeit</text>
+
+    <g transform="translate(0,15)" font-size="11">
+      <rect width="490" height="100" rx="8" fill="#fff" stroke="#cbd5e0" filter="url(#shM)"/>
+      <text x="14" y="22" font-weight="700" fill="#dd6b20">Refactor</text>
+      <text x="14" y="40" fill="#4a5568">&#9656; Hoeheres Risiko, hoeherer Aufwand</text>
+      <text x="14" y="56" fill="#4a5568">&#9656; Niedrige langfristige TCO</text>
+      <text x="14" y="72" fill="#4a5568">&#9656; Java-Entwickler verfuegbar</text>
+      <text x="14" y="88" fill="#4a5568">&#9656; Cloud-Native Features nutzbar</text>
+
+      <rect x="510" width="490" height="100" rx="8" fill="#fff" stroke="#cbd5e0" filter="url(#shM)"/>
+      <text x="524" y="22" font-weight="700" fill="#38a169">Replatform</text>
+      <text x="524" y="40" fill="#4a5568">&#9656; Geringeres Risiko, schneller</text>
+      <text x="524" y="56" fill="#4a5568">&#9656; Bestehende Code-Basis bleibt</text>
+      <text x="524" y="72" fill="#4a5568">&#9656; COBOL-Skills bleiben relevant</text>
+      <text x="524" y="88" fill="#4a5568">&#9656; Technische Schulden bleiben</text>
+    </g>
+  </g>
+</svg>

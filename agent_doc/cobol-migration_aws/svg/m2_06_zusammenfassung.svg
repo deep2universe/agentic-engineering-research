@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 580" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgM6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shM6" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="580" fill="url(#bgM6)"/>
+
+  <text x="550" y="44" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Zusammenfassung &#8211; M2 in 5 Erkenntnissen</text>
+  <text x="550" y="68" text-anchor="middle" font-size="13" fill="#4a5568">Was Senior Architekten 2026 ueber den AWS Mainframe Modernization Service wissen muessen</text>
+
+  <!-- 5 takeaway cards -->
+  <g transform="translate(60,110)">
+    <g filter="url(#shM6)">
+      <rect width="195" height="380" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="60" rx="12" fill="#dd6b20"/>
+      <rect y="48" width="195" height="12" fill="#dd6b20"/>
+      <text x="98" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">01</text>
+      <text x="98" y="50" text-anchor="middle" font-size="11" fill="#fed7aa">Strategisch</text>
+      <text x="98" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">AWS Transform</text>
+      <text x="98" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">ist der Einstieg</text>
+      <text x="14" y="142" font-size="10" fill="#4a5568">Fuer alle Neuprojekte ist AWS</text>
+      <text x="14" y="158" font-size="10" fill="#4a5568">Transform der empfohlene</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">strategische Pfad &#8211; mit</text>
+      <text x="14" y="190" font-size="10" fill="#4a5568">Agentic AI fuer alle Phasen</text>
+      <text x="14" y="206" font-size="10" fill="#4a5568">der Modernisierung.</text>
+      <text x="14" y="232" font-size="10" font-style="italic" fill="#dd6b20">Refactor + Reforge + Reimagine</text>
+    </g>
+
+    <g transform="translate(205,0)" filter="url(#shM6)">
+      <rect width="195" height="380" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="60" rx="12" fill="#9b2c2c"/>
+      <rect y="48" width="195" height="12" fill="#9b2c2c"/>
+      <text x="98" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">02</text>
+      <text x="98" y="50" text-anchor="middle" font-size="11" fill="#fed7aa">Wichtig</text>
+      <text x="98" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Managed Runtime</text>
+      <text x="98" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">geschlossen</text>
+      <text x="14" y="142" font-size="10" fill="#4a5568">Seit November 2025 nimmt</text>
+      <text x="14" y="158" font-size="10" fill="#4a5568">der Managed Runtime keine</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">neuen Kunden mehr an.</text>
+      <text x="14" y="190" font-size="10" fill="#4a5568">Bestehende Kunden koennen</text>
+      <text x="14" y="206" font-size="10" fill="#4a5568">weiter nutzen.</text>
+      <text x="14" y="232" font-size="10" font-style="italic" fill="#9b2c2c">Nur Self-Managed bleibt aktiv</text>
+    </g>
+
+    <g transform="translate(410,0)" filter="url(#shM6)">
+      <rect width="195" height="380" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="60" rx="12" fill="#38a169"/>
+      <rect y="48" width="195" height="12" fill="#38a169"/>
+      <text x="98" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">03</text>
+      <text x="98" y="50" text-anchor="middle" font-size="11" fill="#c6f6d5">Operativ</text>
+      <text x="98" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Self-Managed</text>
+      <text x="98" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">bleibt die Option</text>
+      <text x="14" y="142" font-size="10" fill="#4a5568">Blu Age Runtime und Rocket</text>
+      <text x="14" y="158" font-size="10" fill="#4a5568">Enterprise Server koennen</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">auf eigenen EC2-Instanzen</text>
+      <text x="14" y="190" font-size="10" fill="#4a5568">betrieben werden &#8211; volle</text>
+      <text x="14" y="206" font-size="10" fill="#4a5568">Kontrolle, volle Kosten.</text>
+      <text x="14" y="232" font-size="10" font-style="italic" fill="#2f855a">DevOps + IaC verpflichtend</text>
+    </g>
+
+    <g transform="translate(615,0)" filter="url(#shM6)">
+      <rect width="195" height="380" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="60" rx="12" fill="#2c5282"/>
+      <rect y="48" width="195" height="12" fill="#2c5282"/>
+      <text x="98" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">04</text>
+      <text x="98" y="50" text-anchor="middle" font-size="11" fill="#bee3f8">Praeferenz</text>
+      <text x="98" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Refactor strategisch,</text>
+      <text x="98" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Replatform als Bruecke</text>
+      <text x="14" y="142" font-size="10" fill="#4a5568">Refactoring wird strategisch</text>
+      <text x="14" y="158" font-size="10" fill="#4a5568">bevorzugt; Replatforming dient</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">als schnelle Bruecke aus dem</text>
+      <text x="14" y="190" font-size="10" fill="#4a5568">Mainframe-Rechenzentrum.</text>
+      <text x="14" y="206" font-size="10" fill="#4a5568">Kombinieren ist die Norm.</text>
+      <text x="14" y="232" font-size="10" font-style="italic" fill="#2c5282">Hybrid &gt; Single-Track</text>
+    </g>
+
+    <g transform="translate(820,0)" filter="url(#shM6)">
+      <rect width="195" height="380" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="195" height="60" rx="12" fill="#805ad5"/>
+      <rect y="48" width="195" height="12" fill="#805ad5"/>
+      <text x="98" y="32" text-anchor="middle" font-size="22" font-weight="800" fill="#fff">05</text>
+      <text x="98" y="50" text-anchor="middle" font-size="11" fill="#e9d8fd">Wirtschaftlich</text>
+      <text x="98" y="92" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Kostenlose</text>
+      <text x="98" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#1a202c">Transformation</text>
+      <text x="14" y="142" font-size="10" fill="#4a5568">AWS Transform Mainframe-</text>
+      <text x="14" y="158" font-size="10" fill="#4a5568">Transformationen sind seit</text>
+      <text x="14" y="174" font-size="10" fill="#4a5568">2025/2026 kostenlos.</text>
+      <text x="14" y="190" font-size="10" fill="#4a5568">Vorher: $0,103 pro LOC nach</text>
+      <text x="14" y="206" font-size="10" fill="#4a5568">120k Free Tier.</text>
+      <text x="14" y="232" font-size="10" font-style="italic" fill="#553c9a">Senkt die Einstiegshuerde stark</text>
+    </g>
+  </g>
+
+  <text x="550" y="540" text-anchor="middle" font-size="13" font-style="italic" fill="#4a5568">Die Wahl ist kein Entweder/Oder &#8211; sondern ein Spektrum, das sich ueber die Zeit verschiebt.</text>
+</svg>

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgM5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shM5" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="720" fill="url(#bgM5)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Entscheidungshilfe: Refactor vs. Replatform</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Neun Kriterien im Direktvergleich &#8211; und die hybride Strategie als Synthese</text>
+
+  <!-- Decision matrix -->
+  <g transform="translate(60,100)" filter="url(#shM5)">
+    <rect width="980" height="370" rx="10" fill="#fff" stroke="#cbd5e0"/>
+
+    <!-- Header row -->
+    <rect width="980" height="44" rx="10" fill="#2d3748"/>
+    <rect y="32" width="980" height="12" fill="#2d3748"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#fff">Kriterium</text>
+    <text x="450" y="28" font-size="13" font-weight="700" fill="#fbbf24">Refactoring (Blu Age)</text>
+    <text x="755" y="28" font-size="13" font-weight="700" fill="#9ae6b4">Replatforming (Rocket)</text>
+
+    <!-- Vertical separators -->
+    <line x1="430" y1="0" x2="430" y2="370" stroke="#cbd5e0"/>
+    <line x1="730" y1="0" x2="730" y2="370" stroke="#cbd5e0"/>
+
+    <!-- Rows -->
+    <g font-size="12">
+      <g transform="translate(0,44)">
+        <rect width="980" height="36" fill="#f7fafc"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Zeitdruck</text>
+        <text x="450" y="22" fill="#dd6b20">&#9888;  Laenger (6&#8211;24 Monate)</text>
+        <text x="755" y="22" fill="#38a169">&#10003;  Schneller (3&#8211;9 Monate)</text>
+      </g>
+      <g transform="translate(0,80)">
+        <rect width="980" height="36" fill="#fff"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Risikotoleranz</text>
+        <text x="450" y="22" fill="#dd6b20">&#9888;  Hoeheres Risiko</text>
+        <text x="755" y="22" fill="#38a169">&#10003;  Geringeres Risiko</text>
+      </g>
+      <g transform="translate(0,116)">
+        <rect width="980" height="36" fill="#f7fafc"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Langfristige TCO</text>
+        <text x="450" y="22" fill="#38a169">&#10003;  Niedriger</text>
+        <text x="755" y="22" fill="#dd6b20">&#9888;  Hoeher</text>
+      </g>
+      <g transform="translate(0,152)">
+        <rect width="980" height="36" fill="#fff"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Cloud-native Features</text>
+        <text x="450" y="22" fill="#38a169">&#10003;  Volle Nutzung</text>
+        <text x="755" y="22" fill="#c53030">&#10007;  Eingeschraenkt</text>
+      </g>
+      <g transform="translate(0,188)">
+        <rect width="980" height="36" fill="#f7fafc"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Entwickler-Verfuegbarkeit</text>
+        <text x="450" y="22" fill="#38a169">&#10003;  Java-Entwickler (viele)</text>
+        <text x="755" y="22" fill="#dd6b20">&#9888;  COBOL-Entwickler (wenige)</text>
+      </g>
+      <g transform="translate(0,224)">
+        <rect width="980" height="36" fill="#fff"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Code-Qualitaet</text>
+        <text x="450" y="22" fill="#38a169">&#10003;  Moderner Code</text>
+        <text x="755" y="22" fill="#dd6b20">&#9888;  Legacy-Code bleibt</text>
+      </g>
+      <g transform="translate(0,260)">
+        <rect width="980" height="36" fill="#f7fafc"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Regulatorische Anforderungen</text>
+        <text x="450" y="22" fill="#38a169">&#10003;  Deterministisch</text>
+        <text x="755" y="22" fill="#38a169">&#10003;  Kein Funktionsrisiko</text>
+      </g>
+      <g transform="translate(0,296)">
+        <rect width="980" height="36" fill="#fff"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Team-Kompetenz</text>
+        <text x="450" y="22" fill="#dd6b20">&#9888;  Java-Expertise noetig</text>
+        <text x="755" y="22" fill="#38a169">&#10003;  COBOL-Expertise reicht</text>
+      </g>
+      <g transform="translate(0,332)">
+        <rect width="980" height="36" fill="#f7fafc"/>
+        <text x="20" y="22" fill="#2d3748" font-weight="600">Verfuegbarkeit (AWS)</text>
+        <text x="450" y="22" fill="#38a169">&#10003;  Self-Managed aktiv</text>
+        <text x="755" y="22" fill="#dd6b20">&#9888;  Managed nicht fuer Neukunden</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Hybrid Strategy -->
+  <g transform="translate(60,500)" filter="url(#shM5)">
+    <rect width="980" height="200" rx="14" fill="#ebf8ff" stroke="#2c5282" stroke-width="2"/>
+    <text x="490" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#2c5282">Hybride Strategie &#8211; in der Praxis fast immer die richtige Wahl</text>
+
+    <g transform="translate(40,55)">
+      <circle cx="20" cy="50" r="28" fill="#38a169"/>
+      <text x="20" y="56" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">1</text>
+      <text x="60" y="32" font-size="13" font-weight="700" fill="#2c5282">Phase 1: Replatforming</text>
+      <text x="60" y="50" font-size="11" fill="#2d3748">Schnelle Migration aller Workloads aus dem Mainframe-Rechenzentrum.</text>
+      <text x="60" y="64" font-size="11" fill="#2d3748">Sofortige MIPS-Einsparung (50&#8211;90 %), kein Funktionsrisiko.</text>
+      <text x="60" y="80" font-size="10" font-style="italic" fill="#4a5568">Dauer: 3&#8211;9 Monate</text>
+    </g>
+
+    <g transform="translate(360,55)">
+      <circle cx="20" cy="50" r="28" fill="#dd6b20"/>
+      <text x="20" y="56" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">2</text>
+      <text x="60" y="32" font-size="13" font-weight="700" fill="#2c5282">Phase 2: Refactoring</text>
+      <text x="60" y="50" font-size="11" fill="#2d3748">Schrittweise Refaktorisierung der wichtigsten Anwendungen mit AWS</text>
+      <text x="60" y="64" font-size="11" fill="#2d3748">Transform und Strangler Fig. Java statt COBOL Stueck fuer Stueck.</text>
+      <text x="60" y="80" font-size="10" font-style="italic" fill="#4a5568">Dauer: 12&#8211;24 Monate (parallel zu Phase 3)</text>
+    </g>
+
+    <g transform="translate(680,55)">
+      <circle cx="20" cy="50" r="28" fill="#805ad5"/>
+      <text x="20" y="56" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">3</text>
+      <text x="60" y="32" font-size="13" font-weight="700" fill="#2c5282">Phase 3: Reimagine</text>
+      <text x="60" y="50" font-size="11" fill="#2d3748">Reimagine kritischer Domains als Cloud-Native Microservices.</text>
+      <text x="60" y="64" font-size="11" fill="#2d3748">Lambda, Step Functions, EventBridge, neue Datenstrategie.</text>
+      <text x="60" y="80" font-size="10" font-style="italic" fill="#4a5568">Dauer: laufend</text>
+    </g>
+
+    <text x="490" y="180" text-anchor="middle" font-size="11" font-style="italic" fill="#2c5282">Die Wahl zwischen Refactoring und Replatforming ist keine binaere Entscheidung &#8211; sondern ein Spektrum, das sich ueber die Zeit verschieben kann.</text>
+  </g>
+</svg>

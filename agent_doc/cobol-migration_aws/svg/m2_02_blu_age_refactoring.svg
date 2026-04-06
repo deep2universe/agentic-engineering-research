@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgM2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shM2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrM2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dd6b20"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="800" fill="url(#bgM2)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Blu Age &#8211; Automated Refactoring</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Deterministische Model-to-Model-Transformation: COBOL &#8594; Java Spring Boot</text>
+
+  <!-- Phase 1: Source Categories -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Unterstuetzte Quellsysteme</text>
+    <g transform="translate(0,12)" filter="url(#shM2)">
+      <rect width="260" height="240" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <text x="14" y="24" font-size="11" font-weight="700" fill="#1e3a5f">Programmiersprachen</text>
+      <text x="14" y="42" font-size="10" fill="#4a5568">&#9656; COBOL (alle Dialekte)</text>
+      <text x="14" y="56" font-size="10" fill="#4a5568">&#9656; PL/I &#8226; NATURAL (Adabas)</text>
+      <text x="14" y="70" font-size="10" fill="#4a5568">&#9656; RPG/400 &#8226; COBOL/400</text>
+
+      <text x="14" y="98" font-size="11" font-weight="700" fill="#1e3a5f">Subsysteme</text>
+      <text x="14" y="116" font-size="10" fill="#4a5568">&#9656; CICS &#8594; REST/Web Services</text>
+      <text x="14" y="130" font-size="10" fill="#4a5568">&#9656; IMS &#8594; Message-Driven Arch</text>
+      <text x="14" y="144" font-size="10" fill="#4a5568">&#9656; JCL &#8594; Groovy/Spring Batch</text>
+      <text x="14" y="158" font-size="10" fill="#4a5568">&#9656; BMS/MFS &#8594; Angular HTML</text>
+
+      <text x="14" y="186" font-size="11" font-weight="700" fill="#1e3a5f">Datenhaltung</text>
+      <text x="14" y="204" font-size="10" fill="#4a5568">&#9656; DB2 &#8594; Aurora PostgreSQL</text>
+      <text x="14" y="218" font-size="10" fill="#4a5568">&#9656; VSAM &#8594; Blusam (PostgreSQL)</text>
+      <text x="14" y="232" font-size="10" fill="#4a5568">&#9656; Files &#8594; S3 / Filesystem</text>
+    </g>
+  </g>
+
+  <!-- Phase 2: Engine -->
+  <g transform="translate(360,112)">
+    <g filter="url(#shM2)">
+      <rect width="340" height="240" rx="10" fill="#1e3a5f"/>
+      <text x="170" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">Blu Age Engine</text>
+      <text x="170" y="50" text-anchor="middle" font-size="11" fill="#cbd5e0">Model-to-Model-Transformation</text>
+      <line x1="20" y1="64" x2="320" y2="64" stroke="#4a5568"/>
+
+      <g font-size="11" fill="#e2e8f0">
+        <text x="20" y="86" font-weight="700" fill="#fbbf24">Deterministisch</text>
+        <text x="20" y="102">Gleicher Input &#8594; gleicher Output</text>
+
+        <text x="20" y="126" font-weight="700" fill="#fbbf24">AST-basiert</text>
+        <text x="20" y="142">COBOL &#8594; abstraktes Metamodell</text>
+
+        <text x="20" y="166" font-weight="700" fill="#fbbf24">85&#8211;95 % Automation</text>
+        <text x="20" y="182">Manuelle Nacharbeit minimal</text>
+
+        <text x="20" y="206" font-weight="700" fill="#fbbf24">Audit-faehig</text>
+        <text x="20" y="222">Kritisch fuer Compliance</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Phase 3: Target -->
+  <g transform="translate(740,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Generierte Java-Anwendung</text>
+    <g transform="translate(0,12)" filter="url(#shM2)">
+      <rect width="300" height="240" rx="10" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+      <text x="14" y="24" font-size="11" font-weight="700" fill="#dd6b20">Spring Boot WAR-Datei</text>
+      <text x="14" y="38" font-size="9" fill="#718096">deployed auf Tomcat App Server</text>
+
+      <line x1="14" y1="48" x2="286" y2="48" stroke="#fed7aa"/>
+
+      <g font-family="Menlo,monospace" font-size="9" fill="#2d3748">
+        <text x="14" y="66">modernized-app/</text>
+        <text x="24" y="80">&#9492;&#9472; model/</text>
+        <text x="34" y="92" fill="#718096">RecordEntity-Klassen</text>
+        <text x="34" y="104" fill="#718096">Data Simplifiers</text>
+        <text x="24" y="118">&#9492;&#9472; service/</text>
+        <text x="34" y="130" fill="#718096">Program-Klassen</text>
+        <text x="34" y="142" fill="#718096">Subroutine-Klassen</text>
+        <text x="24" y="156">&#9492;&#9472; controller/</text>
+        <text x="34" y="168" fill="#718096">aus CICS-Transaktionen</text>
+        <text x="24" y="182">&#9492;&#9472; batch/</text>
+        <text x="34" y="194" fill="#718096">Spring Batch (aus JCL)</text>
+        <text x="24" y="208">&#9492;&#9472; webapp/</text>
+        <text x="34" y="220" fill="#718096">Angular (aus BMS Maps)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Arrows between -->
+  <line x1="320" y1="220" x2="358" y2="220" stroke="#dd6b20" stroke-width="3" marker-end="url(#arrM2)"/>
+  <line x1="700" y1="220" x2="738" y2="220" stroke="#dd6b20" stroke-width="3" marker-end="url(#arrM2)"/>
+
+  <!-- Workflow phases bottom -->
+  <g transform="translate(60,400)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Typischer Workflow &#8211; 5 Phasen</text>
+    <g transform="translate(0,15)" font-size="10">
+      <g filter="url(#shM2)">
+        <rect width="180" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#1e3a5f"/>
+        <text x="14" y="28" font-weight="700" fill="#1e3a5f">1. Code-Upload</text>
+        <text x="14" y="48" fill="#4a5568">COBOL &#8226; Copybooks</text>
+        <text x="14" y="62" fill="#4a5568">JCL &#8226; BMS Maps</text>
+        <text x="14" y="80" fill="#4a5568" font-style="italic">&#8594; Amazon S3</text>
+      </g>
+
+      <g transform="translate(200,0)" filter="url(#shM2)">
+        <rect width="180" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#2c5282"/>
+        <text x="14" y="28" font-weight="700" fill="#2c5282">2. Analyse</text>
+        <text x="14" y="48" fill="#4a5568">Inventory &#8226; Deps</text>
+        <text x="14" y="62" fill="#4a5568">Complexity &#8226; Missing Files</text>
+        <text x="14" y="80" fill="#4a5568" font-style="italic">&#8594; AWS Transform</text>
+      </g>
+
+      <g transform="translate(400,0)" filter="url(#shM2)">
+        <rect width="180" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#dd6b20"/>
+        <text x="14" y="28" font-weight="700" fill="#dd6b20">3. Transformation</text>
+        <text x="14" y="48" fill="#4a5568">COBOL &#8594; Java</text>
+        <text x="14" y="62" fill="#4a5568">JCL &#8594; Groovy</text>
+        <text x="14" y="80" fill="#4a5568" font-style="italic">&#8594; Blu Age Engine</text>
+      </g>
+
+      <g transform="translate(600,0)" filter="url(#shM2)">
+        <rect width="180" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#38a169"/>
+        <text x="14" y="28" font-weight="700" fill="#38a169">4. Build &amp; Test</text>
+        <text x="14" y="48" fill="#4a5568">Maven/Gradle</text>
+        <text x="14" y="62" fill="#4a5568">Functional Equivalence</text>
+        <text x="14" y="80" fill="#4a5568" font-style="italic">&#8594; CI/CD</text>
+      </g>
+
+      <g transform="translate(800,0)" filter="url(#shM2)">
+        <rect width="180" height="100" rx="8" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#805ad5"/>
+        <text x="14" y="28" font-weight="700" fill="#805ad5">5. Deployment</text>
+        <text x="14" y="48" fill="#4a5568">WAR Packaging</text>
+        <text x="14" y="62" fill="#4a5568">EC2 / ECS / Fargate</text>
+        <text x="14" y="80" fill="#4a5568" font-style="italic">&#8594; CloudWatch Mon.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: JOBOL Problem -->
+  <g transform="translate(60,560)" filter="url(#shM2)">
+    <rect width="980" height="210" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="980" height="42" rx="12" fill="#9b2c2c"/>
+    <rect y="30" width="980" height="12" fill="#9b2c2c"/>
+    <text x="490" y="27" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">&#9888;  Das JOBOL-Problem &#8211; Java, das wie COBOL aussieht</text>
+
+    <g transform="translate(20,60)" font-size="11" fill="#2d3748">
+      <text font-weight="700" fill="#9b2c2c">Symptom:</text>
+      <text y="16" fill="#4a5568">Blu Age erzeugt funktional aequivalenten Code, dessen Struktur und</text>
+      <text y="32" fill="#4a5568">Naming Conventions aber von COBOL gepraegt bleiben.</text>
+      <text y="48" fill="#4a5568">Java-Entwickler verstehen den Code nicht und verweigern die Wartung.</text>
+
+      <text y="80" font-weight="700" fill="#9b2c2c">Charakteristika:</text>
+      <text y="96" fill="#4a5568">&#9656; Variablennamen wie WS-CUST-NAME statt customerName</text>
+      <text y="112" fill="#4a5568">&#9656; Verschachtelte if-Strukturen statt Polymorphismus</text>
+      <text y="128" fill="#4a5568">&#9656; 500-Zeilen-Methoden statt fokussierter Services</text>
+    </g>
+
+    <g transform="translate(530,60)" font-size="11" fill="#2d3748">
+      <text font-weight="700" fill="#38a169">Drei Gegenmassnahmen:</text>
+      <text y="20"><tspan font-weight="700" fill="#dd6b20">1. Reforge</tspan> &#8211; LLM-basierte Umschreibung</text>
+      <text y="34" fill="#718096">     auf idiomatisches Java in AWS Transform</text>
+      <text y="58"><tspan font-weight="700" fill="#dd6b20">2. Reimagine</tspan> &#8211; komplette Neugestaltung</text>
+      <text y="72" fill="#718096">     als Microservices via Kiro</text>
+      <text y="96"><tspan font-weight="700" fill="#dd6b20">3. Manuelle Refaktorisierung</tspan></text>
+      <text y="110" fill="#718096">     Senior Java-Entwickler &#252;berarbeiten kritische Pfade</text>
+      <text y="138" fill="#718096" font-style="italic">Reforge ist die schnellste Loesung &#8211; aber LLM-basiert,</text>
+      <text y="152" fill="#718096" font-style="italic">also nicht deterministisch &#8594; Reviews bleiben Pflicht.</text>
+    </g>
+  </g>
+</svg>

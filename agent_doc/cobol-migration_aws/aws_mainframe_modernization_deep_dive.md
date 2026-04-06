@@ -6,6 +6,8 @@
 
 ## 1. Überblick
 
+![M2 Überblick](svg/m2_01_ueberblick.svg)
+
 Der **AWS Mainframe Modernization Service** (intern: M2) ist der zentrale, verwaltete Service von Amazon Web Services für die Migration von Mainframe-Workloads in die Cloud. Er bietet zwei grundlegend verschiedene Migrationspfade:
 
 | Pfad | Technologie | Ansatz | Code-Änderungen |
@@ -18,6 +20,8 @@ Beide Pfade teilen sich eine gemeinsame Infrastrukturebene auf AWS, unterscheide
 ---
 
 ## 2. Blu Age -- Automated Refactoring
+
+![Blu Age Refactoring](svg/m2_02_blu_age_refactoring.svg)
 
 ### 2.1 Funktionsprinzip
 
@@ -153,6 +157,8 @@ Historisch lag der Preis bei **$0,103 pro Line of Code** nach einem Free Tier vo
 
 ## 3. Rocket Software -- Replatforming
 
+![Rocket Replatforming](svg/m2_03_rocket_replatforming.svg)
+
 ### 3.1 Konzept
 
 Beim Replatforming bleibt der **COBOL-Quellcode erhalten**. Er wird lediglich für eine andere Plattform **rekompiliert** und läuft dann in einer emulierten Mainframe-Umgebung auf AWS-Infrastruktur.
@@ -250,6 +256,8 @@ Phase 5: Cutover
 
 ## 4. Service-Architektur und AWS-Integration
 
+![Service Architektur](svg/m2_04_service_architektur.svg)
+
 ### 4.1 Architektonischer Aufbau
 
 ```
@@ -325,6 +333,8 @@ Phase 5: Cutover
 
 ## 5. Entscheidungshilfe: Refactoring vs. Replatforming
 
+![Entscheidungshilfe](svg/m2_05_entscheidungshilfe.svg)
+
 ### 5.1 Entscheidungsmatrix
 
 | Kriterium | Refactoring (Blu Age) | Replatforming (Rocket) |
@@ -368,6 +378,8 @@ Dies ermöglicht sofortige MIPS-Einsparungen bei gleichzeitiger langfristiger Mo
 ---
 
 ## 6. Zusammenfassung
+
+![M2 Zusammenfassung](svg/m2_06_zusammenfassung.svg)
 
 Der AWS Mainframe Modernization Service bietet mit Blu Age und Rocket Software zwei komplementäre Migrationspfade. Die Landschaft hat sich 2025/2026 signifikant verändert:
 
