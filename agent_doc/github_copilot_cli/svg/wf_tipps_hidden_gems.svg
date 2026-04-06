@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 620" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="620" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Tipps &amp; Tricks · Hidden Gems 💎</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Zwölf unterschätzte Features</text>
+
+  <g font-size="11">
+    <g transform="translate(40,90)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#58a6ff"/>
+      <text x="16" y="26" fill="#58a6ff" font-weight="700">💎 Shift+Tab Plan-Mode-Toggle</text>
+      <text x="16" y="46" fill="#8b949e">Wechsel mitten in Session, ohne Neustart</text>
+    </g>
+    <g transform="translate(440,90)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <text x="16" y="26" fill="#3fb950" font-weight="700">💎 /fleet für Mass-Refactor</text>
+      <text x="16" y="46" fill="#8b949e">Migration · Multi-Sprache-Übersetzung</text>
+    </g>
+    <g transform="translate(40,170)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#f778ba"/>
+      <text x="16" y="26" fill="#f778ba" font-weight="700">💎 /research Deep-Research</text>
+      <text x="16" y="46" fill="#8b949e">Web + Repo + Issues kombiniert</text>
+    </g>
+    <g transform="translate(440,170)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#d29922"/>
+      <text x="16" y="26" fill="#d29922" font-weight="700">💎 gh pr edit --add-reviewer @copilot</text>
+      <text x="16" y="46" fill="#8b949e">non-interaktiv aus Scripts</text>
+    </g>
+    <g transform="translate(40,250)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#58a6ff"/>
+      <text x="16" y="26" fill="#58a6ff" font-weight="700">💎 Cloud-Delegation</text>
+      <text x="16" y="46" fill="#8b949e">@copilot continue async · Background-Job</text>
+    </g>
+    <g transform="translate(440,250)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <text x="16" y="26" fill="#3fb950" font-weight="700">💎 .github/agents/ Team-shared</text>
+      <text x="16" y="46" fill="#8b949e">automatisch geladen · versionierbar</text>
+    </g>
+    <g transform="translate(40,330)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#f778ba"/>
+      <text x="16" y="26" fill="#f778ba" font-weight="700">💎 MCP-Chaining</text>
+      <text x="16" y="46" fill="#8b949e">GitHub + Postgres + Sentry = E2E-Triage</text>
+    </g>
+    <g transform="translate(440,330)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#d29922"/>
+      <text x="16" y="26" fill="#d29922" font-weight="700">💎 --output-format json</text>
+      <text x="16" y="46" fill="#8b949e">parsebare Steps für Agentic Pipelines</text>
+    </g>
+    <g transform="translate(40,410)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#bc8cff"/>
+      <text x="16" y="26" fill="#bc8cff" font-weight="700">💎 Session-Replay</text>
+      <text x="16" y="46" fill="#8b949e">copilot session list / resume rettet Refactors</text>
+    </g>
+    <g transform="translate(440,410)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#58a6ff"/>
+      <text x="16" y="26" fill="#58a6ff" font-weight="700">💎 Multi-Repo-Mode</text>
+      <text x="16" y="46" fill="#8b949e">Workspace mit mehreren Klones · Cross-Ref</text>
+    </g>
+    <g transform="translate(40,490)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <text x="16" y="26" fill="#3fb950" font-weight="700">💎 Cost-Hack: Model-Tier</text>
+      <text x="16" y="46" fill="#8b949e">Haiku mechanisch · Opus nur Architektur</text>
+    </g>
+    <g transform="translate(440,490)"><rect width="380" height="70" rx="8" fill="#161b22" stroke="#f85149"/>
+      <text x="16" y="26" fill="#f85149" font-weight="700">💎 Pre-commit Quality-Gate</text>
+      <text x="16" y="46" fill="#8b949e" font-family="monospace" font-size="10">copilot -p "/review --staged" --fail-on high</text>
+    </g>
+  </g>
+</svg>

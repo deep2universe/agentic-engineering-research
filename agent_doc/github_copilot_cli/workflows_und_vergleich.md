@@ -4,6 +4,8 @@ Die GitHub Copilot CLI (GA Februar 2026) bringt den Copilot Coding Agent direkt 
 
 ## 1. Typische Workflows
 
+![Typische Workflows](svg/wf_typische_workflows.svg)
+
 ### 1.1 Bug-Fix
 1. `copilot` starten, Issue referenzieren (`#123`) – CLI lädt Kontext via GitHub-MCP.
 2. Plan-Mode (Shift+Tab) erzwingen: Copilot stellt Rückfragen, erstellt Reproduktion.
@@ -41,6 +43,8 @@ Die GitHub Copilot CLI (GA Februar 2026) bringt den Copilot Coding Agent direkt 
 
 ## 2. CI/CD & Automation
 
+![CI/CD & Automation](svg/wf_cicd_automation.svg)
+
 ### 2.1 GitHub Actions Integration
 Die CLI läuft headless im Runner. Programmatic Mode (`copilot -p "<prompt>" --allow-tool ...`) liefert deterministische Outputs für Pipelines.
 
@@ -72,6 +76,8 @@ jobs:
 
 ## 3. Vergleichstabelle (Stand April 2026)
 
+![Vergleichstabelle CLI-Agents](svg/wf_vergleichstabelle.svg)
+
 | Kriterium | Copilot CLI | Claude Code | Gemini CLI | OpenAI Codex CLI | Cursor CLI |
 |---|---|---|---|---|---|
 | Hersteller | GitHub/MS | Anthropic | Google | OpenAI | Anysphere |
@@ -90,6 +96,8 @@ jobs:
 | Schwächen | Approval-Reibung, jüngste GA | Pricing, kein natives GH | Weniger Tooling-Ökosystem | Wenig Agentik | CLI nachgelagert zu IDE |
 
 ## 4. Best Practices für Senior Devs / Architekten
+
+![Best Practices](svg/wf_best_practices.svg)
 
 ### 4.1 Kontext-Engineering
 - **AGENTS.md im Repo-Root** mit: Coding-Standards, Build-Befehle, Testkommandos, Dependencies, "Do not touch"-Pfaden, Domänen-Glossar.
@@ -118,6 +126,8 @@ jobs:
 
 ## 5. Troubleshooting & häufige Fehler
 
+![Troubleshooting](svg/wf_troubleshooting.svg)
+
 | Problem | Ursache | Lösung |
 |---|---|---|
 | `Rate limit exceeded` trotz Pro | Token-Bucket pro Modell, oft Backend-Bug seit 1.0.x | Modell wechseln (`/model`), warten, ggf. GitHub Support kontaktieren |
@@ -131,6 +141,8 @@ jobs:
 | VPN/IP-basierter Rate-Limit | Shared Egress | VPN aus oder dedizierte Egress-IP |
 
 ## 6. Tipps & Tricks / Hidden Gems
+
+![Tipps & Tricks / Hidden Gems](svg/wf_tipps_hidden_gems.svg)
 
 - **`Shift+Tab` Plan-Mode-Toggle** – Wechsel mitten in der Session ohne Neustart.
 - **`/fleet`** für Migration, Mass-Refactor, Multi-Sprache-Übersetzung.

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="560" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Typische Workflows – 8 Szenarien</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Vom Bug-Fix bis zum Onboarding</text>
+
+  <g font-size="11">
+    <g transform="translate(40,90)">
+      <rect width="250" height="110" rx="8" fill="#161b22" stroke="#f85149"/>
+      <text x="16" y="24" fill="#f85149" font-weight="700" font-size="13">🐛 Bug-Fix</text>
+      <text x="16" y="48" fill="#c9d1d9">#123 → Plan-Mode → Repro</text>
+      <text x="16" y="66" fill="#c9d1d9">Approval pro Tool</text>
+      <text x="16" y="84" fill="#c9d1d9">/review → gh pr create</text>
+    </g>
+    <g transform="translate(305,90)">
+      <rect width="250" height="110" rx="8" fill="#161b22" stroke="#58a6ff"/>
+      <text x="16" y="24" fill="#58a6ff" font-weight="700" font-size="13">✨ Feature-Dev</text>
+      <text x="16" y="48" fill="#c9d1d9">/plan → Akzeptanzkriterien</text>
+      <text x="16" y="66" fill="#c9d1d9">/fleet "implement OAuth"</text>
+      <text x="16" y="84" fill="#c9d1d9">Session-Memory hält Kontext</text>
+    </g>
+    <g transform="translate(570,90)">
+      <rect width="250" height="110" rx="8" fill="#161b22" stroke="#d29922"/>
+      <text x="16" y="24" fill="#d29922" font-weight="700" font-size="13">♻ Refactor (groß)</text>
+      <text x="16" y="48" fill="#c9d1d9">/research → Explore-Agent</text>
+      <text x="16" y="66" fill="#c9d1d9">inkrementell · 1 Modul/Session</text>
+      <text x="16" y="84" fill="#c9d1d9">/fleet + autopilot</text>
+    </g>
+    <g transform="translate(40,210)">
+      <rect width="250" height="110" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <text x="16" y="24" fill="#3fb950" font-weight="700" font-size="13">🧪 Test-Generation</text>
+      <text x="16" y="48" fill="#c9d1d9">Target 90% branch coverage</text>
+      <text x="16" y="66" fill="#c9d1d9">Task-Agent delegiert</text>
+      <text x="16" y="84" fill="#c9d1d9">Coverage via Bash</text>
+    </g>
+    <g transform="translate(305,210)">
+      <rect width="250" height="110" rx="8" fill="#161b22" stroke="#f778ba"/>
+      <text x="16" y="24" fill="#f778ba" font-weight="700" font-size="13">📚 Doku</text>
+      <text x="16" y="48" fill="#c9d1d9">copilot -p "Update README"</text>
+      <text x="16" y="66" fill="#c9d1d9">ADRs aus /research-Output</text>
+    </g>
+    <g transform="translate(570,210)">
+      <rect width="250" height="110" rx="8" fill="#161b22" stroke="#bc8cff"/>
+      <text x="16" y="24" fill="#bc8cff" font-weight="700" font-size="13">🔍 Code-Review</text>
+      <text x="16" y="48" fill="#c9d1d9">lokal: /review path/</text>
+      <text x="16" y="66" fill="#c9d1d9">remote: --add-reviewer @copilot</text>
+    </g>
+    <g transform="translate(40,330)">
+      <rect width="380" height="110" rx="8" fill="#161b22" stroke="#58a6ff"/>
+      <text x="16" y="24" fill="#58a6ff" font-weight="700" font-size="13">🚀 Migration (z. B. Java 8 → 21)</text>
+      <text x="16" y="48" fill="#c9d1d9">AGENTS.md: Standards, Verbotsliste, Migration-Plan</text>
+      <text x="16" y="66" fill="#c9d1d9">Plan-Mode → /fleet pro Modul → Tests grün halten</text>
+    </g>
+    <g transform="translate(440,330)">
+      <rect width="380" height="110" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <text x="16" y="24" fill="#3fb950" font-weight="700" font-size="13">🎓 Onboarding</text>
+      <text x="16" y="48" fill="#c9d1d9">"Erkläre mir die Architektur des payment Service"</text>
+      <text x="16" y="66" fill="#c9d1d9">CLI liest AGENTS.md, generiert Walkthrough mit Referenzen</text>
+    </g>
+  </g>
+</svg>

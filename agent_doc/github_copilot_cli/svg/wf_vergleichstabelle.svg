@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 720" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="940" height="720" fill="#0d1117"/>
+  <text x="470" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">CLI-Agent-Vergleichstabelle (04/2026)</text>
+  <text x="470" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Copilot · Claude Code · Gemini · Codex · Cursor</text>
+
+  <g font-size="10">
+    <!-- Header -->
+    <rect x="20" y="80" width="900" height="30" fill="#161b22" stroke="#30363d"/>
+    <text x="34" y="100" fill="#8b949e" font-weight="700">Kriterium</text>
+    <text x="200" y="100" fill="#58a6ff" font-weight="700">Copilot CLI</text>
+    <text x="360" y="100" fill="#f778ba" font-weight="700">Claude Code</text>
+    <text x="520" y="100" fill="#3fb950" font-weight="700">Gemini CLI</text>
+    <text x="680" y="100" fill="#d29922" font-weight="700">Codex CLI</text>
+    <text x="820" y="100" fill="#bc8cff" font-weight="700">Cursor CLI</text>
+
+    <g fill="#c9d1d9">
+      <g transform="translate(20,115)"><rect width="900" height="40" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18">Hersteller</text><text x="180" y="18" fill="#8b949e">GitHub/MS</text><text x="340" y="18" fill="#8b949e">Anthropic</text><text x="500" y="18" fill="#8b949e">Google</text><text x="660" y="18" fill="#8b949e">OpenAI</text><text x="800" y="18" fill="#8b949e">Anysphere</text>
+        <text x="14" y="34">Plattformen</text><text x="180" y="34" fill="#8b949e">mac/lin/win/CS</text><text x="340" y="34" fill="#8b949e">mac/lin/WSL</text><text x="500" y="34" fill="#8b949e">cross</text><text x="660" y="34" fill="#8b949e">cross</text><text x="800" y="34" fill="#8b949e">mac/lin/win</text>
+      </g>
+      <g transform="translate(20,160)"><rect width="900" height="40" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18">Modelle</text><text x="180" y="18" fill="#8b949e">Claude 4.6/GPT5</text><text x="340" y="18" fill="#8b949e">Claude Opus/Son</text><text x="500" y="18" fill="#8b949e">Gem 2.5/3 auto</text><text x="660" y="18" fill="#8b949e">GPT-5, o-Serie</text><text x="800" y="18" fill="#8b949e">Multi</text>
+        <text x="14" y="34">Context-Fenster</text><text x="180" y="34" fill="#8b949e">≤1M Opus</text><text x="340" y="34" fill="#8b949e">≤1M</text><text x="500" y="34" fill="#8b949e">1M</text><text x="660" y="34" fill="#8b949e">~400k</text><text x="800" y="34" fill="#8b949e">modellabh.</text>
+      </g>
+      <g transform="translate(20,205)"><rect width="900" height="40" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18">Preis Einstieg</text><text x="180" y="18" fill="#8b949e">$10/mo Pro · Free</text><text x="340" y="18" fill="#8b949e">$20/mo · $100 Max</text><text x="500" y="18" fill="#8b949e">Free 1000 req/d</text><text x="660" y="18" fill="#8b949e">ChatGPT + API</text><text x="800" y="18" fill="#8b949e">$20/mo Pro</text>
+      </g>
+      <g transform="translate(20,250)"><rect width="900" height="40" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18">MCP</text><text x="180" y="18" fill="#3fb950">Ja · nativ + GH</text><text x="340" y="18" fill="#3fb950">Ja · Referenz</text><text x="500" y="18" fill="#3fb950">Ja</text><text x="660" y="18" fill="#d29922">begrenzt</text><text x="800" y="18" fill="#3fb950">Ja</text>
+        <text x="14" y="34">Sandbox</text><text x="180" y="34" fill="#8b949e">Approval/Tool</text><text x="340" y="34" fill="#8b949e">Permission+Allow</text><text x="500" y="34" fill="#8b949e">gVisor-like</text><text x="660" y="34" fill="#8b949e">Auto/Sugg/Full</text><text x="800" y="34" fill="#8b949e">Cursor-Agent</text>
+      </g>
+      <g transform="translate(20,295)"><rect width="900" height="40" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18">Headless</text><text x="180" y="18" fill="#8b949e" font-family="monospace">copilot -p</text><text x="340" y="18" fill="#8b949e" font-family="monospace">claude -p</text><text x="500" y="18" fill="#8b949e" font-family="monospace">gemini -p</text><text x="660" y="18" fill="#8b949e" font-family="monospace">codex exec</text><text x="800" y="18" fill="#8b949e" font-family="monospace">cursor-agent -p</text>
+      </g>
+      <g transform="translate(20,340)"><rect width="900" height="40" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18">Plan-Mode</text><text x="180" y="18" fill="#3fb950">Ja (Shift+Tab)</text><text x="340" y="18" fill="#3fb950">Ja</text><text x="500" y="18" fill="#f85149">Nein</text><text x="660" y="18" fill="#f85149">Nein</text><text x="800" y="18" fill="#3fb950">Ja</text>
+        <text x="14" y="34">Subagenten</text><text x="180" y="34" fill="#8b949e">/fleet + specialized</text><text x="340" y="34" fill="#8b949e">Sub-Agents</text><text x="500" y="34" fill="#8b949e">Auto-Routing</text><text x="660" y="34" fill="#8b949e">begrenzt</text><text x="800" y="34" fill="#8b949e">Multi (Beta)</text>
+      </g>
+      <g transform="translate(20,385)"><rect width="900" height="40" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18">GitHub-Integr.</text><text x="180" y="18" fill="#3fb950">nativ</text><text x="340" y="18" fill="#8b949e">via MCP/gh</text><text x="500" y="18" fill="#8b949e">via gh</text><text x="660" y="18" fill="#8b949e">via gh</text><text x="800" y="18" fill="#8b949e">via gh</text>
+        <text x="14" y="34">Custom Agents</text><text x="180" y="34" fill="#8b949e">AGENTS.md ·.copilot</text><text x="340" y="34" fill="#8b949e">CLAUDE.md</text><text x="500" y="34" fill="#8b949e">GEMINI.md</text><text x="660" y="34" fill="#8b949e">AGENTS.md</text><text x="800" y="34" fill="#8b949e">.cursor/rules</text>
+      </g>
+      <g transform="translate(20,430)"><rect width="900" height="60" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18" fill="#3fb950">Stärken</text>
+        <text x="180" y="18" fill="#8b949e">GitHub-Flow</text><text x="340" y="18" fill="#8b949e">Refactoring-Tiefe</text><text x="500" y="18" fill="#8b949e">Free Tier</text><text x="660" y="18" fill="#8b949e">Lightweight</text><text x="800" y="18" fill="#8b949e">IDE-Brücke</text>
+        <text x="180" y="34" fill="#8b949e">Multi-Model</text><text x="340" y="34" fill="#8b949e">Reasoning</text><text x="500" y="34" fill="#8b949e">1M Context</text><text x="660" y="34" fill="#8b949e">OpenAI-Stack</text>
+        <text x="180" y="52" fill="#8b949e">Pricing</text>
+      </g>
+      <g transform="translate(20,495)"><rect width="900" height="60" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18" fill="#f85149">Schwächen</text>
+        <text x="180" y="18" fill="#8b949e">Approval-Reibung</text><text x="340" y="18" fill="#8b949e">Pricing</text><text x="500" y="18" fill="#8b949e">wenig Tooling</text><text x="660" y="18" fill="#8b949e">wenig Agentik</text><text x="800" y="18" fill="#8b949e">CLI nachgelagert</text>
+        <text x="180" y="34" fill="#8b949e">junge GA</text><text x="340" y="34" fill="#8b949e">kein nativ GH</text>
+      </g>
+      <g transform="translate(20,560)"><rect width="900" height="40" fill="#0d1117" stroke="#30363d"/>
+        <text x="14" y="18" fill="#bc8cff">Cloud-Delegation</text>
+        <text x="180" y="18" fill="#3fb950">/delegate</text><text x="340" y="18" fill="#f85149">–</text><text x="500" y="18" fill="#f85149">–</text><text x="660" y="18" fill="#f85149">–</text><text x="800" y="18" fill="#f85149">–</text>
+      </g>
+    </g>
+  </g>
+</svg>
