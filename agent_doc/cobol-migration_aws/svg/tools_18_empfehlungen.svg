@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL18" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL18" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bgTL18)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Empfehlungen fuer Senior Architekten</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Die richtige Tool-Wahl haengt vom Zielbild ab &#8211; ein Decision Tree</text>
+
+  <!-- Decision boxes -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Tool-Auswahl-Matrix</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shTL18)">
+        <rect width="475" height="200" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="475" height="42" rx="12" fill="#dd6b20"/>
+        <rect y="30" width="475" height="12" fill="#dd6b20"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#fff">Cloud-Native-Migration ist Pflicht</text>
+
+        <g font-size="11" fill="#2d3748">
+          <text x="14" y="62"><tspan font-weight="700" fill="#dd6b20">AWS-Strategie</tspan>     &#8594; AWS Transform</text>
+          <text x="14" y="84"><tspan font-weight="700" fill="#dd6b20">Multi-Cloud</tspan>        &#8594; Astadia, mLogica, TSRI</text>
+          <text x="14" y="106"><tspan font-weight="700" fill="#dd6b20">Google-fokussiert</tspan>  &#8594; Google Cloud + mLogica + Dual Run</text>
+          <text x="14" y="128"><tspan font-weight="700" fill="#dd6b20">Microsoft</tspan>          &#8594; Azure + Astadia / Raincode</text>
+        </g>
+        <text x="14" y="174" font-size="10" font-style="italic" fill="#4a5568">Hyperscaler-Wahl ist die erste strategische Entscheidung.</text>
+      </g>
+
+      <g transform="translate(505,0)" filter="url(#shTL18)">
+        <rect width="475" height="200" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="475" height="42" rx="12" fill="#1e3a5f"/>
+        <rect y="30" width="475" height="12" fill="#1e3a5f"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#fff">Mainframe bleibt &#8211; aber modernisieren</text>
+
+        <g font-size="11" fill="#2d3748">
+          <text x="14" y="62"><tspan font-weight="700" fill="#1e3a5f">IBM Z bleibt</tspan>          &#8594; IBM watsonx Code Assistant</text>
+          <text x="14" y="84"><tspan font-weight="700" fill="#1e3a5f">API-Wrapping reicht</tspan>  &#8594; OpenLegacy</text>
+        </g>
+        <text x="14" y="120" font-size="11" font-weight="700" fill="#1e3a5f">COBOL-Skills erhalten</text>
+        <g font-size="11" fill="#2d3748">
+          <text x="14" y="138"><tspan font-weight="700" fill="#1e3a5f">JVM-Plattform</tspan>     &#8594; Heirloom Computing</text>
+          <text x="14" y="160"><tspan font-weight="700" fill="#1e3a5f">.NET-Plattform</tspan>     &#8594; Raincode</text>
+        </g>
+        <text x="14" y="186" font-size="10" font-style="italic" fill="#4a5568">Skill-Erhalt schlaegt Cloud-Native-Vorteile.</text>
+      </g>
+    </g>
+
+    <g transform="translate(0,235)">
+      <g filter="url(#shTL18)">
+        <rect width="475" height="180" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="475" height="42" rx="12" fill="#38a169"/>
+        <rect y="30" width="475" height="12" fill="#38a169"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#fff">Schnelle Time-to-Market kritisch</text>
+
+        <g font-size="11" fill="#2d3748">
+          <text x="14" y="62"><tspan font-weight="700" fill="#38a169">Bridging-Loesung</tspan>     &#8594; OpenLegacy</text>
+          <text x="14" y="84"><tspan font-weight="700" fill="#38a169">Schnelles Replatforming</tspan> &#8594; Heirloom oder Rocket</text>
+        </g>
+        <text x="14" y="120" font-size="10" fill="#4a5568">Wenn das Rechenzentrum-Vertragsende droht oder schnell</text>
+        <text x="14" y="134" font-size="10" fill="#4a5568">Kosten gespart werden muessen, sind Bridging und</text>
+        <text x="14" y="148" font-size="10" fill="#4a5568">Replatforming die schnellsten Wege.</text>
+        <text x="14" y="170" font-size="10" font-style="italic" fill="#38a169">Spaeter kann immer noch refaktoriert werden.</text>
+      </g>
+
+      <g transform="translate(505,0)" filter="url(#shTL18)">
+        <rect width="475" height="180" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="475" height="42" rx="12" fill="#805ad5"/>
+        <rect y="30" width="475" height="12" fill="#805ad5"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#fff">Determinismus &amp; Audit-Faehigkeit Pflicht</text>
+
+        <g font-size="11" fill="#2d3748">
+          <text x="14" y="62"><tspan font-weight="700" fill="#805ad5">Hoechster Determinismus</tspan> &#8594; SoftwareMining</text>
+          <text x="14" y="84"><tspan font-weight="700" fill="#805ad5">JANUS Studio</tspan>          &#8594; TSRI</text>
+          <text x="14" y="106"><tspan font-weight="700" fill="#805ad5">.NET-Stack</tspan>            &#8594; Raincode</text>
+          <text x="14" y="128"><tspan font-weight="700" fill="#805ad5">AWS Refactor (Schritt 1)</tspan> &#8594; Blu Age (ohne Reforge!)</text>
+        </g>
+        <text x="14" y="166" font-size="10" font-style="italic" fill="#805ad5">Reforge LLM ist NICHT deterministisch &#8211; nicht fuer regulierte Logik!</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Risk Hinweise -->
+  <g transform="translate(60,540)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Risikohinweise &#8211; vor jeder Tool-Entscheidung</text>
+
+    <g transform="translate(0,15)" filter="url(#shTL18)">
+      <rect width="980" height="200" rx="12" fill="#fef5e7" stroke="#dd6b20"/>
+      <g font-size="11" fill="#7c2d12">
+        <text x="20" y="32"><tspan font-weight="700">1. Vendor Lock-in pruefen</tspan></text>
+        <text x="40" y="48" font-size="10">Alle Tools schaffen Abhaengigkeiten &#8211; ein Wechsel ist meist schwer.</text>
+
+        <text x="20" y="72"><tspan font-weight="700">2. Code-Ownership</tspan></text>
+        <text x="40" y="88" font-size="10">Wer besitzt den generierten Code? Lizenz lesen!</text>
+
+        <text x="20" y="112"><tspan font-weight="700">3. Audit-Trail</tspan></text>
+        <text x="40" y="128" font-size="10">Bei regulierten Branchen muss die Transformation reproduzierbar sein.</text>
+
+        <text x="500" y="32"><tspan font-weight="700">4. Long-term Support</tspan></text>
+        <text x="520" y="48" font-size="10">Tool-Lebenszyklus pruefen &#8211; Heirloom, SoftwareMining bestehen seit Jahrzehnten.</text>
+
+        <text x="500" y="72"><tspan font-weight="700">5. Partner-Oekosystem</tspan></text>
+        <text x="520" y="88" font-size="10">Lokale Implementation Partner vor Ort?</text>
+
+        <text x="500" y="112"><tspan font-weight="700">6. Hybride Strategien sind die Norm</tspan></text>
+        <text x="520" y="128" font-size="10">Discovery + Refactoring + Testing + API-Bridge = oft 3&#8211;5 Tools parallel</text>
+      </g>
+      <text x="490" y="180" text-anchor="middle" font-size="11" font-style="italic" fill="#9b2c2c">Eine pauschale Empfehlung gibt es nicht &#8211; die richtige Wahl haengt vom Kontext ab.</text>
+    </g>
+  </g>
+</svg>

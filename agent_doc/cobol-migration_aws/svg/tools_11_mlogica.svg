@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL11" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL11" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="540" fill="url(#bgTL11)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">mLogica LIBER*M</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Automated Mainframe Modernization Suite &#8211; stark im Google Cloud-Umfeld</text>
+
+  <g transform="translate(60,100)" filter="url(#shTL11)">
+    <rect width="980" height="80" rx="12" fill="#4285f4"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">mLogica LIBER*M + Google Cloud Dual Run</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#bee3f8">ISV-Suite &#8226; Aktiv, Google-Cloud-Partner</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#90cdf4">Durchgaengige Loesung: LIBER*M konvertiert, Dual Run validiert die Aequivalenz</text>
+  </g>
+
+  <g transform="translate(60,210)">
+    <g filter="url(#shTL11)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#4285f4"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#4285f4">Faehigkeiten</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Automated Code Refactoring fuer:</text>
+        <text x="36" y="68">COBOL, PL/I, NATURAL, ADABAS, Assembler</text>
+        <text x="22" y="92">&#9656; Dependency-Analyse und Visualisierung</text>
+        <text x="22" y="108">&#9656; Daten-Migration: DB2, IMS, VSAM &#8594; Cloud-DBs</text>
+        <text x="22" y="124">&#9656; Cloud-Native Zielarchitekturen</text>
+        <text x="22" y="140">&#9656; Hybrides Modell (Tools + Services)</text>
+      </g>
+      <text x="22" y="178" font-size="10" font-style="italic" fill="#4285f4">Sehr breite Sprachunterstuetzung &#8211; auch Assembler</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shTL11)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#0f9d58"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#0f9d58">Kombination mit Dual Run</text>
+      <text x="22" y="48" font-size="10" fill="#718096">Das macht die Loesung besonders</text>
+
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="76">&#9656; LIBER*M konvertiert deterministisch den Code</text>
+        <text x="22" y="92">&#9656; Google Cloud Dual Run vergleicht Live-Events</text>
+        <text x="22" y="108">    aus dem Mainframe mit dem neuen System</text>
+        <text x="22" y="128">&#9656; Funktionsaequivalenz wird VOR dem Cutover</text>
+        <text x="22" y="142">    bewiesen, nicht nur durch Testdaten</text>
+      </g>
+
+      <text x="22" y="180" font-size="10" font-style="italic" fill="#0f9d58">End-to-End: Konvertierung + Validierung in einer Pipeline</text>
+    </g>
+  </g>
+
+  <g transform="translate(60,440)" filter="url(#shTL11)">
+    <rect width="980" height="80" rx="10" fill="#4285f4"/>
+    <text x="20" y="34" font-size="13" font-weight="700" fill="#fbbf24">Wann mLogica?</text>
+    <text x="20" y="56" font-size="11" fill="#fff">Wenn Google Cloud die Zielplattform ist, viele exotische Sprachen migriert werden muessen</text>
+    <text x="20" y="72" font-size="11" fill="#fff">und die Dual-Run-Validierung als Risk-Reduktion strategisch wichtig ist.</text>
+  </g>
+</svg>

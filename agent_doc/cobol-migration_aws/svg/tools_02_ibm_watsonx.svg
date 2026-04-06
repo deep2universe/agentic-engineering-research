@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shTL2" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="660" fill="url(#bgTL2)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">IBM watsonx Code Assistant for Z</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Selektive COBOL-zu-Java-Translation &#8211; IBM bleibt im IBM-Oekosystem</text>
+
+  <!-- Header card -->
+  <g transform="translate(60,100)" filter="url(#shTL2)">
+    <rect width="980" height="80" rx="12" fill="#0f62fe"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">IBM watsonx Code Assistant for Z (WCA for Z)</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#bee3f8">Granite-LLMs auf COBOL-Java-Paare trainiert &#8226; Version 2.6+ (Mitte 2025) &#8226; Aktiv weiterentwickelt</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#90cdf4">Strategische Antwort von IBM auf den Mainframe-Modernisierungsmarkt</text>
+  </g>
+
+  <!-- Capabilities + Project Bob -->
+  <g transform="translate(60,210)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Faehigkeiten</text>
+
+    <g transform="translate(0,15)" filter="url(#shTL2)">
+      <rect width="475" height="240" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="240" fill="#0f62fe"/>
+      <g font-size="11" fill="#2d3748">
+        <text x="22" y="28" font-weight="700" fill="#0f62fe">&#9656; Code Explanation</text>
+        <text x="36" y="44" font-size="10" fill="#4a5568">Natuerlichsprachliche Erklaerung von COBOL (auch Assembler!)</text>
+
+        <text x="22" y="68" font-weight="700" fill="#0f62fe">&#9656; Selective COBOL-to-Java Translation</text>
+        <text x="36" y="84" font-size="10" fill="#4a5568">Methoden- oder Programm-Ebene &#8211; nicht ganze Apps</text>
+
+        <text x="22" y="108" font-weight="700" fill="#0f62fe">&#9656; Code Generation</text>
+        <text x="36" y="124" font-size="10" fill="#4a5568">Erstellung neuer COBOL-Programme mit KI-Hilfe</text>
+
+        <text x="22" y="148" font-weight="700" fill="#0f62fe">&#9656; Z Understand Metadata Retrieval</text>
+        <text x="36" y="164" font-size="10" fill="#4a5568">Zugriff auf Mainframe-Metadaten</text>
+
+        <text x="22" y="188" font-weight="700" fill="#0f62fe">&#9656; Impact Analysis &amp; Coding Standards</text>
+        <text x="36" y="204" font-size="10" fill="#4a5568">Abhaengigkeitsanalyse + Enterprise-Standards einhalten</text>
+
+        <text x="22" y="228" font-size="10" font-style="italic" fill="#0f62fe">Alleinstellung: starkes Assembler-Verstaendnis</text>
+      </g>
+    </g>
+
+    <g transform="translate(505,15)" filter="url(#shTL2)">
+      <rect width="475" height="240" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="240" fill="#805ad5"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#805ad5">Project Bob (TechXchange 2025)</text>
+      <text x="22" y="46" font-size="10" fill="#4a5568">Technical Preview &#8211; GA fuer 2026 geplant</text>
+
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="76" font-weight="700" fill="#805ad5">Geplante Faehigkeiten</text>
+        <text x="36" y="94" font-size="10">&#9656; Selbststaendige Steuerung komplexer</text>
+        <text x="36" y="108" font-size="10">    Modernisierungs-Workflows</text>
+        <text x="36" y="128" font-size="10">&#9656; Multi-Agent-Kollaboration</text>
+        <text x="36" y="148" font-size="10">&#9656; Tieferes Code-Verstaendnis durch</text>
+        <text x="36" y="162" font-size="10">    System-Level-Analyse</text>
+      </g>
+
+      <text x="22" y="200" font-size="10" font-style="italic" fill="#805ad5">Direkte Antwort auf AWS Transform &#8211; agentic AI</text>
+      <text x="22" y="214" font-size="10" font-style="italic" fill="#805ad5">Software Development System fuer Mainframe-Modernisierung</text>
+      <text x="22" y="234" font-size="10" font-weight="700" fill="#dd6b20">Entscheidend fuer IBM-zentrische Roadmaps 2026</text>
+    </g>
+  </g>
+
+  <!-- Pros / Cons / When -->
+  <g transform="translate(60,490)">
+    <g filter="url(#shTL2)">
+      <rect width="320" height="150" rx="10" fill="#f0fff4" stroke="#38a169"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#2f855a">+ Vorteile</text>
+      <g font-size="10" fill="#22543d">
+        <text x="14" y="44">&#9656; Tiefe Mainframe-Integration (z/OS, DB2, CICS)</text>
+        <text x="14" y="60">&#9656; Java + COBOL koexistieren lassen</text>
+        <text x="14" y="76">&#9656; Starkes Assembler-Verstaendnis</text>
+        <text x="14" y="92">&#9656; Niedrige Migrationsschwelle</text>
+        <text x="14" y="108">&#9656; Kein "all-or-nothing"-Zwang</text>
+        <text x="14" y="124">&#9656; Tiefe IBM Z-Tooling-Integration</text>
+      </g>
+    </g>
+
+    <g transform="translate(335,0)" filter="url(#shTL2)">
+      <rect width="320" height="150" rx="10" fill="#fff5f5" stroke="#c53030"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#c53030">&#8722; Nachteile</text>
+      <g font-size="10" fill="#742a2a">
+        <text x="14" y="44">&#9656; Vendor Lock-in zu IBM Z</text>
+        <text x="14" y="60">&#9656; LLM-basiert: nicht-deterministisch</text>
+        <text x="14" y="76">&#9656; Hoehere Lizenzkosten</text>
+        <text x="14" y="92">&#9656; Java laeuft auf z/OS, nicht in der Cloud</text>
+        <text x="14" y="108">&#9656; Modernisierung INNERHALB der IBM-Welt</text>
+        <text x="14" y="124">&#9656; Loest die Mainframe-Bindung nicht auf</text>
+      </g>
+    </g>
+
+    <g transform="translate(670,0)" filter="url(#shTL2)">
+      <rect width="315" height="150" rx="10" fill="#1e3a5f"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#fbbf24">Wann sinnvoll?</text>
+      <g font-size="10" fill="#cbd5e0">
+        <text x="14" y="44">&#9656; Mainframe soll bleiben</text>
+        <text x="14" y="60">&#9656; Hybride Strategien</text>
+        <text x="14" y="76">&#9656; IBM-Beziehung strategisch</text>
+        <text x="14" y="92">&#9656; Java auf z/OS akzeptabel</text>
+        <text x="14" y="108">    (zIIP-Engines)</text>
+        <text x="14" y="128" font-style="italic" fill="#fbbf24">Anders als AWS/GCP &#8211; weniger</text>
+        <text x="14" y="142" font-style="italic" fill="#fbbf24">Cloud-Migration, mehr Modernization</text>
+      </g>
+    </g>
+  </g>
+</svg>

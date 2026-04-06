@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shTL" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="720" fill="url(#bgTL1)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">COBOL-Modernisierungs-Markt 2026</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Sieben Anbieter-Kategorien &#8211; mehr Vielfalt als je zuvor</text>
+
+  <!-- Three drivers -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Drei Treiber des Marktwachstums</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shTL)">
+        <rect width="320" height="120" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#dd6b20"/>
+        <text x="14" y="32" font-size="14" font-weight="700" fill="#dd6b20">1. KI-Boom</text>
+        <text x="14" y="56" font-size="11" fill="#4a5568">LLMs ermoeglichen neue Ansaetze</text>
+        <text x="14" y="72" font-size="11" fill="#4a5568">fuer Code-Verstaendnis und</text>
+        <text x="14" y="88" font-size="11" fill="#4a5568">automatische Kategorisierung.</text>
+        <text x="14" y="108" font-size="10" font-style="italic" fill="#718096">Hyperscaler investieren massiv</text>
+      </g>
+
+      <g transform="translate(335,0)" filter="url(#shTL)">
+        <rect width="320" height="120" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#9b2c2c"/>
+        <text x="14" y="32" font-size="14" font-weight="700" fill="#9b2c2c">2. Skill-Mangel</text>
+        <text x="14" y="56" font-size="11" fill="#4a5568">COBOL-Entwickler werden knapp</text>
+        <text x="14" y="72" font-size="11" fill="#4a5568">und teuer. Die Generation, die diese</text>
+        <text x="14" y="88" font-size="11" fill="#4a5568">Systeme gebaut hat, geht in Rente.</text>
+        <text x="14" y="108" font-size="10" font-style="italic" fill="#718096">Druck zur Modernisierung steigt</text>
+      </g>
+
+      <g transform="translate(670,0)" filter="url(#shTL)">
+        <rect width="315" height="120" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="315" height="6" fill="#38a169"/>
+        <text x="14" y="32" font-size="14" font-weight="700" fill="#38a169">3. Cloud-Reife</text>
+        <text x="14" y="56" font-size="11" fill="#4a5568">Hyperscaler bieten Mainframe-</text>
+        <text x="14" y="72" font-size="11" fill="#4a5568">Migration als strategischen Service</text>
+        <text x="14" y="88" font-size="11" fill="#4a5568">mit eigenen Tools und Partnern.</text>
+        <text x="14" y="108" font-size="10" font-style="italic" fill="#718096">Markt-Konsolidierung in Sicht</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 7 Categories -->
+  <g transform="translate(60,290)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Anbieter-Kategorien &#8211; alle Wege fuehren raus aus dem Mainframe</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shTL)">
+        <rect width="240" height="130" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#1e3a5f"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#1e3a5f">Hyperscaler-Services</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">AWS Transform</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Google Cloud Mainframe</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Azure Mainframe Migration</text>
+        <text x="14" y="100" font-size="9" font-style="italic" fill="#718096">Marktfuehrer durch eigene</text>
+        <text x="14" y="114" font-size="9" font-style="italic" fill="#718096">KI-Plattformen</text>
+      </g>
+
+      <g transform="translate(255,0)" filter="url(#shTL)">
+        <rect width="240" height="130" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#2c5282"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#2c5282">Vendor-Tools</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">IBM watsonx Code Z</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Rocket Software</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Heirloom</text>
+        <text x="14" y="100" font-size="9" font-style="italic" fill="#718096">Etablierte Hersteller mit</text>
+        <text x="14" y="114" font-size="9" font-style="italic" fill="#718096">Mainframe-Heritage</text>
+      </g>
+
+      <g transform="translate(510,0)" filter="url(#shTL)">
+        <rect width="240" height="130" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#dd6b20"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#dd6b20">ISV-Plattformen</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">TSRI &#8226; SoftwareMining</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Astadia &#8226; Modern Systems</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">mLogica &#8226; CloudFrame</text>
+        <text x="14" y="100" font-size="9" font-style="italic" fill="#718096">Spezialisten mit jahrelanger</text>
+        <text x="14" y="114" font-size="9" font-style="italic" fill="#718096">Migrationspraxis</text>
+      </g>
+
+      <g transform="translate(765,0)" filter="url(#shTL)">
+        <rect width="220" height="130" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="220" height="6" fill="#38a169"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#38a169">API-Wrapper</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">OpenLegacy</text>
+        <text x="14" y="100" font-size="9" font-style="italic" fill="#718096">Mainframe bleibt &#8211; aber</text>
+        <text x="14" y="114" font-size="9" font-style="italic" fill="#718096">via REST integriert</text>
+      </g>
+
+      <g transform="translate(0,145)" filter="url(#shTL)">
+        <rect width="240" height="130" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#805ad5"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#805ad5">Compiler-basiert</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Raincode (.NET)</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Heirloom Elastic COBOL</text>
+        <text x="14" y="100" font-size="9" font-style="italic" fill="#718096">COBOL-Sprache bleibt,</text>
+        <text x="14" y="114" font-size="9" font-style="italic" fill="#718096">aber neue Plattform</text>
+      </g>
+
+      <g transform="translate(255,145)" filter="url(#shTL)">
+        <rect width="240" height="130" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#319795"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#319795">GenAI-Tools</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Anthropic Claude</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">GitHub Copilot</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">ChatGPT / OpenAI</text>
+        <text x="14" y="100" font-size="9" font-style="italic" fill="#718096">Augmentation, nicht</text>
+        <text x="14" y="114" font-size="9" font-style="italic" fill="#718096">Standalone-Loesung</text>
+      </g>
+
+      <g transform="translate(510,145)" filter="url(#shTL)">
+        <rect width="240" height="130" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#a0aec0"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#4a5568">Open Source</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">GnuCOBOL</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">COBOL-IT (jetzt Rocket)</text>
+        <text x="14" y="100" font-size="9" font-style="italic" fill="#718096">Kein Enterprise-Support &#8211;</text>
+        <text x="14" y="114" font-size="9" font-style="italic" fill="#718096">eher fuer Lerncases</text>
+      </g>
+
+      <g transform="translate(765,145)" filter="url(#shTL)">
+        <rect width="220" height="130" rx="10" fill="#1e3a5f"/>
+        <text x="110" y="32" text-anchor="middle" font-size="12" font-weight="700" fill="#fbbf24">Empfehlung</text>
+        <text x="110" y="60" text-anchor="middle" font-size="11" fill="#fff">Multi-Tool-Strategien</text>
+        <text x="110" y="76" text-anchor="middle" font-size="11" fill="#fff">sind die Norm</text>
+        <text x="110" y="106" text-anchor="middle" font-size="9" fill="#cbd5e0">Eine Tool-Wahl reicht selten</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Insight -->
+  <g transform="translate(60,610)" filter="url(#shTL)">
+    <rect width="980" height="100" rx="12" fill="#fef5e7" stroke="#dd6b20"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#7c2d12">Was diese Vielfalt fuer Senior Architekten bedeutet</text>
+    <text x="20" y="54" font-size="11" fill="#9a3412">&#9656; Eine pauschale Tool-Empfehlung gibt es nicht &#8211; die richtige Wahl haengt von Cloud-Strategie, Risikoprofil und Zeitrahmen ab.</text>
+    <text x="20" y="70" font-size="11" fill="#9a3412">&#9656; Hyperscaler dominieren den Diskurs, aber Spezialisten haben ihre Nischen (Determinismus, .NET-Stack, API-Wrapping).</text>
+    <text x="20" y="86" font-size="11" fill="#9a3412">&#9656; GenAI ist ergaenzend, nicht ersetzend &#8211; LLMs brauchen Orchestrierung und Validierung.</text>
+  </g>
+</svg>

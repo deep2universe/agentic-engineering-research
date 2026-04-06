@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shTL3" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="660" fill="url(#bgTL3)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Google Cloud Mainframe Modernization</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Dual Run als Alleinstellungsmerkmal &#8211; echtes Live-Vergleichen statt synthetischer Tests</text>
+
+  <!-- Header -->
+  <g transform="translate(60,100)" filter="url(#shTL3)">
+    <rect width="980" height="80" rx="12" fill="#4285f4"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">Google Cloud Mainframe + Dual Run</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#bee3f8">Hyperscaler-Plattform &#8226; Aktiv mit starkem Partner-Oekosystem</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#90cdf4">Gemini-basierte KI fuer Code-Verstaendnis und Dokumentation</text>
+  </g>
+
+  <!-- 3 components -->
+  <g transform="translate(60,210)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Komponenten</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shTL3)">
+        <rect width="320" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#4285f4"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#4285f4">Mainframe Assessment Tool</text>
+        <text x="14" y="44" font-size="9" fill="#718096">MAT &#8211; Generally Available</text>
+        <text x="14" y="74" font-size="11" fill="#4a5568">Analyse der gesamten Mainframe-</text>
+        <text x="14" y="88" font-size="11" fill="#4a5568">Landschaft &#8211; Anwendungen und Daten.</text>
+        <text x="14" y="118" font-size="11" font-weight="700" fill="#4285f4">Output:</text>
+        <text x="14" y="134" font-size="10" fill="#4a5568">Grundlage fuer informierte</text>
+        <text x="14" y="148" font-size="10" fill="#4a5568">Migrations-Entscheidungen.</text>
+      </g>
+
+      <g transform="translate(335,0)" filter="url(#shTL3)">
+        <rect width="320" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#0f9d58"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#0f9d58">&#9733; Google Cloud Dual Run</text>
+        <text x="14" y="44" font-size="9" fill="#718096">Das Schluesselfeature</text>
+        <text x="14" y="74" font-size="11" fill="#4a5568">Spielt <tspan font-weight="700">Live-Events</tspan> vom Produktions-</text>
+        <text x="14" y="88" font-size="11" fill="#4a5568">Mainframe parallel auf das modernisierte</text>
+        <text x="14" y="102" font-size="11" fill="#4a5568">Cloud-System und vergleicht in Echtzeit.</text>
+        <text x="14" y="132" font-size="11" font-weight="700" fill="#0f9d58">Entscheidender Vorteil</text>
+        <text x="14" y="148" font-size="10" fill="#4a5568">Funktionsaequivalenz wird VOR Cutover</text>
+        <text x="14" y="162" font-size="10" fill="#4a5568">bewiesen, nicht nur durch Testdaten.</text>
+        <text x="14" y="190" font-size="10" font-style="italic" fill="#0f9d58">Einzigartig im Markt.</text>
+      </g>
+
+      <g transform="translate(670,0)" filter="url(#shTL3)">
+        <rect width="315" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="315" height="6" fill="#fbbc04"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#dd6b20">Gemini-basierte KI</text>
+        <text x="14" y="44" font-size="9" fill="#718096">Code-Verstaendnis &amp; Doku</text>
+        <text x="14" y="74" font-size="11" fill="#4a5568">Google nutzt seine Gemini-Modelle</text>
+        <text x="14" y="88" font-size="11" fill="#4a5568">fuer Code-Verstaendnis, Dokumentation</text>
+        <text x="14" y="102" font-size="11" fill="#4a5568">und Transformation.</text>
+
+        <text x="14" y="132" font-size="11" font-weight="700" fill="#dd6b20">Partner-Oekosystem</text>
+        <text x="14" y="148" font-size="10" fill="#4a5568">&#9656; mLogica LIBER*M (Refactoring)</text>
+        <text x="14" y="162" font-size="10" fill="#4a5568">&#9656; Kyndryl (Implementation)</text>
+        <text x="14" y="176" font-size="10" fill="#4a5568">&#9656; Mechanical Orchard (KI-Migration)</text>
+        <text x="14" y="190" font-size="10" fill="#4a5568">&#9656; Astadia (Multi-Cloud)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Pros / Cons -->
+  <g transform="translate(60,490)">
+    <g filter="url(#shTL3)">
+      <rect width="490" height="150" rx="10" fill="#f0fff4" stroke="#0f9d58"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#0f9d58">+ Vorteile</text>
+      <g font-size="10" fill="#22543d">
+        <text x="14" y="44">&#9656; <tspan font-weight="700">Dual Run</tspan> &#8211; echtes Live-Vergleichen schlaegt synthetische Tests</text>
+        <text x="14" y="60">&#9656; Integration mit Google Distributed Cloud (GDC) fuer hybride Szenarien</text>
+        <text x="14" y="76">&#9656; Starkes ML/AI-Ecosystem (BigQuery, Vertex AI)</text>
+        <text x="14" y="92">&#9656; Gute Open-Source-Naehe</text>
+        <text x="14" y="108">&#9656; Modernisierte Daten-Workloads natuerlich integrierbar</text>
+      </g>
+    </g>
+
+    <g transform="translate(510,0)" filter="url(#shTL3)">
+      <rect width="475" height="150" rx="10" fill="#fff5f5" stroke="#c53030"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#c53030">&#8722; Nachteile</text>
+      <g font-size="10" fill="#742a2a">
+        <text x="14" y="44">&#9656; Kleineres Partner-Oekosystem als AWS</text>
+        <text x="14" y="60">&#9656; Weniger spezifische Tools fuer Mainframe-Subsysteme (CICS, IMS)</text>
+        <text x="14" y="76">&#9656; Geringerer Marktanteil im Enterprise-Mainframe-Segment</text>
+        <text x="14" y="92">&#9656; Fragmentiertere Story als AWS Transform</text>
+      </g>
+    </g>
+  </g>
+</svg>

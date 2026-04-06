@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL17" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL17" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="800" fill="url(#bgTL17)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Anbieter-Vergleichsmatrix</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">13 Anbieter im Direktvergleich &#8211; KI-Anteil, Determinismus, Cloud-Fokus, Vendor Lock-in</text>
+
+  <g transform="translate(40,100)" filter="url(#shTL17)">
+    <rect width="1020" height="670" rx="10" fill="#fff" stroke="#cbd5e0"/>
+
+    <!-- Header -->
+    <rect width="1020" height="42" rx="10" fill="#2d3748"/>
+    <rect y="30" width="1020" height="12" fill="#2d3748"/>
+    <g font-size="11" font-weight="700" fill="#fff">
+      <text x="14" y="26">Anbieter</text>
+      <text x="190" y="26">Kategorie</text>
+      <text x="370" y="26">Zielsprache</text>
+      <text x="500" y="26">KI-Anteil</text>
+      <text x="600" y="26">Determinismus</text>
+      <text x="740" y="26">Cloud-Fokus</text>
+      <text x="900" y="26">Lock-in</text>
+    </g>
+
+    <!-- Lines for separators -->
+    <g stroke="#e2e8f0">
+      <line x1="180" y1="0" x2="180" y2="670"/>
+      <line x1="360" y1="0" x2="360" y2="670"/>
+      <line x1="490" y1="0" x2="490" y2="670"/>
+      <line x1="590" y1="0" x2="590" y2="670"/>
+      <line x1="730" y1="0" x2="730" y2="670"/>
+      <line x1="890" y1="0" x2="890" y2="670"/>
+    </g>
+
+    <!-- Rows -->
+    <g font-size="10">
+      <g transform="translate(0,42)">
+        <rect width="1020" height="46" fill="#fef5e7"/>
+        <text x="14" y="22" font-weight="700" fill="#dd6b20">AWS Transform &#9733;</text>
+        <text x="190" y="22" fill="#4a5568">Hyperscaler</text>
+        <text x="370" y="22" fill="#4a5568">Java</text>
+        <text x="500" y="22" fill="#dd6b20" font-weight="700">Hoch</text>
+        <text x="600" y="22" fill="#d69e2e">Mittel (Reforge LLM)</text>
+        <text x="740" y="22" fill="#4a5568">AWS</text>
+        <text x="900" y="22" fill="#9b2c2c">Hoch</text>
+      </g>
+      <g transform="translate(0,88)">
+        <rect width="1020" height="46" fill="#fff"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">IBM watsonx Z</text>
+        <text x="190" y="22" fill="#4a5568">Vendor</text>
+        <text x="370" y="22" fill="#4a5568">Java</text>
+        <text x="500" y="22" fill="#dd6b20" font-weight="700">Hoch</text>
+        <text x="600" y="22" fill="#9b2c2c">Niedrig (LLM)</text>
+        <text x="740" y="22" fill="#4a5568">IBM Z</text>
+        <text x="900" y="22" fill="#9b2c2c">Sehr hoch</text>
+      </g>
+      <g transform="translate(0,134)">
+        <rect width="1020" height="46" fill="#f7fafc"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">Google Cloud + mLogica</text>
+        <text x="190" y="22" fill="#4a5568">Hyperscaler+ISV</text>
+        <text x="370" y="22" fill="#4a5568">Java/Python</text>
+        <text x="500" y="22" fill="#d69e2e">Mittel</text>
+        <text x="600" y="22" fill="#38a169">Hoch (mLogica)</text>
+        <text x="740" y="22" fill="#4a5568">GCP</text>
+        <text x="900" y="22" fill="#d69e2e">Mittel-Hoch</text>
+      </g>
+      <g transform="translate(0,180)">
+        <rect width="1020" height="46" fill="#fff"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">Azure + Astadia</text>
+        <text x="190" y="22" fill="#4a5568">Hyperscaler+Partner</text>
+        <text x="370" y="22" fill="#4a5568">Java/C#</text>
+        <text x="500" y="22" fill="#38a169">Niedrig</text>
+        <text x="600" y="22" fill="#38a169">Hoch</text>
+        <text x="740" y="22" fill="#4a5568">Azure</text>
+        <text x="900" y="22" fill="#d69e2e">Mittel</text>
+      </g>
+      <g transform="translate(0,226)">
+        <rect width="1020" height="46" fill="#f7fafc"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">Heirloom</text>
+        <text x="190" y="22" fill="#4a5568">ISV</text>
+        <text x="370" y="22" fill="#4a5568">COBOL-on-JVM</text>
+        <text x="500" y="22" fill="#38a169">Niedrig</text>
+        <text x="600" y="22" fill="#38a169">Hoch</text>
+        <text x="740" y="22" fill="#4a5568">Multi</text>
+        <text x="900" y="22" fill="#9b2c2c">Hoch</text>
+      </g>
+      <g transform="translate(0,272)">
+        <rect width="1020" height="46" fill="#fff"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">SoftwareMining</text>
+        <text x="190" y="22" fill="#4a5568">ISV</text>
+        <text x="370" y="22" fill="#4a5568">Java/C#</text>
+        <text x="500" y="22" fill="#38a169">Niedrig</text>
+        <text x="600" y="22" fill="#38a169" font-weight="700">Sehr hoch</text>
+        <text x="740" y="22" fill="#4a5568">Multi</text>
+        <text x="900" y="22" fill="#38a169">Niedrig</text>
+      </g>
+      <g transform="translate(0,318)">
+        <rect width="1020" height="46" fill="#f7fafc"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">TSRI</text>
+        <text x="190" y="22" fill="#4a5568">ISV</text>
+        <text x="370" y="22" fill="#4a5568">Java</text>
+        <text x="500" y="22" fill="#38a169">Niedrig</text>
+        <text x="600" y="22" fill="#38a169">Hoch</text>
+        <text x="740" y="22" fill="#4a5568">Multi</text>
+        <text x="900" y="22" fill="#d69e2e">Mittel</text>
+      </g>
+      <g transform="translate(0,364)">
+        <rect width="1020" height="46" fill="#fff"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">OpenLegacy</text>
+        <text x="190" y="22" fill="#4a5568">ISV</text>
+        <text x="370" y="22" fill="#4a5568">API-Wrapper</text>
+        <text x="500" y="22" fill="#38a169">Niedrig</text>
+        <text x="600" y="22" fill="#718096">n/a</text>
+        <text x="740" y="22" fill="#4a5568">Multi</text>
+        <text x="900" y="22" fill="#d69e2e">Mittel</text>
+      </g>
+      <g transform="translate(0,410)">
+        <rect width="1020" height="46" fill="#f7fafc"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">Astadia</text>
+        <text x="190" y="22" fill="#4a5568">Services</text>
+        <text x="370" y="22" fill="#4a5568">Java/C#</text>
+        <text x="500" y="22" fill="#38a169">Niedrig</text>
+        <text x="600" y="22" fill="#38a169">Hoch</text>
+        <text x="740" y="22" fill="#4a5568">Multi</text>
+        <text x="900" y="22" fill="#38a169">Niedrig</text>
+      </g>
+      <g transform="translate(0,456)">
+        <rect width="1020" height="46" fill="#fff"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">Raincode</text>
+        <text x="190" y="22" fill="#4a5568">ISV</text>
+        <text x="370" y="22" fill="#4a5568">COBOL-on-.NET</text>
+        <text x="500" y="22" fill="#38a169">Niedrig</text>
+        <text x="600" y="22" fill="#38a169">Hoch</text>
+        <text x="740" y="22" fill="#4a5568">Multi</text>
+        <text x="900" y="22" fill="#9b2c2c">Hoch</text>
+      </g>
+      <g transform="translate(0,502)">
+        <rect width="1020" height="46" fill="#f7fafc"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">mLogica LIBER*M</text>
+        <text x="190" y="22" fill="#4a5568">ISV</text>
+        <text x="370" y="22" fill="#4a5568">Java</text>
+        <text x="500" y="22" fill="#d69e2e">Mittel</text>
+        <text x="600" y="22" fill="#38a169">Hoch</text>
+        <text x="740" y="22" fill="#4a5568">Multi</text>
+        <text x="900" y="22" fill="#d69e2e">Mittel</text>
+      </g>
+      <g transform="translate(0,548)">
+        <rect width="1020" height="46" fill="#fff"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">CloudFrame</text>
+        <text x="190" y="22" fill="#4a5568">ISV</text>
+        <text x="370" y="22" fill="#4a5568">Java</text>
+        <text x="500" y="22" fill="#38a169">Niedrig</text>
+        <text x="600" y="22" fill="#38a169">Hoch</text>
+        <text x="740" y="22" fill="#4a5568">Cloud</text>
+        <text x="900" y="22" fill="#d69e2e">Mittel</text>
+      </g>
+      <g transform="translate(0,594)">
+        <rect width="1020" height="46" fill="#f7fafc"/>
+        <text x="14" y="22" font-weight="700" fill="#2d3748">AveriSource</text>
+        <text x="190" y="22" fill="#4a5568">ISV</text>
+        <text x="370" y="22" fill="#4a5568">Java</text>
+        <text x="500" y="22" fill="#d69e2e">Mittel</text>
+        <text x="600" y="22" fill="#38a169">Hoch</text>
+        <text x="740" y="22" fill="#4a5568">AWS</text>
+        <text x="900" y="22" fill="#d69e2e">Mittel</text>
+      </g>
+    </g>
+  </g>
+</svg>

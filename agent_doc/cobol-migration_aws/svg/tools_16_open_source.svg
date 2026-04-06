@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL16" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL16" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="540" fill="url(#bgTL16)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Open Source Tools</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">GnuCOBOL und COBOL-IT &#8211; Bruecken-Loesungen ohne Vendor-Bindung</text>
+
+  <g transform="translate(60,100)">
+    <g filter="url(#shTL16)">
+      <rect width="475" height="280" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="475" height="50" rx="12" fill="#38a169"/>
+      <rect y="38" width="475" height="12" fill="#38a169"/>
+      <text x="237" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">GnuCOBOL</text>
+      <text x="14" y="74" font-size="11" font-weight="700" fill="#38a169">Funktionsprinzip</text>
+      <text x="14" y="92" font-size="10" fill="#4a5568">Open-Source-COBOL-Compiler, der COBOL nach C transpiliert</text>
+      <text x="14" y="106" font-size="10" fill="#4a5568">und mit gcc kompiliert.</text>
+
+      <text x="14" y="134" font-size="11" font-weight="700" fill="#38a169">Einsatzgebiete</text>
+      <g font-size="10" fill="#4a5568">
+        <text x="14" y="152">&#9656; Migration kleinerer COBOL-Anwendungen</text>
+        <text x="14" y="166">    (kein Mainframe-Erbe)</text>
+        <text x="14" y="184">&#9656; Schulungs- und Lernzwecke</text>
+        <text x="14" y="202">&#9656; Brueckenloesungen ohne Vendor-Bindung</text>
+      </g>
+
+      <text x="14" y="232" font-size="11" font-weight="700" fill="#9b2c2c">Limitierungen</text>
+      <g font-size="10" fill="#742a2a">
+        <text x="14" y="250">&#9656; Kein Mainframe-Subsystem-Support (CICS, IMS)</text>
+        <text x="14" y="264">&#9656; Eingeschraenkte Enterprise-Features</text>
+      </g>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shTL16)">
+      <rect width="475" height="280" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="475" height="50" rx="12" fill="#1e3a5f"/>
+      <rect y="38" width="475" height="12" fill="#1e3a5f"/>
+      <text x="237" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#fff">COBOL-IT</text>
+      <text x="14" y="74" font-size="11" font-weight="700" fill="#1e3a5f">Status</text>
+      <text x="14" y="92" font-size="10" fill="#4a5568">War ein Open-Source-COBOL-Compiler, der mittlerweile</text>
+      <text x="14" y="106" font-size="10" fill="#4a5568">von <tspan font-weight="700">Rocket Software</tspan> uebernommen wurde.</text>
+
+      <text x="14" y="134" font-size="11" font-weight="700" fill="#1e3a5f">Heute</text>
+      <text x="14" y="152" font-size="10" fill="#4a5568">Bildet einen Teil der Rocket-Strategie und ist nicht mehr</text>
+      <text x="14" y="166" font-size="10" fill="#4a5568">als unabhaengiges Open-Source-Projekt verfuegbar.</text>
+
+      <text x="14" y="200" font-size="11" font-weight="700" fill="#dd6b20">Was bedeutet das?</text>
+      <g font-size="10" fill="#4a5568">
+        <text x="14" y="218">Wer auf COBOL-IT gesetzt hat, ist heute Rocket-Kunde.</text>
+        <text x="14" y="234">Open-Source-Wahlmoeglichkeit ist im Enterprise-COBOL-</text>
+        <text x="14" y="248">Bereich praktisch verschwunden.</text>
+      </g>
+      <text x="14" y="270" font-size="10" font-style="italic" fill="#1e3a5f">GnuCOBOL bleibt damit der wichtigste OSS-Compiler.</text>
+    </g>
+  </g>
+
+  <g transform="translate(60,410)" filter="url(#shTL16)">
+    <rect width="980" height="110" rx="12" fill="#fff5f5" stroke="#c53030"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#c53030">&#9888; Open Source ist im Mainframe-Bereich keine Enterprise-Loesung</text>
+    <text x="20" y="56" font-size="11" fill="#742a2a">&#9656; Community-Support, kein Enterprise-Support</text>
+    <text x="20" y="72" font-size="11" fill="#742a2a">&#9656; Keine Mainframe-Subsysteme abgebildet</text>
+    <text x="20" y="88" font-size="11" font-style="italic" fill="#742a2a">Open Source ist relevant fuer Lernen und kleine Migrationen &#8211; nicht fuer Tier-1-Enterprise-Workloads.</text>
+  </g>
+</svg>

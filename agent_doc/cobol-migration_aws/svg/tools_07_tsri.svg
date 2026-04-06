@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL7" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="540" fill="url(#bgTL7)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">TSRI &#8211; The Software Revolution</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Modernization Platform mit JANUS Studio &#8211; refaktoriert in Microservices statt Monolithe</text>
+
+  <g transform="translate(60,100)" filter="url(#shTL7)">
+    <rect width="980" height="80" rx="12" fill="#553c9a"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">TSRI / JANUS Studio</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#e9d8fd">Automated Code Transformation Platform &#8226; Aktiv</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#d6bcfa">Bewaehrt fuer komplexe ERP-Migrationen mit Microservice-Zielarchitektur</text>
+  </g>
+
+  <g transform="translate(60,210)">
+    <g filter="url(#shTL7)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#553c9a"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#553c9a">Charakteristika</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; <tspan font-weight="700">JANUS Studio</tspan> &#8211; die Kerntechnologie</text>
+        <text x="22" y="68">&#9656; Refaktoriert in <tspan font-weight="700">Microservices</tspan> statt monolithischen Java-Code</text>
+        <text x="22" y="84">&#9656; Bewaehrt fuer komplexe ERP-Migrationen</text>
+        <text x="22" y="100">&#9656; <tspan font-weight="700">Sehr breite Sprachunterstuetzung</tspan>:</text>
+        <text x="22" y="116">    COBOL, PL/I, NATURAL, JOVIAL, FORTRAN, Ada</text>
+      </g>
+      <text x="22" y="156" font-size="10" font-weight="700" fill="#dd6b20">Zielgruppe</text>
+      <text x="22" y="172" font-size="10" fill="#4a5568">Grosse Enterprises mit komplexen ERP-Systemen, die</text>
+      <text x="22" y="186" font-size="10" fill="#4a5568">Wartungskosten senken und Skalierbarkeit verbessern wollen.</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shTL7)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#38a169"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#38a169">Vor- und Nachteile</text>
+
+      <text x="22" y="52" font-size="11" font-weight="700" fill="#38a169">+ Vorteile</text>
+      <g font-size="10" fill="#22543d">
+        <text x="36" y="68">&#9656; Microservice-orientierte Zielarchitektur</text>
+        <text x="36" y="82">&#9656; Sehr breite Sprachunterstuetzung</text>
+        <text x="36" y="96">&#9656; Bewaehrt bei komplexen Projekten</text>
+      </g>
+
+      <text x="22" y="120" font-size="11" font-weight="700" fill="#c53030">&#8722; Nachteile</text>
+      <g font-size="10" fill="#742a2a">
+        <text x="36" y="136">&#9656; Service-getriebener Anbieter</text>
+        <text x="36" y="150">&#9656; Hoehere Projektkosten</text>
+        <text x="36" y="164">&#9656; Geringere Marktbekanntheit</text>
+        <text x="36" y="178">&#9656; Weniger als Self-Service-Tool nutzbar</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60,440)" filter="url(#shTL7)">
+    <rect width="980" height="80" rx="10" fill="#553c9a"/>
+    <text x="20" y="34" font-size="13" font-weight="700" fill="#fbbf24">Wann TSRI?</text>
+    <text x="20" y="56" font-size="11" fill="#fff">Wenn die Zielarchitektur explizit Microservices sein soll, viele exotische Sprachen migriert werden muessen</text>
+    <text x="20" y="72" font-size="11" fill="#fff">und genug Budget fuer ein Service-Modell vorhanden ist. Nicht fuer Self-Service-Setups geeignet.</text>
+  </g>
+</svg>

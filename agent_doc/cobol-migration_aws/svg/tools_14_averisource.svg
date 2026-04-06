@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL14" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL14" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="480" fill="url(#bgTL14)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">AveriSource</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Code Analysis &amp; Modernization &#8211; AWS Mainframe Modernization Software Competency seit 11/2025</text>
+
+  <g transform="translate(60,100)" filter="url(#shTL14)">
+    <rect width="980" height="80" rx="12" fill="#dd6b20"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">AveriSource</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#fed7aa">Code Analysis &amp; Modernization Tool</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#fbd38d">AWS Mainframe Modernization Software Competency seit November 2025</text>
+  </g>
+
+  <g transform="translate(60,210)">
+    <g filter="url(#shTL14)">
+      <rect width="475" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="220" fill="#dd6b20"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#dd6b20">Faehigkeiten</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Tiefgehende Code-Analyse fuer Mainframe-Codebases</text>
+        <text x="22" y="72">&#9656; Visualisierung von Abhaengigkeiten</text>
+        <text x="22" y="92">&#9656; Modernisierungs-Empfehlungen</text>
+        <text x="22" y="112">&#9656; Integration mit AWS-Services</text>
+      </g>
+      <text x="22" y="160" font-size="10" font-style="italic" fill="#dd6b20">Komplementaer zu AWS Transform &#8211; spezialisiert auf</text>
+      <text x="22" y="174" font-size="10" font-style="italic" fill="#dd6b20">tiefe Code-Analyse als Vorbereitung der Migration.</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shTL14)">
+      <rect width="475" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="220" fill="#1e3a5f"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#1e3a5f">Marktstellung</text>
+      <text x="22" y="56" font-size="11" fill="#4a5568">Neuer aber zertifizierter Anbieter im AWS-Oekosystem.</text>
+      <text x="22" y="72" font-size="11" fill="#4a5568">Die Software Competency seit November 2025 zeigt die</text>
+      <text x="22" y="88" font-size="11" fill="#4a5568">strategische Bedeutung von Code-Analyse-Tools.</text>
+
+      <text x="22" y="120" font-size="11" font-weight="700" fill="#1e3a5f">Wann sinnvoll?</text>
+      <g font-size="10" fill="#4a5568">
+        <text x="22" y="138">&#9656; Als Discovery-Tool vor AWS Transform</text>
+        <text x="22" y="154">&#9656; Wenn tiefe Codebase-Visualisierung gefragt ist</text>
+        <text x="22" y="170">&#9656; Komplementaer zu Hyperscaler-Tools</text>
+        <text x="22" y="186">&#9656; Bei AWS-zentrischen Migrationen</text>
+      </g>
+    </g>
+  </g>
+</svg>

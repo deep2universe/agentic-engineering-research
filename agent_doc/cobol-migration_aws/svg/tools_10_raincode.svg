@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL10" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL10" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="540" fill="url(#bgTL10)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Raincode &#8211; COBOL-Compiler fuer .NET</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Einzigartiger Ansatz: COBOL zu Managed Code, der nativ in der CLR laeuft</text>
+
+  <g transform="translate(60,100)" filter="url(#shTL10)">
+    <rect width="980" height="80" rx="12" fill="#0078d4"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">Raincode COBOL Compiler</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#bee3f8">COBOL-Compiler fuer .NET / .NET Core &#8226; Aktiv, primaer im Microsoft-Umfeld</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#90cdf4">100 % thread-safe Managed Code &#8211; keine native DLLs</text>
+  </g>
+
+  <g transform="translate(60,210)">
+    <g filter="url(#shTL10)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#0078d4"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#0078d4">Charakteristika</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; <tspan font-weight="700">100 % thread-safe Managed Code</tspan></text>
+        <text x="22" y="68">    keine native DLLs</text>
+        <text x="22" y="86">&#9656; Native CICS- und SQL-Unterstuetzung im Compiler</text>
+        <text x="22" y="102">&#9656; Visual Studio-Integration mit Debugger, IntelliSense</text>
+        <text x="22" y="118">&#9656; Project Management als Teil der IDE</text>
+        <text x="22" y="134">&#9656; Toolkit fuer komplexe Migrationen</text>
+        <text x="22" y="148">    (Assembly-Sprachen, CICS, IMS)</text>
+      </g>
+      <text x="22" y="184" font-size="10" font-style="italic" fill="#0078d4">COBOL-Code wird zu Java-aequivalentem .NET-Bytecode</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shTL10)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#dd6b20"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#dd6b20">Wann sinnvoll?</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Microsoft-Stack-Organisationen</text>
+        <text x="22" y="68">    Azure, .NET, Visual Studio</text>
+        <text x="22" y="86">&#9656; COBOL-Entwickler weiter in COBOL arbeiten</text>
+        <text x="22" y="102">&#9656; Hybride Anwendungen (.NET + COBOL)</text>
+        <text x="22" y="118">&#9656; Bestehende .NET-Skills im Team</text>
+      </g>
+
+      <text x="22" y="148" font-size="11" font-weight="700" fill="#9b2c2c">Tradeoffs</text>
+      <g font-size="10" fill="#742a2a">
+        <text x="22" y="164">&#9656; Festgelegt auf .NET (nicht JVM/Java)</text>
+        <text x="22" y="178">&#9656; Vendor Lock-in zu Raincode</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60,440)" filter="url(#shTL10)">
+    <rect width="980" height="80" rx="10" fill="#0078d4"/>
+    <text x="20" y="34" font-size="13" font-weight="700" fill="#fbbf24">Vergleich zu Heirloom</text>
+    <text x="20" y="56" font-size="11" fill="#fff">Wo Heirloom COBOL auf der JVM laufen laesst, macht Raincode dasselbe fuer .NET / CLR.</text>
+    <text x="20" y="72" font-size="11" fill="#fff">Beide bewahren COBOL-Skills &#8211; aber jeweils auf einem anderen Stack.</text>
+  </g>
+</svg>

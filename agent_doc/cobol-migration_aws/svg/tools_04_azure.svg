@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shTL4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="660" fill="url(#bgTL4)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Microsoft Azure Mainframe Migration</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Partner-zentrierte Strategie &#8211; kein eigener Service wie AWS Transform</text>
+
+  <g transform="translate(60,100)" filter="url(#shTL4)">
+    <rect width="980" height="80" rx="12" fill="#0078d4"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">Azure Mainframe Migration</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#bee3f8">Hyperscaler-Plattform &#8226; Aktiv, partner-getrieben</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#90cdf4">Kein integrierter Service &#8211; setzt auf Astadia, Raincode, Rocket und KI-Bausteine</text>
+  </g>
+
+  <!-- Schluesselpartner -->
+  <g transform="translate(60,210)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Schluesselpartner</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shTL4)">
+        <rect width="320" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#0078d4"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#0078d4">Astadia + Azure</text>
+        <g font-size="10" fill="#4a5568">
+          <text x="14" y="50">&#9656; 100 % automatisierte Konvertierung</text>
+          <text x="14" y="66">&#9656; DB2, IMS, VSAM &#8594; SQL Server,</text>
+          <text x="14" y="80">    Oracle, PostgreSQL</text>
+          <text x="14" y="98">&#9656; Deployment auf Azure VMs, AKS</text>
+          <text x="14" y="114">&#9656; End-to-End Services-Modell</text>
+        </g>
+        <text x="14" y="158" font-size="10" font-style="italic" fill="#0078d4">Multi-Cloud-faehiger Migrationsanbieter</text>
+        <text x="14" y="172" font-size="10" font-style="italic" fill="#0078d4">mit Azure-Spezialisierung</text>
+      </g>
+
+      <g transform="translate(335,0)" filter="url(#shTL4)">
+        <rect width="320" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#805ad5"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#805ad5">Raincode COBOL Compiler</text>
+        <g font-size="10" fill="#4a5568">
+          <text x="14" y="50">&#9656; Generiert 100 % thread-safe</text>
+          <text x="14" y="64">    Managed Code fuer .NET / .NET Core</text>
+          <text x="14" y="82">&#9656; Native CICS- und SQL-Support</text>
+          <text x="14" y="98">&#9656; Visual Studio-Integration mit</text>
+          <text x="14" y="112">    Debugger und IntelliSense</text>
+        </g>
+        <text x="14" y="148" font-size="11" font-weight="700" fill="#805ad5">Besonders interessant:</text>
+        <text x="14" y="164" font-size="10" fill="#4a5568">COBOL bleibt COBOL, laeuft aber</text>
+        <text x="14" y="178" font-size="10" fill="#4a5568">als .NET-Assembly in der CLR.</text>
+      </g>
+
+      <g transform="translate(670,0)" filter="url(#shTL4)">
+        <rect width="315" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="315" height="6" fill="#dd6b20"/>
+        <text x="14" y="28" font-size="13" font-weight="700" fill="#dd6b20">KI-Ansatz von Microsoft</text>
+        <g font-size="10" fill="#4a5568">
+          <text x="14" y="50">&#9656; <tspan font-weight="700">Semantic Kernel</tspan></text>
+          <text x="14" y="64">    als Orchestrierungs-Framework</text>
+          <text x="14" y="82">&#9656; <tspan font-weight="700">GitHub Copilot</tspan></text>
+          <text x="14" y="96">    fuer Entwickler-Assistenz</text>
+          <text x="14" y="114">&#9656; <tspan font-weight="700">Azure OpenAI Service</tspan></text>
+          <text x="14" y="128">    fuer LLM-basierte Transformationen</text>
+          <text x="14" y="146">&#9656; <tspan font-weight="700">Graph RAG</tspan></text>
+          <text x="14" y="160">    fuer COBOL-Code-Verstaendnis</text>
+        </g>
+        <text x="14" y="190" font-size="10" font-style="italic" fill="#dd6b20">Modular &#8211; aber keine integrierte Plattform</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Pros / Cons -->
+  <g transform="translate(60,470)">
+    <g filter="url(#shTL4)">
+      <rect width="490" height="170" rx="10" fill="#f0fff4" stroke="#0f9d58"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#0f9d58">+ Vorteile</text>
+      <g font-size="10" fill="#22543d">
+        <text x="14" y="44">&#9656; Starke Integration mit .NET-Stack (Raincode)</text>
+        <text x="14" y="60">&#9656; Visual Studio als gewohnte IDE fuer Entwickler</text>
+        <text x="14" y="76">&#9656; Microsoft-Partner-Oekosystem im Enterprise stark</text>
+        <text x="14" y="92">&#9656; Gute Hybrid-Cloud-Story (Azure Arc)</text>
+        <text x="14" y="108">&#9656; Bestehende .NET-Skills nutzbar</text>
+        <text x="14" y="124">&#9656; Sicherheits- und Tooling-Vorteile von Managed Code</text>
+        <text x="14" y="140">&#9656; Tiefe Integration in Microsoft-Ecosystem</text>
+        <text x="14" y="156">&#9656; Solides Compliance-Tooling im Enterprise-Umfeld</text>
+      </g>
+    </g>
+
+    <g transform="translate(510,0)" filter="url(#shTL4)">
+      <rect width="475" height="170" rx="10" fill="#fff5f5" stroke="#c53030"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#c53030">&#8722; Nachteile</text>
+      <g font-size="10" fill="#742a2a">
+        <text x="14" y="44">&#9656; Keine eigene KI-getriebene Plattform wie AWS Transform</text>
+        <text x="14" y="60">&#9656; Stark partner-abhaengig</text>
+        <text x="14" y="76">&#9656; .NET als Zielplattform schraenkt Java-zentrische Teams ein</text>
+        <text x="14" y="92">&#9656; Weniger Mainframe-Expertise-Investment als AWS</text>
+        <text x="14" y="108">&#9656; Festgelegt auf .NET (nicht JVM/Java)</text>
+        <text x="14" y="124">&#9656; Vendor Lock-in zu Raincode</text>
+        <text x="14" y="140">&#9656; Geringere Cloud-Native-Faehigkeiten als Java-Stacks</text>
+      </g>
+    </g>
+  </g>
+</svg>

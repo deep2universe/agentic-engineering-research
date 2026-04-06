@@ -8,6 +8,8 @@ Dieser Guide ergaenzt den AWS-fokussierten Migrationsguide um eine umfassende Ue
 
 ## 1. Marktueberblick 2026
 
+![Marktueberblick 2026](svg/tools_01_marktueberblick.svg)
+
 Der COBOL-Modernisierungs-Markt ist in den letzten Jahren stark gewachsen. Drei Treiber dominieren:
 
 1. **KI-Boom**: LLMs ermoeglichen neue Ansaetze fuer Code-Verstaendnis
@@ -29,6 +31,8 @@ Der COBOL-Modernisierungs-Markt ist in den letzten Jahren stark gewachsen. Drei 
 ---
 
 ## 2. IBM watsonx Code Assistant for Z
+
+![IBM watsonx](svg/tools_02_ibm_watsonx.svg)
 
 **Hersteller:** IBM
 **Kategorie:** KI-gestuetzte Modernisierungs-Plattform
@@ -84,6 +88,8 @@ IBM kuendigte als Technical Preview die naechste Generation an: **Project Bob**,
 
 ## 3. Google Cloud Mainframe Modernization
 
+![Google Cloud](svg/tools_03_google_cloud.svg)
+
 **Hersteller:** Google Cloud
 **Kategorie:** Hyperscaler-Plattform
 **Status 2026:** Aktiv, mit starkem Partner-Oekosystem
@@ -125,6 +131,8 @@ Google verfolgt eine starke Partner-Strategie:
 ---
 
 ## 4. Microsoft Azure Mainframe Migration
+
+![Microsoft Azure](svg/tools_04_azure.svg)
 
 **Hersteller:** Microsoft Azure
 **Kategorie:** Hyperscaler-Plattform
@@ -179,6 +187,8 @@ Microsoft hat eigene Erfahrungen mit AI Agents fuer COBOL-Migration veroeffentli
 
 ## 5. Heirloom Computing -- Elastic COBOL
 
+![Heirloom](svg/tools_05_heirloom.svg)
+
 **Hersteller:** Heirloom Computing
 **Kategorie:** ISV / Compiler-basierte Migration
 **Status 2026:** Aktiv, AWS Mainframe Modernization Software Competency Partner
@@ -225,6 +235,8 @@ Heirloom ist besonders interessant fuer:
 
 ## 6. SoftwareMining
 
+![SoftwareMining](svg/tools_06_softwaremining.svg)
+
 **Hersteller:** SoftwareMining
 **Kategorie:** Deterministische COBOL-zu-Java/C# Konvertierung
 **Status 2026:** Aktiv, Fortune-500-Referenzen
@@ -251,6 +263,8 @@ SoftwareMining ist ein **deterministisches Tool**, das COBOL durch regelbasierte
 ---
 
 ## 7. TSRI (The Software Revolution, Inc.)
+
+![TSRI](svg/tools_07_tsri.svg)
 
 **Hersteller:** TSRI
 **Kategorie:** Automated Code Transformation Platform
@@ -282,6 +296,8 @@ TSRI bietet eine **Modernization Platform**, die ueber simple Konvertierung hina
 ---
 
 ## 8. OpenLegacy
+
+![OpenLegacy](svg/tools_08_openlegacy.svg)
 
 **Hersteller:** OpenLegacy
 **Kategorie:** API-Integration / API-Wrapper
@@ -327,6 +343,8 @@ OpenLegacy ist ideal fuer:
 
 ## 9. Astadia
 
+![Astadia](svg/tools_09_astadia.svg)
+
 **Hersteller:** Astadia
 **Kategorie:** End-to-End Mainframe Migration Services
 **Status 2026:** Aktiv, Multi-Cloud
@@ -361,6 +379,8 @@ Astadia ist ein **services-getriebener** Anbieter, der end-to-end Migrationsproj
 ---
 
 ## 10. Raincode
+
+![Raincode](svg/tools_10_raincode.svg)
 
 **Hersteller:** Raincode
 **Kategorie:** COBOL-Compiler fuer .NET / .NET Core
@@ -400,6 +420,8 @@ Raincode hat einen einzigartigen Ansatz: Sie haben einen **COBOL-Compiler fuer .
 
 ## 11. mLogica LIBER\*M
 
+![mLogica](svg/tools_11_mlogica.svg)
+
 **Hersteller:** mLogica
 **Kategorie:** Automated Mainframe Modernization Suite
 **Status 2026:** Aktiv, Google-Cloud-Partner
@@ -420,6 +442,8 @@ LIBER\*M ist eine umfassende Modernisierungs-Suite, die besonders im Google-Clou
 
 ## 12. Modern Systems
 
+![Modern Systems](svg/tools_12_modern_systems.svg)
+
 **Hersteller:** Modern Systems (Teil der Modern Systems-Gruppe)
 **Kategorie:** COBOL-zu-Java/C# Migration
 
@@ -434,6 +458,8 @@ Modern Systems ist ein etablierter Anbieter im Mainframe-Modernisierungs-Markt m
 
 ## 13. CloudFrame
 
+![CloudFrame](svg/tools_13_cloudframe.svg)
+
 **Hersteller:** CloudFrame
 **Kategorie:** COBOL-zu-Java Refactoring
 
@@ -446,6 +472,8 @@ CloudFrame ist ein weiterer spezialisierter Anbieter im Refactoring-Markt mit Fo
 ---
 
 ## 14. AveriSource
+
+![AveriSource](svg/tools_14_averisource.svg)
 
 **Hersteller:** AveriSource
 **Kategorie:** Code Analysis & Modernization
@@ -461,6 +489,8 @@ AveriSource hat im November 2025 die AWS Mainframe Modernization Software Compet
 ---
 
 ## 15. Generative AI Tools im COBOL-Umfeld
+
+![GenAI Tools](svg/tools_15_genai.svg)
 
 ### 15.1 Anthropic Claude
 
@@ -510,6 +540,8 @@ LLMs sollten **kombiniert** mit deterministischen Frameworks, Orchestrierung und
 
 ## 16. Open Source Tools
 
+![Open Source Tools](svg/tools_16_open_source.svg)
+
 ### 16.1 GnuCOBOL
 
 GnuCOBOL ist ein Open-Source-COBOL-Compiler, der COBOL nach C transpiliert und dann mit gcc kompiliert. Er wird hauptsaechlich fuer:
@@ -531,6 +563,8 @@ COBOL-IT war ein Open-Source-COBOL-Compiler, der mittlerweile von Rocket Softwar
 
 ## 17. Anbieter-Vergleichsmatrix
 
+![Anbieter-Vergleichsmatrix](svg/tools_17_vergleichsmatrix.svg)
+
 | Anbieter | Kategorie | Zielsprache | KI-Anteil | Determinismus | Cloud-Fokus | Vendor Lock-in |
 |----------|-----------|-------------|-----------|---------------|-------------|----------------|
 | **AWS Transform** | Hyperscaler | Java | Hoch | Mittel (Reforge LLM) | AWS | Hoch |
@@ -550,6 +584,8 @@ COBOL-IT war ein Open-Source-COBOL-Compiler, der mittlerweile von Rocket Softwar
 ---
 
 ## 18. Empfehlungen fuer Senior Architekten
+
+![Empfehlungen fuer Senior Architekten](svg/tools_18_empfehlungen.svg)
 
 ### 18.1 Tool-Auswahl-Matrix
 
@@ -598,6 +634,8 @@ In der Praxis nutzen grosse Migrationen oft **mehrere Tools parallel**:
 ---
 
 ## 19. Zusammenfassung
+
+![Tools Zusammenfassung](svg/tools_19_zusammenfassung.svg)
 
 Der COBOL-Modernisierungs-Markt ist 2026 reicher und vielfaeltiger als je zuvor. Die wichtigsten Erkenntnisse fuer Senior Architekten:
 

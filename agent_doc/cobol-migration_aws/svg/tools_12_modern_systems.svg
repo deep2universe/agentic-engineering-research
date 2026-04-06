@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL12" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL12" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="480" fill="url(#bgTL12)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Modern Systems</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Etablierter Anbieter im Mainframe-Modernisierungs-Markt &#8211; aehnlich Blu Age oder TSRI</text>
+
+  <g transform="translate(60,100)" filter="url(#shTL12)">
+    <rect width="980" height="80" rx="12" fill="#553c9a"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">Modern Systems</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#e9d8fd">COBOL-zu-Java/C# Migration &#8226; Etablierter Anbieter</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#d6bcfa">Fokus auf automatisierte Code-Migration mit Services-Modell</text>
+  </g>
+
+  <g transform="translate(60,210)">
+    <g filter="url(#shTL12)">
+      <rect width="475" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="220" fill="#553c9a"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#553c9a">Schwerpunkte</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Automatisierte COBOL-zu-Java/C#-Konvertierung</text>
+        <text x="22" y="72">&#9656; Datenbank-Migration</text>
+        <text x="22" y="92">&#9656; Test-Automatisierung</text>
+        <text x="22" y="112">&#9656; Services-Modell fuer Implementierung</text>
+        <text x="22" y="132">&#9656; Beide Zielplattformen: JVM und .NET</text>
+      </g>
+      <text x="22" y="174" font-size="10" font-style="italic" fill="#553c9a">Aehnlicher Ansatz wie andere Refactoring-Tools</text>
+      <text x="22" y="190" font-size="10" font-style="italic" fill="#553c9a">(Blu Age, TSRI), aber als unabhaengiger ISV.</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shTL12)">
+      <rect width="475" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="220" fill="#dd6b20"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#dd6b20">Wann sinnvoll?</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Wenn ein etablierter ISV gewuenscht wird,</text>
+        <text x="22" y="68">    der unabhaengig von Hyperscalern arbeitet</text>
+        <text x="22" y="88">&#9656; Multi-Sprach-Migration (Java + C#)</text>
+        <text x="22" y="108">&#9656; Klassisches Services-Modell</text>
+        <text x="22" y="128">&#9656; Bestehender Vertrag oder Beziehung</text>
+      </g>
+      <text x="22" y="166" font-size="10" font-weight="700" fill="#9b2c2c">Tradeoffs</text>
+      <g font-size="10" fill="#742a2a">
+        <text x="22" y="182">&#9656; Geringere Sichtbarkeit als Hyperscaler-Tools</text>
+        <text x="22" y="196">&#9656; Service-Modell-abhaengig (kein Self-Service)</text>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 480" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL13" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL13" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="480" fill="url(#bgTL13)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">CloudFrame</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">COBOL-zu-Java Refactoring &#8211; direkter Pfad zum Cloud-Deployment</text>
+
+  <g transform="translate(60,100)" filter="url(#shTL13)">
+    <rect width="980" height="80" rx="12" fill="#319795"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">CloudFrame</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#b2f5ea">Spezialisierter ISV im Refactoring-Markt &#8226; Java-Stack-fokussiert</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#81e6d9">Direkte Konvertierung ohne Zwischenebene &#8211; Spring Boot als Zielarchitektur</text>
+  </g>
+
+  <g transform="translate(60,210)">
+    <g filter="url(#shTL13)">
+      <rect width="475" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="220" fill="#319795"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#319795">Fokus</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; <tspan font-weight="700">Direkte COBOL-zu-Java-Konvertierung</tspan></text>
+        <text x="22" y="68">    ohne Zwischenebene</text>
+        <text x="22" y="88">&#9656; <tspan font-weight="700">Cloud-Deployment</tspan> als primaeres Ziel</text>
+        <text x="22" y="108">&#9656; <tspan font-weight="700">Spring Boot-basierte Zielarchitektur</tspan></text>
+        <text x="22" y="128">&#9656; Schnellere Pipelines durch direkten Pfad</text>
+      </g>
+      <text x="22" y="170" font-size="10" font-style="italic" fill="#319795">Aehnlich wie Blu Age, aber unabhaengig</text>
+      <text x="22" y="186" font-size="10" font-style="italic" fill="#319795">vom AWS-Oekosystem.</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shTL13)">
+      <rect width="475" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="220" fill="#dd6b20"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#dd6b20">Wann sinnvoll?</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Wenn Java/Spring Boot die klare</text>
+        <text x="22" y="66">    Zielarchitektur ist</text>
+        <text x="22" y="86">&#9656; Multi-Cloud-Strategie</text>
+        <text x="22" y="106">&#9656; Unabhaengigkeit von Hyperscaler-Tools</text>
+        <text x="22" y="122">    gewuenscht</text>
+      </g>
+
+      <text x="22" y="160" font-size="11" font-weight="700" fill="#9b2c2c">Marktposition</text>
+      <text x="22" y="178" font-size="10" fill="#742a2a">Spezialisierter ISV &#8211; weniger sichtbar als</text>
+      <text x="22" y="192" font-size="10" fill="#742a2a">Hyperscaler-Tools, aber etabliert.</text>
+    </g>
+  </g>
+</svg>

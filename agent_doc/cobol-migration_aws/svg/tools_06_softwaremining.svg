@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL6" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="540" fill="url(#bgTL6)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">SoftwareMining</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Deterministische COBOL-zu-Java/C# Konvertierung &#8211; Fortune-500-bewaehrt</text>
+
+  <g transform="translate(60,100)" filter="url(#shTL6)">
+    <rect width="980" height="80" rx="12" fill="#1e3a5f"/>
+    <text x="490" y="32" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">SoftwareMining</text>
+    <text x="490" y="54" text-anchor="middle" font-size="12" fill="#cbd5e0">Deterministisches Tool &#8226; Fortune-500-Referenzen &#8226; Aktiv</text>
+    <text x="490" y="72" text-anchor="middle" font-size="11" fill="#94a3b8">Schluesselfeature: GOTO-Statements werden in standard Java loops und switches umstrukturiert</text>
+  </g>
+
+  <g transform="translate(60,210)">
+    <g filter="url(#shTL6)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#1e3a5f"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#1e3a5f">Ansatz</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Regelbasierte Algorithmen, kein KI-Ansatz</text>
+        <text x="22" y="68">&#9656; Konvertiert COBOL in Java oder C#</text>
+        <text x="22" y="84">&#9656; <tspan font-weight="700">Restrukturierung</tspan>: GOTO &#8594; loops/switches</text>
+        <text x="22" y="100">&#9656; Produziert deutlich besseren Code als 1:1-Konvertierungen</text>
+        <text x="22" y="116">&#9656; Bewaehrt im Enterprise-Einsatz</text>
+        <text x="22" y="132">&#9656; Millionen Lines of Code in sauberen Java-Code</text>
+      </g>
+      <text x="22" y="170" font-size="11" font-weight="700" fill="#dd6b20">Alleinstellung</text>
+      <text x="22" y="186" font-size="10" fill="#4a5568">Gleiches Input = gleiches Output (deterministisch)</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shTL6)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#38a169"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#38a169">Wann sinnvoll?</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Wenn Determinismus oberste Prioritaet hat</text>
+        <text x="22" y="68">&#9656; Audit-faehige Konvertierungen Pflicht</text>
+        <text x="22" y="84">&#9656; Regulierte Branchen (Banken, Versicherungen)</text>
+        <text x="22" y="100">&#9656; Reproduzierbare Migration ueber Iterationen</text>
+        <text x="22" y="116">&#9656; Java oder C# als Zielsprache</text>
+      </g>
+      <text x="22" y="148" font-size="11" font-weight="700" fill="#9b2c2c">Schwaechen</text>
+      <g font-size="10" fill="#742a2a">
+        <text x="22" y="164">&#9656; Kein KI-Ansatz &#8211; weniger clever bei Edge Cases</text>
+        <text x="22" y="178">&#9656; Standalone-Tool, weniger Cloud-Plattform-Integration</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60,440)" filter="url(#shTL6)">
+    <rect width="980" height="80" rx="10" fill="#1e3a5f"/>
+    <text x="20" y="34" font-size="13" font-weight="700" fill="#fbbf24">Vergleich zu KI-basierten Tools</text>
+    <text x="20" y="56" font-size="11" fill="#fff">Wenn AWS Transform Reforge fuer JOBOL-Vermeidung LLMs einsetzt (nicht-deterministisch),</text>
+    <text x="20" y="72" font-size="11" fill="#fff">erreicht SoftwareMining aehnliche Code-Qualitaet rein <tspan font-weight="700" fill="#fbbf24">regelbasiert</tspan> &#8211; aber ohne Cloud-Plattform-Komfort.</text>
+  </g>
+</svg>

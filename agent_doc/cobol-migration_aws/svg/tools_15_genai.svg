@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgTL15" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shTL15" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bgTL15)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Generative AI Tools im COBOL-Umfeld</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Claude, Copilot, ChatGPT &#8211; Augmentation, nicht Standalone-Loesung</text>
+
+  <!-- 3 GenAI Tools -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Die drei wichtigsten GenAI-Tools fuer COBOL-Migrationen</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shTL15)">
+        <rect width="320" height="280" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#dd6b20"/>
+        <text x="14" y="28" font-size="14" font-weight="700" fill="#dd6b20">Anthropic Claude</text>
+        <text x="14" y="44" font-size="9" fill="#718096">Claude Code &#8226; Agentic Workflows</text>
+
+        <text x="14" y="74" font-size="11" font-weight="700" fill="#dd6b20">Staerken</text>
+        <g font-size="10" fill="#4a5568">
+          <text x="14" y="90">&#9656; Sehr gutes Code-Verstaendnis</text>
+          <text x="14" y="104">&#9656; Multi-File-Refactoring (Agentic)</text>
+          <text x="14" y="118">&#9656; Dependency-Mapping</text>
+          <text x="14" y="132">&#9656; Inkrementelle Modernisierung</text>
+          <text x="14" y="146">&#9656; Tool Use (Build, Test, Git)</text>
+        </g>
+
+        <text x="14" y="174" font-size="11" font-weight="700" fill="#9b2c2c">Schwaechen</text>
+        <g font-size="10" fill="#742a2a">
+          <text x="14" y="190">&#9656; Kein deterministischer Output</text>
+          <text x="14" y="204">&#9656; Begrenztes Kontext-Fenster</text>
+          <text x="14" y="218">&#9656; Erfordert Pipeline-Orchestrierung</text>
+          <text x="14" y="232">    (Graph RAG, Chunking)</text>
+        </g>
+
+        <text x="14" y="262" font-size="10" font-style="italic" fill="#dd6b20">Anthropic-Blog: "How AI helps break</text>
+        <text x="14" y="274" font-size="10" font-style="italic" fill="#dd6b20">the cost barrier to COBOL"</text>
+      </g>
+
+      <g transform="translate(335,0)" filter="url(#shTL15)">
+        <rect width="320" height="280" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#1a202c"/>
+        <text x="14" y="28" font-size="14" font-weight="700" fill="#1a202c">GitHub Copilot</text>
+        <text x="14" y="44" font-size="9" fill="#718096">IDE-Integration &#8226; Code Completion</text>
+
+        <text x="14" y="74" font-size="11" font-weight="700" fill="#2c5282">Einsatzgebiete</text>
+        <g font-size="10" fill="#4a5568">
+          <text x="14" y="90">&#9656; Boilerplate-Generierung</text>
+          <text x="14" y="104">&#9656; Code-Vervollstaendigung im Java</text>
+          <text x="14" y="118">&#9656; Kommentar-Generierung</text>
+          <text x="14" y="132">&#9656; Test-Erstellung</text>
+        </g>
+
+        <text x="14" y="160" font-size="11" font-weight="700" fill="#9b2c2c">Limitierung</text>
+        <g font-size="10" fill="#742a2a">
+          <text x="14" y="176">&#9656; Keine deterministische Translation</text>
+          <text x="14" y="190">&#9656; Keine Traceability fuer Audits</text>
+          <text x="14" y="204">&#9656; Nicht fuer regulierte Branchen</text>
+        </g>
+
+        <text x="14" y="244" font-size="10" font-weight="700" fill="#1a202c">Rolle:</text>
+        <text x="60" y="244" font-size="10" fill="#4a5568">eher ein Helfer als ein</text>
+        <text x="14" y="258" font-size="10" fill="#4a5568">Migrationswerkzeug.</text>
+      </g>
+
+      <g transform="translate(670,0)" filter="url(#shTL15)">
+        <rect width="315" height="280" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="315" height="6" fill="#319795"/>
+        <text x="14" y="28" font-size="14" font-weight="700" fill="#319795">ChatGPT / OpenAI</text>
+        <text x="14" y="44" font-size="9" fill="#718096">Allgemeines Tool</text>
+
+        <text x="14" y="74" font-size="11" font-weight="700" fill="#319795">Nutzung</text>
+        <g font-size="10" fill="#4a5568">
+          <text x="14" y="90">&#9656; Suggestions fuer Entwickler</text>
+          <text x="14" y="104">&#9656; Lernmodus (COBOL erklaeren)</text>
+          <text x="14" y="118">&#9656; Quick Prototyping</text>
+        </g>
+
+        <text x="14" y="146" font-size="11" font-weight="700" fill="#9b2c2c">Schwaeche</text>
+        <g font-size="10" fill="#742a2a">
+          <text x="14" y="162">&#9656; Kann keine konsistente</text>
+          <text x="14" y="176">    Control-Flow-Konvertierung</text>
+          <text x="14" y="190">    sicherstellen</text>
+          <text x="14" y="210">&#9656; Wertvoll fuer Lernen,</text>
+          <text x="14" y="224">    nicht produktive Migration</text>
+        </g>
+
+        <text x="14" y="258" font-size="10" font-style="italic" fill="#319795">Mehr Werkzeug fuer Entwickler</text>
+        <text x="14" y="270" font-size="10" font-style="italic" fill="#319795">als fuer Migration-Pipelines.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- LLM Limitierungen -->
+  <g transform="translate(60,430)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Wichtige Limitierungen aller LLM-basierten Tools</text>
+
+    <g transform="translate(0,15)" filter="url(#shTL15)">
+      <rect width="980" height="170" rx="12" fill="#fff5f5" stroke="#c53030"/>
+
+      <g transform="translate(20,30)">
+        <g>
+          <rect width="300" height="30" rx="6" fill="#9b2c2c"/>
+          <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">&#9888; Variabilitaet</text>
+        </g>
+        <text x="14" y="58" font-size="11" fill="#742a2a">Generative Tools arbeiten <tspan font-weight="700">probabilistisch</tspan>.</text>
+        <text x="14" y="74" font-size="11" fill="#742a2a">Gleicher COBOL-Input ergibt unterschiedliche Java-Outputs.</text>
+        <text x="14" y="90" font-size="11" fill="#742a2a">Fuer mission-kritische COBOL-Modernisierung in regulierten</text>
+        <text x="14" y="106" font-size="11" fill="#742a2a">Umgebungen bedeutet das einen <tspan font-weight="700">erhoehten Test- und</tspan></text>
+        <text x="14" y="122" font-size="11" font-weight="700" fill="#742a2a">Governance-Aufwand.</text>
+      </g>
+
+      <g transform="translate(500,30)">
+        <g>
+          <rect width="440" height="30" rx="6" fill="#9b2c2c"/>
+          <text x="220" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">&#9888; Reasoning-Limitierung</text>
+        </g>
+        <text x="14" y="58" font-size="11" fill="#742a2a">LLMs reproduzieren Muster aus Trainingsdaten,</text>
+        <text x="14" y="74" font-size="11" fill="#742a2a">fuehren aber <tspan font-weight="700">kein echtes System-Level-Reasoning</tspan> durch.</text>
+        <text x="14" y="90" font-size="11" fill="#742a2a">Sie sind <tspan font-weight="700">nicht</tspan> als alleinige Loesung fuer engineering-grade</text>
+        <text x="14" y="106" font-size="11" fill="#742a2a">Modernisierung geeignet.</text>
+        <text x="14" y="122" font-size="10" font-style="italic" fill="#9b2c2c">Standalone &#8594; ueberlegene Methoden im Markt</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Best Practice 2026 -->
+  <g transform="translate(60,640)" filter="url(#shTL15)">
+    <rect width="980" height="100" rx="12" fill="#1e3a5f"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#fbbf24">Best Practice 2026 &#8211; Kombination ist der Schluessel</text>
+    <text x="20" y="52" font-size="11" fill="#fff">LLMs sollten <tspan font-weight="700">kombiniert</tspan> mit deterministischen Frameworks, Orchestrierung und menschlicher Validierung eingesetzt werden.</text>
+    <text x="20" y="68" font-size="11" fill="#cbd5e0">&#9656; <tspan font-weight="700">Graph RAG</tspan>: COBOL-Code in eine Graph-Datenbank einlesen, Kontext fuer LLMs strukturieren</text>
+    <text x="20" y="84" font-size="11" fill="#cbd5e0">&#9656; <tspan font-weight="700">Chunking</tspan>: sinnvolle Aufteilung grosser Codebases  &#9656; <tspan font-weight="700">Multi-Agent-Orchestrierung</tspan> (Semantic Kernel, LangChain)  &#9656; <tspan font-weight="700">Human-in-the-Loop</tspan></text>
+  </g>
+</svg>
