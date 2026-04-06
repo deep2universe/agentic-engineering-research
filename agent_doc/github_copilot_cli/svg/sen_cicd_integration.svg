@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs><marker id="arci" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#3fb950"/></marker></defs>
+  <rect width="860" height="540" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">CI/CD-Integration</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Headless Copilot in GitHub Actions</text>
+
+  <!-- YAML -->
+  <g transform="translate(40,90)">
+    <rect width="780" height="220" rx="10" fill="#010409" stroke="#3fb950" stroke-width="2"/>
+    <rect width="780" height="28" fill="#161b22" rx="10"/>
+    <text x="12" y="20" fill="#8b949e" font-size="11" font-family="monospace">.github/workflows/copilot-triage.yml</text>
+    <g font-family="monospace" font-size="11">
+      <text x="20" y="56" fill="#f778ba">- uses:</text><text x="90" y="56" fill="#c9d1d9">actions/setup-node@v4</text>
+      <text x="20" y="74" fill="#f778ba">  with:</text><text x="90" y="74" fill="#c9d1d9">{ node-version: 22 }</text>
+      <text x="20" y="96" fill="#f778ba">- run:</text><text x="90" y="96" fill="#c9d1d9">npm i -g @github/copilot</text>
+      <text x="20" y="118" fill="#f778ba">- env:</text>
+      <text x="20" y="136" fill="#c9d1d9">    GH_TOKEN: ${{ secrets.COPILOT_PAT }}</text>
+      <text x="20" y="154" fill="#f778ba">  run: |</text>
+      <text x="20" y="172" fill="#c9d1d9">    copilot -p "Triagiere die letzten 5 CI-Fails" \</text>
+      <text x="20" y="190" fill="#c9d1d9">      --output-format json --silent \</text>
+      <text x="20" y="208" fill="#3fb950">      --allow-tool 'view,gh(issue:*),gh(pr:comment:*)' \</text>
+    </g>
+  </g>
+
+  <!-- Use-cases -->
+  <g transform="translate(40,330)">
+    <rect width="380" height="190" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="20" y="28" fill="#58a6ff" font-weight="700" font-size="14">Use Cases</text>
+    <text x="20" y="56" fill="#c9d1d9" font-size="12">🔍 Smart Failure Triage</text>
+    <text x="30" y="74" fill="#8b949e" font-size="11">CI-Logs analysieren → PR-Comment</text>
+    <text x="20" y="102" fill="#c9d1d9" font-size="12">🌙 Nightly Reports</text>
+    <text x="30" y="120" fill="#8b949e" font-size="11">Repo-Health, Dependency-Drift</text>
+    <text x="20" y="148" fill="#c9d1d9" font-size="12">🤖 PR-Bot</text>
+    <text x="30" y="166" fill="#8b949e" font-size="11">Auto-Review pro Push</text>
+  </g>
+
+  <g transform="translate(440,330)">
+    <rect width="380" height="190" rx="10" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+    <text x="20" y="28" fill="#f778ba" font-weight="700" font-size="14">Best Practices</text>
+    <text x="20" y="56" fill="#c9d1d9" font-size="11">• deny-tool 'edit,bash' für Read-Only-Bots</text>
+    <text x="20" y="76" fill="#c9d1d9" font-size="11">• --silent + --output-format json für jq</text>
+    <text x="20" y="96" fill="#c9d1d9" font-size="11">• Fine-grained PAT im Secret</text>
+    <text x="20" y="116" fill="#c9d1d9" font-size="11">• Timeout/Retry an Job-Ebene</text>
+    <text x="20" y="136" fill="#c9d1d9" font-size="11">• Scaffold-Jobs via /delegate</text>
+  </g>
+</svg>

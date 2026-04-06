@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="560" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Sicherheits-Mindset – Agentic multipliziert dein Risiko</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">7 goldene Regeln + bekannte Failure Modes</text>
+
+  <!-- Regeln -->
+  <g transform="translate(40,90)">
+    <rect width="420" height="440" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="20" y="28" fill="#3fb950" font-weight="700" font-size="14">Goldene Regeln</text>
+    <g font-size="11">
+      <text x="20" y="60" fill="#c9d1d9" font-weight="700">1 · Default = Interactive</text>
+      <text x="20" y="78" fill="#8b949e">--allow-all-tools nur in Sandbox</text>
+      <text x="20" y="108" fill="#c9d1d9" font-weight="700">2 · Deny &gt; Allow</text>
+      <text x="20" y="126" fill="#8b949e">rm · curl · env · chmod hart blocken</text>
+      <text x="20" y="156" fill="#c9d1d9" font-weight="700">3 · Trust Workspaces</text>
+      <text x="20" y="174" fill="#8b949e">fremder Code niemals ohne Review</text>
+      <text x="20" y="204" fill="#c9d1d9" font-weight="700">4 · Fine-grained PATs</text>
+      <text x="20" y="222" fill="#8b949e">minimaler Scope, nie Prod-Credentials</text>
+      <text x="20" y="252" fill="#c9d1d9" font-weight="700">5 · MCP-Allowlist Org-Ebene</text>
+      <text x="20" y="270" fill="#8b949e">jeder MCP = eigenes Tool-Universum</text>
+      <text x="20" y="300" fill="#c9d1d9" font-weight="700">6 · Hooks als Wächter</text>
+      <text x="20" y="318" fill="#8b949e">post_tool scannt Diffs auf Secrets</text>
+      <text x="20" y="348" fill="#c9d1d9" font-weight="700">7 · Audit-Log aktivieren</text>
+      <text x="20" y="366" fill="#8b949e">Enterprise Audit · Purview · Hook-Log</text>
+    </g>
+  </g>
+
+  <!-- Failure Modes -->
+  <g transform="translate(480,90)">
+    <rect width="340" height="440" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+    <text x="20" y="28" fill="#f85149" font-weight="700" font-size="14">Failure Modes &amp; Mitigation</text>
+    <g font-size="11">
+      <g transform="translate(0,50)">
+        <text x="20" y="0" fill="#c9d1d9" font-weight="700">Indirect Prompt Injection</text>
+        <text x="20" y="16" fill="#8b949e">→ Untrusted-Quellen markieren</text>
+      </g>
+      <g transform="translate(0,110)">
+        <text x="20" y="0" fill="#c9d1d9" font-weight="700">env curl | sh Bypass</text>
+        <text x="20" y="16" fill="#8b949e">→ strenge Argument-Validation</text>
+      </g>
+      <g transform="translate(0,170)">
+        <text x="20" y="0" fill="#c9d1d9" font-weight="700">Approval-Fatigue</text>
+        <text x="20" y="16" fill="#8b949e">→ Allow-Listen statt Auto-Approve</text>
+      </g>
+      <g transform="translate(0,230)">
+        <text x="20" y="0" fill="#c9d1d9" font-weight="700">Tool-Halluzination</text>
+        <text x="20" y="16" fill="#8b949e">→ Tool-Liste in AGENTS.md explizit</text>
+      </g>
+      <g transform="translate(0,290)">
+        <text x="20" y="0" fill="#c9d1d9" font-weight="700">Context-Bloat</text>
+        <text x="20" y="16" fill="#8b949e">→ /clear · Subagents · kurze Tasks</text>
+      </g>
+      <g transform="translate(0,350)">
+        <text x="20" y="0" fill="#c9d1d9" font-weight="700">Loop / Stuck</text>
+        <text x="20" y="16" fill="#8b949e">→ Plan-Mode + max-iterations Hook</text>
+      </g>
+    </g>
+  </g>
+</svg>
