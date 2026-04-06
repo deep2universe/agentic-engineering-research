@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgBP6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="goldB" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#f59e0b"/>
+    </linearGradient>
+    <filter id="shBP6" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="720" fill="url(#bgBP6)"/>
+
+  <text x="550" y="46" text-anchor="middle" font-size="28" font-weight="800" fill="#f1f5f9">Die 10 goldenen Regeln</text>
+  <text x="550" y="72" text-anchor="middle" font-size="14" fill="#94a3b8">Was Senior Architekten aus dieser Research mitnehmen sollten</text>
+
+  <!-- 10 rules in 2x5 grid -->
+  <g transform="translate(60,110)" font-size="11">
+    <g filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">01</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Niemals Big Bang</text>
+      <text x="22" y="56" fill="#cbd5e1">Immer schrittweise migrieren via Strangler Fig Pattern.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">Big-Bang-Migrationen scheitern zuverlaessig.</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">02</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Daten zuerst denken</text>
+      <text x="22" y="56" fill="#cbd5e1">Nicht erst nach der Code-Migration ueber Daten nachdenken.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">Datenmodell zuerst entwerfen, dann Code refaktorieren.</text>
+    </g>
+
+    <g transform="translate(0,110)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">03</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Testing ist 50 %</text>
+      <text x="22" y="56" fill="#cbd5e1">Plant Testing entsprechend ein.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">20%-Plaene scheitern. 50&#8211;70 % ist die realistische Marke.</text>
+    </g>
+
+    <g transform="translate(505,110)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">04</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Functional Equivalence ist nicht verhandelbar</text>
+      <text x="22" y="56" fill="#cbd5e1">Bit-genau validieren.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">Selbst kleine Abweichungen koennen schwere Folgen haben.</text>
+    </g>
+
+    <g transform="translate(0,220)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">05</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">JOBOL vermeiden</text>
+      <text x="22" y="56" fill="#cbd5e1">Reforge oder manuelle Nacharbeit einplanen.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">Java-Entwickler verweigern die Wartung von JOBOL-Code.</text>
+    </g>
+
+    <g transform="translate(505,220)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">06</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Business-Logik dokumentieren</text>
+      <text x="22" y="56" fill="#cbd5e1">Bevor sie verloren geht (Tribal Knowledge bewahren).</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">Domain Experts einbinden, nicht nur IT.</text>
+    </g>
+
+    <g transform="translate(0,330)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">07</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Operations-Modell modernisieren</text>
+      <text x="22" y="56" fill="#cbd5e1">DevOps von Tag 1 &#8211; nicht spaeter nachholen.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">SRE, IaC, Observability sind Pflicht.</text>
+    </g>
+
+    <g transform="translate(505,330)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">08</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Skill-Transition managen</text>
+      <text x="22" y="56" fill="#cbd5e1">Menschen sind wichtiger als Tools.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">Pair Programming, Mentoring, Schulungen.</text>
+    </g>
+
+    <g transform="translate(0,440)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">09</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Compliance von Anfang an</text>
+      <text x="22" y="56" fill="#cbd5e1">Nicht nachtraeglich &#8211; das wird teuer.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">Audit-Trails, Datenlokalisierung, KMS von Tag 1.</text>
+    </g>
+
+    <g transform="translate(505,440)" filter="url(#shBP6)">
+      <rect width="475" height="92" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+      <text x="22" y="32" font-size="22" font-weight="800" fill="#fbbf24">10</text>
+      <text x="60" y="32" font-size="14" font-weight="700" fill="#f1f5f9">Pragmatismus vor Perfektion</text>
+      <text x="22" y="56" fill="#cbd5e1">Modularer Monolith schlaegt verfruehte Microservices.</text>
+      <text x="22" y="72" fill="#94a3b8" font-style="italic">Erst Domain-Grenzen klaeren, dann splitten.</text>
+    </g>
+  </g>
+
+  <!-- Bottom quote -->
+  <g transform="translate(60,650)" filter="url(#shBP6)">
+    <rect width="980" height="60" rx="10" fill="#0f172a" stroke="url(#goldB)" stroke-width="2"/>
+    <text x="490" y="26" text-anchor="middle" font-size="13" font-weight="700" font-style="italic" fill="#fbbf24">"Die erfolgreichste COBOL-Migration ist nicht die schnellste oder die technisch eleganteste,</text>
+    <text x="490" y="46" text-anchor="middle" font-size="13" font-weight="700" font-style="italic" fill="#fbbf24">sondern die, die nach 24 Monaten noch laeuft, weiterentwickelbar ist und vom Team beherrscht wird."</text>
+  </g>
+</svg>

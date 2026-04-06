@@ -6,6 +6,8 @@
 
 ## 1. Migrationsstrategie und Planung
 
+![Migrationsstrategie](svg/bp_01_migrationsstrategie.svg)
+
 ### 1.1 Die 7 Rs der Migration im COBOL-Kontext
 
 Das von AWS popularisierte 7-Rs-Framework definiert sieben strategische Optionen. Im Mainframe-/COBOL-Kontext ergeben sich folgende Auspraegungen:
@@ -104,6 +106,8 @@ Mit AWS Transform laesst sich die Dauer laut AWS-Angaben um **30-50 %** reduzier
 ---
 
 ## 2. Technische Best Practices
+
+![Technische Best Practices](svg/bp_02_technische_best_practices.svg)
 
 ### 2.1 Datentyp-Mapping: COBOL PIC-Klauseln nach Java
 
@@ -235,6 +239,8 @@ Copybooks sind die zentralen Datenstruktur-Definitionen in COBOL. Sie werden mit
 
 ## 3. Testing und Validierung
 
+![Testing und Validierung](svg/bp_03_testing_validierung.svg)
+
 ### 3.1 Functional Equivalence Testing
 
 Das wichtigste Testprinzip bei COBOL-Migrationen lautet: **Bit-genaue funktionale Aequivalenz**. Das modernisierte System muss bei identischem Input exakt das gleiche Output produzieren wie das Original.
@@ -308,6 +314,8 @@ Nach jedem Refactoring-Schritt muessen Regressionstests laufen. Bei COBOL-Migrat
 ---
 
 ## 4. Typische Fallstricke und Risiken
+
+![Top 10 Fallstricke](svg/bp_04_top_fallstricke.svg)
 
 ### 4.1 Die Top-10-Fehler bei COBOL-Migrationen
 
@@ -396,6 +404,8 @@ Die technische Migration ist oft die kleinere Haelfte des Problems. Die kulturel
 ---
 
 ## 5. Architektur-Patterns
+
+![Architektur Patterns](svg/bp_05_architektur_patterns.svg)
 
 ### 5.1 Strangler Fig Pattern
 
@@ -525,6 +535,8 @@ Diese Patterns passen besonders gut zu Mainframe-Migrationen, weil:
 ---
 
 ## 6. Zusammenfassung: Goldene Regeln
+
+![Goldene Regeln](svg/bp_06_goldene_regeln.svg)
 
 1. **Niemals Big Bang** -- immer schrittweise migrieren (Strangler Fig)
 2. **Daten zuerst denken** -- nicht erst nach der Code-Migration

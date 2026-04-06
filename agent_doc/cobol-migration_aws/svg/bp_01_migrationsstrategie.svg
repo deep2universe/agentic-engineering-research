@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgBP1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shBP" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="800" fill="url(#bgBP1)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Migrationsstrategie und Planung</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">7 Rs der Migration &#8211; und wie sie auf den COBOL-Kontext passen</text>
+
+  <!-- 7 Rs as cards -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Die 7 Rs im COBOL-Kontext</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shBP)">
+        <rect width="135" height="140" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="135" height="6" fill="#9b2c2c"/>
+        <text x="68" y="32" text-anchor="middle" font-size="14" font-weight="800" fill="#9b2c2c">RETAIN</text>
+        <text x="68" y="50" text-anchor="middle" font-size="9" fill="#718096">Bleibt</text>
+        <text x="14" y="74" font-size="9" fill="#4a5568">COBOL-Eignung:</text>
+        <text x="14" y="86" font-size="10" font-weight="700" fill="#9b2c2c">Hoch (regulatorisch)</text>
+        <text x="14" y="106" font-size="9" fill="#718096">Aufwand: keiner</text>
+        <text x="14" y="120" font-size="9" fill="#718096">Risiko: keines</text>
+      </g>
+
+      <g transform="translate(150,0)" filter="url(#shBP)">
+        <rect width="135" height="140" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="135" height="6" fill="#9b2c2c"/>
+        <text x="68" y="32" text-anchor="middle" font-size="14" font-weight="800" fill="#9b2c2c">RETIRE</text>
+        <text x="68" y="50" text-anchor="middle" font-size="9" fill="#718096">Abschalten</text>
+        <text x="14" y="74" font-size="9" fill="#4a5568">COBOL-Eignung:</text>
+        <text x="14" y="86" font-size="10" font-weight="700" fill="#9b2c2c">Selten</text>
+        <text x="14" y="106" font-size="9" fill="#718096">Aufwand: niedrig</text>
+        <text x="14" y="120" font-size="9" fill="#718096">Risiko: niedrig</text>
+      </g>
+
+      <g transform="translate(300,0)" filter="url(#shBP)">
+        <rect width="135" height="140" rx="10" fill="#fff" stroke="#cbd5e0" stroke-dasharray="4,3"/>
+        <rect width="135" height="6" fill="#cbd5e0"/>
+        <text x="68" y="32" text-anchor="middle" font-size="13" font-weight="800" fill="#718096">RELOCATE</text>
+        <text x="68" y="50" text-anchor="middle" font-size="9" fill="#718096">Hypervisor</text>
+        <text x="14" y="74" font-size="9" fill="#4a5568">COBOL-Eignung:</text>
+        <text x="14" y="86" font-size="10" font-weight="700" fill="#718096">Nicht anwendbar</text>
+      </g>
+
+      <g transform="translate(450,0)" filter="url(#shBP)">
+        <rect width="135" height="140" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="135" height="6" fill="#38a169"/>
+        <text x="68" y="32" text-anchor="middle" font-size="14" font-weight="800" fill="#38a169">REHOST</text>
+        <text x="68" y="50" text-anchor="middle" font-size="9" fill="#718096">Lift &amp; Shift</text>
+        <text x="14" y="74" font-size="9" fill="#4a5568">COBOL-Eignung:</text>
+        <text x="14" y="86" font-size="10" font-weight="700" fill="#38a169">Replatform Rocket</text>
+        <text x="14" y="106" font-size="9" fill="#718096">Aufwand: niedrig</text>
+        <text x="14" y="120" font-size="9" fill="#718096">Risiko: niedrig</text>
+      </g>
+
+      <g transform="translate(600,0)" filter="url(#shBP)">
+        <rect width="135" height="140" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="135" height="6" fill="#38a169"/>
+        <text x="68" y="32" text-anchor="middle" font-size="13" font-weight="800" fill="#38a169">REPLATFORM</text>
+        <text x="68" y="50" text-anchor="middle" font-size="9" fill="#718096">Min. Anpassung</text>
+        <text x="14" y="74" font-size="9" fill="#4a5568">COBOL-Eignung:</text>
+        <text x="14" y="86" font-size="10" font-weight="700" fill="#38a169">Rocket auf AWS</text>
+        <text x="14" y="106" font-size="9" fill="#718096">Aufwand: mittel</text>
+        <text x="14" y="120" font-size="9" fill="#718096">Risiko: niedrig-mittel</text>
+      </g>
+
+      <g transform="translate(750,0)" filter="url(#shBP)">
+        <rect width="135" height="140" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="135" height="6" fill="#d69e2e"/>
+        <text x="68" y="32" text-anchor="middle" font-size="13" font-weight="800" fill="#d69e2e">REPURCHASE</text>
+        <text x="68" y="50" text-anchor="middle" font-size="9" fill="#718096">COTS / SaaS</text>
+        <text x="14" y="74" font-size="9" fill="#4a5568">COBOL-Eignung:</text>
+        <text x="14" y="86" font-size="10" font-weight="700" fill="#d69e2e">Selten anwendbar</text>
+        <text x="14" y="106" font-size="9" fill="#718096">Aufwand: mittel-hoch</text>
+        <text x="14" y="120" font-size="9" fill="#718096">Risiko: mittel</text>
+      </g>
+
+      <g transform="translate(900,0)" filter="url(#shBP)">
+        <rect width="85" height="140" rx="10" fill="#1e3a5f"/>
+        <rect width="85" height="6" fill="#fbbf24"/>
+        <text x="42" y="32" text-anchor="middle" font-size="11" font-weight="800" fill="#fbbf24">REFACTOR</text>
+        <text x="42" y="48" text-anchor="middle" font-size="9" fill="#cbd5e0">Re-arch</text>
+        <text x="42" y="74" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">AWS</text>
+        <text x="42" y="88" text-anchor="middle" font-size="10" font-weight="700" fill="#fff">Transform</text>
+        <text x="42" y="108" text-anchor="middle" font-size="9" fill="#cbd5e0">Aufwand:</text>
+        <text x="42" y="120" text-anchor="middle" font-size="9" fill="#fbbf24">hoch</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Code base size guide -->
+  <g transform="translate(60,290)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Komplexitaetsbewertung &#8211; Daumenregeln aus Praxisprojekten</text>
+
+    <g transform="translate(0,15)" filter="url(#shBP)">
+      <rect width="980" height="170" rx="10" fill="#fff" stroke="#cbd5e0"/>
+
+      <g transform="translate(20,25)">
+        <rect width="220" height="125" rx="8" fill="#f0fff4" stroke="#38a169"/>
+        <text x="110" y="24" text-anchor="middle" font-size="20" font-weight="800" fill="#38a169">&lt; 500 KLOC</text>
+        <text x="110" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#22543d">Klein</text>
+        <line x1="20" y1="56" x2="200" y2="56" stroke="#9ae6b4"/>
+        <text x="110" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#2f855a">6&#8211;12 Monate</text>
+        <text x="110" y="106" text-anchor="middle" font-size="10" fill="#22543d">10&#8211;20 Personen, 1&#8211;3 Waves</text>
+      </g>
+
+      <g transform="translate(260,25)">
+        <rect width="220" height="125" rx="8" fill="#fef5e7" stroke="#dd6b20"/>
+        <text x="110" y="24" text-anchor="middle" font-size="20" font-weight="800" fill="#dd6b20">0,5&#8211;5 MLOC</text>
+        <text x="110" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#7c2d12">Mittel</text>
+        <line x1="20" y1="56" x2="200" y2="56" stroke="#fbd38d"/>
+        <text x="110" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#7c2d12">12&#8211;24 Monate</text>
+        <text x="110" y="106" text-anchor="middle" font-size="10" fill="#7c2d12">20&#8211;50 Personen, 4&#8211;8 Waves</text>
+      </g>
+
+      <g transform="translate(500,25)">
+        <rect width="220" height="125" rx="8" fill="#fff5f5" stroke="#c53030"/>
+        <text x="110" y="24" text-anchor="middle" font-size="20" font-weight="800" fill="#c53030">5&#8211;20 MLOC</text>
+        <text x="110" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#742a2a">Gross</text>
+        <line x1="20" y1="56" x2="200" y2="56" stroke="#feb2b2"/>
+        <text x="110" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#9b2c2c">24&#8211;48 Monate</text>
+        <text x="110" y="106" text-anchor="middle" font-size="10" fill="#742a2a">50&#8211;150 Personen, 10&#8211;20 Waves</text>
+      </g>
+
+      <g transform="translate(740,25)">
+        <rect width="220" height="125" rx="8" fill="#1e3a5f"/>
+        <text x="110" y="24" text-anchor="middle" font-size="20" font-weight="800" fill="#fbbf24">&gt; 20 MLOC</text>
+        <text x="110" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#fed7aa">Sehr gross</text>
+        <line x1="20" y1="56" x2="200" y2="56" stroke="#475569"/>
+        <text x="110" y="80" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">36&#8211;72 Monate</text>
+        <text x="110" y="106" text-anchor="middle" font-size="10" fill="#cbd5e0">150+ Personen, 20+ Waves</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- TCO Analysis -->
+  <g transform="translate(60,490)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">TCO-Analyse &#8211; Mainframe vs. Cloud</text>
+
+    <g transform="translate(0,15)" filter="url(#shBP)">
+      <rect width="475" height="290" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="290" fill="#9b2c2c"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#9b2c2c">Mainframe-Kosten (jaehrlich)</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Hardware-Miete / Abschreibung</text>
+        <text x="22" y="68">&#9656; <tspan font-weight="700" fill="#9b2c2c">IBM Software-Lizenzen (MIPS)</tspan> &#8211; Hauptkostentreiber</text>
+        <text x="22" y="84">&#9656; z/OS-Lizenz</text>
+        <text x="22" y="100">&#9656; DB2, CICS, IMS Lizenzen</text>
+        <text x="22" y="116">&#9656; Storage (DASD, Tape)</text>
+        <text x="22" y="132">&#9656; COBOL-Entwickler-Personalkosten (steigend)</text>
+        <text x="22" y="148">&#9656; Wartung und Support</text>
+        <text x="22" y="164">&#9656; Strom, Kuehlung, Floor Space</text>
+      </g>
+      <text x="22" y="200" font-size="11" font-weight="700" fill="#9b2c2c">Realistische Einsparung nach Migration</text>
+      <text x="22" y="232" font-size="32" font-weight="800" fill="#9b2c2c">50&#8211;90 %</text>
+      <text x="22" y="252" font-size="10" fill="#742a2a">laut Branchenstudien (Kyndryl, EPAM, Accenture)</text>
+      <text x="22" y="272" font-size="10" font-style="italic" fill="#718096">ROI typisch nach 18&#8211;36 Monaten</text>
+    </g>
+
+    <g transform="translate(505,15)" filter="url(#shBP)">
+      <rect width="475" height="290" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="290" fill="#38a169"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#38a169">Cloud-Kosten (jaehrlich, nach Migration)</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Compute (EC2 / ECS / Fargate)</text>
+        <text x="22" y="68">&#9656; Datenbank (Aurora / RDS)</text>
+        <text x="22" y="84">&#9656; Storage (S3, EBS)</text>
+        <text x="22" y="100">&#9656; Netzwerk (Datentransfer)</text>
+        <text x="22" y="116">&#9656; AWS Mainframe Modernization Service</text>
+        <text x="22" y="132">&#9656; Monitoring (CloudWatch, X-Ray)</text>
+        <text x="22" y="148">&#9656; DevOps-Toolchain</text>
+        <text x="22" y="164">&#9656; Personal (Java/Cloud-Entwickler)</text>
+      </g>
+      <text x="22" y="200" font-size="11" font-weight="700" fill="#dd6b20">&#9888; Wichtig zu beachten</text>
+      <text x="22" y="220" font-size="10" fill="#4a5568">Migrationskosten selbst (oft 5&#8211;30 Mio USD bei</text>
+      <text x="22" y="234" font-size="10" fill="#4a5568">Grossprojekten) muessen amortisiert werden.</text>
+      <text x="22" y="262" font-size="11" font-style="italic" fill="#38a169">AWS Transform reduziert die Migrationskosten</text>
+      <text x="22" y="276" font-size="11" font-style="italic" fill="#38a169">um 30&#8211;50 % gegenueber traditionellen Ansaetzen.</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgBP4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shBP4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="800" fill="url(#bgBP4)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Die Top-10-Fehler bei COBOL-Migrationen</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Aus echten Migrationsprojekten &#8211; Reihenfolge nach Schwere und Haeufigkeit</text>
+
+  <!-- 10 mistakes as cards -->
+  <g transform="translate(60,100)">
+    <g filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#9b2c2c"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#9b2c2c">01</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Big-Bang statt schrittweise</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">Versuch, alles auf einmal zu migrieren &#8594; scheitert mit hoher</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">Wahrscheinlichkeit. Strangler Fig Pattern ist Pflicht.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#9b2c2c">Mitigation: Wave Planning, Pilot zuerst</text>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#9b2c2c"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#9b2c2c">02</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Code-Fokus statt Daten-Fokus</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">Teams konzentrieren sich auf Anwendungslogik. In Wahrheit</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">ist die Daten-Migration oft schwieriger als der Code.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#9b2c2c">Mitigation: Datenmodell zuerst entwerfen</text>
+    </g>
+
+    <g transform="translate(0,125)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#dd6b20"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#dd6b20">03</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Test-Aufwaende unterschaetzt</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">Testing macht 50&#8211;70 % der Projektdauer aus.</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">Plan mit 20 % Testing-Anteil &#8594; wird scheitern.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#dd6b20">Mitigation: AWS Transform Test Automation</text>
+    </g>
+
+    <g transform="translate(505,125)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#dd6b20"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#dd6b20">04</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Undokumentierte Business-Logik</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">COBOL-Code aus den 1980ern enthaelt Geschaeftsregeln,</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">die nirgends dokumentiert sind &#8594; Reverse-Engineering.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#dd6b20">Mitigation: Domain Experts einbinden</text>
+    </g>
+
+    <g transform="translate(0,250)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#d69e2e"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#d69e2e">05</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Uebersehene Abhaengigkeiten</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">Programm A &#8594; B &#8594; VSAM X &#8594; Job Y &#8594; Report &#8594; Programm Z.</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">Solche Ketten sind haeufig und muessen vollstaendig erfasst werden.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#d69e2e">Mitigation: AWS Transform Dependency Graph</text>
+    </g>
+
+    <g transform="translate(505,250)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#d69e2e"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#d69e2e">06</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Falsche Annahmen ueber Performance</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">"Cloud ist immer schneller" ist falsch. Bestimmte Mainframe-</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">Workloads sind in der Cloud schwer zu schlagen.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#d69e2e">Mitigation: Performance-Tests vor Cutover</text>
+    </g>
+
+    <g transform="translate(0,375)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#3182ce"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#3182ce">07</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Operations-Modell nicht angepasst</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">Modernes Cloud-System kann nicht mit Mainframe-Operations-</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">Manual betrieben werden &#8594; SRE, DevOps, IaC sind Pflicht.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#3182ce">Mitigation: DevOps-Skills von Tag 1</text>
+    </g>
+
+    <g transform="translate(505,375)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#3182ce"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#3182ce">08</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Skill-Transition vernachlaessigt</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">COBOL-Entwickler werden zu Java-Entwicklern? Funktioniert</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">nur mit massiver Schulung und realistischen Erwartungen.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#3182ce">Mitigation: Pair Programming, Mentoring</text>
+    </g>
+
+    <g transform="translate(0,500)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#805ad5"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#805ad5">09</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Vendor Lock-in unterschaetzt</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">Wahl des Migrationstools schafft langfristige Abhaengigkeiten.</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">Blu Age, Rocket, Heirloom &#8211; jedes hat eigene Lock-in-Effekte.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#805ad5">Mitigation: Bewusste Entscheidung, Open Standards</text>
+    </g>
+
+    <g transform="translate(505,500)" filter="url(#shBP4)">
+      <rect width="475" height="115" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#805ad5"/>
+      <text x="22" y="28" font-size="22" font-weight="800" fill="#805ad5">10</text>
+      <text x="60" y="28" font-size="13" font-weight="700" fill="#1a202c">Compliance &amp; Audit nicht von Anfang an</text>
+      <text x="22" y="56" font-size="10" fill="#4a5568">Regulierte Branchen brauchen Audit-Trails, Datenlokalisierung,</text>
+      <text x="22" y="70" font-size="10" fill="#4a5568">Verschluesselung von Tag 1 an. Nachtraeglich = teuer.</text>
+      <text x="22" y="98" font-size="10" font-style="italic" fill="#805ad5">Mitigation: Compliance-Architektur als erstes</text>
+    </g>
+  </g>
+
+  <!-- Bottom insight -->
+  <g transform="translate(60,720)" filter="url(#shBP4)">
+    <rect width="980" height="64" rx="12" fill="#1e3a5f"/>
+    <text x="490" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24">Charakteristika undokumentierter Business-Logik</text>
+    <text x="490" y="48" text-anchor="middle" font-size="11" fill="#cbd5e0">Tribal Knowledge &#8226; Implizite Regeln &#8226; Tote Code-Pfade &#8226; Datums-/Zeit-Logik (Schaltjahre, Feiertage, Zeitzonen)</text>
+  </g>
+</svg>
