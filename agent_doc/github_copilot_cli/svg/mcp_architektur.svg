@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#58a6ff"/>
+    </marker>
+  </defs>
+  <rect width="860" height="520" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">MCP – Model Context Protocol</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Copilot CLI als vollwertiger MCP-Client</text>
+
+  <!-- Client -->
+  <g>
+    <rect x="60" y="110" width="220" height="340" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="170" y="138" text-anchor="middle" fill="#58a6ff" font-size="15" font-weight="700">Copilot CLI (Client)</text>
+    <line x1="80" y1="150" x2="260" y2="150" stroke="#30363d"/>
+    <text x="80" y="175" fill="#c9d1d9" font-size="12" font-weight="600">Konfig-Quellen</text>
+    <text x="90" y="195" fill="#8b949e" font-size="11">• /mcp add (interaktiv)</text>
+    <text x="90" y="213" fill="#8b949e" font-size="11">• ~/.copilot/mcp-config.json</text>
+    <text x="90" y="231" fill="#8b949e" font-size="11">• .copilot/mcp-config.json (Repo)</text>
+    <text x="80" y="265" fill="#c9d1d9" font-size="12" font-weight="600">Kommandos</text>
+    <text x="90" y="285" fill="#8b949e" font-size="11">/mcp show</text>
+    <text x="90" y="303" fill="#8b949e" font-size="11">/mcp show &lt;name&gt;</text>
+    <text x="80" y="337" fill="#c9d1d9" font-size="12" font-weight="600">tools: [...] Filter</text>
+    <text x="90" y="357" fill="#8b949e" font-size="11">Whitelist spart Tokens</text>
+    <rect x="80" y="380" width="180" height="50" rx="6" fill="#0d419d" stroke="#58a6ff"/>
+    <text x="170" y="400" text-anchor="middle" fill="#c9d1d9" font-size="12" font-weight="700">GitHub-MCP</text>
+    <text x="170" y="418" text-anchor="middle" fill="#8b949e" font-size="10">eingebaut · zero config</text>
+  </g>
+
+  <!-- Arrows -->
+  <line x1="290" y1="200" x2="430" y2="200" stroke="#58a6ff" stroke-width="2" marker-end="url(#a2)"/>
+  <text x="360" y="192" text-anchor="middle" fill="#58a6ff" font-size="11">stdio</text>
+  <line x1="290" y1="300" x2="430" y2="300" stroke="#58a6ff" stroke-width="2" marker-end="url(#a2)"/>
+  <text x="360" y="292" text-anchor="middle" fill="#58a6ff" font-size="11">http / sse</text>
+
+  <!-- Servers -->
+  <g transform="translate(440,130)">
+    <rect width="360" height="140" rx="10" fill="#161b22" stroke="#3fb950"/>
+    <text x="20" y="28" fill="#3fb950" font-size="14" font-weight="700">local / stdio Server</text>
+    <text x="20" y="52" fill="#8b949e" font-size="11">Lokaler Prozess, JSON-RPC über STDIO</text>
+    <rect x="20" y="66" width="150" height="26" rx="4" fill="#0d1117" stroke="#30363d"/>
+    <text x="95" y="83" text-anchor="middle" fill="#c9d1d9" font-size="11">playwright</text>
+    <rect x="180" y="66" width="160" height="26" rx="4" fill="#0d1117" stroke="#30363d"/>
+    <text x="260" y="83" text-anchor="middle" fill="#c9d1d9" font-size="11">filesystem</text>
+    <rect x="20" y="100" width="150" height="26" rx="4" fill="#0d1117" stroke="#30363d"/>
+    <text x="95" y="117" text-anchor="middle" fill="#c9d1d9" font-size="11">postgres</text>
+    <rect x="180" y="100" width="160" height="26" rx="4" fill="#0d1117" stroke="#30363d"/>
+    <text x="260" y="117" text-anchor="middle" fill="#c9d1d9" font-size="11">azure</text>
+  </g>
+
+  <g transform="translate(440,290)">
+    <rect width="360" height="100" rx="10" fill="#161b22" stroke="#f778ba"/>
+    <text x="20" y="28" fill="#f778ba" font-size="14" font-weight="700">http / sse Server</text>
+    <text x="20" y="52" fill="#8b949e" font-size="11">Remote-MCP, zentral gehostet, teamfähig</text>
+    <text x="20" y="74" fill="#8b949e" font-size="11">z. B. interne API-Gateways, SaaS-Tools</text>
+  </g>
+
+  <g transform="translate(440,410)">
+    <rect width="360" height="70" rx="10" fill="#161b22" stroke="#d29922"/>
+    <text x="20" y="28" fill="#d29922" font-size="13" font-weight="700">Token-Tipp</text>
+    <text x="20" y="50" fill="#8b949e" font-size="11">Playwright-CLI ≈ 4× token-effizienter als</text>
+    <text x="20" y="66" fill="#8b949e" font-size="11">Playwright-MCP (27k vs 114k Tokens)</text>
+  </g>
+</svg>

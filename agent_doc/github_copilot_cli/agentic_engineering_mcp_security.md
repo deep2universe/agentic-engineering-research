@@ -4,6 +4,8 @@ Stand: 2026-04-06. Die GitHub Copilot CLI ist seit Februar 2026 generally availa
 
 ## 1. Agentic Engineering im Kontext der Copilot CLI
 
+![Agentic Execution Loop](svg/agentic_execution_loop.svg)
+
 Die Copilot CLI implementiert eine klassische **agentic execution loop**: Plan -> Act (Tool-Use) -> Observe -> Reflect -> Repeat, bis das Ziel erreicht ist. Sie kombiniert dies mit mehreren expliziten Modi:
 
 - **Plan Mode** – Copilot skizziert Schritte ohne sie auszufuehren. Ideal fuer Spec-driven Development. Wechsel via Shift+Tab oder `/plan`.
@@ -19,6 +21,8 @@ Self-Verification erfolgt durch:
 Token/Context-Management: Bei ~95% Auslastung erfolgt automatische **Auto-Compaction** der History. Bei grossen Modellen (Claude Opus 4.6) wird empirisch ab 45-60% Context-Bloat bemerkbar (Latenz, Tool-Call-Degradation).
 
 ## 2. MCP – Model Context Protocol
+
+![MCP-Architektur](svg/mcp_architektur.svg)
 
 Die Copilot CLI ist ein vollwertiger MCP-Client. Der **GitHub-MCP-Server ist bereits eingebaut** (Issues, PRs, Repos, Code-Search) und benoetigt keine zusaetzliche Konfiguration.
 
@@ -73,6 +77,8 @@ Hinweis: Fuer Browser-Automation gilt – wenn der Agent ohnehin Filesystem-Zugr
 
 ## 3. Tool-Approval-System
 
+![Tool-Approval-System](svg/tool_approval_system.svg)
+
 Drei Risiko-Achsen werden unterschieden:
 
 | Kategorie | Beispiel | Default |
@@ -93,6 +99,8 @@ In Session: `a` = "always allow" persistiert pro Tool nur fuer die laufende Sess
 GitHub empfiehlt ausdruecklich, `--allow-all-tools` **nicht** als Alias zu setzen.
 
 ## 4. AGENTS.md, Custom Agents, Memory, Hooks
+
+![AGENTS.md, Custom Agents, Memory, Hooks](svg/agents_md_memory_hooks.svg)
 
 ### AGENTS.md
 
@@ -139,6 +147,8 @@ Konfiguriert in `~/.copilot/config.json` bzw. `.copilot/config.json` im Repo.
 
 ## 5. Sicherheitsmodell
 
+![Sicherheitsmodell – Defense in Depth](svg/sicherheitsmodell.svg)
+
 ### Prompt-Injection-Schutz
 
 Die Read-Only-Allowlist enthaelt aus Komfortgruenden Befehle wie `env`. Ein bekannter PoC:
@@ -174,6 +184,8 @@ Empfohlene Setups:
 
 ## 6. Patterns fuer Senior Devs
 
+![Senior-Patterns](svg/senior_patterns.svg)
+
 ### TDD-Loop
 1. Plan-Mode: "Schreibe failing Tests fuer Feature X".
 2. Approval-Mode: Tests reviewen, committen.
@@ -202,6 +214,8 @@ Empfohlene Setups:
 
 ## 7. Limits & Failure Modes
 
+![Limits & Failure Modes](svg/limits_failure_modes.svg)
+
 | Failure Mode | Symptom | Gegenmassnahme |
 |--------------|---------|----------------|
 | Context-Bloat | Latenz 40-90s, redundante Tool-Calls, Rate-Limits | Manuelles `/compact`, kuerzere Sessions, kleinere Modelle fuer Routine |
@@ -213,5 +227,7 @@ Empfohlene Setups:
 | Limited-Permissions-Modus | Tool-Requests werden auto-denied, Task bricht ab | Explizite `--allow-tool`-Liste planen |
 
 ## Zusammenfassung
+
+![Big Picture](svg/zusammenfassung_ueberblick.svg)
 
 Die Copilot CLI 2026 ist ein voll agentischer Terminal-Client mit erstklassigem MCP-Support, granularer Tool-Approval, AGENTS.md-Konvention und Hook-System zur Policy-Durchsetzung. Senior-Workflows profitieren am meisten von der Trennung Plan / Approval / Autopilot, der Kombination aus AGENTS.md und Custom Agents sowie konsequentem Sandboxing wegen bekannter Prompt-Injection-Vektoren.

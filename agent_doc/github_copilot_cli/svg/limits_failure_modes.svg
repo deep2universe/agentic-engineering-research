@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="520" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Limits & Failure Modes</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Sieben typische Fehlerbilder und ihre Gegenmaßnahmen</text>
+
+  <g font-size="12">
+    <!-- header -->
+    <rect x="40" y="80" width="780" height="30" fill="#161b22" stroke="#30363d"/>
+    <text x="54" y="100" fill="#58a6ff" font-weight="700">Failure Mode</text>
+    <text x="300" y="100" fill="#58a6ff" font-weight="700">Symptom</text>
+    <text x="560" y="100" fill="#58a6ff" font-weight="700">Gegenmaßnahme</text>
+  </g>
+
+  <g font-size="11" fill="#c9d1d9">
+    <g transform="translate(40,115)">
+      <rect width="780" height="48" fill="#0d1117" stroke="#30363d"/>
+      <circle cx="24" cy="24" r="10" fill="#f85149"/>
+      <text x="44" y="20" font-weight="700">Context-Bloat</text>
+      <text x="44" y="38" fill="#8b949e">Tokens explodieren</text>
+      <text x="260" y="20">Latenz 40-90s, Rate-Limits</text>
+      <text x="260" y="38" fill="#8b949e">redundante Tool-Calls</text>
+      <text x="520" y="20">/compact, kurze Sessions</text>
+      <text x="520" y="38" fill="#3fb950">kleinere Modelle für Routine</text>
+    </g>
+    <g transform="translate(40,165)">
+      <rect width="780" height="48" fill="#0d1117" stroke="#30363d"/>
+      <circle cx="24" cy="24" r="10" fill="#d29922"/>
+      <text x="44" y="20" font-weight="700">Endlosschleife Autopilot</text>
+      <text x="260" y="20">wiederholte Fehler</text>
+      <text x="260" y="38" fill="#8b949e">gleicher Tool-Call</text>
+      <text x="520" y="20">--max-autopilot-continues N</text>
+      <text x="520" y="38" fill="#3fb950">Plan-Mode vorab</text>
+    </g>
+    <g transform="translate(40,215)">
+      <rect width="780" height="48" fill="#0d1117" stroke="#30363d"/>
+      <circle cx="24" cy="24" r="10" fill="#d29922"/>
+      <text x="44" y="20" font-weight="700">Mehrdeutige Task</text>
+      <text x="260" y="20">„pile of changes"</text>
+      <text x="260" y="38" fill="#8b949e">verfehltes Ziel</text>
+      <text x="520" y="20">Spec-driven Approach</text>
+      <text x="520" y="38" fill="#3fb950">immer mit Plan-Mode starten</text>
+    </g>
+    <g transform="translate(40,265)">
+      <rect width="780" height="48" fill="#0d1117" stroke="#30363d"/>
+      <circle cx="24" cy="24" r="10" fill="#f85149"/>
+      <text x="44" y="20" font-weight="700">Prompt Injection (indirekt)</text>
+      <text x="260" y="20">unerwartete Shell-Calls</text>
+      <text x="260" y="38" fill="#8b949e">via Issue-Body, MCP-Output</text>
+      <text x="520" y="20">preToolUse-Hook, Sandbox</text>
+      <text x="520" y="38" fill="#3fb950">Deny-Lists</text>
+    </g>
+    <g transform="translate(40,315)">
+      <rect width="780" height="48" fill="#0d1117" stroke="#30363d"/>
+      <circle cx="24" cy="24" r="10" fill="#d29922"/>
+      <text x="44" y="20" font-weight="700">Approval-Fatigue</text>
+      <text x="260" y="20">„always allow"-Klick-Reflex</text>
+      <text x="520" y="20">Repo-Allow-Lists eingecheckt</text>
+      <text x="520" y="38" fill="#3fb950">statt Session-State</text>
+    </g>
+    <g transform="translate(40,365)">
+      <rect width="780" height="48" fill="#0d1117" stroke="#30363d"/>
+      <circle cx="24" cy="24" r="10" fill="#d29922"/>
+      <text x="44" y="20" font-weight="700">MCP-Token-Verbrauch</text>
+      <text x="260" y="20">große JSON-Schemas</text>
+      <text x="260" y="38" fill="#8b949e">Browser-Automation</text>
+      <text x="520" y="20">CLI statt MCP wo möglich</text>
+      <text x="520" y="38" fill="#3fb950">tools: [...] filtern</text>
+    </g>
+    <g transform="translate(40,415)">
+      <rect width="780" height="48" fill="#0d1117" stroke="#30363d"/>
+      <circle cx="24" cy="24" r="10" fill="#f85149"/>
+      <text x="44" y="20" font-weight="700">Limited-Permissions</text>
+      <text x="260" y="20">Tool-Requests auto-denied</text>
+      <text x="260" y="38" fill="#8b949e">Task bricht ab</text>
+      <text x="520" y="20">explizite --allow-tool Liste</text>
+      <text x="520" y="38" fill="#3fb950">im Voraus planen</text>
+    </g>
+  </g>
+</svg>
