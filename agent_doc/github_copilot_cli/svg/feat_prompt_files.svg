@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="520" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Prompt-Files &amp; Custom Instructions</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Alles, was Copilot CLI beim Start automatisch lädt</text>
+
+  <!-- File tree -->
+  <g font-family="monospace" font-size="12">
+    <g transform="translate(60,100)">
+      <rect width="380" height="380" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+      <text x="20" y="28" fill="#58a6ff" font-size="13" font-weight="700" font-family="sans-serif">Repository-Layout</text>
+      <g fill="#c9d1d9">
+        <text x="20" y="60">my-repo/</text>
+        <text x="30" y="82">├── <tspan fill="#3fb950">AGENTS.md</tspan></text>
+        <text x="50" y="100" fill="#8b949e" font-size="10">// primary, Repo-Root</text>
+        <text x="30" y="122">├── .github/</text>
+        <text x="60" y="142">│   ├── <tspan fill="#3fb950">copilot-instructions.md</tspan></text>
+        <text x="60" y="162">│   ├── instructions/</text>
+        <text x="90" y="182">│   │   └── <tspan fill="#3fb950">*.instructions.md</tspan></text>
+        <text x="60" y="202" fill="#8b949e" font-size="10">│   │        // glob-geladen</text>
+        <text x="60" y="222">│   ├── hooks/</text>
+        <text x="60" y="242">│   └── lsp.json</text>
+        <text x="30" y="264">├── <tspan fill="#d29922">CLAUDE.md</tspan></text>
+        <text x="30" y="284">├── <tspan fill="#d29922">GEMINI.md</tspan></text>
+        <text x="30" y="304">└── src/</text>
+        <text x="60" y="324">    └── <tspan fill="#3fb950">AGENTS.md</tspan></text>
+        <text x="60" y="344" fill="#8b949e" font-size="10">         // nested, Subtree-scope</text>
+      </g>
+    </g>
+
+    <g transform="translate(460,100)" font-family="sans-serif">
+      <rect width="340" height="380" rx="10" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+      <text x="16" y="26" fill="#f778ba" font-weight="700" font-size="13">Weitere Quellen</text>
+      <text x="16" y="54" fill="#c9d1d9" font-size="11">🌐 COPILOT_CUSTOM_INSTRUCTIONS_DIRS</text>
+      <text x="16" y="72" fill="#8b949e" font-size="10">kommasepariert · Team-Shared Folder</text>
+      <text x="16" y="102" fill="#c9d1d9" font-size="11">⚙ ~/.copilot/settings.json</text>
+      <text x="16" y="120" fill="#8b949e" font-size="10">globale Defaults</text>
+      <text x="16" y="150" fill="#c9d1d9" font-size="11">🪝 .github/hooks/</text>
+      <text x="16" y="168" fill="#8b949e" font-size="10">pre/postToolUse Scripts</text>
+      <text x="16" y="198" fill="#c9d1d9" font-size="11">🔌 Skills / Plugins Marketplace</text>
+      <text x="16" y="216" fill="#8b949e" font-size="10">Hook-Discovery · Skills-Discovery</text>
+      <text x="16" y="250" fill="#d29922" font-weight="700" font-size="12">💡 /init</text>
+      <text x="16" y="268" fill="#8b949e" font-size="10">generiert ein initiales AGENTS.md</text>
+      <text x="16" y="298" fill="#3fb950" font-weight="700" font-size="12">Reihenfolge</text>
+      <text x="16" y="316" fill="#c9d1d9" font-size="11">Root → cwd → env-dirs → nested</text>
+      <text x="16" y="336" fill="#c9d1d9" font-size="11">Root = primary, andere = additional</text>
+    </g>
+  </g>
+</svg>

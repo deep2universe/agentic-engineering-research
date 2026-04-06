@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="520" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">CLI-Commands, Flags &amp; Environment</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">copilot [flags] [prompt] – vollständige Anatomie</text>
+
+  <!-- Binary -->
+  <g transform="translate(40,90)">
+    <rect width="780" height="60" rx="8" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="20" y="26" fill="#58a6ff" font-weight="700" font-size="14">Subcommands</text>
+    <g font-family="monospace" font-size="11" fill="#c9d1d9">
+      <text x="20" y="48">copilot · copilot login/logout · copilot mcp · copilot update · copilot version</text>
+    </g>
+  </g>
+
+  <!-- Flags categories -->
+  <g transform="translate(40,170)">
+    <rect width="250" height="160" rx="8" fill="#161b22" stroke="#3fb950"/>
+    <text x="16" y="24" fill="#3fb950" font-weight="700" font-size="13">Execution</text>
+    <g font-family="monospace" font-size="10" fill="#c9d1d9">
+      <text x="16" y="46">-p, --prompt</text>
+      <text x="16" y="64">--model &lt;id&gt;</text>
+      <text x="16" y="82">--agent &lt;name&gt;</text>
+      <text x="16" y="100">--add-dir &lt;pfad&gt;</text>
+      <text x="16" y="118">--autopilot</text>
+      <text x="16" y="136">--resume · --continue</text>
+    </g>
+  </g>
+  <g transform="translate(305,170)">
+    <rect width="250" height="160" rx="8" fill="#161b22" stroke="#f85149"/>
+    <text x="16" y="24" fill="#f85149" font-weight="700" font-size="13">Approval</text>
+    <g font-family="monospace" font-size="10" fill="#c9d1d9">
+      <text x="16" y="46">--allow-tool '&lt;glob&gt;'</text>
+      <text x="16" y="64">--deny-tool '&lt;glob&gt;'</text>
+      <text x="16" y="82">--allow-all-tools</text>
+    </g>
+    <text x="16" y="110" fill="#8b949e" font-size="10">Deny ≻ Allow</text>
+    <text x="16" y="128" fill="#8b949e" font-size="10">Glob z. B. shell(git:*)</text>
+  </g>
+  <g transform="translate(570,170)">
+    <rect width="250" height="160" rx="8" fill="#161b22" stroke="#d29922"/>
+    <text x="16" y="24" fill="#d29922" font-weight="700" font-size="13">Output / UI</text>
+    <g font-family="monospace" font-size="10" fill="#c9d1d9">
+      <text x="16" y="46">--output-format json</text>
+      <text x="16" y="64">--silent</text>
+      <text x="16" y="82">--log-level debug</text>
+      <text x="16" y="100">--log-dir &lt;pfad&gt;</text>
+      <text x="16" y="118">--no-color · --no-banner</text>
+      <text x="16" y="136">--screen-reader</text>
+    </g>
+  </g>
+
+  <!-- Env vars -->
+  <g transform="translate(40,350)">
+    <rect width="780" height="150" rx="8" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+    <text x="20" y="26" fill="#f778ba" font-weight="700" font-size="14">Umgebungsvariablen</text>
+    <g font-family="monospace" font-size="11">
+      <text x="20" y="52" fill="#c9d1d9">GH_TOKEN / GITHUB_TOKEN</text>
+      <text x="320" y="52" fill="#8b949e">PAT für headless Auth</text>
+      <text x="20" y="74" fill="#c9d1d9">COPILOT_MODEL</text>
+      <text x="320" y="74" fill="#8b949e">Standard-Modell</text>
+      <text x="20" y="96" fill="#c9d1d9">COPILOT_CUSTOM_INSTRUCTIONS_DIRS</text>
+      <text x="320" y="96" fill="#8b949e">zusätzliche AGENTS.md-Pfade</text>
+      <text x="20" y="118" fill="#c9d1d9">COPILOT_LOG_LEVEL</text>
+      <text x="320" y="118" fill="#8b949e">Loglevel</text>
+      <text x="20" y="140" fill="#c9d1d9">COPILOT_CONFIG_DIR · NO_COLOR</text>
+      <text x="320" y="140" fill="#8b949e">alternativer Config-Ordner · Farben aus</text>
+    </g>
+  </g>
+</svg>

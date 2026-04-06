@@ -6,6 +6,8 @@ Die GitHub Copilot CLI (`copilot`) ist seit Februar 2026 generell verfügbar (GA
 
 ## 1. CLI-Commands & Flags
 
+![CLI-Commands, Flags & Environment](svg/feat_cli_commands_flags.svg)
+
 Aufruf: `copilot [flags] [prompt]`
 
 ### Wichtige Flags
@@ -57,6 +59,8 @@ Aufruf: `copilot [flags] [prompt]`
 
 ## 2. Interaktive REPL – UI & Keybindings
 
+![REPL UI Mockup](svg/feat_repl_ui.svg)
+
 Die REPL bietet:
 
 - Animiertes ASCII-Banner beim Start (skipbar via `--no-banner`/`--screen-reader`).
@@ -86,6 +90,8 @@ Multiline-Setup für VS-Code-Terminal: `/terminal-setup`.
 ---
 
 ## 3. Slash-Commands (Auswahl, in REPL via `/`)
+
+![Slash-Commands in 7 Domänen](svg/feat_slash_commands.svg)
 
 Stand der Cheat-Sheet-Veröffentlichung umfasste 17 Commands; zusätzliche kamen über Changelog-Updates dazu.
 
@@ -139,6 +145,8 @@ Stand der Cheat-Sheet-Veröffentlichung umfasste 17 Commands; zusätzliche kamen
 
 ## 4. Built-in Tools
 
+![Built-in Tools Werkzeugkasten](svg/feat_builtin_tools.svg)
+
 Copilot CLI hat ein definiertes Set an Built-in-Tools, die der Agent (mit Approval) aufrufen kann. Read-only-Operationen werden meist automatisch erlaubt; modifizierende Operationen erfordern Approval.
 
 | Tool | Zweck |
@@ -163,6 +171,8 @@ Built-in MCP-Server (z. B. GitHub) sind ohne Setup verfügbar; weitere Server vi
 
 ## 5. Approval-Modi
 
+![Approval-Modi Kontrollspektrum](svg/feat_approval_modi.svg)
+
 | Modus | Aktivierung | Verhalten |
 |---|---|---|
 | **Interactive (Default)** | Standard | Read-only auto-erlaubt; modifizierende Tools fragen pro Aufruf nach. Optionen: einmal, immer in Session, immer dauerhaft, ablehnen. |
@@ -177,6 +187,8 @@ Session-Approvals werden bei `/clear` oder neuer Session zurückgesetzt.
 
 ## 6. Sessions & History
 
+![Sessions & History Timeline](svg/feat_sessions_history.svg)
+
 - Sessions werden persistiert (Verlauf, Plan, Checkpoints, Approvals, Trusted Dirs).
 - `--resume` / `--continue` / `/resume` – frühere Session laden.
 - `/session` – Inspect, Rename, Checkpoints, Plan, Files.
@@ -187,6 +199,8 @@ Session-Approvals werden bei `/clear` oder neuer Session zurückgesetzt.
 ---
 
 ## 7. Headless / Scripting / CI-Modus
+
+![Headless / Scripting / CI](svg/feat_headless_ci.svg)
 
 - `copilot -p "<prompt>"` – einmaliger Lauf, kein REPL.
 - `--output-format json` – JSONL-Stream, ein JSON-Objekt pro Zeile, finales Result-Objekt mit `result`-Feld und Session-Metadaten.
@@ -212,6 +226,8 @@ GH_TOKEN=$TOKEN copilot \
 
 ## 8. Prompt-Files & Custom Instructions
 
+![Prompt-Files & Custom Instructions](svg/feat_prompt_files.svg)
+
 Copilot CLI lädt automatisch Custom-Instruction-Dateien:
 
 - **`AGENTS.md`** – Primäre Instruction-Datei. Kann im Repo-Root, im aktuellen Working Directory, oder in über `COPILOT_CUSTOM_INSTRUCTIONS_DIRS` konfigurierten Pfaden liegen. Mehrere `AGENTS.md` möglich; Root-Datei = primary, andere = additional.
@@ -225,6 +241,8 @@ Copilot CLI lädt automatisch Custom-Instruction-Dateien:
 ---
 
 ## 9. Subagenten & Multi-Agent-Features
+
+![Subagenten & Multi-Agent](svg/feat_subagents_multi.svg)
 
 - **Custom Agents** – per `--agent` / `/agent` aktivierbar; mit eigener Expertise/Tools/Prompt. Definition über Markdown-Files.
 - **Subagent-Delegation** – Hauptagent kann automatisch an Subagenten delegieren, wenn er es für sinnvoll hält.

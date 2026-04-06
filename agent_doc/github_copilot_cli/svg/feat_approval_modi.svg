@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="480" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Approval-Modi – Kontrollspektrum</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Fünf Modi vom klickfreudigen Senior zum vollautomatischen CI-Job</text>
+
+  <!-- Spectrum -->
+  <defs>
+    <linearGradient id="spec" x1="0" x2="1">
+      <stop offset="0" stop-color="#3fb950"/>
+      <stop offset="1" stop-color="#f85149"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="90" width="780" height="10" rx="5" fill="url(#spec)"/>
+  <text x="40" y="120" fill="#3fb950" font-size="11">Kontrolle max</text>
+  <text x="820" y="120" text-anchor="end" fill="#f85149" font-size="11">Autonomie max</text>
+
+  <g font-size="11">
+    <g transform="translate(40,140)">
+      <rect width="150" height="300" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <text x="75" y="22" text-anchor="middle" fill="#3fb950" font-weight="700" font-size="13">Interactive</text>
+      <text x="10" y="50" fill="#c9d1d9">Default</text>
+      <text x="10" y="80" fill="#8b949e">Read auto</text>
+      <text x="10" y="96" fill="#8b949e">Write/Exec →</text>
+      <text x="10" y="112" fill="#8b949e">Prompt y/a/n</text>
+    </g>
+    <g transform="translate(200,140)">
+      <rect width="150" height="300" rx="8" fill="#161b22" stroke="#58a6ff"/>
+      <text x="75" y="22" text-anchor="middle" fill="#58a6ff" font-weight="700" font-size="13">Plan-Mode</text>
+      <text x="10" y="50" fill="#c9d1d9">Plan + Critic</text>
+      <text x="10" y="80" fill="#8b949e">kein Execute</text>
+      <text x="10" y="96" fill="#8b949e">"Exit Plan"</text>
+      <text x="10" y="112" fill="#8b949e">startet Run</text>
+    </g>
+    <g transform="translate(360,140)">
+      <rect width="150" height="300" rx="8" fill="#161b22" stroke="#d29922"/>
+      <text x="75" y="22" text-anchor="middle" fill="#d29922" font-weight="700" font-size="13">Allow/Deny</text>
+      <text x="10" y="50" fill="#c9d1d9">Glob-Listen</text>
+      <text x="10" y="80" fill="#8b949e">--allow-tool</text>
+      <text x="10" y="96" fill="#8b949e">--deny-tool</text>
+      <text x="10" y="112" fill="#f85149">Deny ≻ Allow</text>
+    </g>
+    <g transform="translate(520,140)">
+      <rect width="150" height="300" rx="8" fill="#161b22" stroke="#f778ba"/>
+      <text x="75" y="22" text-anchor="middle" fill="#f778ba" font-weight="700" font-size="13">Autopilot</text>
+      <text x="10" y="50" fill="#c9d1d9">--autopilot</text>
+      <text x="10" y="80" fill="#8b949e">Shift+Tab</text>
+      <text x="10" y="96" fill="#8b949e">keine Pausen</text>
+      <text x="10" y="112" fill="#8b949e">--max-...-continues</text>
+    </g>
+    <g transform="translate(680,140)">
+      <rect width="140" height="300" rx="8" fill="#161b22" stroke="#f85149"/>
+      <text x="70" y="22" text-anchor="middle" fill="#f85149" font-weight="700" font-size="13">Yolo</text>
+      <text x="10" y="50" fill="#c9d1d9">--allow-all</text>
+      <text x="10" y="80" fill="#8b949e">/yolo</text>
+      <text x="10" y="96" fill="#8b949e">/autoApprove</text>
+      <text x="10" y="124" fill="#f85149">⚠ nur CI/VM</text>
+    </g>
+  </g>
+</svg>
