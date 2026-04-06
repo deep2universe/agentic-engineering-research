@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="560" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Konfiguration – Pfade &amp; Einstellungen</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Wo liegt was, und welche Env-Vars spielen rein?</text>
+
+  <!-- File tree -->
+  <g transform="translate(40,90)" font-family="monospace" font-size="12">
+    <rect width="420" height="440" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="20" y="28" fill="#58a6ff" font-weight="700" font-size="14" font-family="sans-serif">Config-Pfade</text>
+    <g fill="#c9d1d9">
+      <text x="20" y="58">~/.copilot/           </text><text x="220" y="58" fill="#8b949e" font-size="10">Config-Root (COPILOT_HOME)</text>
+      <text x="40" y="80">├── config.json</text><text x="220" y="80" fill="#8b949e" font-size="10">Hauptkonfig (JSONC)</text>
+      <text x="40" y="102">├── mcp-config.json</text><text x="220" y="102" fill="#8b949e" font-size="10">MCP-Server</text>
+      <text x="40" y="124">└── agents/*.agent.md</text><text x="220" y="124" fill="#8b949e" font-size="10">Personal Agents</text>
+
+      <text x="20" y="160">&lt;repo&gt;/</text>
+      <text x="40" y="182">├── AGENTS.md</text><text x="220" y="182" fill="#8b949e" font-size="10">Projekt-Instructions</text>
+      <text x="40" y="204">├── .github/</text>
+      <text x="60" y="226">│   ├── agents/*.agent.md</text><text x="240" y="226" fill="#8b949e" font-size="9">repo-shared</text>
+      <text x="60" y="248">│   ├── copilot-instructions.md</text>
+      <text x="60" y="270">│   ├── instructions/**</text>
+      <text x="60" y="292">│   │   /*.instructions.md</text>
+      <text x="60" y="314">│   └── hooks/</text><text x="240" y="314" fill="#8b949e" font-size="9">Lifecycle-Hooks</text>
+    </g>
+  </g>
+
+  <!-- Settings and envvars -->
+  <g transform="translate(480,90)">
+    <rect width="340" height="210" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="20" y="26" fill="#3fb950" font-weight="700" font-size="14">config.json (Beispiel)</text>
+    <rect x="20" y="40" width="300" height="150" rx="4" fill="#0d1117"/>
+    <g font-family="monospace" font-size="10">
+      <text x="30" y="58" fill="#8b949e">{</text>
+      <text x="30" y="74" fill="#c9d1d9">  "trusted_folders": [</text>
+      <text x="30" y="90" fill="#3fb950">    "/home/me/code/project-a",</text>
+      <text x="30" y="106" fill="#3fb950">    "/home/me/code/project-b"</text>
+      <text x="30" y="122" fill="#c9d1d9">  ],</text>
+      <text x="30" y="138" fill="#c9d1d9">  "default_model": "claude-sonnet-4-6",</text>
+      <text x="30" y="154" fill="#c9d1d9">  "theme": "dark",</text>
+      <text x="30" y="170" fill="#c9d1d9">  "log_level": "info"</text>
+      <text x="30" y="186" fill="#8b949e">}</text>
+    </g>
+  </g>
+
+  <g transform="translate(480,320)">
+    <rect width="340" height="210" rx="10" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+    <text x="20" y="26" fill="#f778ba" font-weight="700" font-size="14">Env-Vars</text>
+    <g font-family="monospace" font-size="11">
+      <text x="20" y="52" fill="#c9d1d9">COPILOT_HOME</text>
+      <text x="20" y="68" fill="#8b949e" font-size="10">→ Override Config-Verzeichnis</text>
+      <text x="20" y="94" fill="#c9d1d9">COPILOT_GITHUB_TOKEN</text>
+      <text x="20" y="110" fill="#8b949e" font-size="10">→ Auth (höchste Prio)</text>
+      <text x="20" y="136" fill="#c9d1d9">COPILOT_CUSTOM_INSTRUCTIONS_DIRS</text>
+      <text x="20" y="152" fill="#8b949e" font-size="10">→ zusätzliche Pfade</text>
+      <text x="20" y="178" fill="#c9d1d9">NO_COLOR</text>
+      <text x="20" y="194" fill="#8b949e" font-size="10">→ Farben aus</text>
+    </g>
+  </g>
+</svg>
