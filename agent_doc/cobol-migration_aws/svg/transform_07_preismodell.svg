@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 580" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgT7" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shT7" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="580" fill="url(#bgT7)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Preismodell</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Mainframe-Transformationen sind seit 2025 kostenlos &#8211; ein Game-Changer fuer ROI</text>
+
+  <!-- Big highlight: free -->
+  <g transform="translate(60,110)" filter="url(#shT7)">
+    <rect width="475" height="240" rx="14" fill="#1e3a5f"/>
+    <rect width="475" height="6" fill="#fbbf24"/>
+    <text x="237" y="50" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">Mainframe-Transformationen</text>
+    <text x="237" y="68" text-anchor="middle" font-size="11" fill="#cbd5e0">Refactor &#8226; Reimagine &#8226; Testing</text>
+
+    <text x="237" y="146" text-anchor="middle" font-size="80" font-weight="800" fill="#fbbf24">$ 0</text>
+    <text x="237" y="178" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Kostenlos</text>
+    <text x="237" y="198" text-anchor="middle" font-size="11" fill="#cbd5e0">seit der Umstellung vom Lines-of-Code-basierten Preismodell</text>
+    <text x="237" y="222" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">Senkt die Einstiegshuerde fuer Pilotprojekte signifikant</text>
+  </g>
+
+  <!-- Custom transformations + Historical -->
+  <g transform="translate(565,110)">
+    <g filter="url(#shT7)">
+      <rect width="475" height="115" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#dd6b20"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#dd6b20">Custom Transformations</text>
+      <text x="22" y="46" font-size="10" fill="#718096">Beliebige Code-, API- und Framework-Migrationen (seit Dez 2025)</text>
+      <text x="22" y="80" font-size="32" font-weight="800" fill="#dd6b20">$ 0,035</text>
+      <text x="180" y="80" font-size="14" fill="#4a5568">pro Agent Minute</text>
+      <text x="22" y="104" font-size="10" font-style="italic" fill="#718096">Pay-as-you-go &#8226; Custom Workflows fuer beliebige Modernisierungen</text>
+    </g>
+
+    <g transform="translate(0,125)" filter="url(#shT7)">
+      <rect width="475" height="115" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="115" fill="#9b2c2c"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#9b2c2c">Historisch &#8211; das alte Modell</text>
+      <text x="22" y="46" font-size="10" fill="#718096">Blu Age Automated Refactor Transformation</text>
+      <text x="22" y="80" font-size="32" font-weight="800" fill="#9b2c2c">$ 0,103</text>
+      <text x="180" y="80" font-size="14" fill="#4a5568">pro Line of Code</text>
+      <text x="22" y="104" font-size="10" font-style="italic" fill="#718096">nach Free Tier von 120.000 LOC &#8211; konnte schnell in die Millionen gehen</text>
+    </g>
+  </g>
+
+  <!-- Bottom: Cost comparison example -->
+  <g transform="translate(60,380)" filter="url(#shT7)">
+    <rect width="980" height="180" rx="14" fill="#fff" stroke="#cbd5e0"/>
+    <text x="22" y="32" font-size="14" font-weight="700" fill="#1a202c">Was das fuer ein typisches Projekt bedeutet (Beispiel)</text>
+
+    <g transform="translate(22,50)">
+      <text font-size="12" fill="#4a5568">Eine mittlere Mainframe-Anwendung mit <tspan font-weight="700" fill="#1a202c">2.000.000 LOC</tspan> haette zu altem Modell:</text>
+
+      <g transform="translate(0,28)" font-size="13">
+        <text fill="#9b2c2c" font-weight="700">Altes Modell (vor 2025)</text>
+        <text x="280" font-weight="700" fill="#9b2c2c">(2.000.000 - 120.000) &#215; $0,103</text>
+        <text x="600" font-weight="800" fill="#9b2c2c">= $193.640</text>
+      </g>
+      <g transform="translate(0,52)" font-size="13">
+        <text fill="#38a169" font-weight="700">Neues Modell (2025/2026)</text>
+        <text x="280" font-weight="700" fill="#38a169">Mainframe-Transformation</text>
+        <text x="600" font-weight="800" fill="#38a169">= $0</text>
+      </g>
+
+      <line x1="0" y1="86" x2="800" y2="86" stroke="#cbd5e0"/>
+      <text y="106" font-size="13" font-weight="800" fill="#dd6b20">Einsparung: ueber $190.000 pro mittelgrossem Projekt</text>
+      <text y="124" font-size="10" font-style="italic" fill="#718096">Plus: deutlich einfacherer Approval-Prozess fuer Pilotwaves &#8211; kein vorab-Lizenz-Approval mehr noetig.</text>
+    </g>
+  </g>
+</svg>

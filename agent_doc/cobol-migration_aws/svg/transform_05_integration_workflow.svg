@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgT5" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shT5" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrT5" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dd6b20"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bgT5)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Integration und Workflow</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">End-to-End-Workflow von Code-Upload bis Deployment</text>
+
+  <!-- Pipeline as numbered steps -->
+  <g transform="translate(60,100)">
+    <g>
+      <!-- Background flow -->
+      <rect width="980" height="280" rx="12" fill="#fff" filter="url(#shT5)" stroke="#cbd5e0"/>
+
+      <!-- Steps in 3x3 grid -->
+      <g font-size="11">
+        <g transform="translate(20,20)">
+          <circle cx="14" cy="14" r="14" fill="#1e3a5f"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">1</text>
+          <text x="40" y="14" font-weight="700" fill="#1e3a5f">Code-Upload (S3)</text>
+          <text x="40" y="28" font-size="9" fill="#718096">COBOL, Copybooks, JCL, BMS</text>
+        </g>
+        <g transform="translate(340,20)">
+          <circle cx="14" cy="14" r="14" fill="#2c5282"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">2</text>
+          <text x="40" y="14" font-weight="700" fill="#2c5282">Automatische Analyse</text>
+          <text x="40" y="28" font-size="9" fill="#718096">Kategorisierung &amp; Deps</text>
+        </g>
+        <g transform="translate(660,20)">
+          <circle cx="14" cy="14" r="14" fill="#3182ce"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">3</text>
+          <text x="40" y="14" font-weight="700" fill="#3182ce">Doku &amp; Business-Logic</text>
+          <text x="40" y="28" font-size="9" fill="#718096">natuerlichsprachlich</text>
+        </g>
+
+        <g transform="translate(20,90)">
+          <circle cx="14" cy="14" r="14" fill="#dd6b20"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">4</text>
+          <text x="40" y="14" font-weight="700" fill="#dd6b20">Domain-Dekomposition</text>
+          <text x="40" y="28" font-size="9" fill="#718096">+ Wave Planning</text>
+        </g>
+        <g transform="translate(340,90)">
+          <circle cx="14" cy="14" r="14" fill="#dd6b20"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">5</text>
+          <text x="40" y="14" font-weight="700" fill="#dd6b20">Refactor</text>
+          <text x="40" y="28" font-size="9" fill="#718096">Blu Age &#8594; Java</text>
+        </g>
+        <g transform="translate(660,90)">
+          <circle cx="14" cy="14" r="14" fill="#805ad5"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">6</text>
+          <text x="40" y="14" font-weight="700" fill="#805ad5">Reforge (optional)</text>
+          <text x="40" y="28" font-size="9" fill="#718096">LLM-Optimierung</text>
+        </g>
+
+        <g transform="translate(20,160)">
+          <circle cx="14" cy="14" r="14" fill="#805ad5"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">7</text>
+          <text x="40" y="14" font-weight="700" fill="#805ad5">Reimagine (optional)</text>
+          <text x="40" y="28" font-size="9" fill="#718096">Microservices via Kiro</text>
+        </g>
+        <g transform="translate(340,160)">
+          <circle cx="14" cy="14" r="14" fill="#38a169"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">8</text>
+          <text x="40" y="14" font-weight="700" fill="#38a169">Automated Testing</text>
+          <text x="40" y="28" font-size="9" fill="#718096">Test Plans &amp; Equivalence</text>
+        </g>
+        <g transform="translate(660,160)">
+          <circle cx="14" cy="14" r="14" fill="#22543d"/>
+          <text x="14" y="18" text-anchor="middle" font-weight="700" fill="#fff">9</text>
+          <text x="40" y="14" font-weight="700" fill="#22543d">Deployment via IaC</text>
+          <text x="40" y="28" font-size="9" fill="#718096">Terraform / CFN / CDK</text>
+        </g>
+      </g>
+
+      <text x="490" y="250" text-anchor="middle" font-size="11" font-style="italic" fill="#4a5568">Phasen 6+7 sind optional &#8211; viele Projekte stoppen nach Phase 5</text>
+    </g>
+  </g>
+
+  <!-- Testing capabilities -->
+  <g transform="translate(60,420)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Testing-Strategien &#8211; mehr als 50 % der Projektdauer</text>
+
+    <g transform="translate(0,15)" filter="url(#shT5)">
+      <rect width="320" height="180" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="320" height="6" fill="#dd6b20"/>
+      <text x="14" y="28" font-size="12" font-weight="700" fill="#dd6b20">1. Test Plan Generation</text>
+      <text x="14" y="48" font-size="10" fill="#4a5568">Automatische Erstellung von</text>
+      <text x="14" y="62" font-size="10" fill="#4a5568">Testplaenen, identifiziert kritische</text>
+      <text x="14" y="76" font-size="10" fill="#4a5568">funktionale Tests.</text>
+
+      <text x="14" y="106" font-size="12" font-weight="700" fill="#dd6b20">2. Test Data Collection</text>
+      <text x="14" y="126" font-size="10" fill="#4a5568">Generierung von JCL-Skripten</text>
+      <text x="14" y="140" font-size="10" fill="#4a5568">zur Test-Daten-Sammlung aus</text>
+      <text x="14" y="154" font-size="10" fill="#4a5568">VSAM, DB2 und Datasets.</text>
+    </g>
+
+    <g transform="translate(335,15)" filter="url(#shT5)">
+      <rect width="320" height="180" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="320" height="6" fill="#dd6b20"/>
+      <text x="14" y="28" font-size="12" font-weight="700" fill="#dd6b20">3. Test Case Automation</text>
+      <text x="14" y="48" font-size="10" fill="#4a5568">Test-Environment-Staging,</text>
+      <text x="14" y="62" font-size="10" fill="#4a5568">Testfall-Ausfuehrung und</text>
+      <text x="14" y="76" font-size="10" fill="#4a5568">Ergebnisvalidierung gegen</text>
+      <text x="14" y="90" font-size="10" fill="#4a5568">erwartete Outcomes.</text>
+
+      <text x="14" y="120" font-size="12" font-weight="700" fill="#dd6b20">Refactored Functional Test Env</text>
+      <text x="14" y="138" font-size="10" fill="#4a5568">&#9656; Continuous Regression Testing</text>
+      <text x="14" y="152" font-size="10" fill="#4a5568">&#9656; Datenmigrations-Validierung</text>
+      <text x="14" y="166" font-size="10" fill="#4a5568">&#9656; Ergebnis-Variationsanalyse</text>
+    </g>
+
+    <g transform="translate(670,15)" filter="url(#shT5)">
+      <rect width="315" height="180" rx="10" fill="#1e3a5f"/>
+      <text x="14" y="28" font-size="12" font-weight="700" fill="#fbbf24">CI/CD-Integration</text>
+      <text x="14" y="48" font-size="10" fill="#cbd5e0">Pre-built IaC-Templates</text>
+      <text x="14" y="62" font-size="10" fill="#cbd5e0">in Terraform, CFN und CDK.</text>
+      <line x1="14" y1="74" x2="290" y2="74" stroke="#475569"/>
+      <text x="14" y="94" font-size="10" font-weight="700" fill="#fbbf24">Erstellt automatisch:</text>
+      <g font-size="10" fill="#cbd5e0">
+        <text x="14" y="110">&#9656; Application Load Balancer</text>
+        <text x="14" y="124">&#9656; Amazon EC2 / RDS</text>
+        <text x="14" y="138">&#9656; VPC + Security Controls</text>
+        <text x="14" y="152">&#9656; CodePipeline-Integration</text>
+        <text x="14" y="166">&#9656; CardDemo Pattern dokumentiert</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Zusammenspiel mit M2 -->
+  <g transform="translate(60,640)" filter="url(#shT5)">
+    <rect width="980" height="100" rx="12" fill="#fef5e7" stroke="#dd6b20"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#7c2d12">Zusammenspiel mit AWS Mainframe Modernization</text>
+    <g font-size="11" fill="#9a3412">
+      <text x="20" y="50">&#9656; AWS Transform liefert den <tspan font-weight="700">transformierten Java-Code</tspan></text>
+      <text x="20" y="66">&#9656; AWS Mainframe Modernization (Self-Managed) stellt die <tspan font-weight="700">Runtime-Umgebung</tspan> bereit (Blu Age Runtime auf Spring Boot + Tomcat)</text>
+      <text x="20" y="82">&#9656; Modernisierte Anwendungen werden als <tspan font-weight="700">WAR-Dateien</tspan> paketiert und auf JEE-Servern deployed</text>
+    </g>
+  </g>
+</svg>

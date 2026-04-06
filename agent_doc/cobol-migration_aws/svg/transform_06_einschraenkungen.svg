@@ -1,0 +1,163 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgT6" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shT6" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bgT6)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Einschraenkungen und Risiken</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Was AWS Transform (noch) nicht kann &#8211; und wo manuelle Nacharbeit unerlaesslich bleibt</text>
+
+  <!-- Section 1: Limitations -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Bekannte Limitationen</text>
+
+    <g transform="translate(0,15)" filter="url(#shT6)">
+      <rect width="475" height="280" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="475" height="6" fill="#dd6b20"/>
+      <text x="14" y="28" font-size="12" font-weight="700" fill="#dd6b20">Sprachunterstuetzung</text>
+      <g font-size="10" fill="#4a5568">
+        <text x="14" y="46">&#9656; Primaer COBOL und PL/I</text>
+        <text x="14" y="60">&#9656; NATURAL, Assembler nur eingeschraenkt</text>
+        <text x="14" y="74">&#9656; Kiro fuer Analyse nicht-unterstuetzter Sprachen</text>
+        <text x="14" y="88">&#9656; Maerz 2025: Assembler &#8594; COBOL als Zwischenschritt</text>
+      </g>
+
+      <text x="14" y="118" font-size="12" font-weight="700" fill="#dd6b20">Technische Grenzen</text>
+      <g font-size="10" fill="#4a5568">
+        <text x="14" y="136">&#9656; Initiale Refactor-Code-Qualitaet zeigt JOBOL</text>
+        <text x="14" y="150">&#9656; Reforge ist LLM-basiert &#8594; nicht deterministisch</text>
+        <text x="14" y="164">&#9656; Funktionale Aequivalenz braucht umfangreiche Tests</text>
+        <text x="14" y="178">&#9656; Kleine Abweichungen koennen schwere Folgen haben</text>
+        <text x="14" y="192">&#9656; Datenintensive Tests sind aufwaendig</text>
+        <text x="14" y="206">&#9656; Komplexe Abhaengigkeiten erhoehen Komplexitaet</text>
+      </g>
+
+      <text x="14" y="240" font-size="11" font-style="italic" fill="#9b2c2c">Selbst kleine Abweichungen koennen ernste</text>
+      <text x="14" y="256" font-size="11" font-style="italic" fill="#9b2c2c">Geschaeftskonsequenzen haben.</text>
+    </g>
+
+    <!-- Code Quality Right -->
+    <g transform="translate(505,15)" filter="url(#shT6)">
+      <rect width="475" height="280" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="475" height="6" fill="#805ad5"/>
+      <text x="14" y="28" font-size="12" font-weight="700" fill="#805ad5">Qualitaet des generierten Codes</text>
+
+      <g transform="translate(14,40)" font-size="10">
+        <g>
+          <rect width="20" height="20" rx="4" fill="#dd6b20"/>
+          <text x="10" y="14" text-anchor="middle" font-weight="700" fill="#fff">R</text>
+          <text x="30" y="14" font-weight="700" fill="#dd6b20">Refactor-Phase</text>
+          <text x="30" y="28" fill="#4a5568">Funktional aequivalent, COBOL-artiger Java-Code.</text>
+          <text x="30" y="42" fill="#4a5568">Vermeidet JOBOL durch Model-to-Model, aber</text>
+          <text x="30" y="56" fill="#4a5568">Codestruktur bleibt Legacy-beeinflusst.</text>
+        </g>
+
+        <g transform="translate(0,80)">
+          <rect width="20" height="20" rx="4" fill="#805ad5"/>
+          <text x="10" y="14" text-anchor="middle" font-weight="700" fill="#fff">R</text>
+          <text x="30" y="14" font-weight="700" fill="#805ad5">Reforge-Phase</text>
+          <text x="30" y="28" fill="#4a5568">LLM-basierte Verbesserung. Qualitaet ist nicht</text>
+          <text x="30" y="42" fill="#4a5568">deterministisch und kann variieren.</text>
+          <text x="30" y="56" fill="#4a5568">Menschliche Review ist empfohlen.</text>
+        </g>
+
+        <g transform="translate(0,160)">
+          <rect width="20" height="20" rx="4" fill="#38a169"/>
+          <text x="10" y="14" text-anchor="middle" font-weight="700" fill="#fff">R</text>
+          <text x="30" y="14" font-weight="700" fill="#38a169">Reimagine-Phase</text>
+          <text x="30" y="28" fill="#4a5568">Generiert Microservice-Architekturen, die</text>
+          <text x="30" y="42" fill="#4a5568">erhebliches architektonisches Review</text>
+          <text x="30" y="56" fill="#4a5568">benoetigen.</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Section 2: Manual rework scenarios -->
+  <g transform="translate(60,420)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Szenarien fuer manuelle Nacharbeit &#8211; nichts ist 100 % automatisiert</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shT6)">
+        <rect width="240" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#9b2c2c"/>
+        <text x="14" y="26" font-size="12" font-weight="700" fill="#9b2c2c">Architektur-Entscheidungen</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Domain-Dekomposition und</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Microservice-Grenzen erfordern</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Geschaeftswissen.</text>
+        <text x="14" y="92" font-size="9" font-style="italic" fill="#718096">Nicht delegierbar an KI</text>
+      </g>
+
+      <g transform="translate(255,0)" filter="url(#shT6)">
+        <rect width="240" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#9b2c2c"/>
+        <text x="14" y="26" font-size="12" font-weight="700" fill="#9b2c2c">Nicht-unterstuetzte Sprachen</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Exotische COBOL-Dialekte oder</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Assembler-Einbindungen erfordern</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">manuelle Migration.</text>
+        <text x="14" y="92" font-size="9" font-style="italic" fill="#718096">Vorab pruefen!</text>
+      </g>
+
+      <g transform="translate(510,0)" filter="url(#shT6)">
+        <rect width="240" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#9b2c2c"/>
+        <text x="14" y="26" font-size="12" font-weight="700" fill="#9b2c2c">Komplexe Geschaeftsregeln</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Implizite Logik, die nicht im</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Code dokumentiert ist &#8211; Domain</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Experts einbinden.</text>
+        <text x="14" y="92" font-size="9" font-style="italic" fill="#718096">Tribal Knowledge sichern</text>
+      </g>
+
+      <g transform="translate(765,0)" filter="url(#shT6)">
+        <rect width="220" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="220" height="6" fill="#9b2c2c"/>
+        <text x="14" y="26" font-size="12" font-weight="700" fill="#9b2c2c">Externe Schnittstellen</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Integration mit Drittsystemen,</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">die manuelle Anpassung</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">erfordern.</text>
+        <text x="14" y="92" font-size="9" font-style="italic" fill="#718096">Custom-Adapter</text>
+      </g>
+
+      <g transform="translate(0,115)" filter="url(#shT6)">
+        <rect width="240" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#9b2c2c"/>
+        <text x="14" y="26" font-size="12" font-weight="700" fill="#9b2c2c">Performance-Optimierung</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Generierter Code erfordert</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">moeglicherweise Performance-</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Tuning.</text>
+        <text x="14" y="92" font-size="9" font-style="italic" fill="#718096">Profiling Pflicht</text>
+      </g>
+
+      <g transform="translate(255,115)" filter="url(#shT6)">
+        <rect width="240" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#9b2c2c"/>
+        <text x="14" y="26" font-size="12" font-weight="700" fill="#9b2c2c">Sicherheitsaspekte</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Security-relevante Konfiguratio-</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">nen muessen manuell geprueft</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">werden.</text>
+        <text x="14" y="92" font-size="9" font-style="italic" fill="#718096">Threat Modeling</text>
+      </g>
+
+      <g transform="translate(510,115)" filter="url(#shT6)">
+        <rect width="475" height="100" rx="10" fill="#fff5f5" stroke="#9b2c2c"/>
+        <text x="14" y="26" font-size="12" font-weight="700" fill="#9b2c2c">Expertenmangel als Risiko</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Schwindender Pool an Mainframe-Experten. Testing-Aktivitaeten</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">konkurrieren um begrenzte Ressourcen, die sowohl Legacy-Mainframe-</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Systeme als auch moderne Architekturen verstehen.</text>
+        <text x="14" y="92" font-size="9" font-style="italic" fill="#9b2c2c">Iterative Validierung kann Projekte um Monate verlaengern.</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom takeaway -->
+  <g transform="translate(60,680)" filter="url(#shT6)">
+    <rect width="980" height="60" rx="10" fill="#1e3a5f"/>
+    <text x="490" y="38" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24">AWS Transform automatisiert &#8211; aber nicht alles. Die menschliche Expertise bleibt zentral.</text>
+  </g>
+</svg>

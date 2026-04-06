@@ -6,6 +6,8 @@
 
 ## 1. Was ist AWS Transform?
 
+![Was ist AWS Transform](svg/transform_01_was_ist.svg)
+
 ### 1.1 Ueberblick
 
 AWS Transform ist ein **agentenbasierter KI-Service** von Amazon Web Services, der im **Mai 2025** als General Availability (GA) gestartet wurde. AWS bezeichnet ihn als den **ersten Agentic-AI-Service fuer die Modernisierung von Mainframe-Workloads im Enterprise-Massstab**. Der Service automatisiert die komplexen, ressourcenintensiven Aufgaben ueber alle Phasen der Modernisierung hinweg -- von der initialen Analyse und Planung bis zur Code-Transformation und Anwendungsrestrukturierung.
@@ -35,6 +37,8 @@ AWS Mainframe Modernization bleibt als **Infrastruktur-Service** bestehen (Self-
 
 ## 2. Agentenbasierter KI-Ansatz
 
+![Agentenbasierter KI-Ansatz](svg/transform_02_agentic_ki.svg)
+
 ### 2.1 Architektur
 
 AWS Transform basiert auf einer **Multi-Agent-Architektur**, die auf **Amazon Bedrock** aufbaut. Spezialisierte KI-Agenten uebernehmen unterschiedliche Aufgaben im Modernisierungsprozess:
@@ -63,6 +67,8 @@ AWS Transform implementiert einen **Human-in-the-Loop-Ansatz**. Der Service paus
 ---
 
 ## 3. Modernisierungsansaetze
+
+![Modernisierungsansaetze](svg/transform_03_modernisierungs_ansaetze.svg)
 
 AWS Transform bietet drei Hauptansaetze fuer die Mainframe-Modernisierung:
 
@@ -122,6 +128,8 @@ Der **Reimagine-Ansatz** (angekuendigt auf der re:Invent 2025) geht ueber einfac
 
 ## 4. Konkrete Faehigkeiten im Detail
 
+![Konkrete Faehigkeiten](svg/transform_04_konkrete_faehigkeiten.svg)
+
 ### 4.1 Code-Analyse und COBOL-Verstaendnis
 
 - **Automatische Kategorisierung** aller Code-Artefakte (JCL, BMS, COBOL, Copybooks)
@@ -173,6 +181,8 @@ Die komplexe Legacy-Logik wird in **natuerlichsprachliche Beschreibungen** ueber
 ---
 
 ## 5. Integration und Workflow
+
+![Integration und Workflow](svg/transform_05_integration_workflow.svg)
 
 ### 5.1 Gesamtmigrationsprozess
 
@@ -234,6 +244,8 @@ Zusaetzlich bietet AWS Transform eine **Refactored Functional Test Environment**
 
 ## 6. Einschraenkungen und Risiken
 
+![Einschraenkungen und Risiken](svg/transform_06_einschraenkungen.svg)
+
 ### 6.1 Bekannte Limitationen
 
 **Sprachunterstuetzung:**
@@ -272,6 +284,8 @@ Ein kritischer Risikofaktor ist der **schwindende Pool an Mainframe-Experten**. 
 
 ## 7. Preismodell
 
+![Preismodell](svg/transform_07_preismodell.svg)
+
 - **Mainframe-Transformationen** (Refactor, Reimagine, Testing): **Kostenlos** (seit der Umstellung vom Lines-of-Code-basierten Preismodell)
 - **Custom Transformations**: **$0,035 pro Agent Minute**
 - **Historisch**: Blu Age Automated Refactor Transformation kostete $0,103 pro LOC (nach einem Free Tier von 120.000 LOC)
@@ -279,6 +293,8 @@ Ein kritischer Risikofaktor ist der **schwindende Pool an Mainframe-Experten**. 
 ---
 
 ## 8. Regionale Verfuegbarkeit
+
+![Regionale Verfuegbarkeit](svg/transform_08_regionen.svg)
 
 AWS Transform fuer Mainframe ist verfuegbar in:
 - US East (N. Virginia)
@@ -289,6 +305,8 @@ AWS Transform fuer Mainframe ist verfuegbar in:
 ---
 
 ## 9. Zusammenfassung und Bewertung
+
+![Zusammenfassung und Bewertung](svg/transform_09_zusammenfassung.svg)
 
 AWS Transform stellt einen **signifikanten Fortschritt** in der Mainframe-Modernisierung dar. Die Kombination aus deterministischer Code-Transformation (Blu Age Engine), LLM-basierter Code-Verbesserung (Reforge) und agentenbasierter Automatisierung (Assessment, Planning, Testing) verkuerzt Modernisierungszeitraeume erheblich -- laut AWS von Jahren auf Monate.
 

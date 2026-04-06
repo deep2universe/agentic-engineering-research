@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgT1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shT" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bgT1)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Was ist AWS Transform?</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Erster agentic AI Service fuer Modernisierung im Enterprise-Massstab &#8211; Mai 2025 GA</text>
+
+  <!-- Hero -->
+  <g transform="translate(60,100)" filter="url(#shT)">
+    <rect width="980" height="160" rx="14" fill="#1e3a5f"/>
+    <text x="490" y="50" text-anchor="middle" font-size="22" font-weight="800" fill="#fbbf24">AWS Transform</text>
+    <text x="490" y="78" text-anchor="middle" font-size="13" fill="#cbd5e0">Agentic AI &#8226; automatisiert Discovery, Planung, Code-Transformation, Testing</text>
+
+    <g transform="translate(40,100)" font-size="11" fill="#e2e8f0">
+      <g>
+        <rect width="200" height="40" rx="6" fill="#dd6b20" opacity="0.9"/>
+        <text x="100" y="25" text-anchor="middle" font-weight="700" fill="#fff">Mai 2025: GA</text>
+      </g>
+      <g transform="translate(220,0)">
+        <rect width="200" height="40" rx="6" fill="#dd6b20" opacity="0.9"/>
+        <text x="100" y="25" text-anchor="middle" font-weight="700" fill="#fff">Dez 2025: Custom</text>
+      </g>
+      <g transform="translate(440,0)">
+        <rect width="200" height="40" rx="6" fill="#dd6b20" opacity="0.9"/>
+        <text x="100" y="25" text-anchor="middle" font-weight="700" fill="#fff">re:Invent: Reimagine</text>
+      </g>
+      <g transform="translate(660,0)">
+        <rect width="240" height="40" rx="6" fill="#dd6b20" opacity="0.9"/>
+        <text x="120" y="25" text-anchor="middle" font-weight="700" fill="#fff">Maerz 2026: Refactor Re-Brand</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 3 workload categories -->
+  <g transform="translate(60,290)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Drei Workload-Kategorien</text>
+    <g transform="translate(0,15)" font-size="11">
+      <g filter="url(#shT)">
+        <rect width="320" height="170" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#dd6b20"/>
+        <text x="14" y="32" font-size="14" font-weight="700" fill="#dd6b20">Mainframe</text>
+        <text x="14" y="50" font-size="10" fill="#718096">Legacy-Modernisierung</text>
+        <line x1="14" y1="60" x2="306" y2="60" stroke="#fed7aa"/>
+        <text x="14" y="82" fill="#4a5568">&#9656; COBOL, PL/I</text>
+        <text x="14" y="100" fill="#4a5568">&#9656; JCL, CICS</text>
+        <text x="14" y="118" fill="#4a5568">&#9656; DB2, VSAM, IMS</text>
+        <text x="14" y="136" fill="#4a5568">&#9656; BMS / MFS Maps</text>
+        <text x="14" y="158" font-size="10" font-style="italic" fill="#dd6b20">Hauptfokus dieses Reports</text>
+      </g>
+
+      <g transform="translate(335,0)" filter="url(#shT)">
+        <rect width="320" height="170" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#2c5282"/>
+        <text x="14" y="32" font-size="14" font-weight="700" fill="#2c5282">Windows / .NET</text>
+        <text x="14" y="50" font-size="10" fill="#718096">Legacy-.NET-Anwendungen</text>
+        <line x1="14" y1="60" x2="306" y2="60" stroke="#bee3f8"/>
+        <text x="14" y="82" fill="#4a5568">&#9656; .NET Framework &#8594; .NET 8+</text>
+        <text x="14" y="100" fill="#4a5568">&#9656; ASP.NET WebForms &#8594; modern</text>
+        <text x="14" y="118" fill="#4a5568">&#9656; Windows Server &#8594; Linux</text>
+        <text x="14" y="136" fill="#4a5568">&#9656; SQL Server &#8594; Aurora</text>
+        <text x="14" y="158" font-size="10" font-style="italic" fill="#2c5282">Eigene Toolchain &amp; Agenten</text>
+      </g>
+
+      <g transform="translate(670,0)" filter="url(#shT)">
+        <rect width="320" height="170" rx="12" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="320" height="6" fill="#38a169"/>
+        <text x="14" y="32" font-size="14" font-weight="700" fill="#38a169">VMware</text>
+        <text x="14" y="50" font-size="10" fill="#718096">Virtualisierte Workloads</text>
+        <line x1="14" y1="60" x2="306" y2="60" stroke="#c6f6d5"/>
+        <text x="14" y="82" fill="#4a5568">&#9656; VM-Discovery</text>
+        <text x="14" y="100" fill="#4a5568">&#9656; Migration-Planung</text>
+        <text x="14" y="118" fill="#4a5568">&#9656; Lift-and-Shift Workflows</text>
+        <text x="14" y="136" fill="#4a5568">&#9656; AWS-native Replatform</text>
+        <text x="14" y="158" font-size="10" font-style="italic" fill="#38a169">VMware-zu-AWS Pfad</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Comparison: Transform vs M2 -->
+  <g transform="translate(60,490)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Abgrenzung: AWS Transform vs. AWS Mainframe Modernization</text>
+
+    <g transform="translate(0,15)" filter="url(#shT)">
+      <rect width="980" height="240" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="980" height="40" rx="10" fill="#2d3748"/>
+      <rect y="28" width="980" height="12" fill="#2d3748"/>
+      <text x="20" y="26" font-size="12" font-weight="700" fill="#fff">Aspekt</text>
+      <text x="350" y="26" font-size="12" font-weight="700" fill="#fbbf24">AWS Mainframe Modernization</text>
+      <text x="690" y="26" font-size="12" font-weight="700" fill="#9ae6b4">AWS Transform</text>
+
+      <line x1="330" y1="0" x2="330" y2="240" stroke="#cbd5e0"/>
+      <line x1="670" y1="0" x2="670" y2="240" stroke="#cbd5e0"/>
+
+      <g font-size="11">
+        <g transform="translate(0,40)">
+          <rect width="980" height="40" fill="#f7fafc"/>
+          <text x="20" y="24" font-weight="700" fill="#2d3748">Typ</text>
+          <text x="350" y="18" fill="#4a5568">Managed Platform/Infra-Service</text>
+          <text x="350" y="32" font-size="10" fill="#718096">Runtime-orientiert</text>
+          <text x="690" y="18" fill="#4a5568">Agentic AI Transformation Service</text>
+          <text x="690" y="32" font-size="10" fill="#718096">KI-orientiert</text>
+        </g>
+        <g transform="translate(0,80)">
+          <rect width="980" height="40" fill="#fff"/>
+          <text x="20" y="24" font-weight="700" fill="#2d3748">Fokus</text>
+          <text x="350" y="18" fill="#4a5568">Runtime &amp; Deployment-Infrastruktur</text>
+          <text x="350" y="32" font-size="10" fill="#718096">Wo lauft der Code?</text>
+          <text x="690" y="18" fill="#4a5568">Code-Analyse, -Transformation, Plan</text>
+          <text x="690" y="32" font-size="10" fill="#718096">Wie wird der Code?</text>
+        </g>
+        <g transform="translate(0,120)">
+          <rect width="980" height="40" fill="#f7fafc"/>
+          <text x="20" y="24" font-weight="700" fill="#2d3748">Technologie</text>
+          <text x="350" y="18" fill="#4a5568">Blu Age Runtime, Rocket</text>
+          <text x="350" y="32" font-size="10" fill="#718096">Tomcat / Replatforming</text>
+          <text x="690" y="18" fill="#4a5568">KI-Agenten, LLMs, Blu Age Engine</text>
+          <text x="690" y="32" font-size="10" fill="#718096">Bedrock + Reasoning</text>
+        </g>
+        <g transform="translate(0,160)">
+          <rect width="980" height="40" fill="#fff"/>
+          <text x="20" y="24" font-weight="700" fill="#2d3748">Status</text>
+          <text x="350" y="18" fill="#4a5568">Self-Managed aktiv</text>
+          <text x="350" y="32" font-size="10" fill="#9b2c2c">Managed nicht fuer Neukunden</text>
+          <text x="690" y="18" fill="#4a5568">Aktiv weiterentwickelt</text>
+          <text x="690" y="32" font-size="10" fill="#2f855a">Empfohlen fuer Neuprojekte</text>
+        </g>
+        <g transform="translate(0,200)">
+          <rect width="980" height="40" fill="#f7fafc"/>
+          <text x="20" y="24" font-weight="700" fill="#2d3748">Ansatz</text>
+          <text x="350" y="18" fill="#4a5568">Replatforming + Refactoring</text>
+          <text x="350" y="32" font-size="10" fill="#718096">Engine-fokussiert</text>
+          <text x="690" y="18" fill="#4a5568">Refactor + Reforge + Reimagine</text>
+          <text x="690" y="32" font-size="10" fill="#718096">3 Modernisierungspfade</text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

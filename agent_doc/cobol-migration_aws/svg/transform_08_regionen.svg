@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 580" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgT8" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shT8" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="580" fill="url(#bgT8)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Regionale Verfuegbarkeit</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">AWS Transform fuer Mainframe ist in 8 Regionen verfuegbar &#8211; Stand April 2026</text>
+
+  <!-- World map (abstract) -->
+  <g transform="translate(60,110)">
+    <rect width="980" height="320" rx="12" fill="#fff" stroke="#cbd5e0" filter="url(#shT8)"/>
+
+    <!-- Abstract continents -->
+    <g fill="#e2e8f0" stroke="#cbd5e0">
+      <!-- North America -->
+      <path d="M80 90 Q120 60 200 80 Q260 90 280 130 Q260 180 200 200 Q140 210 100 180 Q70 140 80 90 Z"/>
+      <!-- Europe -->
+      <path d="M450 80 Q500 60 540 70 Q570 90 560 120 Q540 140 500 130 Q460 120 450 80 Z"/>
+      <!-- Asia -->
+      <path d="M600 70 Q700 60 800 80 Q860 100 880 150 Q860 190 800 200 Q700 210 620 180 Q580 130 600 70 Z"/>
+      <!-- Australia -->
+      <path d="M780 240 Q840 230 880 250 Q890 280 850 290 Q800 290 780 270 Z"/>
+    </g>
+
+    <!-- Region markers -->
+    <g font-size="10">
+      <!-- US East (N. Virginia) -->
+      <circle cx="220" cy="140" r="9" fill="#dd6b20"/>
+      <text x="220" y="143" text-anchor="middle" font-weight="700" fill="#fff">1</text>
+      <text x="220" y="170" text-anchor="middle" font-weight="700" fill="#1a202c">N. Virginia</text>
+      <text x="220" y="184" text-anchor="middle" font-size="9" fill="#718096">us-east-1</text>
+
+      <!-- Canada -->
+      <circle cx="180" cy="100" r="9" fill="#dd6b20"/>
+      <text x="180" y="103" text-anchor="middle" font-weight="700" fill="#fff">2</text>
+      <text x="180" y="80" text-anchor="middle" font-weight="700" fill="#1a202c">Canada Central</text>
+      <text x="180" y="68" text-anchor="middle" font-size="9" fill="#718096">ca-central-1</text>
+
+      <!-- Frankfurt -->
+      <circle cx="500" cy="100" r="9" fill="#dd6b20"/>
+      <text x="500" y="103" text-anchor="middle" font-weight="700" fill="#fff">3</text>
+      <text x="500" y="80" text-anchor="middle" font-weight="700" fill="#1a202c">Frankfurt</text>
+      <text x="500" y="68" text-anchor="middle" font-size="9" fill="#718096">eu-central-1</text>
+
+      <!-- London -->
+      <circle cx="465" cy="115" r="9" fill="#dd6b20"/>
+      <text x="465" y="118" text-anchor="middle" font-weight="700" fill="#fff">4</text>
+      <text x="430" y="155" text-anchor="middle" font-weight="700" fill="#1a202c">London</text>
+      <text x="430" y="167" text-anchor="middle" font-size="9" fill="#718096">eu-west-2</text>
+
+      <!-- Mumbai -->
+      <circle cx="660" cy="170" r="9" fill="#dd6b20"/>
+      <text x="660" y="173" text-anchor="middle" font-weight="700" fill="#fff">5</text>
+      <text x="660" y="200" text-anchor="middle" font-weight="700" fill="#1a202c">Mumbai</text>
+      <text x="660" y="212" text-anchor="middle" font-size="9" fill="#718096">ap-south-1</text>
+
+      <!-- Seoul -->
+      <circle cx="800" cy="130" r="9" fill="#dd6b20"/>
+      <text x="800" y="133" text-anchor="middle" font-weight="700" fill="#fff">6</text>
+      <text x="800" y="110" text-anchor="middle" font-weight="700" fill="#1a202c">Seoul</text>
+      <text x="800" y="98" text-anchor="middle" font-size="9" fill="#718096">ap-northeast-2</text>
+
+      <!-- Tokyo -->
+      <circle cx="845" cy="150" r="9" fill="#dd6b20"/>
+      <text x="845" y="153" text-anchor="middle" font-weight="700" fill="#fff">7</text>
+      <text x="880" y="135" text-anchor="middle" font-weight="700" fill="#1a202c">Tokyo</text>
+      <text x="880" y="123" text-anchor="middle" font-size="9" fill="#718096">ap-northeast-1</text>
+
+      <!-- Sydney -->
+      <circle cx="830" cy="265" r="9" fill="#dd6b20"/>
+      <text x="830" y="268" text-anchor="middle" font-weight="700" fill="#fff">8</text>
+      <text x="830" y="295" text-anchor="middle" font-weight="700" fill="#1a202c">Sydney</text>
+      <text x="830" y="307" text-anchor="middle" font-size="9" fill="#718096">ap-southeast-2</text>
+    </g>
+  </g>
+
+  <!-- Bottom: structured list -->
+  <g transform="translate(60,460)">
+    <g filter="url(#shT8)">
+      <rect width="475" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <text x="14" y="26" font-size="13" font-weight="700" fill="#dd6b20">Regionen-Uebersicht</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="14" y="48"><tspan font-weight="700">Nordamerika:</tspan> US East (N. Virginia), Canada Central</text>
+        <text x="14" y="64"><tspan font-weight="700">Europa:</tspan> Frankfurt, London</text>
+        <text x="14" y="80"><tspan font-weight="700">Asien-Pazifik:</tspan> Mumbai, Seoul, Sydney, Tokyo</text>
+      </g>
+    </g>
+
+    <g transform="translate(505,0)" filter="url(#shT8)">
+      <rect width="475" height="100" rx="10" fill="#fef5e7" stroke="#dd6b20"/>
+      <text x="14" y="26" font-size="13" font-weight="700" fill="#7c2d12">&#9888; Wichtig fuer EU-Kunden</text>
+      <text x="14" y="48" font-size="11" fill="#9a3412">Frankfurt und London decken die EU-Datenresidenz</text>
+      <text x="14" y="64" font-size="11" fill="#9a3412">ab. Fuer DSGVO-konforme Pilotprojekte sind diese</text>
+      <text x="14" y="80" font-size="11" fill="#9a3412">beiden Regionen zentral.</text>
+    </g>
+  </g>
+</svg>

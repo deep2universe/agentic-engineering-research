@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgT4" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shT4" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="760" fill="url(#bgT4)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Konkrete Faehigkeiten im Detail</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Wie AWS Transform mit komplexen COBOL-Konstrukten und Datenmodellen umgeht</text>
+
+  <!-- Top: Code Analysis -->
+  <g transform="translate(60,100)" filter="url(#shT4)">
+    <rect width="980" height="100" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="6" height="100" fill="#1e3a5f"/>
+    <text x="22" y="28" font-size="13" font-weight="700" fill="#1a202c">4.1 Code-Analyse und COBOL-Verstaendnis &#8211; Stunden statt Wochen</text>
+    <g font-size="11" fill="#4a5568">
+      <text x="22" y="50">&#9656; Automatische Kategorisierung aller Code-Artefakte (JCL, BMS, COBOL, Copybooks)</text>
+      <text x="22" y="66">&#9656; Cyclomatic Complexity Messung und LOC-Metriken</text>
+      <text x="22" y="82">&#9656; Duplikat-Erkennung &amp; Identifikation fehlender Komponenten</text>
+      <text x="500" y="50">&#9656; Abhaengigkeitsanalyse zwischen Systemkomponenten</text>
+      <text x="500" y="66">&#9656; CRUD-Operationsanalyse fuer Datenbeziehungen</text>
+      <text x="500" y="82">&#9656; Komplexe Codebasen in Stunden statt Wochen/Monaten</text>
+    </g>
+  </g>
+
+  <!-- COBOL constructs handling -->
+  <g transform="translate(60,220)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">4.2 Komplexe COBOL-Konstrukte &#8211; wie Blu Age sie aufloest</text>
+
+    <g transform="translate(0,15)" filter="url(#shT4)">
+      <rect width="475" height="290" rx="10" fill="#fff" stroke="#cbd5e0"/>
+
+      <g font-size="11">
+        <g transform="translate(14,24)">
+          <text font-weight="700" fill="#dd6b20">PERFORM</text>
+          <text y="16" font-size="10" fill="#4a5568">&#8594; Java-Methodenaufrufe</text>
+          <text y="32" font-size="10" fill="#4a5568">Engine analysiert die Programmstruktur und</text>
+          <text y="46" font-size="10" fill="#4a5568">erzeugt aequivalente Kontrollflussstrukturen.</text>
+        </g>
+        <g transform="translate(14,90)">
+          <text font-weight="700" fill="#dd6b20">GOTO</text>
+          <text y="16" font-size="10" fill="#4a5568">&#8594; strukturierte Konstrukte (Schleifen, Bedingungen)</text>
+          <text y="32" font-size="10" fill="#4a5568">Algorithmen zur Umstrukturierung des Kontrollflusses</text>
+          <text y="46" font-size="10" fill="#4a5568">wandeln GOTO-basierte Spruenge um.</text>
+        </g>
+        <g transform="translate(14,156)">
+          <text font-weight="700" fill="#dd6b20">Nested IFs</text>
+          <text y="16" font-size="10" fill="#4a5568">&#8594; verschachtelte Java-if-Anweisungen</text>
+          <text y="32" font-size="10" fill="#4a5568">Direkte 1:1-Uebersetzung der bedingten Logik.</text>
+        </g>
+        <g transform="translate(14,210)">
+          <text font-weight="700" fill="#dd6b20">REDEFINES</text>
+          <text y="16" font-size="10" fill="#4a5568">&#8594; Record-Interface + RecordEntity-Subklassen</text>
+          <text y="32" font-size="10" fill="#4a5568">Mehrere Klassen greifen auf denselben Speicher zu.</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(505,15)" filter="url(#shT4)">
+      <rect width="475" height="290" rx="10" fill="#fff" stroke="#cbd5e0"/>
+
+      <text x="14" y="24" font-size="13" font-weight="700" fill="#1e3a5f">Wie REDEFINES funktioniert</text>
+
+      <g font-family="Menlo,monospace" font-size="9" fill="#2d3748">
+        <text x="14" y="50" fill="#9b2c2c">01 CUSTOMER-RECORD.</text>
+        <text x="14" y="64" fill="#9b2c2c">   05 CUST-ID    PIC 9(8).</text>
+        <text x="14" y="78" fill="#9b2c2c">   05 CUST-DATA  PIC X(50).</text>
+        <text x="14" y="92" fill="#9b2c2c">   05 PERSONAL-DATA REDEFINES CUST-DATA.</text>
+        <text x="28" y="106" fill="#9b2c2c">10 NAME       PIC X(30).</text>
+        <text x="28" y="120" fill="#9b2c2c">10 BIRTH-DATE PIC 9(8).</text>
+        <text x="28" y="134" fill="#9b2c2c">10 SSN        PIC 9(9).</text>
+      </g>
+
+      <line x1="14" y1="148" x2="461" y2="148" stroke="#cbd5e0"/>
+
+      <text x="14" y="166" font-size="11" font-weight="700" fill="#dd6b20">&#8595; Blu Age Output</text>
+
+      <g font-family="Menlo,monospace" font-size="9" fill="#2d3748">
+        <text x="14" y="184" fill="#2c5282">class CustomerRecord extends RecordEntity {</text>
+        <text x="28" y="198" fill="#2c5282">// 58 Bytes Buffer</text>
+        <text x="28" y="212" fill="#2c5282">String getCustId();</text>
+        <text x="28" y="226" fill="#2c5282">String getCustData();</text>
+        <text x="14" y="240" fill="#2c5282">}</text>
+        <text x="14" y="258" fill="#805ad5">class PersonalData extends RecordEntity {</text>
+        <text x="28" y="272" fill="#805ad5">// gleicher Buffer, andere Sicht</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Database Migration + JCL -->
+  <g transform="translate(60,540)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">4.3 Datenbank-Migration und 4.4 JCL-Konvertierung</text>
+
+    <g transform="translate(0,15)" filter="url(#shT4)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#3182ce"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#1a202c">Datenbank-Migration</text>
+
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52" font-weight="700" fill="#3182ce">DB2 &#8594; Aurora/RDS</text>
+        <text x="22" y="68">&#9656; Migration zu Aurora oder RDS for PostgreSQL</text>
+        <text x="22" y="84">&#9656; SQL-Dialekt-Konvertierung automatisiert</text>
+        <text x="22" y="100">&#9656; Data Lineage Feature bildet Beziehungen ab</text>
+
+        <text x="22" y="128" font-weight="700" fill="#3182ce">VSAM &#8594; Relationale Datenbank</text>
+        <text x="22" y="144">&#9656; VSAM-Datasets via Blusam zu PostgreSQL</text>
+        <text x="22" y="160">&#9656; Automatische JCL-Skripte zur Test-Daten-</text>
+        <text x="22" y="174">    Extraktion aus VSAM-Dateien</text>
+      </g>
+    </g>
+
+    <g transform="translate(505,15)" filter="url(#shT4)">
+      <rect width="475" height="200" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="200" fill="#38a169"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#1a202c">JCL-Konvertierung &amp; Business-Logik-Extraktion</text>
+
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52" font-weight="700" fill="#38a169">JCL &#8594; Groovy-Skripte</text>
+        <text x="22" y="68">&#9656; Batch-Prozesse in moderne Frameworks</text>
+        <text x="22" y="84">&#9656; Automatische Test-Daten-Skripte auf JCL-Basis</text>
+
+        <text x="22" y="112" font-weight="700" fill="#38a169">Business-Logik in natuerlicher Sprache</text>
+        <text x="22" y="128">&#9656; Vier hierarchische Ebenen (LoB &#8594; Component)</text>
+        <text x="22" y="144">&#9656; Komplexe Legacy-Logik &#8594; natuerlichsprachliche</text>
+        <text x="22" y="158">    Beschreibungen</text>
+        <text x="22" y="174" font-style="italic" fill="#718096">Wertvoll, da COBOL-Expertise zunehmend knapp wird</text>
+      </g>
+    </g>
+  </g>
+</svg>

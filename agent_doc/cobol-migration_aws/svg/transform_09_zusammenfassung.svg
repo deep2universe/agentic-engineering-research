@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgT9" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f8fafc"/>
+      <stop offset="1" stop-color="#eef2f7"/>
+    </linearGradient>
+    <filter id="shT9" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1100" height="720" fill="url(#bgT9)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Zusammenfassung &amp; Bewertung</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Signifikanter Fortschritt fuer Mainframe-Modernisierung &#8211; aber kein Allheilmittel</text>
+
+  <!-- Big stats banner -->
+  <g transform="translate(60,100)" filter="url(#shT9)">
+    <rect width="980" height="140" rx="14" fill="#1e3a5f"/>
+    <text x="490" y="34" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">AWS Transform 2026 in Zahlen</text>
+
+    <g transform="translate(40,60)">
+      <text font-size="42" font-weight="800" fill="#fff">1,1 Mrd.</text>
+      <text y="20" font-size="11" fill="#cbd5e0">analysierte LOC</text>
+    </g>
+    <g transform="translate(290,60)">
+      <text font-size="42" font-weight="800" fill="#fff">810k</text>
+      <text y="20" font-size="11" fill="#cbd5e0">Stunden eingespart</text>
+    </g>
+    <g transform="translate(540,60)">
+      <text font-size="42" font-weight="800" fill="#fff">30 %</text>
+      <text y="20" font-size="11" fill="#cbd5e0">niedrigere Projektkosten</text>
+    </g>
+    <g transform="translate(800,60)">
+      <text font-size="42" font-weight="800" fill="#fbbf24">$ 0</text>
+      <text y="20" font-size="11" fill="#cbd5e0">Mainframe-Transformationen</text>
+    </g>
+  </g>
+
+  <!-- Strengths -->
+  <g transform="translate(60,270)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Staerken</text>
+
+    <g transform="translate(0,15)" filter="url(#shT9)">
+      <rect width="475" height="320" rx="10" fill="#f0fff4" stroke="#38a169" stroke-width="2"/>
+      <text x="14" y="32" font-size="13" font-weight="700" fill="#2f855a">+ Was AWS Transform richtig macht</text>
+
+      <g font-size="11" fill="#22543d">
+        <text x="14" y="60" font-weight="700">&#10003; Umfassende Automatisierung</text>
+        <text x="20" y="74" font-size="10">ueber den gesamten Modernisierungslebenszyklus</text>
+
+        <text x="14" y="100" font-weight="700">&#10003; Drei flexible Modernisierungsansaetze</text>
+        <text x="20" y="114" font-size="10">Refactor, Reforge, Reimagine</text>
+
+        <text x="14" y="140" font-weight="700">&#10003; Kostenlose Mainframe-Transformation</text>
+        <text x="20" y="154" font-size="10">senkt die Einstiegshuerde signifikant</text>
+
+        <text x="14" y="180" font-weight="700">&#10003; Starke Testing-Automatisierung</text>
+        <text x="20" y="194" font-size="10">Test Plans, Test Data, Functional Equivalence</text>
+
+        <text x="14" y="220" font-weight="700">&#10003; IaC-Integration (TF, CFN, CDK)</text>
+        <text x="20" y="234" font-size="10">vorgefertigte Templates fuer ALB, EC2, RDS</text>
+
+        <text x="14" y="260" font-weight="700">&#10003; Partner-Oekosystem durch Composability</text>
+        <text x="20" y="274" font-size="10">eigene Agenten und Tools koennen integriert werden</text>
+
+        <text x="14" y="300" font-style="italic" fill="#2f855a">Verkuerzt Modernisierungszeitraeume von Jahren auf Monate</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Weaknesses -->
+  <g transform="translate(565,270)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Schwaechen</text>
+
+    <g transform="translate(0,15)" filter="url(#shT9)">
+      <rect width="475" height="320" rx="10" fill="#fff5f5" stroke="#c53030" stroke-width="2"/>
+      <text x="14" y="32" font-size="13" font-weight="700" fill="#c53030">&#8722; Wo AWS Transform an Grenzen stoesst</text>
+
+      <g font-size="11" fill="#742a2a">
+        <text x="14" y="60" font-weight="700">&#10007; Begrenzte Sprachunterstuetzung</text>
+        <text x="20" y="74" font-size="10">primaer COBOL und PL/I &#8211; NATURAL/Assembler eingeschraenkt</text>
+
+        <text x="14" y="100" font-weight="700">&#10007; Nicht-deterministisches Reforging</text>
+        <text x="20" y="114" font-size="10">LLM-basiert &#8594; Output kann variieren</text>
+
+        <text x="14" y="140" font-weight="700">&#10007; Erheblicher manueller Test-Aufwand</text>
+        <text x="20" y="154" font-size="10">Validierung bleibt menschliche Aufgabe</text>
+
+        <text x="14" y="180" font-weight="700">&#10007; Architekturelle Entscheidungen manuell</text>
+        <text x="20" y="194" font-size="10">Bounded Contexts, Service-Grenzen brauchen Senior-Expertise</text>
+
+        <text x="14" y="220" font-weight="700">&#10007; Abhaengigkeit von AWS-Oekosystem</text>
+        <text x="20" y="234" font-size="10">Vendor Lock-in zu AWS und Blu Age Runtime</text>
+
+        <text x="14" y="260" font-weight="700">&#10007; Kein vollautomatischer "Klick-und-fertig"-Pfad</text>
+        <text x="20" y="274" font-size="10">Realistische Erwartungen sind essentiell</text>
+
+        <text x="14" y="300" font-style="italic" fill="#c53030">Tools sind ein Teil &#8211; Architekten-Wissen ist der Rest</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom takeaway -->
+  <g transform="translate(60,610)" filter="url(#shT9)">
+    <rect width="980" height="100" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="6" height="100" fill="#dd6b20"/>
+    <text x="22" y="32" font-size="14" font-weight="700" fill="#1a202c">Verdict fuer Senior Architekten</text>
+    <text x="22" y="56" font-size="11" fill="#4a5568">AWS Transform ist der <tspan font-weight="700" fill="#dd6b20">klar empfohlene Migrationspfad fuer Mainframe-Modernisierungen auf AWS</tspan>.</text>
+    <text x="22" y="74" font-size="11" fill="#4a5568">Der Service wird aktiv weiterentwickelt &#8211; aber er ersetzt nicht die menschliche Expertise in Architektur, Testing und Change Management.</text>
+    <text x="22" y="92" font-size="10" font-style="italic" fill="#718096">Die richtige Erwartungshaltung: 30&#8211;50 % weniger Aufwand, nicht 100 %. Realistisch ist machbar.</text>
+  </g>
+</svg>
