@@ -446,5 +446,265 @@
   **Datum:** 2026-04-05
 
 - **URL:** https://cloudvisor.co/how-to-migrate-mainframe-to-aws/
-  **Zusammenfassung:** Drittanbieter-Leitfaden zur Mainframe-Migration auf AWS mit Bewertung verschiedener Ansaetze und Herausforderungen.
+  **Zusammenfassung:** Drittanbieter-Leitfaden zur Mainframe-Migration auf AWS.
   **Datum:** 2026-04-05
+
+## Suchstring: "COBOL migration best practices patterns pitfalls 2025 2026"
+
+- **URL:** https://www.nextworldpro.com/2026/03/modernize-or-retire-how-aws-mainframe.html
+  **Zusammenfassung:** Strategischer Guide: Modernize or Retire mit AWS Mainframe Modernization.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.ibm.com/think/topics/cobol-modernization
+  **Zusammenfassung:** IBM-Sichtweise auf COBOL-Modernisierung.
+  **Datum:** 2026-04-06
+
+- **URL:** https://swimm.io/blog/cobol-modernization-and-migration-a-guide-for-2025
+  **Zusammenfassung:** Swimm Guide zu COBOL Modernisierung 2025.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.nextworldpro.com/2026/03/legacy-to-cloud-14-proven-aws-migration.html
+  **Zusammenfassung:** 14 bewaehrte AWS-Migrationsmuster fuer Mainframe-Modernisierung.
+  **Datum:** 2026-04-06
+
+## Suchstring: "COBOL to Java data type mapping PIC clause EBCDIC ASCII"
+
+- **URL:** https://softwaremining.com/papers/Ebcdic-To-Ascii.jsp
+  **Zusammenfassung:** SoftwareMining Whitepaper zu EBCDIC-zu-ASCII Konvertierung mit Packed-Decimal-Behandlung.
+  **Datum:** 2026-04-06
+
+- **URL:** https://ssojet.com/character-encoding-decoding/ebcdic-in-java
+  **Zusammenfassung:** EBCDIC in Java: Encoding-Standards.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.softwaremining.com/papers/Gradual_COBOL_to_Java_migration.jsp
+  **Zusammenfassung:** Schrittweiser Refactor-Ansatz fuer COBOL-zu-Java/C# Migration.
+  **Datum:** 2026-04-06
+
+- **URL:** https://swimm.io/learn/cobol/converting-cobol-to-java-with-genai-5-tools-and-5-best-practices
+  **Zusammenfassung:** 5 Tools und 5 Best Practices fuer COBOL-zu-Java mit GenAI.
+  **Datum:** 2026-04-06
+
+## Suchstring: "Strangler Fig Pattern COBOL mainframe modernization"
+
+- **URL:** https://salfati.group/topics/strangler-fig-pattern
+  **Zusammenfassung:** CIO-Guide zum Strangler Fig Pattern fuer Enterprise-Modernisierung.
+  **Datum:** 2026-04-06
+
+- **URL:** https://hicronsoftware.com/blog/cobol-mainframe-systems-modernization/
+  **Zusammenfassung:** Hicron Blog: Modernisierung von COBOL-Mainframe-Systemen ohne Full Code Rewrite.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.in-com.com/blog/strangler-fig-pattern-in-cobol-system-modernization-practical-implementations/
+  **Zusammenfassung:** Praktische Implementierungen des Strangler Fig Pattern in COBOL-Systemen.
+  **Datum:** 2026-04-06
+
+## Suchstring: "COBOL equivalence testing dual-run regression mainframe modernization"
+
+- **URL:** https://aws.amazon.com/blogs/migration-and-modernization/accelerating-mainframe-modernization-testing-with-aws-transform/
+  **Zusammenfassung:** AWS Blog zur Beschleunigung von Mainframe-Modernisierungs-Tests mit AWS Transform.
+  **Datum:** 2026-04-06
+
+- **URL:** https://aws.amazon.com/mainframe-modernization/capabilities/testing/
+  **Zusammenfassung:** AWS Mainframe Modernization Testing-Capabilities Uebersicht.
+  **Datum:** 2026-04-06
+
+- **URL:** https://remktr.com/blog/mainframe-testing-automation
+  **Zusammenfassung:** Automated Testing Tools zur Risikoreduktion bei Mainframe-Modernisierung.
+  **Datum:** 2026-04-06
+
+## Suchstring: "COBOL 7Rs decision matrix refactoring replatforming TCO"
+
+- **URL:** https://softwaremining.com/papers/comparison-of-COBOL-modernization-strategies.jsp
+  **Zusammenfassung:** Vergleich der COBOL-Modernisierungs-Strategien mit den 5 R's.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.kyndryl.com/us/en/perspectives/articles/2024/11/mainframe-migration-tips
+  **Zusammenfassung:** Kyndryl Cheat Sheet: Refactor, Replace oder Replatform.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.openlegacy.com/blog/cobol-modernization
+  **Zusammenfassung:** OpenLegacy Blog zu COBOL-Modernisierung Best Practices.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.in-com.com/blog/top-cobol-modernization-vendors-in-2025-2026-from-legacy-to-cloud/
+  **Zusammenfassung:** Top COBOL-Modernisierungs-Anbieter 2025-2026.
+  **Datum:** 2026-04-06
+
+## Suchstring: "COBOL VSAM JCL Spring Batch migration"
+
+- **URL:** https://www.in-com.com/blog/migrating-ims-or-vsam-data-structures-alongside-cobol-programs/
+  **Zusammenfassung:** Migration von IMS/VSAM-Datenstrukturen parallel zu COBOL-Programmen.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.in-com.com/blog/migrating-cobol-batch-jobs-to-spring-batch-for-scalability/
+  **Zusammenfassung:** Migration von COBOL-Batch-Jobs zu Spring Batch.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.redbooks.ibm.com/redpapers/pdfs/redp5719.pdf
+  **Zusammenfassung:** IBM Redpaper: Mainframe Batch Modernization and Transformation.
+  **Datum:** 2026-04-06
+
+## Suchstring: "AWS Blu Age refactoring COBOL Java Spring Boot architecture"
+
+- **URL:** https://aws.amazon.com/blogs/migration-and-modernization/aws-blu-age-code-maintainability/
+  **Zusammenfassung:** AWS Blu Age Code Maintainability mit Details zur JOBOL-Vermeidung.
+  **Datum:** 2026-04-06
+
+- **URL:** https://docs.aws.amazon.com/m2/latest/userguide/ba-shared-architecture.html
+  **Zusammenfassung:** AWS Blu Age Runtime High Level Architecture: Spring Boot, Tomcat, RecordEntity.
+  **Datum:** 2026-04-06
+
+- **URL:** https://dev.to/debapriya_dey_aada54b7766/aws-blu-age-modernization-my-journey-through-all-3-certification-levels-18c5
+  **Zusammenfassung:** Dev-Community Blog ueber AWS Blu Age Zertifizierung.
+  **Datum:** 2026-04-06
+
+## Suchstring: "AWS Mainframe Modernization Rocket Software Replatforming"
+
+- **URL:** https://aws.amazon.com/mainframe-modernization/capabilities/replatform-rocketsoftware/
+  **Zusammenfassung:** Offizielle Seite zur Replatforming-Capability mit Rocket Software.
+  **Datum:** 2026-04-06
+
+- **URL:** https://aws.amazon.com/blogs/migration-and-modernization/mainframe-replatform-best-practices-with-rocket-software-on-aws/
+  **Zusammenfassung:** Best Practices fuer Mainframe-Replatforming mit Rocket Software auf AWS.
+  **Datum:** 2026-04-06
+
+- **URL:** https://docs.aws.amazon.com/m2/latest/userguide/replatforming-m2.html
+  **Zusammenfassung:** AWS-Dokumentation zur Replatforming-Funktionalitaet im M2-Service.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.rocketsoftware.com/en-us/insights/key-questions-aws-mainframe-modernization-service
+  **Zusammenfassung:** Rocket Software FAQ zum AWS Mainframe Modernization Service.
+  **Datum:** 2026-04-06
+
+- **URL:** https://docs.aws.amazon.com/prescriptive-guidance/latest/patterns/mainframe-modernization-devops-on-aws-with-micro-focus.html
+  **Zusammenfassung:** AWS Prescriptive Guidance: Mainframe Modernization DevOps mit Rocket Software.
+  **Datum:** 2026-04-06
+
+## Suchstring: "AWS Blu Age Gapwalk JCL CardDemo Spring Boot"
+
+- **URL:** https://medium.com/@bluage.corporation/how-to-migrate-mainframe-cobol-batch-to-cloud-microservices-with-blu-age-and-aws-8893ae5e57e0
+  **Zusammenfassung:** Blu Age Tutorial: Migration von COBOL-Batch zu Cloud-Microservices mit Lambda und Groovy.
+  **Datum:** 2026-04-06
+
+- **URL:** https://github.com/aws-samples/aws-mainframe-modernization-carddemo
+  **Zusammenfassung:** Offizielles GitHub-Repository der CardDemo Beispiel-Anwendung.
+  **Datum:** 2026-04-06
+
+- **URL:** https://aws.amazon.com/blogs/apn/how-to-migrate-mainframe-batch-to-cloud-microservices-with-blu-age-and-aws/
+  **Zusammenfassung:** APN Blog: Migration von Mainframe-Batch zu Cloud-Microservices mit Blu Age.
+  **Datum:** 2026-04-06
+
+## Suchstring: "IBM watsonx Code Assistant for Z COBOL Java 2025 2026"
+
+- **URL:** https://www.ibm.com/products/watsonx-code-assistant-z
+  **Zusammenfassung:** Offizielle IBM-Produktseite fuer watsonx Code Assistant for Z.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.ibm.com/new/announcements/agentic-ai-for-smarter-mainframe-modernization-with-ibm-watsonx-code-assistant-for-z
+  **Zusammenfassung:** IBM-Ankuendigung agentic AI Capabilities fuer watsonx Code Assistant for Z.
+  **Datum:** 2026-04-06
+
+- **URL:** https://research.ibm.com/blog/cobol-java-ibm-z
+  **Zusammenfassung:** IBM Research Blog zu COBOL-zu-Java-Transformation auf IBM Z mit GenAI.
+  **Datum:** 2026-04-06
+
+- **URL:** https://research.ibm.com/blog/watsonx-code-assistant-for-z-is-the-rosetta-stone-for-mainframes
+  **Zusammenfassung:** IBM Research Blog: Watsonx Code Assistant als Rosetta Stone fuer Mainframes.
+  **Datum:** 2026-04-06
+
+- **URL:** https://croz.net/honest-take-on-watsonx-code-assistant-for-z/
+  **Zusammenfassung:** CROZ-Praxisbericht zu watsonx Code Assistant for Z (Real-World Review).
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.ibm.com/new/announcements/ibm-watsonx-code-assistant-for-z-adds-ai-code-generation-and-assembler-support
+  **Zusammenfassung:** Ankuendigung Code Generation und Assembler Support in WCA Z 2.6.
+  **Datum:** 2026-04-06
+
+## Suchstring: "Google Cloud mainframe modernization Dual Run COBOL"
+
+- **URL:** https://cloud.google.com/blog/products/infrastructure-modernization/accelerate-mainframe-modernization-with-google-cloud-ai
+  **Zusammenfassung:** Google Cloud Blog zur Beschleunigung von Mainframe-Modernisierung mit AI.
+  **Datum:** 2026-04-06
+
+- **URL:** https://cloud.google.com/blog/products/infrastructure-modernization/dual-run-by-google-cloud-helps-mitigate-mainframe-migration-risks
+  **Zusammenfassung:** Google Cloud Dual Run zur Risiko-Mitigation bei Mainframe-Migrationen.
+  **Datum:** 2026-04-06
+
+- **URL:** https://cloud.google.com/solutions/mainframe-modernization
+  **Zusammenfassung:** Offizielle Google Cloud Mainframe Modernization Solutions Seite.
+  **Datum:** 2026-04-06
+
+- **URL:** https://investors.kyndryl.com/news-releases/news-release-details/kyndryl-expands-partnership-google-cloud-accelerate-mainframe
+  **Zusammenfassung:** Kyndryl-Pressemitteilung zur erweiterten Partnerschaft mit Google Cloud.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.mlogica.com/resources/blogs/accelerating-mainframe-modernization-with-google-cloud-dual-run-and-mlogica-liberm-automation-suite
+  **Zusammenfassung:** mLogica Blog zur Kombination LIBER*M + Google Cloud Dual Run.
+  **Datum:** 2026-04-06
+
+## Suchstring: "Heirloom Computing Elastic COBOL JVM SoftwareMining TSRI"
+
+- **URL:** https://heirloomcomputing.com/
+  **Zusammenfassung:** Hauptseite von Heirloom Computing mit Elastic COBOL Plattform.
+  **Datum:** 2026-04-06
+
+- **URL:** https://codedistrict.com/blog/cobol-modernization-platforms
+  **Zusammenfassung:** Best COBOL Modernization Platforms in 2025 -- Marktuebersicht.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.hakunamatatatech.com/our-resources/blog/cobol-to-java-conversion-tools
+  **Zusammenfassung:** Best COBOL to Java Conversion Tools fuer Legacy Modernization.
+  **Datum:** 2026-04-06
+
+## Suchstring: "Azure mainframe migration Astadia Raincode OpenLegacy"
+
+- **URL:** https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/app-modernization/raincode-reference-architecture
+  **Zusammenfassung:** Microsoft Learn Reference Architecture: Rehost mainframe applications zu Azure mit Raincode.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.astadia.com/blog/mainframe-migration-to-azure-in-5-steps
+  **Zusammenfassung:** Astadia 5-Schritte-Guide fuer Mainframe-Migration zu Azure.
+  **Datum:** 2026-04-06
+
+- **URL:** https://azure.microsoft.com/en-us/migration/mainframe/
+  **Zusammenfassung:** Offizielle Microsoft Azure Mainframe Migration Seite.
+  **Datum:** 2026-04-06
+
+- **URL:** https://learn.microsoft.com/en-us/azure/architecture/example-scenario/mainframe/refactor-mainframe-applications-astadia
+  **Zusammenfassung:** Microsoft Learn Architecture Scenario: Refactoring mit Astadia auf Azure.
+  **Datum:** 2026-04-06
+
+- **URL:** https://launchpad.io/blog/best-legacy-modernization-tools
+  **Zusammenfassung:** 12 Best Legacy Modernization Tools fuer 2026.
+  **Datum:** 2026-04-06
+
+## Suchstring: "GenAI LLM COBOL migration Claude Copilot ChatGPT limitations"
+
+- **URL:** https://softwaremining.com/papers/generative-ai-vs-softwaremining.jsp
+  **Zusammenfassung:** SoftwareMining Whitepaper: Algorithmic vs Generative AI in COBOL-zu-Java/C#.
+  **Datum:** 2026-04-06
+
+- **URL:** https://devblogs.microsoft.com/all-things-azure/how-we-use-ai-agents-for-cobol-migration-and-mainframe-modernization/
+  **Zusammenfassung:** Microsoft DevBlog: Nutzung von AI Agents fuer COBOL-Migration mit Semantic Kernel.
+  **Datum:** 2026-04-06
+
+- **URL:** https://github.blog/ai-and-ml/github-copilot/modernizing-legacy-code-with-github-copilot-tips-and-examples/
+  **Zusammenfassung:** GitHub Blog: Legacy-Code-Modernisierung mit GitHub Copilot.
+  **Datum:** 2026-04-06
+
+- **URL:** https://www.ibm.com/think/topics/generative-ai-for-mainframes
+  **Zusammenfassung:** IBM Think: Generative AI fuer Mainframes.
+  **Datum:** 2026-04-06
+
+- **URL:** https://claude.com/blog/how-ai-helps-break-cost-barrier-cobol-modernization
+  **Zusammenfassung:** Anthropic Blog: How AI helps break the cost barrier to COBOL modernization (Claude Code Use Cases).
+  **Datum:** 2026-04-06
+
+- **URL:** https://link.springer.com/chapter/10.1007/978-3-032-08614-3_4
+  **Zusammenfassung:** Wissenschaftliches Paper: GenAI-Driven Migration of Legacy COBOL Applications to Clean Java Code.
+  **Datum:** 2026-04-06
+
+- **URL:** https://modlogix.com/blog/how-generative-ai-can-assist-in-legacy-code-refactoring/
+  **Zusammenfassung:** ModLogix Blog: Wie Generative AI bei Legacy Code Refactoring assistiert.
+  **Datum:** 2026-04-06
