@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgC7" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shC7" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+    <marker id="arrC7" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#319795"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="660" fill="url(#bgC7)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Phase 5: Architecture Reimagine</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Reverse Engineering (AWS Transform) + Forward Engineering (Kiro) = Microservices</text>
+
+  <!-- Two-Phase visualization -->
+  <g transform="translate(60,100)">
+    <g filter="url(#shC7)">
+      <rect width="475" height="280" rx="12" fill="#fff" stroke="#319795" stroke-width="2"/>
+      <rect width="475" height="50" rx="12" fill="#319795"/>
+      <rect y="38" width="475" height="12" fill="#319795"/>
+      <text x="237" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">7.1 Reverse Engineering (AWS Transform)</text>
+
+      <text x="22" y="80" font-size="13" font-weight="700" fill="#319795">Was passiert?</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="100">&#9656; Extraktion der Business-Logik aus COBOL/JCL</text>
+        <text x="22" y="116">&#9656; Identifikation von Bounded Contexts (DDD)</text>
+        <text x="22" y="132">&#9656; Erstellung eines Data Dictionary</text>
+        <text x="22" y="148">&#9656; Erkennung von CRUD-Operationen</text>
+        <text x="22" y="164">&#9656; Datenbeziehungen werden visualisiert</text>
+      </g>
+
+      <text x="22" y="196" font-size="13" font-weight="700" fill="#319795">Output</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="216">&#9656; Natuerlichsprachliche Beschreibungen der Logik</text>
+        <text x="22" y="232">&#9656; Strukturiertes Domain-Modell</text>
+        <text x="22" y="248">&#9656; Data Lineage als Graph</text>
+        <text x="22" y="264">&#9656; Vier-Ebenen-Hierarchie der Business Functions</text>
+      </g>
+    </g>
+
+    <line x1="490" y1="240" x2="525" y2="240" stroke="#319795" stroke-width="3" marker-end="url(#arrC7)"/>
+
+    <g transform="translate(505,0)" filter="url(#shC7)">
+      <rect width="475" height="280" rx="12" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+      <rect width="475" height="50" rx="12" fill="#dd6b20"/>
+      <rect y="38" width="475" height="12" fill="#dd6b20"/>
+      <text x="237" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">7.2 Forward Engineering (Kiro)</text>
+
+      <text x="22" y="80" font-size="13" font-weight="700" fill="#dd6b20">Was Kiro analysiert</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="100">&#9656; Aggregate Roots (DDD)</text>
+        <text x="22" y="116">&#9656; Entities und Value Objects</text>
+        <text x="22" y="132">&#9656; Domain Events</text>
+        <text x="22" y="148">&#9656; Service-Grenzen</text>
+        <text x="22" y="164">&#9656; API-Spezifikationen (OpenAPI)</text>
+      </g>
+
+      <text x="22" y="196" font-size="13" font-weight="700" fill="#dd6b20">Generierter Output</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="216">&#9656; Vollstaendige Microservice-Spezifikationen</text>
+        <text x="22" y="232">&#9656; Source Code fuer die Microservices</text>
+        <text x="22" y="248">&#9656; OpenAPI / gRPC-Schnittstellen</text>
+        <text x="22" y="264">&#9656; Test-Skelette und Integrations-Hooks</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Praxis-Empfehlung -->
+  <g transform="translate(60,420)" filter="url(#shC7)">
+    <rect width="980" height="220" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="6" height="220" fill="#9b2c2c"/>
+    <text x="22" y="32" font-size="14" font-weight="700" fill="#9b2c2c">7.3 Praxis-Empfehlung &#8211; Reimagine ist NICHT fuer den ersten Wave</text>
+
+    <g transform="translate(22,52)">
+      <g>
+        <rect width="300" height="32" rx="6" fill="#1e3a5f"/>
+        <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Wave 1&#8211;3</text>
+      </g>
+      <text y="56" font-size="12" font-weight="700" fill="#1e3a5f">Refactor + Reforge</text>
+      <text y="72" font-size="11" fill="#4a5568">Schnelle Cloud-Migration mit funktionaler Aequivalenz.</text>
+      <text y="88" font-size="11" fill="#4a5568">Team-Skills aufbauen, Wissen sammeln.</text>
+    </g>
+
+    <g transform="translate(360,52)">
+      <g>
+        <rect width="300" height="32" rx="6" fill="#dd6b20"/>
+        <text x="150" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Wave 4+</text>
+      </g>
+      <text y="56" font-size="12" font-weight="700" fill="#dd6b20">Reimagine fuer kritische Domains</text>
+      <text y="72" font-size="11" fill="#4a5568">Sobald Erfahrung vorhanden ist und</text>
+      <text y="88" font-size="11" fill="#4a5568">die Domain-Grenzen klar sind.</text>
+    </g>
+
+    <g transform="translate(700,52)">
+      <g>
+        <rect width="260" height="32" rx="6" fill="#319795"/>
+        <text x="130" y="20" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">Hybrid</text>
+      </g>
+      <text y="56" font-size="12" font-weight="700" fill="#319795">Manche refaktorieren,</text>
+      <text y="72" font-size="11" fill="#4a5568">andere komplett neu bauen.</text>
+      <text y="88" font-size="11" fill="#4a5568">Nicht alle Domains brauchen</text>
+      <text y="104" font-size="11" fill="#4a5568">Cloud-Native-Architektur.</text>
+    </g>
+
+    <text x="490" y="200" text-anchor="middle" font-size="11" font-style="italic" fill="#9b2c2c">Verfruehte Reimagine-Versuche scheitern &#8211; erst Erfahrung sammeln, dann re-architektieren.</text>
+  </g>
+</svg>

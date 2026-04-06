@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgC6" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shC6" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="660" fill="url(#bgC6)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Phase 4: Code Optimization (Reforge)</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">LLM-basierte Umschreibung von JOBOL zu idiomatischem Java</text>
+
+  <!-- Mappings -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Was Reforge transformiert</text>
+
+    <g transform="translate(0,15)" filter="url(#shC6)">
+      <rect width="980" height="240" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="980" height="36" rx="10" fill="#2d3748"/>
+      <rect y="24" width="980" height="12" fill="#2d3748"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#fff">JOBOL (Refactor-Output)</text>
+      <text x="500" y="22" font-size="12" font-weight="700" fill="#fbbf24">Idiomatisches Java (Reforge-Output)</text>
+
+      <g font-size="11">
+        <g transform="translate(0,36)">
+          <rect width="980" height="34" fill="#f7fafc"/>
+          <text x="14" y="22" font-family="Menlo,monospace" fill="#9b2c2c">WS_CUST_NAME</text>
+          <text x="500" y="22" font-family="Menlo,monospace" fill="#38a169">customerName</text>
+        </g>
+        <g transform="translate(0,70)">
+          <rect width="980" height="34" fill="#fff"/>
+          <text x="14" y="22" fill="#4a5568">Verschachtelte if/else</text>
+          <text x="500" y="22" fill="#4a5568">Optional, Stream, Polymorphismus</text>
+        </g>
+        <g transform="translate(0,104)">
+          <rect width="980" height="34" fill="#f7fafc"/>
+          <text x="14" y="22" fill="#4a5568">Globale RecordEntity</text>
+          <text x="500" y="22" fill="#4a5568">DTOs, Entities, Repositories</text>
+        </g>
+        <g transform="translate(0,138)">
+          <rect width="980" height="34" fill="#fff"/>
+          <text x="14" y="22" fill="#4a5568">Manuelles Memory-Mgmt</text>
+          <text x="500" y="22" fill="#4a5568">Automatische Garbage Collection</text>
+        </g>
+        <g transform="translate(0,172)">
+          <rect width="980" height="34" fill="#f7fafc"/>
+          <text x="14" y="22" fill="#4a5568">500-Zeilen-Methoden</text>
+          <text x="500" y="22" fill="#4a5568">Aufgeteilte, fokussierte Methoden</text>
+        </g>
+        <g transform="translate(0,206)">
+          <rect width="980" height="34" fill="#fff"/>
+          <text x="14" y="22" fill="#4a5568">Prozedurale Aufrufe</text>
+          <text x="500" y="22" fill="#4a5568">Service Layer, Dependency Injection</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Limitations Warning -->
+  <g transform="translate(60,400)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Wichtige Limitierungen &#8211; Reforge ist nicht-deterministisch</text>
+
+    <g transform="translate(0,15)" filter="url(#shC6)">
+      <rect width="980" height="220" rx="12" fill="#fff5f5" stroke="#c53030" stroke-width="2"/>
+      <text x="20" y="32" font-size="14" font-weight="700" fill="#c53030">&#9888; Reforge nutzt LLMs &#8594; nicht deterministisch</text>
+
+      <g transform="translate(20,48)" font-size="11" fill="#742a2a">
+        <text font-weight="700">Output-Variabilitaet</text>
+        <text y="16">Gleicher Input kann verschiedene Java-Strukturen ergeben</text>
+
+        <text y="44" font-weight="700">Manuelle Validierung Pflicht</text>
+        <text y="60">Jede transformierte Klasse muss reviewed werden</text>
+
+        <text y="88" font-weight="700">Funktionale Aequivalenz nicht garantiert</text>
+        <text y="104">Tests sind unverzichtbar &#8211; bit-genauer Vergleich</text>
+      </g>
+
+      <g transform="translate(500,48)" font-size="11" fill="#742a2a">
+        <text font-weight="700">NICHT fuer regulierte Code-Pfade</text>
+        <text y="16">Zinsberechnungen, Tax-Logik etc. brauchen besondere</text>
+        <text y="32">Aufmerksamkeit und manuelle Reviews.</text>
+
+        <text y="60" font-weight="700">Best Practice</text>
+        <text y="76">Reforge auf nicht-kritische Klassen anwenden;</text>
+        <text y="92">kritische Pfade manuell ueberarbeiten.</text>
+        <text y="108">Senior Java-Entwickler im Review-Prozess.</text>
+      </g>
+
+      <text x="20" y="200" font-size="11" font-style="italic" fill="#9b2c2c">Reforge ist optional und empfohlen &#8211; aber nie ohne Tests und Reviews einsetzen!</text>
+    </g>
+  </g>
+</svg>

@@ -8,6 +8,8 @@ Dieser Guide zeigt den vollstaendigen End-to-End-Workflow fuer eine COBOL-zu-Jav
 
 ## 1. Der AWS-Toolstack 2026 im Ueberblick
 
+![AWS Toolstack 2026](svg/c2j_01_aws_toolstack.svg)
+
 | Tool | Rolle | Status 2026 |
 |------|-------|-------------|
 | **AWS Transform for Mainframe** | KI-gestuetzte Analyse + Transformation | Strategisch, empfohlen |
@@ -23,6 +25,8 @@ Dieser Guide zeigt den vollstaendigen End-to-End-Workflow fuer eine COBOL-zu-Jav
 ---
 
 ## 2. End-to-End Workflow: Phasen und Schritte
+
+![End-to-End Workflow Phasen](svg/c2j_02_workflow_phasen.svg)
 
 ### Phasen-Uebersicht
 
@@ -95,6 +99,8 @@ Dieser Guide zeigt den vollstaendigen End-to-End-Workflow fuer eine COBOL-zu-Jav
 
 ## 3. Phase 1: Discovery & Assessment
 
+![Phase 1: Discovery & Assessment](svg/c2j_03_phase1_discovery.svg)
+
 ### 3.1 Code-Upload nach S3
 
 ```bash
@@ -132,6 +138,8 @@ Der Assessment-Agent erzeugt einen umfangreichen Report mit:
 
 ## 4. Phase 2: Planning & Wave Definition
 
+![Phase 2: Planning & Wave Definition](svg/c2j_04_phase2_planning.svg)
+
 Der Planning Agent von AWS Transform schlaegt eine Wave-Aufteilung vor, die folgende Faktoren beruecksichtigt:
 
 - **Technische Abhaengigkeiten**: Programme, die zusammen ausgefuehrt werden
@@ -154,6 +162,8 @@ Der Planning Agent von AWS Transform schlaegt eine Wave-Aufteilung vor, die folg
 ---
 
 ## 5. Phase 3: Code Transformation (Refactor)
+
+![Phase 3: Code Transformation](svg/c2j_05_phase3_refactor.svg)
 
 ### 5.1 Der Transformationsprozess
 
@@ -250,6 +260,8 @@ public class BalanceCalculationService {
 
 ## 6. Phase 4: Code Optimization (Reforge)
 
+![Phase 4: Reforge](svg/c2j_06_phase4_reforge.svg)
+
 Reforge ist ein **optionaler aber dringend empfohlener** Schritt nach dem Refactor. Er nutzt LLMs, um JOBOL-Code in idiomatisches Java umzuschreiben.
 
 ### Was Reforge transformiert
@@ -275,6 +287,8 @@ Reforge nutzt LLMs und ist daher **nicht deterministisch**. Folgende Punkte sind
 ---
 
 ## 7. Phase 5: Architecture Reimagine [Optional]
+
+![Phase 5: Architecture Reimagine](svg/c2j_07_phase5_reimagine.svg)
 
 Reimagine geht ueber Refactoring hinaus und transformiert eine COBOL-Anwendung in **Cloud-native Microservices**. Es nutzt zwei Phasen:
 
@@ -307,6 +321,8 @@ Reimagine ist **nicht fuer den ersten Wave geeignet**. Empfohlen ist:
 ---
 
 ## 8. Phase 6: Testing & Validation
+
+![Phase 6: Testing & Validation](svg/c2j_08_phase6_testing.svg)
 
 ### 8.1 AWS Transform Testing Automation
 
@@ -345,6 +361,8 @@ Nach erfolgreichem Initial-Test wird die Test-Suite Teil der CI/CD-Pipeline. Jed
 ---
 
 ## 9. Phase 7: Deployment via Infrastructure as Code
+
+![Phase 7: Deployment via IaC](svg/c2j_09_phase7_deployment.svg)
 
 ### 9.1 IaC-Templates
 
@@ -404,6 +422,8 @@ AWS bietet ein offizielles Prescriptive Guidance Pattern fuer das Deployment der
 
 ## 10. Phase 8: Operations & Continuous Improvement
 
+![Phase 8: Operations & Continuous Improvement](svg/c2j_10_phase8_operations.svg)
+
 ### 10.1 Monitoring mit CloudWatch
 
 **Metriken (Custom + Standard):**
@@ -447,6 +467,8 @@ Nach erfolgreichem Go-Live beginnt die eigentliche Modernisierung:
 
 ## 11. CardDemo: Die Referenz-Anwendung
 
+![CardDemo Referenz-Anwendung](svg/c2j_11_carddemo.svg)
+
 AWS stellt eine vollstaendige Beispiel-Anwendung **CardDemo** zur Verfuegung:
 
 - **GitHub**: github.com/aws-samples/aws-mainframe-modernization-carddemo
@@ -459,6 +481,8 @@ CardDemo wird in offiziellen AWS-Tutorials und Workshops verwendet, um den End-t
 ---
 
 ## 12. Senior-Architekt-Checkliste
+
+![Senior-Architekt-Checkliste](svg/c2j_12_checkliste.svg)
 
 Vor Projektstart pruefen:
 
@@ -478,6 +502,8 @@ Vor Projektstart pruefen:
 ---
 
 ## 13. Zusammenfassung
+
+![Zusammenfassung State-of-the-Art Workflow](svg/c2j_13_zusammenfassung.svg)
 
 Der State-of-the-Art-Workflow fuer COBOL-zu-Java-Migrationen mit AWS-Tooling umfasst:
 

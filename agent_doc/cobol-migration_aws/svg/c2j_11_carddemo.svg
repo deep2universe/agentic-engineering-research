@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 580" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgC11" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shC11" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="580" fill="url(#bgC11)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">CardDemo &#8211; Die offizielle AWS-Referenz-Anwendung</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Hands-on-Tutorial fuer alle Migrationspfade &#8211; perfekt fuer Senior-Teams als Lernprojekt</text>
+
+  <!-- GitHub link box -->
+  <g transform="translate(60,100)" filter="url(#shC11)">
+    <rect width="980" height="100" rx="12" fill="#1e3a5f"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#fbbf24">Repository</text>
+    <text x="20" y="58" font-family="Menlo,monospace" font-size="13" fill="#fff">github.com/aws-samples/aws-mainframe-modernization-carddemo</text>
+    <text x="20" y="80" font-size="11" font-style="italic" fill="#cbd5e0">Vollstaendige COBOL-Mainframe-Anwendung fuer Kreditkarten-Management</text>
+  </g>
+
+  <!-- Components -->
+  <g transform="translate(60,230)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Komponenten der CardDemo-Anwendung</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shC11)">
+        <rect width="180" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#1e3a5f"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#1e3a5f">COBOL Programme</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Mehrere Module fuer</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Card Management,</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Transactions, Billing</text>
+      </g>
+
+      <g transform="translate(195,0)" filter="url(#shC11)">
+        <rect width="180" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#2c5282"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#2c5282">JCL</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Batch-Job-Steuerung</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">fuer Daily Reports und</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Settlement-Prozesse</text>
+      </g>
+
+      <g transform="translate(390,0)" filter="url(#shC11)">
+        <rect width="180" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#dd6b20"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#dd6b20">CICS + BMS Maps</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Online-Transaktionen mit</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">3270-Bildschirm-Masken</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">fuer Operator-Oberflaeche</text>
+      </g>
+
+      <g transform="translate(585,0)" filter="url(#shC11)">
+        <rect width="180" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="180" height="6" fill="#38a169"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#38a169">VSAM Files</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">KSDS-Datasets fuer</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">Card-Master, Customer,</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Transaction-Files</text>
+      </g>
+
+      <g transform="translate(780,0)" filter="url(#shC11)">
+        <rect width="200" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="200" height="6" fill="#805ad5"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#805ad5">DB2 DDL</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Schema-Definitionen</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">fuer Account und</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Reference-Tabellen</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Recommendation -->
+  <g transform="translate(60,420)" filter="url(#shC11)">
+    <rect width="980" height="140" rx="12" fill="#fef5e7" stroke="#dd6b20" stroke-width="2"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#7c2d12">&#9733; Empfehlung fuer Senior Architekten</text>
+    <text x="20" y="58" font-size="12" fill="#9a3412">Senior-Teams sollten CardDemo als <tspan font-weight="700">Lernprojekt</tspan> durchfuehren, BEVOR das echte Migrationsprojekt startet.</text>
+    <text x="20" y="80" font-size="11" fill="#9a3412">&#9656; Vollstaendiger End-to-End-Workflow ohne Risiko fuer Production-Daten</text>
+    <text x="20" y="96" font-size="11" fill="#9a3412">&#9656; AWS Tutorials und Workshops nutzen CardDemo &#8211; gut dokumentiert</text>
+    <text x="20" y="112" font-size="11" fill="#9a3412">&#9656; Schnelles Verstaendnis aller Migrationspfade (Refactor, Reforge, Reimagine)</text>
+    <text x="20" y="128" font-size="11" font-style="italic" fill="#7c2d12">&#9656; Lessons Learned aus dem Pilot-Projekt sind fuer das echte Vorhaben unbezahlbar</text>
+  </g>
+</svg>

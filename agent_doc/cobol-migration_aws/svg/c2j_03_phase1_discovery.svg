@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgC3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shC3" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="660" fill="url(#bgC3)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Phase 1: Discovery &amp; Assessment</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Code-Upload nach S3, dann automatische Analyse durch AWS Transform Assessment Agent</text>
+
+  <!-- S3 Upload step -->
+  <g transform="translate(60,100)" filter="url(#shC3)">
+    <rect width="980" height="120" rx="12" fill="#fff" stroke="#cbd5e0"/>
+    <rect width="6" height="120" fill="#1e3a5f"/>
+    <text x="22" y="32" font-size="14" font-weight="700" fill="#1e3a5f">3.1 Code-Upload nach S3</text>
+    <g font-family="Menlo,monospace" font-size="11" fill="#2d3748">
+      <text x="22" y="58"># S3-Bucket fuer Quellcode</text>
+      <text x="22" y="74">aws s3 mb s3://my-mainframe-source --region eu-central-1</text>
+      <text x="22" y="92">aws s3 cp ./mainframe-source/ s3://my-mainframe-source/ \</text>
+      <text x="22" y="108">  --recursive --exclude "*.bak"</text>
+    </g>
+  </g>
+
+  <!-- Assessment activities -->
+  <g transform="translate(60,240)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">3.2 AWS Transform Assessment startet automatische Analyse</text>
+
+    <g transform="translate(0,15)" filter="url(#shC3)">
+      <rect width="475" height="240" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="240" fill="#dd6b20"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#dd6b20">Aktivitaeten des Assessment Agents</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; <tspan font-weight="700">Inventory</tspan></text>
+        <text x="36" y="68" font-size="10">Kategorisierung aller Artefakte (COBOL, JCL, BMS, Copybooks, DDL)</text>
+        <text x="22" y="92">&#9656; <tspan font-weight="700">Dependency Analysis</tspan></text>
+        <text x="36" y="108" font-size="10">Erstellung des vollstaendigen Dependency Graphs</text>
+        <text x="22" y="132">&#9656; <tspan font-weight="700">Complexity Scoring</tspan></text>
+        <text x="36" y="148" font-size="10">Cyclomatic Complexity, Halstead-Metriken, LOC</text>
+        <text x="22" y="172">&#9656; <tspan font-weight="700">Missing Artifact Detection</tspan></text>
+        <text x="36" y="188" font-size="10">Identifikation referenzierter aber fehlender Files</text>
+        <text x="22" y="212">&#9656; <tspan font-weight="700">Business Logic Categorization</tspan> (4 Ebenen)</text>
+      </g>
+    </g>
+
+    <g transform="translate(505,15)" filter="url(#shC3)">
+      <rect width="475" height="240" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="240" fill="#38a169"/>
+      <text x="22" y="28" font-size="13" font-weight="700" fill="#38a169">3.3 Output des Assessments</text>
+      <g font-size="11" fill="#4a5568">
+        <text x="22" y="52">&#9656; Visualisierter Dependency Graph</text>
+        <text x="36" y="68" font-size="10">Nodes &amp; Edges, interaktiv</text>
+        <text x="22" y="92">&#9656; Programm-Metriken-Tabelle</text>
+        <text x="36" y="108" font-size="10">LOC, Complexity, Coupling pro Programm</text>
+        <text x="22" y="132">&#9656; Risikobewertung pro Komponente</text>
+        <text x="36" y="148" font-size="10">High-Risk-Pfade markiert</text>
+        <text x="22" y="172">&#9656; Empfehlungen fuer Wave-Aufteilung</text>
+        <text x="36" y="188" font-size="10">Auf Basis von Dependencies</text>
+        <text x="22" y="212">&#9656; Geschaetzter Migrationsaufwand</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 4 Levels of Business Logic -->
+  <g transform="translate(60,520)">
+    <text x="0" y="0" font-size="13" font-weight="700" fill="#1a202c">Vier hierarchische Ebenen der Business Logic</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shC3)">
+        <rect width="240" height="120" rx="8" fill="#1e3a5f"/>
+        <text x="120" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Ebene 1</text>
+        <text x="120" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Line of Business</text>
+        <text x="120" y="80" text-anchor="middle" font-size="10" fill="#cbd5e0">z. B. Kreditkarten</text>
+      </g>
+      <g transform="translate(250,0)" filter="url(#shC3)">
+        <rect width="240" height="120" rx="8" fill="#2c5282"/>
+        <text x="120" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Ebene 2</text>
+        <text x="120" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Business Functions</text>
+        <text x="120" y="80" text-anchor="middle" font-size="10" fill="#cbd5e0">z. B. Rewards</text>
+      </g>
+      <g transform="translate(500,0)" filter="url(#shC3)">
+        <rect width="240" height="120" rx="8" fill="#dd6b20"/>
+        <text x="120" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Ebene 3</text>
+        <text x="120" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Business Features</text>
+        <text x="120" y="80" text-anchor="middle" font-size="10" fill="#fed7aa">Transaktion, Batch</text>
+      </g>
+      <g transform="translate(750,0)" filter="url(#shC3)">
+        <rect width="230" height="120" rx="8" fill="#805ad5"/>
+        <text x="115" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#fbbf24">Ebene 4</text>
+        <text x="115" y="56" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">Component Level</text>
+        <text x="115" y="80" text-anchor="middle" font-size="10" fill="#e9d8fd">COBOL/JCL Regeln</text>
+      </g>
+    </g>
+  </g>
+</svg>

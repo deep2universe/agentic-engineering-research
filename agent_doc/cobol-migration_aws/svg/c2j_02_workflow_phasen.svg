@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgC2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shC2" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+    <marker id="arrC2" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="800" fill="url(#bgC2)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">End-to-End Workflow &#8211; 8 Phasen</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Vom Code-Upload bis zur produktiven Anwendung in AWS</text>
+
+  <!-- Phasen as flow chart -->
+  <g transform="translate(60,100)">
+    <g filter="url(#shC2)">
+      <rect width="980" height="100" rx="10" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+      <rect width="180" height="100" fill="#1e3a5f"/>
+      <text x="90" y="40" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">Phase 1</text>
+      <text x="90" y="62" text-anchor="middle" font-size="11" fill="#cbd5e0">Discovery &amp;</text>
+      <text x="90" y="78" text-anchor="middle" font-size="11" fill="#cbd5e0">Assessment</text>
+      <text x="200" y="34" font-size="14" font-weight="700" fill="#1a202c">AWS Transform Assessment Agent</text>
+      <text x="200" y="56" font-size="11" fill="#4a5568">Inventory &#8226; Dependency Graph &#8226; Complexity Metrics &#8226; Missing Files</text>
+      <text x="200" y="76" font-size="10" font-style="italic" fill="#1e3a5f">Output: Vollstaendiges Bild der Codebasis</text>
+    </g>
+
+    <g transform="translate(0,110)" filter="url(#shC2)">
+      <rect width="980" height="68" rx="10" fill="#fff" stroke="#2c5282" stroke-width="2"/>
+      <rect width="180" height="68" fill="#2c5282"/>
+      <text x="90" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Phase 2</text>
+      <text x="90" y="52" text-anchor="middle" font-size="11" fill="#cbd5e0">Planning &amp; Wave</text>
+      <text x="200" y="28" font-size="13" font-weight="700" fill="#1a202c">AWS Transform Planning Agent</text>
+      <text x="200" y="46" font-size="10" fill="#4a5568">Migration Plan, Wave Schedule, Risk Assessment</text>
+    </g>
+
+    <g transform="translate(0,188)" filter="url(#shC2)">
+      <rect width="980" height="68" rx="10" fill="#fff" stroke="#dd6b20" stroke-width="2"/>
+      <rect width="180" height="68" fill="#dd6b20"/>
+      <text x="90" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Phase 3</text>
+      <text x="90" y="52" text-anchor="middle" font-size="11" fill="#fed7aa">Code Refactor</text>
+      <text x="200" y="28" font-size="13" font-weight="700" fill="#1a202c">AWS Transform + Blu Age Engine</text>
+      <text x="200" y="46" font-size="10" fill="#4a5568">Java Spring Boot Code, Groovy Scripts</text>
+    </g>
+
+    <g transform="translate(0,266)" filter="url(#shC2)">
+      <rect width="980" height="58" rx="10" fill="#fff" stroke="#805ad5" stroke-width="2" stroke-dasharray="4,3"/>
+      <rect width="180" height="58" fill="#805ad5"/>
+      <text x="90" y="28" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">Phase 4</text>
+      <text x="90" y="46" text-anchor="middle" font-size="10" fill="#e9d8fd">Reforge [optional]</text>
+      <text x="200" y="22" font-size="12" font-weight="700" fill="#1a202c">AWS Transform Reforge (LLM)</text>
+      <text x="200" y="38" font-size="10" fill="#4a5568">Idiomatischer Java-Code &#8211; vermeidet JOBOL</text>
+      <text x="200" y="52" font-size="9" font-style="italic" fill="#805ad5">LLM-basiert &#8594; nicht deterministisch &#8594; Reviews Pflicht</text>
+    </g>
+
+    <g transform="translate(0,334)" filter="url(#shC2)">
+      <rect width="980" height="58" rx="10" fill="#fff" stroke="#319795" stroke-width="2" stroke-dasharray="4,3"/>
+      <rect width="180" height="58" fill="#319795"/>
+      <text x="90" y="28" text-anchor="middle" font-size="16" font-weight="800" fill="#fff">Phase 5</text>
+      <text x="90" y="46" text-anchor="middle" font-size="10" fill="#b2f5ea">Reimagine [optional]</text>
+      <text x="200" y="22" font-size="12" font-weight="700" fill="#1a202c">Kiro Forward Engineering</text>
+      <text x="200" y="38" font-size="10" fill="#4a5568">Microservice-Spezifikation, Cloud-Native Code</text>
+      <text x="200" y="52" font-size="9" font-style="italic" fill="#319795">Bounded Contexts, Aggregate Roots, Service-Grenzen</text>
+    </g>
+
+    <g transform="translate(0,402)" filter="url(#shC2)">
+      <rect width="980" height="68" rx="10" fill="#fff" stroke="#38a169" stroke-width="2"/>
+      <rect width="180" height="68" fill="#38a169"/>
+      <text x="90" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Phase 6</text>
+      <text x="90" y="52" text-anchor="middle" font-size="11" fill="#c6f6d5">Testing</text>
+      <text x="200" y="28" font-size="13" font-weight="700" fill="#1a202c">AWS Transform Testing Automation</text>
+      <text x="200" y="46" font-size="10" fill="#4a5568">Test Suites, Functional Equivalence Reports</text>
+    </g>
+
+    <g transform="translate(0,480)" filter="url(#shC2)">
+      <rect width="980" height="68" rx="10" fill="#fff" stroke="#d69e2e" stroke-width="2"/>
+      <rect width="180" height="68" fill="#d69e2e"/>
+      <text x="90" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Phase 7</text>
+      <text x="90" y="52" text-anchor="middle" font-size="11" fill="#fef5e7">Deployment IaC</text>
+      <text x="200" y="28" font-size="13" font-weight="700" fill="#1a202c">Terraform / CloudFormation / CDK</text>
+      <text x="200" y="46" font-size="10" fill="#4a5568">Running Application in AWS &#8211; Multi-AZ, ALB, Aurora, S3</text>
+    </g>
+
+    <g transform="translate(0,558)" filter="url(#shC2)">
+      <rect width="980" height="68" rx="10" fill="#fff" stroke="#2d3748" stroke-width="2"/>
+      <rect width="180" height="68" fill="#2d3748"/>
+      <text x="90" y="32" text-anchor="middle" font-size="18" font-weight="800" fill="#fff">Phase 8</text>
+      <text x="90" y="52" text-anchor="middle" font-size="11" fill="#cbd5e0">Operations</text>
+      <text x="200" y="28" font-size="13" font-weight="700" fill="#1a202c">CloudWatch &#8226; X-Ray &#8226; CodePipeline</text>
+      <text x="200" y="46" font-size="10" fill="#4a5568">Production-Ready System mit Monitoring und Continuous Improvement</text>
+    </g>
+  </g>
+
+  <text x="550" y="775" text-anchor="middle" font-size="11" font-style="italic" fill="#4a5568">Phasen 4 + 5 sind optional &#8211; viele Projekte stoppen nach Phase 3 (Refactor) oder kombinieren nur mit Reforge.</text>
+</svg>

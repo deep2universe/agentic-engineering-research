@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 660" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgC4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shC4" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="660" fill="url(#bgC4)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Phase 2: Planning &amp; Wave Definition</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Beispiel-Wave-Plan fuer eine Bank &#8211; mit dem Pilot zuerst</text>
+
+  <!-- Top: Faktoren -->
+  <g transform="translate(60,100)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Faktoren fuer die Wave-Aufteilung</text>
+
+    <g transform="translate(0,15)">
+      <g filter="url(#shC4)">
+        <rect width="240" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#1e3a5f"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#1e3a5f">Technische Deps</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Programme, die zusammen</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">ausgefuehrt werden, gehoeren</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">in dieselbe Wave.</text>
+      </g>
+
+      <g transform="translate(255,0)" filter="url(#shC4)">
+        <rect width="240" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#2c5282"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#2c5282">Datenabhaengigkeiten</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Gemeinsam genutzte Daten-</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">banken oder Files erfordern</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">gemeinsame Migration.</text>
+      </g>
+
+      <g transform="translate(510,0)" filter="url(#shC4)">
+        <rect width="240" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="240" height="6" fill="#dd6b20"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#dd6b20">Business Functions</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Fachliche Zusammen-</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">gehoerigkeit (Konten,</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Reporting, Settlement).</text>
+      </g>
+
+      <g transform="translate(765,0)" filter="url(#shC4)">
+        <rect width="220" height="100" rx="10" fill="#fff" stroke="#cbd5e0"/>
+        <rect width="220" height="6" fill="#9b2c2c"/>
+        <text x="14" y="28" font-size="12" font-weight="700" fill="#9b2c2c">Risiko</text>
+        <text x="14" y="46" font-size="10" fill="#4a5568">Hochriskante Komponenten</text>
+        <text x="14" y="60" font-size="10" fill="#4a5568">in spaetere Waves.</text>
+        <text x="14" y="74" font-size="10" fill="#4a5568">Pilot zuerst!</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Wave plan example -->
+  <g transform="translate(60,260)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#1a202c">Beispiel: Wave-Plan fuer eine Bank</text>
+
+    <g transform="translate(0,15)" filter="url(#shC4)">
+      <rect width="980" height="220" rx="10" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="980" height="36" rx="10" fill="#2d3748"/>
+      <rect y="24" width="980" height="12" fill="#2d3748"/>
+      <text x="14" y="22" font-size="11" font-weight="700" fill="#fff">Wave</text>
+      <text x="120" y="22" font-size="11" font-weight="700" fill="#fff">Domain</text>
+      <text x="380" y="22" font-size="11" font-weight="700" fill="#fbbf24">LOC</text>
+      <text x="500" y="22" font-size="11" font-weight="700" fill="#fbbf24">Programme</text>
+      <text x="650" y="22" font-size="11" font-weight="700" fill="#fbbf24">Wochen</text>
+      <text x="780" y="22" font-size="11" font-weight="700" fill="#9ae6b4">Risiko</text>
+
+      <g font-size="11" fill="#2d3748">
+        <g transform="translate(0,36)">
+          <rect width="980" height="36" fill="#f7fafc"/>
+          <text x="14" y="22" font-weight="700" fill="#1e3a5f">1 (Pilot) &#9733;</text>
+          <text x="120" y="22">Reporting (read-only)</text>
+          <text x="380" y="22">80k</text>
+          <text x="500" y="22">12</text>
+          <text x="650" y="22">4&#8211;6</text>
+          <text x="780" y="22" fill="#38a169">niedrig</text>
+        </g>
+        <g transform="translate(0,72)">
+          <rect width="980" height="36" fill="#fff"/>
+          <text x="14" y="22" font-weight="700" fill="#2c5282">2</text>
+          <text x="120" y="22">Customer Master</text>
+          <text x="380" y="22">200k</text>
+          <text x="500" y="22">45</text>
+          <text x="650" y="22">6&#8211;8</text>
+          <text x="780" y="22" fill="#38a169">niedrig</text>
+        </g>
+        <g transform="translate(0,108)">
+          <rect width="980" height="36" fill="#f7fafc"/>
+          <text x="14" y="22" font-weight="700" fill="#dd6b20">3</text>
+          <text x="120" y="22">Account Management</text>
+          <text x="380" y="22">350k</text>
+          <text x="500" y="22">80</text>
+          <text x="650" y="22">8&#8211;10</text>
+          <text x="780" y="22" fill="#d69e2e">mittel</text>
+        </g>
+        <g transform="translate(0,144)">
+          <rect width="980" height="36" fill="#fff"/>
+          <text x="14" y="22" font-weight="700" fill="#38a169">4</text>
+          <text x="120" y="22">Transactions</text>
+          <text x="380" y="22">500k</text>
+          <text x="500" y="22">110</text>
+          <text x="650" y="22">10&#8211;12</text>
+          <text x="780" y="22" fill="#d69e2e">mittel-hoch</text>
+        </g>
+        <g transform="translate(0,180)">
+          <rect width="980" height="36" fill="#f7fafc"/>
+          <text x="14" y="22" font-weight="700" fill="#805ad5">5</text>
+          <text x="120" y="22">Batch Processing</text>
+          <text x="380" y="22">800k</text>
+          <text x="500" y="22">200</text>
+          <text x="650" y="22">12&#8211;16</text>
+          <text x="780" y="22" fill="#9b2c2c">hoch</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Senior Tipp -->
+  <g transform="translate(60,520)" filter="url(#shC4)">
+    <rect width="980" height="120" rx="12" fill="#1e3a5f"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#fbbf24">&#9733; Senior-Tipp: Pilot-Auswahl ist erfolgskritisch</text>
+    <text x="20" y="56" font-size="11" fill="#fff">Der erste Wave sollte immer eine Pilot-Anwendung mit klar definierten Grenzen sein:</text>
+    <text x="20" y="74" font-size="11" fill="#cbd5e0">&#9656; Ueberschaubare Komplexitaet (z. B. 50&#8211;100k LOC)  &#9656; Nicht-kritische Business-Funktion  &#9656; Klare Domain-Grenzen</text>
+    <text x="20" y="92" font-size="11" fill="#cbd5e0">&#9656; Read-only oder nicht-zeitkritisch  &#9656; Minimale externe Abhaengigkeiten  &#9656; Existierende Test-Daten verfuegbar</text>
+    <text x="20" y="110" font-size="10" font-style="italic" fill="#94a3b8">Erfahrungen aus dem Pilot fliessen in die spaeteren Waves ein und sparen Monate.</text>
+  </g>
+</svg>

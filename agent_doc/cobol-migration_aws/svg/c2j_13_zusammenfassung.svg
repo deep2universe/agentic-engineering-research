@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 580" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgC13" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shC13" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="580" fill="url(#bgC13)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Zusammenfassung &#8211; State-of-the-Art Workflow 2026</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">Sechs Bausteine fuer COBOL-zu-Java-Migration mit AWS-Tooling</text>
+
+  <!-- 6 building blocks -->
+  <g transform="translate(60,100)">
+    <g filter="url(#shC13)">
+      <rect width="320" height="120" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="120" fill="#dd6b20"/>
+      <text x="22" y="26" font-size="12" font-weight="700" fill="#dd6b20">1. AWS Transform</text>
+      <text x="22" y="42" font-size="9" fill="#718096">Zentrale agentic-AI-Plattform</text>
+      <text x="22" y="64" font-size="11" fill="#4a5568">Discovery, Planning, Refactor,</text>
+      <text x="22" y="78" font-size="11" fill="#4a5568">Reforge, Reimagine, Testing</text>
+      <text x="22" y="100" font-size="10" font-style="italic" fill="#dd6b20">Strategischer Pfad fuer 2026</text>
+    </g>
+
+    <g transform="translate(335,0)" filter="url(#shC13)">
+      <rect width="320" height="120" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="120" fill="#1e3a5f"/>
+      <text x="22" y="26" font-size="12" font-weight="700" fill="#1e3a5f">2. Blu Age Engine</text>
+      <text x="22" y="42" font-size="9" fill="#718096">Deterministische Transformation</text>
+      <text x="22" y="64" font-size="11" fill="#4a5568">Model-to-Model COBOL &#8594; Java</text>
+      <text x="22" y="78" font-size="11" fill="#4a5568">85&#8211;95 % Automatisierung</text>
+      <text x="22" y="100" font-size="10" font-style="italic" fill="#1e3a5f">Audit-faehig, regelbasiert</text>
+    </g>
+
+    <g transform="translate(670,0)" filter="url(#shC13)">
+      <rect width="315" height="120" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="120" fill="#805ad5"/>
+      <text x="22" y="26" font-size="12" font-weight="700" fill="#805ad5">3. Reforge + Reimagine</text>
+      <text x="22" y="42" font-size="9" fill="#718096">Optionale Modernisierung</text>
+      <text x="22" y="64" font-size="11" fill="#4a5568">JOBOL &#8594; idiomatisches Java</text>
+      <text x="22" y="78" font-size="11" fill="#4a5568">Reimagine fuer Microservices</text>
+      <text x="22" y="100" font-size="10" font-style="italic" fill="#805ad5">LLM-basiert, Reviews Pflicht</text>
+    </g>
+
+    <g transform="translate(0,140)" filter="url(#shC13)">
+      <rect width="320" height="120" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="120" fill="#38a169"/>
+      <text x="22" y="26" font-size="12" font-weight="700" fill="#38a169">4. Automated Testing</text>
+      <text x="22" y="42" font-size="9" fill="#718096">Functional Equivalence</text>
+      <text x="22" y="64" font-size="11" fill="#4a5568">Test Plans, Test Data, Validation</text>
+      <text x="22" y="78" font-size="11" fill="#4a5568">Continuous Regression Testing</text>
+      <text x="22" y="100" font-size="10" font-style="italic" fill="#38a169">50&#8211;70 % der Projektdauer</text>
+    </g>
+
+    <g transform="translate(335,140)" filter="url(#shC13)">
+      <rect width="320" height="120" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="120" fill="#d69e2e"/>
+      <text x="22" y="26" font-size="12" font-weight="700" fill="#d69e2e">5. IaC Deployment</text>
+      <text x="22" y="42" font-size="9" fill="#718096">Terraform / CFN / CDK</text>
+      <text x="22" y="64" font-size="11" fill="#4a5568">Vollstaendige AWS-Infrastruktur</text>
+      <text x="22" y="78" font-size="11" fill="#4a5568">VPC, ALB, EC2, Aurora, S3</text>
+      <text x="22" y="100" font-size="10" font-style="italic" fill="#d69e2e">CardDemo Pattern dokumentiert</text>
+    </g>
+
+    <g transform="translate(670,140)" filter="url(#shC13)">
+      <rect width="315" height="120" rx="12" fill="#fff" stroke="#cbd5e0"/>
+      <rect width="6" height="120" fill="#2d3748"/>
+      <text x="22" y="26" font-size="12" font-weight="700" fill="#2d3748">6. Continuous Operations</text>
+      <text x="22" y="42" font-size="9" fill="#718096">CloudWatch, X-Ray, CodePipeline</text>
+      <text x="22" y="64" font-size="11" fill="#4a5568">Monitoring, Tracing, Alarms</text>
+      <text x="22" y="78" font-size="11" fill="#4a5568">Production-Ready System</text>
+      <text x="22" y="100" font-size="10" font-style="italic" fill="#2d3748">Continuous Improvement</text>
+    </g>
+  </g>
+
+  <!-- Bottom: 30-50% reduction message -->
+  <g transform="translate(60,400)" filter="url(#shC13)">
+    <rect width="980" height="160" rx="14" fill="#1e3a5f"/>
+    <text x="490" y="40" text-anchor="middle" font-size="22" font-weight="800" fill="#fbbf24">30&#8211;50 % weniger Aufwand</text>
+    <text x="490" y="62" text-anchor="middle" font-size="12" fill="#fff">durch die Kombination aus AWS Transform, Blu Age, Reforge und Automation</text>
+    <line x1="200" y1="80" x2="780" y2="80" stroke="#475569"/>
+    <text x="490" y="106" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24">Aber: Der entscheidende Erfolgsfaktor bleibt die menschliche Expertise</text>
+    <text x="490" y="124" text-anchor="middle" font-size="11" fill="#cbd5e0">in Architektur, Testing und Change Management.</text>
+    <text x="490" y="146" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">Tools beschleunigen &#8211; Senior Architekten und Senior Developer entscheiden ueber Erfolg oder Scheitern.</text>
+  </g>
+</svg>

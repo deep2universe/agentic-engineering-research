@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bgC12" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2f7"/></linearGradient>
+    <filter id="shC12" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.12"/></filter>
+  </defs>
+  <rect width="1100" height="720" fill="url(#bgC12)"/>
+
+  <text x="550" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="#1a202c">Senior-Architekt-Checkliste</text>
+  <text x="550" y="64" text-anchor="middle" font-size="13" fill="#4a5568">12 Kontrollpunkte vor Projektstart &#8211; jeder muss abgehakt werden</text>
+
+  <g transform="translate(60,100)" filter="url(#shC12)">
+    <rect width="980" height="600" rx="12" fill="#fff" stroke="#cbd5e0"/>
+
+    <g font-size="13" fill="#2d3748">
+      <g transform="translate(40,40)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">1.</text>
+        <text x="50" y="17">Vollstaendige Inventarisierung aller Mainframe-Komponenten</text>
+        <text x="50" y="32" font-size="10" fill="#718096">COBOL, JCL, BMS, Copybooks, DB2 DDL, VSAM-Files</text>
+      </g>
+      <g transform="translate(40,90)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">2.</text>
+        <text x="50" y="17">Identifikation aller fehlenden Copybooks und Includes</text>
+        <text x="50" y="32" font-size="10" fill="#718096">AWS Transform Assessment Agent erkennt Missing Files</text>
+      </g>
+      <g transform="translate(40,140)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">3.</text>
+        <text x="50" y="17">Klares Migrationsziel definiert (Refactor / Reimagine / Hybrid)</text>
+        <text x="50" y="32" font-size="10" fill="#718096">Architektur-Entscheidung VOR der Tool-Auswahl</text>
+      </g>
+      <g transform="translate(40,190)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">4.</text>
+        <text x="50" y="17">Wave Plan mit Pilot-Anwendung</text>
+        <text x="50" y="32" font-size="10" fill="#718096">Erste Wave: kleine, nicht-kritische Anwendung mit klaren Grenzen</text>
+      </g>
+      <g transform="translate(40,240)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">5.</text>
+        <text x="50" y="17">Test-Strategie inklusive Dual-Run festgelegt</text>
+        <text x="50" y="32" font-size="10" fill="#718096">Functional Equivalence + bit-genauer Vergleich</text>
+      </g>
+      <g transform="translate(40,290)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">6.</text>
+        <text x="50" y="17">CI/CD-Pipeline aufgesetzt</text>
+        <text x="50" y="32" font-size="10" fill="#718096">CodePipeline + CodeBuild + IaC + Continuous Regression Testing</text>
+      </g>
+
+      <g transform="translate(540,40)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">7.</text>
+        <text x="50" y="17">Team-Skills evaluiert, Schulungsplan vorhanden</text>
+        <text x="50" y="32" font-size="10" fill="#718096">COBOL/Java/Cloud/DevOps &#8211; oft die groesste Luecke</text>
+      </g>
+      <g transform="translate(540,90)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">8.</text>
+        <text x="50" y="17">Operations-Modell definiert (DevOps, SRE)</text>
+        <text x="50" y="32" font-size="10" fill="#718096">DevOps von Tag 1 &#8211; nicht spaeter nachholen</text>
+      </g>
+      <g transform="translate(540,140)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">9.</text>
+        <text x="50" y="17">Compliance-Anforderungen geklaert</text>
+        <text x="50" y="32" font-size="10" fill="#718096">Audit-Trails, Datenlokalisierung, Verschluesselung von Tag 1</text>
+      </g>
+      <g transform="translate(540,190)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">10.</text>
+        <text x="50" y="17">Rollback-Strategie pro Wave definiert</text>
+        <text x="50" y="32" font-size="10" fill="#718096">Was passiert, wenn ein Wave fehlschlaegt? Wie zurueck?</text>
+      </g>
+      <g transform="translate(540,240)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">11.</text>
+        <text x="50" y="17">Business-Stakeholder eingebunden</text>
+        <text x="50" y="32" font-size="10" fill="#718096">Domain Experts validieren Geschaeftsregeln</text>
+      </g>
+      <g transform="translate(540,290)">
+        <rect width="22" height="22" rx="4" fill="#fff" stroke="#1e3a5f" stroke-width="2"/>
+        <text x="32" y="17" font-weight="700">12.</text>
+        <text x="50" y="17">Budget und Zeitplan realistisch</text>
+        <text x="50" y="32" font-size="10" fill="#718096">50&#8211;70 % Testing-Anteil &#8226; 18&#8211;36 Monate ROI</text>
+      </g>
+    </g>
+
+    <line x1="40" y1="370" x2="940" y2="370" stroke="#cbd5e0"/>
+
+    <text x="490" y="410" text-anchor="middle" font-size="14" font-weight="700" fill="#9b2c2c">Wenn auch nur EIN Punkt unklar ist &#8211; nicht starten.</text>
+
+    <g transform="translate(40,440)">
+      <text font-size="11" font-weight="700" fill="#1a202c">Was passiert bei nicht erfuellter Checkliste?</text>
+      <g font-size="11" fill="#4a5568">
+        <text y="22">&#9656; <tspan font-weight="700">Punkte 1&#8211;3 fehlen</tspan>: Migration startet ohne Klarheit ueber Scope &#8594; Scope Creep, Verzug</text>
+        <text y="42">&#9656; <tspan font-weight="700">Punkte 4&#8211;6 fehlen</tspan>: Wave-Plan und Test-Strategie unklar &#8594; Iterationen scheitern</text>
+        <text y="62">&#9656; <tspan font-weight="700">Punkte 7&#8211;9 fehlen</tspan>: Team und Operations nicht bereit &#8594; Tools nutzen, Probleme bleiben</text>
+        <text y="82">&#9656; <tspan font-weight="700">Punkte 10&#8211;12 fehlen</tspan>: Risiken werden zu spaet erkannt &#8594; Rollbacks unmoeglich, Eskalationen</text>
+      </g>
+      <text y="120" font-size="11" font-style="italic" fill="#9b2c2c">Senior Architekten sollten diese Checkliste mit dem Sponsor signieren lassen, bevor das Projekt startet.</text>
+    </g>
+  </g>
+</svg>
