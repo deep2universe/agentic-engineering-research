@@ -6,7 +6,23 @@ nav_order: 1
 
 # Agentic Engineering Research
 
-Dieses Wiki dokumentiert Prinzipien, Patterns und Best Practices fuer Agentic Engineering -- basierend auf einer umfassenden Recherche von ueber 70 Quellen (Stand: April 2026).
+Dieses Wiki dokumentiert Prinzipien, Patterns und Best Practices fuer Agentic Engineering sowie eine Deep Research zur COBOL-Migration mit AWS -- basierend auf einer agentengestuetzten Recherche von ueber **350 Quellen** (Stand: April 2026).
+
+> **Hinweis zur Erstellung:** Saemtliche Inhalte dieses Wikis wurden vollstaendig agentengestuetzt mit **[Claude Code](https://claude.com/claude-code)** erstellt. Es handelt sich ausschliesslich um Ergebnisse einer Deep Research und ein **menschliches Review hat nicht stattgefunden**. Alle Aussagen, Empfehlungen und Quellenangaben sollten daher kritisch gegengeprueft werden, bevor sie in produktiven Kontexten verwendet werden.
+
+---
+
+## Workflow
+
+Der gesamte Inhalt dieses Wikis entsteht in drei aufeinanderfolgenden, agentengestuetzten Phasen:
+
+![Workflow: Deep Research, Visualisierungen, GitHub Pages](images/workflow.png)
+
+1. **Deep Research** &mdash; Ein Research-Agent recherchiert ein Thema systematisch ueber Web Search und Web Fetch, persistiert alle Quellen in `_quellen.md` und legt strukturierte Markdown-Berichte unter `agent_doc/<topic>/` ab.
+2. **Visualisierungen** &mdash; Fuer jedes Kapitel werden SVG-Diagramme generiert (Decision Frameworks, Workflow-Diagramme, Vergleichsmatrizen, Architektur-Skizzen), die direkt in den Markdown-Dateien referenziert werden.
+3. **GitHub Pages** &mdash; Das Skript [`scripts/sync-wiki.sh`](https://github.com/deep2universe/agentic-engineering-research/blob/main/scripts/sync-wiki.sh) konvertiert SVGs zu PNGs, ergaenzt Front-Matter, schreibt interne Links um und publiziert das Ergebnis in den `pages`-Branch.
+
+Alle drei Phasen werden mit **Claude Code** orchestriert -- es gibt keinen manuellen Editier-Schritt zwischen Research und Veroeffentlichung.
 
 ---
 
@@ -91,4 +107,21 @@ Vergleich der Skill- und Tool-Systeme von sieben fuehrenden Frameworks.
 
 ---
 
-*Quellcode: [agent_doc/](https://github.com/deep2universe/agentic-engineering-research/tree/main/agent_doc)*
+## COBOL Migration mit AWS
+
+Deep Research zu COBOL- und Mainframe-Modernisierung mit Schwerpunkt AWS-Tooling (Stand: April 2026).
+
+| Nr. | Kapitel | Inhalt |
+|-----|---------|--------|
+| 00 | [Guide und Decision Framework](CMA-00-Guide) | Executive Summary, Reading Guide, Decision Framework |
+| 01 | [AWS Mainframe Modernization (M2)](CMA-01-AWS-Mainframe-Modernization) | Blu Age Refactoring, Rocket Replatforming, Service-Architektur |
+| 02 | [AWS Transform Deep Dive](CMA-02-AWS-Transform) | Agentic AI fuer Modernisierung, Faehigkeiten, Preismodell |
+| 03 | [AWS Migration Hub](CMA-03-AWS-Migration-Hub) | Discovery, Orchestrierung, Nachfolger-Strategie |
+| 04 | [COBOL zu Java mit AWS](CMA-04-COBOL-zu-Java) | End-to-End Workflow ueber 8 Phasen |
+| 05 | [Best Practices und Patterns](CMA-05-Best-Practices) | Migrationsstrategie, Testing, Top-Fallstricke, Goldene Regeln |
+| 06 | [Weitere Tools (IBM, Google, Azure, ISVs)](CMA-06-Weitere-Tools) | Marktueberblick, Vergleichsmatrix, GenAI, Open Source |
+| -- | [Quellen](CMA-Quellen) | Alle Recherche-Quellen |
+
+---
+
+*Quellcode: [agent_doc/](https://github.com/deep2universe/agentic-engineering-research/tree/main/agent_doc) &mdash; Sync-Skript: [scripts/sync-wiki.sh](https://github.com/deep2universe/agentic-engineering-research/blob/main/scripts/sync-wiki.sh)*
