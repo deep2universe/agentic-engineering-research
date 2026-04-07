@@ -20,7 +20,7 @@ Der gesamte Inhalt dieses Wikis entsteht in drei aufeinanderfolgenden, agentenge
 
 1. **Deep Research** &mdash; Ein Research-Agent recherchiert ein Thema systematisch ueber Web Search und Web Fetch, persistiert alle Quellen in `_quellen.md` und legt strukturierte Markdown-Berichte unter `agent_doc/<topic>/` ab.
 2. **Visualisierungen** &mdash; Fuer jedes Kapitel werden SVG-Diagramme generiert (Decision Frameworks, Workflow-Diagramme, Vergleichsmatrizen, Architektur-Skizzen), die direkt in den Markdown-Dateien referenziert werden.
-3. **GitHub Pages** &mdash; Das Skript [`scripts/sync-wiki.sh`](https://github.com/deep2universe/agentic-engineering-research/blob/main/scripts/sync-wiki.sh) konvertiert SVGs zu PNGs, ergaenzt Front-Matter, schreibt interne Links um und publiziert das Ergebnis in den `pages`-Branch.
+3. **GitHub Pages** &mdash; Der Claude Code Skill [`publish-research-to-pages`](https://github.com/deep2universe/agentic-engineering-research/blob/main/.claude/skills/publish-research-to-pages/SKILL.md) uebernimmt die komplette Publikation: Er erweitert [`scripts/sync-wiki.sh`](https://github.com/deep2universe/agentic-engineering-research/blob/main/scripts/sync-wiki.sh) um eine neue Sektion, konvertiert SVGs zu PNGs, ergaenzt Front-Matter, schreibt interne Links um, aktualisiert `index.md` und pusht das Ergebnis in den `pages`-Branch. Ein einziger Prompt wie `publiziere agent_doc/<topic>` reicht aus &mdash; vom Mapping der Quelldateien ueber den Dry-Run bis zum Force-Push laeuft alles agentengestuetzt.
 
 Alle drei Phasen werden mit **Claude Code** orchestriert -- es gibt keinen manuellen Editier-Schritt zwischen Research und Veroeffentlichung.
 
