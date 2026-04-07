@@ -6,7 +6,7 @@ nav_order: 1
 
 # Agentic Engineering Research
 
-Dieses Wiki dokumentiert Prinzipien, Patterns und Best Practices fuer Agentic Engineering sowie eine Deep Research zur COBOL-Migration mit AWS -- basierend auf einer agentengestuetzten Recherche von ueber **350 Quellen** (Stand: April 2026).
+Dieses Wiki dokumentiert Prinzipien, Patterns und Best Practices fuer Agentic Engineering, Deep Researches zur COBOL-Migration mit AWS und zur GitHub Copilot CLI -- basierend auf einer agentengestuetzten Recherche von ueber **400 Quellen** (Stand: April 2026).
 
 > **Hinweis zur Erstellung:** Saemtliche Inhalte dieses Wikis wurden vollstaendig agentengestuetzt mit **[Claude Code](https://claude.com/claude-code)** erstellt. Es handelt sich ausschliesslich um Ergebnisse einer Deep Research und ein **menschliches Review hat nicht stattgefunden**. Alle Aussagen, Empfehlungen und Quellenangaben sollten daher kritisch gegengeprueft werden, bevor sie in produktiven Kontexten verwendet werden.
 
@@ -121,6 +121,22 @@ Deep Research zu COBOL- und Mainframe-Modernisierung mit Schwerpunkt AWS-Tooling
 | 05 | [Best Practices und Patterns](CMA-05-Best-Practices) | Migrationsstrategie, Testing, Top-Fallstricke, Goldene Regeln |
 | 06 | [Weitere Tools (IBM, Google, Azure, ISVs)](CMA-06-Weitere-Tools) | Marktueberblick, Vergleichsmatrix, GenAI, Open Source |
 | -- | [Quellen](CMA-Quellen) | Alle Recherche-Quellen |
+
+---
+
+## GitHub Copilot CLI
+
+Deep Research zur GitHub Copilot CLI (`copilot`, GA Februar 2026): Coding Agent im Terminal mit REPL, Slash-Commands, Built-in-Tools, MCP, Subagenten und Headless-CI-Modus.
+
+| Nr. | Kapitel | Inhalt |
+|-----|---------|--------|
+| 01 | [Feature Uebersicht](GCC-01-Feature-Uebersicht) | Vollstaendige Feature-Landkarte: REPL, CLI-Flags, Slash-Commands, Built-in Tools, Approval-Modi |
+| 02 | [Installation und Setup](GCC-02-Installation-und-Setup) | Voraussetzungen, Authentifizierung, Konfiguration, Datenschutz, Smoketest |
+| 03 | [Senior Developer Guide](GCC-03-Senior-Developer-Guide) | Mentales Modell, Reife-Stufen, taegliche Patterns, Top-10 fuer Architekten |
+| 04 | [Agentic Engineering, MCP, Security](GCC-04-Agentic-MCP-Security) | Agentic Loop, MCP-Architektur, Tool-Approval, Sicherheitsmodell, Failure Modes |
+| 05 | [Workflows und Vergleich](GCC-05-Workflows-und-Vergleich) | Typische Workflows, CI/CD-Automatisierung, Vergleichstabelle, Hidden Gems |
+| 06 | [Cheat Sheet](GCC-06-Cheat-Sheet) | Druckreife Kurzreferenz: Slash-Commands, Keybindings, MCP-Config, 7 Sicherheits-Mantras |
+| -- | [Quellen](GCC-Quellen) | Alle Recherche-Quellen |
 
 ---
 
