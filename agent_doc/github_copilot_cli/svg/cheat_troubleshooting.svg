@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="480" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Troubleshooting Express</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Symptom → Quick-Fix</text>
+
+  <g font-size="12">
+    <g transform="translate(40,90)">
+      <rect width="780" height="52" rx="6" fill="#161b22" stroke="#f85149"/>
+      <text x="20" y="32" fill="#f85149" font-weight="700">401 in CI</text>
+      <text x="440" y="32" fill="#c9d1d9">→ Fine-grained PAT in COPILOT_GITHUB_TOKEN</text>
+    </g>
+    <g transform="translate(40,152)">
+      <rect width="780" height="52" rx="6" fill="#161b22" stroke="#d29922"/>
+      <text x="20" y="32" fill="#d29922" font-weight="700">Rate Limit trotz Pro</text>
+      <text x="440" y="32" fill="#c9d1d9">→ /model wechseln · ggf. Backend-Bug 1.0.x</text>
+    </g>
+    <g transform="translate(40,214)">
+      <rect width="780" height="52" rx="6" fill="#161b22" stroke="#d29922"/>
+      <text x="20" y="32" fill="#d29922" font-weight="700">MCP startet nicht</text>
+      <text x="440" y="32" fill="#c9d1d9">→ /mcp test · Logs in ~/.copilot/logs</text>
+    </g>
+    <g transform="translate(40,276)">
+      <rect width="780" height="52" rx="6" fill="#161b22" stroke="#d29922"/>
+      <text x="20" y="32" fill="#d29922" font-weight="700">Tool-Hang in Actions</text>
+      <text x="440" y="32" fill="#c9d1d9">→ -p + --silent + explizite Allow-Liste</text>
+    </g>
+    <g transform="translate(40,338)">
+      <rect width="780" height="52" rx="6" fill="#161b22" stroke="#f85149"/>
+      <text x="20" y="32" fill="#f85149" font-weight="700">Stale Auth</text>
+      <text x="440" y="32" fill="#c9d1d9">→ /logout · ~/.copilot Cache löschen · /login</text>
+    </g>
+    <g transform="translate(40,400)">
+      <rect width="780" height="52" rx="6" fill="#161b22" stroke="#58a6ff"/>
+      <text x="20" y="32" fill="#58a6ff" font-weight="700">Plan-Mode-Loop</text>
+      <text x="440" y="32" fill="#c9d1d9">→ Akzeptanzkriterien konkreter, Beispiele</text>
+    </g>
+  </g>
+</svg>

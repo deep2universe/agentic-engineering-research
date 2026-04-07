@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8b949e"/>
+    </marker>
+  </defs>
+  <rect width="860" height="500" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Agentic Execution Loop – Copilot CLI</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Plan → Act → Observe → Reflect, bis Ziel erreicht</text>
+
+  <!-- Loop circle -->
+  <g transform="translate(260,260)">
+    <circle r="140" fill="none" stroke="#30363d" stroke-width="2" stroke-dasharray="4 4"/>
+    <!-- Plan -->
+    <g transform="translate(0,-140)">
+      <circle r="46" fill="#0d419d" stroke="#58a6ff" stroke-width="2"/>
+      <text y="-4" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="700">PLAN</text>
+      <text y="14" text-anchor="middle" fill="#8b949e" font-size="10">skizziert Schritte</text>
+    </g>
+    <!-- Act -->
+    <g transform="translate(140,0)">
+      <circle r="46" fill="#6e1744" stroke="#f778ba" stroke-width="2"/>
+      <text y="-4" text-anchor="middle" fill="#c9d1d9" font-size="15" font-weight="700">ACT</text>
+      <text y="14" text-anchor="middle" fill="#8b949e" font-size="10">Tool-Call</text>
+    </g>
+    <!-- Observe -->
+    <g transform="translate(0,140)">
+      <circle r="46" fill="#0f5323" stroke="#3fb950" stroke-width="2"/>
+      <text y="-4" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="700">OBSERVE</text>
+      <text y="14" text-anchor="middle" fill="#8b949e" font-size="10">Output lesen</text>
+    </g>
+    <!-- Reflect -->
+    <g transform="translate(-140,0)">
+      <circle r="46" fill="#693b00" stroke="#d29922" stroke-width="2"/>
+      <text y="-4" text-anchor="middle" fill="#c9d1d9" font-size="14" font-weight="700">REFLECT</text>
+      <text y="14" text-anchor="middle" fill="#8b949e" font-size="10">Self-Verify</text>
+    </g>
+    <!-- Arrows -->
+    <path d="M50,-130 A140,140 0 0 1 130,-50" fill="none" stroke="#8b949e" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M130,50 A140,140 0 0 1 50,130" fill="none" stroke="#8b949e" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M-50,130 A140,140 0 0 1 -130,50" fill="none" stroke="#8b949e" stroke-width="2" marker-end="url(#arr)"/>
+    <path d="M-130,-50 A140,140 0 0 1 -50,-130" fill="none" stroke="#8b949e" stroke-width="2" marker-end="url(#arr)"/>
+  </g>
+
+  <!-- Modes panel -->
+  <g transform="translate(480,110)">
+    <rect width="340" height="300" rx="10" fill="#161b22" stroke="#30363d"/>
+    <text x="16" y="28" fill="#c9d1d9" font-size="15" font-weight="700">Modi der CLI</text>
+
+    <g transform="translate(16,50)">
+      <rect width="12" height="12" fill="#58a6ff"/>
+      <text x="22" y="11" fill="#c9d1d9" font-size="13" font-weight="600">Plan Mode</text>
+      <text x="22" y="28" fill="#8b949e" font-size="11">Shift+Tab · /plan · kein Execute</text>
+    </g>
+    <g transform="translate(16,100)">
+      <rect width="12" height="12" fill="#f778ba"/>
+      <text x="22" y="11" fill="#c9d1d9" font-size="13" font-weight="600">Approval (Default)</text>
+      <text x="22" y="28" fill="#8b949e" font-size="11">y / a / n pro Tool-Call</text>
+    </g>
+    <g transform="translate(16,150)">
+      <rect width="12" height="12" fill="#3fb950"/>
+      <text x="22" y="11" fill="#c9d1d9" font-size="13" font-weight="600">Autopilot</text>
+      <text x="22" y="28" fill="#8b949e" font-size="11">autonom · --max-autopilot-continues</text>
+    </g>
+    <g transform="translate(16,200)">
+      <rect width="12" height="12" fill="#d29922"/>
+      <text x="22" y="11" fill="#c9d1d9" font-size="13" font-weight="600">Resume / Session</text>
+      <text x="22" y="28" fill="#8b949e" font-size="11">copilot --resume · Memory bleibt</text>
+    </g>
+
+    <rect x="16" y="238" width="308" height="46" rx="6" fill="#0d1117" stroke="#30363d"/>
+    <text x="26" y="258" fill="#8b949e" font-size="11">Auto-Compaction bei ~95% Context;</text>
+    <text x="26" y="274" fill="#8b949e" font-size="11">Bloat spürbar ab 45–60% bei Opus 4.6.</text>
+  </g>
+</svg>

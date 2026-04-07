@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="560" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">CI/CD &amp; Automation</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Copilot CLI als Pipeline-Bürger</text>
+
+  <!-- YAML -->
+  <g transform="translate(40,90)">
+    <rect width="780" height="220" rx="10" fill="#010409" stroke="#3fb950" stroke-width="2"/>
+    <rect width="780" height="28" fill="#161b22" rx="10"/>
+    <text x="12" y="20" fill="#8b949e" font-size="11" font-family="monospace">.github/workflows/copilot-triage.yml</text>
+    <g font-family="monospace" font-size="11">
+      <text x="20" y="56" fill="#c9d1d9">jobs:</text>
+      <text x="20" y="74" fill="#c9d1d9">  copilot-triage:</text>
+      <text x="20" y="92" fill="#c9d1d9">    runs-on: ubuntu-latest</text>
+      <text x="20" y="110" fill="#c9d1d9">    permissions:</text>
+      <text x="20" y="128" fill="#c9d1d9">      { contents: read, pull-requests: write, issues: write }</text>
+      <text x="20" y="146" fill="#c9d1d9">    steps:</text>
+      <text x="20" y="164" fill="#c9d1d9">      - uses: actions/checkout@v4</text>
+      <text x="20" y="182" fill="#c9d1d9">      - run: npm install -g @github/copilot</text>
+      <text x="20" y="200" fill="#3fb950">      - run: copilot -p "Analyze failing tests" --allow-tool shell --allow-tool github</text>
+    </g>
+  </g>
+
+  <!-- Auth -->
+  <g transform="translate(40,330)">
+    <rect width="380" height="100" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="20" y="26" fill="#58a6ff" font-weight="700" font-size="14">Headless Auth (Prio)</text>
+    <text x="20" y="52" fill="#c9d1d9" font-size="11" font-family="monospace">① COPILOT_GITHUB_TOKEN</text>
+    <text x="20" y="70" fill="#c9d1d9" font-size="11" font-family="monospace">② GH_TOKEN</text>
+    <text x="20" y="88" fill="#c9d1d9" font-size="11" font-family="monospace">③ GITHUB_TOKEN</text>
+  </g>
+
+  <!-- Use cases -->
+  <g transform="translate(440,330)">
+    <rect width="380" height="210" rx="10" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+    <text x="20" y="26" fill="#f778ba" font-weight="700" font-size="14">Automation-Use-Cases</text>
+    <text x="20" y="52" fill="#c9d1d9" font-size="11">🔍 Smart Failure Triage</text>
+    <text x="30" y="68" fill="#8b949e" font-size="10">CI-Logs → Root-Cause-Kommentar im PR</text>
+    <text x="20" y="90" fill="#c9d1d9" font-size="11">🌙 Nightly Reports</text>
+    <text x="30" y="106" fill="#8b949e" font-size="10">Repo-Aktivität → Issue/Discussion</text>
+    <text x="20" y="128" fill="#c9d1d9" font-size="11">🤖 PR-Bot Auto-Review</text>
+    <text x="30" y="144" fill="#8b949e" font-size="10">Security-Scans via /research</text>
+    <text x="20" y="166" fill="#c9d1d9" font-size="11">🏗 Scaffold-Jobs</text>
+    <text x="30" y="182" fill="#8b949e" font-size="10">Label: scaffold → Coding-Agent-Delegation</text>
+  </g>
+
+  <g transform="translate(40,445)">
+    <rect width="380" height="95" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+    <text x="20" y="26" fill="#d29922" font-weight="700" font-size="14">OAuth vs PAT</text>
+    <text x="20" y="52" fill="#c9d1d9" font-size="11">Device-Flow nur interaktiv</text>
+    <text x="20" y="72" fill="#c9d1d9" font-size="11">Container: Service-Account / GitHub App</text>
+  </g>
+</svg>

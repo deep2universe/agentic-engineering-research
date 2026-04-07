@@ -6,6 +6,8 @@ Dieser Guide erklärt **Agentic Engineering** mit der Copilot CLI für Senior De
 
 ## 1. Mentales Modell: Was ist ein Coding-Agent wirklich?
 
+![Mentales Modell – Agent-Schleife](svg/sen_mentales_modell.svg)
+
 Ein Coding-Agent ist eine **LLM-getriebene Schleife**:
 
 ```
@@ -31,6 +33,8 @@ Die Copilot CLI implementiert genau dieses Muster mit:
 **Konsequenz für Senior Devs**: Du arbeitest **nicht** mehr nur mit einem Autocomplete, sondern mit einem System, dem du **Kontext, Werkzeuge und Leitplanken** geben musst. Dein Hebel ist **Context Engineering**, nicht Prompt Engineering.
 
 ## 2. Context Engineering – die wichtigste Disziplin
+
+![Context Engineering – 4 Säulen](svg/sen_context_engineering.svg)
 
 ### 2.1 AGENTS.md als Verfassung
 
@@ -97,6 +101,8 @@ Aufruf in der Session: `@refactor Splitte den BookingService nach Feature.`
 
 ## 3. Sicherheits-Mindset
 
+![Sicherheits-Mindset – Regeln & Failure Modes](svg/sen_sicherheits_mindset.svg)
+
 Agentic Coding **multipliziert dein Risiko**: Ein einziger Prompt-Injection-Trigger (Issue-Body, Webseite, Logfile) kann den Agent dazu bringen, Dateien zu ändern oder Tokens zu exfiltrieren.
 
 ### Goldene Regeln
@@ -121,6 +127,8 @@ Agentic Coding **multipliziert dein Risiko**: Ein einziger Prompt-Injection-Trig
 | Loop / Stuck | Plan-Mode + max-iterations Hook |
 
 ## 4. Patterns für die tägliche Arbeit
+
+![Patterns für die tägliche Arbeit](svg/sen_patterns_taeglich.svg)
 
 ### 4.1 Plan-then-Execute
 
@@ -171,6 +179,8 @@ copilot -p "/review --staged" --output-format json --silent \
 
 ## 5. CI/CD-Integration
 
+![CI/CD-Integration](svg/sen_cicd_integration.svg)
+
 ### Headless-Run in GitHub Actions
 
 ```yaml
@@ -195,6 +205,8 @@ copilot -p "/review --staged" --output-format json --silent \
 
 ## 6. Vergleich der CLI-Agents (Kurzfassung)
 
+![CLI-Agents Vergleich](svg/sen_vergleich_cli_agents.svg)
+
 | Kriterium | Copilot CLI | Claude Code | Gemini CLI | Codex CLI | Cursor CLI |
 |---|---|---|---|---|---|
 | Modelle | Claude 4.6, GPT-5, Gemini 3 | Claude Opus/Sonnet/Haiku | Gemini 2.5/3 | GPT-5, o-Serie | Multi |
@@ -210,6 +222,8 @@ Vollständig in `workflows_und_vergleich.md`.
 
 ## 7. Reife-Stufen für ein Team
 
+![Reife-Stufen – Treppe](svg/sen_reife_stufen.svg)
+
 | Stufe | Merkmal |
 |---|---|
 | **0 – Experiment** | Einzelne nutzen `copilot` ad hoc, kein AGENTS.md |
@@ -219,6 +233,8 @@ Vollständig in `workflows_und_vergleich.md`.
 | **4 – Agentic-First** | Spec-driven, `/fleet`-Workflows, `/delegate` für lange Tasks, Hooks als Quality-Gates |
 
 ## 8. Top-10-Empfehlungen für Architekten
+
+![Top 10 Empfehlungen](svg/sen_top10_architekten.svg)
 
 1. AGENTS.md ist Produktionscode – review es, versioniere es, halte es klein.
 2. Trenne **persönliche** (`~/.copilot/agents`) und **shared** (`.github/agents`) Agents sauber.

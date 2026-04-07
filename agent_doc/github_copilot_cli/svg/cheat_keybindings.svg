@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 440" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="440" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Keybindings (REPL)</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Muscle-Memory für den Terminal-Alltag</text>
+
+  <g font-family="monospace" font-size="12">
+    <!-- Keycap helper style: rounded dark rect -->
+    <g transform="translate(60,100)">
+      <rect width="150" height="50" rx="8" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+      <text x="75" y="32" text-anchor="middle" fill="#c9d1d9" font-weight="700">Enter</text>
+    </g>
+    <text x="240" y="132" fill="#c9d1d9" font-family="sans-serif">→ Senden</text>
+
+    <g transform="translate(60,170)">
+      <rect width="150" height="50" rx="8" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+      <text x="75" y="32" text-anchor="middle" fill="#c9d1d9" font-weight="700">Shift+Enter</text>
+    </g>
+    <text x="240" y="202" fill="#c9d1d9" font-family="sans-serif">→ Multiline (Kitty / /terminal-setup)</text>
+
+    <g transform="translate(60,240)">
+      <rect width="150" height="50" rx="8" fill="#0d419d" stroke="#58a6ff" stroke-width="2"/>
+      <text x="75" y="32" text-anchor="middle" fill="#c9d1d9" font-weight="700">Shift+Tab</text>
+    </g>
+    <text x="240" y="272" fill="#58a6ff" font-family="sans-serif">→ Plan-Mode ⇄ Autopilot toggle</text>
+
+    <g transform="translate(60,310)">
+      <rect width="150" height="50" rx="8" fill="#6e1744" stroke="#f778ba" stroke-width="2"/>
+      <text x="75" y="32" text-anchor="middle" fill="#c9d1d9" font-weight="700">Esc</text>
+    </g>
+    <text x="240" y="342" fill="#f778ba" font-family="sans-serif">→ laufenden Tool-Aufruf abbrechen</text>
+
+    <!-- right column -->
+    <g transform="translate(490,100)">
+      <rect width="150" height="50" rx="8" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+      <text x="75" y="32" text-anchor="middle" fill="#c9d1d9" font-weight="700">↑ / ↓</text>
+    </g>
+    <text x="670" y="132" fill="#c9d1d9" font-family="sans-serif">→ History</text>
+
+    <g transform="translate(490,170)">
+      <rect width="150" height="50" rx="8" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+      <text x="75" y="32" text-anchor="middle" fill="#c9d1d9" font-weight="700">Tab</text>
+    </g>
+    <text x="670" y="202" fill="#c9d1d9" font-family="sans-serif">→ Completion</text>
+
+    <g transform="translate(490,240)">
+      <rect width="150" height="50" rx="8" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+      <text x="75" y="32" text-anchor="middle" fill="#c9d1d9" font-weight="700">Ctrl+A</text>
+    </g>
+    <text x="670" y="272" fill="#c9d1d9" font-family="sans-serif">→ Zeilenanfang</text>
+
+    <g transform="translate(490,310)">
+      <rect width="150" height="50" rx="8" fill="#21262d" stroke="#8b949e" stroke-width="2"/>
+      <text x="75" y="32" text-anchor="middle" fill="#c9d1d9" font-weight="700">Ctrl+E</text>
+    </g>
+    <text x="670" y="342" fill="#c9d1d9" font-family="sans-serif">→ Zeilenende</text>
+  </g>
+</svg>

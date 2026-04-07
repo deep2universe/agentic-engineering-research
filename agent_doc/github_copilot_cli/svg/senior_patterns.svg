@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 520" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="520" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Patterns für Senior Devs</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Fünf Playbooks für den Alltag</text>
+
+  <!-- 1 TDD -->
+  <g transform="translate(40,90)">
+    <rect width="380" height="200" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="20" y="28" fill="#3fb950" font-size="15" font-weight="700">① TDD-Loop</text>
+    <g font-size="11" fill="#c9d1d9">
+      <text x="20" y="56">1 · Plan-Mode: failing Tests schreiben</text>
+      <text x="20" y="78">2 · Approval-Mode: Tests reviewen + committen</text>
+      <text x="20" y="100">3 · Autopilot + --allow-tool write,npm test</text>
+      <text x="20" y="122">4 · postToolUse: Linter + Format</text>
+    </g>
+    <rect x="20" y="140" width="340" height="44" rx="4" fill="#0d1117" stroke="#30363d"/>
+    <text x="30" y="158" fill="#8b949e" font-size="10">Metapher: Red → Green → Refactor</text>
+    <text x="30" y="174" fill="#3fb950" font-size="11" font-family="monospace">while !green: agent.fix()</text>
+  </g>
+
+  <!-- 2 Spec-driven -->
+  <g transform="translate(440,90)">
+    <rect width="380" height="200" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="20" y="28" fill="#58a6ff" font-size="15" font-weight="700">② Spec-driven</text>
+    <g font-size="11" fill="#c9d1d9">
+      <text x="20" y="54">Phase 1 · /plan → plans/&lt;feature&gt;.md</text>
+      <text x="20" y="76">Phase 2 · agent=implementer, Tools limitiert</text>
+      <text x="20" y="98">Phase 3 · agent=reviewer validiert gegen Spec</text>
+    </g>
+    <g transform="translate(20,120)">
+      <rect width="100" height="60" rx="4" fill="#0d419d" stroke="#58a6ff"/>
+      <text x="50" y="28" text-anchor="middle" fill="#c9d1d9" font-size="11">Spec</text>
+      <text x="50" y="46" text-anchor="middle" fill="#8b949e" font-size="10">AGENTS.md</text>
+    </g>
+    <g transform="translate(140,120)">
+      <rect width="100" height="60" rx="4" fill="#6e1744" stroke="#f778ba"/>
+      <text x="50" y="28" text-anchor="middle" fill="#c9d1d9" font-size="11">Plan</text>
+      <text x="50" y="46" text-anchor="middle" fill="#8b949e" font-size="10">/plan</text>
+    </g>
+    <g transform="translate(260,120)">
+      <rect width="100" height="60" rx="4" fill="#0f5323" stroke="#3fb950"/>
+      <text x="50" y="28" text-anchor="middle" fill="#c9d1d9" font-size="11">Execute+Review</text>
+    </g>
+  </g>
+
+  <!-- 3 Multi-Repo -->
+  <g transform="translate(40,310)">
+    <rect width="250" height="180" rx="10" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+    <text x="16" y="26" fill="#f778ba" font-size="14" font-weight="700">③ Multi-Repo</text>
+    <g font-size="11" fill="#c9d1d9">
+      <text x="16" y="50">.copilot/mcp-config.json</text>
+      <text x="16" y="70">pro Workspace</text>
+      <text x="16" y="94">GitHub-MCP search_code</text>
+      <text x="16" y="114">get_file_contents</text>
+      <text x="16" y="140">COPILOT_CUSTOM_</text>
+      <text x="16" y="156">INSTRUCTIONS_DIRS</text>
+    </g>
+  </g>
+
+  <!-- 4 Code Review -->
+  <g transform="translate(305,310)">
+    <rect width="250" height="180" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+    <text x="16" y="26" fill="#d29922" font-size="14" font-weight="700">④ Code Review</text>
+    <g font-size="11" fill="#c9d1d9">
+      <text x="16" y="50">Custom Agent @reviewer</text>
+      <text x="16" y="70">+ git diff main...HEAD</text>
+      <text x="16" y="94">+ request_copilot_review</text>
+      <text x="16" y="118">Hook blockt Push auf main</text>
+      <text x="16" y="138">direkt aus Agent</text>
+    </g>
+  </g>
+
+  <!-- 5 Refactoring -->
+  <g transform="translate(570,310)">
+    <rect width="250" height="180" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="16" y="26" fill="#58a6ff" font-size="14" font-weight="700">⑤ Refactoring</text>
+    <g font-size="11" fill="#c9d1d9">
+      <text x="16" y="50">Plan-Mode: Migrationsplan</text>
+      <text x="16" y="74">ralph-loop Pattern:</text>
+      <text x="16" y="94">lange Task-Liste →</text>
+      <text x="16" y="114">Autopilot iteriert →</text>
+      <text x="16" y="134">Tests + Commit pro Item</text>
+    </g>
+  </g>
+</svg>

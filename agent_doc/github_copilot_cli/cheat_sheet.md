@@ -4,6 +4,8 @@
 
 ## 1. Install & Update
 
+![Install & Update](svg/cheat_install_update.svg)
+
 ```bash
 npm i -g @github/copilot          # Install
 copilot update                    # Update
@@ -11,6 +13,8 @@ copilot --version                 # Version
 ```
 
 ## 2. Start & Auth
+
+![Start & Auth](svg/cheat_start_auth.svg)
 
 ```bash
 copilot                           # interaktive REPL
@@ -24,6 +28,8 @@ export GH_TOKEN=ghp_…             # Headless-Auth
 In Session: `/login`, `/logout`, `/status`
 
 ## 3. Wichtige CLI-Flags
+
+![CLI-Flags](svg/cheat_cli_flags.svg)
 
 | Flag | Wirkung |
 |---|---|
@@ -44,6 +50,8 @@ In Session: `/login`, `/logout`, `/status`
 | `--resume` / `--continue` | Session-Wiederaufnahme |
 
 ## 4. Slash-Commands (Auswahl)
+
+![Slash-Commands – Landkarte](svg/cheat_slash_commands.svg)
 
 ### Session & Meta
 `/help` `/exit` `/clear` `/version` `/changelog` `/feedback` `/status` `/usage`
@@ -77,6 +85,8 @@ In Session: `/login`, `/logout`, `/status`
 
 ## 5. Keybindings (REPL)
 
+![Keybindings](svg/cheat_keybindings.svg)
+
 | Taste | Aktion |
 |---|---|
 | `Enter` | Senden |
@@ -89,9 +99,13 @@ In Session: `/login`, `/logout`, `/status`
 
 ## 6. Built-in Tools
 
+![Built-in Tools](svg/cheat_builtin_tools.svg)
+
 `view`, `create`, `edit`, `bash`, `write_bash`, `read_bash`, `stop_bash`, Web-Fetch, Codebase-Search, Plan/Todo-Tool, Tool-Search, `write_agent`. GitHub-Operationen via eingebautem GitHub-MCP-Server.
 
 ## 7. Approval-Modi auf einen Blick
+
+![Approval-Modi](svg/cheat_approval_modi.svg)
 
 | Modus | Wann | Wie |
 |---|---|---|
@@ -110,6 +124,8 @@ copilot --allow-all-tools \
 
 ## 8. AGENTS.md – Mini-Template
 
+![AGENTS.md Template](svg/cheat_agents_md_template.svg)
+
 ```markdown
 # AGENTS.md
 ## Stack
@@ -125,6 +141,8 @@ Node 22, pnpm 9, TypeScript strict
 ```
 
 ## 9. MCP-Config – Mini-Beispiele
+
+![MCP-Config Beispiele](svg/cheat_mcp_config.svg)
 
 `~/.copilot/mcp-config.json`:
 
@@ -152,6 +170,8 @@ Node 22, pnpm 9, TypeScript strict
 
 ## 10. Headless-Snippets
 
+![Headless-Snippets](svg/cheat_headless_snippets.svg)
+
 **Code Review im PR:**
 ```bash
 copilot -p "/review" --output-format json --silent \
@@ -174,6 +194,8 @@ copilot -p "/review --staged" --output-format json --silent \
 
 ## 11. Modell-Wahl-Daumenregel
 
+![Modell-Wahl-Matrix](svg/cheat_modell_wahl.svg)
+
 | Modell | Wofür |
 |---|---|
 | **Claude Haiku 4.5** | Mechanisch, hohes Volumen, billig |
@@ -183,6 +205,8 @@ copilot -p "/review --staged" --output-format json --silent \
 | **Gemini 3 Pro** | Sehr großer Kontext |
 
 ## 12. Troubleshooting Express
+
+![Troubleshooting Express](svg/cheat_troubleshooting.svg)
 
 | Symptom | Quick-Fix |
 |---|---|
@@ -195,6 +219,8 @@ copilot -p "/review --staged" --output-format json --silent \
 
 ## 13. Sicherheits-Mantras
 
+![7 Sicherheits-Mantras](svg/cheat_sicherheits_mantras.svg)
+
 1. **Default = Interactive**.
 2. **Deny > Allow** für `rm`, `curl`, `env`, `chmod`.
 3. **Trust nur bekannte Workspaces.**
@@ -204,6 +230,8 @@ copilot -p "/review --staged" --output-format json --silent \
 7. **Audit-Log an.**
 
 ## 14. Hidden Gems
+
+![Hidden Gems](svg/cheat_hidden_gems.svg)
 
 - `Shift+Tab` = Plan-Mode toggle mitten in Session
 - `/research` kombiniert Web + Repo + Issues

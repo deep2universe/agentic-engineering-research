@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="460" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Built-in Tools</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Die Waffenkammer der Copilot CLI</text>
+
+  <g font-family="monospace" font-size="12">
+    <g transform="translate(40,90)">
+      <rect width="250" height="150" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+      <text x="16" y="26" fill="#58a6ff" font-weight="700" font-family="sans-serif" font-size="14">📖 Read</text>
+      <text x="16" y="56" fill="#c9d1d9">view</text>
+      <text x="16" y="78" fill="#c9d1d9">Codebase-Search</text>
+      <text x="16" y="100" fill="#c9d1d9">Web-Fetch</text>
+      <text x="16" y="122" fill="#c9d1d9">Tool-Search</text>
+    </g>
+
+    <g transform="translate(305,90)">
+      <rect width="250" height="150" rx="10" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+      <text x="16" y="26" fill="#f778ba" font-weight="700" font-family="sans-serif" font-size="14">✏ Write</text>
+      <text x="16" y="56" fill="#c9d1d9">create</text>
+      <text x="16" y="78" fill="#c9d1d9">edit</text>
+      <text x="16" y="100" fill="#c9d1d9">write_agent</text>
+    </g>
+
+    <g transform="translate(570,90)">
+      <rect width="250" height="150" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+      <text x="16" y="26" fill="#d29922" font-weight="700" font-family="sans-serif" font-size="14">⚡ Execute</text>
+      <text x="16" y="56" fill="#c9d1d9">bash</text>
+      <text x="16" y="78" fill="#c9d1d9">write_bash / read_bash</text>
+      <text x="16" y="100" fill="#c9d1d9">stop_bash</text>
+    </g>
+
+    <g transform="translate(40,260)">
+      <rect width="380" height="160" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+      <text x="16" y="26" fill="#3fb950" font-weight="700" font-family="sans-serif" font-size="14">🧭 Plan / Orchestration</text>
+      <text x="16" y="56" fill="#c9d1d9">Plan/Todo-Tool</text>
+      <text x="16" y="78" fill="#c9d1d9" font-family="sans-serif">Strukturiert komplexe Tasks in Schritte,</text>
+      <text x="16" y="98" fill="#c9d1d9" font-family="sans-serif">markiert Fortschritt, verhindert Drift.</text>
+    </g>
+
+    <g transform="translate(440,260)">
+      <rect width="380" height="160" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+      <text x="16" y="26" fill="#f85149" font-weight="700" font-family="sans-serif" font-size="14">🐙 GitHub-MCP (eingebaut)</text>
+      <text x="16" y="56" fill="#c9d1d9" font-family="sans-serif">Issues · PRs · Repos · Code-Search</text>
+      <text x="16" y="78" fill="#c9d1d9" font-family="sans-serif">Workflows · Secret Scanning · Reviews</text>
+      <text x="16" y="104" fill="#8b949e" font-family="sans-serif" font-size="11">Zero-Config, vollwertiger MCP-Server</text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 540" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="540" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Headless-Snippets – CI/CD ready</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Drei Pipeline-Muster für die tägliche Automation</text>
+
+  <g transform="translate(40,90)">
+    <rect width="780" height="130" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="20" y="26" fill="#58a6ff" font-weight="700" font-size="14">① Code Review im PR</text>
+    <rect x="20" y="38" width="740" height="80" rx="4" fill="#0d1117" stroke="#30363d"/>
+    <g font-family="monospace" font-size="11">
+      <text x="30" y="58" fill="#c9d1d9">copilot -p "/review" --output-format json --silent \</text>
+      <text x="30" y="76" fill="#c9d1d9">  --allow-tool 'view' --deny-tool 'edit,bash' \</text>
+      <text x="30" y="94" fill="#c9d1d9">  &gt; review.json</text>
+    </g>
+  </g>
+
+  <g transform="translate(40,240)">
+    <rect width="780" height="130" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="20" y="26" fill="#3fb950" font-weight="700" font-size="14">② CI-Failure-Triage (GitHub Actions)</text>
+    <rect x="20" y="38" width="740" height="80" rx="4" fill="#0d1117" stroke="#30363d"/>
+    <g font-family="monospace" font-size="11">
+      <text x="30" y="58" fill="#c9d1d9">copilot -p "Analysiere CI-Logs und kommentiere im PR" \</text>
+      <text x="30" y="76" fill="#c9d1d9">  --allow-tool 'view,gh(issue:*),gh(pr:comment:*)' \</text>
+      <text x="30" y="94" fill="#c9d1d9">  --deny-tool 'edit,bash' --silent</text>
+    </g>
+  </g>
+
+  <g transform="translate(40,390)">
+    <rect width="780" height="130" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+    <text x="20" y="26" fill="#d29922" font-weight="700" font-size="14">③ Lokales Quality-Gate (pre-commit)</text>
+    <rect x="20" y="38" width="740" height="80" rx="4" fill="#0d1117" stroke="#30363d"/>
+    <g font-family="monospace" font-size="11">
+      <text x="30" y="58" fill="#c9d1d9">copilot -p "/review --staged" --output-format json --silent \</text>
+      <text x="30" y="76" fill="#c9d1d9">  | jq -e '.findings[]|select(.severity=="high")' \</text>
+      <text x="30" y="94" fill="#c9d1d9">  &amp;&amp; exit 1 || exit 0</text>
+    </g>
+  </g>
+</svg>

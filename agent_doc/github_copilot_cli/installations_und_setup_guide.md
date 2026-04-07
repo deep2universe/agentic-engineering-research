@@ -4,6 +4,8 @@
 
 ## 1. Was ist die GitHub Copilot CLI?
 
+![Was ist die Copilot CLI](svg/setup_was_ist_copilot_cli.svg)
+
 Die **GitHub Copilot CLI** (`copilot`) ist ein terminalbasiertes, **agentisches** Coding-Tool, das den GitHub Copilot Coding Agent direkt in die Shell bringt. Sie ist klar abzugrenzen von der älteren `gh copilot` Extension (`suggest` / `explain`), die am **25.10.2025 deprecated** wurde.
 
 | Aspekt | Alte `gh-copilot` Extension | Neue `copilot` CLI |
@@ -23,6 +25,8 @@ Die **GitHub Copilot CLI** (`copilot`) ist ein terminalbasiertes, **agentisches*
 | Apr 2026 | v1.0.18 mit experimentellem **Critic Agent** |
 
 ## 2. Installation
+
+![Installation – 4 Pfade](svg/setup_installation.svg)
 
 ### Voraussetzungen
 
@@ -64,6 +68,8 @@ docker run -it --rm \
 
 ## 3. Authentifizierung
 
+![Authentifizierung – Token-Discovery-Kette](svg/setup_authentifizierung.svg)
+
 ### Token-Discovery (Reihenfolge)
 
 1. `COPILOT_GITHUB_TOKEN`
@@ -103,6 +109,8 @@ Org-/Enterprise-Policies (Modell-Whitelist, Content-Exclusion, SSO/SAML) werden 
 
 ## 4. Architektur
 
+![Architektur – Modelle, Agents, Modi](svg/setup_architektur.svg)
+
 ### Modelle (Stand April 2026)
 
 - **Default**: Claude Sonnet 4.6
@@ -134,6 +142,8 @@ Org-/Enterprise-Policies (Modell-Whitelist, Content-Exclusion, SSO/SAML) werden 
 > ⚠️ Auto-Approve nur in isolierter Sandbox (Container/VM/dedizierte Maschine).
 
 ## 5. Konfiguration
+
+![Konfiguration – Pfade & Env-Vars](svg/setup_konfiguration.svg)
 
 ### Pfade
 
@@ -174,6 +184,8 @@ Org-/Enterprise-Policies (Modell-Whitelist, Content-Exclusion, SSO/SAML) werden 
 
 ## 6. Erste Schritte – 5-Minuten-Smoketest
 
+![5-Minuten-Smoketest](svg/setup_smoketest.svg)
+
 ```bash
 npm i -g @github/copilot
 cd ~/code/my-repo
@@ -189,6 +201,8 @@ copilot
 
 ## 7. Datenschutz & Enterprise
 
+![Datenschutz & Enterprise](svg/setup_datenschutz_enterprise.svg)
+
 - **Audit-Logging**: GitHub Enterprise Audit-Log + Microsoft Purview erfassen User, Zeit, Ressourcen.
 - **Content Exclusions**: Org-Policies blockieren sensible Pfade.
 - **Telemetrie**: OpenTelemetry-Instrumentierung, deaktivierbar in Config.
@@ -196,6 +210,8 @@ copilot
 - **Responsible Use**: Siehe `docs.github.com/copilot/responsible-use/copilot-cli`.
 
 ## 8. Limits & häufige Setup-Fallstricke
+
+![Limits & Fallstricke](svg/setup_limits_fallstricke.svg)
 
 | Problem | Ursache | Lösung |
 |---|---|---|

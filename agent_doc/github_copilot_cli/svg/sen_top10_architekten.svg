@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 620" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="620" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Top-10-Empfehlungen für Architekten</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Das Destillat für bewusste Nutzung</text>
+
+  <g font-size="12">
+    <g transform="translate(40,90)">
+      <circle cx="24" cy="24" r="18" fill="#0d419d" stroke="#58a6ff" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">1</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">AGENTS.md ist Produktionscode – review · versioniere · klein halten</text>
+    </g>
+    <g transform="translate(40,140)">
+      <circle cx="24" cy="24" r="18" fill="#0d419d" stroke="#58a6ff" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">2</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">Trenne persönliche (~/.copilot/agents) und shared (.github/agents) Agents</text>
+    </g>
+    <g transform="translate(40,190)">
+      <circle cx="24" cy="24" r="18" fill="#0d419d" stroke="#58a6ff" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">3</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">Plan-Mode immer bei Architektur-Impact – auch wenn es 30 s „kostet"</text>
+    </g>
+    <g transform="translate(40,240)">
+      <circle cx="24" cy="24" r="18" fill="#6e1744" stroke="#f778ba" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">4</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">Org-Policies für Modelle, MCP-Server und Content-Exclusions</text>
+    </g>
+    <g transform="translate(40,290)">
+      <circle cx="24" cy="24" r="18" fill="#6e1744" stroke="#f778ba" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">5</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">Sandbox für --allow-all-tools. Container-First.</text>
+    </g>
+    <g transform="translate(40,340)">
+      <circle cx="24" cy="24" r="18" fill="#0f5323" stroke="#3fb950" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">6</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">Hooks als Quality-Gate (Secret-Scan, Diff-Stats, Test-Verify)</text>
+    </g>
+    <g transform="translate(40,390)">
+      <circle cx="24" cy="24" r="18" fill="#0f5323" stroke="#3fb950" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">7</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">Modell-Tier nach Aufgabe: Haiku mechanisch · Sonnet Standard · Opus Architektur</text>
+    </g>
+    <g transform="translate(40,440)">
+      <circle cx="24" cy="24" r="18" fill="#693b00" stroke="#d29922" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">8</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">Plans und Specs im Repo (docs/specs/) – nicht in Sessions</text>
+    </g>
+    <g transform="translate(40,490)">
+      <circle cx="24" cy="24" r="18" fill="#693b00" stroke="#d29922" stroke-width="2"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">9</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#30363d"/>
+      <text x="64" y="30" fill="#c9d1d9">/delegate für Tasks &gt; 30 Min – lokalen Agent nicht blockieren</text>
+    </g>
+    <g transform="translate(40,540)">
+      <circle cx="24" cy="24" r="18" fill="#471f70" stroke="#bc8cff" stroke-width="3"/>
+      <text x="24" y="30" text-anchor="middle" fill="#c9d1d9" font-weight="700">10</text>
+      <rect x="52" y="6" width="768" height="36" rx="4" fill="#161b22" stroke="#bc8cff"/>
+      <text x="64" y="30" fill="#bc8cff" font-weight="700">AI-Postmortem-Format etablieren: Was hat der Agent getan, was nicht?</text>
+    </g>
+  </g>
+</svg>

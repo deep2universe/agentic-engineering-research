@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 560" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="560" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Patterns für die tägliche Arbeit</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Sechs Playbooks vom Plan-Mode bis zum Pre-Commit-Gate</text>
+
+  <g font-size="11">
+    <g transform="translate(40,90)">
+      <rect width="380" height="140" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+      <text x="16" y="24" fill="#58a6ff" font-weight="700" font-size="13">① Plan-then-Execute</text>
+      <text x="16" y="48" fill="#c9d1d9">/plan Migriere Express → Fastify</text>
+      <text x="16" y="66" fill="#8b949e">Plan reviewen, ggf. korrigieren</text>
+      <text x="16" y="84" fill="#c9d1d9">"Führe den Plan aus"</text>
+      <text x="16" y="112" fill="#d29922">Wann: &gt;50 Zeilen oder Architektur-Impact</text>
+    </g>
+    <g transform="translate(440,90)">
+      <rect width="380" height="140" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+      <text x="16" y="24" fill="#3fb950" font-weight="700" font-size="13">② TDD-Loop mit /fleet</text>
+      <text x="16" y="48" fill="#c9d1d9">A: Vitest-Tests aus spec.md</text>
+      <text x="16" y="66" fill="#c9d1d9">B: Implementierung bis A grün</text>
+      <text x="16" y="84" fill="#c9d1d9">C: ADR generieren</text>
+      <text x="16" y="112" fill="#d29922">Parallel-Subagenten lokal</text>
+    </g>
+    <g transform="translate(40,250)">
+      <rect width="380" height="140" rx="10" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+      <text x="16" y="24" fill="#f778ba" font-weight="700" font-size="13">③ Spec-driven Development</text>
+      <text x="16" y="48" fill="#c9d1d9">/research → Issues + Web + Repo</text>
+      <text x="16" y="66" fill="#c9d1d9">→ docs/specs/feature_x.md (review)</text>
+      <text x="16" y="84" fill="#c9d1d9">/plan aus Spec → /fleet umsetzt</text>
+    </g>
+    <g transform="translate(440,250)">
+      <rect width="380" height="140" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+      <text x="16" y="24" fill="#d29922" font-weight="700" font-size="13">④ Multi-Repo Workspace</text>
+      <text x="16" y="48" fill="#c9d1d9">Mehrere Klone, --add-dir pro Repo</text>
+      <text x="16" y="66" fill="#c9d1d9">Filesystem-MCP scoped pro Repo</text>
+      <text x="16" y="84" fill="#c9d1d9">GitHub-MCP für Cross-Repo-PRs</text>
+    </g>
+    <g transform="translate(40,410)">
+      <rect width="380" height="130" rx="10" fill="#161b22" stroke="#bc8cff" stroke-width="2"/>
+      <text x="16" y="24" fill="#bc8cff" font-weight="700" font-size="13">⑤ Cloud-Delegation</text>
+      <text x="16" y="48" fill="#c9d1d9">/delegate oder create_pull_request_with_copilot</text>
+      <text x="16" y="66" fill="#c9d1d9">asynchroner Cloud-Agent · neuer Branch</text>
+      <text x="16" y="94" fill="#8b949e">Lange Refactors nicht lokal blockieren</text>
+    </g>
+    <g transform="translate(440,410)">
+      <rect width="380" height="130" rx="10" fill="#161b22" stroke="#f85149" stroke-width="2"/>
+      <text x="16" y="24" fill="#f85149" font-weight="700" font-size="13">⑥ Lokales Quality-Gate</text>
+      <text x="16" y="46" fill="#c9d1d9" font-family="monospace" font-size="10">copilot -p "/review --staged" --silent \</text>
+      <text x="16" y="62" fill="#c9d1d9" font-family="monospace" font-size="10">  --output-format json \</text>
+      <text x="16" y="78" fill="#c9d1d9" font-family="monospace" font-size="10">  | jq -e '.findings[]|.severity=="high"'</text>
+      <text x="16" y="104" fill="#8b949e">→ Pre-Commit-Hook</text>
+    </g>
+  </g>
+</svg>

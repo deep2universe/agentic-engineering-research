@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 600" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="600" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Slash-Commands – Landkarte</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Nach Domäne gruppiert (Auswahl)</text>
+
+  <g font-size="11" font-family="monospace">
+    <g transform="translate(40,90)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#58a6ff"/>
+      <text x="12" y="22" fill="#58a6ff" font-weight="700" font-family="sans-serif" font-size="13">Session &amp; Meta</text>
+      <text x="12" y="46" fill="#c9d1d9">/help  /exit  /clear</text>
+      <text x="12" y="66" fill="#c9d1d9">/version  /changelog</text>
+      <text x="12" y="86" fill="#c9d1d9">/feedback  /status  /usage</text>
+    </g>
+    <g transform="translate(305,90)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <text x="12" y="22" fill="#3fb950" font-weight="700" font-family="sans-serif" font-size="13">Modell &amp; UI</text>
+      <text x="12" y="46" fill="#c9d1d9">/model  /theme</text>
+      <text x="12" y="66" fill="#c9d1d9">/terminal-setup</text>
+      <text x="12" y="86" fill="#c9d1d9">/experimental  /init</text>
+    </g>
+    <g transform="translate(570,90)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#d29922"/>
+      <text x="12" y="22" fill="#d29922" font-weight="700" font-family="sans-serif" font-size="13">Auth</text>
+      <text x="12" y="46" fill="#c9d1d9">/login  /logout</text>
+    </g>
+
+    <g transform="translate(40,260)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#f778ba"/>
+      <text x="12" y="22" fill="#f778ba" font-weight="700" font-family="sans-serif" font-size="13">Kontext &amp; Workspace</text>
+      <text x="12" y="46" fill="#c9d1d9">/cwd  /cd  /add-dir</text>
+      <text x="12" y="66" fill="#c9d1d9">/lsp</text>
+    </g>
+    <g transform="translate(305,260)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#58a6ff"/>
+      <text x="12" y="22" fill="#58a6ff" font-weight="700" font-family="sans-serif" font-size="13">Sessions &amp; History</text>
+      <text x="12" y="46" fill="#c9d1d9">/session  /resume</text>
+      <text x="12" y="66" fill="#c9d1d9">/undo  /share (html)</text>
+      <text x="12" y="86" fill="#c9d1d9">/copy  /chronicle</text>
+    </g>
+    <g transform="translate(570,260)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#f85149"/>
+      <text x="12" y="22" fill="#f85149" font-weight="700" font-family="sans-serif" font-size="13">Approval &amp; Security</text>
+      <text x="12" y="46" fill="#c9d1d9">/approvals</text>
+      <text x="12" y="66" fill="#c9d1d9">/yolo  /autoApprove</text>
+    </g>
+
+    <g transform="translate(40,430)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#3fb950"/>
+      <text x="12" y="22" fill="#3fb950" font-weight="700" font-family="sans-serif" font-size="13">MCP</text>
+      <text x="12" y="46" fill="#c9d1d9">/mcp show  /mcp add</text>
+      <text x="12" y="66" fill="#c9d1d9">/mcp edit  /mcp delete</text>
+      <text x="12" y="86" fill="#c9d1d9">/mcp enable  /mcp disable</text>
+      <text x="12" y="106" fill="#c9d1d9">/mcp auth  /mcp test</text>
+    </g>
+    <g transform="translate(305,430)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#d29922"/>
+      <text x="12" y="22" fill="#d29922" font-weight="700" font-family="sans-serif" font-size="13">Agents &amp; Orchestrierung</text>
+      <text x="12" y="46" fill="#c9d1d9">/agent  /agents</text>
+      <text x="12" y="66" fill="#c9d1d9">/delegate  /fleet</text>
+      <text x="12" y="86" fill="#c9d1d9">/tasks  /extensions</text>
+    </g>
+    <g transform="translate(570,430)">
+      <rect width="250" height="150" rx="8" fill="#161b22" stroke="#f778ba"/>
+      <text x="12" y="22" fill="#f778ba" font-weight="700" font-family="sans-serif" font-size="13">Workflows &amp; Memory</text>
+      <text x="12" y="46" fill="#c9d1d9">/plan  /research</text>
+      <text x="12" y="66" fill="#c9d1d9">/review --staged  /pr</text>
+      <text x="12" y="86" fill="#c9d1d9">/memory</text>
+    </g>
+  </g>
+</svg>

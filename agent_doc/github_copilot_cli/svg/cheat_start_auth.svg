@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 420" font-family="-apple-system,Segoe UI,Helvetica,Arial,sans-serif">
+  <rect width="860" height="420" fill="#0d1117"/>
+  <text x="430" y="34" text-anchor="middle" fill="#c9d1d9" font-size="20" font-weight="700">Start &amp; Auth</text>
+  <text x="430" y="56" text-anchor="middle" fill="#8b949e" font-size="13">Vier Einstiegsmodi &amp; Token-Quellen</text>
+
+  <g transform="translate(40,90)">
+    <rect width="380" height="140" rx="10" fill="#161b22" stroke="#58a6ff" stroke-width="2"/>
+    <text x="20" y="28" fill="#58a6ff" font-size="14" font-weight="700">Interaktive Modi</text>
+    <g font-family="monospace" font-size="11">
+      <rect x="20" y="42" width="340" height="22" rx="3" fill="#0d1117"/>
+      <text x="28" y="58" fill="#c9d1d9">copilot                    </text><text x="240" y="58" fill="#8b949e">→ REPL</text>
+      <rect x="20" y="68" width="340" height="22" rx="3" fill="#0d1117"/>
+      <text x="28" y="84" fill="#c9d1d9">copilot --resume            </text><text x="240" y="84" fill="#8b949e">→ letzte</text>
+      <rect x="20" y="94" width="340" height="22" rx="3" fill="#0d1117"/>
+      <text x="28" y="110" fill="#c9d1d9">copilot --continue &lt;id&gt;     </text><text x="240" y="110" fill="#8b949e">→ Session</text>
+    </g>
+  </g>
+
+  <g transform="translate(440,90)">
+    <rect width="380" height="140" rx="10" fill="#161b22" stroke="#f778ba" stroke-width="2"/>
+    <text x="20" y="28" fill="#f778ba" font-size="14" font-weight="700">Headless / One-Shot</text>
+    <rect x="20" y="48" width="340" height="24" rx="3" fill="#0d1117"/>
+    <text x="28" y="65" fill="#c9d1d9" font-family="monospace" font-size="11">copilot -p "fix failing tests"</text>
+    <text x="20" y="94" fill="#8b949e" font-size="11">Ideal für CI, Pre-Commit-Hooks, Pipelines.</text>
+    <text x="20" y="112" fill="#8b949e" font-size="11">Kombinieren mit --silent --output-format json.</text>
+  </g>
+
+  <g transform="translate(40,260)">
+    <rect width="780" height="130" rx="10" fill="#161b22" stroke="#3fb950" stroke-width="2"/>
+    <text x="20" y="28" fill="#3fb950" font-size="14" font-weight="700">Authentifizierung</text>
+    <g transform="translate(20,46)">
+      <rect width="230" height="70" rx="6" fill="#0d1117" stroke="#30363d"/>
+      <text x="12" y="20" fill="#c9d1d9" font-size="12">Interactive</text>
+      <text x="12" y="40" fill="#8b949e" font-size="11">/login · /logout · /status</text>
+      <text x="12" y="58" fill="#8b949e" font-size="11">Device-Code-Flow</text>
+    </g>
+    <g transform="translate(275,46)">
+      <rect width="230" height="70" rx="6" fill="#0d1117" stroke="#30363d"/>
+      <text x="12" y="20" fill="#c9d1d9" font-size="12">Env-Var</text>
+      <text x="12" y="40" fill="#8b949e" font-size="11" font-family="monospace">export GH_TOKEN=ghp_…</text>
+      <text x="12" y="58" fill="#8b949e" font-size="11">Headless / CI</text>
+    </g>
+    <g transform="translate(530,46)">
+      <rect width="230" height="70" rx="6" fill="#0d1117" stroke="#30363d"/>
+      <text x="12" y="20" fill="#c9d1d9" font-size="12">Fine-grained PAT</text>
+      <text x="12" y="40" fill="#8b949e" font-size="11">COPILOT_GITHUB_TOKEN</text>
+      <text x="12" y="58" fill="#8b949e" font-size="11">least-privilege Scope</text>
+    </g>
+  </g>
+</svg>
