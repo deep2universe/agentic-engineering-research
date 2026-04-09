@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh16" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr16" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="780" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Messaging, Integration &amp; Runtime</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Wie die transformierten Java-Anwendungen betrieben und integriert werden</text>
+
+  <!-- Mainframe -->
+  <g filter="url(#sh16)">
+    <rect x="60" y="130" width="220" height="210" rx="12" fill="#0f172a"/>
+    <text x="170" y="158" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">MAINFRAME-Seite</text>
+    <rect x="80" y="180" width="180" height="44" rx="6" fill="#1e40af"/>
+    <text x="170" y="206" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">PL/I + CICS</text>
+    <rect x="80" y="234" width="180" height="44" rx="6" fill="#7b2cbf"/>
+    <text x="170" y="260" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">IBM MQ (MQSeries)</text>
+    <rect x="80" y="288" width="180" height="44" rx="6" fill="#059669"/>
+    <text x="170" y="314" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">DB2 / VSAM</text>
+  </g>
+
+  <!-- AWS Direct Connect -->
+  <g filter="url(#sh16)">
+    <rect x="320" y="200" width="220" height="70" rx="10" fill="#ffffff" stroke="#ff9900" stroke-width="3"/>
+    <text x="430" y="228" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">AWS Direct Connect</text>
+    <text x="430" y="246" text-anchor="middle" font-size="10" fill="#9a3412">Dedizierte Leitung</text>
+    <text x="430" y="260" text-anchor="middle" font-size="10" fill="#9a3412">Low-Latency, deterministisch</text>
+  </g>
+
+  <!-- Amazon MQ -->
+  <g filter="url(#sh16)">
+    <rect x="580" y="130" width="240" height="200" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="580" y="130" width="240" height="40" rx="12" fill="#7b2cbf"/>
+    <text x="700" y="157" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Amazon MQ</text>
+    <text x="596" y="188" font-size="11" font-weight="700" fill="#0f172a">Ersatz fuer IBM MQ / MQSeries</text>
+    <text x="596" y="210" font-size="11" fill="#334155">• JMS- und AMQP-Endpunkte</text>
+    <text x="596" y="226" font-size="11" fill="#334155">• Transparentes Routing aus</text>
+    <text x="596" y="240" font-size="11" fill="#334155">  legacy MQI-Calls</text>
+    <text x="596" y="262" font-size="11" fill="#334155">• ActiveMQ oder RabbitMQ-Engine</text>
+    <text x="596" y="278" font-size="11" fill="#334155">• HA + Cross-AZ-Setup</text>
+    <text x="596" y="296" font-size="11" font-weight="700" fill="#6b21a8">→ Bruecke PL/I ↔ Java</text>
+    <text x="596" y="314" font-size="10" font-style="italic" fill="#64748b">Portierung aller MQI-Calls → JMS</text>
+  </g>
+
+  <!-- AWS API Gateway -->
+  <g filter="url(#sh16)">
+    <rect x="860" y="130" width="320" height="200" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="860" y="130" width="320" height="40" rx="12" fill="#2563eb"/>
+    <text x="1020" y="157" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Amazon API Gateway</text>
+    <text x="876" y="188" font-size="11" font-weight="700" fill="#0f172a">Synchrone Integration</text>
+    <text x="876" y="210" font-size="11" fill="#334155">• REST / HTTP / WebSocket</text>
+    <text x="876" y="226" font-size="11" fill="#334155">• JWT / Cognito / IAM Auth</text>
+    <text x="876" y="242" font-size="11" fill="#334155">• Throttling + Rate Limiting</text>
+    <text x="876" y="258" font-size="11" fill="#334155">• CORS + Validation</text>
+    <text x="876" y="280" font-size="11" font-weight="700" fill="#1e3a8a">Ideal fuer:</text>
+    <text x="876" y="296" font-size="10" fill="#334155">• CICS-Web-Services aus Mainframe</text>
+    <text x="876" y="310" font-size="10" fill="#334155">• Externe Clients (Mobile, Web)</text>
+    <text x="876" y="324" font-size="10" fill="#334155">• Microservice-Integration</text>
+  </g>
+
+  <!-- Runtime layer -->
+  <g filter="url(#sh16)">
+    <rect x="60" y="400" width="1160" height="300" rx="14" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <rect x="60" y="400" width="1160" height="40" rx="14" fill="#1e293b"/>
+    <text x="640" y="427" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">RUNTIME-LAYER: Wo die generierten Java-Anwendungen laufen</text>
+  </g>
+
+  <!-- Amazon EKS -->
+  <g filter="url(#sh16)">
+    <rect x="90" y="470" width="260" height="200" rx="10" fill="#fff7ed" stroke="#ff9900" stroke-width="2"/>
+    <text x="220" y="500" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">Amazon EKS</text>
+    <text x="220" y="516" text-anchor="middle" font-size="10" fill="#9a3412">(Default Runtime)</text>
+    <text x="104" y="540" font-size="11" font-weight="700" fill="#0f172a">Rolle:</text>
+    <text x="104" y="556" font-size="10" fill="#334155">Produktions-Runtime fuer</text>
+    <text x="104" y="570" font-size="10" fill="#334155">Spring-Boot-Container</text>
+    <text x="104" y="590" font-size="11" font-weight="700" fill="#0f172a">Warum:</text>
+    <text x="104" y="606" font-size="10" fill="#334155">• Standard-K8s</text>
+    <text x="104" y="620" font-size="10" fill="#334155">• Blu Age generiert</text>
+    <text x="104" y="634" font-size="10" fill="#334155">  containerisierbare Artefakte</text>
+    <text x="104" y="650" font-size="10" fill="#334155">• Multi-AZ / Auto-Scaling</text>
+    <text x="104" y="664" font-size="10" fill="#334155">• IRSA fuer IAM-Rollen</text>
+  </g>
+
+  <!-- Amazon ECS -->
+  <g filter="url(#sh16)">
+    <rect x="370" y="470" width="260" height="200" rx="10" fill="#fff7ed" stroke="#fb923c" stroke-width="2"/>
+    <text x="500" y="500" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">Amazon ECS / Fargate</text>
+    <text x="500" y="516" text-anchor="middle" font-size="10" fill="#9a3412">(Alternative)</text>
+    <text x="384" y="540" font-size="11" font-weight="700" fill="#0f172a">Rolle:</text>
+    <text x="384" y="556" font-size="10" fill="#334155">Fargate-basiert, serverless</text>
+    <text x="384" y="570" font-size="10" fill="#334155">Container-Orchestrierung</text>
+    <text x="384" y="590" font-size="11" font-weight="700" fill="#0f172a">Wann:</text>
+    <text x="384" y="606" font-size="10" fill="#334155">• Wenn K8s-Know-how fehlt</text>
+    <text x="384" y="620" font-size="10" fill="#334155">• Kleinere Workloads</text>
+    <text x="384" y="634" font-size="10" fill="#334155">• Weniger Management-Overhead</text>
+    <text x="384" y="650" font-size="10" fill="#334155">• Kein Multi-Cloud-Ziel</text>
+  </g>
+
+  <!-- AWS Lambda -->
+  <g filter="url(#sh16)">
+    <rect x="650" y="470" width="260" height="200" rx="10" fill="#fff7ed" stroke="#fcd34d" stroke-width="2"/>
+    <text x="780" y="500" text-anchor="middle" font-size="13" font-weight="700" fill="#c2410c">AWS Lambda</text>
+    <text x="780" y="516" text-anchor="middle" font-size="10" fill="#9a3412">(nicht Default)</text>
+    <text x="664" y="540" font-size="11" font-weight="700" fill="#0f172a">Rolle:</text>
+    <text x="664" y="556" font-size="10" fill="#334155">Kleine, zustandslose</text>
+    <text x="664" y="570" font-size="10" fill="#334155">Batch-Fragmente</text>
+    <text x="664" y="590" font-size="11" font-weight="700" fill="#0f172a">Warnung:</text>
+    <text x="664" y="606" font-size="10" fill="#334155">• Die meisten PL/I-Trans-</text>
+    <text x="664" y="620" font-size="10" fill="#334155">  aktionen laufen laenger</text>
+    <text x="664" y="634" font-size="10" fill="#334155">  als das Lambda-Lifetime</text>
+    <text x="664" y="650" font-size="10" fill="#334155">• Kaltstart-Latenz relevant</text>
+    <text x="664" y="664" font-size="10" fill="#334155">• Nur fuer ausgewaehlte Faelle</text>
+  </g>
+
+  <!-- Supporting services -->
+  <g filter="url(#sh16)">
+    <rect x="930" y="470" width="280" height="200" rx="10" fill="#f0fdf4" stroke="#059669" stroke-width="2"/>
+    <text x="1070" y="500" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Supporting Services</text>
+    <text x="944" y="524" font-size="11" fill="#064e3b">• Amazon ECR (Registry)</text>
+    <text x="944" y="542" font-size="11" fill="#064e3b">• Elastic Load Balancing (ALB/NLB)</text>
+    <text x="944" y="560" font-size="11" fill="#064e3b">• Service Mesh (App Mesh / Istio)</text>
+    <text x="944" y="578" font-size="11" fill="#064e3b">• Secrets Manager</text>
+    <text x="944" y="596" font-size="11" fill="#064e3b">• Parameter Store</text>
+    <text x="944" y="614" font-size="11" fill="#064e3b">• Route 53 (DNS)</text>
+    <text x="944" y="632" font-size="11" fill="#064e3b">• CloudFront (CDN)</text>
+    <text x="944" y="650" font-size="11" fill="#064e3b">• EventBridge (Event-Bus)</text>
+  </g>
+
+  <!-- Connecting arrows -->
+  <g stroke="#334155" stroke-width="2" fill="none" marker-end="url(#arr16)">
+    <line x1="280" y1="235" x2="318" y2="235"/>
+    <line x1="540" y1="230" x2="578" y2="220"/>
+    <line x1="540" y1="245" x2="860" y2="225"/>
+    <line x1="700" y1="330" x2="220" y2="465"/>
+    <line x1="1020" y1="330" x2="220" y2="465"/>
+  </g>
+</svg>

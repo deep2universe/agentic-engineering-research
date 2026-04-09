@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh15" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr15" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="780" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Daten-Services — Die Migrations-Pipeline</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Vom Mainframe (DB2/VSAM) zu AWS (Aurora/DynamoDB) ueber DMS + Precisely Connect</text>
+
+  <!-- LEFT: Mainframe source systems -->
+  <g filter="url(#sh15)">
+    <rect x="60" y="150" width="240" height="400" rx="14" fill="#0f172a"/>
+    <text x="180" y="182" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">MAINFRAME (Source)</text>
+    <text x="180" y="200" text-anchor="middle" font-size="10" fill="#94a3b8">z/OS · EBCDIC · gepackt</text>
+  </g>
+  <g filter="url(#sh15)">
+    <rect x="80" y="220" width="200" height="80" rx="8" fill="#1e40af"/>
+    <text x="180" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">DB2 z/OS</text>
+    <text x="180" y="266" text-anchor="middle" font-size="10" fill="#bfdbfe">Relational Tables,</text>
+    <text x="180" y="280" text-anchor="middle" font-size="10" fill="#bfdbfe">DCLGEN, SQL, Stored Procs</text>
+  </g>
+  <g filter="url(#sh15)">
+    <rect x="80" y="320" width="200" height="80" rx="8" fill="#7b2cbf"/>
+    <text x="180" y="348" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">VSAM</text>
+    <text x="180" y="366" text-anchor="middle" font-size="10" fill="#e9d5ff">KSDS, RRDS, ESDS</text>
+    <text x="180" y="380" text-anchor="middle" font-size="10" fill="#e9d5ff">Alternative Keys</text>
+  </g>
+  <g filter="url(#sh15)">
+    <rect x="80" y="420" width="200" height="80" rx="8" fill="#059669"/>
+    <text x="180" y="448" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">IMS / Adabas</text>
+    <text x="180" y="466" text-anchor="middle" font-size="10" fill="#d1fae5">Hierarchisch,</text>
+    <text x="180" y="480" text-anchor="middle" font-size="10" fill="#d1fae5">Netzwerk-Model</text>
+  </g>
+
+  <!-- MIDDLE: Pipeline tools -->
+  <g filter="url(#sh15)">
+    <rect x="380" y="150" width="260" height="400" rx="14" fill="#ffffff" stroke="#ff9900" stroke-width="3"/>
+    <rect x="380" y="150" width="260" height="40" rx="14" fill="#ff9900"/>
+    <text x="510" y="177" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">DATA MIGRATION LAYER</text>
+  </g>
+  <!-- Precisely Connect -->
+  <g filter="url(#sh15)">
+    <rect x="396" y="210" width="228" height="80" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="510" y="236" text-anchor="middle" font-size="12" font-weight="700" fill="#78350f">Precisely Connect</text>
+    <text x="510" y="254" text-anchor="middle" font-size="10" fill="#78350f">(ehemals Syncsort)</text>
+    <text x="510" y="272" text-anchor="middle" font-size="10" fill="#78350f">native z/OS-Formate:</text>
+    <text x="510" y="284" text-anchor="middle" font-size="10" fill="#78350f">VSAM, IMS, Adabas</text>
+  </g>
+  <!-- AWS DMS -->
+  <g filter="url(#sh15)">
+    <rect x="396" y="300" width="228" height="80" rx="8" fill="#fed7aa" stroke="#ea580c" stroke-width="2"/>
+    <text x="510" y="326" text-anchor="middle" font-size="12" font-weight="700" fill="#7c2d12">AWS DMS</text>
+    <text x="510" y="344" text-anchor="middle" font-size="10" fill="#7c2d12">Initial Load + CDC</text>
+    <text x="510" y="358" text-anchor="middle" font-size="10" fill="#7c2d12">DB2 → Aurora</text>
+    <text x="510" y="372" text-anchor="middle" font-size="10" fill="#7c2d12">Bidirektional moeglich</text>
+  </g>
+  <!-- S3 (staging) -->
+  <g filter="url(#sh15)">
+    <rect x="396" y="390" width="228" height="80" rx="8" fill="#fcd34d" stroke="#d97706" stroke-width="2"/>
+    <text x="510" y="416" text-anchor="middle" font-size="12" font-weight="700" fill="#78350f">Amazon S3 (Staging)</text>
+    <text x="510" y="434" text-anchor="middle" font-size="10" fill="#78350f">Initial Dumps,</text>
+    <text x="510" y="448" text-anchor="middle" font-size="10" fill="#78350f">EBCDIC → UTF-8,</text>
+    <text x="510" y="462" text-anchor="middle" font-size="10" fill="#78350f">Versioniert + KMS</text>
+  </g>
+  <text x="510" y="500" text-anchor="middle" font-size="10" font-style="italic" fill="#7c2d12">Pipeline kann Roh-Bytes oder</text>
+  <text x="510" y="514" text-anchor="middle" font-size="10" font-style="italic" fill="#7c2d12">transformierte Records liefern</text>
+
+  <!-- RIGHT: AWS target systems -->
+  <g filter="url(#sh15)">
+    <rect x="720" y="150" width="260" height="400" rx="14" fill="#0f172a"/>
+    <text x="850" y="182" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">AWS (Target)</text>
+    <text x="850" y="200" text-anchor="middle" font-size="10" fill="#94a3b8">Cloud Native · UTF-8</text>
+  </g>
+  <g filter="url(#sh15)">
+    <rect x="740" y="220" width="220" height="90" rx="8" fill="#2563eb"/>
+    <text x="850" y="248" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Aurora PostgreSQL</text>
+    <text x="850" y="266" text-anchor="middle" font-size="10" fill="#bfdbfe">Default fuer DB2</text>
+    <text x="850" y="282" text-anchor="middle" font-size="10" fill="#bfdbfe">NUMERIC(p,s) kompatibel</text>
+    <text x="850" y="298" text-anchor="middle" font-size="10" fill="#bfdbfe">zu FIXED DECIMAL</text>
+  </g>
+  <g filter="url(#sh15)">
+    <rect x="740" y="330" width="220" height="80" rx="8" fill="#0891b2"/>
+    <text x="850" y="358" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Amazon DynamoDB</text>
+    <text x="850" y="376" text-anchor="middle" font-size="10" fill="#cffafe">Fuer VSAM mit Key-Value-</text>
+    <text x="850" y="390" text-anchor="middle" font-size="10" fill="#cffafe">Zugriffsmustern</text>
+  </g>
+  <g filter="url(#sh15)">
+    <rect x="740" y="430" width="220" height="80" rx="8" fill="#f59e0b"/>
+    <text x="850" y="458" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Amazon S3 (persistent)</text>
+    <text x="850" y="476" text-anchor="middle" font-size="10" fill="#fef3c7">Artefakte, Testdaten,</text>
+    <text x="850" y="490" text-anchor="middle" font-size="10" fill="#fef3c7">Graphen, Reports</text>
+  </g>
+
+  <!-- Far right: consumers -->
+  <g filter="url(#sh15)">
+    <rect x="1000" y="220" width="220" height="300" rx="10" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <text x="1110" y="247" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Consumers</text>
+    <text x="1014" y="275" font-size="11" fill="#334155">• Java/Spring-Boot Apps</text>
+    <text x="1014" y="292" font-size="11" fill="#334155">• Analytics / Reports</text>
+    <text x="1014" y="309" font-size="11" fill="#334155">• CDC-Triggers</text>
+    <text x="1014" y="326" font-size="11" fill="#334155">• Amazon QuickSight</text>
+    <text x="1014" y="343" font-size="11" fill="#334155">• Lambda-Functions</text>
+    <text x="1014" y="360" font-size="11" fill="#334155">• SageMaker (ML)</text>
+    <text x="1014" y="390" font-size="11" font-weight="700" fill="#0f172a">Koexistenz-Modus:</text>
+    <text x="1014" y="408" font-size="10" fill="#64748b">Mainframe liest</text>
+    <text x="1014" y="420" font-size="10" fill="#64748b">Aurora bei Bedarf zurueck</text>
+    <text x="1014" y="440" font-size="11" font-weight="700" fill="#0f172a">Master-Regel:</text>
+    <text x="1014" y="458" font-size="10" fill="#64748b">Vermeide Double-Master</text>
+    <text x="1014" y="470" font-size="10" fill="#64748b">fuer dieselbe Tabelle.</text>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#arr15)">
+    <line x1="280" y1="260" x2="390" y2="260"/>
+    <line x1="280" y1="360" x2="390" y2="360"/>
+    <line x1="280" y1="460" x2="390" y2="460"/>
+    <line x1="630" y1="260" x2="735" y2="265"/>
+    <line x1="630" y1="340" x2="735" y2="370"/>
+    <line x1="630" y1="430" x2="735" y2="470"/>
+    <line x1="960" y1="265" x2="1005" y2="270"/>
+    <line x1="960" y1="370" x2="1005" y2="370"/>
+    <line x1="960" y1="470" x2="1005" y2="430"/>
+  </g>
+
+  <!-- Bottom note -->
+  <g filter="url(#sh15)">
+    <rect x="80" y="610" width="1140" height="130" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="650" y="638" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">Kritische Herausforderungen in der Daten-Migration</text>
+    <text x="100" y="664" font-size="11" fill="#7c2d12">• <tspan font-weight="700">EBCDIC → UTF-8</tspan>: Sortier-Reihenfolge aendert sich — Downstream-Jobs anpassen (EBCDIC-Sort &#8800; ASCII/UTF-8-Sort)</text>
+    <text x="100" y="684" font-size="11" fill="#7c2d12">• <tspan font-weight="700">Gepackte Dezimalzahlen</tspan>: PL/I-FIXED-DECIMAL-Feldern zu PostgreSQL-NUMERIC mit richtiger Praezision</text>
+    <text x="100" y="704" font-size="11" fill="#7c2d12">• <tspan font-weight="700">VSAM-Alternative-Keys</tspan>: muessen explizit als Indexe in Aurora/DynamoDB nachgebaut werden</text>
+    <text x="100" y="724" font-size="11" fill="#7c2d12">• <tspan font-weight="700">CDC-Konflikte</tspan>: bei bidirektionaler Spiegelung Konfliktaufloesung definieren — sonst Datenverlust</text>
+  </g>
+</svg>
