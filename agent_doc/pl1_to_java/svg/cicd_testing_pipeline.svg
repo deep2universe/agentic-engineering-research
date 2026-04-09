@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh50" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr50" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Testing in der CI/CD-Pipeline</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Sechs Pipeline-Stages mit unterschiedlichen Test-Tiefen und Zeitbudgets</text>
+
+  <!-- Pipeline stages as flow -->
+  <g filter="url(#sh50)">
+    <rect x="60" y="120" width="180" height="580" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <rect x="60" y="120" width="180" height="40" rx="12" fill="#2563eb"/>
+    <text x="150" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">1 · Pre-Commit</text>
+    <text x="150" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#1e3a8a">&lt; 1 Min</text>
+    <text x="74" y="204" font-size="10" fill="#334155">&#9633;  Statische Analyse</text>
+    <text x="74" y="220" font-size="10" fill="#334155">   (SpotBugs)</text>
+    <text x="74" y="238" font-size="10" fill="#334155">&#9633;  Error-Prone</text>
+    <text x="74" y="256" font-size="10" fill="#334155">&#9633;  Checkstyle</text>
+    <text x="74" y="274" font-size="10" fill="#334155">&#9633;  Schnelle Unit-Tests</text>
+    <text x="74" y="292" font-size="10" fill="#334155">&#9633;  Code-Formatter</text>
+    <text x="74" y="322" font-size="10" font-weight="700" fill="#1e3a8a">Lokal via Git-Hook</text>
+    <text x="74" y="342" font-size="10" font-style="italic" fill="#64748b">Keine Cloud-Kosten</text>
+    <text x="74" y="362" font-size="10" font-style="italic" fill="#64748b">Developer-feedback</text>
+    <text x="74" y="382" font-size="10" font-style="italic" fill="#64748b">binnen Sekunden</text>
+  </g>
+
+  <g filter="url(#sh50)">
+    <rect x="260" y="120" width="180" height="580" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="260" y="120" width="180" height="40" rx="12" fill="#059669"/>
+    <text x="350" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">2 · Pull-Request</text>
+    <text x="350" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#065f46">&lt; 15 Min</text>
+    <text x="274" y="204" font-size="10" fill="#334155">&#9633;  Unit-Test-Suite</text>
+    <text x="274" y="220" font-size="10" fill="#334155">   komplett</text>
+    <text x="274" y="238" font-size="10" fill="#334155">&#9633;  Property-Tests</text>
+    <text x="274" y="254" font-size="10" fill="#334155">   (jqwik)</text>
+    <text x="274" y="272" font-size="10" fill="#334155">&#9633;  Kurzer Dual-Run</text>
+    <text x="274" y="288" font-size="10" fill="#334155">   auf Smoke-Dataset</text>
+    <text x="274" y="306" font-size="10" fill="#334155">&#9633;  Coverage-Report</text>
+    <text x="274" y="322" font-size="10" fill="#334155">&#9633;  Security-Scan</text>
+    <text x="274" y="340" font-size="10" fill="#334155">   (Q Security)</text>
+    <text x="274" y="370" font-size="10" font-weight="700" fill="#065f46">CodeBuild</text>
+    <text x="274" y="390" font-size="10" font-style="italic" fill="#64748b">Gate: Tests gruen</text>
+  </g>
+
+  <g filter="url(#sh50)">
+    <rect x="460" y="120" width="180" height="580" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="460" y="120" width="180" height="40" rx="12" fill="#f59e0b"/>
+    <text x="550" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">3 · Merge</text>
+    <text x="550" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">&lt; 30 Min</text>
+    <text x="474" y="204" font-size="10" fill="#334155">&#9633;  Integration-Tests</text>
+    <text x="474" y="220" font-size="10" fill="#334155">   (Testcontainers)</text>
+    <text x="474" y="238" font-size="10" fill="#334155">&#9633;  LocalStack-Tests</text>
+    <text x="474" y="254" font-size="10" fill="#334155">&#9633;  Kurzer E2E-Test</text>
+    <text x="474" y="272" font-size="10" fill="#334155">&#9633;  Contract-Tests</text>
+    <text x="474" y="288" font-size="10" fill="#334155">   (Pact)</text>
+    <text x="474" y="306" font-size="10" fill="#334155">&#9633;  Build + Container</text>
+    <text x="474" y="322" font-size="10" fill="#334155">   Image → ECR</text>
+    <text x="474" y="352" font-size="10" font-weight="700" fill="#92400e">CodeBuild + ECR</text>
+    <text x="474" y="372" font-size="10" font-style="italic" fill="#64748b">Gate: Alle Integration</text>
+    <text x="474" y="386" font-size="10" font-style="italic" fill="#64748b">Tests gruen</text>
+  </g>
+
+  <g filter="url(#sh50)">
+    <rect x="660" y="120" width="180" height="580" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="660" y="120" width="180" height="40" rx="12" fill="#7b2cbf"/>
+    <text x="750" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">4 · Nightly</text>
+    <text x="750" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#6b21a8">&lt; 3 Std</text>
+    <text x="674" y="204" font-size="10" fill="#334155">&#9633;  Langer Dual-Run</text>
+    <text x="674" y="220" font-size="10" fill="#334155">   auf grossem Dataset</text>
+    <text x="674" y="238" font-size="10" fill="#334155">&#9633;  Mutation Tests (PIT)</text>
+    <text x="674" y="256" font-size="10" fill="#334155">&#9633;  Performance-Tests</text>
+    <text x="674" y="274" font-size="10" fill="#334155">&#9633;  Dependency-Scans</text>
+    <text x="674" y="290" font-size="10" fill="#334155">   (Snyk / OSS-Index)</text>
+    <text x="674" y="308" font-size="10" fill="#334155">&#9633;  Chaos-Engineering</text>
+    <text x="674" y="324" font-size="10" fill="#334155">&#9633;  Full Coverage Report</text>
+    <text x="674" y="354" font-size="10" font-weight="700" fill="#6b21a8">Scheduled Pipeline</text>
+    <text x="674" y="374" font-size="10" font-style="italic" fill="#64748b">Feedback am</text>
+    <text x="674" y="388" font-size="10" font-style="italic" fill="#64748b">naechsten Morgen</text>
+  </g>
+
+  <g filter="url(#sh50)">
+    <rect x="860" y="120" width="180" height="580" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="860" y="120" width="180" height="40" rx="12" fill="#dc2626"/>
+    <text x="950" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">5 · Pre-Release</text>
+    <text x="950" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#991b1b">mehrere Stunden</text>
+    <text x="874" y="204" font-size="10" fill="#334155">&#9633;  Vollstaendiger Dual-Run</text>
+    <text x="874" y="220" font-size="10" fill="#334155">   auf produktionsnahen</text>
+    <text x="874" y="236" font-size="10" fill="#334155">   Daten</text>
+    <text x="874" y="254" font-size="10" fill="#334155">&#9633;  Shadow-Traffic in</text>
+    <text x="874" y="270" font-size="10" fill="#334155">   Staging &gt; 48 Std</text>
+    <text x="874" y="288" font-size="10" fill="#334155">&#9633;  Last-Tests</text>
+    <text x="874" y="304" font-size="10" fill="#334155">&#9633;  Security-Pen-Test</text>
+    <text x="874" y="320" font-size="10" fill="#334155">&#9633;  Compliance-Check</text>
+    <text x="874" y="336" font-size="10" fill="#334155">   (BaFin/DORA)</text>
+    <text x="874" y="366" font-size="10" font-weight="700" fill="#991b1b">Gate: Senior-Approval</text>
+    <text x="874" y="384" font-size="10" font-style="italic" fill="#64748b">Change Advisory Board</text>
+  </g>
+
+  <g filter="url(#sh50)">
+    <rect x="1060" y="120" width="150" height="580" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="1060" y="120" width="150" height="40" rx="12" fill="#0891b2"/>
+    <text x="1135" y="147" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">6 · Post-Deploy</text>
+    <text x="1135" y="178" text-anchor="middle" font-size="10" font-weight="700" fill="#0e7490">kontinuierlich</text>
+    <text x="1074" y="204" font-size="10" fill="#334155">&#9633;  Shadow-Traffic in</text>
+    <text x="1074" y="220" font-size="10" fill="#334155">   Produktion</text>
+    <text x="1074" y="238" font-size="10" fill="#334155">&#9633;  Monitoring</text>
+    <text x="1074" y="254" font-size="10" fill="#334155">&#9633;  Synthetic-Monitoring</text>
+    <text x="1074" y="272" font-size="10" fill="#334155">&#9633;  Smoke-Tests</text>
+    <text x="1074" y="288" font-size="10" fill="#334155">&#9633;  KPI-Tracking</text>
+    <text x="1074" y="306" font-size="10" fill="#334155">&#9633;  Alerts bei Diff</text>
+    <text x="1074" y="336" font-size="10" font-weight="700" fill="#0e7490">CloudWatch +</text>
+    <text x="1074" y="350" font-size="10" font-weight="700" fill="#0e7490">Dashboards</text>
+    <text x="1074" y="380" font-size="10" font-style="italic" fill="#64748b">Continuous Quality</text>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#2563eb" stroke-width="2" fill="none" marker-end="url(#arr50)">
+    <line x1="240" y1="430" x2="258" y2="430"/>
+    <line x1="440" y1="430" x2="458" y2="430"/>
+    <line x1="640" y1="430" x2="658" y2="430"/>
+    <line x1="840" y1="430" x2="858" y2="430"/>
+    <line x1="1040" y1="430" x2="1058" y2="430"/>
+  </g>
+
+  <!-- Bottom insight -->
+  <g filter="url(#sh50)">
+    <rect x="60" y="720" width="1150" height="30" rx="6" fill="#0f172a"/>
+    <text x="635" y="740" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Senior-Regel: Jeder Stage hat ein klares Zeit-Budget — Ueberschreitung bricht den Build, kein "schnell noch mal"</text>
+  </g>
+</svg>

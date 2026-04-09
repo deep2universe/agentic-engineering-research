@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh44" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr44" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7b2cbf"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="780" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Dual-Run &amp; Golden Master (30 %) — Das Herzstueck</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Fuer jede wichtige Funktion wird der PL/I-Output mit dem Java-Output byte-genau verglichen</text>
+
+  <!-- Pipeline flow -->
+  <g filter="url(#sh44)">
+    <rect x="60" y="120" width="260" height="100" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="190" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Input-Pool</text>
+    <text x="76" y="172" font-size="10" fill="#334155">&#8226;  Produktions-Logs (anonymisiert)</text>
+    <text x="76" y="186" font-size="10" fill="#334155">&#8226;  Historische Batch-Runs</text>
+    <text x="76" y="200" font-size="10" fill="#334155">&#8226;  Manuell konstruierte Edge-Cases</text>
+    <text x="76" y="214" font-size="10" fill="#334155">&#8226;  LLM-generiert (mit Vorsicht)</text>
+  </g>
+
+  <g filter="url(#sh44)">
+    <rect x="360" y="120" width="200" height="100" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="460" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">PL/I-Original</text>
+    <text x="460" y="168" text-anchor="middle" font-size="10" fill="#7f1d1d">Mainframe-Run</text>
+    <text x="460" y="184" text-anchor="middle" font-size="10" fill="#7f1d1d">(Source of Truth)</text>
+    <text x="460" y="204" text-anchor="middle" font-size="11" font-weight="700" fill="#dc2626">Output A</text>
+  </g>
+
+  <g filter="url(#sh44)">
+    <rect x="360" y="250" width="200" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <text x="460" y="278" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Java-Version</text>
+    <text x="460" y="298" text-anchor="middle" font-size="10" fill="#047857">Transformierter Code</text>
+    <text x="460" y="314" text-anchor="middle" font-size="10" fill="#047857">auf EKS/ECS</text>
+    <text x="460" y="334" text-anchor="middle" font-size="11" font-weight="700" fill="#059669">Output B</text>
+  </g>
+
+  <g filter="url(#sh44)">
+    <rect x="600" y="180" width="260" height="110" rx="12" fill="#faf5ff" stroke="#7b2cbf" stroke-width="3"/>
+    <text x="730" y="208" text-anchor="middle" font-size="14" font-weight="700" fill="#6b21a8">Diff-Engine</text>
+    <text x="616" y="230" font-size="11" fill="#334155">Byte-genauer oder semantischer</text>
+    <text x="616" y="244" font-size="11" fill="#334155">Vergleich von Output A und B</text>
+    <text x="616" y="262" font-size="10" fill="#6b21a8">&#8226;  JSON/HTML-Drill-Down</text>
+    <text x="616" y="276" font-size="10" fill="#6b21a8">&#8226;  Feld-Level-Vergleich</text>
+  </g>
+
+  <g filter="url(#sh44)">
+    <rect x="900" y="120" width="280" height="100" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="1040" y="148" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">Abweichungs-Analyse</text>
+    <text x="916" y="172" font-size="10" fill="#334155">Bei Diff:</text>
+    <text x="916" y="186" font-size="10" fill="#334155">&#8226;  Reforge-Agent schlaegt Fix vor</text>
+    <text x="916" y="200" font-size="10" fill="#334155">&#8226;  Root-Cause-Analyse</text>
+    <text x="916" y="214" font-size="10" fill="#334155">&#8226;  Senior-Review + Ticket</text>
+  </g>
+
+  <g filter="url(#sh44)">
+    <rect x="900" y="250" width="280" height="100" rx="12" fill="#f0fdf4" stroke="#059669" stroke-width="2.5"/>
+    <text x="1040" y="278" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Go / No-Go Entscheidung</text>
+    <text x="916" y="302" font-size="10" fill="#334155">Bei Match: Golden Master</text>
+    <text x="916" y="316" font-size="10" fill="#334155">in S3 persistiert</text>
+    <text x="916" y="330" font-size="10" fill="#334155">(versioniert + Hash)</text>
+    <text x="916" y="344" font-size="10" font-weight="700" fill="#065f46">Nur &gt; 99,99 % = Pass</text>
+  </g>
+
+  <!-- Arrows -->
+  <g stroke="#7b2cbf" stroke-width="2.5" fill="none" marker-end="url(#arr44)">
+    <line x1="320" y1="170" x2="358" y2="170"/>
+    <line x1="320" y1="190" x2="358" y2="290"/>
+    <line x1="560" y1="190" x2="608" y2="220"/>
+    <line x1="560" y1="290" x2="608" y2="250"/>
+    <line x1="860" y1="220" x2="898" y2="180"/>
+    <line x1="860" y1="250" x2="898" y2="290"/>
+  </g>
+
+  <!-- Input sources -->
+  <g filter="url(#sh44)">
+    <rect x="60" y="400" width="360" height="180" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="60" y="400" width="360" height="36" rx="12" fill="#f59e0b"/>
+    <text x="240" y="423" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Input-Quellen im Detail</text>
+    <text x="76" y="456" font-size="11" font-weight="700" fill="#0f172a">Produktions-Logs</text>
+    <text x="76" y="472" font-size="10" fill="#334155">Abgeschwaecht / anonymisiert, mit Masking</text>
+    <text x="76" y="494" font-size="11" font-weight="700" fill="#0f172a">Historische Batch-Runs</text>
+    <text x="76" y="510" font-size="10" fill="#334155">Repraesentativ fuer Monatsablauf, Jahreslauf</text>
+    <text x="76" y="532" font-size="11" font-weight="700" fill="#0f172a">Manuell konstruierte Edge-Cases</text>
+    <text x="76" y="548" font-size="10" fill="#334155">Explizite Kippstellen und Regel-Tests</text>
+    <text x="76" y="566" font-size="10" font-style="italic" fill="#78350f">LLM-Inputs nur mit Vorsicht — nicht als Haupt-Quelle</text>
+  </g>
+
+  <!-- Tools -->
+  <g filter="url(#sh44)">
+    <rect x="440" y="400" width="360" height="180" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="440" y="400" width="360" height="36" rx="12" fill="#0891b2"/>
+    <text x="620" y="423" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Werkzeug-Set</text>
+    <text x="456" y="456" font-size="11" font-weight="700" fill="#0f172a">AWS Blu Age / Transform Testing</text>
+    <text x="456" y="472" font-size="10" fill="#334155">Dual-Run-Modus fuer Batch-Programme</text>
+    <text x="456" y="494" font-size="11" font-weight="700" fill="#0f172a">Interaktive Programme (CICS)</text>
+    <text x="456" y="510" font-size="10" fill="#334155">Custom Test-Framework, das dieselben Inputs</text>
+    <text x="456" y="524" font-size="10" fill="#334155">auf beiden Seiten einspielt</text>
+    <text x="456" y="542" font-size="11" font-weight="700" fill="#0f172a">Abweichungs-Report</text>
+    <text x="456" y="558" font-size="10" fill="#334155">JSON/HTML mit Drill-Down pro Feld</text>
+  </g>
+
+  <!-- Storage -->
+  <g filter="url(#sh44)">
+    <rect x="820" y="400" width="360" height="180" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="820" y="400" width="360" height="36" rx="12" fill="#059669"/>
+    <text x="1000" y="423" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Golden-Master-Speicherung</text>
+    <text x="836" y="456" font-size="11" font-weight="700" fill="#0f172a">S3 mit Versionierung</text>
+    <text x="836" y="476" font-size="10" fill="#334155">&#8226;  Input-Hash / Checksum</text>
+    <text x="836" y="492" font-size="10" fill="#334155">&#8226;  Timestamp</text>
+    <text x="836" y="508" font-size="10" fill="#334155">&#8226;  Version-ID</text>
+    <text x="836" y="524" font-size="10" fill="#334155">&#8226;  S3 Object Lock (WORM)</text>
+    <text x="836" y="542" font-size="10" fill="#334155">&#8226;  KMS-Verschluesselung (CMK)</text>
+    <text x="836" y="560" font-size="10" font-style="italic" fill="#065f46">Damit Regressionen erkennbar bleiben</text>
+  </g>
+
+  <!-- Bottom insight -->
+  <g filter="url(#sh44)">
+    <rect x="60" y="610" width="1120" height="130" rx="12" fill="#0f172a"/>
+    <text x="620" y="640" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Warum der Dual-Run das Herzstueck ist</text>
+    <text x="620" y="664" text-anchor="middle" font-size="11" fill="#cbd5e1">Im Gegensatz zu Unit-Tests, die einzelne Funktionen pruefen, validiert der Dual-Run die GESAMTE Geschaefts-Semantik.</text>
+    <text x="620" y="684" text-anchor="middle" font-size="11" fill="#cbd5e1">Er findet Abweichungen, die kein Unit-Test finden kann — weil er das Original als Referenz hat.</text>
+    <text x="620" y="708" text-anchor="middle" font-size="11" fill="#fbbf24">Senior-Regel: Jede kritische Funktion hat mindestens einen Dual-Run mit &gt; 1000 Inputs, bevor Go-Live.</text>
+    <text x="620" y="728" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">Ohne Dual-Run ist eine PL/I-Migration nicht verantwortbar — weder fuer Management noch fuer Regulator.</text>
+  </g>
+</svg>

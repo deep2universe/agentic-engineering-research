@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh53" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="720" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Agentic Engineering im Testing — Staerken und Schwaechen</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Was LLM-Agenten gut koennen — und was man besser nicht an sie delegiert</text>
+
+  <!-- Strengths -->
+  <g filter="url(#sh53)">
+    <rect x="60" y="110" width="560" height="540" rx="16" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="60" y="110" width="560" height="50" rx="16" fill="#059669"/>
+    <text x="340" y="143" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">STAERKEN &#10003;</text>
+    <text x="340" y="175" text-anchor="middle" font-size="11" fill="#064e3b">Wo LLM-Agenten Mehrwert liefern</text>
+
+    <g transform="translate(80, 200)">
+      <g>
+        <rect x="0" y="0" width="500" height="80" rx="10" fill="#f0fdf4" stroke="#059669" stroke-width="1.5"/>
+        <text x="14" y="22" font-size="12" font-weight="700" fill="#0f172a">Unit-Test-Generierung aus Code</text>
+        <text x="14" y="42" font-size="11" fill="#334155">Agenten lesen Java-Klassen und generieren Happy-Path,</text>
+        <text x="14" y="58" font-size="11" fill="#334155">Boundary- und Negative-Tests automatisch. Grosse Mengen</text>
+        <text x="14" y="72" font-size="11" fill="#334155">an Tests koennen in Stunden statt Wochen entstehen.</text>
+      </g>
+      <g transform="translate(0, 100)">
+        <rect x="0" y="0" width="500" height="80" rx="10" fill="#f0fdf4" stroke="#059669" stroke-width="1.5"/>
+        <text x="14" y="22" font-size="12" font-weight="700" fill="#0f172a">Happy-Path-Abdeckung</text>
+        <text x="14" y="42" font-size="11" fill="#334155">Wenn der Code klar strukturiert ist, findet der Agent die</text>
+        <text x="14" y="58" font-size="11" fill="#334155">typischen Flows schnell. Er ist besser als Junior-Engineers</text>
+        <text x="14" y="72" font-size="11" fill="#334155">beim Identifizieren von Happy-Path-Szenarien.</text>
+      </g>
+      <g transform="translate(0, 200)">
+        <rect x="0" y="0" width="500" height="80" rx="10" fill="#f0fdf4" stroke="#059669" stroke-width="1.5"/>
+        <text x="14" y="22" font-size="12" font-weight="700" fill="#0f172a">Mutation-Test-Fix-Vorschlaege</text>
+        <text x="14" y="42" font-size="11" fill="#334155">Wenn PIT einen ueberlebenden Mutanten findet, kann der</text>
+        <text x="14" y="58" font-size="11" fill="#334155">Agent einen zusaetzlichen Test vorschlagen, der den</text>
+        <text x="14" y="72" font-size="11" fill="#334155">Mutanten toeten wuerde. Review Pflicht, aber Basis solide.</text>
+      </g>
+      <g transform="translate(0, 300)">
+        <rect x="0" y="0" width="500" height="120" rx="10" fill="#f0fdf4" stroke="#059669" stroke-width="1.5"/>
+        <text x="14" y="22" font-size="12" font-weight="700" fill="#0f172a">Diff-Analyse zwischen PL/I- und Java-Outputs</text>
+        <text x="14" y="42" font-size="11" fill="#334155">Claude kann grosse Diff-Reports einlesen und die wahrschein-</text>
+        <text x="14" y="58" font-size="11" fill="#334155">lichsten Ursachen identifizieren:</text>
+        <text x="30" y="76" font-size="10" fill="#065f46">&#8226;  "Das sieht wie Rundungsunterschied aus"</text>
+        <text x="30" y="90" font-size="10" fill="#065f46">&#8226;  "Hier ist eine Alias-Inkonsistenz in BASED-Variablen"</text>
+        <text x="30" y="104" font-size="10" fill="#065f46">&#8226;  "ON-Unit-Handler wurde nicht korrekt gepopt"</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Weaknesses -->
+  <g filter="url(#sh53)">
+    <rect x="640" y="110" width="560" height="540" rx="16" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <rect x="640" y="110" width="560" height="50" rx="16" fill="#dc2626"/>
+    <text x="920" y="143" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">SCHWAECHEN &#10007;</text>
+    <text x="920" y="175" text-anchor="middle" font-size="11" fill="#7f1d1d">Was NICHT an Agenten delegiert werden darf</text>
+
+    <g transform="translate(660, 200)">
+      <g>
+        <rect x="0" y="0" width="500" height="80" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="14" y="22" font-size="12" font-weight="700" fill="#0f172a">Auswahl der Golden-Master-Inputs</text>
+        <text x="14" y="42" font-size="11" fill="#334155">Braucht Business-Kontext, regulatorisches Wissen und</text>
+        <text x="14" y="58" font-size="11" fill="#334155">die Fachbereichs-Sicht auf relevante Szenarien. Ein Agent</text>
+        <text x="14" y="72" font-size="11" fill="#334155">kann "irrelevante" Inputs einschleppen.</text>
+      </g>
+      <g transform="translate(0, 100)">
+        <rect x="0" y="0" width="500" height="80" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="14" y="22" font-size="12" font-weight="700" fill="#0f172a">Entscheidung ueber korrekten Rundungs-Mode</text>
+        <text x="14" y="42" font-size="11" fill="#334155">NEAREST vs. HALF_UP vs. HALF_EVEN ist eine bewusste</text>
+        <text x="14" y="58" font-size="11" fill="#334155">Entscheidung, die Auswirkungen auf Milliarden hat. Agenten</text>
+        <text x="14" y="72" font-size="11" fill="#334155">koennen raten, aber nicht entscheiden.</text>
+      </g>
+      <g transform="translate(0, 200)">
+        <rect x="0" y="0" width="500" height="80" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="14" y="22" font-size="12" font-weight="700" fill="#0f172a">Akzeptanz-Kriterien fuer Shadow-Traffic</text>
+        <text x="14" y="42" font-size="11" fill="#334155">"Welche Abweichungs-Quote ist akzeptabel?" ist eine</text>
+        <text x="14" y="58" font-size="11" fill="#334155">Governance-Frage, die Compliance, Business und Technik</text>
+        <text x="14" y="72" font-size="11" fill="#334155">involviert. Kein Agent-Entscheid.</text>
+      </g>
+      <g transform="translate(0, 300)">
+        <rect x="0" y="0" width="500" height="120" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="1.5"/>
+        <text x="14" y="22" font-size="12" font-weight="700" fill="#0f172a">Sicherheits- und Compliance-Tests</text>
+        <text x="14" y="42" font-size="11" fill="#334155">Penetration-Tests, DSGVO-Compliance-Tests, BaFin-Audit</text>
+        <text x="14" y="58" font-size="11" fill="#334155">brauchen menschliche Expertise und Haftungs-Zuordnung:</text>
+        <text x="30" y="76" font-size="10" fill="#7f1d1d">&#8226;  Auditable Entscheidungen</text>
+        <text x="30" y="90" font-size="10" fill="#7f1d1d">&#8226;  Regulator-konforme Dokumentation</text>
+        <text x="30" y="104" font-size="10" fill="#7f1d1d">&#8226;  Personen-basierte Zertifizierung</text>
+      </g>
+    </g>
+  </g>
+
+  <text x="620" y="690" text-anchor="middle" font-size="12" font-style="italic" fill="#64748b">Regel: Agenten arbeiten, Seniors entscheiden. Delegation von Arbeit ist erlaubt — Delegation von Verantwortung nicht.</text>
+</svg>
