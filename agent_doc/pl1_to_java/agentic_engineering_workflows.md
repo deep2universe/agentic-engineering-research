@@ -8,6 +8,10 @@
 
 ## 1. Warum agentic Engineering bei PL/I besonders zahlt
 
+![Mehrwert-Kaskade agentic Engineering bei PL/I](svg/agentic_mehrwert_pl1.svg)
+
+*Der Hebel-Effekt in einem Bild: Oben das Ausgangsproblem (weniger Doku, mehr Idiome, weniger Entwickler), in der Mitte die logische Folge (Verstehen dominiert), darunter die fuenf Mehrwert-Kaskaden und unten die messbaren Benefits. Zentrale Botschaft: LLM-Agenten wirken bei PL/I staerker als bei COBOL — gerade weil PL/I mehr Erklaerungsbedarf hat.*
+
 PL/I-Projekte haben typisch:
 - **weniger dokumentation** als COBOL-Projekte (die wurden über Jahrzehnte hinweg mehrfach dokumentiert),
 - **mehr Sprach-Idiome** (Pointer, Preprocessor, Rekursion),
@@ -25,6 +29,10 @@ Erwartbare Mehrwerte:
 ---
 
 ## 2. Die acht Phasen im agentic Workflow
+
+![Die acht Phasen im agentic Workflow](svg/acht_phasen_workflow.svg)
+
+*Alle acht Phasen mit ihren Agenten als Karten, plus das gelb unterlegte PL/I-Delta — wo sich der Workflow vom generischen COBOL-Standard unterscheidet. Farbcodierung der Karten reflektiert die Rolle (Discovery blau, Refactor violett, Test rot, Deploy gruen …).*
 
 Die acht Phasen sind identisch zu den COBOL-Phasen (siehe `../cobol-migration_aws/`). Hier die PL/I-spezifischen Abweichungen.
 
@@ -117,6 +125,10 @@ Observability-Stack: CloudWatch + X-Ray + OpenTelemetry, korreliert mit Mainfram
 
 ## 3. Referenz-Architektur: Custom PL/I-Understanding-Agent
 
+![PL/I Understanding Agent Architektur](svg/understanding_agent_architektur.svg)
+
+*Die komplette Referenz-Architektur in einem Bild: Oben der Flow Architekt → Planner → Claude Opus → Response Composer → Senior-Review. Darunter das Toolset (6 MCP-Tools) und die Storage-Layer (S3 fuer Sourcen/Notes, Bedrock Knowledge Base fuer RAG). Unten der Modellwahl-Banner fuer Opus/Sonnet/Haiku.*
+
 Für den Wissensextraktionsschritt (siehe Abschnitt 1) lohnt sich ein **eigener Agent auf Bedrock AgentCore**. Architektur:
 
 ```
@@ -167,6 +179,10 @@ Der Agent wird per **Human-In-the-Loop** orchestriert: ein Architekt stellt Frag
 
 ## 4. Agentic Testing-Workflow im Detail
 
+![Agentic Testing-Workflow](svg/agentic_testing_workflow.svg)
+
+*Sechs-stufiger Kreislauf von Fixture-Extraktion bis Regression-Suite, mit dem Dual-Run im Zentrum als Herzstueck. Der gelbe Banner unten zaehlt die fuenf haeufigsten Diff-Ursachen auf — FIXED-DECIMAL, Pointer-Aliasing, ON-Unit-Reihenfolge, unvollstaendige Preprocessor-Expansion, Encoding-Unterschiede.*
+
 Der Test-Workflow ist der kritischste Schritt im PL/I-Kontext. Aufbau:
 
 1. **Test-Fixture-Extraktion**: Der Agent liest Produktions-Logs und baut daraus realistische Test-Eingaben.
@@ -184,6 +200,10 @@ Der Test-Workflow ist der kritischste Schritt im PL/I-Kontext. Aufbau:
 
 ## 5. Human-in-the-Loop-Regeln für PL/I
 
+![Sieben Human-in-the-Loop-Regeln](svg/hitl_regeln_pl1.svg)
+
+*Sieben nummerierte Regeln als Karten, farbcodiert nach Thema (regulierte Pfade rot, Reforge gelb, Pointer violett, Multitasking gruen, Preprocessor blau, Audit pink, Reproduzierbarkeit cyan). Regel 7 ("Reproduzierbarkeit") ist breit gezogen, weil sie am meisten Detail braucht. Der rote Banner unten macht klar: harte Constraints, keine Empfehlungen.*
+
 Harte Regeln für agentic Workflows bei PL/I:
 
 1. **Kein LLM-Output ohne Review** für regulierte Code-Pfade (Finanzen, Versicherungen, Compliance).
@@ -198,6 +218,10 @@ Harte Regeln für agentic Workflows bei PL/I:
 
 ## 6. Tooling jenseits von AWS
 
+![Tooling-Landschaft jenseits von AWS](svg/tooling_jenseits_aws.svg)
+
+*Fuenf Alternativ-Tools mit Staerken und Schwaechen: IBM watsonx Code Assistant for Z, Raincode PL/I-Compiler, Heirloom, mLogica LIBER*M, Micro Focus Open PL/I. Oben als Referenz der Baseline-Tool "AWS Transform for Mainframe". Unten die Senior-Empfehlung zur PoC-Strategie mit zwei parallelen Tool-Piloten.*
+
 Für PL/I gibt es weitere Tools, die komplementär zu AWS Transform eingesetzt werden können:
 
 - **IBM watsonx Code Assistant for Z**: hat eigene PL/I-Unterstützung (seit Herbst 2025).
@@ -211,5 +235,9 @@ Für Senior-Architekten lohnt ein Proof-of-Concept mit **mindestens zwei** Tools
 ---
 
 ## 7. Referenzen
+
+![Quellen-Cluster fuer Dokument 4](svg/referenzen_agentic_quellen.svg)
+
+*Sechs Quellen-Cluster um `_quellen.md` herum: Amazon Bedrock + AgentCore, Agentic AI Patterns, HITL Patterns, Dual-Run &amp; Testing, AWS Transform Specifics, Third-Party-Tooling. Zusammen ~60 oeffentliche Quellen ueber 17 Suchstring-Gruppen.*
 
 Siehe `_quellen.md`.
