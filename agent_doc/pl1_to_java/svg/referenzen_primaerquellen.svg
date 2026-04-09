@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="shadow13" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="700" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Referenzen — Primaerquellen fuer Dokument 2</text>
+  <text x="600" y="66" text-anchor="middle" font-size="13" fill="#475569">Die vier Saeulen der Evidenz fuer PL/I-Sprachmerkmale und deren Konvertierung</text>
+
+  <!-- 4 columns of primary sources as books/documents -->
+  <!-- Source 1: IBM Enterprise PL/I Language Reference -->
+  <g filter="url(#shadow13)">
+    <rect x="80" y="140" width="240" height="380" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="80" y="140" width="240" height="52" rx="8" fill="#2563eb"/>
+    <text x="200" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">IBM Enterprise PL/I</text>
+    <text x="200" y="182" text-anchor="middle" font-size="11" fill="#bfdbfe">Language Reference</text>
+    <text x="96" y="214" font-size="11" font-weight="700" fill="#0f172a">Dokument-Nr.</text>
+    <text x="96" y="230" font-size="11" fill="#1e40af">SC27-1460</text>
+    <text x="96" y="258" font-size="11" font-weight="700" fill="#0f172a">Enthaelt u. a.:</text>
+    <text x="96" y="276" font-size="10" fill="#334155">• BASED / POINTER / OFFSET</text>
+    <text x="96" y="290" font-size="10" fill="#334155">• AREA-Datentyp</text>
+    <text x="96" y="304" font-size="10" fill="#334155">• ON-Units &amp; Conditions</text>
+    <text x="96" y="318" font-size="10" fill="#334155">• FIXED DECIMAL-Regeln</text>
+    <text x="96" y="332" font-size="10" fill="#334155">• CONTROLLED-Semantik</text>
+    <text x="96" y="346" font-size="10" fill="#334155">• Preprocessor-Syntax</text>
+    <text x="96" y="360" font-size="10" fill="#334155">• TASK / EVENT / WAIT</text>
+    <text x="96" y="374" font-size="10" fill="#334155">• Nested Procedures</text>
+    <text x="96" y="400" font-size="11" font-weight="700" fill="#0f172a">Zweck:</text>
+    <text x="96" y="418" font-size="10" fill="#334155">Offizielle Syntax-</text>
+    <text x="96" y="432" font-size="10" fill="#334155">und Semantik-Referenz</text>
+    <text x="96" y="460" font-size="10" font-style="italic" fill="#1e40af">Ground Truth fuer</text>
+    <text x="96" y="474" font-size="10" font-style="italic" fill="#1e40af">jedes Mapping</text>
+    <text x="96" y="502" font-size="10" fill="#64748b">Stand: IBM Enterprise</text>
+    <text x="96" y="514" font-size="10" fill="#64748b">PL/I 6.x (2025)</text>
+  </g>
+
+  <!-- Source 2: z/OS PL/I Programming Guide -->
+  <g filter="url(#shadow13)">
+    <rect x="350" y="140" width="240" height="380" rx="8" fill="#ffffff" stroke="#0891b2" stroke-width="3"/>
+    <rect x="350" y="140" width="240" height="52" rx="8" fill="#0891b2"/>
+    <text x="470" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">z/OS PL/I Programming</text>
+    <text x="470" y="182" text-anchor="middle" font-size="11" fill="#cffafe">Guide</text>
+    <text x="366" y="214" font-size="11" font-weight="700" fill="#0f172a">Typ</text>
+    <text x="366" y="230" font-size="11" fill="#0e7490">Official IBM Guide</text>
+    <text x="366" y="258" font-size="11" font-weight="700" fill="#0f172a">Enthaelt u. a.:</text>
+    <text x="366" y="276" font-size="10" fill="#334155">• Compile-Optionen</text>
+    <text x="366" y="290" font-size="10" fill="#334155">• Linkage-Editor</text>
+    <text x="366" y="304" font-size="10" fill="#334155">• Preprocessor-Pragmatik</text>
+    <text x="366" y="318" font-size="10" fill="#334155">• Runtime-Fehler</text>
+    <text x="366" y="332" font-size="10" fill="#334155">• Performance-Tuning</text>
+    <text x="366" y="346" font-size="10" fill="#334155">• Storage-Klassen</text>
+    <text x="366" y="360" font-size="10" fill="#334155">• Debugging-Techniken</text>
+    <text x="366" y="374" font-size="10" fill="#334155">• Character-Set-Handling</text>
+    <text x="366" y="400" font-size="11" font-weight="700" fill="#0f172a">Zweck:</text>
+    <text x="366" y="418" font-size="10" fill="#334155">Praktische Pragmatik</text>
+    <text x="366" y="432" font-size="10" fill="#334155">hinter der Sprache</text>
+    <text x="366" y="460" font-size="10" font-style="italic" fill="#0e7490">Kontext fuer</text>
+    <text x="366" y="474" font-size="10" font-style="italic" fill="#0e7490">Mainframe-Idiome</text>
+    <text x="366" y="502" font-size="10" fill="#64748b">Stand: z/OS 3.x</text>
+    <text x="366" y="514" font-size="10" fill="#64748b">(2024/25)</text>
+  </g>
+
+  <!-- Source 3: AWS Language Support Matrix -->
+  <g filter="url(#shadow13)">
+    <rect x="620" y="140" width="240" height="380" rx="8" fill="#ffffff" stroke="#ff9900" stroke-width="3"/>
+    <rect x="620" y="140" width="240" height="52" rx="8" fill="#ff9900"/>
+    <text x="740" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">AWS Transform for</text>
+    <text x="740" y="182" text-anchor="middle" font-size="11" fill="#fed7aa">Mainframe Refactor</text>
+    <text x="636" y="214" font-size="11" font-weight="700" fill="#0f172a">Typ</text>
+    <text x="636" y="230" font-size="11" fill="#c2410c">AWS Docs / Release Notes</text>
+    <text x="636" y="258" font-size="11" font-weight="700" fill="#0f172a">Enthaelt u. a.:</text>
+    <text x="636" y="276" font-size="10" fill="#334155">• Language Support Matrix</text>
+    <text x="636" y="290" font-size="10" fill="#334155">• Blu Age Engine-Docs</text>
+    <text x="636" y="304" font-size="10" fill="#334155">• PL/I-Feature-Support</text>
+    <text x="636" y="318" font-size="10" fill="#334155">• Refactor vs. Reforge</text>
+    <text x="636" y="332" font-size="10" fill="#334155">• Runtime-Bibliotheken</text>
+    <text x="636" y="346" font-size="10" fill="#334155">• Preprocessor-Adapter</text>
+    <text x="636" y="360" font-size="10" fill="#334155">• CICS-Runtime-Support</text>
+    <text x="636" y="374" font-size="10" fill="#334155">• Beispiel-Projekte</text>
+    <text x="636" y="400" font-size="11" font-weight="700" fill="#0f172a">Zweck:</text>
+    <text x="636" y="418" font-size="10" fill="#334155">Tool-Fahigkeiten</text>
+    <text x="636" y="432" font-size="10" fill="#334155">auf AWS-Seite</text>
+    <text x="636" y="460" font-size="10" font-style="italic" fill="#c2410c">Sagt dir: Was</text>
+    <text x="636" y="474" font-size="10" font-style="italic" fill="#c2410c">AWS automatisch kann</text>
+    <text x="636" y="502" font-size="10" fill="#64748b">Stand: Maerz 2026</text>
+    <text x="636" y="514" font-size="10" fill="#64748b">(Konsolidierung)</text>
+  </g>
+
+  <!-- Source 4: Academic Papers -->
+  <g filter="url(#shadow13)">
+    <rect x="890" y="140" width="240" height="380" rx="8" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="890" y="140" width="240" height="52" rx="8" fill="#7b2cbf"/>
+    <text x="1010" y="165" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Academic Research</text>
+    <text x="1010" y="182" text-anchor="middle" font-size="11" fill="#e9d5ff">Papers</text>
+    <text x="906" y="214" font-size="11" font-weight="700" fill="#0f172a">Typ</text>
+    <text x="906" y="230" font-size="11" fill="#6b21a8">Peer-Reviewed Publications</text>
+    <text x="906" y="258" font-size="11" font-weight="700" fill="#0f172a">Enthaelt u. a.:</text>
+    <text x="906" y="276" font-size="10" fill="#334155">• Legacy Migration Studies</text>
+    <text x="906" y="290" font-size="10" fill="#334155">• Reliability Aspects of</text>
+    <text x="906" y="304" font-size="10" fill="#334155">  Legacy Language Migration</text>
+    <text x="906" y="318" font-size="10" fill="#334155">• PL/I-Reengineering Patterns</text>
+    <text x="906" y="332" font-size="10" fill="#334155">• Static Analysis for Pointer</text>
+    <text x="906" y="346" font-size="10" fill="#334155">  Aliasing</text>
+    <text x="906" y="360" font-size="10" fill="#334155">• LLM-assisted Transformation</text>
+    <text x="906" y="374" font-size="10" fill="#334155">• Property-Based Testing</text>
+    <text x="906" y="400" font-size="11" font-weight="700" fill="#0f172a">Zweck:</text>
+    <text x="906" y="418" font-size="10" fill="#334155">Methodische Fundierung</text>
+    <text x="906" y="432" font-size="10" fill="#334155">der Patterns</text>
+    <text x="906" y="460" font-size="10" font-style="italic" fill="#6b21a8">Evidenz-basierte</text>
+    <text x="906" y="474" font-size="10" font-style="italic" fill="#6b21a8">Empfehlungen</text>
+    <text x="906" y="502" font-size="10" fill="#64748b">Details: _quellen.md</text>
+  </g>
+
+  <!-- Footer -->
+  <rect x="80" y="560" width="1040" height="80" rx="10" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+  <text x="600" y="588" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Quellen-Pflicht der Research</text>
+  <text x="600" y="608" text-anchor="middle" font-size="11" fill="#334155">Jeder Suchstring ist in `_quellen.md` dokumentiert, mit URL, Zusammenfassung und Datum.</text>
+  <text x="600" y="624" text-anchor="middle" font-size="11" fill="#334155">Jede Aussage in Dokument 2 ist durch mindestens eine der vier Primaerquellen gedeckt.</text>
+</svg>

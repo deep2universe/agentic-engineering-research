@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 900" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="shadow11" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrFlow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="900" fill="#f8fafc"/>
+  <text x="620" y="40" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Mapping-Patterns im Ueberblick</text>
+  <text x="620" y="64" text-anchor="middle" font-size="13" fill="#475569">PL/I-Feature (links) → Empfohlenes Java-Mapping (mitte) → Tool-Support (rechts)</text>
+
+  <!-- Column headers -->
+  <rect x="60" y="90" width="360" height="40" rx="8" fill="#581c87"/>
+  <text x="240" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">PL/I-Feature</text>
+  <rect x="440" y="90" width="420" height="40" rx="8" fill="#1e40af"/>
+  <text x="650" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Empfohlenes Java-Mapping</text>
+  <rect x="880" y="90" width="300" height="40" rx="8" fill="#ff9900"/>
+  <text x="1030" y="115" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Tool-Support</text>
+
+  <!-- 15 rows -->
+  <g font-size="11">
+    <!-- Row 1: Skalare Typen -->
+    <g transform="translate(0, 150)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f5f3ff" stroke="#a78bfa"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">Skalare Typen, Arrays</text>
+      <text x="72" y="33" font-size="10" fill="#6b21a8">Schwierigkeit: niedrig</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">Java primitives, Arrays, Collections</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor (automatisch)</text>
+    </g>
+    <!-- Row 2: FIXED DECIMAL -->
+    <g transform="translate(0, 200)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f5f3ff" stroke="#a78bfa"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">FIXED DECIMAL</text>
+      <text x="72" y="33" font-size="10" fill="#6b21a8">Schwierigkeit: mittel</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">BigDecimal + MathContext + HALF_UP</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor + manuelle Validierung</text>
+    </g>
+    <!-- Row 3: PICTURE -->
+    <g transform="translate(0, 250)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f5f3ff" stroke="#a78bfa"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">PICTURE-Typen</text>
+      <text x="72" y="33" font-size="10" fill="#6b21a8">Schwierigkeit: mittel</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">DecimalFormat oder Custom-Formatter</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor</text>
+    </g>
+    <!-- Row 4: Nested Procedures -->
+    <g transform="translate(0, 300)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f5f3ff" stroke="#a78bfa"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">Nested Procedures</text>
+      <text x="72" y="33" font-size="10" fill="#6b21a8">Schwierigkeit: mittel-hoch</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">Inner classes oder Service-Refactor</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">Reforge (LLM)</text>
+    </g>
+    <!-- Row 5: ON-Units -->
+    <g transform="translate(0, 350)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#fef2f2" stroke="#f87171"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">ON-Units</text>
+      <text x="72" y="33" font-size="10" fill="#991b1b">Schwierigkeit: hoch</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">ThreadLocal-Handler-Stack + Exceptions</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">Custom Pattern (OnUnitHandlerStack)</text>
+    </g>
+    <!-- Row 6: BASED/Pointer -->
+    <g transform="translate(0, 400)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#fef2f2" stroke="#f87171"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">BASED / Pointer</text>
+      <text x="72" y="33" font-size="10" fill="#991b1b">Schwierigkeit: hoch</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">ByteBuffer-Layout oder POJO-Refactor</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor (ByteBuffer), Reforge (POJO)</text>
+    </g>
+    <!-- Row 7: AREA -->
+    <g transform="translate(0, 450)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#fef2f2" stroke="#f87171"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">AREA</text>
+      <text x="72" y="33" font-size="10" fill="#991b1b">Schwierigkeit: hoch</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">DirectByteBuffer mit Allokator</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor</text>
+    </g>
+    <!-- Row 8: Preprocessor -->
+    <g transform="translate(0, 500)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#fef2f2" stroke="#f87171"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">Preprocessor-Makros</text>
+      <text x="72" y="33" font-size="10" fill="#991b1b">Schwierigkeit: hoch</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">VORHER expandieren — keine Nachbildung!</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">Custom Pipeline, vor Transform</text>
+    </g>
+    <!-- Row 9: TASK/EVENT -->
+    <g transform="translate(0, 550)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#fef2f2" stroke="#f87171"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">TASK / EVENT / WAIT</text>
+      <text x="72" y="33" font-size="10" fill="#991b1b">Schwierigkeit: hoch</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">ExecutorService + CompletableFuture</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">Reforge + manueller Review</text>
+    </g>
+    <!-- Row 10: CONTROLLED -->
+    <g transform="translate(0, 600)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f5f3ff" stroke="#a78bfa"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">CONTROLLED</text>
+      <text x="72" y="33" font-size="10" fill="#6b21a8">Schwierigkeit: mittel</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">Deque-Stack pro Variable</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">Custom</text>
+    </g>
+    <!-- Row 11: Rekursion -->
+    <g transform="translate(0, 650)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f0fdf4" stroke="#4ade80"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">Rekursion</text>
+      <text x="72" y="33" font-size="10" fill="#065f46">Schwierigkeit: niedrig</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">Standard-Java-Rekursion</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">automatisch</text>
+    </g>
+    <!-- Row 12: CICS EXEC -->
+    <g transform="translate(0, 700)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f5f3ff" stroke="#a78bfa"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">CICS EXEC</text>
+      <text x="72" y="33" font-size="10" fill="#6b21a8">Schwierigkeit: mittel</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">AWS Blu Age CICS-Runtime</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor (Runtime)</text>
+    </g>
+    <!-- Row 13: SQL DB2 -->
+    <g transform="translate(0, 750)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f0fdf4" stroke="#4ade80"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">SQL (DB2)</text>
+      <text x="72" y="33" font-size="10" fill="#065f46">Schwierigkeit: niedrig</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">JDBC + Aurora PostgreSQL</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor</text>
+    </g>
+    <!-- Row 14: MQSeries -->
+    <g transform="translate(0, 800)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f0fdf4" stroke="#4ade80"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">MQSeries</text>
+      <text x="72" y="33" font-size="10" fill="#065f46">Schwierigkeit: niedrig</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">Amazon MQ (JMS-API)</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor</text>
+    </g>
+    <!-- Row 15: VSAM -->
+    <g transform="translate(0, 850)">
+      <rect x="60" y="0" width="360" height="40" rx="6" fill="#f5f3ff" stroke="#a78bfa"/>
+      <text x="72" y="18" font-weight="700" fill="#0f172a">VSAM</text>
+      <text x="72" y="33" font-size="10" fill="#6b21a8">Schwierigkeit: mittel</text>
+      <rect x="440" y="0" width="420" height="40" rx="6" fill="#eff6ff" stroke="#60a5fa"/>
+      <text x="452" y="22" fill="#0f172a">Aurora/DynamoDB oder Blu Age VSAM-Runtime</text>
+      <rect x="880" y="0" width="300" height="40" rx="6" fill="#fff7ed" stroke="#fb923c"/>
+      <text x="892" y="22" fill="#9a3412">AWS Refactor</text>
+    </g>
+  </g>
+</svg>
