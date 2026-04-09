@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 700" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh72" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="700" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Was NICHT mehr zeitgemaess ist</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Fuenf Ideen aus den fruehen 2020ern, die 2026 nicht mehr empfohlen werden</text>
+
+  <g filter="url(#sh72)">
+    <rect x="60" y="110" width="560" height="180" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+    <g transform="translate(95, 140)">
+      <circle cx="0" cy="0" r="20" fill="#dc2626"/>
+      <text x="0" y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">&#10007;</text>
+    </g>
+    <text x="140" y="140" font-size="14" font-weight="700" fill="#991b1b">Komplettes Hand-Rewrite</text>
+    <text x="80" y="180" font-size="11" fill="#7f1d1d">Zu teuer, zu riskant, zu langsam.</text>
+    <text x="80" y="198" font-size="11" fill="#7f1d1d">Fuer grosse PL/I-Codebasen ist ein hand-geschriebener</text>
+    <text x="80" y="214" font-size="11" fill="#7f1d1d">Neubau nicht mehr wettbewerbsfaehig.</text>
+    <text x="80" y="240" font-size="10" font-weight="700" fill="#065f46">Stattdessen:</text>
+    <text x="80" y="258" font-size="10" fill="#047857">AWS Transform Refactor + Reforge + selektives Reimagine</text>
+    <text x="80" y="274" font-size="10" fill="#047857">Kombiniere Automatisierung + LLM-Unterstuetzung + Senior-Review</text>
+  </g>
+
+  <g filter="url(#sh72)">
+    <rect x="640" y="110" width="560" height="180" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+    <g transform="translate(675, 140)">
+      <circle cx="0" cy="0" r="20" fill="#dc2626"/>
+      <text x="0" y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">&#10007;</text>
+    </g>
+    <text x="720" y="140" font-size="14" font-weight="700" fill="#991b1b">Emulation ohne Ausstiegsplan</text>
+    <text x="660" y="180" font-size="11" fill="#7f1d1d">Nur als Zwischenschritt sinnvoll, nicht als Ziel.</text>
+    <text x="660" y="198" font-size="11" fill="#7f1d1d">"Rehost und dann bleiben" fuehrt in eine Sackgasse:</text>
+    <text x="660" y="214" font-size="11" fill="#7f1d1d">Emulations-Lizenzen, kein Cloud-Mehrwert, kein Talent.</text>
+    <text x="660" y="240" font-size="10" font-weight="700" fill="#065f46">Stattdessen:</text>
+    <text x="660" y="258" font-size="10" fill="#047857">Wenn Rehost: mit klarem Exit-Datum (12–18 Monate).</text>
+    <text x="660" y="274" font-size="10" fill="#047857">Dann Weiter-Migration nach Java oder Repurchase.</text>
+  </g>
+
+  <g filter="url(#sh72)">
+    <rect x="60" y="310" width="560" height="180" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+    <g transform="translate(95, 340)">
+      <circle cx="0" cy="0" r="20" fill="#dc2626"/>
+      <text x="0" y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">&#10007;</text>
+    </g>
+    <text x="140" y="340" font-size="14" font-weight="700" fill="#991b1b">PL/I-Snippets in LLM werfen</text>
+    <text x="80" y="380" font-size="11" fill="#7f1d1d">Ohne strukturierten Workflow und Tests verbrennt das Zeit.</text>
+    <text x="80" y="398" font-size="11" fill="#7f1d1d">Ein LLM kann Snippets uebersetzen, aber nicht die</text>
+    <text x="80" y="414" font-size="11" fill="#7f1d1d">Semantik-Treue pro Funktion garantieren.</text>
+    <text x="80" y="440" font-size="10" font-weight="700" fill="#065f46">Stattdessen:</text>
+    <text x="80" y="458" font-size="10" fill="#047857">Integrierte Agentic-Workflows mit Dual-Run + Golden-Master</text>
+    <text x="80" y="474" font-size="10" fill="#047857">und Senior-Review-Gates (siehe Dokument 4)</text>
+  </g>
+
+  <g filter="url(#sh72)">
+    <rect x="640" y="310" width="560" height="180" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+    <g transform="translate(675, 340)">
+      <circle cx="0" cy="0" r="20" fill="#dc2626"/>
+      <text x="0" y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">&#10007;</text>
+    </g>
+    <text x="720" y="340" font-size="14" font-weight="700" fill="#991b1b">Kein dedicated Test-Engineering</text>
+    <text x="660" y="380" font-size="11" fill="#7f1d1d">Spart nichts, kostet spaeter.</text>
+    <text x="660" y="398" font-size="11" fill="#7f1d1d">Projekte, die Test-Engineering als "die Developers machen das</text>
+    <text x="660" y="414" font-size="11" fill="#7f1d1d">schon" abtun, zahlen spaeter mit Produktionsausfaellen.</text>
+    <text x="660" y="440" font-size="10" font-weight="700" fill="#065f46">Stattdessen:</text>
+    <text x="660" y="458" font-size="10" fill="#047857">Dedizierte Testing-Rollen (siehe Dokument 6 Kapitel 13):</text>
+    <text x="660" y="474" font-size="10" fill="#047857">Test-Lead, Senior Test Engineer, Dual-Run-Operator, Agent-Owner</text>
+  </g>
+
+  <g filter="url(#sh72)">
+    <rect x="260" y="510" width="720" height="160" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+    <g transform="translate(295, 540)">
+      <circle cx="0" cy="0" r="20" fill="#dc2626"/>
+      <text x="0" y="7" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">&#10007;</text>
+    </g>
+    <text x="340" y="540" font-size="14" font-weight="700" fill="#991b1b">Monolithisches Cloud-Deployment</text>
+    <text x="276" y="578" font-size="11" fill="#7f1d1d">Die Transform-Tools liefern containerisierbare Artefakte — die sollten auch containerisiert werden.</text>
+    <text x="276" y="600" font-size="11" fill="#7f1d1d">Ein riesiger "Fat-JAR"-Monolith auf einer einzigen EC2-Instanz erfuellt nicht einmal die Basis-Anforderungen</text>
+    <text x="276" y="616" font-size="11" fill="#7f1d1d">an Resilienz, Scaling und Observability.</text>
+    <text x="276" y="644" font-size="10" font-weight="700" fill="#065f46">Stattdessen:</text>
+    <text x="276" y="662" font-size="10" fill="#047857">Container auf EKS/ECS mit Auto-Scaling, HA, Service-Mesh, OpenTelemetry-Instrumentierung</text>
+  </g>
+</svg>

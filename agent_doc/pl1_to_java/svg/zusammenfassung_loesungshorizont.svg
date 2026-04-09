@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh74" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="portGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Zusammenfassung des Loesungshorizonts</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">PL/I-zu-Java-Migration ist keine einzelne Entscheidung, sondern ein Portfolio</text>
+
+  <!-- Central portfolio -->
+  <g filter="url(#sh74)">
+    <circle cx="620" cy="360" r="140" fill="url(#portGrad)"/>
+    <text x="620" y="340" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">PORTFOLIO</text>
+    <text x="620" y="362" text-anchor="middle" font-size="13" fill="#bfdbfe">der</text>
+    <text x="620" y="382" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Entscheidungen</text>
+  </g>
+
+  <!-- 4 corner insights -->
+  <g filter="url(#sh74)">
+    <rect x="60" y="140" width="360" height="140" rx="12" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="60" y="140" width="360" height="36" rx="12" fill="#059669"/>
+    <text x="240" y="163" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">1 · Nicht alle Module brauchen den Hauptpfad</text>
+    <text x="80" y="194" font-size="11" fill="#0f172a">Der AWS-Transform-Refactor ist fuer die</text>
+    <text x="80" y="210" font-size="11" fill="#0f172a">meisten Module richtig — aber NICHT fuer alle.</text>
+    <text x="80" y="230" font-size="10" fill="#334155">&#8226;  Retain fuer stabile Legacy</text>
+    <text x="80" y="246" font-size="10" fill="#334155">&#8226;  Retire fuer nicht-genutzt</text>
+    <text x="80" y="262" font-size="10" fill="#334155">&#8226;  Repurchase fuer Standard-Domains</text>
+  </g>
+
+  <g filter="url(#sh74)">
+    <rect x="820" y="140" width="360" height="140" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="820" y="140" width="360" height="36" rx="12" fill="#2563eb"/>
+    <text x="1000" y="163" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2 · Nicht alle Tools sind AWS-zentriert</text>
+    <text x="840" y="194" font-size="11" fill="#0f172a">Alternativen existieren und sind ernst zu nehmen:</text>
+    <text x="840" y="216" font-size="10" fill="#334155">&#8226;  IBM watsonx (IBM-Kunden)</text>
+    <text x="840" y="232" font-size="10" fill="#334155">&#8226;  Raincode (stabile Module)</text>
+    <text x="840" y="248" font-size="10" fill="#334155">&#8226;  Micro Focus Open PL/I (Lift-and-Shift)</text>
+    <text x="840" y="264" font-size="10" fill="#334155">&#8226;  mLogica, Astadia (Zweit-PoC)</text>
+  </g>
+
+  <g filter="url(#sh74)">
+    <rect x="60" y="440" width="360" height="140" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="60" y="440" width="360" height="36" rx="12" fill="#f59e0b"/>
+    <text x="240" y="463" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3 · Nicht alle Loesungen sind technisch</text>
+    <text x="80" y="494" font-size="11" fill="#0f172a">Manche sind organisatorisch oder finanziell:</text>
+    <text x="80" y="514" font-size="10" fill="#334155">&#8226;  Cross-funktionale Teams</text>
+    <text x="80" y="530" font-size="10" fill="#334155">&#8226;  Integration Squad</text>
+    <text x="80" y="546" font-size="10" fill="#334155">&#8226;  Veterans-Gruppe + Rotation</text>
+    <text x="80" y="562" font-size="10" fill="#334155">&#8226;  Cloud-Credits + MAP + Insurance</text>
+  </g>
+
+  <g filter="url(#sh74)">
+    <rect x="820" y="440" width="360" height="140" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <rect x="820" y="440" width="360" height="36" rx="12" fill="#dc2626"/>
+    <text x="1000" y="463" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">4 · Nicht alle Loesungen sind vollstaendig</text>
+    <text x="840" y="494" font-size="11" fill="#0f172a">Manchmal ist Koexistenz der Zielzustand:</text>
+    <text x="840" y="516" font-size="10" fill="#334155">&#8226;  Transaktionaler Kern bleibt auf PL/I</text>
+    <text x="840" y="532" font-size="10" fill="#334155">&#8226;  Peripherie (UI, Reports) auf Java</text>
+    <text x="840" y="548" font-size="10" fill="#334155">&#8226;  Selective Reimagine in Bounded Contexts</text>
+    <text x="840" y="564" font-size="10" fill="#334155">&#8226;  Parallel-Run ueber Jahre moeglich</text>
+  </g>
+
+  <!-- Connection lines to center -->
+  <g stroke="#64748b" stroke-width="2" stroke-dasharray="4 3" opacity="0.5" fill="none">
+    <line x1="420" y1="210" x2="500" y2="290"/>
+    <line x1="820" y1="210" x2="740" y2="290"/>
+    <line x1="420" y1="510" x2="500" y2="430"/>
+    <line x1="820" y1="510" x2="740" y2="430"/>
+  </g>
+
+  <!-- Bottom key message -->
+  <g filter="url(#sh74)">
+    <rect x="60" y="620" width="1120" height="120" rx="14" fill="#0f172a"/>
+    <text x="620" y="654" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Der wertvollste Beitrag eines Senior-Architekten</text>
+    <text x="620" y="682" text-anchor="middle" font-size="12" fill="#fbbf24">... ist, diesen Loesungshorizont SICHTBAR zu machen</text>
+    <text x="620" y="706" text-anchor="middle" font-size="12" fill="#cbd5e1">und die richtige Mischung fuer das konkrete Projekt zu finden.</text>
+    <text x="620" y="728" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">Nicht ein Hammer fuer jede Schraube — sondern der richtige Mix aus Refactor, Reforge, Reimagine, Replatform und Repurchase.</text>
+  </g>
+</svg>

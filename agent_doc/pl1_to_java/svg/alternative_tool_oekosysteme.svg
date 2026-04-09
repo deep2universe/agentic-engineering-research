@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh66" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Alternative Tool-Oekosysteme</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Fuenf Tool-Familien jenseits von AWS Transform — ergaenzend oder alternativ</text>
+
+  <g filter="url(#sh66)">
+    <rect x="60" y="110" width="360" height="280" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="60" y="110" width="360" height="44" rx="12" fill="#0891b2"/>
+    <text x="240" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Raincode PL/I-Compiler</text>
+    <text x="76" y="178" font-size="11" font-weight="700" fill="#0e7490">Ansatz:</text>
+    <text x="76" y="194" font-size="11" fill="#334155">Compiliert PL/I direkt zu JVM/.NET</text>
+    <text x="76" y="210" font-size="11" fill="#334155">Bytecode. Keine Java-Source.</text>
+
+    <text x="76" y="240" font-size="11" font-weight="700" fill="#065f46">Vorteile:</text>
+    <text x="76" y="256" font-size="10" fill="#334155">&#10003;  Exakte PL/I-Semantik auf Byte-Ebene</text>
+    <text x="76" y="272" font-size="10" fill="#334155">&#10003;  Geringerer Test-Aufwand</text>
+    <text x="76" y="288" font-size="10" fill="#334155">&#10003;  Kein "ugly Java"</text>
+
+    <text x="76" y="314" font-size="11" font-weight="700" fill="#991b1b">Nachteile:</text>
+    <text x="76" y="330" font-size="10" fill="#334155">&#10007;  Java-Entwickler koennen nicht warten</text>
+    <text x="76" y="346" font-size="10" fill="#334155">&#10007;  Lock-in zu Raincode</text>
+    <text x="76" y="362" font-size="10" font-style="italic" fill="#0e7490">Einsatz: stabile Module ohne Weiterentwicklung</text>
+  </g>
+
+  <g filter="url(#sh66)">
+    <rect x="440" y="110" width="360" height="280" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="440" y="110" width="360" height="44" rx="12" fill="#f59e0b"/>
+    <text x="620" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Micro Focus Open PL/I</text>
+    <text x="456" y="178" font-size="11" font-weight="700" fill="#92400e">Ansatz:</text>
+    <text x="456" y="194" font-size="11" fill="#334155">Laufzeit-Umgebung fuer PL/I auf</text>
+    <text x="456" y="210" font-size="11" fill="#334155">Linux/Windows. Nicht Java!</text>
+
+    <text x="456" y="240" font-size="11" font-weight="700" fill="#065f46">Vorteile:</text>
+    <text x="456" y="256" font-size="10" fill="#334155">&#10003;  Weg vom Mainframe ohne Rewrite</text>
+    <text x="456" y="272" font-size="10" fill="#334155">&#10003;  Codebasis intakt</text>
+    <text x="456" y="288" font-size="10" fill="#334155">&#10003;  Schneller Lift-and-Shift</text>
+
+    <text x="456" y="314" font-size="11" font-weight="700" fill="#991b1b">Nachteile:</text>
+    <text x="456" y="330" font-size="10" fill="#334155">&#10007;  Nicht Cloud-Native</text>
+    <text x="456" y="346" font-size="10" fill="#334155">&#10007;  Lizenzkosten OpenText</text>
+    <text x="456" y="362" font-size="10" font-style="italic" fill="#92400e">Einsatz: Retain-Kandidaten, MF-Kosten weg</text>
+  </g>
+
+  <g filter="url(#sh66)">
+    <rect x="820" y="110" width="360" height="280" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <rect x="820" y="110" width="360" height="44" rx="12" fill="#2563eb"/>
+    <text x="1000" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">IBM watsonx Code Assistant</text>
+    <text x="836" y="178" font-size="11" font-weight="700" fill="#1e40af">Ansatz:</text>
+    <text x="836" y="194" font-size="11" fill="#334155">IBMs AI-basierte Migrations-Loesung</text>
+    <text x="836" y="210" font-size="11" fill="#334155">Seit Herbst 2025 mit PL/I-Support</text>
+
+    <text x="836" y="240" font-size="11" font-weight="700" fill="#065f46">Vorteile:</text>
+    <text x="836" y="256" font-size="10" fill="#334155">&#10003;  Enge IBM-Mainframe-Integration</text>
+    <text x="836" y="272" font-size="10" fill="#334155">&#10003;  Kein AWS-Lock-in</text>
+    <text x="836" y="288" font-size="10" fill="#334155">&#10003;  Native IBM-Expertise</text>
+
+    <text x="836" y="314" font-size="11" font-weight="700" fill="#991b1b">Nachteile:</text>
+    <text x="836" y="330" font-size="10" fill="#334155">&#10007;  Kleineres Ecosystem</text>
+    <text x="836" y="346" font-size="10" fill="#334155">&#10007;  Abhaengigkeit von IBM-Releases</text>
+    <text x="836" y="362" font-size="10" font-style="italic" fill="#1e40af">Einsatz: Zweit-Tool / IBM-Kunden</text>
+  </g>
+
+  <g filter="url(#sh66)">
+    <rect x="60" y="420" width="570" height="250" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="60" y="420" width="570" height="44" rx="12" fill="#7b2cbf"/>
+    <text x="345" y="450" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">mLogica / Astadia / Heirloom / SoftwareMining</text>
+    <text x="76" y="488" font-size="11" font-weight="700" fill="#0f172a">Ansatz:</text>
+    <text x="76" y="504" font-size="11" fill="#334155">Drittanbieter-Migrations-Tools mit PL/I-Support</text>
+    <text x="76" y="520" font-size="11" fill="#334155">Jeder hat ein eigenes Profil (siehe Quellenverzeichnis)</text>
+
+    <text x="76" y="548" font-size="11" font-weight="700" fill="#6b21a8">Senior-Pattern:</text>
+    <text x="76" y="566" font-size="11" fill="#334155">In Senior-Projekten lohnt ein <tspan font-weight="700">Proof-of-Concept mit</tspan></text>
+    <text x="76" y="582" font-size="11" fill="#334155"><tspan font-weight="700">mindestens zwei Tools</tspan>, um eine fundierte Entscheidung</text>
+    <text x="76" y="598" font-size="11" fill="#334155">zu treffen. Ein Tool allein gibt keine Vergleichsbasis.</text>
+
+    <text x="76" y="628" font-size="11" font-weight="700" fill="#0f172a">Auswahl-Kriterien:</text>
+    <text x="76" y="646" font-size="10" fill="#334155">&#8226;  PL/I-Feature-Abdeckung</text>
+    <text x="76" y="660" font-size="10" fill="#334155">&#8226;  Output-Qualitaet, Tests, Support</text>
+  </g>
+
+  <g filter="url(#sh66)">
+    <rect x="650" y="420" width="530" height="250" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="650" y="420" width="530" height="44" rx="12" fill="#059669"/>
+    <text x="915" y="450" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">GitHub Copilot + Custom Skills</text>
+    <text x="666" y="488" font-size="11" font-weight="700" fill="#0f172a">Ansatz:</text>
+    <text x="666" y="504" font-size="11" fill="#334155">Nicht AWS-zentriert: GitHub Copilot mit Custom-</text>
+    <text x="666" y="520" font-size="11" fill="#334155">Instructions und MCP-Servern fuer PL/I-Parsing.</text>
+
+    <text x="666" y="548" font-size="11" font-weight="700" fill="#047857">Rolle:</text>
+    <text x="666" y="566" font-size="11" fill="#334155">Wertvolles Assistenz-Tool, insbesondere fuer die</text>
+    <text x="666" y="582" font-size="11" fill="#334155">manuelle Review-Phase.</text>
+
+    <text x="666" y="610" font-size="11" font-weight="700" fill="#dc2626">Aber:</text>
+    <text x="666" y="626" font-size="11" fill="#334155">Nicht als Primaer-Transform-Tool geeignet —</text>
+    <text x="666" y="642" font-size="11" fill="#334155">sondern als <tspan font-style="italic">Begleitwerkzeug</tspan>.</text>
+    <text x="666" y="660" font-size="10" font-style="italic" fill="#065f46">Passt gut zu kleinen Teams ohne AWS-Bindung</text>
+  </g>
+
+  <text x="620" y="720" text-anchor="middle" font-size="11" fill="#64748b">Die Tool-Landschaft ist breiter als oft angenommen — Senior-Architekten kennen mindestens drei Alternativen.</text>
+</svg>

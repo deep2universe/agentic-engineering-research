@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh65" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="780" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Die sieben Rs im PL/I-Kontext (+ 2 inoffizielle)</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Das Gartner-7-Rs-Framework, angewendet auf PL/I-Migrationen — plus Reforge und Reimagine</text>
+
+  <!-- Official 7 Rs -->
+  <g filter="url(#sh65)">
+    <rect x="60" y="110" width="380" height="150" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <circle cx="100" cy="148" r="22" fill="#2563eb"/>
+    <text x="100" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">R1</text>
+    <text x="140" y="145" font-size="14" font-weight="700" fill="#1e3a8a">Retain</text>
+    <text x="140" y="162" font-size="10" fill="#64748b">Auf dem Mainframe lassen</text>
+    <text x="76" y="188" font-size="11" font-weight="700" fill="#0f172a">PL/I-Fit:</text>
+    <text x="76" y="204" font-size="10" fill="#334155">Immer eine Option fuer stabile,</text>
+    <text x="76" y="218" font-size="10" fill="#334155">regulierte Kernlogik ohne</text>
+    <text x="76" y="232" font-size="10" fill="#334155">Aenderungsdruck.</text>
+    <text x="76" y="252" font-size="10" font-style="italic" fill="#1e40af">Retain ist kein Scheitern.</text>
+  </g>
+
+  <g filter="url(#sh65)">
+    <rect x="460" y="110" width="380" height="150" rx="12" fill="#ffffff" stroke="#64748b" stroke-width="2.5"/>
+    <circle cx="500" cy="148" r="22" fill="#64748b"/>
+    <text x="500" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">R2</text>
+    <text x="540" y="145" font-size="14" font-weight="700" fill="#0f172a">Retire</text>
+    <text x="540" y="162" font-size="10" fill="#64748b">Abschalten</text>
+    <text x="476" y="188" font-size="11" font-weight="700" fill="#0f172a">PL/I-Fit:</text>
+    <text x="476" y="204" font-size="10" fill="#334155">Nur fuer Module ohne echten</text>
+    <text x="476" y="218" font-size="10" fill="#334155">Nutzer — erstaunlich haeufig</text>
+    <text x="476" y="232" font-size="10" fill="#334155">in alten Systemen!</text>
+    <text x="476" y="252" font-size="10" font-style="italic" fill="#475569">Nutzungsanalyse = Gold</text>
+  </g>
+
+  <g filter="url(#sh65)">
+    <rect x="860" y="110" width="320" height="150" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <circle cx="900" cy="148" r="22" fill="#7b2cbf"/>
+    <text x="900" y="156" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">R3</text>
+    <text x="940" y="145" font-size="14" font-weight="700" fill="#6b21a8">Relocate</text>
+    <text x="940" y="162" font-size="10" fill="#64748b">Anderer Mainframe</text>
+    <text x="876" y="188" font-size="11" font-weight="700" fill="#0f172a">PL/I-Fit:</text>
+    <text x="876" y="204" font-size="10" fill="#334155">Selten relevant.</text>
+    <text x="876" y="224" font-size="10" fill="#334155">Wenn Kunde den Mainframe-</text>
+    <text x="876" y="238" font-size="10" fill="#334155">Provider wechselt, aber bei</text>
+    <text x="876" y="252" font-size="10" fill="#334155">PL/I-Code bleibt.</text>
+  </g>
+
+  <g filter="url(#sh65)">
+    <rect x="60" y="280" width="380" height="150" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <circle cx="100" cy="318" r="22" fill="#0891b2"/>
+    <text x="100" y="326" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">R4</text>
+    <text x="140" y="315" font-size="14" font-weight="700" fill="#0e7490">Replatform</text>
+    <text x="140" y="332" font-size="10" fill="#64748b">Gleicher Code, andere Plattform (Lift &amp; Shift)</text>
+    <text x="76" y="358" font-size="11" font-weight="700" fill="#0f172a">PL/I-Fit:</text>
+    <text x="76" y="374" font-size="10" fill="#334155">Raincode JVM-Compiler</text>
+    <text x="76" y="388" font-size="10" fill="#334155">Micro Focus Open PL/I</text>
+    <text x="76" y="402" font-size="10" fill="#334155">Heirloom</text>
+    <text x="76" y="422" font-size="10" font-style="italic" fill="#0e7490">Vom MF weg, Code intakt.</text>
+  </g>
+
+  <g filter="url(#sh65)">
+    <rect x="460" y="280" width="380" height="150" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <circle cx="500" cy="318" r="22" fill="#f59e0b"/>
+    <text x="500" y="326" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">R5</text>
+    <text x="540" y="315" font-size="14" font-weight="700" fill="#78350f">Repurchase</text>
+    <text x="540" y="332" font-size="10" fill="#64748b">Kauf einer COTS-Loesung</text>
+    <text x="476" y="358" font-size="11" font-weight="700" fill="#0f172a">PL/I-Fit:</text>
+    <text x="476" y="374" font-size="10" fill="#334155">Fuer Standard-Domains sinnvoll:</text>
+    <text x="476" y="388" font-size="10" fill="#334155">&#8226; CRM</text>
+    <text x="476" y="402" font-size="10" fill="#334155">&#8226; HR</text>
+    <text x="476" y="416" font-size="10" fill="#334155">&#8226; Finanzbuchhaltung</text>
+  </g>
+
+  <g filter="url(#sh65)">
+    <rect x="860" y="280" width="320" height="150" rx="12" fill="#ffffff" stroke="#db2777" stroke-width="2.5"/>
+    <circle cx="900" cy="318" r="22" fill="#db2777"/>
+    <text x="900" y="326" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">R6</text>
+    <text x="940" y="315" font-size="14" font-weight="700" fill="#9d174d">Rehost</text>
+    <text x="940" y="332" font-size="10" fill="#64748b">Emulation</text>
+    <text x="876" y="358" font-size="11" font-weight="700" fill="#0f172a">PL/I-Fit:</text>
+    <text x="876" y="374" font-size="10" fill="#334155">Selten optimal, aber als</text>
+    <text x="876" y="388" font-size="10" fill="#334155">Zwischenschritt nuetzlich</text>
+    <text x="876" y="408" font-size="10" fill="#334155">(z. B. schneller weg vom</text>
+    <text x="876" y="422" font-size="10" fill="#334155">Mainframe, Java-Migration folgt)</text>
+  </g>
+
+  <g filter="url(#sh65)">
+    <rect x="60" y="450" width="380" height="150" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+    <circle cx="100" cy="488" r="22" fill="#059669"/>
+    <text x="100" y="496" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">R7</text>
+    <text x="140" y="485" font-size="14" font-weight="700" fill="#065f46">Refactor</text>
+    <text x="140" y="502" font-size="10" fill="#065f46">Code-Transformation zu Java</text>
+    <text x="76" y="528" font-size="11" font-weight="700" fill="#0f172a">PL/I-Fit:</text>
+    <text x="76" y="544" font-size="11" font-weight="700" fill="#047857">Der AWS-Transform-Default</text>
+    <text x="76" y="560" font-size="10" fill="#334155">fuer den Grossteil des PL/I-Codes.</text>
+    <text x="76" y="580" font-size="10" font-style="italic" fill="#065f46">Deterministisch, reproduzierbar,</text>
+    <text x="76" y="594" font-size="10" font-style="italic" fill="#065f46">automatisierbar.</text>
+  </g>
+
+  <!-- Plus 2 inoffizielle Rs -->
+  <g filter="url(#sh65)">
+    <rect x="460" y="450" width="380" height="150" rx="12" fill="#f3e8ff" stroke="#7b2cbf" stroke-width="3"/>
+    <text x="480" y="476" font-size="13" font-weight="700" fill="#6b21a8">+ Reforge (inoffiziell)</text>
+    <text x="476" y="500" font-size="11" fill="#0f172a">LLM-basierte idiomatische</text>
+    <text x="476" y="516" font-size="11" fill="#0f172a">Nach-Transformation</text>
+    <text x="476" y="540" font-size="11" font-weight="700" fill="#0f172a">Wann:</text>
+    <text x="476" y="556" font-size="10" fill="#334155">Fuer Module, die intensive</text>
+    <text x="476" y="570" font-size="10" fill="#334155">Weiterentwicklung erfahren sollen</text>
+    <text x="476" y="588" font-size="10" font-style="italic" fill="#6b21a8">Claude Opus / Sonnet</text>
+  </g>
+
+  <g filter="url(#sh65)">
+    <rect x="860" y="450" width="320" height="150" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="3"/>
+    <text x="880" y="476" font-size="13" font-weight="700" fill="#92400e">+ Reimagine (inoffiziell)</text>
+    <text x="876" y="500" font-size="11" fill="#0f172a">Neuentwurf ausgewaehlter</text>
+    <text x="876" y="516" font-size="11" fill="#0f172a">Domaenen</text>
+    <text x="876" y="540" font-size="11" font-weight="700" fill="#0f172a">Wann:</text>
+    <text x="876" y="556" font-size="10" fill="#334155">Fuer Bounded Contexts, die</text>
+    <text x="876" y="570" font-size="10" fill="#334155">architektonisch neu gedacht</text>
+    <text x="876" y="584" font-size="10" fill="#334155">werden (z. B. Omnichannel-</text>
+    <text x="876" y="598" font-size="10" fill="#334155">Portal statt Green-Screen)</text>
+  </g>
+
+  <!-- Decision hint -->
+  <g filter="url(#sh65)">
+    <rect x="60" y="630" width="1120" height="130" rx="12" fill="#0f172a"/>
+    <text x="620" y="660" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Senior-Entscheidungs-Heuristik</text>
+    <text x="100" y="686" font-size="11" fill="#cbd5e1">&#8226;  <tspan fill="#6ee7b7">Retain</tspan> fuer stabile Kernlogik</text>
+    <text x="380" y="686" font-size="11" fill="#cbd5e1">&#8226;  <tspan fill="#94a3b8">Retire</tspan> wenn keine Nutzer</text>
+    <text x="660" y="686" font-size="11" fill="#cbd5e1">&#8226;  <tspan fill="#67e8f9">Replatform</tspan> wenn MF weg, Code bleibt</text>
+    <text x="100" y="706" font-size="11" fill="#cbd5e1">&#8226;  <tspan fill="#fcd34d">Repurchase</tspan> fuer Standard-Domains</text>
+    <text x="380" y="706" font-size="11" fill="#cbd5e1">&#8226;  <tspan fill="#d1fae5">Refactor</tspan> als Default (80 %)</text>
+    <text x="660" y="706" font-size="11" fill="#cbd5e1">&#8226;  <tspan fill="#e9d5ff">Reforge</tspan> fuer Weiterentwicklung</text>
+    <text x="100" y="726" font-size="11" fill="#cbd5e1">&#8226;  <tspan fill="#fef3c7">Reimagine</tspan> fuer bewusste Neu-Architektur</text>
+    <text x="380" y="726" font-size="11" fill="#cbd5e1">&#8226;  <tspan fill="#f9a8d4">Rehost</tspan> nur als Zwischenschritt</text>
+    <text x="660" y="726" font-size="11" fill="#cbd5e1">&#8226;  Oft gemischt — nicht nur ein R</text>
+  </g>
+</svg>
