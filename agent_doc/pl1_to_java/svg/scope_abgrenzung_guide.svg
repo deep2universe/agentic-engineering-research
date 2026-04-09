@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="shadow6" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Was dieser Guide leistet — und was nicht</text>
+  <text x="600" y="66" text-anchor="middle" font-size="14" fill="#475569">Erwartungshaltung klaeren: In Scope vs. Out of Scope</text>
+
+  <!-- In-Scope island -->
+  <g filter="url(#shadow6)">
+    <rect x="60" y="120" width="520" height="560" rx="20" fill="#d1fae5" stroke="#059669" stroke-width="3"/>
+  </g>
+  <rect x="60" y="120" width="520" height="50" rx="20" fill="#059669"/>
+  <text x="320" y="153" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">IN SCOPE — Was diese Research liefert</text>
+
+  <g font-size="12" fill="#064e3b">
+    <g transform="translate(85, 200)">
+      <circle cx="10" cy="0" r="12" fill="#059669"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">PL/I-Sprachmerkmale und deren Java-Mapping</text>
+      <text x="32" y="22" fill="#065f46">POINTER, BASED, ON-Units, Preprocessor, FIXED DECIMAL</text>
+    </g>
+    <g transform="translate(85, 260)">
+      <circle cx="10" cy="0" r="12" fill="#059669"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">AWS-Service-Katalog fuer PL/I-Migration</text>
+      <text x="32" y="22" fill="#065f46">Transform, Bedrock, Q, Kiro, Aurora, MQ, DMS</text>
+    </g>
+    <g transform="translate(85, 320)">
+      <circle cx="10" cy="0" r="12" fill="#059669"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Agentic Engineering-Workflows</text>
+      <text x="32" y="22" fill="#065f46">Discovery, Planning, Refactor, Reforge, Test, Deploy</text>
+    </g>
+    <g transform="translate(85, 380)">
+      <circle cx="10" cy="0" r="12" fill="#059669"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">50-%-Projekt-Szenarien und Patterns</text>
+      <text x="32" y="22" fill="#065f46">Bidirektionale Koexistenz, Domain-Trennung, Rettungsplan</text>
+    </g>
+    <g transform="translate(85, 440)">
+      <circle cx="10" cy="0" r="12" fill="#059669"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Test-Strategien und Teststack</text>
+      <text x="32" y="22" fill="#065f46">Dual-Run, Property, Mutation, Shadow-Traffic, KPIs</text>
+    </g>
+    <g transform="translate(85, 500)">
+      <circle cx="10" cy="0" r="12" fill="#059669"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Best Practices und Anti-Patterns</text>
+      <text x="32" y="22" fill="#065f46">Pilot-First, Wave-by-Risk, Definition of Done, Checkliste</text>
+    </g>
+    <g transform="translate(85, 560)">
+      <circle cx="10" cy="0" r="12" fill="#059669"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Erweiterter Loesungshorizont</text>
+      <text x="32" y="22" fill="#065f46">7 Rs, Raincode, IBM watsonx, Hybrid, Fine-Tuning</text>
+    </g>
+    <g transform="translate(85, 620)">
+      <circle cx="10" cy="0" r="12" fill="#059669"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10003;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Quellen-Dokumentation (_quellen.md)</text>
+      <text x="32" y="22" fill="#065f46">Gruppiert nach Suchstrings, mit URL + Zusammenfassung + Datum</text>
+    </g>
+  </g>
+
+  <!-- Out-of-Scope island -->
+  <g filter="url(#shadow6)">
+    <rect x="620" y="120" width="520" height="560" rx="20" fill="#fee2e2" stroke="#dc2626" stroke-width="3"/>
+  </g>
+  <rect x="620" y="120" width="520" height="50" rx="20" fill="#dc2626"/>
+  <text x="880" y="153" text-anchor="middle" font-size="18" font-weight="700" fill="#ffffff">OUT OF SCOPE — Was NICHT geleistet wird</text>
+
+  <g font-size="12">
+    <g transform="translate(645, 210)">
+      <circle cx="10" cy="0" r="12" fill="#dc2626"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10007;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Konkrete Preisrechnung / TCO</text>
+      <text x="32" y="22" fill="#7f1d1d">AWS-Preise aendern sich zu schnell</text>
+      <text x="32" y="38" fill="#7f1d1d">Business-Case ist immer projektindividuell</text>
+    </g>
+    <g transform="translate(645, 290)">
+      <circle cx="10" cy="0" r="12" fill="#dc2626"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10007;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Detail-Lizenzanalyse</text>
+      <text x="32" y="22" fill="#7f1d1d">IBM Enterprise PL/I, z/OS, MQ, DB2, CICS</text>
+      <text x="32" y="38" fill="#7f1d1d">muessen separat bewertet werden</text>
+    </g>
+    <g transform="translate(645, 370)">
+      <circle cx="10" cy="0" r="12" fill="#dc2626"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10007;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Fertiges Projekt-Template</text>
+      <text x="32" y="22" fill="#7f1d1d">Wave-Planung ist immer individuell</text>
+      <text x="32" y="38" fill="#7f1d1d">und basiert auf dem Assessment-Output</text>
+    </g>
+    <g transform="translate(645, 450)">
+      <circle cx="10" cy="0" r="12" fill="#dc2626"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10007;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Garantie der Aktualitaet</text>
+      <text x="32" y="22" fill="#7f1d1d">AWS-Stack aendert sich schnell</text>
+      <text x="32" y="38" fill="#7f1d1d">Stand: April 2026 — vor Projektstart pruefen</text>
+    </g>
+    <g transform="translate(645, 530)">
+      <circle cx="10" cy="0" r="12" fill="#dc2626"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10007;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Individuelle Rechtsberatung</text>
+      <text x="32" y="22" fill="#7f1d1d">BaFin, PCI, DORA, HIPAA benoetigen</text>
+      <text x="32" y="38" fill="#7f1d1d">eigene Compliance-Abklaerung</text>
+    </g>
+    <g transform="translate(645, 610)">
+      <circle cx="10" cy="0" r="12" fill="#dc2626"/>
+      <text x="10" y="5" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">&#10007;</text>
+      <text x="32" y="5" font-weight="700" fill="#0f172a">Garantie von COBOL-Research-Themen</text>
+      <text x="32" y="22" fill="#7f1d1d">Generische 7-Rs, CardDemo, Wave Planning-</text>
+      <text x="32" y="38" fill="#7f1d1d">Basics → siehe ../cobol-migration_aws/</text>
+    </g>
+  </g>
+
+  <text x="600" y="720" text-anchor="middle" font-size="12" fill="#64748b">Klar abgegrenzter Scope = realistische Erwartungen = erfolgreiche Senior-Arbeit</text>
+</svg>

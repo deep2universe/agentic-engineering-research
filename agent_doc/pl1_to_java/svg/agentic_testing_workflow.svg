@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh27" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr27" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Agentic Testing-Workflow im Detail</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Sechs Schritte fuer den kritischsten Abschnitt im PL/I-Migrationsprojekt</text>
+
+  <!-- 6 circular stations on a cycle -->
+  <!-- Step 1: Fixture Extraction -->
+  <g filter="url(#sh27)">
+    <circle cx="200" cy="220" r="85" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <circle cx="200" cy="220" r="70" fill="#fef2f2"/>
+    <text x="200" y="190" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">1 · Fixture-Extraktion</text>
+    <text x="200" y="212" text-anchor="middle" font-size="10" fill="#7f1d1d">Agent liest Produktions-</text>
+    <text x="200" y="226" text-anchor="middle" font-size="10" fill="#7f1d1d">Logs und baut daraus</text>
+    <text x="200" y="240" text-anchor="middle" font-size="10" fill="#7f1d1d">realistische Test-Inputs</text>
+    <text x="200" y="260" text-anchor="middle" font-size="9" font-style="italic" fill="#dc2626">Input: SMF, JOBLOG, DB2</text>
+  </g>
+
+  <!-- Step 2: Golden Master -->
+  <g filter="url(#sh27)">
+    <circle cx="500" cy="160" r="85" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <circle cx="500" cy="160" r="70" fill="#fef2f2"/>
+    <text x="500" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">2 · Golden-Master</text>
+    <text x="500" y="152" text-anchor="middle" font-size="10" fill="#7f1d1d">Fuer jede Eingabe</text>
+    <text x="500" y="166" text-anchor="middle" font-size="10" fill="#7f1d1d">wird der Output des</text>
+    <text x="500" y="180" text-anchor="middle" font-size="10" fill="#7f1d1d">Original-PL/I festgehalten</text>
+    <text x="500" y="200" text-anchor="middle" font-size="9" font-style="italic" fill="#dc2626">Storage: S3 + Hash</text>
+  </g>
+
+  <!-- Step 3: Dual-Run -->
+  <g filter="url(#sh27)">
+    <circle cx="800" cy="160" r="85" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <circle cx="800" cy="160" r="70" fill="#fef2f2"/>
+    <text x="800" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">3 · Dual-Run</text>
+    <text x="800" y="152" text-anchor="middle" font-size="10" fill="#7f1d1d">PL/I UND Java werden</text>
+    <text x="800" y="166" text-anchor="middle" font-size="10" fill="#7f1d1d">gleichzeitig mit denselben</text>
+    <text x="800" y="180" text-anchor="middle" font-size="10" fill="#7f1d1d">Inputs ausgefuehrt</text>
+    <text x="800" y="200" text-anchor="middle" font-size="9" font-style="italic" fill="#dc2626">Orchestrierung: AWS Transform</text>
+  </g>
+
+  <!-- Step 4: Diff-Analyse -->
+  <g filter="url(#sh27)">
+    <circle cx="1060" cy="220" r="85" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <circle cx="1060" cy="220" r="70" fill="#fef2f2"/>
+    <text x="1060" y="190" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">4 · Diff-Analyse</text>
+    <text x="1060" y="212" text-anchor="middle" font-size="10" fill="#7f1d1d">Agent analysiert</text>
+    <text x="1060" y="226" text-anchor="middle" font-size="10" fill="#7f1d1d">Abweichungen zwischen</text>
+    <text x="1060" y="240" text-anchor="middle" font-size="10" fill="#7f1d1d">beiden Outputs</text>
+    <text x="1060" y="260" text-anchor="middle" font-size="9" font-style="italic" fill="#dc2626">Output: Diff-Report JSON</text>
+  </g>
+
+  <!-- Step 5: Fix-Vorschlaege -->
+  <g filter="url(#sh27)">
+    <circle cx="900" cy="460" r="85" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <circle cx="900" cy="460" r="70" fill="#fef2f2"/>
+    <text x="900" y="430" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">5 · Fix-Vorschlaege</text>
+    <text x="900" y="452" text-anchor="middle" font-size="10" fill="#7f1d1d">Reforge-Agent schlaegt</text>
+    <text x="900" y="466" text-anchor="middle" font-size="10" fill="#7f1d1d">Code-Fixes vor</text>
+    <text x="900" y="480" text-anchor="middle" font-size="10" fill="#7f1d1d">(Diff + Begruendung)</text>
+    <text x="900" y="500" text-anchor="middle" font-size="9" font-style="italic" fill="#dc2626">HITL: Pflicht-Review</text>
+  </g>
+
+  <!-- Step 6: Regression-Suite -->
+  <g filter="url(#sh27)">
+    <circle cx="400" cy="460" r="85" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <circle cx="400" cy="460" r="70" fill="#fef2f2"/>
+    <text x="400" y="430" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">6 · Regression-Suite</text>
+    <text x="400" y="452" text-anchor="middle" font-size="10" fill="#7f1d1d">Tests werden in</text>
+    <text x="400" y="466" text-anchor="middle" font-size="10" fill="#7f1d1d">CodeBuild eingebettet</text>
+    <text x="400" y="480" text-anchor="middle" font-size="10" fill="#7f1d1d">und laufen nightly</text>
+    <text x="400" y="500" text-anchor="middle" font-size="9" font-style="italic" fill="#dc2626">Pipeline: PIT + JUnit + jqwik</text>
+  </g>
+
+  <!-- Arrows between stations (cyclic) -->
+  <g stroke="#dc2626" stroke-width="2.5" fill="none" marker-end="url(#arr27)">
+    <path d="M 280 195 Q 380 140 420 135"/>
+    <path d="M 585 160 L 715 160"/>
+    <path d="M 880 195 Q 970 225 980 220"/>
+    <path d="M 1030 300 Q 1010 400 980 430"/>
+    <path d="M 815 475 L 490 475"/>
+    <path d="M 320 440 Q 240 350 200 310"/>
+  </g>
+
+  <!-- Central insight -->
+  <g filter="url(#sh27)">
+    <rect x="490" y="290" width="320" height="110" rx="12" fill="#0f172a"/>
+    <text x="650" y="320" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Der Dual-Run ist das Herzstueck</text>
+    <text x="650" y="340" text-anchor="middle" font-size="10" fill="#cbd5e1">Semantische Aequivalenz ist nicht optional —</text>
+    <text x="650" y="356" text-anchor="middle" font-size="10" fill="#cbd5e1">sie ist der Test, den alle Regulatoren</text>
+    <text x="650" y="372" text-anchor="middle" font-size="10" fill="#cbd5e1">(BaFin, PCI, DORA) voraussetzen.</text>
+    <text x="650" y="388" text-anchor="middle" font-size="10" font-style="italic" fill="#fbbf24">Ziel: &gt; 99,99 % Aequivalenz</text>
+  </g>
+
+  <!-- Frequent diff causes -->
+  <g filter="url(#sh27)">
+    <rect x="60" y="580" width="1120" height="140" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="620" y="608" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">Haeufigste Ursachen fuer Diff-Analyse-Findings</text>
+    <g font-size="11" fill="#7c2d12">
+      <text x="80" y="634">&#8226;  <tspan font-weight="700">Rundungsdifferenzen in FIXED-DECIMAL</tspan> — MathContext/RoundingMode nicht exakt wie PL/I-Intermediate-Precision</text>
+      <text x="80" y="652">&#8226;  <tspan font-weight="700">Pointer-Aliasing-Fehler</tspan> — zwei Referenzen, die im PL/I dieselbe Adresse teilten, sind im Java getrennt</text>
+      <text x="80" y="670">&#8226;  <tspan font-weight="700">ON-Unit-Reihenfolge</tspan> — dynamisches Scoping wurde in Java als statisches Try/Catch abgebildet</text>
+      <text x="80" y="688">&#8226;  <tspan font-weight="700">Preprocessor-Expansion unvollstaendig</tspan> — Makro wurde nicht komplett aufgeloest vor der Transformation</text>
+      <text x="80" y="706">&#8226;  <tspan font-weight="700">Encoding-Unterschiede</tspan> — EBCDIC-Sort &#8800; UTF-8-Sort, Downstream-Sortierungen divergieren</text>
+    </g>
+  </g>
+</svg>

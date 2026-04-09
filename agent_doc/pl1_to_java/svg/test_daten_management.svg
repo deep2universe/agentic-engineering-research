@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh48" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr48" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Test-Daten-Management</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Lifecycle von Produktionsdaten zu Test-Fixtures — anonymisiert, repraesentativ, versioniert</text>
+
+  <!-- Problem -->
+  <g filter="url(#sh48)">
+    <rect x="60" y="110" width="1120" height="90" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="620" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">PL/I-Produktionsdaten sind eine Herausforderung</text>
+    <text x="100" y="164" font-size="11" fill="#7f1d1d">&#8226;  <tspan font-weight="700">Umfangreich</tspan>: Terabytes an VSAM- und DB2-Daten (oft hunderte Millionen Datensaetze pro Tabelle)</text>
+    <text x="100" y="182" font-size="11" fill="#7f1d1d">&#8226;  <tspan font-weight="700">Sensibel</tspan>: Kundendaten, Kontodaten, Gesundheitsdaten — unterliegen DSGVO, BaFin, HIPAA</text>
+  </g>
+
+  <!-- 5 lifecycle stations -->
+  <g filter="url(#sh48)">
+    <rect x="60" y="230" width="210" height="240" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <circle cx="95" cy="265" r="20" fill="#2563eb"/>
+    <text x="95" y="272" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">1</text>
+    <text x="125" y="270" font-size="13" font-weight="700" fill="#0f172a">Extraktion</text>
+    <text x="76" y="300" font-size="11" font-weight="700" fill="#1e3a8a">Werkzeuge:</text>
+    <text x="76" y="318" font-size="10" fill="#334155">• Precisely Connect</text>
+    <text x="76" y="334" font-size="10" fill="#334155">• Syncsort Mainframe</text>
+    <text x="76" y="350" font-size="10" fill="#334155">• IBM Infosphere</text>
+    <text x="76" y="376" font-size="10" font-weight="700" fill="#0f172a">Ziel:</text>
+    <text x="76" y="392" font-size="10" fill="#334155">S3 Bucket mit KMS</text>
+    <text x="76" y="406" font-size="10" fill="#334155">verschluesselt</text>
+    <text x="76" y="432" font-size="10" fill="#334155">Format: Parquet oder CSV</text>
+    <text x="76" y="446" font-size="10" fill="#334155">Encoding: UTF-8</text>
+  </g>
+
+  <g filter="url(#sh48)">
+    <rect x="290" y="230" width="210" height="240" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <circle cx="325" cy="265" r="20" fill="#7b2cbf"/>
+    <text x="325" y="272" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">2</text>
+    <text x="355" y="270" font-size="13" font-weight="700" fill="#0f172a">Anonymisierung</text>
+    <text x="306" y="300" font-size="11" font-weight="700" fill="#6b21a8">Methoden:</text>
+    <text x="306" y="318" font-size="10" fill="#334155">• Masking mit</text>
+    <text x="306" y="332" font-size="10" fill="#334155">  reversiblen Hashes</text>
+    <text x="306" y="348" font-size="10" fill="#334155">• Konsistent ueber</text>
+    <text x="306" y="362" font-size="10" fill="#334155">  Datensaetze hinweg</text>
+    <text x="306" y="378" font-size="10" fill="#334155">• Tokenization</text>
+    <text x="306" y="394" font-size="10" fill="#334155">• Differential Privacy</text>
+    <text x="306" y="420" font-size="10" font-weight="700" fill="#0f172a">Wichtig:</text>
+    <text x="306" y="436" font-size="10" fill="#334155">Referential Integrity</text>
+    <text x="306" y="452" font-size="10" fill="#334155">bleiben erhalten</text>
+  </g>
+
+  <g filter="url(#sh48)">
+    <rect x="520" y="230" width="210" height="240" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <circle cx="555" cy="265" r="20" fill="#f59e0b"/>
+    <text x="555" y="272" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">3</text>
+    <text x="585" y="270" font-size="13" font-weight="700" fill="#0f172a">Subsetting</text>
+    <text x="536" y="300" font-size="11" font-weight="700" fill="#b45309">Ziel:</text>
+    <text x="536" y="318" font-size="10" fill="#334155">Repraesentatives Subset,</text>
+    <text x="536" y="334" font-size="10" fill="#334155">das ALLE Geschaefts-</text>
+    <text x="536" y="348" font-size="10" fill="#334155">szenarien abdeckt</text>
+    <text x="536" y="374" font-size="11" font-weight="700" fill="#b45309">Tools:</text>
+    <text x="536" y="392" font-size="10" fill="#334155">• IBM InfoSphere Optim</text>
+    <text x="536" y="406" font-size="10" fill="#334155">• Delphix Virtualization</text>
+    <text x="536" y="420" font-size="10" fill="#334155">• Tonic.ai</text>
+    <text x="536" y="434" font-size="10" fill="#334155">• Eigene Skripte</text>
+    <text x="536" y="454" font-size="10" font-style="italic" fill="#78350f">Ziel-Groesse: 1–5 %</text>
+  </g>
+
+  <g filter="url(#sh48)">
+    <rect x="750" y="230" width="210" height="240" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <circle cx="785" cy="265" r="20" fill="#059669"/>
+    <text x="785" y="272" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">4</text>
+    <text x="815" y="270" font-size="13" font-weight="700" fill="#0f172a">Versionierung</text>
+    <text x="766" y="300" font-size="11" font-weight="700" fill="#065f46">Speicherung:</text>
+    <text x="766" y="318" font-size="10" fill="#334155">• S3 mit Versionierung</text>
+    <text x="766" y="334" font-size="10" fill="#334155">• Object Lock (WORM)</text>
+    <text x="766" y="350" font-size="10" fill="#334155">• KMS-Verschluesselung</text>
+    <text x="766" y="376" font-size="11" font-weight="700" fill="#065f46">Struktur:</text>
+    <text x="766" y="394" font-size="10" fill="#334155">• Pro Release ein</text>
+    <text x="766" y="408" font-size="10" fill="#334155">  fixer Snapshot</text>
+    <text x="766" y="422" font-size="10" fill="#334155">• Release-Tag als Metadaten</text>
+    <text x="766" y="438" font-size="10" fill="#334155">• Hash fuer Reproduzierbarkeit</text>
+    <text x="766" y="454" font-size="10" font-style="italic" fill="#065f46">Git-Links im Metadaten-File</text>
+  </g>
+
+  <g filter="url(#sh48)">
+    <rect x="980" y="230" width="200" height="240" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <circle cx="1015" cy="265" r="20" fill="#0891b2"/>
+    <text x="1015" y="272" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">5</text>
+    <text x="1045" y="270" font-size="13" font-weight="700" fill="#0f172a">Refresh</text>
+    <text x="996" y="300" font-size="11" font-weight="700" fill="#0e7490">Regelmaessig:</text>
+    <text x="996" y="318" font-size="10" fill="#334155">• Monatlich oder</text>
+    <text x="996" y="334" font-size="10" fill="#334155">  pro Release</text>
+    <text x="996" y="358" font-size="11" font-weight="700" fill="#0e7490">Trigger:</text>
+    <text x="996" y="376" font-size="10" fill="#334155">• Struktur-Changes</text>
+    <text x="996" y="390" font-size="10" fill="#334155">• Neue Business-Regeln</text>
+    <text x="996" y="404" font-size="10" fill="#334155">• Edge-Case-Funde</text>
+    <text x="996" y="420" font-size="10" fill="#334155">• Regulatorik-Aenderungen</text>
+    <text x="996" y="446" font-size="10" font-style="italic" fill="#0e7490">Automatisierter Pipeline-Job</text>
+  </g>
+
+  <!-- Arrows between stations -->
+  <g stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arr48)">
+    <line x1="270" y1="350" x2="288" y2="350"/>
+    <line x1="500" y1="350" x2="518" y2="350"/>
+    <line x1="730" y1="350" x2="748" y2="350"/>
+    <line x1="960" y1="350" x2="978" y2="350"/>
+  </g>
+
+  <!-- Compliance box -->
+  <g filter="url(#sh48)">
+    <rect x="60" y="500" width="1120" height="130" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="620" y="528" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">Compliance-Pflichten</text>
+    <g font-size="11" fill="#7c2d12">
+      <text x="80" y="554">&#8226;  <tspan font-weight="700">DSGVO Art. 89</tspan>: Pseudonymisierung + datenminimierende Verarbeitung bei Test-Daten dokumentieren</text>
+      <text x="80" y="574">&#8226;  <tspan font-weight="700">BaFin MaRisk AT 7.3</tspan>: Test-Umgebung darf keine echten Kundendaten enthalten</text>
+      <text x="80" y="594">&#8226;  <tspan font-weight="700">PCI-DSS 6.4.3</tspan>: Production-Data darf nicht in Test verwendet werden ohne Masking</text>
+      <text x="80" y="614">&#8226;  <tspan font-weight="700">Audit-Trail</tspan>: Jeder Zugriff auf Testdaten ist in CloudTrail loggingspflichtig</text>
+    </g>
+  </g>
+
+  <!-- Bottom insight -->
+  <g filter="url(#sh48)">
+    <rect x="60" y="650" width="1120" height="90" rx="12" fill="#0f172a"/>
+    <text x="620" y="680" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Senior-Regel: Testdaten-Sammlung startet PARALLEL zur Transform-Arbeit, nie danach</text>
+    <text x="620" y="702" text-anchor="middle" font-size="11" fill="#cbd5e1">Warten auf "perfekte" Testdaten ist eine Ausrede. Anfangen mit wenig + kontinuierlich anreichern.</text>
+    <text x="620" y="722" text-anchor="middle" font-size="10" font-style="italic" fill="#fbbf24">Erst wenige Golden-Master-Faelle sind besser als kein Golden-Master.</text>
+  </g>
+</svg>

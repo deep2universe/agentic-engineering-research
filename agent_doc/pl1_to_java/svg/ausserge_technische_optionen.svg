@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh70" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="780" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Aussergewoehnliche technische Optionen</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Fuenf Ideen fuer Senior-Architekten, die den Standard-Pfad ergaenzen</text>
+
+  <g filter="url(#sh70)">
+    <rect x="60" y="110" width="380" height="200" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="60" y="110" width="380" height="36" rx="12" fill="#7b2cbf"/>
+    <text x="250" y="133" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">1 · Partial LLM-Fine-Tuning</text>
+    <text x="76" y="164" font-size="11" fill="#0f172a">Fuer sehr grosse PL/I-Codebasen (Mio LOC)</text>
+    <text x="76" y="180" font-size="11" fill="#0f172a">lohnt sich partielles Fine-Tuning eines LLM.</text>
+    <text x="76" y="204" font-size="11" font-weight="700" fill="#6b21a8">Praktisch:</text>
+    <text x="76" y="222" font-size="10" fill="#334155">&#8226;  Extract der expandierten Sourcen aus S3</text>
+    <text x="76" y="238" font-size="10" fill="#334155">&#8226;  Annotierung mit Kommentaren (manuell + LLM)</text>
+    <text x="76" y="254" font-size="10" fill="#334155">&#8226;  Fine-Tuning eines Bedrock Custom Model</text>
+    <text x="76" y="270" font-size="10" fill="#334155">&#8226;  Einsatz als zusaetzlicher Reforge-Agent</text>
+    <text x="76" y="292" font-size="10" font-weight="700" fill="#991b1b">Datenschutz! Sourcen vor FT saeubern.</text>
+  </g>
+
+  <g filter="url(#sh70)">
+    <rect x="460" y="110" width="380" height="200" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="460" y="110" width="380" height="36" rx="12" fill="#f59e0b"/>
+    <text x="650" y="133" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2 · Regel-Extraktion in Decision-Tables</text>
+    <text x="476" y="164" font-size="11" fill="#0f172a">Business-Regeln aus PL/I in Decision-Tables</text>
+    <text x="476" y="180" font-size="11" fill="#0f172a">(Drools, Kie-Tables) extrahieren.</text>
+    <text x="476" y="204" font-size="11" font-weight="700" fill="#92400e">Migrationspfad:</text>
+    <text x="476" y="222" font-size="10" font-family="monospace" fill="#334155">PL/I &#8594; Decision-Table &#8594; Java-Regel-Engine</text>
+    <text x="476" y="248" font-size="11" font-weight="700" fill="#92400e">Vorteil:</text>
+    <text x="476" y="266" font-size="10" fill="#334155">Regeln werden sichtbar und pruefbar</text>
+    <text x="476" y="280" font-size="10" fill="#334155">(fachlich verstaendlich)</text>
+    <text x="476" y="298" font-size="10" font-style="italic" fill="#92400e">Ideal fuer regulierte Workloads</text>
+  </g>
+
+  <g filter="url(#sh70)">
+    <rect x="860" y="110" width="320" height="200" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="860" y="110" width="320" height="36" rx="12" fill="#059669"/>
+    <text x="1020" y="133" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3 · Graph-Datenbanken</text>
+    <text x="876" y="164" font-size="11" fill="#0f172a">PL/I-Dependency-Graph in</text>
+    <text x="876" y="180" font-size="11" fill="#0f172a">Amazon Neptune oder Neo4j.</text>
+    <text x="876" y="204" font-size="11" font-weight="700" fill="#065f46">Use-Cases:</text>
+    <text x="876" y="222" font-size="10" fill="#334155">&#8226;  "Welche Module sind betroffen,</text>
+    <text x="876" y="236" font-size="10" fill="#334155">  wenn ich X aendere?"</text>
+    <text x="876" y="252" font-size="10" fill="#334155">&#8226;  Pfad-Analyse zwischen Modulen</text>
+    <text x="876" y="268" font-size="10" fill="#334155">&#8226;  Identifikation Zyklen</text>
+    <text x="876" y="290" font-size="10" font-style="italic" fill="#065f46">Cypher-Queries durch Architekten</text>
+  </g>
+
+  <g filter="url(#sh70)">
+    <rect x="60" y="330" width="570" height="200" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="60" y="330" width="570" height="36" rx="12" fill="#dc2626"/>
+    <text x="345" y="353" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">4 · Formal Verification fuer Kern-Algorithmen</text>
+    <text x="76" y="384" font-size="11" fill="#0f172a">Fuer sehr kritische Kern-Algorithmen (Risk-Engines,</text>
+    <text x="76" y="400" font-size="11" fill="#0f172a">Versicherungsmathematik) formale Verifikation nutzen.</text>
+    <text x="76" y="426" font-size="11" font-weight="700" fill="#991b1b">Tools:</text>
+    <g font-size="10" fill="#334155">
+      <text x="76" y="444">&#8226;  <tspan font-weight="700">TLA+</tspan> (Leslie Lamport, AWS-genutzt fuer S3/DynamoDB)</text>
+      <text x="76" y="460">&#8226;  <tspan font-weight="700">Isabelle/HOL</tspan> (interaktive Theorem-Prover)</text>
+      <text x="76" y="476">&#8226;  <tspan font-weight="700">Dafny</tspan> (Verification-aware Programming)</text>
+      <text x="76" y="492">&#8226;  <tspan font-weight="700">frama-C</tspan> (fuer C-Komponenten)</text>
+    </g>
+    <text x="76" y="516" font-size="10" font-style="italic" fill="#991b1b">Aufwendig, aber in regulierten Umgebungen wirtschaftlich</text>
+  </g>
+
+  <g filter="url(#sh70)">
+    <rect x="650" y="330" width="530" height="200" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="650" y="330" width="530" height="36" rx="12" fill="#0891b2"/>
+    <text x="915" y="353" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">5 · Legacy-aware Observability</text>
+    <text x="666" y="384" font-size="11" fill="#0f172a">Ein Observability-Stack, der <tspan font-weight="700">sowohl</tspan> PL/I-Logs</text>
+    <text x="666" y="400" font-size="11" fill="#0f172a"><tspan font-weight="700">als auch</tspan> Java-Logs in ein gemeinsames Dashboard holt.</text>
+    <text x="666" y="426" font-size="11" font-weight="700" fill="#0e7490">Komponenten:</text>
+    <text x="666" y="444" font-size="10" fill="#334155">&#8226;  CloudWatch (AWS-Seite)</text>
+    <text x="666" y="460" font-size="10" fill="#334155">&#8226;  OpenTelemetry-Instrumentierung (Java)</text>
+    <text x="666" y="476" font-size="10" fill="#334155">&#8226;  Eigene Adapter fuer SMF-Extrakte (Mainframe)</text>
+    <text x="666" y="492" font-size="10" fill="#334155">&#8226;  Trace-ID-Propagation ueber Grenzen hinweg</text>
+    <text x="666" y="514" font-size="10" font-style="italic" fill="#0e7490">Das Ops-Team sieht die Migration "von oben"</text>
+  </g>
+
+  <!-- Bottom insight -->
+  <g filter="url(#sh70)">
+    <rect x="60" y="560" width="1120" height="180" rx="14" fill="#0f172a"/>
+    <text x="620" y="590" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Wann lohnen sich diese Optionen?</text>
+    <text x="100" y="616" font-size="11" fill="#cbd5e1">&#8226;  <tspan font-weight="700" fill="#e9d5ff">Fine-Tuning</tspan>: ab 500 kLOC eigener PL/I-Codebasis, wenn Standard-Modelle zu generisch werden</text>
+    <text x="100" y="634" font-size="11" fill="#cbd5e1">&#8226;  <tspan font-weight="700" fill="#fef3c7">Decision-Tables</tspan>: fuer Codebereiche mit 100+ Geschaeftsregeln, die regelmaessig veraendert werden</text>
+    <text x="100" y="652" font-size="11" fill="#cbd5e1">&#8226;  <tspan font-weight="700" fill="#a7f3d0">Graph-DB</tspan>: ab 1000+ Modulen, wenn Impact-Analysis kritisch wird</text>
+    <text x="100" y="670" font-size="11" fill="#cbd5e1">&#8226;  <tspan font-weight="700" fill="#fecaca">Formal Verification</tspan>: fuer Risk-Engines, Zinsberechnungen, Versicherungsmathematik in regulierten Umgebungen</text>
+    <text x="100" y="688" font-size="11" fill="#cbd5e1">&#8226;  <tspan font-weight="700" fill="#cffafe">Legacy-aware Observability</tspan>: Pflicht in 50-%-Projekten, optional in 100-%-Migrationen</text>
+    <text x="620" y="718" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">Keine dieser Optionen ist Standard — aber alle koennen in bestimmten Projekten den Unterschied machen.</text>
+  </g>
+</svg>

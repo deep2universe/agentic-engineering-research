@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 700" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh61" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="700" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Performance-Best-Practices</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Drei Pflicht-Praktiken, damit Java-Performance nicht zur Achilles-Verse wird</text>
+
+  <!-- 1. Profiling before migration -->
+  <g filter="url(#sh61)">
+    <rect x="60" y="110" width="380" height="440" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="60" y="110" width="380" height="44" rx="14" fill="#2563eb"/>
+    <text x="250" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">1 · Profiling VOR Migration</text>
+
+    <text x="80" y="182" font-size="12" font-weight="700" fill="#0f172a">Ohne Baseline keine Referenz</text>
+    <text x="80" y="200" font-size="11" fill="#334155">Erstelle ein Profil des PL/I-Codes,</text>
+    <text x="80" y="216" font-size="11" fill="#334155">bevor die Migration startet:</text>
+
+    <g font-size="11" fill="#334155">
+      <circle cx="96" cy="244" r="4" fill="#2563eb"/>
+      <text x="108" y="248"><tspan font-weight="700">CPU-Zeit</tspan> pro Modul</text>
+      <text x="108" y="262" font-size="10" fill="#64748b">via SMF-Records (Type 30)</text>
+
+      <circle cx="96" cy="288" r="4" fill="#2563eb"/>
+      <text x="108" y="292"><tspan font-weight="700">I/O-Zeit</tspan> pro DB-Call</text>
+      <text x="108" y="306" font-size="10" fill="#64748b">via DB2 Performance Monitor</text>
+
+      <circle cx="96" cy="332" r="4" fill="#2563eb"/>
+      <text x="108" y="336"><tspan font-weight="700">Speicher-Verbrauch</tspan></text>
+      <text x="108" y="350" font-size="10" fill="#64748b">Region-Size, Real + Virtual Storage</text>
+
+      <circle cx="96" cy="376" r="4" fill="#2563eb"/>
+      <text x="108" y="380"><tspan font-weight="700">MIPS-Verbrauch</tspan></text>
+      <text x="108" y="394" font-size="10" fill="#64748b">Pro Transaktion + pro Job</text>
+
+      <circle cx="96" cy="420" r="4" fill="#2563eb"/>
+      <text x="108" y="424"><tspan font-weight="700">Batch-Window-Dauer</tspan></text>
+      <text x="108" y="438" font-size="10" fill="#64748b">Start-Zeit, End-Zeit, Wartezeiten</text>
+    </g>
+
+    <text x="80" y="480" font-size="11" font-weight="700" fill="#1e3a8a">Ergebnis: PERF_BASELINE.md</text>
+    <text x="80" y="498" font-size="10" fill="#334155">Dokument mit allen Baseline-Werten</text>
+    <text x="80" y="514" font-size="10" fill="#334155">pro Modul, pro Transaktion.</text>
+    <text x="80" y="534" font-size="10" font-style="italic" fill="#1e40af">Referenz fuer spaetere Java-Messung</text>
+  </g>
+
+  <!-- 2. Performance-Regression-Tests -->
+  <g filter="url(#sh61)">
+    <rect x="460" y="110" width="380" height="440" rx="14" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="460" y="110" width="380" height="44" rx="14" fill="#059669"/>
+    <text x="650" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">2 · Performance-Regression-Tests</text>
+
+    <text x="480" y="182" font-size="12" font-weight="700" fill="#0f172a">Pro kritische Transaktion:</text>
+    <text x="480" y="200" font-size="11" fill="#334155">Ein Performance-Test, der die Java-Fassung mit</text>
+    <text x="480" y="216" font-size="11" fill="#334155">der PL/I-Baseline vergleicht.</text>
+
+    <text x="480" y="248" font-size="12" font-weight="700" fill="#0f172a">Toleranz:</text>
+    <rect x="480" y="258" width="320" height="36" rx="6" fill="#d1fae5" stroke="#059669"/>
+    <text x="640" y="281" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">+/- 20 %</text>
+
+    <text x="480" y="316" font-size="12" font-weight="700" fill="#0f172a">Messung:</text>
+    <g font-size="11" fill="#334155">
+      <text x="480" y="338">&#8226;  Throughput (TX/Sek)</text>
+      <text x="480" y="356">&#8226;  Latency P50 / P95 / P99</text>
+      <text x="480" y="374">&#8226;  Error-Rate</text>
+      <text x="480" y="392">&#8226;  JVM-Heap-Usage</text>
+      <text x="480" y="410">&#8226;  GC-Pause-Zeit</text>
+    </g>
+
+    <text x="480" y="440" font-size="12" font-weight="700" fill="#065f46">Werkzeuge:</text>
+    <g font-size="10" fill="#334155">
+      <text x="480" y="460">&#8226;  Gatling (HTTP / JMS Load)</text>
+      <text x="480" y="476">&#8226;  JMeter (Klassisch)</text>
+      <text x="480" y="492">&#8226;  JMH (Micro-Benchmark)</text>
+      <text x="480" y="508">&#8226;  Java Flight Recorder</text>
+      <text x="480" y="524">&#8226;  AWS CloudWatch Synthetic</text>
+    </g>
+  </g>
+
+  <!-- 3. JVM Tuning -->
+  <g filter="url(#sh61)">
+    <rect x="860" y="110" width="320" height="440" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="860" y="110" width="320" height="44" rx="14" fill="#f59e0b"/>
+    <text x="1020" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">3 · JVM-Tuning</text>
+
+    <text x="880" y="182" font-size="12" font-weight="700" fill="#0f172a">Realitaet:</text>
+    <text x="880" y="200" font-size="11" fill="#334155">Generierte Java-Apps laufen</text>
+    <text x="880" y="216" font-size="11" fill="#334155">oft in Containern auf EKS.</text>
+
+    <text x="880" y="246" font-size="12" font-weight="700" fill="#0f172a">JVM-Tuning ist ein</text>
+    <text x="880" y="262" font-size="12" font-weight="700" fill="#0f172a">eigenes Skill-Set</text>
+
+    <text x="880" y="290" font-size="11" font-weight="700" fill="#b45309">Kritische Bereiche:</text>
+    <g font-size="10" fill="#334155">
+      <text x="880" y="310">&#8226;  Heap-Size (-Xms, -Xmx)</text>
+      <text x="880" y="326">&#8226;  GC-Algorithmus (G1, ZGC, Shenandoah)</text>
+      <text x="880" y="342">&#8226;  GC-Pause-Targets</text>
+      <text x="880" y="358">&#8226;  JIT-Compiler (C1, C2)</text>
+      <text x="880" y="374">&#8226;  Container-Aware Sizing</text>
+      <text x="880" y="390">&#8226;  Native Memory (Netty, off-heap)</text>
+      <text x="880" y="406">&#8226;  Thread-Pool-Tuning</text>
+      <text x="880" y="422">&#8226;  JFR-Aktivierung in Prod</text>
+    </g>
+
+    <text x="880" y="458" font-size="11" font-weight="700" fill="#dc2626">NICHT delegieren!</text>
+    <text x="880" y="476" font-size="10" fill="#334155">Nicht an Transform-Agent</text>
+    <text x="880" y="490" font-size="10" fill="#334155">und nicht an Junior-Engineers.</text>
+    <text x="880" y="516" font-size="10" font-style="italic" fill="#b45309">Brauche einen dedizierten</text>
+    <text x="880" y="530" font-size="10" font-style="italic" fill="#b45309">Performance-Engineer</text>
+  </g>
+
+  <text x="620" y="660" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">Mainframe-Batch-Jobs laufen in festen Windows (02:00–06:00). Java-Fassung muss dasselbe Budget einhalten — besser unterbieten.</text>
+  <text x="620" y="682" text-anchor="middle" font-size="10" font-style="italic" fill="#64748b">Keine Performance-Kuer. Performance-Tests sind Pflicht vor jedem Go-Live.</text>
+</svg>

@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh42" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr42" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Unit-Tests (50 %) — Generierung und Struktur</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Wie Unit-Tests fuer transformierten PL/I-Code entstehen und welche Arten wichtig sind</text>
+
+  <!-- Generation flow -->
+  <text x="620" y="110" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">Generierungs-Flow</text>
+
+  <g filter="url(#sh42)">
+    <rect x="60" y="130" width="200" height="80" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="160" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">PL/I-Original</text>
+    <text x="160" y="176" text-anchor="middle" font-size="10" fill="#7f1d1d">Business-Szenarien</text>
+    <text x="160" y="192" text-anchor="middle" font-size="10" fill="#7f1d1d">identifizieren</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="300" y="130" width="200" height="80" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="400" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">Transformierter</text>
+    <text x="400" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">Java-Code</text>
+    <text x="400" y="192" text-anchor="middle" font-size="10" fill="#1e40af">via AWS Refactor + Reforge</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="540" y="130" width="200" height="80" rx="10" fill="#faf5ff" stroke="#7b2cbf" stroke-width="2"/>
+    <text x="640" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#6b21a8">Testing Automation</text>
+    <text x="640" y="172" text-anchor="middle" font-size="12" font-weight="700" fill="#6b21a8">Agent</text>
+    <text x="640" y="192" text-anchor="middle" font-size="10" fill="#6b21a8">AWS Transform</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="780" y="130" width="200" height="80" rx="10" fill="#f0fdf4" stroke="#059669" stroke-width="2"/>
+    <text x="880" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">JUnit 5 + AssertJ</text>
+    <text x="880" y="172" text-anchor="middle" font-size="10" fill="#047857">generierte Tests</text>
+    <text x="880" y="192" text-anchor="middle" font-size="10" fill="#047857">als .java-Dateien</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="1020" y="130" width="200" height="80" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="1120" y="158" text-anchor="middle" font-size="12" font-weight="700" fill="#78350f">Senior-Review</text>
+    <text x="1120" y="172" text-anchor="middle" font-size="10" fill="#92400e">Pflicht:</text>
+    <text x="1120" y="186" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle">kein LLM-Output</text>
+    <text x="1120" y="200" font-size="10" font-weight="700" fill="#92400e" text-anchor="middle">ohne Review!</text>
+  </g>
+
+  <g stroke="#059669" stroke-width="2" fill="none" marker-end="url(#arr42)">
+    <line x1="260" y1="170" x2="298" y2="170"/>
+    <line x1="500" y1="170" x2="538" y2="170"/>
+    <line x1="740" y1="170" x2="778" y2="170"/>
+    <line x1="980" y1="170" x2="1018" y2="170"/>
+  </g>
+
+  <!-- Test types -->
+  <text x="620" y="258" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">Die sechs wichtigen Test-Arten</text>
+
+  <g filter="url(#sh42)">
+    <rect x="60" y="280" width="370" height="200" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="60" y="280" width="370" height="36" rx="12" fill="#059669"/>
+    <text x="245" y="303" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Happy-Path-Tests</text>
+    <text x="76" y="336" font-size="11" fill="#0f172a">Standard-Eingaben mit erwarteten Outputs</text>
+    <text x="76" y="356" font-size="10" fill="#334155">&#8226;  Normal-Inputs</text>
+    <text x="76" y="372" font-size="10" fill="#334155">&#8226;  Standard-Workflow</text>
+    <text x="76" y="388" font-size="10" fill="#334155">&#8226;  Default-Konfiguration</text>
+    <text x="76" y="414" font-size="10" font-weight="700" fill="#065f46">Beispiel:</text>
+    <text x="76" y="430" font-size="9" fill="#334155" font-family="monospace">assertThat(zinsRechner.compute(</text>
+    <text x="76" y="444" font-size="9" fill="#334155" font-family="monospace">  new BigDecimal("1000"), 12, 0.05))</text>
+    <text x="76" y="458" font-size="9" fill="#334155" font-family="monospace">  .isEqualTo(new BigDecimal("50.00"));</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="445" y="280" width="370" height="200" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <rect x="445" y="280" width="370" height="36" rx="12" fill="#2563eb"/>
+    <text x="630" y="303" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Boundary-Tests</text>
+    <text x="461" y="336" font-size="11" fill="#0f172a">Grenzwerte der Datentypen</text>
+    <text x="461" y="356" font-size="10" fill="#334155">&#8226;  MAX_VALUE / MIN_VALUE der FIXED-Typen</text>
+    <text x="461" y="372" font-size="10" fill="#334155">&#8226;  Leere Strings / leere Arrays</text>
+    <text x="461" y="388" font-size="10" fill="#334155">&#8226;  null / not-null Transitions</text>
+    <text x="461" y="404" font-size="10" fill="#334155">&#8226;  Overflow-Kippstellen</text>
+    <text x="461" y="430" font-size="10" font-weight="700" fill="#1e3a8a">Beispiel:</text>
+    <text x="461" y="446" font-size="9" fill="#334155" font-family="monospace">assertThatThrownBy(() -> compute(MAX))</text>
+    <text x="461" y="460" font-size="9" fill="#334155" font-family="monospace">  .isInstanceOf(ArithmeticException.class);</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="830" y="280" width="370" height="200" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="830" y="280" width="370" height="36" rx="12" fill="#dc2626"/>
+    <text x="1015" y="303" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Negative Tests</text>
+    <text x="846" y="336" font-size="11" fill="#0f172a">Ungueltige Eingaben, Exception-Pfade</text>
+    <text x="846" y="356" font-size="10" fill="#334155">&#8226;  NULL-Pointer / leere Referenzen</text>
+    <text x="846" y="372" font-size="10" fill="#334155">&#8226;  Fehlerhafte Datentypen</text>
+    <text x="846" y="388" font-size="10" fill="#334155">&#8226;  Division durch Null (ZERODIVIDE)</text>
+    <text x="846" y="404" font-size="10" fill="#334155">&#8226;  I/O-Fehler (ENDFILE, KEY)</text>
+    <text x="846" y="430" font-size="10" font-weight="700" fill="#991b1b">Beispiel:</text>
+    <text x="846" y="446" font-size="9" fill="#334155" font-family="monospace">assertThatThrownBy(() -> divide(1, 0))</text>
+    <text x="846" y="460" font-size="9" fill="#334155" font-family="monospace">  .hasMessageContaining("ZERODIVIDE");</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="60" y="500" width="370" height="200" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="60" y="500" width="370" height="36" rx="12" fill="#f59e0b"/>
+    <text x="245" y="523" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">FIXED-DECIMAL-Tests</text>
+    <text x="76" y="556" font-size="11" font-weight="700" fill="#78350f">KRITISCH wichtig!</text>
+    <text x="76" y="574" font-size="10" fill="#334155">Fuer JEDE arithmetische Operation:</text>
+    <text x="76" y="590" font-size="10" fill="#334155">&#8226;  3 Rundungs-Szenarien min.</text>
+    <text x="76" y="606" font-size="10" fill="#334155">&#8226;  Intermediate-Precision-Pruefung</text>
+    <text x="76" y="622" font-size="10" fill="#334155">&#8226;  Overflow + Underflow</text>
+    <text x="76" y="638" font-size="10" fill="#334155">&#8226;  Signed vs unsigned</text>
+    <text x="76" y="654" font-size="10" fill="#334155">&#8226;  Kippstellen (letzte Stelle = 5)</text>
+    <text x="76" y="680" font-size="10" font-style="italic" fill="#92400e">Details: siehe Kapitel 10 (FIXED-DECIMAL-Strategie)</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="445" y="500" width="370" height="200" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="445" y="500" width="370" height="36" rx="12" fill="#7b2cbf"/>
+    <text x="630" y="523" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Pointer-Lifecycle-Tests</text>
+    <text x="461" y="556" font-size="11" fill="#0f172a">Fuer jedes BASED / CONTROLLED / POINTER:</text>
+    <text x="461" y="576" font-size="10" fill="#334155">&#8226;  allocate → dereferenzieren</text>
+    <text x="461" y="592" font-size="10" fill="#334155">&#8226;  dereferenzieren → free</text>
+    <text x="461" y="608" font-size="10" fill="#334155">&#8226;  erneut allocate nach free</text>
+    <text x="461" y="624" font-size="10" fill="#334155">&#8226;  Alias-Konsistenz</text>
+    <text x="461" y="640" font-size="10" fill="#334155">&#8226;  Use-after-free Erkennung</text>
+    <text x="461" y="656" font-size="10" fill="#334155">&#8226;  Double-free Erkennung</text>
+    <text x="461" y="680" font-size="10" font-style="italic" fill="#6b21a8">Besondere Aufmerksamkeit bei ByteBuffer-Mapping</text>
+  </g>
+
+  <g filter="url(#sh42)">
+    <rect x="830" y="500" width="370" height="200" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="830" y="500" width="370" height="36" rx="12" fill="#0891b2"/>
+    <text x="1015" y="523" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">ON-Unit-Tests</text>
+    <text x="846" y="556" font-size="11" fill="#0f172a">Verschiedene Bedingungen simulieren</text>
+    <text x="846" y="572" font-size="11" fill="#0f172a">und den richtigen Handler aufloesen:</text>
+    <text x="846" y="592" font-size="10" fill="#334155">&#8226;  ZERODIVIDE / OVERFLOW</text>
+    <text x="846" y="608" font-size="10" fill="#334155">&#8226;  ENDFILE / KEY</text>
+    <text x="846" y="624" font-size="10" fill="#334155">&#8226;  UNDEFINEDFILE</text>
+    <text x="846" y="640" font-size="10" fill="#334155">&#8226;  STORAGE / ERROR / FINISH</text>
+    <text x="846" y="656" font-size="10" fill="#334155">&#8226;  CONDITION(name) custom-conditions</text>
+    <text x="846" y="680" font-size="10" font-style="italic" fill="#0e7490">Dynamisches Scoping → ThreadLocal-Stack-Tests</text>
+  </g>
+</svg>

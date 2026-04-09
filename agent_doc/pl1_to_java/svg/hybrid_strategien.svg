@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh67" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="720" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Hybrid-Strategien</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Drei Pfade, die Koexistenz bewusst als Ziel oder Zwischenstufe nutzen</text>
+
+  <!-- 1. Hybrid-Coexistence als Dauerzustand -->
+  <g filter="url(#sh67)">
+    <rect x="60" y="110" width="560" height="270" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="60" y="110" width="560" height="44" rx="14" fill="#2563eb"/>
+    <text x="340" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">1 · Hybrid-Coexistence als Dauerzustand</text>
+
+    <text x="80" y="180" font-size="12" font-weight="700" fill="#0f172a">Idee:</text>
+    <text x="80" y="198" font-size="11" fill="#334155">Koexistenz ist nicht der Zwischenschritt, sondern der Zielzustand.</text>
+
+    <g transform="translate(80, 220)">
+      <rect x="0" y="0" width="220" height="80" rx="8" fill="#0f172a"/>
+      <text x="110" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Mainframe (PL/I)</text>
+      <text x="110" y="42" text-anchor="middle" font-size="9" fill="#94a3b8">Transaktionaler Kern:</text>
+      <text x="110" y="56" text-anchor="middle" font-size="9" fill="#94a3b8">Accounts, Policies,</text>
+      <text x="110" y="70" text-anchor="middle" font-size="9" fill="#94a3b8">Settlements</text>
+
+      <rect x="260" y="0" width="220" height="80" rx="8" fill="#065f46"/>
+      <text x="370" y="22" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">AWS (Java)</text>
+      <text x="370" y="42" text-anchor="middle" font-size="9" fill="#a7f3d0">Peripherie:</text>
+      <text x="370" y="56" text-anchor="middle" font-size="9" fill="#a7f3d0">UI, Reporting,</text>
+      <text x="370" y="70" text-anchor="middle" font-size="9" fill="#a7f3d0">Analytics, ML</text>
+    </g>
+
+    <text x="80" y="330" font-size="11" font-weight="700" fill="#1e40af">Wann sinnvoll:</text>
+    <text x="80" y="348" font-size="10" fill="#334155">Wenn der Kern stabil laeuft und die Weiterentwicklung nur in der</text>
+    <text x="80" y="362" font-size="10" fill="#334155">Peripherie stattfindet. Bewusste Architektur-Entscheidung, keine Niederlage.</text>
+  </g>
+
+  <!-- 2. Parallel-Run ueber Monate -->
+  <g filter="url(#sh67)">
+    <rect x="640" y="110" width="560" height="270" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="640" y="110" width="560" height="44" rx="14" fill="#ffffff" stroke="#f59e0b"/>
+    <rect x="640" y="110" width="560" height="44" rx="14" fill="#f59e0b"/>
+    <text x="920" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">2 · Parallel-Run ueber Monate</text>
+
+    <text x="660" y="180" font-size="12" font-weight="700" fill="#0f172a">Idee:</text>
+    <text x="660" y="198" font-size="11" fill="#334155">Statt Cutover beide Seiten gleichzeitig laufen lassen.</text>
+
+    <!-- Timeline -->
+    <rect x="660" y="230" width="520" height="14" rx="7" fill="#64748b"/>
+    <circle cx="700" cy="237" r="14" fill="#2563eb"/>
+    <text x="700" y="241" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">0m</text>
+    <circle cx="860" cy="237" r="14" fill="#7b2cbf"/>
+    <text x="860" y="241" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">6m</text>
+    <circle cx="1020" cy="237" r="14" fill="#ea580c"/>
+    <text x="1020" y="241" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">12m</text>
+    <circle cx="1160" cy="237" r="14" fill="#059669"/>
+    <text x="1160" y="241" text-anchor="middle" font-size="9" font-weight="700" fill="#ffffff">24m</text>
+
+    <g font-size="10" fill="#334155">
+      <text x="660" y="272"><tspan font-weight="700">0–6 m:</tspan> PL/I Master, Java Read-only Replica, Vergleich</text>
+      <text x="660" y="290"><tspan font-weight="700">6–12 m:</tspan> Java wird Master, PL/I Read-only</text>
+      <text x="660" y="308"><tspan font-weight="700">12–24 m:</tspan> Beobachtung stabil</text>
+      <text x="660" y="326"><tspan font-weight="700">Nach 24 m:</tspan> PL/I abschalten</text>
+    </g>
+    <text x="660" y="358" font-size="10" font-style="italic" fill="#b45309">Lange, aber sehr risikoarm — fuer regulierte Umgebungen geeignet</text>
+  </g>
+
+  <!-- 3. Selective Reimagine -->
+  <g filter="url(#sh67)">
+    <rect x="60" y="400" width="1140" height="220" rx="14" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="60" y="400" width="1140" height="44" rx="14" fill="#7b2cbf"/>
+    <text x="630" y="430" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">3 · Selective Reimagine</text>
+
+    <text x="80" y="470" font-size="12" font-weight="700" fill="#0f172a">Idee:</text>
+    <text x="80" y="488" font-size="11" fill="#334155">Nur ausgewaehlte Bounded Contexts werden "reimagined" — der Rest bleibt refactorisiert.</text>
+
+    <g transform="translate(80, 510)">
+      <rect x="0" y="0" width="240" height="90" rx="8" fill="#fef3c7" stroke="#d97706"/>
+      <text x="120" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#78350f">Customer-Journey</text>
+      <text x="120" y="40" text-anchor="middle" font-size="10" fill="#92400e">Reimagine mit Kiro</text>
+      <text x="120" y="56" text-anchor="middle" font-size="10" fill="#92400e">Omnichannel-Portal,</text>
+      <text x="120" y="70" text-anchor="middle" font-size="10" fill="#92400e">Microservices, DDD</text>
+
+      <rect x="280" y="0" width="240" height="90" rx="8" fill="#fef3c7" stroke="#d97706"/>
+      <text x="400" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#78350f">Analytics-Domain</text>
+      <text x="400" y="40" text-anchor="middle" font-size="10" fill="#92400e">Reimagine mit Kiro</text>
+      <text x="400" y="56" text-anchor="middle" font-size="10" fill="#92400e">SageMaker + QuickSight</text>
+      <text x="400" y="70" text-anchor="middle" font-size="10" fill="#92400e">Data-Lakehouse-Ansatz</text>
+
+      <rect x="560" y="0" width="240" height="90" rx="8" fill="#d1fae5" stroke="#059669"/>
+      <text x="680" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Transaction-Core</text>
+      <text x="680" y="40" text-anchor="middle" font-size="10" fill="#047857">Refactor mit AWS Transform</text>
+      <text x="680" y="56" text-anchor="middle" font-size="10" fill="#047857">Accounts, Policies, Booking</text>
+      <text x="680" y="70" text-anchor="middle" font-size="10" fill="#047857">Bleibt strukturidentisch</text>
+
+      <rect x="840" y="0" width="240" height="90" rx="8" fill="#d1fae5" stroke="#059669"/>
+      <text x="960" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Compliance-Layer</text>
+      <text x="960" y="40" text-anchor="middle" font-size="10" fill="#047857">Refactor mit AWS Transform</text>
+      <text x="960" y="56" text-anchor="middle" font-size="10" fill="#047857">Audit + Reporting + Audit</text>
+      <text x="960" y="70" text-anchor="middle" font-size="10" fill="#047857">Semantik-Treue kritisch</text>
+    </g>
+  </g>
+
+  <text x="620" y="680" text-anchor="middle" font-size="11" font-style="italic" fill="#64748b">Senior-Architekten nutzen Kiro fuer die Reimagine-Contexte und AWS Transform Refactor fuer den Rest.</text>
+</svg>

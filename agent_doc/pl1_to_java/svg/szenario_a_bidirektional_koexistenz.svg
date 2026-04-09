@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh32" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr32" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arr32b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#0891b2"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="780" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Szenario A — Bidirektionale Koexistenz</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Architektur-Pattern fuer Modul-basierte 50-%-Projekte</text>
+
+  <!-- Mainframe side -->
+  <g filter="url(#sh32)">
+    <rect x="60" y="110" width="380" height="340" rx="14" fill="#0f172a"/>
+    <text x="250" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">MAINFRAME (z/OS + CICS)</text>
+  </g>
+
+  <g filter="url(#sh32)">
+    <rect x="80" y="160" width="340" height="60" rx="8" fill="#1e40af"/>
+    <text x="250" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">CICS-Region (PL/I-Module)</text>
+    <text x="250" y="206" text-anchor="middle" font-size="10" fill="#bfdbfe">legacy transactional core, policies, accounts</text>
+  </g>
+
+  <g filter="url(#sh32)">
+    <rect x="80" y="230" width="340" height="50" rx="8" fill="#7b2cbf"/>
+    <text x="250" y="250" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">CICS Web Services / MQSeries-Bridge</text>
+    <text x="250" y="266" text-anchor="middle" font-size="9" fill="#e9d5ff">SOAP/REST aus CICS + MQI Client</text>
+  </g>
+
+  <g filter="url(#sh32)">
+    <rect x="80" y="290" width="340" height="60" rx="8" fill="#059669"/>
+    <text x="250" y="318" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">DB2 z/OS (Single Source of Truth)</text>
+    <text x="250" y="336" text-anchor="middle" font-size="10" fill="#d1fae5">bleibt Master fuer gemeinsame Datenbestaende</text>
+  </g>
+
+  <g filter="url(#sh32)">
+    <rect x="80" y="360" width="340" height="70" rx="8" fill="#dc2626"/>
+    <text x="250" y="388" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">IBM MQ</text>
+    <text x="250" y="406" text-anchor="middle" font-size="10" fill="#fecaca">alte MQI-Queues, Legacy-Transactions,</text>
+    <text x="250" y="420" text-anchor="middle" font-size="10" fill="#fecaca">bridge zu Amazon MQ</text>
+  </g>
+
+  <!-- Direct Connect -->
+  <g filter="url(#sh32)">
+    <rect x="480" y="220" width="280" height="100" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+    <text x="620" y="250" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">AWS Direct Connect</text>
+    <text x="620" y="270" text-anchor="middle" font-size="11" fill="#92400e">Dedizierte Leitung, low-latency</text>
+    <text x="620" y="286" text-anchor="middle" font-size="11" fill="#92400e">kontrollierte Bandbreite</text>
+    <text x="620" y="304" text-anchor="middle" font-size="10" font-style="italic" fill="#78350f">Keine Option: Public Internet</text>
+  </g>
+
+  <!-- AWS side -->
+  <g filter="url(#sh32)">
+    <rect x="800" y="110" width="380" height="340" rx="14" fill="#052e16"/>
+    <text x="990" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">AWS (EKS + Services)</text>
+  </g>
+
+  <g filter="url(#sh32)">
+    <rect x="820" y="160" width="340" height="60" rx="8" fill="#065f46"/>
+    <text x="990" y="188" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Java-Services (EKS)</text>
+    <text x="990" y="206" text-anchor="middle" font-size="10" fill="#a7f3d0">migrierte Module, Spring Boot, multi-AZ</text>
+  </g>
+
+  <g filter="url(#sh32)">
+    <rect x="820" y="230" width="340" height="50" rx="8" fill="#0891b2"/>
+    <text x="990" y="250" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Amazon API Gateway + ALB</text>
+    <text x="990" y="266" text-anchor="middle" font-size="9" fill="#cffafe">HTTP/REST + WebSocket + IAM-Auth</text>
+  </g>
+
+  <g filter="url(#sh32)">
+    <rect x="820" y="290" width="340" height="60" rx="8" fill="#2563eb"/>
+    <text x="990" y="318" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Aurora PostgreSQL</text>
+    <text x="990" y="336" text-anchor="middle" font-size="10" fill="#bfdbfe">Read-Replica, gespiegelt via DMS + CDC</text>
+  </g>
+
+  <g filter="url(#sh32)">
+    <rect x="820" y="360" width="340" height="70" rx="8" fill="#c026d3"/>
+    <text x="990" y="388" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Amazon MQ</text>
+    <text x="990" y="406" text-anchor="middle" font-size="10" fill="#f5d0fe">ActiveMQ-Engine, JMS-API,</text>
+    <text x="990" y="420" text-anchor="middle" font-size="10" fill="#f5d0fe">Bridge zu IBM MQ</text>
+  </g>
+
+  <!-- Bidirectional arrows -->
+  <g fill="none">
+    <path d="M 430 190 Q 600 195 800 190" stroke="#f59e0b" stroke-width="3" marker-end="url(#arr32)"/>
+    <path d="M 800 410 Q 600 425 430 410" stroke="#0891b2" stroke-width="3" marker-end="url(#arr32b)"/>
+  </g>
+
+  <text x="615" y="180" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">Mainframe → AWS (Java-Services)</text>
+  <text x="615" y="450" text-anchor="middle" font-size="10" font-weight="700" fill="#0e7490">AWS → Mainframe (PL/I-Modules)</text>
+
+  <!-- Pitfalls -->
+  <g filter="url(#sh32)">
+    <rect x="60" y="490" width="560" height="220" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="340" y="520" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">Fallstricke</text>
+    <g font-size="11" fill="#7f1d1d">
+      <text x="80" y="548" font-weight="700">Latenz:</text>
+      <text x="140" y="548">Transaktionen die frueher synchron in CICS liefen, werden</text>
+      <text x="140" y="562">nun netz-gebunden. +1–10 ms pro Hop.</text>
+      <text x="80" y="586" font-weight="700">Error-Handling:</text>
+      <text x="200" y="586">Timeout &#8800; ABEND. Semantik und Retry-Logik</text>
+      <text x="200" y="600">muessen explizit definiert werden.</text>
+      <text x="80" y="624" font-weight="700">Saga statt XA:</text>
+      <text x="190" y="624">2PC ueber Mainframe/AWS nicht verfuegbar.</text>
+      <text x="190" y="638">Kompensierende Transaktionen einsetzen.</text>
+      <text x="80" y="662" font-weight="700">Data-Master:</text>
+      <text x="180" y="662">Niemals Double-Master fuer dieselbe Tabelle.</text>
+      <text x="180" y="676">Konfliktaufloesung ist kein Code-Thema.</text>
+      <text x="80" y="696" font-style="italic">→ Jeder Punkt braucht ein dokumentiertes ADR vor dem Go-Live.</text>
+    </g>
+  </g>
+
+  <!-- CDC Data Sync -->
+  <g filter="url(#sh32)">
+    <rect x="640" y="490" width="540" height="220" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="910" y="520" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Daten-Synchronisation via CDC</text>
+    <g font-size="11" fill="#1e40af">
+      <text x="660" y="548" font-weight="700">Default:</text>
+      <text x="730" y="548">DB2 bleibt Master, Aurora wird mit AWS DMS +</text>
+      <text x="730" y="562">CDC in Near-Realtime gespiegelt. Precisely</text>
+      <text x="730" y="576">Connect kann native DB2-Log-Scans machen.</text>
+
+      <text x="660" y="600" font-weight="700">Alternative:</text>
+      <text x="760" y="600">Aurora wird zum Master fuer migrierte Domains.</text>
+      <text x="760" y="614">DB2 bekommt eine Rueckspiegelung.</text>
+      <text x="760" y="628">Technisch aufwendiger, semantisch sauberer.</text>
+
+      <text x="660" y="654" font-weight="700">Regel:</text>
+      <text x="710" y="654">Jede Domain = genau ein Master.</text>
+
+      <text x="660" y="680" font-weight="700">Tools:</text>
+      <text x="710" y="680">AWS DMS, Precisely Connect, IBM IDAA,</text>
+      <text x="710" y="694">manchmal Kafka Connect + Debezium</text>
+    </g>
+  </g>
+</svg>

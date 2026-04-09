@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh69" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="720" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Team- und Organisations-Ideen</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Vier Patterns, die den menschlichen Teil der Migration verbessern</text>
+
+  <g filter="url(#sh69)">
+    <rect x="60" y="110" width="560" height="270" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="60" y="110" width="560" height="44" rx="14" fill="#2563eb"/>
+    <text x="340" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">1 · "Anthology of the Old System"</text>
+
+    <text x="80" y="180" font-size="12" font-weight="700" fill="#0f172a">Was:</text>
+    <text x="80" y="198" font-size="11" fill="#334155">Ein Junior-Team (oder ein Agent!) erstellt eine</text>
+    <text x="80" y="214" font-size="11" fill="#334155">Geschichts-Sammlung:</text>
+
+    <g font-size="11" fill="#334155">
+      <circle cx="96" cy="240" r="4" fill="#2563eb"/>
+      <text x="108" y="244">Interviews mit PL/I-Entwicklern</text>
+      <circle cx="96" cy="260" r="4" fill="#2563eb"/>
+      <text x="108" y="264">Erklaerungen zu schwierigen Modulen</text>
+      <circle cx="96" cy="280" r="4" fill="#2563eb"/>
+      <text x="108" y="284">Mythen und Anekdoten zur Codebasis</text>
+      <circle cx="96" cy="300" r="4" fill="#2563eb"/>
+      <text x="108" y="304">Historische Architektur-Entscheidungen</text>
+    </g>
+
+    <text x="80" y="340" font-size="11" font-style="italic" fill="#1e40af">Dieses Wissen geht sonst verloren —</text>
+    <text x="80" y="354" font-size="11" font-style="italic" fill="#1e40af">und es ist oft der Schluessel fuer kritische Module.</text>
+  </g>
+
+  <g filter="url(#sh69)">
+    <rect x="640" y="110" width="560" height="270" rx="14" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="640" y="110" width="560" height="44" rx="14" fill="#059669"/>
+    <text x="920" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">2 · PL/I-Veterans-Gruppe</text>
+
+    <text x="660" y="180" font-size="12" font-weight="700" fill="#0f172a">Was:</text>
+    <text x="660" y="198" font-size="11" fill="#334155">Ehemalige PL/I-Entwickler (auch externe, Retiree-Pool)</text>
+    <text x="660" y="214" font-size="11" fill="#334155">als On-Demand-Berater einbinden.</text>
+
+    <text x="660" y="244" font-size="11" font-weight="700" fill="#065f46">Warum das funktioniert:</text>
+    <text x="660" y="262" font-size="10" fill="#334155">Viele sind zu reduzierten Saetzen bereit,</text>
+    <text x="660" y="276" font-size="10" fill="#334155">weiterhin mitzuwirken — wenn sie sinnvoll eingesetzt werden.</text>
+
+    <text x="660" y="306" font-size="11" font-weight="700" fill="#065f46">Einsatz-Modelle:</text>
+    <text x="660" y="324" font-size="10" fill="#334155">&#8226;  Retainer-Vertraege (10–20 h/Woche)</text>
+    <text x="660" y="340" font-size="10" fill="#334155">&#8226;  Stundenbasierte "Office Hours" fuer komplexe Fragen</text>
+    <text x="660" y="356" font-size="10" fill="#334155">&#8226;  Review-Verpflichtungen fuer kritische Module</text>
+  </g>
+
+  <g filter="url(#sh69)">
+    <rect x="60" y="400" width="560" height="270" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="60" y="400" width="560" height="44" rx="14" fill="#f59e0b"/>
+    <text x="340" y="430" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">3 · Mainframe-to-AWS-Academy</text>
+
+    <text x="80" y="470" font-size="12" font-weight="700" fill="#0f172a">Was:</text>
+    <text x="80" y="488" font-size="11" fill="#334155">Interne Schulungen fuer Java-Entwickler,</text>
+    <text x="80" y="504" font-size="11" fill="#334155">die PL/I-Grundlagen beibringen.</text>
+
+    <text x="80" y="534" font-size="12" font-weight="700" fill="#92400e">Ziel:</text>
+    <text x="80" y="552" font-size="11" fill="#334155">Jeder Java-Entwickler auf dem Projekt kann PL/I <tspan font-style="italic">lesen</tspan>,</text>
+    <text x="80" y="568" font-size="11" fill="#334155">auch wenn er es nicht schreiben muss.</text>
+
+    <text x="80" y="598" font-size="11" font-weight="700" fill="#0f172a">Lerninhalte:</text>
+    <text x="80" y="616" font-size="10" fill="#334155">&#8226;  Basis-Syntax (DCL, PROCEDURE, IF-THEN-ELSE)</text>
+    <text x="80" y="632" font-size="10" fill="#334155">&#8226;  BASED-Variablen + Pointer-Grundlagen</text>
+    <text x="80" y="648" font-size="10" fill="#334155">&#8226;  ON-Units + Preprocessor</text>
+  </g>
+
+  <g filter="url(#sh69)">
+    <rect x="640" y="400" width="560" height="270" rx="14" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="640" y="400" width="560" height="44" rx="14" fill="#7b2cbf"/>
+    <text x="920" y="430" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">4 · Rotation</text>
+
+    <text x="660" y="470" font-size="12" font-weight="700" fill="#0f172a">Was:</text>
+    <text x="660" y="488" font-size="11" fill="#334155">Java-Entwickler rotieren fuer zwei Wochen</text>
+    <text x="660" y="504" font-size="11" fill="#334155">in das PL/I-Team und umgekehrt.</text>
+
+    <text x="660" y="534" font-size="12" font-weight="700" fill="#6b21a8">Effekte:</text>
+    <text x="660" y="552" font-size="11" fill="#334155">&#10003;  Baut Bruecken zwischen Teams</text>
+    <text x="660" y="568" font-size="11" fill="#334155">&#10003;  Legt implizite Annahmen offen</text>
+    <text x="660" y="584" font-size="11" fill="#334155">&#10003;  Erzeugt Empathie fuer "die andere Seite"</text>
+    <text x="660" y="600" font-size="11" fill="#334155">&#10003;  Verbessert Kommunikation langfristig</text>
+
+    <text x="660" y="634" font-size="10" font-style="italic" fill="#6b21a8">Oft der groesste kulturelle Hebel —</text>
+    <text x="660" y="648" font-size="10" font-style="italic" fill="#6b21a8">vor allem in Projekten mit gespaltenen Teams</text>
+  </g>
+</svg>

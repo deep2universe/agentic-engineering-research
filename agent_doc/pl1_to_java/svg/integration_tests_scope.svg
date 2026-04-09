@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 720" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh45" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="720" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Integration-Tests (15 %)</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Scope und Werkzeuge fuer echte Multi-Komponenten-Tests</text>
+
+  <!-- Scope card -->
+  <g filter="url(#sh45)">
+    <rect x="60" y="110" width="560" height="260" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="60" y="110" width="560" height="44" rx="14" fill="#f59e0b"/>
+    <text x="340" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Scope der Integration-Tests</text>
+
+    <g transform="translate(80, 180)">
+      <g>
+        <rect x="0" y="0" width="240" height="60" rx="8" fill="#fef3c7"/>
+        <text x="12" y="22" font-size="12" font-weight="700" fill="#78350f">Datenbank-Integration</text>
+        <text x="12" y="40" font-size="10" fill="#92400e">Aurora PostgreSQL</text>
+        <text x="12" y="54" font-size="10" fill="#92400e">DynamoDB, Read-Replica-Lag</text>
+      </g>
+      <g transform="translate(260, 0)">
+        <rect x="0" y="0" width="240" height="60" rx="8" fill="#fef3c7"/>
+        <text x="12" y="22" font-size="12" font-weight="700" fill="#78350f">Messaging</text>
+        <text x="12" y="40" font-size="10" fill="#92400e">Amazon MQ, Kafka (MSK)</text>
+        <text x="12" y="54" font-size="10" fill="#92400e">JMS + AMQP Endpoints</text>
+      </g>
+      <g transform="translate(0, 78)">
+        <rect x="0" y="0" width="240" height="60" rx="8" fill="#fef3c7"/>
+        <text x="12" y="22" font-size="12" font-weight="700" fill="#78350f">Externe APIs</text>
+        <text x="12" y="40" font-size="10" fill="#92400e">SOAP + REST</text>
+        <text x="12" y="54" font-size="10" fill="#92400e">SSL + Cert-Rotation</text>
+      </g>
+      <g transform="translate(260, 78)">
+        <rect x="0" y="0" width="240" height="60" rx="8" fill="#fef3c7"/>
+        <text x="12" y="22" font-size="12" font-weight="700" fill="#78350f">Dateisystem</text>
+        <text x="12" y="40" font-size="10" fill="#92400e">S3 + lokale Dateien</text>
+        <text x="12" y="54" font-size="10" fill="#92400e">EBCDIC ↔ UTF-8</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Tools -->
+  <g filter="url(#sh45)">
+    <rect x="640" y="110" width="540" height="260" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="640" y="110" width="540" height="44" rx="14" fill="#2563eb"/>
+    <text x="910" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Werkzeuge</text>
+
+    <g font-size="11" fill="#0f172a">
+      <text x="660" y="178" font-weight="700" fill="#1e3a8a">Testcontainers</text>
+      <text x="660" y="196" font-size="10" fill="#334155">Aurora PostgreSQL und Amazon MQ lokal im Container.</text>
+      <text x="660" y="212" font-size="10" fill="#334155">Echte Datenbank-Instanz, keine Mocks. Pflicht fuer DB-Layer.</text>
+
+      <text x="660" y="242" font-weight="700" fill="#1e3a8a">LocalStack</text>
+      <text x="660" y="260" font-size="10" fill="#334155">AWS-Services-Mocking (S3, DynamoDB, SQS, SNS, Lambda).</text>
+      <text x="660" y="276" font-size="10" fill="#334155">Schnell in CI/CD, aber Verhalten kann von Real-Service abweichen.</text>
+
+      <text x="660" y="306" font-weight="700" fill="#1e3a8a">WireMock</text>
+      <text x="660" y="324" font-size="10" fill="#334155">HTTP-API-Mocking fuer externe Abhaengigkeiten.</text>
+      <text x="660" y="340" font-size="10" fill="#334155">Stub-Mappings + Scenario-Simulation + Delay-Injection.</text>
+
+      <text x="660" y="360" font-style="italic" font-size="10" fill="#64748b">Junit 5 + Spring Boot Test + @SpringBootTest als Harness</text>
+    </g>
+  </g>
+
+  <!-- PL/I-specific warning -->
+  <g filter="url(#sh45)">
+    <rect x="60" y="400" width="1120" height="130" rx="14" fill="#fef2f2" stroke="#dc2626" stroke-width="2.5"/>
+    <text x="620" y="430" text-anchor="middle" font-size="14" font-weight="700" fill="#991b1b">PL/I-spezifischer Fallstrick: SQL-Syntax und Ergebnis-Reihenfolgen</text>
+    <text x="80" y="456" font-size="11" fill="#7f1d1d">Fuer DB2-zu-Aurora-Migrationen ist der Test-Layer kritisch, weil <tspan font-weight="700">SQL-Syntax</tspan> und <tspan font-weight="700">Ergebnis-Reihenfolgen</tspan> sich zwischen den beiden</text>
+    <text x="80" y="472" font-size="11" fill="#7f1d1d">Datenbanken unterscheiden koennen. DB2 und PostgreSQL haben unterschiedliche Default-Sort-Reihenfolgen, unterschiedliches</text>
+    <text x="80" y="488" font-size="11" fill="#7f1d1d">NULL-Handling in ORDER BY, unterschiedliche Precedence in arithmetischen Ausdruecken.</text>
+    <text x="80" y="514" font-size="11" font-weight="700" fill="#991b1b">&#8658;  Contract-Tests mit expliziten ORDER-BY-Klauseln sind PFLICHT. Ohne sie werden Reports falsch sortiert.</text>
+  </g>
+
+  <!-- Typical test scenarios -->
+  <g filter="url(#sh45)">
+    <rect x="60" y="550" width="1120" height="150" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="620" y="580" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">Typische Integration-Test-Szenarien</text>
+    <g font-size="11" fill="#1e40af">
+      <text x="80" y="608">&#8226;  <tspan font-weight="700">DB-Layer</tspan>: JPA-Repository + Aurora Container + Testdata-Fixture + SQL-Verhalten gegen DB2-Baseline</text>
+      <text x="80" y="626">&#8226;  <tspan font-weight="700">MQ-Flow</tspan>: Consume aus Queue + Process + Produce nach Topic, inklusive Poison-Message-Handling</text>
+      <text x="80" y="644">&#8226;  <tspan font-weight="700">REST-Roundtrip</tspan>: Client → API Gateway → Spring-Boot-Service → Downstream (WireMock) → Response</text>
+      <text x="80" y="662">&#8226;  <tspan font-weight="700">S3-IO</tspan>: Read EBCDIC-File → Convert UTF-8 → Write Output-File → Hash-Vergleich</text>
+      <text x="80" y="680">&#8226;  <tspan font-weight="700">Migration-Paths</tspan>: Flyway/Liquibase Up+Down mit realistischen Schema-Historien</text>
+    </g>
+  </g>
+</svg>

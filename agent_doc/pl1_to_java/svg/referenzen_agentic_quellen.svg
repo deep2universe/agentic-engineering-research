@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh30" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="660" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Referenzen — Agentic Engineering</text>
+  <text x="600" y="66" text-anchor="middle" font-size="13" fill="#475569">Quellen-Cluster fuer Dokument 4: Agentic Workflows, HITL-Patterns und Tooling</text>
+
+  <!-- Center -->
+  <g filter="url(#sh30)">
+    <rect x="450" y="270" width="300" height="100" rx="14" fill="#0f172a"/>
+    <text x="600" y="302" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">_quellen.md</text>
+    <text x="600" y="322" text-anchor="middle" font-size="11" fill="#cbd5e1">Dokument 4: Agentic Engineering</text>
+    <text x="600" y="338" text-anchor="middle" font-size="11" fill="#fbbf24">17 Suchstring-Cluster</text>
+    <text x="600" y="354" text-anchor="middle" font-size="11" fill="#94a3b8">~60 oeffentliche Quellen</text>
+  </g>
+
+  <!-- Clusters -->
+  <g filter="url(#sh30)">
+    <rect x="60" y="110" width="280" height="120" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="60" y="110" width="280" height="32" rx="12" fill="#7b2cbf"/>
+    <text x="200" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Amazon Bedrock + AgentCore</text>
+    <text x="74" y="158" font-size="10" fill="#334155">• Bedrock User Guide</text>
+    <text x="74" y="174" font-size="10" fill="#334155">• AgentCore Beta-Docs</text>
+    <text x="74" y="190" font-size="10" fill="#334155">• Anthropic Best Practices</text>
+    <text x="74" y="206" font-size="10" fill="#334155">• MCP-Server-Docs</text>
+    <text x="74" y="222" font-size="10" fill="#334155">• AWS re:Invent Talks 2024/25</text>
+  </g>
+
+  <g filter="url(#sh30)">
+    <rect x="860" y="110" width="280" height="120" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <rect x="860" y="110" width="280" height="32" rx="12" fill="#2563eb"/>
+    <text x="1000" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Agentic AI Patterns</text>
+    <text x="874" y="158" font-size="10" fill="#334155">• Anthropic Agent Papers</text>
+    <text x="874" y="174" font-size="10" fill="#334155">• DSPy Framework Docs</text>
+    <text x="874" y="190" font-size="10" fill="#334155">• LangGraph / LangChain</text>
+    <text x="874" y="206" font-size="10" fill="#334155">• ReAct + Planning Agents</text>
+    <text x="874" y="222" font-size="10" fill="#334155">• Tool-Use Papers</text>
+  </g>
+
+  <g filter="url(#sh30)">
+    <rect x="60" y="280" width="280" height="120" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="60" y="280" width="280" height="32" rx="12" fill="#059669"/>
+    <text x="200" y="301" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">HITL Patterns</text>
+    <text x="74" y="328" font-size="10" fill="#334155">• Human-in-the-Loop Design</text>
+    <text x="74" y="344" font-size="10" fill="#334155">• Review Gating (AWS Blogs)</text>
+    <text x="74" y="360" font-size="10" fill="#334155">• Compliance + AI (BaFin, DORA)</text>
+    <text x="74" y="376" font-size="10" fill="#334155">• Audit-Patterns fuer LLM-Code</text>
+    <text x="74" y="392" font-size="10" fill="#334155">• ISO/IEC 42001 AI Mgmt</text>
+  </g>
+
+  <g filter="url(#sh30)">
+    <rect x="860" y="280" width="280" height="120" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="860" y="280" width="280" height="32" rx="12" fill="#dc2626"/>
+    <text x="1000" y="301" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Dual-Run &amp; Testing</text>
+    <text x="874" y="328" font-size="10" fill="#334155">• Golden-Master Testing</text>
+    <text x="874" y="344" font-size="10" fill="#334155">• Property-Based Testing (jqwik)</text>
+    <text x="874" y="360" font-size="10" fill="#334155">• Mutation Testing PIT</text>
+    <text x="874" y="376" font-size="10" fill="#334155">• AWS Testing Automation</text>
+    <text x="874" y="392" font-size="10" fill="#334155">• Shadow-Traffic Papers</text>
+  </g>
+
+  <g filter="url(#sh30)">
+    <rect x="60" y="450" width="280" height="120" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="60" y="450" width="280" height="32" rx="12" fill="#0891b2"/>
+    <text x="200" y="471" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">AWS Transform Specifics</text>
+    <text x="74" y="498" font-size="10" fill="#334155">• Mainframe Refactor Guide</text>
+    <text x="74" y="514" font-size="10" fill="#334155">• Blu Age Release Notes</text>
+    <text x="74" y="530" font-size="10" fill="#334155">• PL/I Language Support Matrix</text>
+    <text x="74" y="546" font-size="10" fill="#334155">• Reforge-Agent Architektur</text>
+    <text x="74" y="562" font-size="10" fill="#334155">• Testing Automation Agent</text>
+  </g>
+
+  <g filter="url(#sh30)">
+    <rect x="860" y="450" width="280" height="120" rx="12" fill="#ffffff" stroke="#d97706" stroke-width="2.5"/>
+    <rect x="860" y="450" width="280" height="32" rx="12" fill="#d97706"/>
+    <text x="1000" y="471" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Third-Party-Tooling</text>
+    <text x="874" y="498" font-size="10" fill="#334155">• IBM watsonx Docs</text>
+    <text x="874" y="514" font-size="10" fill="#334155">• Raincode Whitepaper</text>
+    <text x="874" y="530" font-size="10" fill="#334155">• Heirloom Case Studies</text>
+    <text x="874" y="546" font-size="10" fill="#334155">• mLogica Produktseiten</text>
+    <text x="874" y="562" font-size="10" fill="#334155">• Micro Focus OpenText</text>
+  </g>
+
+  <!-- Connectors -->
+  <g stroke="#64748b" stroke-width="2" stroke-dasharray="4 3" opacity="0.5" fill="none">
+    <line x1="340" y1="170" x2="460" y2="290"/>
+    <line x1="860" y1="170" x2="740" y2="290"/>
+    <line x1="340" y1="340" x2="460" y2="320"/>
+    <line x1="860" y1="340" x2="740" y2="320"/>
+    <line x1="340" y1="510" x2="460" y2="360"/>
+    <line x1="860" y1="510" x2="740" y2="360"/>
+  </g>
+
+  <text x="600" y="620" text-anchor="middle" font-size="11" fill="#64748b">Die Research verwendet ausschliesslich oeffentlich zugaengliche Quellen. Jede Aussage ist in _quellen.md belegt.</text>
+</svg>

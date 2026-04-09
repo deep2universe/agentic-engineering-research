@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh31" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Was bedeutet "50 % migriert"?</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Drei grundverschiedene Ausgangszustaende — und Senior-Architekten muessen wissen, welchen sie vor sich haben</text>
+
+  <!-- Scenario A -->
+  <g filter="url(#sh31)">
+    <rect x="40" y="110" width="380" height="500" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="40" y="110" width="380" height="50" rx="16" fill="#2563eb"/>
+    <text x="230" y="143" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Szenario A · Modul-basiert</text>
+
+    <text x="230" y="184" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">50 % der PL/I-Module migriert</text>
+    <text x="230" y="202" text-anchor="middle" font-size="11" fill="#1e40af">BEIDE SEITEN RUFEN SICH GEGENSEITIG AUF</text>
+
+    <!-- Mini diagram: Modules on both sides -->
+    <g transform="translate(60, 230)">
+      <rect x="0" y="0" width="140" height="140" rx="8" fill="#0f172a"/>
+      <text x="70" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Mainframe</text>
+      <rect x="12" y="34" width="54" height="30" rx="4" fill="#ef4444"/>
+      <text x="39" y="53" text-anchor="middle" font-size="10" fill="#ffffff">PL/I 1</text>
+      <rect x="74" y="34" width="54" height="30" rx="4" fill="#ef4444"/>
+      <text x="101" y="53" text-anchor="middle" font-size="10" fill="#ffffff">PL/I 2</text>
+      <rect x="12" y="70" width="54" height="30" rx="4" fill="#ef4444"/>
+      <text x="39" y="89" text-anchor="middle" font-size="10" fill="#ffffff">PL/I 3</text>
+      <rect x="74" y="70" width="54" height="30" rx="4" fill="#ef4444"/>
+      <text x="101" y="89" text-anchor="middle" font-size="10" fill="#ffffff">PL/I 4</text>
+      <rect x="12" y="106" width="116" height="26" rx="4" fill="#1e40af"/>
+      <text x="70" y="123" text-anchor="middle" font-size="10" fill="#ffffff">DB2 (Master)</text>
+
+      <rect x="160" y="0" width="140" height="140" rx="8" fill="#065f46"/>
+      <text x="230" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">AWS</text>
+      <rect x="172" y="34" width="54" height="30" rx="4" fill="#10b981"/>
+      <text x="199" y="53" text-anchor="middle" font-size="10" fill="#ffffff">Java 1</text>
+      <rect x="234" y="34" width="54" height="30" rx="4" fill="#10b981"/>
+      <text x="261" y="53" text-anchor="middle" font-size="10" fill="#ffffff">Java 2</text>
+      <rect x="172" y="70" width="54" height="30" rx="4" fill="#10b981"/>
+      <text x="199" y="89" text-anchor="middle" font-size="10" fill="#ffffff">Java 3</text>
+      <rect x="234" y="70" width="54" height="30" rx="4" fill="#10b981"/>
+      <text x="261" y="89" text-anchor="middle" font-size="10" fill="#ffffff">Java 4</text>
+      <rect x="172" y="106" width="116" height="26" rx="4" fill="#0891b2"/>
+      <text x="230" y="123" text-anchor="middle" font-size="10" fill="#ffffff">Aurora (Read-Replica)</text>
+
+      <!-- Bidirectional arrows -->
+      <line x1="140" y1="50" x2="160" y2="50" stroke="#fbbf24" stroke-width="2"/>
+      <polygon points="160,50 155,47 155,53" fill="#fbbf24"/>
+      <line x1="160" y1="85" x2="140" y2="85" stroke="#fbbf24" stroke-width="2"/>
+      <polygon points="140,85 145,82 145,88" fill="#fbbf24"/>
+    </g>
+
+    <text x="60" y="404" font-size="11" font-weight="700" fill="#0f172a">Charakteristika:</text>
+    <text x="60" y="422" font-size="10" fill="#334155">• Bidirektionale Calls (MF→AWS, AWS→MF)</text>
+    <text x="60" y="438" font-size="10" fill="#334155">• Gemeinsame Datenbestaende</text>
+    <text x="60" y="454" font-size="10" fill="#334155">  (meist DB2 als Single Source of Truth)</text>
+    <text x="60" y="470" font-size="10" fill="#334155">• Netz-Latenz als neuer Risikofaktor</text>
+
+    <text x="60" y="498" font-size="11" font-weight="700" fill="#dc2626">Hauptrisiken:</text>
+    <text x="60" y="516" font-size="10" fill="#7f1d1d">• Transaktions-Latenz</text>
+    <text x="60" y="532" font-size="10" fill="#7f1d1d">• Error-Handling an der Schnittstelle</text>
+    <text x="60" y="548" font-size="10" fill="#7f1d1d">• Monitoring ueber die Grenze</text>
+
+    <text x="60" y="580" font-size="11" font-weight="700" fill="#065f46">Pattern-Empfehlung:</text>
+    <text x="60" y="596" font-size="10" fill="#065f46">API-Gateway + Saga + CDC</text>
+  </g>
+
+  <!-- Scenario B -->
+  <g filter="url(#sh31)">
+    <rect x="430" y="110" width="380" height="500" rx="16" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="430" y="110" width="380" height="50" rx="16" fill="#7b2cbf"/>
+    <text x="620" y="143" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Szenario B · Domain-basiert</text>
+
+    <text x="620" y="184" text-anchor="middle" font-size="12" font-weight="700" fill="#581c87">Ganze Bounded Contexts migriert</text>
+    <text x="620" y="202" text-anchor="middle" font-size="11" fill="#6b21a8">Kommunikation via klar definierte Schnittstellen</text>
+
+    <!-- Domain diagram -->
+    <g transform="translate(450, 230)">
+      <rect x="0" y="0" width="140" height="140" rx="8" fill="#0f172a"/>
+      <text x="70" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Policy Domain</text>
+      <text x="70" y="36" text-anchor="middle" font-size="9" fill="#94a3b8">(bleibt PL/I)</text>
+      <rect x="12" y="48" width="116" height="30" rx="4" fill="#ef4444"/>
+      <text x="70" y="67" text-anchor="middle" font-size="10" fill="#ffffff">PL/I-Module</text>
+      <rect x="12" y="86" width="116" height="30" rx="4" fill="#1e40af"/>
+      <text x="70" y="105" text-anchor="middle" font-size="10" fill="#ffffff">DB2</text>
+
+      <rect x="160" y="0" width="140" height="140" rx="8" fill="#065f46"/>
+      <text x="230" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Customer Domain</text>
+      <text x="230" y="36" text-anchor="middle" font-size="9" fill="#d1fae5">(migriert zu Java)</text>
+      <rect x="172" y="48" width="116" height="30" rx="4" fill="#10b981"/>
+      <text x="230" y="67" text-anchor="middle" font-size="10" fill="#ffffff">Java-Services</text>
+      <rect x="172" y="86" width="116" height="30" rx="4" fill="#0891b2"/>
+      <text x="230" y="105" text-anchor="middle" font-size="10" fill="#ffffff">Aurora</text>
+
+      <!-- Event arrow -->
+      <line x1="140" y1="68" x2="160" y2="68" stroke="#fbbf24" stroke-width="2" stroke-dasharray="3 2"/>
+      <polygon points="160,68 155,65 155,71" fill="#fbbf24"/>
+      <text x="150" y="60" font-size="8" text-anchor="middle" fill="#f59e0b">Events</text>
+    </g>
+
+    <text x="450" y="404" font-size="11" font-weight="700" fill="#0f172a">Charakteristika:</text>
+    <text x="450" y="422" font-size="10" fill="#334155">• Weniger enge Kopplung als Szenario A</text>
+    <text x="450" y="438" font-size="10" fill="#334155">• Eventuelle Datendopplung pro Domain</text>
+    <text x="450" y="454" font-size="10" fill="#334155">• Saubere Grenzen</text>
+    <text x="450" y="470" font-size="10" fill="#334155">• Event-getriebene Integration</text>
+
+    <text x="450" y="498" font-size="11" font-weight="700" fill="#dc2626">Hauptrisiken:</text>
+    <text x="450" y="516" font-size="10" fill="#7f1d1d">• Schwierig zu verifizierende Konsistenz</text>
+    <text x="450" y="532" font-size="10" fill="#7f1d1d">• Dead-Letter-Handling</text>
+    <text x="450" y="548" font-size="10" fill="#7f1d1d">• Schema-Evolution</text>
+
+    <text x="450" y="580" font-size="11" font-weight="700" fill="#065f46">Pattern-Empfehlung:</text>
+    <text x="450" y="596" font-size="10" fill="#065f46">Amazon MQ/MSK + Anti-Corruption-Layer</text>
+  </g>
+
+  <!-- Scenario C -->
+  <g filter="url(#sh31)">
+    <rect x="820" y="110" width="380" height="500" rx="16" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="820" y="110" width="380" height="50" rx="16" fill="#f59e0b"/>
+    <text x="1010" y="143" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">Szenario C · Transform im Fluss</text>
+
+    <text x="1010" y="184" text-anchor="middle" font-size="12" font-weight="700" fill="#78350f">50 % der Module bearbeitet</text>
+    <text x="1010" y="202" text-anchor="middle" font-size="11" fill="#92400e">aber NICHT produktiv (Test/Review/Freeze)</text>
+
+    <!-- Diagram: transform in progress -->
+    <g transform="translate(840, 230)">
+      <rect x="0" y="0" width="340" height="140" rx="8" fill="#0f172a"/>
+      <text x="170" y="20" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Mainframe (produktiv)</text>
+      <rect x="12" y="34" width="66" height="30" rx="4" fill="#ef4444"/>
+      <text x="45" y="53" text-anchor="middle" font-size="9" fill="#ffffff">PL/I 1</text>
+      <rect x="84" y="34" width="66" height="30" rx="4" fill="#ef4444"/>
+      <text x="117" y="53" text-anchor="middle" font-size="9" fill="#ffffff">PL/I 2</text>
+      <rect x="156" y="34" width="66" height="30" rx="4" fill="#ef4444"/>
+      <text x="189" y="53" text-anchor="middle" font-size="9" fill="#ffffff">PL/I 3</text>
+      <rect x="228" y="34" width="66" height="30" rx="4" fill="#ef4444"/>
+      <text x="261" y="53" text-anchor="middle" font-size="9" fill="#ffffff">PL/I N</text>
+
+      <text x="170" y="82" text-anchor="middle" font-size="10" fill="#94a3b8">Java-Seite in Test/Review/Freeze:</text>
+      <rect x="12" y="90" width="66" height="30" rx="4" fill="#d97706"/>
+      <text x="45" y="109" text-anchor="middle" font-size="9" fill="#ffffff">Java 1</text>
+      <rect x="84" y="90" width="66" height="30" rx="4" fill="#d97706"/>
+      <text x="117" y="109" text-anchor="middle" font-size="9" fill="#ffffff">Java 2</text>
+      <rect x="156" y="90" width="66" height="30" rx="4" fill="#94a3b8" fill-opacity="0.4" stroke="#94a3b8" stroke-dasharray="2 2"/>
+      <text x="189" y="109" text-anchor="middle" font-size="9" fill="#fbbf24">todo</text>
+      <rect x="228" y="90" width="66" height="30" rx="4" fill="#94a3b8" fill-opacity="0.4" stroke="#94a3b8" stroke-dasharray="2 2"/>
+      <text x="261" y="109" text-anchor="middle" font-size="9" fill="#fbbf24">todo</text>
+    </g>
+
+    <text x="840" y="404" font-size="11" font-weight="700" fill="#0f172a">Charakteristika:</text>
+    <text x="840" y="422" font-size="10" fill="#334155">• Keine bidirektionale Kommunikation</text>
+    <text x="840" y="438" font-size="10" fill="#334155">• Mainframe laeuft komplett weiter</text>
+    <text x="840" y="454" font-size="10" fill="#334155">• Java-Seite "altert" schnell</text>
+    <text x="840" y="470" font-size="10" fill="#334155">• Hotfix-Drift-Risiko</text>
+
+    <text x="840" y="498" font-size="11" font-weight="700" fill="#dc2626">Hauptrisiken:</text>
+    <text x="840" y="516" font-size="10" fill="#7f1d1d">• Divergenz zwischen PL/I und Java</text>
+    <text x="840" y="532" font-size="10" fill="#7f1d1d">• Projektabbruch wegen "Altern"</text>
+    <text x="840" y="548" font-size="10" fill="#7f1d1d">• Undokumentierte Hotfixes</text>
+
+    <text x="840" y="580" font-size="11" font-weight="700" fill="#065f46">Pattern-Empfehlung:</text>
+    <text x="840" y="596" font-size="10" fill="#065f46">Freeze-and-Catch-Up + Hotfix-Lanes</text>
+  </g>
+
+  <!-- Bottom insight -->
+  <g filter="url(#sh31)">
+    <rect x="60" y="640" width="1120" height="80" rx="12" fill="#0f172a"/>
+    <text x="620" y="668" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Die erste Senior-Frage beim Einstieg in ein 50-%-Projekt:</text>
+    <text x="620" y="688" text-anchor="middle" font-size="12" fill="#fbbf24">"In welchem der drei Szenarien befinden wir uns wirklich — und nicht, welches wir wollten?"</text>
+    <text x="620" y="706" text-anchor="middle" font-size="10" font-style="italic" fill="#cbd5e1">Die Antwort bestimmt Architektur, Tests, Team-Struktur und Betriebskonzept.</text>
+  </g>
+</svg>

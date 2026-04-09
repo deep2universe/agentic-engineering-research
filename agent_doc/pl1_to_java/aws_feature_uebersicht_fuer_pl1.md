@@ -8,6 +8,10 @@
 
 ## 1. Primäre Migrations-Services
 
+![Primaere AWS-Services fuer PL/I-Migration](svg/primaere_migrations_services_stack.svg)
+
+*Die vier Kern-Services (AWS Transform for Mainframe Refactor, Amazon Bedrock + AgentCore, Amazon Q Developer, Kiro) plus das gemeinsame Fundament aus S3, IAM, CloudWatch, KMS. Jeder Service hat seine Rolle im Lifecycle — Transform fuer die Code-Konvertierung, Bedrock als AI-Brain, Q als IDE-Assistent, Kiro fuer Reimagine.*
+
 ### 1.1 AWS Transform for Mainframe Refactor (ehemals AWS Blu Age)
 
 **Status (April 2026):** Seit März 2026 offiziell unter dem Namen *AWS Transform for Mainframe Refactor* geführt. Die Transformations-Phase ist seither **kostenfrei** — abgerechnet werden nur die darunterliegenden EC2/Bedrock/Storage-Kosten.
@@ -56,6 +60,10 @@ Kiro ist Amazons spec-driven, autonomously coding IDE. Für PL/I-Migration wird 
 
 ## 2. Daten-Services
 
+![Daten-Services Pipeline](svg/daten_services_pipeline.svg)
+
+*End-to-End-Datenfluss vom Mainframe (DB2, VSAM, IMS/Adabas) ueber die Migrations-Layer (Precisely Connect, AWS DMS, S3-Staging) zu den AWS-Zielsystemen (Aurora PostgreSQL, DynamoDB, S3 persistent). Der gelbe Warnbanner listet die vier kritischen Herausforderungen: EBCDIC-Konvertierung, gepackte Dezimalen, VSAM-Alternative-Keys und CDC-Konfliktaufloesung.*
+
 ### 2.1 Amazon Aurora PostgreSQL
 
 Default-Zielsystem für DB2-Migrationen. PL/I-SQL-Statements (EXEC SQL) werden zu JDBC umgebaut. Besonderheiten:
@@ -86,6 +94,10 @@ Die Basis für alle Migrations-Artefakte:
 
 ## 3. Messaging, Integration und Runtime
 
+![Messaging, Integration und Runtime](svg/messaging_integration_runtime.svg)
+
+*Die Integration-Layer: Mainframe-Seite (PL/I + CICS + MQ + DB2) verbunden ueber AWS Direct Connect mit der AWS-Seite (Amazon MQ, API Gateway). Darunter der Runtime-Stack mit EKS, ECS/Fargate, Lambda und den Supporting Services (ECR, ALB, Service Mesh, Secrets).*
+
 ### 3.1 Amazon MQ
 
 Ersatz für MQSeries (IBM MQ) auf dem Mainframe. Bietet JMS- und AMQP-Endpunkte. Alle PL/I-Anwendungen, die MQI-Calls absetzen, werden nach JMS portiert.
@@ -106,6 +118,10 @@ Für kleine, zustandslose Batch-Fragmente, die aus PL/I herausgelöst wurden. Ni
 
 ## 4. CI/CD und Observability
 
+![CI/CD Pipeline und Observability-Stack](svg/cicd_observability_pipeline.svg)
+
+*Oben die CI/CD-Kette (CodeCommit → CodeBuild → CodeArtifact → CodePipeline → CodeDeploy → EKS) mit paralleler Mainframe-Spur (Jenkins/GitHub Actions). Unten der Observability-Stack mit CloudWatch, X-Ray/OpenTelemetry, CloudTrail und der Mainframe-Bridge fuer hybride Szenarien. Senior-Pattern: Observability-First.*
+
 ### 4.1 AWS CodeCommit / CodeBuild / CodePipeline / CodeArtifact
 
 Die Standard-CI/CD-Kette. Für PL/I-Projekte mit hybriden Stacks (Mainframe + AWS) typischerweise ergänzt durch Jenkins- oder GitHub-Actions-Integration für die Mainframe-Seite.
@@ -122,6 +138,10 @@ Für Audit-Trails regulierter Workloads (Banken, Versicherungen).
 
 ## 5. Entwickler-Umgebungen
 
+![Entwickler-Umgebungen Stack](svg/entwickler_umgebungen_stack.svg)
+
+*Die zwei Haupt-Umgebungen fuer Senior-Engineers: AppStream 2.0 (gehosteter Blu Age Developer Client) und Amazon Q Developer IDE-Plugins (VS Code, JetBrains, Eclipse). Darunter der EOL-Hinweis zu Cloud9 und die ergaenzenden Tools (AWS Toolkit, SAM CLI, CDK, Testcontainers, LocalStack).*
+
 ### 5.1 AWS AppStream 2.0
 
 Hier läuft der Blu Age Developer Client. Vorteil: keine lokale Installation, einheitliche Toolchain-Versionen für das gesamte Team.
@@ -137,6 +157,10 @@ AWS Cloud9 ist für Neukunden seit Juli 2024 abgeschaltet. Nicht mehr für neue 
 ---
 
 ## 6. Sicherheit und Compliance
+
+![Sicherheit und Compliance — Defense in Depth](svg/sicherheit_compliance_layers.svg)
+
+*Fuenf konzentrische Schichten nach dem Defense-in-Depth-Prinzip: Netzwerk-Perimeter, Identity &amp; Access, Verschluesselung, Audit &amp; Monitoring, Daten. Im Zentrum die kritischen Assets (PL/I-Sourcen, Produktionsdaten, ADRs, Keys). Am Rand die relevanten Compliance-Frameworks (BaFin, PCI-DSS, HIPAA, DORA, SOC 2, GDPR, ISO 27001).*
 
 ### 6.1 AWS IAM und IAM Identity Center
 
@@ -158,6 +182,10 @@ Compliance-Überwachung der neuen Java-Infrastruktur.
 
 ## 7. Service-zu-Phase-Mapping
 
+![Service-zu-Phase-Matrix](svg/service_zu_phase_matrix.svg)
+
+*Matrix mit 12 Services (Zeilen) und 8 Phasen (Spalten): PRIMARY = dunkler Zellton, sekundaer = heller Zellton, — = nicht relevant. Das visuelle Muster macht sofort sichtbar, dass Bedrock und S3 phase-uebergreifend das Rueckgrat aller agentic Workflows bilden.*
+
 | Phase | Primäre Services | Sekundäre Services |
 |-------|------------------|---------------------|
 | **Discovery** | AWS Transform Assessment, S3, Bedrock | CloudWatch, Q Developer |
@@ -174,6 +202,10 @@ Compliance-Überwachung der neuen Java-Infrastruktur.
 
 ## 8. Was AWS (Stand April 2026) für PL/I NICHT bietet
 
+![Grenzen der AWS-Plattform fuer PL/I](svg/aws_grenzen_fuer_pl1.svg)
+
+*Fuenf konkrete Grenzen als Karten visualisiert: keine E2E-Automatik, keine native PL/I-Runtime, keine komplette Preprocessor-Nachbildung, keine bit-identische FIXED DECIMAL, keine PL/I-CardDemo. Der gruene Banner unten fasst die Senior-Gegenmassnahmen zusammen.*
+
 Zur klaren Erwartungshaltung einige Grenzen:
 
 1. **Kein vollautomatisches Ende-zu-Ende-Migrationsprodukt.** Der agentic Workflow ist hilfreich, aber Senior-Engineering bleibt Pflicht.
@@ -185,6 +217,10 @@ Zur klaren Erwartungshaltung einige Grenzen:
 ---
 
 ## 9. Kostenperspektive
+
+![Kostenperspektive und Hebel](svg/kostenperspektive_hebel.svg)
+
+*Oben die relative Kostenstruktur als Balken (Bedrock Inference = DOMINANTER Block; Transform-Service = kostenfrei seit Maerz 2026). Unten die drei wichtigsten Hebel: Modell-Wahl (Opus/Sonnet/Haiku), Prompt-Caching, Batch-Runs — mit typischen Einsparpotentialen pro Hebel.*
 
 Preise ändern sich schnell; eine konkrete Rechnung gehört in den Business Case. Als Orientierung (April 2026):
 
@@ -199,5 +235,9 @@ Der größte Kostenhebel ist die **Inference-Optimierung**: Batch-Runs, Prompt-C
 ---
 
 ## 10. Referenzen
+
+![AWS-Quellen fuer Dokument 3](svg/referenzen_aws_quellen.svg)
+
+*Sechs AWS-Quellenkategorien (Transform Docs, Bedrock/AgentCore, Q Developer + Kiro, Datenbanken + DMS, Security + Compliance, CI/CD + Observability) stroemen in `_quellen.md` zusammen. Jede Service-Aussage in Dokument 3 ist durch mindestens eine dieser Quellen belegt.*
 
 Siehe `_quellen.md`.

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh29" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Tooling jenseits von AWS</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Komplementaere Tools fuer PL/I-Migration — Senior-Architekten brauchen mindestens zwei PoCs</text>
+
+  <!-- Central AWS Transform  -->
+  <g filter="url(#sh29)">
+    <rect x="480" y="100" width="280" height="90" rx="12" fill="#ff9900"/>
+    <text x="620" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">AWS Transform Mainframe</text>
+    <text x="620" y="152" text-anchor="middle" font-size="11" fill="#fed7aa">Hauptpipeline (Baseline)</text>
+    <text x="620" y="170" text-anchor="middle" font-size="10" fill="#fef3c7">Seit Mai 2025 GA · Maerz 2026 konsolidiert</text>
+  </g>
+
+  <!-- Tool 1: IBM watsonx -->
+  <g filter="url(#sh29)">
+    <rect x="60" y="230" width="280" height="230" rx="12" fill="#ffffff" stroke="#1e40af" stroke-width="3"/>
+    <rect x="60" y="230" width="280" height="40" rx="12" fill="#1e40af"/>
+    <text x="200" y="257" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">IBM watsonx Code Assistant</text>
+    <text x="76" y="288" font-size="11" font-weight="700" fill="#0f172a">Seit Herbst 2025 mit PL/I-Support</text>
+    <text x="76" y="310" font-size="10" font-weight="700" fill="#059669">Staerken:</text>
+    <text x="76" y="326" font-size="10" fill="#334155">• Enge IBM-Mainframe-Integration</text>
+    <text x="76" y="340" font-size="10" fill="#334155">  (RTC, DBB, IDz, Z/OS Explorer)</text>
+    <text x="76" y="354" font-size="10" fill="#334155">• Kein AWS-Lock-in</text>
+    <text x="76" y="368" font-size="10" fill="#334155">• Native IBM-Expertise</text>
+    <text x="76" y="386" font-size="10" font-weight="700" fill="#dc2626">Schwaechen:</text>
+    <text x="76" y="402" font-size="10" fill="#334155">• Kleineres Ecosystem um generierte</text>
+    <text x="76" y="416" font-size="10" fill="#334155">  Java-Klassen herum</text>
+    <text x="76" y="430" font-size="10" fill="#334155">• Abhaengigkeit von IBM-Releases</text>
+    <text x="76" y="448" font-size="10" font-style="italic" fill="#1e40af">Einsatz: Zweit-Tool oder IBM-Kunden</text>
+  </g>
+
+  <!-- Tool 2: Raincode -->
+  <g filter="url(#sh29)">
+    <rect x="360" y="230" width="280" height="230" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="3"/>
+    <rect x="360" y="230" width="280" height="40" rx="12" fill="#0891b2"/>
+    <text x="500" y="257" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Raincode PL/I-Compiler</text>
+    <text x="376" y="288" font-size="11" font-weight="700" fill="#0f172a">Kompiliert PL/I direkt zu JVM/.NET</text>
+    <text x="376" y="310" font-size="10" font-weight="700" fill="#059669">Staerken:</text>
+    <text x="376" y="326" font-size="10" fill="#334155">• Keine Java-Source-Generierung</text>
+    <text x="376" y="340" font-size="10" fill="#334155">  (kein "ugly Java")</text>
+    <text x="376" y="354" font-size="10" fill="#334155">• Exakte PL/I-Semantik auf Byte-Ebene</text>
+    <text x="376" y="368" font-size="10" fill="#334155">• Geringeres Test-Budget</text>
+    <text x="376" y="386" font-size="10" font-weight="700" fill="#dc2626">Schwaechen:</text>
+    <text x="376" y="402" font-size="10" fill="#334155">• Java-Entwickler koennen nicht direkt</text>
+    <text x="376" y="416" font-size="10" fill="#334155">  lesen/warten</text>
+    <text x="376" y="430" font-size="10" fill="#334155">• Weiterer Lock-in (Raincode)</text>
+    <text x="376" y="448" font-size="10" font-style="italic" fill="#0e7490">Einsatz: stabile Module ohne Weiterentw.</text>
+  </g>
+
+  <!-- Tool 3: Heirloom -->
+  <g filter="url(#sh29)">
+    <rect x="660" y="230" width="280" height="230" rx="12" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="660" y="230" width="280" height="40" rx="12" fill="#059669"/>
+    <text x="800" y="257" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Heirloom Computing</text>
+    <text x="676" y="288" font-size="11" font-weight="700" fill="#0f172a">Cloud-native Re-Platforming</text>
+    <text x="676" y="310" font-size="10" font-weight="700" fill="#059669">Staerken:</text>
+    <text x="676" y="326" font-size="10" fill="#334155">• Schneller PoC moeglich</text>
+    <text x="676" y="340" font-size="10" fill="#334155">• Schnelle Wege vom Mainframe weg</text>
+    <text x="676" y="354" font-size="10" fill="#334155">• Integrierte Migrations-Methodologie</text>
+    <text x="676" y="368" font-size="10" fill="#334155">• Guter Transaktions-Support</text>
+    <text x="676" y="386" font-size="10" font-weight="700" fill="#dc2626">Schwaechen:</text>
+    <text x="676" y="402" font-size="10" fill="#334155">• Primar COBOL-fokussiert</text>
+    <text x="676" y="416" font-size="10" fill="#334155">• PL/I-Support eingeschraenkt</text>
+    <text x="676" y="430" font-size="10" fill="#334155">• Eingeschlossenes Ecosystem</text>
+    <text x="676" y="448" font-size="10" font-style="italic" fill="#065f46">Einsatz: Gemischte COBOL/PL-Waves</text>
+  </g>
+
+  <!-- Tool 4: mLogica -->
+  <g filter="url(#sh29)">
+    <rect x="960" y="230" width="220" height="230" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="960" y="230" width="220" height="40" rx="12" fill="#7b2cbf"/>
+    <text x="1070" y="257" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">mLogica LIBER*M</text>
+    <text x="976" y="288" font-size="11" font-weight="700" fill="#0f172a">Universal Migrator</text>
+    <text x="976" y="310" font-size="10" font-weight="700" fill="#059669">Staerken:</text>
+    <text x="976" y="326" font-size="10" fill="#334155">• Eigenstaendig</text>
+    <text x="976" y="340" font-size="10" fill="#334155">• PL/I nativ unterstuetzt</text>
+    <text x="976" y="354" font-size="10" fill="#334155">• Beziehung zu AWS &amp; IBM</text>
+    <text x="976" y="368" font-size="10" fill="#334155">• Scriptable Rules</text>
+    <text x="976" y="388" font-size="10" font-weight="700" fill="#dc2626">Schwaechen:</text>
+    <text x="976" y="404" font-size="10" fill="#334155">• Kleiner als AWS/IBM</text>
+    <text x="976" y="418" font-size="10" fill="#334155">• Weniger Ecosystem</text>
+    <text x="976" y="432" font-size="10" fill="#334155">• Vertragliche Voraus-</text>
+    <text x="976" y="446" font-size="10" fill="#334155">  setzungen</text>
+  </g>
+
+  <!-- Tool 5: Micro Focus -->
+  <g filter="url(#sh29)">
+    <rect x="60" y="490" width="280" height="200" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="60" y="490" width="280" height="40" rx="12" fill="#f59e0b"/>
+    <text x="200" y="517" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Micro Focus Open PL/I</text>
+    <text x="76" y="548" font-size="11" font-weight="700" fill="#0f172a">Jetzt OpenText</text>
+    <text x="76" y="568" font-size="10" fill="#334155">Laufzeit-Umgebung fuer PL/I auf</text>
+    <text x="76" y="582" font-size="10" fill="#334155">Linux/Windows — nicht Java,</text>
+    <text x="76" y="596" font-size="10" fill="#334155">aber eine Option zum Lift-and-Shift.</text>
+    <text x="76" y="620" font-size="10" fill="#92400e" font-weight="700">Einsatz:</text>
+    <text x="76" y="636" font-size="10" fill="#334155">• Retain-Kandidaten</text>
+    <text x="76" y="650" font-size="10" fill="#334155">• Mainframe weg, aber Code bleibt</text>
+    <text x="76" y="664" font-size="10" fill="#334155">• Bruecke zur spaeteren Java-Migration</text>
+  </g>
+
+  <!-- Comparison matrix -->
+  <g filter="url(#sh29)">
+    <rect x="360" y="490" width="820" height="200" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="770" y="518" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Senior-Empfehlung: Proof-of-Concept-Strategie</text>
+
+    <text x="376" y="544" font-size="11" fill="#0f172a">&#8226;  <tspan font-weight="700">PoC 1 (Baseline)</tspan>: AWS Transform for Mainframe als Hauptpipeline aufsetzen</text>
+    <text x="376" y="560" font-size="11" fill="#0f172a">&#8226;  <tspan font-weight="700">PoC 2 (Vergleich)</tspan>: Ein Zweit-Tool auf denselben 2–3 Modulen laufen lassen</text>
+    <text x="376" y="576" font-size="11" fill="#0f172a">&#8226;  <tspan font-weight="700">Mess-Kriterien</tspan>: Diff-Score, Build-Erfolg, Lesbarkeit, Coverage, Laufzeit, Kosten</text>
+    <text x="376" y="592" font-size="11" fill="#0f172a">&#8226;  <tspan font-weight="700">Entscheidung</tspan>: Nach 3–4 Wochen PoC eine belastbare Tool-Entscheidung treffen</text>
+    <text x="376" y="620" font-size="11" font-weight="700" fill="#1e40af">Wahl der Zweitkandidaten nach Kontext:</text>
+    <text x="376" y="638" font-size="10" fill="#334155">• Starke IBM-Bindung &#8594; IBM watsonx Code Assistant for Z</text>
+    <text x="376" y="654" font-size="10" fill="#334155">• Wenig Weiterentwicklung &#8594; Raincode (Byte-Compiler)</text>
+    <text x="376" y="670" font-size="10" fill="#334155">• Mainframe muss schnell weg &#8594; Micro Focus Open PL/I (Lift-and-Shift)</text>
+  </g>
+</svg>

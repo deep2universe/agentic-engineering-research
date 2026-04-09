@@ -8,6 +8,10 @@
 
 ## 1. Warum PL/I anders ist als COBOL
 
+![Vergleich PL/I vs. COBOL Merkmale](svg/pl1_vs_cobol_merkmale_vergleich.svg)
+
+*Gegenueberstellung der acht zentralen Sprachmerkmale: Jede Zeile zeigt, wie COBOL ein Thema loest und wie PL/I es loest. Der rote Banner unten fasst zusammen, warum diese Unterschiede den statischen Analyseaufwand dramatisch erhoehen.*
+
 PL/I (Programming Language One) wurde ab 1964 von IBM als Kompromiss zwischen FORTRAN, COBOL und ALGOL entwickelt. Das Resultat ist eine **Multi-Paradigma-Sprache** mit folgenden Eigenschaften, die es in COBOL so nicht gibt:
 
 | Merkmal | COBOL | PL/I |
@@ -27,6 +31,10 @@ Diese Features machen den **statischen Analyseaufwand** deutlich höher und verh
 ---
 
 ## 2. Die kritischen Features im Detail
+
+![Kritische PL/I-Features als Komplexitaetslandschaft](svg/kritische_features_komplexitaet.svg)
+
+*Karte der kritischen Features nach Schwierigkeitsgrad: links (gruen) die automatisch mappbaren Konstrukte, in der Mitte (gelb) die mit Review, rechts (rot) die kritischen mit Senior-Review-Pflicht. Die Groesse der Blasen deutet den relativen Aufwand an.*
 
 ### 2.1 BASED-Variablen und Pointer-Arithmetik
 
@@ -161,6 +169,10 @@ FREE TEMP;                  /* jetzt ist TEMP wieder 10 */
 
 ## 3. Mapping-Patterns im Überblick
 
+![Mapping-Patterns Uebersicht](svg/mapping_patterns_uebersicht.svg)
+
+*15 PL/I-Features und ihre empfohlenen Java-Mappings plus Tool-Support, farblich sortiert nach Schwierigkeit. Diese Tabelle ist die Referenz fuer den technischen Transformations-Plan.*
+
 | PL/I-Feature | Schwierigkeit | Empfohlenes Java-Mapping | Tool-Support |
 |-------------|--------------|--------------------------|--------------|
 | Skalare Typen, arrays | niedrig | Java primitives, Arrays / Collections | AWS Refactor |
@@ -183,6 +195,10 @@ FREE TEMP;                  /* jetzt ist TEMP wieder 10 */
 
 ## 4. Lessons Learned aus der Praxis
 
+![Lessons Learned aus der Praxis](svg/lessons_learned_praxis.svg)
+
+*Sechs Lessons Learned als Karten — je mit konkreten Handlungsempfehlungen (→) und einem italicized Praxis-Zitat. Farbcodierung pro Lesson fuer leichte Wiedererkennung in Diskussionen und Reviews.*
+
 1. **Preprocessor-Expansion zuerst.** Jedes PL/I-Projekt, das die Expansion nicht vor der ersten Transform-Pipeline kontrolliert, zahlt später den Preis in Form instabiler Transformationen.
 2. **Exakte Dezimalarithmetik mit Dual-Run validieren.** `BigDecimal`-basiert ist nicht automatisch identisch zu PL/I-`FIXED DECIMAL`. Die Differenz findet man nur im systematischen Vergleich gegen das Original.
 3. **Pointer-Graph zuerst verstehen.** Vor dem Transform die Pointer-Abhängigkeiten statisch analysieren (mittels AWS Transform Mainframe Dependencies Engine oder eigenen Tools). Besonders `BASED`-Variablen mit beweglichen Pointern.
@@ -193,6 +209,10 @@ FREE TEMP;                  /* jetzt ist TEMP wieder 10 */
 ---
 
 ## 5. Referenzen
+
+![Primaerquellen fuer Dokument 2](svg/referenzen_primaerquellen.svg)
+
+*Die vier Primaerquellen als Buch-Saeulen: IBM Language Reference (SC27-1460), IBM z/OS Programming Guide, AWS Transform for Mainframe Refactor Docs und die Academic Papers zum Legacy-Reengineering. Jede Saeule zeigt Dokument-Typ, Inhalte und Zweck in der Research.*
 
 Alle verwendeten Quellen sind in `_quellen.md` dokumentiert. Die zentralen Primärquellen für dieses Dokument sind:
 - IBM Enterprise PL/I Language Reference (SC27-1460)

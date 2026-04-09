@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh68" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="780" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Methodische Ideen</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Fuenf Ansaetze, die den Lebenshorizont jenseits der Standard-Migration erweitern</text>
+
+  <g filter="url(#sh68)">
+    <rect x="60" y="110" width="560" height="200" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <rect x="60" y="110" width="560" height="36" rx="12" fill="#2563eb"/>
+    <text x="340" y="133" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">1 · Agent-gestuetztes Reverse Engineering</text>
+    <text x="76" y="164" font-size="11" fill="#0f172a">Ein Agent liest den PL/I-Code und erzeugt eine</text>
+    <text x="76" y="180" font-size="11" fill="#0f172a">strukturelle Spezifikation in natuerlicher Sprache:</text>
+    <g font-size="10" fill="#334155">
+      <text x="76" y="204">&#8226;  Welche Eingaben?</text>
+      <text x="76" y="220">&#8226;  Welche Ausgaben?</text>
+      <text x="76" y="236">&#8226;  Welche Business-Regeln?</text>
+      <text x="76" y="252">&#8226;  Welche Edge Cases?</text>
+    </g>
+    <text x="76" y="278" font-size="10" font-style="italic" fill="#1e40af">Senior-Review &#8594; Input fuer Kiro oder Neuentwicklung</text>
+    <text x="76" y="294" font-size="10" font-style="italic" fill="#1e40af">Nuetzlich bei sehr alten, undokumentierten Codebasen</text>
+  </g>
+
+  <g filter="url(#sh68)">
+    <rect x="640" y="110" width="560" height="200" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="640" y="110" width="560" height="36" rx="12" fill="#059669"/>
+    <text x="920" y="133" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2 · LLM-Assistenz fuer bestehende PL/I-Entwickler</text>
+    <text x="656" y="164" font-size="11" fill="#0f172a">Statt PL/I-Entwickler zu ersetzen,</text>
+    <text x="656" y="180" font-size="11" fill="#0f172a">sie mit AI-Assistenten verstaerken:</text>
+    <g font-size="10" fill="#334155">
+      <text x="656" y="204">&#8226;  Claude/Copilot in ihrer IDE als "Copilot fuer PL/I"</text>
+      <text x="656" y="220">&#8226;  Erklaerung alter Code-Stellen in natuerlicher Sprache</text>
+      <text x="656" y="236">&#8226;  Pair-Programming PL/I-Dev + Java-Dev</text>
+      <text x="656" y="252">&#8226;  moderiert durch einen LLM-Assistenten, der zwischen</text>
+      <text x="656" y="266">   den Sprachen uebersetzt</text>
+    </g>
+    <text x="656" y="294" font-size="10" font-style="italic" fill="#065f46">Verstaerkt, ersetzt nicht.</text>
+  </g>
+
+  <g filter="url(#sh68)">
+    <rect x="60" y="330" width="560" height="200" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="60" y="330" width="560" height="36" rx="12" fill="#7b2cbf"/>
+    <text x="340" y="353" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3 · Spec-Driven Forward Engineering mit Kiro</text>
+    <text x="76" y="384" font-size="11" fill="#0f172a">Fuer Reimagine-Domaenen:</text>
+    <g font-size="10" fill="#334155">
+      <text x="76" y="408">&#8226;  Architekt schreibt praezise Spec:</text>
+      <text x="92" y="422">Requirements, Domain Model, Use Cases</text>
+      <text x="76" y="444">&#8226;  Kiro generiert Java/Spring-Boot-Code aus der Spec</text>
+      <text x="76" y="464">&#8226;  PL/I-Seite als Referenz-Implementation</text>
+      <text x="92" y="478">zur Validierung der Spec</text>
+      <text x="76" y="498">&#8226;  <tspan font-style="italic">nicht</tspan> als direkte Code-Quelle</text>
+    </g>
+  </g>
+
+  <g filter="url(#sh68)">
+    <rect x="640" y="330" width="560" height="200" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="640" y="330" width="560" height="36" rx="12" fill="#f59e0b"/>
+    <text x="920" y="353" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">4 · Property-Extraction aus PL/I-Code</text>
+    <text x="656" y="384" font-size="11" fill="#0f172a">Ein Agent analysiert den PL/I-Code und generiert</text>
+    <text x="656" y="400" font-size="11" fill="#0f172a">Properties (Invarianten, Vor-/Nachbedingungen),</text>
+    <text x="656" y="416" font-size="11" fill="#0f172a">die sowohl im alten als auch im neuen System gelten.</text>
+    <g font-size="10" fill="#334155">
+      <text x="656" y="444">&#8226;  Invariant: "Saldo bleibt &#8805; 0"</text>
+      <text x="656" y="460">&#8226;  Postcondition: "Zinssumme = Zinssumme_alt + x"</text>
+      <text x="656" y="476">&#8226;  Round-Trip: "parse(format(x)) == x"</text>
+    </g>
+    <text x="656" y="502" font-size="10" font-style="italic" fill="#b45309">Implementiert als jqwik-Property-Tests (siehe Dokument 6)</text>
+  </g>
+
+  <g filter="url(#sh68)">
+    <rect x="60" y="550" width="1140" height="170" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="60" y="550" width="1140" height="36" rx="12" fill="#dc2626"/>
+    <text x="630" y="573" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">5 · Documentation-First Migration</text>
+    <text x="76" y="606" font-size="11" fill="#0f172a">Bevor der Transform-Run startet, wird die PL/I-Codebasis <tspan font-weight="700">vollstaendig dokumentiert</tspan></text>
+    <text x="76" y="624" font-size="11" fill="#0f172a">— mit Hilfe von Agenten, die Module zusammenfassen und Architektur-Dokumente generieren.</text>
+    <text x="76" y="652" font-size="11" font-weight="700" fill="#991b1b">Diese Dokumentation ist der Single-Point-of-Truth fuer die Migration.</text>
+    <text x="76" y="672" font-size="10" fill="#334155">&#8226;  Umfasst Module-Katalog, Call-Graph, Data-Flows, Business-Regeln, ON-Unit-Handlers, BASED-Mappings</text>
+    <text x="76" y="688" font-size="10" fill="#334155">&#8226;  Automatisch erzeugt, manuell gereviewt, in Bedrock Knowledge Base abgelegt</text>
+    <text x="76" y="704" font-size="10" font-style="italic" fill="#7f1d1d">Besonders wertvoll bei Legacy-Codebasen mit nicht mehr verfuegbarer Original-Doku</text>
+  </g>
+</svg>

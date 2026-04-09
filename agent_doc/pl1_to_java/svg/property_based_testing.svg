@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 740" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh43" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="740" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Property-Based Testing</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Eigenschaften statt Beispiele — jqwik erkundet den Eingaberaum zufaellig</text>
+
+  <!-- Why Property Testing  -->
+  <g filter="url(#sh43)">
+    <rect x="60" y="110" width="1120" height="90" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="620" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">Warum Property-Based Testing bei PL/I besonders wertvoll ist</text>
+    <text x="620" y="164" text-anchor="middle" font-size="11" fill="#1e40af">Property-Tests erkunden den Eingaberaum ZUFAELLIG und decken Faelle auf, die handgeschriebene Tests uebersehen.</text>
+    <text x="620" y="184" text-anchor="middle" font-size="11" fill="#1e40af">Besonders wertvoll fuer FIXED-DECIMAL-Operationen und fuer Pointer-basierte Heap-Strukturen (Aliasing-Fehler).</text>
+  </g>
+
+  <!-- 5 property examples as cards -->
+  <g filter="url(#sh43)">
+    <rect x="60" y="220" width="560" height="180" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="60" y="220" width="560" height="36" rx="12" fill="#f59e0b"/>
+    <text x="340" y="243" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">1 · Invarianten der Arithmetik</text>
+    <text x="80" y="276" font-size="11" fill="#0f172a">Beispiel: Kommutativitaet der Addition</text>
+    <rect x="80" y="286" width="520" height="90" rx="6" fill="#f1f5f9"/>
+    <text x="94" y="306" font-size="11" font-family="monospace" fill="#334155">@Property</text>
+    <text x="94" y="322" font-size="11" font-family="monospace" fill="#334155">void additionIsCommutative(</text>
+    <text x="94" y="338" font-size="11" font-family="monospace" fill="#334155">  @ForAll BigDecimal a, @ForAll BigDecimal b) {</text>
+    <text x="94" y="354" font-size="11" font-family="monospace" fill="#334155">  assertThat(pl1Add(a, b)).isEqualTo(pl1Add(b, a));</text>
+    <text x="94" y="370" font-size="11" font-family="monospace" fill="#334155">}</text>
+  </g>
+
+  <g filter="url(#sh43)">
+    <rect x="640" y="220" width="540" height="180" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="640" y="220" width="540" height="36" rx="12" fill="#059669"/>
+    <text x="910" y="243" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2 · Round-Trip-Invarianten</text>
+    <text x="660" y="276" font-size="11" fill="#0f172a">Beispiel: parse(format(x)) == x fuer PICTURE-Strings</text>
+    <rect x="660" y="286" width="500" height="90" rx="6" fill="#f1f5f9"/>
+    <text x="674" y="306" font-size="11" font-family="monospace" fill="#334155">@Property</text>
+    <text x="674" y="322" font-size="11" font-family="monospace" fill="#334155">void formatParseRoundTrip(</text>
+    <text x="674" y="338" font-size="11" font-family="monospace" fill="#334155">  @ForAll @IntRange(min=-9999, max=9999) int x) {</text>
+    <text x="674" y="354" font-size="11" font-family="monospace" fill="#334155">  String s = picture("ZZZ9.99").format(x);</text>
+    <text x="674" y="370" font-size="11" font-family="monospace" fill="#334155">  assertThat(picture("ZZZ9.99").parse(s)).isEqualTo(x);</text>
+  </g>
+
+  <g filter="url(#sh43)">
+    <rect x="60" y="420" width="360" height="180" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <rect x="60" y="420" width="360" height="36" rx="12" fill="#2563eb"/>
+    <text x="240" y="443" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3 · Idempotenz</text>
+    <text x="76" y="476" font-size="11" fill="#0f172a">Beispiel: Lookup-Funktionen</text>
+    <text x="76" y="492" font-size="11" fill="#0f172a">lookup(x) == lookup(lookup(x))</text>
+    <text x="76" y="520" font-size="10" fill="#334155">Besonders wichtig bei:</text>
+    <text x="76" y="536" font-size="10" fill="#334155">&#8226;  Schluessel-Transformation</text>
+    <text x="76" y="550" font-size="10" fill="#334155">&#8226;  Caching-Layern</text>
+    <text x="76" y="564" font-size="10" fill="#334155">&#8226;  Normalisierungen</text>
+    <text x="76" y="580" font-size="10" fill="#334155">&#8226;  Deduplication</text>
+  </g>
+
+  <g filter="url(#sh43)">
+    <rect x="440" y="420" width="360" height="180" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="440" y="420" width="360" height="36" rx="12" fill="#7b2cbf"/>
+    <text x="620" y="443" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">4 · Sortierung &amp; Reihenfolge</text>
+    <text x="456" y="476" font-size="11" fill="#0f172a">Wenn PL/I eine Reihenfolge garantiert,</text>
+    <text x="456" y="492" font-size="11" fill="#0f172a">muss Java dieselbe liefern</text>
+    <text x="456" y="520" font-size="10" fill="#334155">Besonders wichtig bei:</text>
+    <text x="456" y="536" font-size="10" fill="#334155">&#8226;  Batch-Output-Files</text>
+    <text x="456" y="550" font-size="10" fill="#334155">&#8226;  Reports / PDFs</text>
+    <text x="456" y="564" font-size="10" fill="#334155">&#8226;  Tag-Summary-Aufstellungen</text>
+    <text x="456" y="578" font-size="10" fill="#334155">&#8226;  Downstream-Sort-Sensitivity</text>
+  </g>
+
+  <g filter="url(#sh43)">
+    <rect x="820" y="420" width="360" height="180" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="820" y="420" width="360" height="36" rx="12" fill="#dc2626"/>
+    <text x="1000" y="443" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">5 · Monotonie</text>
+    <text x="836" y="476" font-size="11" fill="#0f172a">Zaehler und Aggregate sind</text>
+    <text x="836" y="492" font-size="11" fill="#0f172a">monoton steigend</text>
+    <text x="836" y="520" font-size="10" fill="#334155">Besonders wichtig bei:</text>
+    <text x="836" y="536" font-size="10" fill="#334155">&#8226;  ID-Generation (sequences)</text>
+    <text x="836" y="550" font-size="10" fill="#334155">&#8226;  Umsatz-Aggregation</text>
+    <text x="836" y="564" font-size="10" fill="#334155">&#8226;  Event-Counters</text>
+    <text x="836" y="578" font-size="10" fill="#334155">&#8226;  Timestamp-Generation</text>
+  </g>
+
+  <!-- Tool + Benefit -->
+  <g filter="url(#sh43)">
+    <rect x="60" y="620" width="1120" height="90" rx="12" fill="#f0fdf4" stroke="#059669" stroke-width="2"/>
+    <text x="620" y="648" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Werkzeug: jqwik fuer Java (Alternative: QuickCheck-Style Libraries)</text>
+    <text x="620" y="672" text-anchor="middle" font-size="11" fill="#047857">jqwik.net · @Property + @ForAll + Shrinking &#8594; findet minimalen Eingabe-Fall, der die Property verletzt.</text>
+    <text x="620" y="692" text-anchor="middle" font-size="11" fill="#065f46">Senior-Pattern: Property-Tests erzeugt lassen (LLM), reviewen und in CI/CD einbetten. Seed fest, Reruns reproduzierbar.</text>
+  </g>
+</svg>

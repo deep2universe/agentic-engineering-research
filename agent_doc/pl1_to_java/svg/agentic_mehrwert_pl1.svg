@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh24" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr24" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#059669"/>
+    </marker>
+    <linearGradient id="valueGrad" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#f3e8ff"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Warum agentic Engineering bei PL/I besonders zahlt</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Der Mehrwert-Hebel: Wo LLM-Agenten bei PL/I einen staerkeren Beitrag liefern als bei COBOL</text>
+
+  <!-- Root problem context -->
+  <g filter="url(#sh24)">
+    <rect x="60" y="110" width="1120" height="100" rx="12" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="620" y="138" text-anchor="middle" font-size="13" font-weight="700" fill="#991b1b">Ausgangsproblem: Typische PL/I-Projekte haben strukturelle Defizite</text>
+    <text x="200" y="168" font-size="11" fill="#7f1d1d">&#8226;  weniger Dokumentation</text>
+    <text x="200" y="184" font-size="10" fill="#7c2d12">(viele COBOL-Projekte wurden mehrfach dokumentiert)</text>
+    <text x="520" y="168" font-size="11" fill="#7f1d1d">&#8226;  mehr Sprach-Idiome</text>
+    <text x="520" y="184" font-size="10" fill="#7c2d12">(Pointer, Preprocessor, Rekursion, ON-Units)</text>
+    <text x="850" y="168" font-size="11" fill="#7f1d1d">&#8226;  weniger Entwickler mit PL/I-Wissen</text>
+    <text x="850" y="184" font-size="10" fill="#7c2d12">(PL/I-Devs sind noch rarer als COBOL-Devs)</text>
+  </g>
+
+  <!-- Consequence: verstehen dominiert -->
+  <g filter="url(#sh24)">
+    <rect x="320" y="240" width="600" height="50" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="620" y="270" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Folge: Der Anteil der Arbeit, der auf VERSTEHEN + ERKLAEREN entfaellt, ist bei PL/I deutlich hoeher</text>
+  </g>
+
+  <!-- Arrow down -->
+  <line x1="620" y1="295" x2="620" y2="320" stroke="#059669" stroke-width="3" marker-end="url(#arr24)" fill="none"/>
+
+  <!-- The five value cards (Mehrwert-Kaskade) -->
+  <text x="620" y="350" text-anchor="middle" font-size="15" font-weight="700" fill="#065f46">Fuenf Mehrwert-Kaskaden durch LLM-Agenten</text>
+
+  <g filter="url(#sh24)">
+    <rect x="60" y="375" width="220" height="150" rx="12" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="60" y="375" width="220" height="36" rx="12" fill="#059669"/>
+    <text x="170" y="399" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">1 · Codeverstaendnis</text>
+    <text x="74" y="434" font-size="11" fill="#0f172a">Agenten erklaeren komplexe</text>
+    <text x="74" y="450" font-size="11" fill="#0f172a">PL/I-Module in natuerlicher</text>
+    <text x="74" y="466" font-size="11" fill="#0f172a">Sprache:</text>
+    <text x="74" y="484" font-size="10" fill="#334155">• Pointer-Logik</text>
+    <text x="74" y="498" font-size="10" fill="#334155">• Nested ON-Units</text>
+    <text x="74" y="512" font-size="10" fill="#334155">• Preprocessor-Code</text>
+  </g>
+
+  <g filter="url(#sh24)">
+    <rect x="300" y="375" width="220" height="150" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="3"/>
+    <rect x="300" y="375" width="220" height="36" rx="12" fill="#0891b2"/>
+    <text x="410" y="399" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2 · Wissens­konservierung</text>
+    <text x="314" y="434" font-size="11" fill="#0f172a">Agenten extrahieren</text>
+    <text x="314" y="450" font-size="11" fill="#0f172a">Business-Regeln aus Code in</text>
+    <text x="314" y="466" font-size="11" fill="#0f172a">maschinenlesbare Specs:</text>
+    <text x="314" y="484" font-size="10" fill="#334155">• Decision-Tables</text>
+    <text x="314" y="498" font-size="10" fill="#334155">• ADRs</text>
+    <text x="314" y="512" font-size="10" fill="#334155">• Property-Lists</text>
+  </g>
+
+  <g filter="url(#sh24)">
+    <rect x="540" y="375" width="220" height="150" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="540" y="375" width="220" height="36" rx="12" fill="#2563eb"/>
+    <text x="650" y="399" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3 · Test-Generierung</text>
+    <text x="554" y="434" font-size="11" fill="#0f172a">Agenten bauen Tests auf</text>
+    <text x="554" y="450" font-size="11" fill="#0f172a">Basis des Codes:</text>
+    <text x="554" y="472" font-size="10" fill="#334155">• Unit-Tests</text>
+    <text x="554" y="486" font-size="10" fill="#334155">• Golden-Master</text>
+    <text x="554" y="500" font-size="10" fill="#334155">• Property-Tests (jqwik)</text>
+    <text x="554" y="514" font-size="10" fill="#334155">• Fixture-Extraktion</text>
+  </g>
+
+  <g filter="url(#sh24)">
+    <rect x="780" y="375" width="220" height="150" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="780" y="375" width="220" height="36" rx="12" fill="#7b2cbf"/>
+    <text x="890" y="399" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">4 · Konvertierung</text>
+    <text x="794" y="434" font-size="11" fill="#0f172a">Refactor (deterministisch)</text>
+    <text x="794" y="450" font-size="11" fill="#0f172a">und Reforge (LLM-gestuetzt)</text>
+    <text x="794" y="466" font-size="11" fill="#0f172a">transformieren Code:</text>
+    <text x="794" y="484" font-size="10" fill="#334155">• Blu Age Engine</text>
+    <text x="794" y="498" font-size="10" fill="#334155">• Claude Opus Reforge</text>
+    <text x="794" y="512" font-size="10" fill="#334155">• Kiro Reimagine</text>
+  </g>
+
+  <g filter="url(#sh24)">
+    <rect x="1020" y="375" width="160" height="150" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <rect x="1020" y="375" width="160" height="36" rx="12" fill="#dc2626"/>
+    <text x="1100" y="399" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">5 · Review-Support</text>
+    <text x="1034" y="434" font-size="11" fill="#0f172a">Agenten reviewen</text>
+    <text x="1034" y="450" font-size="11" fill="#0f172a">den generierten</text>
+    <text x="1034" y="466" font-size="11" fill="#0f172a">Java-Code auf:</text>
+    <text x="1034" y="484" font-size="10" fill="#334155">• Anti-Patterns</text>
+    <text x="1034" y="498" font-size="10" fill="#334155">• Security-Issues</text>
+    <text x="1034" y="512" font-size="10" fill="#334155">• Performance</text>
+  </g>
+
+  <!-- Big benefit bottom -->
+  <g filter="url(#sh24)">
+    <rect x="60" y="560" width="1120" height="170" rx="12" fill="url(#valueGrad)"/>
+    <text x="620" y="590" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Der Hebel-Effekt bei PL/I</text>
+    <text x="620" y="618" text-anchor="middle" font-size="12" fill="#f3e8ff">Weil der Verstehens-Anteil bei PL/I hoeher ist, wirken LLM-Agenten dort staerker als bei COBOL.</text>
+    <g font-size="11" fill="#f3e8ff">
+      <text x="120" y="650">&#10003;  30–50 % Reduktion der Migrationsdauer (AWS-Benchmark)</text>
+      <text x="120" y="670">&#10003;  Weniger manuelles Dokumentations-Reverse-Engineering</text>
+      <text x="120" y="690">&#10003;  Schnellerer Onboarding neuer Entwickler ins Projekt</text>
+      <text x="700" y="650">&#10003;  Automatische ADR- und Spec-Generierung</text>
+      <text x="700" y="670">&#10003;  Wissen der PL/I-Veterans kodifiziert, bevor sie in Rente gehen</text>
+      <text x="700" y="690">&#10003;  Bessere Test-Coverage aus Code-Analyse statt Handarbeit</text>
+    </g>
+    <text x="620" y="720" text-anchor="middle" font-size="10" font-style="italic" fill="#fef3c7">ABER: Human-in-the-Loop ist Pflicht, nicht optional — der Agent ist Assistent, nicht Autopilot.</text>
+  </g>
+</svg>

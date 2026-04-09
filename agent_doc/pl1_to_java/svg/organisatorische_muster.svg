@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh36" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Organisatorische Muster fuer 50-%-Projekte</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Drei Patterns, die jedes ernsthafte Projekt einfuehren muss</text>
+
+  <!-- Cross-functional Feature Teams -->
+  <g filter="url(#sh36)">
+    <rect x="60" y="110" width="1120" height="180" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="60" y="110" width="1120" height="40" rx="14" fill="#2563eb"/>
+    <text x="620" y="137" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">1 · Cross-funktionale Feature-Teams</text>
+
+    <text x="80" y="172" font-size="12" font-weight="700" fill="#0f172a">Zusammensetzung pro Team:</text>
+
+    <!-- Team member icons -->
+    <g transform="translate(100, 190)">
+      <circle cx="0" cy="0" r="26" fill="#ef4444"/>
+      <text x="0" y="-4" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">PL/I</text>
+      <text x="0" y="9" text-anchor="middle" font-size="9" fill="#ffffff">Dev</text>
+      <text x="0" y="44" text-anchor="middle" font-size="9" fill="#334155">Mainframe-Expertise</text>
+    </g>
+    <g transform="translate(200, 190)">
+      <circle cx="0" cy="0" r="26" fill="#059669"/>
+      <text x="0" y="-4" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Java</text>
+      <text x="0" y="9" text-anchor="middle" font-size="9" fill="#ffffff">Dev</text>
+      <text x="0" y="44" text-anchor="middle" font-size="9" fill="#334155">Spring + AWS</text>
+    </g>
+    <g transform="translate(300, 190)">
+      <circle cx="0" cy="0" r="26" fill="#7b2cbf"/>
+      <text x="0" y="-4" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Arch</text>
+      <text x="0" y="9" text-anchor="middle" font-size="9" fill="#ffffff">itekt</text>
+      <text x="0" y="44" text-anchor="middle" font-size="9" fill="#334155">Domain-Expertise</text>
+    </g>
+    <g transform="translate(400, 190)">
+      <circle cx="0" cy="0" r="26" fill="#f59e0b"/>
+      <text x="0" y="-4" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Test</text>
+      <text x="0" y="9" text-anchor="middle" font-size="9" fill="#ffffff">Eng</text>
+      <text x="0" y="44" text-anchor="middle" font-size="9" fill="#334155">Dual-Run-Tests</text>
+    </g>
+
+    <text x="520" y="196" font-size="11" font-weight="700" fill="#0f172a">Pattern:</text>
+    <text x="600" y="196" font-size="11" fill="#334155">Aenderungen an der Domain werden GEMEINSAM geplant,</text>
+    <text x="600" y="212" font-size="11" fill="#334155">nicht nacheinander. Kein "ueber den Zaun werfen" zwischen</text>
+    <text x="600" y="228" font-size="11" fill="#334155">Mainframe- und Java-Team.</text>
+
+    <text x="520" y="256" font-size="11" font-weight="700" fill="#1e3a8a">Wichtig:</text>
+    <text x="600" y="256" font-size="11" fill="#334155">Der Architekt ist verantwortlich fuer die Mapping-Entscheidungen</text>
+    <text x="600" y="272" font-size="11" fill="#334155">und die Review-Gates, nicht das einzelne Team-Mitglied.</text>
+  </g>
+
+  <!-- Integration Squad -->
+  <g filter="url(#sh36)">
+    <rect x="60" y="310" width="540" height="220" rx="14" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="60" y="310" width="540" height="40" rx="14" fill="#059669"/>
+    <text x="330" y="337" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">2 · Dedicated Integration Squad</text>
+
+    <text x="80" y="376" font-size="12" font-weight="700" fill="#0f172a">Rolle:</text>
+    <text x="130" y="376" font-size="11" fill="#334155">Kleines Team (3–5 Personen) mit Verantwortung fuer</text>
+    <text x="130" y="392" font-size="11" fill="#334155">alle grenzueberschreitenden Aspekte:</text>
+
+    <g font-size="10" fill="#065f46">
+      <circle cx="96" cy="416" r="4" fill="#059669"/>
+      <text x="108" y="420">API-Gateway-Konfiguration</text>
+      <circle cx="96" cy="434" r="4" fill="#059669"/>
+      <text x="108" y="438">Schema-Registry-Maintenance</text>
+      <circle cx="96" cy="452" r="4" fill="#059669"/>
+      <text x="108" y="456">Monitoring &amp; Alerting ueber Grenzen</text>
+      <circle cx="96" cy="470" r="4" fill="#059669"/>
+      <text x="108" y="474">Chaos-Tests + Contract-Tests</text>
+      <circle cx="96" cy="488" r="4" fill="#059669"/>
+      <text x="108" y="492">Incident-Response bei Grenz-Ausfaellen</text>
+    </g>
+
+    <text x="80" y="516" font-size="11" font-style="italic" fill="#065f46">Wichtig: Neutral zwischen Mainframe- und Java-Seite — kein "Home-Team"</text>
+  </g>
+
+  <!-- Knowledge Transfer -->
+  <g filter="url(#sh36)">
+    <rect x="640" y="310" width="540" height="220" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="640" y="310" width="540" height="40" rx="14" fill="#f59e0b"/>
+    <text x="910" y="337" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">3 · Knowledge Transfer als Daueraufgabe</text>
+
+    <text x="660" y="376" font-size="12" font-weight="700" fill="#0f172a">Problem:</text>
+    <text x="740" y="376" font-size="11" fill="#334155">Die kritischsten Module sind noch auf PL/I.</text>
+    <text x="740" y="392" font-size="11" fill="#334155">Knowledge Transfer ist NICHT abgeschlossen.</text>
+
+    <text x="660" y="420" font-size="12" font-weight="700" fill="#0f172a">Massnahmen:</text>
+    <g font-size="10" fill="#7c2d12">
+      <circle cx="676" cy="440" r="4" fill="#d97706"/>
+      <text x="688" y="444">Dedicated Sessions (1-2h pro Woche) mit PL/I-Expertise</text>
+      <circle cx="676" cy="458" r="4" fill="#d97706"/>
+      <text x="688" y="462">Pair-Programming PL/I-Dev + Java-Dev</text>
+      <circle cx="676" cy="476" r="4" fill="#d97706"/>
+      <text x="688" y="480">Mapping-Entscheidungen gemeinsam treffen</text>
+      <circle cx="676" cy="494" r="4" fill="#d97706"/>
+      <text x="688" y="498">Understanding-Agent als "zweite Meinung"</text>
+      <circle cx="676" cy="512" r="4" fill="#d97706"/>
+      <text x="688" y="516">ADRs schreiben fuer jede Mapping-Entscheidung</text>
+    </g>
+  </g>
+
+  <!-- Bottom insight -->
+  <g filter="url(#sh36)">
+    <rect x="60" y="560" width="1120" height="160" rx="14" fill="#0f172a"/>
+    <text x="620" y="592" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Der Understanding-Agent (Dokument 4) unterstuetzt alle drei Muster</text>
+    <text x="620" y="616" text-anchor="middle" font-size="12" fill="#cbd5e1">PL/I-Entwickler koennen den Agent als "zweite Meinung" nutzen, um ihre Erklaerungen zu validieren.</text>
+    <text x="620" y="636" text-anchor="middle" font-size="12" fill="#cbd5e1">Java-Entwickler koennen ihn nutzen, um Code zu verstehen, ohne PL/I-Syntax-Expertise zu haben.</text>
+    <text x="620" y="656" text-anchor="middle" font-size="12" fill="#cbd5e1">Architekten koennen ihn als Doku-Generator nutzen — ADRs werden halbautomatisch erzeugt.</text>
+    <text x="620" y="680" text-anchor="middle" font-size="11" font-style="italic" fill="#fbbf24">Aber: der Agent ersetzt die menschlichen Sessions nicht. Er beschleunigt sie.</text>
+    <text x="620" y="700" text-anchor="middle" font-size="10" fill="#94a3b8">Wissensextraktion bleibt Senior-Arbeit — der Agent ist ein Assistent, kein Substitut.</text>
+  </g>
+</svg>

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh46" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr46" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">End-to-End &amp; Shadow-Tests (5 %)</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Die Spitze der Test-Pyramide — das Tor zur Produktion</text>
+
+  <!-- E2E section -->
+  <g filter="url(#sh46)">
+    <rect x="60" y="110" width="560" height="290" rx="14" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="60" y="110" width="560" height="44" rx="14" fill="#7b2cbf"/>
+    <text x="340" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">E2E-Tests</text>
+
+    <text x="80" y="182" font-size="12" font-weight="700" fill="#0f172a">Scope:</text>
+    <text x="80" y="200" font-size="11" fill="#334155">Vollstaendige Batch-Jobs, die komplette Tagesablaeufe durchspielen.</text>
+
+    <text x="80" y="232" font-size="12" font-weight="700" fill="#0f172a">Input:</text>
+    <text x="80" y="250" font-size="11" fill="#334155">Ein Tag Produktionsdaten (anonymisiert)</text>
+
+    <text x="80" y="282" font-size="12" font-weight="700" fill="#0f172a">Output:</text>
+    <text x="80" y="300" font-size="11" fill="#334155">Reports, Buchungen, Outbound-Files</text>
+
+    <text x="80" y="332" font-size="12" font-weight="700" fill="#0f172a">Vergleich:</text>
+    <text x="80" y="350" font-size="11" fill="#334155">Outputs zwischen PL/I-Run und Java-Run byte-genau</text>
+
+    <text x="80" y="380" font-size="11" font-style="italic" fill="#6b21a8">Orchestriert in Staging-Umgebung mit realen Mainframe-Referenz-Daten</text>
+  </g>
+
+  <!-- Shadow section -->
+  <g filter="url(#sh46)">
+    <rect x="640" y="110" width="540" height="290" rx="14" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <rect x="640" y="110" width="540" height="44" rx="14" fill="#dc2626"/>
+    <text x="910" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">Shadow-Tests</text>
+
+    <text x="660" y="182" font-size="12" font-weight="700" fill="#0f172a">Prinzip:</text>
+    <text x="660" y="200" font-size="11" fill="#334155">In der Produktionsumgebung wird ein Anteil des echten</text>
+    <text x="660" y="216" font-size="11" fill="#334155">Traffics ZUSAETZLICH an die Java-Seite gespielt.</text>
+
+    <text x="660" y="246" font-size="12" font-weight="700" fill="#0f172a">Rueckgabe:</text>
+    <text x="660" y="264" font-size="11" fill="#334155">Die Shadow-Antworten werden NICHT an den Aufrufer</text>
+    <text x="660" y="280" font-size="11" fill="#334155">zurueckgegeben — nur geloggt und verglichen.</text>
+
+    <text x="660" y="310" font-size="12" font-weight="700" fill="#0f172a">Aktivierungs-Kriterium:</text>
+    <text x="660" y="328" font-size="11" fill="#334155">Aequivalenz-Quote &gt; 99,99 % ueber mindestens 14 Tage</text>
+
+    <text x="660" y="358" font-size="11" font-style="italic" fill="#991b1b">Safe-by-Design: Kein Risiko fuer Live-User, da Shadow-Antworten nicht rueckgegeben</text>
+  </g>
+
+  <!-- Shadow Traffic Flow -->
+  <g filter="url(#sh46)">
+    <rect x="60" y="420" width="1120" height="220" rx="14" fill="#f8fafc" stroke="#64748b" stroke-width="2"/>
+    <text x="620" y="450" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Shadow-Traffic-Flow in der Produktion</text>
+  </g>
+
+  <g filter="url(#sh46)">
+    <rect x="90" y="480" width="160" height="100" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="170" y="508" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">Live-Client</text>
+    <text x="170" y="528" text-anchor="middle" font-size="10" fill="#1e40af">Produktions-Request</text>
+    <text x="170" y="544" text-anchor="middle" font-size="10" fill="#1e40af">(z. B. CICS-Transaction,</text>
+    <text x="170" y="558" text-anchor="middle" font-size="10" fill="#1e40af">REST-Call, MQ-Message)</text>
+  </g>
+
+  <g filter="url(#sh46)">
+    <rect x="300" y="480" width="160" height="100" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="380" y="508" text-anchor="middle" font-size="12" font-weight="700" fill="#78350f">Traffic-Splitter</text>
+    <text x="380" y="528" text-anchor="middle" font-size="10" fill="#92400e">NLB / API-Gateway</text>
+    <text x="380" y="544" text-anchor="middle" font-size="10" fill="#92400e">Duplicates requests</text>
+    <text x="380" y="558" text-anchor="middle" font-size="10" fill="#92400e">async (Fire &amp; Forget)</text>
+  </g>
+
+  <g filter="url(#sh46)">
+    <rect x="510" y="480" width="160" height="100" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="590" y="508" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">PL/I (Live)</text>
+    <text x="590" y="528" text-anchor="middle" font-size="10" fill="#7f1d1d">Antwort → Client</text>
+    <text x="590" y="544" text-anchor="middle" font-size="10" fill="#7f1d1d">(Source of Truth)</text>
+    <text x="590" y="558" text-anchor="middle" font-size="10" fill="#7f1d1d">Output-Log nach S3</text>
+  </g>
+
+  <g filter="url(#sh46)">
+    <rect x="720" y="480" width="160" height="100" rx="10" fill="#f0fdf4" stroke="#059669" stroke-width="2"/>
+    <text x="800" y="508" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Java (Shadow)</text>
+    <text x="800" y="528" text-anchor="middle" font-size="10" fill="#047857">Antwort → Log</text>
+    <text x="800" y="544" text-anchor="middle" font-size="10" fill="#047857">NICHT an Client</text>
+    <text x="800" y="558" text-anchor="middle" font-size="10" fill="#047857">Output-Log nach S3</text>
+  </g>
+
+  <g filter="url(#sh46)">
+    <rect x="930" y="480" width="220" height="100" rx="10" fill="#faf5ff" stroke="#7b2cbf" stroke-width="2"/>
+    <text x="1040" y="508" text-anchor="middle" font-size="12" font-weight="700" fill="#6b21a8">Diff-Engine</text>
+    <text x="1040" y="528" text-anchor="middle" font-size="10" fill="#7b2cbf">Vergleicht Logs</text>
+    <text x="1040" y="544" text-anchor="middle" font-size="10" fill="#7b2cbf">Aequivalenz-Quote</text>
+    <text x="1040" y="558" text-anchor="middle" font-size="10" fill="#7b2cbf">Dashboard + Alerting</text>
+  </g>
+
+  <g stroke="#dc2626" stroke-width="2" fill="none" marker-end="url(#arr46)">
+    <line x1="250" y1="530" x2="298" y2="530"/>
+    <line x1="460" y1="510" x2="508" y2="510"/>
+    <line x1="460" y1="550" x2="718" y2="530"/>
+    <line x1="670" y1="530" x2="928" y2="530"/>
+    <line x1="880" y1="550" x2="928" y2="550"/>
+  </g>
+
+  <text x="620" y="610" text-anchor="middle" font-size="11" font-style="italic" fill="#64748b">Shadow-Traffic ist das sicherste Go-Live-Vehikel — nutzt volle Produktionskomplexitaet ohne Risiko.</text>
+
+  <!-- Bottom banner -->
+  <g filter="url(#sh46)">
+    <rect x="60" y="660" width="1120" height="80" rx="12" fill="#0f172a"/>
+    <text x="620" y="692" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Senior-Regel: Shadow-Traffic &#8805; 14 Tage &amp; &#8805; 99,99 % Aequivalenz = Go-Live-Gate</text>
+    <text x="620" y="714" text-anchor="middle" font-size="11" fill="#cbd5e1">Kein Go-Live ohne dieses Gate — auch nicht unter Zeitdruck. Die Zeitersparnis durch Skipping ist spaeter immer doppelt verloren.</text>
+  </g>
+</svg>

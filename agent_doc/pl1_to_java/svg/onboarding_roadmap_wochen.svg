@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="shadow7" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="tlGrad" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="50%" stop-color="#7b2cbf"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Start hier — Onboarding-Roadmap fuer Senior-Engineers</text>
+  <text x="620" y="66" text-anchor="middle" font-size="14" fill="#475569">Vier Wochen + fortlaufend: Vom ersten Lesen zum ersten Assessment-Lauf</text>
+
+  <!-- Timeline bar -->
+  <rect x="80" y="300" width="1080" height="10" rx="5" fill="url(#tlGrad)" filter="url(#shadow7)"/>
+
+  <!-- Milestones (dots) -->
+  <g>
+    <circle cx="180" cy="305" r="18" fill="#1e3a8a" filter="url(#shadow7)"/>
+    <text x="180" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">1-2</text>
+    <circle cx="420" cy="305" r="18" fill="#2563eb" filter="url(#shadow7)"/>
+    <text x="420" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">3-5</text>
+    <circle cx="660" cy="305" r="18" fill="#7b2cbf" filter="url(#shadow7)"/>
+    <text x="660" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">W2</text>
+    <circle cx="900" cy="305" r="18" fill="#c026d3" filter="url(#shadow7)"/>
+    <text x="900" y="311" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">W3</text>
+    <circle cx="1100" cy="305" r="18" fill="#059669" filter="url(#shadow7)"/>
+    <text x="1100" y="311" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">W4+</text>
+  </g>
+
+  <!-- Station 1: Tag 1-2 -->
+  <g filter="url(#shadow7)">
+    <rect x="60" y="120" width="240" height="140" rx="12" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+    <rect x="60" y="120" width="240" height="30" rx="12" fill="#1e3a8a"/>
+    <text x="180" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Tag 1–2 · Grundlagen</text>
+    <text x="72" y="172" font-size="11" font-weight="700" fill="#0f172a">Lese-Pflicht</text>
+    <text x="72" y="190" font-size="10" fill="#334155">• pl1_zu_java_hauptguide.md</text>
+    <text x="72" y="206" font-size="10" fill="#334155">• pl1_sprachmerkmale_und_</text>
+    <text x="72" y="220" font-size="10" fill="#334155">  konvertierung.md</text>
+    <text x="72" y="240" font-size="10" font-style="italic" fill="#1e40af">Ziel: Mental-Modell</text>
+    <text x="72" y="252" font-size="10" font-style="italic" fill="#1e40af">der PL/I-Eigenheiten</text>
+  </g>
+
+  <!-- Station 2: Tag 3-5 -->
+  <g filter="url(#shadow7)">
+    <rect x="300" y="360" width="240" height="160" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <rect x="300" y="360" width="240" height="30" rx="12" fill="#2563eb"/>
+    <text x="420" y="380" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Tag 3–5 · AWS Stack</text>
+    <text x="312" y="412" font-size="11" font-weight="700" fill="#0f172a">Hands-On</text>
+    <text x="312" y="430" font-size="10" fill="#334155">• aws_feature_uebersicht_fuer_pl1.md</text>
+    <text x="312" y="446" font-size="10" fill="#334155">• Blu Age Developer auf</text>
+    <text x="312" y="460" font-size="10" fill="#334155">  AppStream 2.0 aufsetzen</text>
+    <text x="312" y="476" font-size="10" fill="#334155">• PlanetsDemo-Sample testen</text>
+    <text x="312" y="500" font-size="10" font-style="italic" fill="#1e40af">Ziel: Toolchain lauffaehig</text>
+  </g>
+
+  <!-- Station 3: Woche 2 -->
+  <g filter="url(#shadow7)">
+    <rect x="540" y="120" width="240" height="160" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2"/>
+    <rect x="540" y="120" width="240" height="30" rx="12" fill="#7b2cbf"/>
+    <text x="660" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Woche 2 · Assessment</text>
+    <text x="552" y="172" font-size="11" font-weight="700" fill="#0f172a">Build first Pipeline</text>
+    <text x="552" y="190" font-size="10" fill="#334155">• agentic_engineering_workflows.md</text>
+    <text x="552" y="206" font-size="10" fill="#334155">• Discovery-Agent verdrahten</text>
+    <text x="552" y="222" font-size="10" fill="#334155">• Source-Scanner auf S3</text>
+    <text x="552" y="238" font-size="10" fill="#334155">• Dependency-Graph bauen</text>
+    <text x="552" y="262" font-size="10" font-style="italic" fill="#6b21a8">Ziel: Erste Assessment-Runs</text>
+  </g>
+
+  <!-- Station 4: Woche 3 -->
+  <g filter="url(#shadow7)">
+    <rect x="780" y="360" width="240" height="160" rx="12" fill="#ffffff" stroke="#c026d3" stroke-width="2"/>
+    <rect x="780" y="360" width="240" height="30" rx="12" fill="#c026d3"/>
+    <text x="900" y="380" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Woche 3 · Teststrategie</text>
+    <text x="792" y="412" font-size="11" font-weight="700" fill="#0f172a">Projektspezifisch</text>
+    <text x="792" y="430" font-size="10" fill="#334155">• testabdeckung_und_teststrategien.md</text>
+    <text x="792" y="446" font-size="10" fill="#334155">• Dual-Run-Setup skizzieren</text>
+    <text x="792" y="462" font-size="10" fill="#334155">• Golden-Master-Datenauswahl</text>
+    <text x="792" y="478" font-size="10" fill="#334155">• FIXED-DECIMAL-Tests planen</text>
+    <text x="792" y="500" font-size="10" font-style="italic" fill="#86198f">Ziel: Teststrategie belastbar</text>
+  </g>
+
+  <!-- Station 5: Woche 4+ -->
+  <g filter="url(#shadow7)">
+    <rect x="980" y="120" width="240" height="160" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <rect x="980" y="120" width="240" height="30" rx="12" fill="#059669"/>
+    <text x="1100" y="140" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Woche 4+ · Referenz</text>
+    <text x="992" y="172" font-size="11" font-weight="700" fill="#0f172a">Fortlaufend</text>
+    <text x="992" y="190" font-size="10" fill="#334155">• best_practices_pl1.md</text>
+    <text x="992" y="206" font-size="10" fill="#334155">• loesungshorizont_erweitert.md</text>
+    <text x="992" y="222" font-size="10" fill="#334155">• ADRs schreiben</text>
+    <text x="992" y="238" font-size="10" fill="#334155">• Lessons Learned pflegen</text>
+    <text x="992" y="262" font-size="10" font-style="italic" fill="#065f46">Ziel: Produktive Waves</text>
+  </g>
+
+  <!-- Connector lines from boxes to timeline -->
+  <g stroke="#94a3b8" stroke-dasharray="3 3" stroke-width="1.5">
+    <line x1="180" y1="260" x2="180" y2="288"/>
+    <line x1="420" y1="322" x2="420" y2="358"/>
+    <line x1="660" y1="280" x2="660" y2="288"/>
+    <line x1="900" y1="322" x2="900" y2="358"/>
+    <line x1="1100" y1="280" x2="1100" y2="288"/>
+  </g>
+
+  <!-- Shortcut for 50% projects -->
+  <g filter="url(#shadow7)">
+    <rect x="240" y="600" width="760" height="80" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <text x="620" y="626" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">SHORTCUT fuer 50-%-Projekte</text>
+    <text x="620" y="646" text-anchor="middle" font-size="12" fill="#7c2d12">Wenn dein Projekt bereits bei ca. 50 % ist: starte direkt mit</text>
+    <text x="620" y="666" text-anchor="middle" font-size="12" font-weight="700" fill="#9a3412">migration_50_prozent_szenarien.md</text>
+  </g>
+
+  <text x="620" y="728" text-anchor="middle" font-size="12" fill="#64748b">Die Roadmap ist sequenziell — jede Station baut auf der vorherigen auf.</text>
+</svg>

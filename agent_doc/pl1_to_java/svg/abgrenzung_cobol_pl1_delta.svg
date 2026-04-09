@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="softShadow2" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="760" fill="#f8fafc"/>
+  <text x="600" y="44" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Abgrenzung zur bestehenden COBOL-Research</text>
+  <text x="600" y="68" text-anchor="middle" font-size="14" fill="#475569">Was COBOL-Research abdeckt · Was hier neu hinzukommt · Was gemeinsam gilt</text>
+
+  <!-- Two overlapping circles -->
+  <g>
+    <circle cx="440" cy="420" r="270" fill="#3b82f6" fill-opacity="0.18" stroke="#2563eb" stroke-width="3"/>
+    <circle cx="760" cy="420" r="270" fill="#7b2cbf" fill-opacity="0.18" stroke="#6d28d9" stroke-width="3"/>
+  </g>
+
+  <!-- Labels for circles -->
+  <text x="280" y="175" font-size="18" font-weight="700" fill="#1e3a8a">COBOL-Research</text>
+  <text x="280" y="195" font-size="12" fill="#1e3a8a">../cobol-migration_aws/</text>
+  <text x="920" y="175" font-size="18" font-weight="700" fill="#581c87" text-anchor="end">PL/I-Research (dieses Repo)</text>
+  <text x="920" y="195" font-size="12" fill="#581c87" text-anchor="end">pl1_to_java/</text>
+
+  <!-- LEFT side (COBOL only) -->
+  <g font-size="11" fill="#0f172a">
+    <text x="230" y="260" font-weight="600">AWS Transform Agentic-Architektur</text>
+    <text x="230" y="282" font-weight="600">Acht Workflow-Phasen</text>
+    <text x="230" y="304" font-weight="600">Amazon Q Developer &amp; Kiro Basics</text>
+    <text x="230" y="326" font-weight="600">CardDemo (COBOL-Referenz)</text>
+    <text x="230" y="348" font-weight="600">7-Rs-Framework</text>
+    <text x="230" y="370" font-weight="600">Generische Code-Metriken</text>
+    <text x="230" y="392" font-weight="600">Wave Planning (generisch)</text>
+    <text x="230" y="414" font-weight="600">Blue/Green Deployment</text>
+    <text x="230" y="436" font-weight="600">Mainframe Modernization Service</text>
+    <text x="230" y="458" font-weight="600">Tool-Landschaft jenseits AWS</text>
+    <text x="230" y="480" font-weight="600">Migration Hub (EOL)</text>
+    <text x="230" y="502" font-weight="600">IBM watsonx, Heirloom, Raincode ...</text>
+  </g>
+
+  <!-- CENTER overlap (common) -->
+  <text x="600" y="240" text-anchor="middle" font-size="14" font-weight="700" fill="#0f172a">Gemeinsam</text>
+  <g font-size="11" fill="#0f172a" text-anchor="middle">
+    <text x="600" y="270">Assessment-Agent</text>
+    <text x="600" y="290">Bedrock + Claude</text>
+    <text x="600" y="310">Aurora PostgreSQL</text>
+    <text x="600" y="330">Amazon MQ</text>
+    <text x="600" y="350">S3 / DMS / Direct Connect</text>
+    <text x="600" y="370">CodePipeline / EKS</text>
+    <text x="600" y="390">CloudWatch / X-Ray</text>
+    <text x="600" y="410">IAM / KMS / Compliance</text>
+    <text x="600" y="430">Refactor-Phase (Blu Age)</text>
+    <text x="600" y="450">Reforge-Phase (LLM)</text>
+    <text x="600" y="470">Testing Automation</text>
+    <text x="600" y="490">Strangler-Fig-Pattern</text>
+  </g>
+
+  <!-- RIGHT side (PL/I only — the delta) -->
+  <g font-size="11" fill="#0f172a">
+    <text x="970" y="260" font-weight="600">PL/I-Preprocessor (%MACRO, %INCLUDE)</text>
+    <text x="970" y="282" font-weight="600">BASED / POINTER / OFFSET / HANDLE</text>
+    <text x="970" y="304" font-weight="600">AREA-Datentyp und Allokator</text>
+    <text x="970" y="326" font-weight="600">ON-Units (dynamisches Scoping)</text>
+    <text x="970" y="348" font-weight="600">CONTROLLED-Variablen (Stack)</text>
+    <text x="970" y="370" font-weight="600">FIXED DECIMAL (Intermediate Precision)</text>
+    <text x="970" y="392" font-weight="600">TASK / EVENT / WAIT (OS-Multitasking)</text>
+    <text x="970" y="414" font-weight="600">Nested Procedures + Begin Blocks</text>
+    <text x="970" y="436" font-weight="600">PICTURE-Typen</text>
+    <text x="970" y="458" font-weight="600">Risikoprofile fuer 50-%-Projekte</text>
+    <text x="970" y="480" font-weight="600">PL/I-Testing-Strategien</text>
+    <text x="970" y="502" font-weight="600">PL/I Understanding-Agent</text>
+  </g>
+
+  <!-- Delta Label -->
+  <rect x="896" y="580" width="260" height="80" rx="10" fill="#581c87" filter="url(#softShadow2)"/>
+  <text x="1026" y="610" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">&#916; Delta</text>
+  <text x="1026" y="632" text-anchor="middle" font-size="12" fill="#e9d5ff">PL/I-spezifische Themen,</text>
+  <text x="1026" y="648" text-anchor="middle" font-size="12" fill="#e9d5ff">die COBOL-Research NICHT abdeckt</text>
+
+  <rect x="44" y="580" width="260" height="80" rx="10" fill="#1e3a8a" filter="url(#softShadow2)"/>
+  <text x="174" y="610" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Basis</text>
+  <text x="174" y="632" text-anchor="middle" font-size="12" fill="#bfdbfe">COBOL-Research wird als</text>
+  <text x="174" y="648" text-anchor="middle" font-size="12" fill="#bfdbfe">Fundament vorausgesetzt</text>
+
+  <path d="M 200 575 L 200 510" stroke="#1e3a8a" stroke-width="2" marker-end="url(#arrowBlue)" fill="none"/>
+  <path d="M 1000 575 L 1000 510" stroke="#581c87" stroke-width="2" marker-end="url(#arrowPurple)" fill="none"/>
+
+  <defs>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#1e3a8a"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#581c87"/>
+    </marker>
+  </defs>
+
+  <text x="600" y="730" text-anchor="middle" font-size="12" fill="#64748b">Diese Research fokussiert ausschliesslich auf das Delta — COBOL-Themen werden nicht wiederholt.</text>
+</svg>

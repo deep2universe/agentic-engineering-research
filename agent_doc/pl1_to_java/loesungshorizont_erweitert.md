@@ -8,6 +8,10 @@
 
 ## 1. Die sieben Rs im PL/I-Kontext
 
+![Die sieben Rs plus zwei inoffizielle](svg/sieben_rs_pl1.svg)
+
+*Die sieben offiziellen Rs (Retain, Retire, Relocate, Replatform, Repurchase, Rehost, Refactor) als nummerierte Karten — plus die beiden inoffiziellen Erweiterungen Reforge (LLM-basiert) und Reimagine (spec-driven). Unten die Senior-Entscheidungs-Heuristik als Farbmatrix.*
+
 Das bekannte 7-Rs-Framework (Gartner) ist auch für PL/I relevant, hat aber pro Option spezifische Bedeutungen.
 
 | R | Bedeutung | PL/I-Fit |
@@ -37,6 +41,10 @@ Zusätzlich zwei "inoffizielle Rs":
 ---
 
 ## 2. Alternative Tool-Ökosysteme
+
+![Alternative Tool-Oekosysteme](svg/alternative_tool_oekosysteme.svg)
+
+*Fuenf alternative Tool-Familien: Raincode (Byte-Compiler), Micro Focus Open PL/I (Lift-and-Shift), IBM watsonx (AI-gestuetzt), mLogica/Astadia/Heirloom (Drittanbieter), GitHub Copilot + Custom Skills. Jede mit Vorteilen und Nachteilen.*
 
 ### 2.1 Raincode PL/I-Compiler für JVM/.NET
 
@@ -83,6 +91,10 @@ Nicht AWS-zentriert: GitHub Copilot mit Custom-Instructions und MCP-Servern für
 
 ## 3. Hybrid-Strategien
 
+![Drei Hybrid-Strategien](svg/hybrid_strategien.svg)
+
+*Drei Patterns: Hybrid-Coexistence als Dauerzustand (Kern auf PL/I, Peripherie auf Java), Parallel-Run ueber Monate (mit Timeline 0–24m), Selective Reimagine (Kombination aus Reimagine- und Refactor-Regionen). Bewusste Architektur-Entscheidungen, keine Niederlagen.*
+
 ### 3.1 Hybrid-Coexistence als Dauerzustand
 
 In manchen Fällen ist Koexistenz nicht der Zwischenschritt, sondern der **Zielzustand**. Bestimmte transaktionale Kerne bleiben auf PL/I (wo sie unverändert laufen), die Peripherie (UI, Reporting, Analytics) läuft auf Java/AWS. Das ist ein bewusstes Architektur-Entscheidung, nicht eine Niederlage.
@@ -98,6 +110,10 @@ Nur ausgewählte Bounded Contexts werden "reimagined" (z. B. die Customer-Journe
 ---
 
 ## 4. Methodische Ideen
+
+![Methodische Ideen](svg/methodische_ideen.svg)
+
+*Fuenf methodische Ansaetze: Agent-gestuetztes Reverse Engineering, LLM-Assistenz fuer PL/I-Entwickler, Spec-Driven Forward Engineering mit Kiro, Property-Extraction aus PL/I-Code, Documentation-First Migration.*
 
 ### 4.1 Agent-gestütztes Reverse Engineering
 
@@ -132,6 +148,10 @@ Bevor der Transform-Run startet, wird die PL/I-Codebasis **vollständig dokument
 
 ## 5. Team- und Organisations-Ideen
 
+![Team- und Organisations-Ideen](svg/team_organisation_ideen.svg)
+
+*Vier Patterns fuer den menschlichen Teil: Anthology of the Old System (Wissensarchiv), PL/I-Veterans-Gruppe (Retiree-Pool), Mainframe-to-AWS-Academy (Java-Devs lernen PL/I lesen), Rotation (zwei Wochen im anderen Team).*
+
 ### 5.1 "Anthology of the Old System"
 
 Ein Junior-Team (oder ein Agent!) erstellt eine **Geschichts-Sammlung**: Interviews mit PL/I-Entwicklern, Erklärungen zu schwierigen Modulen, Mythen und Anekdoten zur Codebasis. Dieses Wissen geht sonst verloren.
@@ -151,6 +171,10 @@ Java-Entwickler rotieren für zwei Wochen in das PL/I-Team und umgekehrt. Das ba
 ---
 
 ## 6. Außergewöhnliche technische Optionen
+
+![Aussergewoehnliche technische Optionen](svg/ausserge_technische_optionen.svg)
+
+*Fuenf aussergewoehnliche Optionen: Partial LLM-Fine-Tuning (ab 500 kLOC), Regel-Extraktion in Decision-Tables (Drools), Graph-Datenbanken (Neptune/Neo4j), Formal Verification (TLA+, Dafny), Legacy-aware Observability. Unten eine Entscheidungs-Matrix mit "Wann lohnt sich was?".*
 
 ### 6.1 Partial LLM-Fine-Tuning
 
@@ -186,6 +210,10 @@ Ein Observability-Stack, der **sowohl** PL/I-Logs **als auch** Java-Logs in ein 
 
 ## 7. Budgetäre und finanzielle Ideen
 
+![Budgetaere und finanzielle Ideen](svg/budget_finanzielle_ideen.svg)
+
+*Drei Strategien: Finanzierung aus laufendem Betrieb (MIPS-Ersparnis reinvestieren), Cloud-Credits ueber AWS MAP verhandeln, Risk-Insurance fuer sehr grosse Projekte. Unten die Senior-Regel: mindestens zwei parallel verfolgen.*
+
 ### 7.1 Migration aus laufendem Betrieb finanzieren
 
 Statt ein separates Migrations-Budget aufzustellen, die Migration aus dem laufenden Betriebsbudget finanzieren: jede erfolgreich migrierte Modul-Wave reduziert die Mainframe-MIPS und damit die Lizenzkosten. Diese Einsparungen werden in die nächste Wave reinvestiert.
@@ -202,6 +230,10 @@ Manche Projekte lassen sich gegen Migrations-Risiken versichern (cyber insurance
 
 ## 8. Was NICHT mehr zeitgemäß ist
 
+![Was NICHT mehr zeitgemaess ist](svg/nicht_zeitgemaess.svg)
+
+*Fuenf rote Warnkarten mit "&#10007;"-Icons: Komplettes Hand-Rewrite, Emulation ohne Ausstiegsplan, PL/I-Snippets in LLM werfen, kein dedicated Test-Engineering, monolithisches Cloud-Deployment. Jede mit "Stattdessen:"-Gegenempfehlung.*
+
 Einige Ideen, die in den frühen 2020ern noch genannt wurden, sind 2026 nicht mehr empfohlen:
 
 - **Komplettes Hand-Rewrite.** Zu teuer, zu riskant, zu langsam.
@@ -213,6 +245,10 @@ Einige Ideen, die in den frühen 2020ern noch genannt wurden, sind 2026 nicht me
 ---
 
 ## 9. Leitfragen für die Entscheidung
+
+![Zehn Leitfragen fuer die Entscheidung](svg/leitfragen_entscheidung.svg)
+
+*Zehn nummerierte Leitfragen als Karten: 5-Jahres-Nutzen, Weiterentwicklungs-Bedarf, Stabilitaet, Business-Wert, Veraenderungsdynamik, Regulatorik, impl. Wissen, COTS-Alternativen, Konsistenz-Toleranz, Management-Commitment. Jede mit Input-Quelle und "&#8594; Auswirkung".*
 
 Senior-Architekten, die den Lösungsraum sondieren, können sich an folgenden Fragen orientieren:
 
@@ -233,6 +269,10 @@ Die Antworten darauf bestimmen den Mix aus Refactor, Reforge, Reimagine, Replatf
 
 ## 10. Zusammenfassung des Lösungshorizonts
 
+![Zusammenfassung des Loesungshorizonts](svg/zusammenfassung_loesungshorizont.svg)
+
+*Zentraler Kreis "PORTFOLIO der Entscheidungen", umgeben von vier Kernaussagen: "Nicht alle Module brauchen den Hauptpfad", "Nicht alle Tools sind AWS-zentriert", "Nicht alle Loesungen sind technisch", "Nicht alle Loesungen sind vollstaendig". Unten die Kernaussage zum Beitrag eines Senior-Architekten.*
+
 PL/I-zu-Java-Migration ist **keine einzelne Entscheidung**, sondern ein **Portfolio** an Entscheidungen. Der Hauptpfad (AWS Transform Refactor) ist für die meisten Module richtig, aber:
 - Nicht alle Module brauchen den Hauptpfad.
 - Nicht alle Tools sind AWS-zentriert.
@@ -244,5 +284,9 @@ Der wertvollste Beitrag eines Senior-Architekten ist, diesen Lösungshorizont **
 ---
 
 ## 11. Referenzen
+
+![Quellen-Cluster fuer Dokument 8](svg/referenzen_loesungshorizont_quellen.svg)
+
+*Sechs Quellen-Cluster: 7 Rs &amp; Migration Strategy, Alternative Tools, Formal Methods, Fine-Tuning + Decision Rules, Finanzierung + Insurance, Team &amp; Knowledge. ~50 oeffentliche Quellen in `_quellen.md`.*
 
 Siehe `_quellen.md`.

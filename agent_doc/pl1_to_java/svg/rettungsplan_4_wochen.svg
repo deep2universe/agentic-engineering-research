@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh37" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr37" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#dc2626"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Rettungsplan — Ein 50-%-Projekt uebernehmen</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Vier Wochen vom Einstieg zur Stabilisierung — Checkliste fuer Senior-Architekten</text>
+
+  <!-- Week 1: Inventur -->
+  <g filter="url(#sh37)">
+    <rect x="40" y="110" width="290" height="560" rx="14" fill="#ffffff" stroke="#1e3a8a" stroke-width="3"/>
+    <rect x="40" y="110" width="290" height="46" rx="14" fill="#1e3a8a"/>
+    <text x="185" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Woche 1 · INVENTUR</text>
+  </g>
+  <text x="60" y="180" font-size="11" font-weight="700" fill="#1e3a8a">Was ist vorhanden?</text>
+  <g font-size="10" fill="#334155">
+    <text x="60" y="206">&#9633;  Welche Module bereits migriert?</text>
+    <text x="60" y="224">&#9633;  Welche noch nicht?</text>
+    <text x="60" y="242">&#9633;  Stand pro Modul:</text>
+    <text x="76" y="258">&#8226;  in Dev</text>
+    <text x="76" y="274">&#8226;  in Test</text>
+    <text x="76" y="290">&#8226;  in Prod</text>
+    <text x="76" y="306">&#8226;  in Freeze</text>
+  </g>
+  <text x="60" y="334" font-size="11" font-weight="700" fill="#1e3a8a">Welche Daten laufen wo?</text>
+  <g font-size="10" fill="#334155">
+    <text x="60" y="358">&#9633;  DB2 als Master?</text>
+    <text x="60" y="376">&#9633;  Aurora als Master?</text>
+    <text x="60" y="394">&#9633;  Dual-Master (riskant)?</text>
+    <text x="60" y="412">&#9633;  CDC-Setup dokumentiert?</text>
+  </g>
+  <text x="60" y="444" font-size="11" font-weight="700" fill="#1e3a8a">Schnittstellen?</text>
+  <g font-size="10" fill="#334155">
+    <text x="60" y="468">&#9633;  REST-APIs zwischen MF+AWS?</text>
+    <text x="60" y="486">&#9633;  MQ-Queues (bidirektional)?</text>
+    <text x="60" y="504">&#9633;  Batch-Files via S3?</text>
+    <text x="60" y="522">&#9633;  Database-Links?</text>
+  </g>
+  <text x="60" y="554" font-size="11" font-weight="700" fill="#1e3a8a">Tests?</text>
+  <g font-size="10" fill="#334155">
+    <text x="60" y="578">&#9633;  Unit-Test-Coverage</text>
+    <text x="60" y="596">&#9633;  Integration-Tests existent?</text>
+    <text x="60" y="614">&#9633;  Dual-Run-Setup?</text>
+    <text x="60" y="632">&#9633;  Shadow-Traffic?</text>
+    <text x="60" y="650">&#9633;  Testdaten-Refresh-Prozess?</text>
+  </g>
+
+  <!-- Week 2: Risikobewertung -->
+  <g filter="url(#sh37)">
+    <rect x="340" y="110" width="290" height="560" rx="14" fill="#ffffff" stroke="#d97706" stroke-width="3"/>
+    <rect x="340" y="110" width="290" height="46" rx="14" fill="#d97706"/>
+    <text x="485" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Woche 2 · RISIKOBEWERTUNG</text>
+  </g>
+  <text x="360" y="180" font-size="11" font-weight="700" fill="#92400e">Latenz-Risiken?</text>
+  <g font-size="10" fill="#334155">
+    <text x="360" y="206">&#9633;  Bidirektionale Calls mit hoher</text>
+    <text x="360" y="220">  Latenz-Empfindlichkeit?</text>
+    <text x="360" y="238">&#9633;  Kritische Transaktionen</text>
+    <text x="360" y="252">  ueber die Grenze?</text>
+    <text x="360" y="270">&#9633;  Batch-Window-Belastung?</text>
+  </g>
+  <text x="360" y="298" font-size="11" font-weight="700" fill="#92400e">Daten-Risiken?</text>
+  <g font-size="10" fill="#334155">
+    <text x="360" y="322">&#9633;  Dual-Master?</text>
+    <text x="360" y="340">&#9633;  CDC-Lag &gt; Akzeptabel?</text>
+    <text x="360" y="358">&#9633;  Checksum-Drift?</text>
+    <text x="360" y="376">&#9633;  Encoding-Probleme?</text>
+  </g>
+  <text x="360" y="408" font-size="11" font-weight="700" fill="#92400e">Hotfix-Risiken?</text>
+  <g font-size="10" fill="#334155">
+    <text x="360" y="432">&#9633;  Undokumentierte Hotfixes?</text>
+    <text x="360" y="450">&#9633;  Lane-Disziplin?</text>
+    <text x="360" y="468">&#9633;  Backlog-Groesse?</text>
+  </g>
+  <text x="360" y="500" font-size="11" font-weight="700" fill="#92400e">Test-Risiken?</text>
+  <g font-size="10" fill="#334155">
+    <text x="360" y="524">&#9633;  Schlecht getestete Bereiche?</text>
+    <text x="360" y="542">&#9633;  Fehlende Edge-Cases?</text>
+    <text x="360" y="560">&#9633;  Flaky Tests?</text>
+  </g>
+  <text x="360" y="592" font-size="11" font-weight="700" fill="#92400e">Regulatorik?</text>
+  <g font-size="10" fill="#334155">
+    <text x="360" y="616">&#9633;  BaFin/DORA-Compliance?</text>
+    <text x="360" y="634">&#9633;  Audit-Trail komplett?</text>
+    <text x="360" y="652">&#9633;  Change-Advisory-Board?</text>
+  </g>
+
+  <!-- Week 3: Architektur-Plan -->
+  <g filter="url(#sh37)">
+    <rect x="640" y="110" width="290" height="560" rx="14" fill="#ffffff" stroke="#7b2cbf" stroke-width="3"/>
+    <rect x="640" y="110" width="290" height="46" rx="14" fill="#7b2cbf"/>
+    <text x="785" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Woche 3 · ARCHITEKTUR-PLAN</text>
+  </g>
+  <text x="660" y="180" font-size="11" font-weight="700" fill="#6b21a8">Szenario-Wahl</text>
+  <g font-size="10" fill="#334155">
+    <text x="660" y="206">&#9633;  Szenario A · Bidirektional?</text>
+    <text x="660" y="224">&#9633;  Szenario B · Domain-basiert?</text>
+    <text x="660" y="242">&#9633;  Szenario C · Transform-Fluss?</text>
+    <text x="660" y="260">&#9633;  Migration zwischen Szenarien?</text>
+  </g>
+  <text x="660" y="288" font-size="11" font-weight="700" fill="#6b21a8">Naechste Module</text>
+  <g font-size="10" fill="#334155">
+    <text x="660" y="312">&#9633;  Wave-Plan fuer 2–6 Monate</text>
+    <text x="660" y="330">&#9633;  Risk-Sortierung Low→High</text>
+    <text x="660" y="348">&#9633;  Dependencies zwischen Waves</text>
+    <text x="660" y="366">&#9633;  Kapazitaets-Planung</text>
+  </g>
+  <text x="660" y="398" font-size="11" font-weight="700" fill="#6b21a8">Data-Ownership</text>
+  <g font-size="10" fill="#334155">
+    <text x="660" y="422">&#9633;  Klare Master-Rollen</text>
+    <text x="660" y="440">&#9633;  Dual-Master eliminiert</text>
+    <text x="660" y="458">&#9633;  CDC-Direction geklaert</text>
+    <text x="660" y="476">&#9633;  Rollback-Strategien</text>
+  </g>
+  <text x="660" y="508" font-size="11" font-weight="700" fill="#6b21a8">Team-Struktur</text>
+  <g font-size="10" fill="#334155">
+    <text x="660" y="532">&#9633;  Feature-Teams aufgesetzt?</text>
+    <text x="660" y="550">&#9633;  Integration Squad besetzt?</text>
+    <text x="660" y="568">&#9633;  PL/I-Veteranen eingebunden?</text>
+  </g>
+  <text x="660" y="600" font-size="11" font-weight="700" fill="#6b21a8">Entscheidungs-Gates</text>
+  <g font-size="10" fill="#334155">
+    <text x="660" y="624">&#9633;  Go/No-Go-Kriterien</text>
+    <text x="660" y="642">&#9633;  CAB-Approval-Prozess</text>
+    <text x="660" y="660">&#9633;  Stopp-Strategien</text>
+  </g>
+
+  <!-- Week 4: Stabilisierung -->
+  <g filter="url(#sh37)">
+    <rect x="940" y="110" width="270" height="560" rx="14" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="940" y="110" width="270" height="46" rx="14" fill="#059669"/>
+    <text x="1075" y="140" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Woche 4 · STABILISIERUNG</text>
+  </g>
+  <text x="960" y="180" font-size="11" font-weight="700" fill="#047857">Monitoring &amp; Alerting</text>
+  <g font-size="10" fill="#334155">
+    <text x="960" y="206">&#9633;  CloudWatch Dashboards</text>
+    <text x="960" y="224">&#9633;  Cross-Boundary-Calls</text>
+    <text x="960" y="242">  instrumentieren</text>
+    <text x="960" y="260">&#9633;  X-Ray Traces + OTel</text>
+    <text x="960" y="278">&#9633;  Alarms fuer Latenz,</text>
+    <text x="960" y="292">  Error-Rate, CDC-Lag</text>
+  </g>
+  <text x="960" y="322" font-size="11" font-weight="700" fill="#047857">Shadow-Traffic</text>
+  <g font-size="10" fill="#334155">
+    <text x="960" y="346">&#9633;  Mindestens eine</text>
+    <text x="960" y="360">  kritische API aktivieren</text>
+    <text x="960" y="378">&#9633;  Baseline-Metriken</text>
+    <text x="960" y="396">&#9633;  Aequivalenz-KPI &gt; 99,99 %</text>
+  </g>
+  <text x="960" y="426" font-size="11" font-weight="700" fill="#047857">Integration-Tests</text>
+  <g font-size="10" fill="#334155">
+    <text x="960" y="450">&#9633;  Top-5 Risiko-Schnittstellen</text>
+    <text x="960" y="468">&#9633;  Contract-Tests (Pact)</text>
+    <text x="960" y="486">&#9633;  Chaos-Szenarien definiert</text>
+    <text x="960" y="504">&#9633;  CI/CD-Integration</text>
+  </g>
+  <text x="960" y="536" font-size="11" font-weight="700" fill="#047857">Kommunikation</text>
+  <g font-size="10" fill="#334155">
+    <text x="960" y="560">&#9633;  Stakeholder-Update</text>
+    <text x="960" y="578">&#9633;  Risiko-Report</text>
+    <text x="960" y="596">&#9633;  Roadmap fuer Waves</text>
+    <text x="960" y="614">&#9633;  Team-Alignment-Meeting</text>
+  </g>
+  <text x="960" y="646" font-size="10" font-style="italic" fill="#065f46">→ ERST DANN weitere</text>
+  <text x="960" y="660" font-size="10" font-style="italic" fill="#065f46">Migration-Waves starten</text>
+</svg>
