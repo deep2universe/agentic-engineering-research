@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh58" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Governance und Organisation</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Vier Pflicht-Patterns fuer die Struktur jedes PL/I-Projekts</text>
+
+  <!-- 1. Klare Ownership -->
+  <g filter="url(#sh58)">
+    <rect x="60" y="110" width="560" height="250" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="3"/>
+    <rect x="60" y="110" width="560" height="44" rx="14" fill="#2563eb"/>
+    <text x="340" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">1 · Klare Ownership</text>
+
+    <text x="80" y="180" font-size="12" font-weight="700" fill="#0f172a">Prinzip:</text>
+    <text x="80" y="198" font-size="11" fill="#334155">Jedes Modul hat genau EINEN Owner.</text>
+
+    <text x="80" y="226" font-size="12" font-weight="700" fill="#0f172a">Owner-Setup:</text>
+    <g font-size="11" fill="#334155">
+      <rect x="80" y="240" width="240" height="44" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+      <text x="94" y="258" font-weight="700" fill="#1e3a8a">PL/I-seitiger Owner</text>
+      <text x="94" y="274" font-size="10" fill="#1e40af">Original-Code + Fachwissen</text>
+
+      <rect x="340" y="240" width="240" height="44" rx="6" fill="#f0fdf4" stroke="#059669"/>
+      <text x="354" y="258" font-weight="700" fill="#065f46">Java-seitiger Owner</text>
+      <text x="354" y="274" font-size="10" fill="#047857">Ziel-Architektur + Refactor</text>
+    </g>
+
+    <text x="80" y="308" font-size="11" font-weight="700" fill="#1e3a8a">Beide Owner entscheiden gemeinsam:</text>
+    <text x="80" y="326" font-size="10" fill="#334155">&#8226;  Mapping-Strategie (Refactor vs. Reforge vs. Reimagine)</text>
+    <text x="80" y="342" font-size="10" fill="#334155">&#8226;  Tests (Coverage + Dual-Run-Faelle)</text>
+  </g>
+
+  <!-- 2. Definition of Done -->
+  <g filter="url(#sh58)">
+    <rect x="640" y="110" width="560" height="250" rx="14" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="640" y="110" width="560" height="44" rx="14" fill="#059669"/>
+    <text x="920" y="140" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">2 · Definition of Done pro Modul</text>
+
+    <text x="660" y="180" font-size="12" font-weight="700" fill="#0f172a">Ein Modul gilt als "done", wenn:</text>
+    <g font-size="11" fill="#0f172a">
+      <text x="660" y="202">&#9633;  1. Transform-Pipeline erfolgreich</text>
+      <text x="660" y="220">&#9633;  2. Unit-Tests gruen (Coverage &gt; 80 %)</text>
+      <text x="660" y="238">&#9633;  3. Mutation Score &gt; 60 %</text>
+      <text x="660" y="256">&#9633;  4. Dual-Run-Aequivalenz &gt; 99,99 %</text>
+      <text x="660" y="274">&#9633;  5. Senior-Code-Review abgeschlossen</text>
+      <text x="660" y="292">&#9633;  6. Deploy auf Staging</text>
+      <text x="660" y="310">&#9633;  7. Shadow-Traffic-Test &#8805; 48 Std gruen</text>
+      <text x="660" y="328">&#9633;  8. Dokumentation aktualisiert</text>
+    </g>
+    <text x="660" y="350" font-size="10" font-style="italic" fill="#065f46">Jeder Punkt ist ein Hart-Gate — keine Ausnahmen</text>
+  </g>
+
+  <!-- 3. Tägliche Syncs -->
+  <g filter="url(#sh58)">
+    <rect x="60" y="390" width="560" height="250" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="60" y="390" width="560" height="44" rx="14" fill="#f59e0b"/>
+    <text x="340" y="420" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">3 · Taegliche Syncs in kritischen Phasen</text>
+
+    <text x="80" y="460" font-size="12" font-weight="700" fill="#0f172a">Wann:</text>
+    <text x="80" y="478" font-size="11" fill="#334155">Besonders in der Cutover-Phase: taeglich 15-Min-Stand-Ups</text>
+
+    <text x="80" y="508" font-size="12" font-weight="700" fill="#0f172a">Teilnehmer:</text>
+    <g font-size="11" fill="#334155">
+      <circle cx="96" cy="532" r="8" fill="#ef4444"/>
+      <text x="112" y="536">Mainframe-Team (PL/I-Devs, Veterans)</text>
+      <circle cx="96" cy="554" r="8" fill="#059669"/>
+      <text x="112" y="558">Java-Team (Migration-Engineers)</text>
+      <circle cx="96" cy="576" r="8" fill="#2563eb"/>
+      <text x="112" y="580">DBA (DB2 + Aurora + CDC)</text>
+      <circle cx="96" cy="598" r="8" fill="#7b2cbf"/>
+      <text x="112" y="602">Ops (Monitoring + Incidents)</text>
+      <circle cx="96" cy="620" r="8" fill="#dc2626"/>
+      <text x="112" y="624">Security (IAM + KMS + Audit)</text>
+    </g>
+  </g>
+
+  <!-- 4. Change Advisory Board -->
+  <g filter="url(#sh58)">
+    <rect x="640" y="390" width="560" height="250" rx="14" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <rect x="640" y="390" width="560" height="44" rx="14" fill="#dc2626"/>
+    <text x="920" y="420" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">4 · Change Advisory Board (CAB)</text>
+
+    <text x="660" y="460" font-size="12" font-weight="700" fill="#0f172a">Fuer regulierte Workloads:</text>
+    <text x="660" y="478" font-size="11" fill="#334155">Jeder Modul-Deploy muss durch ein Change Advisory Board.</text>
+
+    <text x="660" y="508" font-size="12" font-weight="700" fill="#0f172a">Pruefungs-Scope:</text>
+    <g font-size="11" fill="#334155">
+      <text x="660" y="530">&#8226;  Compliance-Aspekte (BaFin, DORA, DSGVO)</text>
+      <text x="660" y="548">&#8226;  Audit-Trail-Vollstaendigkeit</text>
+      <text x="660" y="566">&#8226;  Datenmigration + Konsistenz</text>
+      <text x="660" y="584">&#8226;  Datenschutz + PII-Handling</text>
+      <text x="660" y="602">&#8226;  Rollback-Plan</text>
+      <text x="660" y="620">&#8226;  Business-Continuity-Impact</text>
+    </g>
+  </g>
+
+  <!-- Bottom insight -->
+  <g filter="url(#sh58)">
+    <rect x="60" y="670" width="1140" height="70" rx="12" fill="#0f172a"/>
+    <text x="630" y="700" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Governance ist nicht Overhead — sie ist das, was den Unterschied zwischen Erfolg und Scheitern ausmacht</text>
+    <text x="630" y="722" text-anchor="middle" font-size="11" fill="#cbd5e1">In PL/I-Migrationen scheitern mehr Projekte an fehlender Governance als an fehlender Technologie.</text>
+  </g>
+</svg>

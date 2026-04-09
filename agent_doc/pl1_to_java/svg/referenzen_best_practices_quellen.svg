@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh64" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="640" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Referenzen — Best Practices</text>
+  <text x="600" y="66" text-anchor="middle" font-size="13" fill="#475569">Quellen-Cluster fuer Dokument 7: Patterns, Governance, Compliance, Performance</text>
+
+  <g filter="url(#sh64)">
+    <rect x="460" y="270" width="280" height="100" rx="14" fill="#0f172a"/>
+    <text x="600" y="302" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">_quellen.md</text>
+    <text x="600" y="322" text-anchor="middle" font-size="11" fill="#cbd5e1">Dokument 7: Best Practices</text>
+    <text x="600" y="338" text-anchor="middle" font-size="11" fill="#fbbf24">~45 oeffentliche Quellen</text>
+  </g>
+
+  <g filter="url(#sh64)">
+    <rect x="60" y="110" width="280" height="120" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <rect x="60" y="110" width="280" height="32" rx="12" fill="#2563eb"/>
+    <text x="200" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Migration Patterns</text>
+    <text x="74" y="158" font-size="10" fill="#334155">• Gartner Migration Patterns</text>
+    <text x="74" y="174" font-size="10" fill="#334155">• Fowler Strangler-Fig</text>
+    <text x="74" y="190" font-size="10" fill="#334155">• Microsoft Architecture Center</text>
+    <text x="74" y="206" font-size="10" fill="#334155">• AWS Well-Architected Framework</text>
+    <text x="74" y="222" font-size="10" fill="#334155">• ThoughtWorks Tech Radar</text>
+  </g>
+
+  <g filter="url(#sh64)">
+    <rect x="860" y="110" width="280" height="120" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="860" y="110" width="280" height="32" rx="12" fill="#dc2626"/>
+    <text x="1000" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Governance &amp; ADRs</text>
+    <text x="874" y="158" font-size="10" fill="#334155">• ADR GitHub (Thoughtworks)</text>
+    <text x="874" y="174" font-size="10" fill="#334155">• Documenting Arch Decisions</text>
+    <text x="874" y="190" font-size="10" fill="#334155">• Change Advisory Board ITIL</text>
+    <text x="874" y="206" font-size="10" fill="#334155">• ISO/IEC 38500 Governance</text>
+    <text x="874" y="222" font-size="10" fill="#334155">• NIST Secure Coding</text>
+  </g>
+
+  <g filter="url(#sh64)">
+    <rect x="60" y="270" width="280" height="120" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="60" y="270" width="280" height="32" rx="12" fill="#059669"/>
+    <text x="200" y="291" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Security &amp; Compliance</text>
+    <text x="74" y="318" font-size="10" fill="#334155">• BaFin MaRisk (AT 7.3)</text>
+    <text x="74" y="334" font-size="10" fill="#334155">• EU DORA Regulation</text>
+    <text x="74" y="350" font-size="10" fill="#334155">• PCI-DSS v4.0</text>
+    <text x="74" y="366" font-size="10" fill="#334155">• DSGVO Art. 89</text>
+    <text x="74" y="382" font-size="10" fill="#334155">• ISO 27001 Controls</text>
+  </g>
+
+  <g filter="url(#sh64)">
+    <rect x="860" y="270" width="280" height="120" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="860" y="270" width="280" height="32" rx="12" fill="#f59e0b"/>
+    <text x="1000" y="291" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">JVM Performance</text>
+    <text x="874" y="318" font-size="10" fill="#334155">• OpenJDK JVM Tuning Guide</text>
+    <text x="874" y="334" font-size="10" fill="#334155">• Oracle GC Tuning</text>
+    <text x="874" y="350" font-size="10" fill="#334155">• Java Flight Recorder</text>
+    <text x="874" y="366" font-size="10" fill="#334155">• Gatling Docs</text>
+    <text x="874" y="382" font-size="10" fill="#334155">• JMH Microbenchmarks</text>
+  </g>
+
+  <g filter="url(#sh64)">
+    <rect x="60" y="430" width="280" height="120" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="60" y="430" width="280" height="32" rx="12" fill="#7b2cbf"/>
+    <text x="200" y="451" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Third-Party Legacy</text>
+    <text x="74" y="478" font-size="10" fill="#334155">• CA-Easytrieve Migration</text>
+    <text x="74" y="494" font-size="10" fill="#334155">• SAS on AWS Docs</text>
+    <text x="74" y="510" font-size="10" fill="#334155">• Adabas/Natural Migration</text>
+    <text x="74" y="526" font-size="10" fill="#334155">• Software AG Case Studies</text>
+    <text x="74" y="542" font-size="10" fill="#334155">• Decompiler Research</text>
+  </g>
+
+  <g filter="url(#sh64)">
+    <rect x="860" y="430" width="280" height="120" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="860" y="430" width="280" height="32" rx="12" fill="#0891b2"/>
+    <text x="1000" y="451" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Wissenssicherung</text>
+    <text x="874" y="478" font-size="10" fill="#334155">• Knowledge Management ISO</text>
+    <text x="874" y="494" font-size="10" fill="#334155">• Team Topologies (Skelton)</text>
+    <text x="874" y="510" font-size="10" fill="#334155">• Building Software Team</text>
+    <text x="874" y="526" font-size="10" fill="#334155">• Conway's Law</text>
+    <text x="874" y="542" font-size="10" fill="#334155">• Agile Retrospectives</text>
+  </g>
+
+  <g stroke="#64748b" stroke-width="2" stroke-dasharray="4 3" opacity="0.5" fill="none">
+    <line x1="340" y1="170" x2="460" y2="280"/>
+    <line x1="860" y1="170" x2="740" y2="280"/>
+    <line x1="340" y1="330" x2="460" y2="310"/>
+    <line x1="860" y1="330" x2="740" y2="310"/>
+    <line x1="340" y1="490" x2="460" y2="350"/>
+    <line x1="860" y1="490" x2="740" y2="350"/>
+  </g>
+
+  <text x="600" y="600" text-anchor="middle" font-size="11" fill="#64748b">Jede Best-Practice in Dokument 7 ist durch oeffentlich verfuegbare Quellen belegt.</text>
+</svg>

@@ -8,6 +8,10 @@
 
 ## 1. Strategische Best Practices
 
+![Strategische Best Practices](svg/strategische_best_practices.svg)
+
+*Vier Pillar-Karten: Pilot-First, Wave-by-Risk, Business-Owner einbinden, Rewrite als letzter Ausweg. Jede mit konkreten Handlungsempfehlungen und visuellen Beispielen (Risk-Matrix, Rollen-Bullets).*
+
 ### 1.1 Immer mit einem Pilot starten
 
 Eine vollständige PL/I-Codebasis in einem großen Sprung zu migrieren, ist riskant. Empfehlung:
@@ -35,6 +39,10 @@ Wenn ein Team frisch startet, ist die Versuchung groß, den PL/I-Code nicht zu m
 ---
 
 ## 2. Technische Best Practices
+
+![Technische Best Practices](svg/technische_best_practices.svg)
+
+*Neun Patterns als Karten in 3x3-Grid: Preprocessor-Expansion, Pointer-Lifecycle, Pl1Decimal-Utility, ON-Units (kein try/catch), VSAM-AIX, CICS Pseudo-Conversational, Batch-Windows, EBCDIC/UTF-8, Dezimal-Sort. Jede mit konkreter Regel und Warnung.*
 
 ### 2.1 Preprocessor-Expansion reproduzierbar machen
 
@@ -96,6 +104,10 @@ PL/I-`FIXED DECIMAL`-Sortierung ist numerisch. Eine naive Java-String-Sortierung
 
 ## 3. Anti-Patterns
 
+![Sieben Anti-Patterns fuer PL/I-Migrationen](svg/anti_patterns_pl1.svg)
+
+*Sieben rote Warnkarten: Big Bang, LLM solves all, We will test later, Hotfix-Drift, Java-idiomatisch um jeden Preis, Erst Testdaten sammeln, Wissen nur in Koepfen. Jede Karte mit Gefahr und "Richtig:"-Block.*
+
 ### 3.1 "Big Bang"
 
 Alle Module auf einmal migrieren. Gefahr: keine Zwischenschritte, kein Rollback, keine Lessons Learned.
@@ -128,6 +140,10 @@ PL/I-Entwickler gehen in den nächsten Jahren in Rente. Wissen muss **jetzt** ko
 
 ## 4. Governance und Organisation
 
+![Governance und Organisation](svg/governance_organisation.svg)
+
+*Vier Karten: Klare Ownership (PL/I- und Java-Owner), Definition of Done (8 Pflicht-Gates), Taegliche Syncs (5 Rollen), Change Advisory Board (Scope). Unten die Senior-Weisheit: Governance ist kein Overhead.*
+
 ### 4.1 Klare Ownership
 
 Jedes Modul hat genau einen Owner (PL/I-seitig + Java-seitig). Owner entscheidet über Mapping-Strategie, Tests, Deploy.
@@ -155,6 +171,10 @@ Für regulierte Workloads: jeder Modul-Deploy muss durch ein Change Advisory Boa
 
 ## 5. Security und Compliance
 
+![Security und Compliance](svg/security_compliance_pl1.svg)
+
+*Vier Karten fuer die kritischen Bereiche: Data Residency (Region-Fragen), Audit-Trails (drei Komponenten), Separation of Duties (via IAM/SCP), PII-Schutz (Anonymisierungs-Methoden). Frameworks-Liste unten.*
+
 ### 5.1 Data Residency
 
 PL/I-Daten sind oft an bestimmte Rechenzentren gebunden (BaFin, PCI, lokale Datenschutz-Gesetze). Vor der Migration klären:
@@ -181,6 +201,10 @@ Testdaten müssen vor der Nutzung anonymisiert werden. Kein Produktions-PII in T
 
 ## 6. Umgang mit Third-Party-Dependencies
 
+![Third-Party-Dependencies und Entscheidungsflow](svg/third_party_dependencies.svg)
+
+*Oben vier typische Third-Parties (CA-Easytrieve, SAS, Adabas/Natural, Legacy ohne Source) mit Zielsystemen. Unten der Entscheidungs-Flow mit drei Fragen (Aequivalent? Weiterlaufen? Ersetzen?) und den kritischen Senior-Regeln.*
+
 PL/I-Anwendungen nutzen oft Third-Party-Komponenten:
 - **CA-Easytrieve** für Reports
 - **SAS** für Analytics
@@ -198,6 +222,10 @@ Für Komponenten ohne Source-Code: **Zuerst dekompilieren oder mit dem Originalh
 
 ## 7. Performance-Best-Practices
 
+![Performance-Best-Practices](svg/performance_best_practices.svg)
+
+*Drei vertikale Saeulen: Profiling VOR Migration (CPU, I/O, Speicher, MIPS), Performance-Regression-Tests (Toleranz +/- 20 %, Tools), JVM-Tuning (kritische Bereiche, nicht delegieren). Unten die Batch-Window-Regel.*
+
 ### 7.1 Profiling vor der Migration
 
 Ein Profil des PL/I-Codes (CPU-Zeit, I/O-Zeit, Speicher) erstellen, bevor die Migration startet. Ohne Baseline gibt es keine Referenz für die Java-Seite.
@@ -213,6 +241,10 @@ Die generierten Java-Anwendungen laufen oft in Container auf EKS. JVM-Tuning (He
 ---
 
 ## 8. Wissenssicherung
+
+![Wissenssicherung — Drei Saeulen](svg/wissenssicherung.svg)
+
+*Drei Saeulen: Lessons-Learned-Katalog (mit Beispiel-Struktur), Architecture Decision Records (mit ADR-Template), Knowledge-Base fuer Agenten (Bedrock KB mit allen Artefakten als RAG). Unten die Motivation.*
 
 ### 8.1 Lessons-Learned-Katalog
 
@@ -235,6 +267,10 @@ Die Bedrock Knowledge Base mit allen Architektur-Dokumenten, ADRs, Coding-Standa
 
 ## 9. Abschluss-Checkliste
 
+![Abschluss-Checkliste vor Go-Live](svg/abschluss_checkliste_go_live.svg)
+
+*Die dreizehn Pflicht-Punkte als Checkbox-Liste. Links der rote Banner "Harte Gates — keine Ausnahmen". Rechts der gruene Go-Live-Success-Pattern mit Canary-Stufen 1 % → 10 % → 50 % → 100 %.*
+
 Vor dem Go-Live eines Moduls:
 
 - [ ] Preprocessor-Expansion reproduzierbar dokumentiert
@@ -254,5 +290,9 @@ Vor dem Go-Live eines Moduls:
 ---
 
 ## 10. Referenzen
+
+![Quellen-Cluster fuer Dokument 7](svg/referenzen_best_practices_quellen.svg)
+
+*Sechs Quellen-Cluster: Migration Patterns, Governance &amp; ADRs, Security &amp; Compliance, JVM Performance, Third-Party Legacy, Wissenssicherung. ~45 oeffentliche Quellen in `_quellen.md`.*
 
 Siehe `_quellen.md`.
