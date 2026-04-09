@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 820" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </radialGradient>
+    <radialGradient id="coreGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#1e3a8a"/>
+    </radialGradient>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="820" fill="url(#bgGrad)"/>
+  <text x="600" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Executive Summary — 10 Kernerkenntnisse auf einen Blick</text>
+  <text x="600" y="68" text-anchor="middle" font-size="14" fill="#475569">PL/I-zu-Java-Migration mit AWS (Stand April 2026)</text>
+
+  <!-- Background quadrant arcs -->
+  <g opacity="0.14">
+    <path d="M 600 430 L 600 160 A 270 270 0 0 1 870 430 Z" fill="#2563eb"/>
+    <path d="M 600 430 L 870 430 A 270 270 0 0 1 600 700 Z" fill="#ff9900"/>
+    <path d="M 600 430 L 600 700 A 270 270 0 0 1 330 430 Z" fill="#059669"/>
+    <path d="M 600 430 L 330 430 A 270 270 0 0 1 600 160 Z" fill="#7b2cbf"/>
+  </g>
+
+  <!-- Quadrant labels -->
+  <text x="760" y="205" font-size="13" font-weight="700" fill="#1e3a8a" text-anchor="middle">TOOLING</text>
+  <text x="760" y="660" font-size="13" font-weight="700" fill="#c2410c" text-anchor="middle">PROZESS</text>
+  <text x="440" y="660" font-size="13" font-weight="700" fill="#065f46" text-anchor="middle">TECHNIK</text>
+  <text x="440" y="205" font-size="13" font-weight="700" fill="#581c87" text-anchor="middle">MENSCH &amp; KULTUR</text>
+
+  <!-- Center node -->
+  <circle cx="600" cy="430" r="82" fill="url(#coreGrad)" filter="url(#softShadow)"/>
+  <text x="600" y="420" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">PL/I</text>
+  <text x="600" y="445" text-anchor="middle" font-size="14" fill="#bfdbfe">migriert nach</text>
+  <text x="600" y="468" text-anchor="middle" font-size="20" font-weight="700" fill="#ffffff">Java + AWS</text>
+
+  <!-- Insight nodes arranged on circle, grouped by quadrant -->
+  <!-- Tooling (top-right) -->
+  <g filter="url(#softShadow)">
+    <rect x="810" y="140" width="320" height="64" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="838" cy="172" r="17" fill="#2563eb"/>
+    <text x="838" y="178" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">1</text>
+    <text x="865" y="165" font-size="12" font-weight="700" fill="#0f172a">PL/I ist First-Class-Target</text>
+    <text x="865" y="182" font-size="11" fill="#334155">in AWS Transform for Mainframe Refactor —</text>
+    <text x="865" y="196" font-size="11" fill="#334155">gleichwertig zu COBOL (seit Mai 2025 GA)</text>
+  </g>
+  <g filter="url(#softShadow)">
+    <rect x="860" y="230" width="320" height="64" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="888" cy="262" r="17" fill="#2563eb"/>
+    <text x="888" y="268" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">5</text>
+    <text x="915" y="255" font-size="12" font-weight="700" fill="#0f172a">Agentic Engineering zahlt staerker</text>
+    <text x="915" y="272" font-size="11" fill="#334155">Hoeherer Mehrwert beim Verstehen,</text>
+    <text x="915" y="286" font-size="11" fill="#334155">Dokumentieren, Restrukturieren</text>
+  </g>
+  <g filter="url(#softShadow)">
+    <rect x="880" y="320" width="300" height="64" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <circle cx="908" cy="352" r="17" fill="#2563eb"/>
+    <text x="908" y="358" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">8</text>
+    <text x="935" y="345" font-size="12" font-weight="700" fill="#0f172a">AWS-Service-Oberflaeche breit</text>
+    <text x="935" y="362" font-size="11" fill="#334155">Bedrock, Q Developer, Kiro,</text>
+    <text x="935" y="376" font-size="11" fill="#334155">Aurora, Amazon MQ, DMS, S3 ...</text>
+  </g>
+
+  <!-- Prozess (bottom-right) -->
+  <g filter="url(#softShadow)">
+    <rect x="880" y="480" width="300" height="64" rx="10" fill="#ffffff" stroke="#ff9900" stroke-width="2"/>
+    <circle cx="908" cy="512" r="17" fill="#ff9900"/>
+    <text x="908" y="518" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">3</text>
+    <text x="935" y="505" font-size="12" font-weight="700" fill="#0f172a">AWS-Pfad identisch zu COBOL</text>
+    <text x="935" y="522" font-size="11" fill="#334155">Refactor → Reforge → Reimagine,</text>
+    <text x="935" y="536" font-size="11" fill="#334155">aber mit strengeren Risikoprofilen</text>
+  </g>
+  <g filter="url(#softShadow)">
+    <rect x="860" y="570" width="320" height="64" rx="10" fill="#ffffff" stroke="#ff9900" stroke-width="2"/>
+    <circle cx="888" cy="602" r="17" fill="#ff9900"/>
+    <text x="888" y="608" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">6</text>
+    <text x="915" y="595" font-size="12" font-weight="700" fill="#0f172a">Testing ist die kritischste Phase</text>
+    <text x="915" y="612" font-size="11" fill="#334155">Golden-Master, Dual-Run, Property-Tests,</text>
+    <text x="915" y="626" font-size="11" fill="#334155">Mutation-Tests fuer FIXED-DECIMAL</text>
+  </g>
+  <g filter="url(#softShadow)">
+    <rect x="810" y="660" width="320" height="64" rx="10" fill="#ffffff" stroke="#ff9900" stroke-width="2"/>
+    <circle cx="838" cy="692" r="17" fill="#ff9900"/>
+    <text x="838" y="698" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">7</text>
+    <text x="865" y="685" font-size="12" font-weight="700" fill="#0f172a">50-%-Projekte = eigene Patterns</text>
+    <text x="865" y="702" font-size="11" fill="#334155">Koexistenz, bidirektionale Calls,</text>
+    <text x="865" y="716" font-size="11" fill="#334155">CDC-Sync, Strangler-Fig, Hybrid-CI/CD</text>
+  </g>
+  <g filter="url(#softShadow)">
+    <rect x="440" y="720" width="320" height="64" rx="10" fill="#ffffff" stroke="#ff9900" stroke-width="2"/>
+    <circle cx="468" cy="752" r="17" fill="#ff9900"/>
+    <text x="468" y="758" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">9</text>
+    <text x="495" y="745" font-size="12" font-weight="700" fill="#0f172a">Loesungshorizont groesser</text>
+    <text x="495" y="762" font-size="11" fill="#334155">Hybrid-Coexistence, Parallel-Run,</text>
+    <text x="495" y="776" font-size="11" fill="#334155">Selective Reimagine, Repurchase ...</text>
+  </g>
+
+  <!-- Technik (bottom-left) -->
+  <g filter="url(#softShadow)">
+    <rect x="70" y="660" width="320" height="64" rx="10" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <circle cx="98" cy="692" r="17" fill="#059669"/>
+    <text x="98" y="698" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">2</text>
+    <text x="125" y="685" font-size="12" font-weight="700" fill="#0f172a">PL/I technisch anspruchsvoller</text>
+    <text x="125" y="702" font-size="11" fill="#334155">POINTER, BASED, AREA, ON-Units,</text>
+    <text x="125" y="716" font-size="11" fill="#334155">Preprocessor, Multitasking, Rekursion</text>
+  </g>
+  <g filter="url(#softShadow)">
+    <rect x="20" y="570" width="320" height="64" rx="10" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <circle cx="48" cy="602" r="17" fill="#059669"/>
+    <text x="48" y="608" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">4</text>
+    <text x="75" y="595" font-size="12" font-weight="700" fill="#0f172a">Preprocessor &amp; Pointer = Nr. 1 Risiko</text>
+    <text x="75" y="612" font-size="11" fill="#334155">Ohne reproduzierbare Expansion</text>
+    <text x="75" y="626" font-size="11" fill="#334155">keine stabile Transformation</text>
+  </g>
+
+  <!-- Mensch (top-left) -->
+  <g filter="url(#softShadow)">
+    <rect x="20" y="230" width="320" height="64" rx="10" fill="#ffffff" stroke="#7b2cbf" stroke-width="2"/>
+    <circle cx="48" cy="262" r="17" fill="#7b2cbf"/>
+    <text x="48" y="268" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">10</text>
+    <text x="75" y="255" font-size="12" font-weight="700" fill="#0f172a">Kultur schwieriger als Technik</text>
+    <text x="75" y="272" font-size="11" fill="#334155">PL/I-Entwickler noch seltener, tiefes</text>
+    <text x="75" y="286" font-size="11" fill="#334155">undokumentiertes Domaenenwissen</text>
+  </g>
+  <g filter="url(#softShadow)">
+    <rect x="70" y="140" width="320" height="64" rx="10" fill="#ffffff" stroke="#7b2cbf" stroke-width="2"/>
+    <circle cx="98" cy="172" r="17" fill="#7b2cbf"/>
+    <text x="98" y="178" text-anchor="middle" font-size="15" font-weight="700" fill="#ffffff">HITL</text>
+    <text x="125" y="165" font-size="12" font-weight="700" fill="#0f172a">Human-in-the-Loop nicht optional</text>
+    <text x="125" y="182" font-size="11" fill="#334155">Senior-Review fuer Pointer, Multitasking,</text>
+    <text x="125" y="196" font-size="11" fill="#334155">FIXED-DECIMAL und regulierte Pfade</text>
+  </g>
+
+  <!-- Connectors from center to groups -->
+  <g stroke-dasharray="3 3" stroke-width="1.5" opacity="0.5" fill="none">
+    <path d="M 670 390 Q 780 250 840 180" stroke="#2563eb"/>
+    <path d="M 680 430 Q 790 340 870 330" stroke="#2563eb"/>
+    <path d="M 680 470 Q 790 520 880 520" stroke="#ff9900"/>
+    <path d="M 660 500 Q 760 620 850 680" stroke="#ff9900"/>
+    <path d="M 540 500 Q 450 620 400 680" stroke="#059669"/>
+    <path d="M 520 470 Q 420 520 340 590" stroke="#059669"/>
+    <path d="M 520 390 Q 420 330 340 260" stroke="#7b2cbf"/>
+    <path d="M 540 370 Q 450 250 400 180" stroke="#7b2cbf"/>
+  </g>
+</svg>

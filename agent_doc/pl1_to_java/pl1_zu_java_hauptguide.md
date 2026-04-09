@@ -26,6 +26,10 @@ Diese Research umfasst acht Dokumente, die jeweils einen klar abgegrenzten Theme
 
 ## 1. Executive Summary
 
+![Executive Summary — 10 Kernerkenntnisse](svg/executive_summary_kernerkenntnisse.svg)
+
+*Die zehn Kernerkenntnisse dieser Research auf einen Blick — gruppiert nach den vier Dimensionen Tooling, Prozess, Technik und Mensch/Kultur. Das zentrale Motiv (PL/I → Java + AWS) ist der gemeinsame Nenner aller Erkenntnisse.*
+
 PL/I ist nach COBOL die **zweitwichtigste Mainframe-Sprache** und in Banken, Versicherungen, Behoerden und Industrie weit verbreitet. Weltweit werden PL/I-Codebasen auf **mehrere zehn Milliarden Lines of Code** geschaetzt — vor allem in IBM Enterprise PL/I auf z/OS. Waehrend COBOL die Mehrheitssprache bleibt, ist PL/I in vielen kritischen Kernsystemen tief verankert, insbesondere in risikoarmer, transaktionsorientierter Kernlogik (Accounts, Policies, Settlements).
 
 ### 1.1 Die wichtigsten Erkenntnisse auf einen Blick
@@ -54,6 +58,10 @@ PL/I ist nach COBOL die **zweitwichtigste Mainframe-Sprache** und in Banken, Ver
 
 ## 2. Abgrenzung zur COBOL-Research
 
+![Abgrenzung COBOL-Research vs. PL/I-Research](svg/abgrenzung_cobol_pl1_delta.svg)
+
+*Venn-Diagramm der Zustaendigkeiten: Links die bestehende COBOL-Research als Fundament, in der Mitte die gemeinsamen Themen (AWS Transform, Bedrock, Aurora …), rechts das reine PL/I-Delta (Preprocessor, Pointer, ON-Units, FIXED DECIMAL …), das diese Research neu abdeckt.*
+
 Die bestehende COBOL-Research in `../cobol-migration_aws/` deckt die folgenden Themen **vollstaendig** ab und wird hier **nicht wiederholt**:
 
 - AWS Transform als Agentic-AI-Service (Architektur, Agenten-Rollen, Bedrock-Integration)
@@ -72,6 +80,10 @@ Dieser PL/I-Guide fokussiert ausschliesslich auf das **Delta**: Was ist bei PL/I
 ---
 
 ## 3. Decision Framework fuer PL/I-Projekte
+
+![Decision Framework Flussdiagramm](svg/decision_framework_flussdiagramm.svg)
+
+*Der vollstaendige Entscheidungsbaum mit Risikofarben: grun = niedrig, blau = mittel, gelb/orange = hoch, violett = hoch durch Koordinationsaufwand. Die rote Banner-Faustregel ist der unverrueckbare Anker fuer jeden Transform-Lauf.*
 
 ![PL/I Decision Framework — Text-Diagramm]
 
@@ -114,6 +126,10 @@ Die wichtigste Faustregel fuer Senior-Architekten:
 
 ## 4. Navigation durch die Research
 
+![Navigation Research-Hub](svg/navigation_research_hub.svg)
+
+*Hub-and-Spoke-Karte der gesamten Research: Der Hauptguide im Zentrum, die acht Fachdokumente als Satelliten mit Inhalts-Sneak-Peek, dazu `_quellen.md` als persistente Belegstelle. Farbcode pro Dokument zur schnelleren Wiedererkennung.*
+
 | Du moechtest ... | Lies ... |
 |------------------|---------|
 | ... einen Gesamtueberblick (du bist hier) | `pl1_zu_java_hauptguide.md` |
@@ -130,6 +146,10 @@ Die wichtigste Faustregel fuer Senior-Architekten:
 
 ## 5. Kernaussagen fuer Management
 
+![Drei Saeulen fuer Management](svg/management_drei_saeulen_erfolg.svg)
+
+*Die klassische Metapher: drei tragende Saeulen halten den Architrav "Erfolgreiche PL/I-zu-Java-Migration". Saeule 1 (Technisch moeglich), Saeule 2 (Zeitlich realistisch), Saeule 3 (Risiken beherrschbar). Das Fundament darunter: diese Research plus Senior-Engineering plus Agentic-AI-Tooling.*
+
 Diese Research ist technisch — aber Senior-Architekten muessen sie auch ans Management vermitteln koennen. Die drei Kernaussagen sind:
 
 1. **Technisch moeglich.** PL/I-Migration mit AWS Transform ist nicht nur moeglich, sondern seit Mai 2025 (GA AWS Transform) und Dezember 2025 (Reimagine-Capabilities) ein produktionsfaehiger Pfad. Seit Maerz 2026 ist die Konsolidierung unter dem Namen "AWS Transform for Mainframe Refactor" vollzogen, die Code-Transformation wird zudem **zum Nulltarif** angeboten (Pricing-Change im Rahmen der Konsolidierung).
@@ -142,6 +162,10 @@ Diese Research ist technisch — aber Senior-Architekten muessen sie auch ans Ma
 
 ## 6. Was dieser Guide NICHT leistet
 
+![Scope-Abgrenzung des Guides](svg/scope_abgrenzung_guide.svg)
+
+*Gegenueberstellung In-Scope/Out-of-Scope als zwei Inseln. Links die Themen, die diese Research liefert; rechts die Themen, die sie bewusst nicht abdeckt. Erwartungsmanagement ist Teil von Senior-Arbeit.*
+
 - **Keine Preisrechnung**: AWS-Preise aendern sich schnell, und ein realistischer TCO-Business-Case ist immer projektindividuell.
 - **Keine Detail-Lizenzanalyse**: IBM Enterprise PL/I-Lizenzen, z/OS-Lizenzen und Third-Party-Dependencies (MQ, DB2, CICS) muessen separat bewertet werden.
 - **Kein fertiges Projekt-Template**: Jedes Projekt braucht eine individuelle Wave-Planung basierend auf dem Assessment-Output.
@@ -150,6 +174,10 @@ Diese Research ist technisch — aber Senior-Architekten muessen sie auch ans Ma
 ---
 
 ## 7. Start hier
+
+![Onboarding-Roadmap ueber vier Wochen](svg/onboarding_roadmap_wochen.svg)
+
+*Zeitstrahl vom ersten Lesetag bis zum ersten produktiven Wave: Tag 1–2 Grundlagen, Tag 3–5 AWS-Stack-Handson, Woche 2 Assessment-Pipeline, Woche 3 Teststrategie, Woche 4+ Referenz und Waves. Der gelbe Shortcut-Balken verweist 50-%-Projekte direkt auf das richtige Dokument.*
 
 Wenn du Senior Developer oder Senior Architekt bist und gerade ein PL/I-Migrationsprojekt startest oder uebernimmst:
 
@@ -164,6 +192,10 @@ Wenn dein Projekt bereits bei ca. 50 % ist: starte mit `migration_50_prozent_sze
 ---
 
 ## 8. Disclaimer
+
+![Quellen als Fundament der Research](svg/disclaimer_quellen_fundament.svg)
+
+*Das Research-Dokument steht auf fuenf Quellen-Saeulen: AWS, IBM, Academic Papers, Vendor-Sites, Community. Der gelbe Warnbanner unten haelt die Disclaimer-Kernpunkte fest — Marken, Aktualitaet, Projekteignung, Quellen-Pflicht, Stand April 2026.*
 
 Alle Inhalte in dieser Research basieren auf oeffentlich verfuegbaren Quellen (AWS-Dokumentation, AWS-Blogs, IBM-Dokumentation, akademische Paper, Tool-Hersteller-Websites) mit Stand April 2026. Die konkrete Eignung fuer ein bestimmtes Projekt muss immer individuell bewertet werden. AWS, IBM, Blu Age und alle anderen genannten Produkte sind Marken der jeweiligen Inhaber.
 

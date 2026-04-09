@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 820" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="shadow4" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.2"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="hubGrad" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#fb923c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1240" height="820" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Navigation durch die Research — Dokument-Hub</text>
+  <text x="620" y="66" text-anchor="middle" font-size="14" fill="#475569">Acht Dokumente + Quellen — Ein Hub-and-Spoke-Modell fuer schnelle Navigation</text>
+
+  <!-- Hub center -->
+  <circle cx="620" cy="430" r="105" fill="url(#hubGrad)" filter="url(#shadow4)"/>
+  <text x="620" y="410" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">HAUPTGUIDE</text>
+  <text x="620" y="432" text-anchor="middle" font-size="11" fill="#fed7aa">Executive Summary,</text>
+  <text x="620" y="448" text-anchor="middle" font-size="11" fill="#fed7aa">Decision Framework,</text>
+  <text x="620" y="464" text-anchor="middle" font-size="11" fill="#fed7aa">Navigation</text>
+
+  <!-- Spoke nodes -->
+  <!-- Doc 2: Sprachmerkmale (top-left) -->
+  <g filter="url(#shadow4)">
+    <rect x="100" y="140" width="280" height="120" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2"/>
+    <rect x="100" y="140" width="280" height="28" rx="12" fill="#7b2cbf"/>
+    <text x="240" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">2 · Sprachmerkmale &amp; Konvertierung</text>
+    <text x="116" y="188" font-size="11" fill="#334155">PL/I-Features, die Java-Migration</text>
+    <text x="116" y="204" font-size="11" fill="#334155">einzigartig machen:</text>
+    <text x="116" y="222" font-size="11" fill="#0f172a">• BASED / Pointer / AREA</text>
+    <text x="116" y="238" font-size="11" fill="#0f172a">• ON-Units / Preprocessor</text>
+    <text x="116" y="254" font-size="11" fill="#0f172a">• FIXED DECIMAL / MULTITASKING</text>
+  </g>
+
+  <!-- Doc 3: AWS Features (top-center) -->
+  <g filter="url(#shadow4)">
+    <rect x="480" y="100" width="280" height="120" rx="12" fill="#ffffff" stroke="#ff9900" stroke-width="2"/>
+    <rect x="480" y="100" width="280" height="28" rx="12" fill="#ff9900"/>
+    <text x="620" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">3 · AWS-Feature-Uebersicht</text>
+    <text x="496" y="148" font-size="11" fill="#334155">Service-Katalog fuer PL/I:</text>
+    <text x="496" y="166" font-size="11" fill="#0f172a">• AWS Transform for Mainframe</text>
+    <text x="496" y="182" font-size="11" fill="#0f172a">• Bedrock, Q Developer, Kiro</text>
+    <text x="496" y="198" font-size="11" fill="#0f172a">• Aurora, Amazon MQ, DMS, S3</text>
+    <text x="496" y="214" font-size="11" fill="#0f172a">• IAM / KMS / CloudWatch</text>
+  </g>
+
+  <!-- Doc 4: Workflows (top-right) -->
+  <g filter="url(#shadow4)">
+    <rect x="860" y="140" width="280" height="120" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <rect x="860" y="140" width="280" height="28" rx="12" fill="#2563eb"/>
+    <text x="1000" y="160" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">4 · Agentic Workflows</text>
+    <text x="876" y="188" font-size="11" fill="#334155">8 Phasen mit Agenten:</text>
+    <text x="876" y="204" font-size="11" fill="#0f172a">• Discovery / Planning</text>
+    <text x="876" y="220" font-size="11" fill="#0f172a">• Refactor / Reforge / Reimagine</text>
+    <text x="876" y="236" font-size="11" fill="#0f172a">• Test / Deploy / Operate</text>
+    <text x="876" y="252" font-size="11" fill="#0f172a">• Human-in-the-Loop-Regeln</text>
+  </g>
+
+  <!-- Doc 5: 50% Szenarien (left) -->
+  <g filter="url(#shadow4)">
+    <rect x="40" y="370" width="280" height="120" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <rect x="40" y="370" width="280" height="28" rx="12" fill="#059669"/>
+    <text x="180" y="390" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">5 · 50-%-Szenarien</text>
+    <text x="56" y="418" font-size="11" fill="#334155">Koexistenz-Patterns:</text>
+    <text x="56" y="434" font-size="11" fill="#0f172a">• Bidirektionale Calls</text>
+    <text x="56" y="450" font-size="11" fill="#0f172a">• Domain-basierte Trennung</text>
+    <text x="56" y="466" font-size="11" fill="#0f172a">• Transform im Fluss</text>
+    <text x="56" y="482" font-size="11" fill="#0f172a">• Rettungsplan (4-Wochen)</text>
+  </g>
+
+  <!-- Doc 6: Test (right) -->
+  <g filter="url(#shadow4)">
+    <rect x="920" y="370" width="280" height="120" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+    <rect x="920" y="370" width="280" height="28" rx="12" fill="#dc2626"/>
+    <text x="1060" y="390" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">6 · Testabdeckung &amp; Strategien</text>
+    <text x="936" y="418" font-size="11" fill="#334155">Test-Pyramide fuer PL/I:</text>
+    <text x="936" y="434" font-size="11" fill="#0f172a">• Unit + Property (50 %)</text>
+    <text x="936" y="450" font-size="11" fill="#0f172a">• Dual-Run + Golden Master (30 %)</text>
+    <text x="936" y="466" font-size="11" fill="#0f172a">• Integration (15 %) / E2E (5 %)</text>
+    <text x="936" y="482" font-size="11" fill="#0f172a">• Mutation Testing (PIT)</text>
+  </g>
+
+  <!-- Doc 7: Best Practices (bottom-left) -->
+  <g filter="url(#shadow4)">
+    <rect x="100" y="600" width="280" height="120" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2"/>
+    <rect x="100" y="600" width="280" height="28" rx="12" fill="#0891b2"/>
+    <text x="240" y="620" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">7 · Best Practices</text>
+    <text x="116" y="648" font-size="11" fill="#334155">Fallstricke &amp; Patterns:</text>
+    <text x="116" y="664" font-size="11" fill="#0f172a">• Pilot-First, Wave by Risk</text>
+    <text x="116" y="680" font-size="11" fill="#0f172a">• Pl1Decimal-Utility</text>
+    <text x="116" y="696" font-size="11" fill="#0f172a">• Definition of Done</text>
+    <text x="116" y="712" font-size="11" fill="#0f172a">• Abschluss-Checkliste</text>
+  </g>
+
+  <!-- Doc 8: Loesungshorizont (bottom-center) -->
+  <g filter="url(#shadow4)">
+    <rect x="480" y="640" width="280" height="120" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="480" y="640" width="280" height="28" rx="12" fill="#f59e0b"/>
+    <text x="620" y="660" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">8 · Loesungshorizont erweitert</text>
+    <text x="496" y="688" font-size="11" fill="#334155">Jenseits des Standard-Pfads:</text>
+    <text x="496" y="704" font-size="11" fill="#0f172a">• Die 7 Rs fuer PL/I</text>
+    <text x="496" y="720" font-size="11" fill="#0f172a">• Raincode, IBM watsonx, mLogica</text>
+    <text x="496" y="736" font-size="11" fill="#0f172a">• Hybrid-Coexistence als Zielzustand</text>
+    <text x="496" y="752" font-size="11" fill="#0f172a">• Fine-Tuning, Formal Verification</text>
+  </g>
+
+  <!-- Quellen (bottom-right) -->
+  <g filter="url(#shadow4)">
+    <rect x="860" y="600" width="280" height="120" rx="12" fill="#ffffff" stroke="#64748b" stroke-width="2"/>
+    <rect x="860" y="600" width="280" height="28" rx="12" fill="#64748b"/>
+    <text x="1000" y="620" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">_quellen.md</text>
+    <text x="876" y="648" font-size="11" fill="#334155">Vollstaendige Quellenliste:</text>
+    <text x="876" y="664" font-size="11" fill="#0f172a">• Gruppiert nach Suchstrings</text>
+    <text x="876" y="680" font-size="11" fill="#0f172a">• URL + Zusammenfassung + Datum</text>
+    <text x="876" y="696" font-size="11" fill="#0f172a">• AWS / IBM / Academic / Vendor</text>
+    <text x="876" y="712" font-size="11" fill="#0f172a">• Laufend gepflegt</text>
+  </g>
+
+  <!-- Connectors from hub to spokes -->
+  <g stroke="#fb923c" stroke-width="2" stroke-dasharray="4 3" opacity="0.55" fill="none">
+    <line x1="545" y1="390" x2="340" y2="260"/>
+    <line x1="600" y1="340" x2="580" y2="220"/>
+    <line x1="700" y1="390" x2="900" y2="260"/>
+    <line x1="525" y1="440" x2="325" y2="430"/>
+    <line x1="720" y1="440" x2="915" y2="430"/>
+    <line x1="555" y1="485" x2="355" y2="600"/>
+    <line x1="615" y1="540" x2="600" y2="640"/>
+    <line x1="695" y1="490" x2="870" y2="600"/>
+  </g>
+</svg>
