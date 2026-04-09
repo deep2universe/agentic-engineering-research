@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 760" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh34" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="760" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Szenario C — Transform im Fluss (Freeze-and-Catch-Up)</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Wenn der Java-Code schon generiert, aber noch nicht produktiv ist — wie verhindern wir, dass er "altert"?</text>
+
+  <!-- Timeline -->
+  <g filter="url(#sh34)">
+    <rect x="80" y="120" width="1080" height="10" rx="5" fill="#64748b"/>
+  </g>
+
+  <!-- Milestones -->
+  <g>
+    <circle cx="160" cy="125" r="22" fill="#2563eb" filter="url(#sh34)"/>
+    <text x="160" y="131" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">T=0</text>
+    <circle cx="420" cy="125" r="22" fill="#d97706" filter="url(#sh34)"/>
+    <text x="420" y="131" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">Freeze</text>
+    <circle cx="680" cy="125" r="22" fill="#7b2cbf" filter="url(#sh34)"/>
+    <text x="680" y="131" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">Dual-Log</text>
+    <circle cx="940" cy="125" r="22" fill="#dc2626" filter="url(#sh34)"/>
+    <text x="940" y="131" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">Sprint</text>
+    <circle cx="1100" cy="125" r="22" fill="#059669" filter="url(#sh34)"/>
+    <text x="1100" y="131" text-anchor="middle" font-size="10" font-weight="700" fill="#ffffff">Live</text>
+  </g>
+
+  <!-- Stations -->
+  <g filter="url(#sh34)">
+    <rect x="60" y="170" width="200" height="190" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <text x="160" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#1e3a8a">T=0 · Transform-Run</text>
+    <text x="75" y="220" font-size="10" fill="#334155">• AWS Transform erzeugt</text>
+    <text x="75" y="234" font-size="10" fill="#334155">  Java-Code fuer 50 % der</text>
+    <text x="75" y="248" font-size="10" fill="#334155">  PL/I-Module</text>
+    <text x="75" y="268" font-size="10" fill="#334155">• Code ist in Test/Review/</text>
+    <text x="75" y="282" font-size="10" fill="#334155">  Freeze</text>
+    <text x="75" y="302" font-size="10" fill="#334155">• Keine bidirektionale</text>
+    <text x="75" y="316" font-size="10" fill="#334155">  Kommunikation</text>
+    <text x="75" y="336" font-size="10" font-style="italic" fill="#1e40af">Mainframe laeuft weiter</text>
+  </g>
+
+  <g filter="url(#sh34)">
+    <rect x="320" y="170" width="200" height="190" rx="10" fill="#ffffff" stroke="#d97706" stroke-width="2"/>
+    <text x="420" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#92400e">Freeze</text>
+    <text x="335" y="220" font-size="10" fill="#334155">• Betroffene PL/I-Module</text>
+    <text x="335" y="234" font-size="10" fill="#334155">  werden zum Freeze erklaert</text>
+    <text x="335" y="254" font-size="10" fill="#334155">• Keine Changes mehr —</text>
+    <text x="335" y="268" font-size="10" fill="#334155">  oder nur noch kontrollierte</text>
+    <text x="335" y="282" font-size="10" fill="#334155">  Hotfixes im "Hotfix-Pool"</text>
+    <text x="335" y="302" font-size="10" fill="#334155">• Fachbereich bekommt</text>
+    <text x="335" y="316" font-size="10" fill="#334155">  klare Regeln</text>
+    <text x="335" y="336" font-size="10" font-style="italic" fill="#9a3412">Hartes Kommunikations-Gate</text>
+  </g>
+
+  <g filter="url(#sh34)">
+    <rect x="580" y="170" width="200" height="190" rx="10" fill="#ffffff" stroke="#7b2cbf" stroke-width="2"/>
+    <text x="680" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#6b21a8">Dual-Log</text>
+    <text x="595" y="220" font-size="10" fill="#334155">• Jede Change, die trotzdem</text>
+    <text x="595" y="234" font-size="10" fill="#334155">  einlaeuft, wird dokumentiert</text>
+    <text x="595" y="254" font-size="10" fill="#334155">• Zwei-Mal-Regel:</text>
+    <text x="595" y="268" font-size="10" fill="#334155">  - auf Mainframe</text>
+    <text x="595" y="282" font-size="10" fill="#334155">  - im neuen Java-Code</text>
+    <text x="595" y="302" font-size="10" fill="#334155">• Change-Log in zentralem</text>
+    <text x="595" y="316" font-size="10" fill="#334155">  Issue-Tracker</text>
+    <text x="595" y="336" font-size="10" font-style="italic" fill="#86198f">Disziplin-Anforderung hoch</text>
+  </g>
+
+  <g filter="url(#sh34)">
+    <rect x="840" y="170" width="200" height="190" rx="10" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+    <text x="940" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#991b1b">Catch-Up-Sprint</text>
+    <text x="855" y="220" font-size="10" fill="#334155">• Kurz vor Go-Live</text>
+    <text x="855" y="234" font-size="10" fill="#334155">• Alle dokumentierten</text>
+    <text x="855" y="248" font-size="10" fill="#334155">  Hotfixes werden zentral</text>
+    <text x="855" y="262" font-size="10" fill="#334155">  gegen die Java-Codebasis</text>
+    <text x="855" y="276" font-size="10" fill="#334155">  reviewt und nachgezogen</text>
+    <text x="855" y="296" font-size="10" fill="#334155">• Dual-Run-Vergleich</text>
+    <text x="855" y="310" font-size="10" fill="#334155">• Senior-Review-Gate</text>
+    <text x="855" y="336" font-size="10" font-style="italic" fill="#dc2626">Kritische Phase fuer Fehler</text>
+  </g>
+
+  <g filter="url(#sh34)">
+    <rect x="1060" y="170" width="120" height="190" rx="10" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <text x="1120" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Go-Live</text>
+    <text x="1070" y="220" font-size="10" fill="#334155">• Shadow-Test</text>
+    <text x="1070" y="234" font-size="10" fill="#334155">• Pilot-User</text>
+    <text x="1070" y="248" font-size="10" fill="#334155">• Canary</text>
+    <text x="1070" y="262" font-size="10" fill="#334155">• Full Traffic</text>
+    <text x="1070" y="282" font-size="10" fill="#334155">• Monitoring</text>
+    <text x="1070" y="296" font-size="10" fill="#334155">• Rollback-Plan</text>
+    <text x="1070" y="316" font-size="10" font-style="italic" fill="#065f46">Ende der Drift</text>
+  </g>
+
+  <!-- Hotfix-Lanes alternative -->
+  <g filter="url(#sh34)">
+    <rect x="60" y="400" width="1120" height="320" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="620" y="430" text-anchor="middle" font-size="14" font-weight="700" fill="#1e3a8a">Alternative: Hotfix-Lanes</text>
+    <text x="620" y="452" text-anchor="middle" font-size="11" fill="#1e40af">Zwei "Lanes" fuer Changes — jede mit anderen Risikoprofil</text>
+
+    <g filter="url(#sh34)">
+      <rect x="100" y="480" width="490" height="210" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+      <text x="345" y="510" text-anchor="middle" font-size="13" font-weight="700" fill="#78350f">Lane 1 · "Mainframe-Hotfix-only"</text>
+      <text x="120" y="538" font-size="11" fill="#7c2d12">Aenderungen, die so dringend sind, dass sie direkt</text>
+      <text x="120" y="554" font-size="11" fill="#7c2d12">auf den Mainframe muessen — Java wird spaeter</text>
+      <text x="120" y="570" font-size="11" fill="#7c2d12">nachgezogen.</text>
+      <text x="120" y="598" font-size="11" font-weight="700" fill="#92400e">Pro:</text>
+      <text x="120" y="614" font-size="11" fill="#334155">&#10003;  Pragmatisch, schnell</text>
+      <text x="120" y="630" font-size="11" fill="#334155">&#10003;  Keine Blockade durch Java-Seite</text>
+      <text x="120" y="654" font-size="11" font-weight="700" fill="#9a3412">Contra:</text>
+      <text x="120" y="670" font-size="11" fill="#334155">&#10007;  Schafft Drift und Backlog</text>
+      <text x="120" y="686" font-size="11" fill="#334155">&#10007;  Risiko: Hotfixes werden nie nachgezogen</text>
+    </g>
+
+    <g filter="url(#sh34)">
+      <rect x="640" y="480" width="490" height="210" rx="12" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+      <text x="885" y="510" text-anchor="middle" font-size="13" font-weight="700" fill="#065f46">Lane 2 · "Both-or-nothing"</text>
+      <text x="660" y="538" font-size="11" fill="#064e3b">Jede Aenderung geht durch den gemeinsamen</text>
+      <text x="660" y="554" font-size="11" fill="#064e3b">CI/CD-Pipeline — Mainframe-Build und Java-Build</text>
+      <text x="660" y="570" font-size="11" fill="#064e3b">werden parallel ausgefuehrt.</text>
+      <text x="660" y="598" font-size="11" font-weight="700" fill="#047857">Pro:</text>
+      <text x="660" y="614" font-size="11" fill="#334155">&#10003;  Kein Drift, immer konsistent</text>
+      <text x="660" y="630" font-size="11" fill="#334155">&#10003;  Audit-Trail sauber</text>
+      <text x="660" y="654" font-size="11" font-weight="700" fill="#065f46">Contra:</text>
+      <text x="660" y="670" font-size="11" fill="#334155">&#10007;  Langsamer, hoeherer Aufwand</text>
+      <text x="660" y="686" font-size="11" fill="#334155">&#10007;  Erfordert parallele CI/CD-Maturity</text>
+    </g>
+  </g>
+</svg>

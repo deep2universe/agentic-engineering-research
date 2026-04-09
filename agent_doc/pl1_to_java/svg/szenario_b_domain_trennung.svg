@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 780" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh33" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr33" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#7b2cbf"/>
+    </marker>
+  </defs>
+
+  <rect width="1240" height="780" fill="#f8fafc"/>
+  <text x="620" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Szenario B — Domain-basierte Trennung</text>
+  <text x="620" y="66" text-anchor="middle" font-size="13" fill="#475569">Event-getriebene Integration, Anti-Corruption-Layer, saubere Bounded Contexts</text>
+
+  <!-- Policy Domain (PL/I) -->
+  <g filter="url(#sh33)">
+    <rect x="60" y="110" width="340" height="220" rx="14" fill="#ffffff" stroke="#dc2626" stroke-width="3"/>
+    <rect x="60" y="110" width="340" height="40" rx="14" fill="#dc2626"/>
+    <text x="230" y="137" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Policy Domain (PL/I)</text>
+    <rect x="80" y="168" width="300" height="50" rx="6" fill="#fef2f2" stroke="#dc2626"/>
+    <text x="230" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#7f1d1d">CICS-Transaktionen</text>
+    <text x="230" y="208" text-anchor="middle" font-size="9" fill="#991b1b">legacy transactional core</text>
+    <rect x="80" y="228" width="300" height="50" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="230" y="250" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">DB2 z/OS</text>
+    <text x="230" y="268" text-anchor="middle" font-size="9" fill="#1e40af">owned by Policy Domain</text>
+    <text x="230" y="300" text-anchor="middle" font-size="10" font-style="italic" fill="#475569">Master ihrer eigenen Daten</text>
+    <text x="230" y="314" text-anchor="middle" font-size="10" font-style="italic" fill="#475569">Keine direkten DB-Zugriffe von aussen</text>
+  </g>
+
+  <!-- Customer Domain (Java) -->
+  <g filter="url(#sh33)">
+    <rect x="840" y="110" width="340" height="220" rx="14" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <rect x="840" y="110" width="340" height="40" rx="14" fill="#059669"/>
+    <text x="1010" y="137" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Customer Domain (Java)</text>
+    <rect x="860" y="168" width="300" height="50" rx="6" fill="#f0fdf4" stroke="#059669"/>
+    <text x="1010" y="190" text-anchor="middle" font-size="11" font-weight="700" fill="#065f46">Spring-Boot-Services</text>
+    <text x="1010" y="208" text-anchor="middle" font-size="9" fill="#064e3b">EKS / CQRS-Pattern</text>
+    <rect x="860" y="228" width="300" height="50" rx="6" fill="#eff6ff" stroke="#2563eb"/>
+    <text x="1010" y="250" text-anchor="middle" font-size="11" font-weight="700" fill="#1e3a8a">Aurora PostgreSQL</text>
+    <text x="1010" y="268" text-anchor="middle" font-size="9" fill="#1e40af">owned by Customer Domain</text>
+    <text x="1010" y="300" text-anchor="middle" font-size="10" font-style="italic" fill="#475569">Master ihrer eigenen Daten</text>
+    <text x="1010" y="314" text-anchor="middle" font-size="10" font-style="italic" fill="#475569">Keine direkten DB-Zugriffe von aussen</text>
+  </g>
+
+  <!-- Event bus in middle -->
+  <g filter="url(#sh33)">
+    <rect x="440" y="140" width="360" height="160" rx="14" fill="#7b2cbf"/>
+    <text x="620" y="170" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">Amazon MQ Topics / MSK (Kafka)</text>
+    <text x="620" y="192" text-anchor="middle" font-size="11" fill="#e9d5ff">Event Bus — asynchron, durable</text>
+    <rect x="460" y="210" width="320" height="30" rx="4" fill="#a855f7"/>
+    <text x="620" y="230" text-anchor="middle" font-size="11" fill="#ffffff">policy.created, policy.updated, policy.cancelled</text>
+    <rect x="460" y="246" width="320" height="30" rx="4" fill="#a855f7"/>
+    <text x="620" y="266" text-anchor="middle" font-size="11" fill="#ffffff">customer.registered, customer.updated</text>
+  </g>
+
+  <g fill="none">
+    <path d="M 400 200 L 438 200" stroke="#7b2cbf" stroke-width="3" marker-end="url(#arr33)"/>
+    <path d="M 802 250 L 840 250" stroke="#7b2cbf" stroke-width="3" marker-end="url(#arr33)"/>
+    <path d="M 840 200 L 802 200" stroke="#7b2cbf" stroke-width="3" marker-end="url(#arr33)"/>
+    <path d="M 438 250 L 400 250" stroke="#7b2cbf" stroke-width="3" marker-end="url(#arr33)"/>
+  </g>
+
+  <!-- Integration Hub -->
+  <g filter="url(#sh33)">
+    <rect x="400" y="360" width="440" height="130" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="620" y="390" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Integration Hub</text>
+    <text x="420" y="414" font-size="11" fill="#1e40af">• Event-Katalog (zentrale Dokumentation aller Events)</text>
+    <text x="420" y="432" font-size="11" fill="#1e40af">• Schema Registry (AWS Glue Schema Registry)</text>
+    <text x="420" y="450" font-size="11" fill="#1e40af">• Dead-Letter-Queues + Alerting</text>
+    <text x="420" y="468" font-size="11" fill="#1e40af">• Observability (Trace durch alle Domain-Events)</text>
+  </g>
+
+  <g fill="none">
+    <line x1="620" y1="300" x2="620" y2="358" stroke="#2563eb" stroke-width="2" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- Anti-Corruption-Layer -->
+  <g filter="url(#sh33)">
+    <rect x="60" y="360" width="320" height="220" rx="12" fill="#fef3c7" stroke="#d97706" stroke-width="3"/>
+    <rect x="60" y="360" width="320" height="38" rx="12" fill="#d97706"/>
+    <text x="220" y="384" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Anti-Corruption-Layer</text>
+    <text x="76" y="412" font-size="11" font-weight="700" fill="#0f172a">Zweck:</text>
+    <text x="76" y="428" font-size="11" fill="#334155">PL/I-Domain soll NICHT direkt Aurora-</text>
+    <text x="76" y="442" font-size="11" fill="#334155">Tabellen lesen, wenn sie Daten der</text>
+    <text x="76" y="456" font-size="11" fill="#334155">Java-Domain braucht.</text>
+    <text x="76" y="484" font-size="11" font-weight="700" fill="#0f172a">Funktion:</text>
+    <text x="76" y="500" font-size="11" fill="#334155">Eigener Service uebersetzt zwischen</text>
+    <text x="76" y="514" font-size="11" fill="#334155">Java-Domain-Modell und PL/I-Modell.</text>
+    <text x="76" y="542" font-size="10" font-style="italic" fill="#78350f">Jede Domain bleibt intern konsistent,</text>
+    <text x="76" y="556" font-size="10" font-style="italic" fill="#78350f">ohne dass ihr Modell von aussen</text>
+    <text x="76" y="570" font-size="10" font-style="italic" fill="#78350f">"verschmutzt" wird.</text>
+  </g>
+
+  <!-- Characteristics -->
+  <g filter="url(#sh33)">
+    <rect x="860" y="360" width="320" height="220" rx="12" fill="#f0fdf4" stroke="#059669" stroke-width="3"/>
+    <rect x="860" y="360" width="320" height="38" rx="12" fill="#059669"/>
+    <text x="1020" y="384" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Charakteristika</text>
+    <text x="876" y="416" font-size="11" fill="#064e3b">&#10003;  Weniger enge Kopplung</text>
+    <text x="876" y="434" font-size="11" fill="#064e3b">&#10003;  Saubere Grenzen</text>
+    <text x="876" y="452" font-size="11" fill="#064e3b">&#10003;  Schnelle Cross-Team-Entwicklung</text>
+    <text x="876" y="470" font-size="11" fill="#064e3b">&#10003;  Saubere DDD-Abstraktion</text>
+    <text x="876" y="488" font-size="11" fill="#064e3b">&#10003;  Evolutionsfaehig pro Domain</text>
+    <text x="876" y="516" font-size="11" fill="#a21caf">&#8226;  Eventuelle Datendopplung</text>
+    <text x="876" y="534" font-size="11" fill="#a21caf">&#8226;  Schwierig zu verifizierende Konsistenz</text>
+    <text x="876" y="552" font-size="11" fill="#a21caf">&#8226;  Schema-Evolution braucht Disziplin</text>
+    <text x="876" y="570" font-size="11" fill="#a21caf">&#8226;  Zusaetzlicher Hub-Service</text>
+  </g>
+
+  <!-- Bottom -->
+  <g filter="url(#sh33)">
+    <rect x="60" y="620" width="1120" height="100" rx="12" fill="#0f172a"/>
+    <text x="620" y="650" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Der sauberste Koexistenz-Pfad — aber auch der aufwendigste</text>
+    <text x="620" y="670" text-anchor="middle" font-size="11" fill="#cbd5e1">Szenario B setzt voraus, dass die Domain-Grenzen klar sind (DDD-Analyse!) und dass die Teams die Events wirklich owneship.</text>
+    <text x="620" y="688" text-anchor="middle" font-size="11" fill="#fbbf24">Senior-Regel: Lieber weniger, dafuer saubere Bounded Contexts — statt viele, aber mit verwaschenen Grenzen.</text>
+    <text x="620" y="708" text-anchor="middle" font-size="10" font-style="italic" fill="#94a3b8">Empfohlen fuer Projekte mit ausgereifter DDD-Reife. Nicht fuer Greenfield-50-%-Projekte.</text>
+  </g>
+</svg>

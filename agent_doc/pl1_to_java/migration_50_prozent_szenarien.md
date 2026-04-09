@@ -8,6 +8,10 @@
 
 ## 1. Was bedeutet "50 %"?
 
+![Drei Szenarien fuer 50-Prozent-Projekte](svg/was_bedeutet_50_prozent.svg)
+
+*Drei grundverschiedene Ausgangszustaende als Karten mit Mini-Diagrammen: A (Modul-basiert mit bidirektionalen Calls), B (Domain-basiert mit Event-Integration), C (Transform im Fluss mit Java in Test/Review). Die erste Senior-Frage beim Einstieg lautet: "Welches Szenario ist es wirklich?"*
+
 "50 % migriert" ist kein einheitlicher Zustand. In der Praxis gibt es mindestens drei unterschiedliche Ausprägungen:
 
 ### 1.1 Szenario A: Modul-basierte 50 %
@@ -39,6 +43,10 @@ Charakteristika:
 ---
 
 ## 2. Architektur-Patterns für Szenario A (bidirektionale Koexistenz)
+
+![Szenario A — Bidirektionale Koexistenz](svg/szenario_a_bidirektional_koexistenz.svg)
+
+*Die komplette Architektur: Mainframe-Seite mit CICS, DB2, IBM MQ — AWS-Seite mit EKS, API Gateway, Aurora, Amazon MQ — dazwischen AWS Direct Connect. Die beiden bidirektionalen Pfeile zeigen die Aufruf-Richtungen. Unten die Fallstricke und die CDC-Sync-Strategie als zwei getrennte Info-Boxen.*
 
 ### 2.1 API-Gateway zwischen Mainframe und AWS
 
@@ -84,6 +92,10 @@ Wenn beide Seiten dieselben Daten lesen müssen, bekommt eine Seite eine **Read 
 
 ## 3. Architektur-Patterns für Szenario B (Domain-basierte Trennung)
 
+![Szenario B — Domain-basierte Trennung](svg/szenario_b_domain_trennung.svg)
+
+*Zwei Bounded Contexts (Policy Domain in PL/I, Customer Domain in Java) kommunizieren ueber einen Event-Bus (Amazon MQ/MSK). Darunter der Integration Hub mit Schema-Registry und DLQ. Links der Anti-Corruption-Layer und rechts die Charakteristika-Checkliste.*
+
 ### 3.1 Event-getriebene Integration
 
 Domain-übergreifende Kommunikation läuft asynchron über Events:
@@ -118,6 +130,10 @@ Wenn die PL/I-Domain Daten der Java-Domain lesen muss, wird nicht direkt auf Aur
 
 ## 4. Architektur-Patterns für Szenario C (Transform im Fluss)
 
+![Szenario C — Freeze-and-Catch-Up plus Hotfix-Lanes](svg/szenario_c_transform_im_fluss.svg)
+
+*Oben die Timeline mit den fuenf Milestones (T=0, Freeze, Dual-Log, Sprint, Go-Live). Darunter die Alternative "Hotfix-Lanes" mit Lane 1 (pragmatisch, riskant) und Lane 2 (sauber, aufwendiger) im direkten Vergleich.*
+
 ### 4.1 Freeze-and-Catch-Up
 
 **Problem:** Der transformierte Java-Code altert zwischen dem Transform-Run und dem produktiven Deploy. In dieser Zeit können auf dem Mainframe neue Changes entstehen.
@@ -139,6 +155,10 @@ Lane 2 ist sauberer, aber aufwendiger. Lane 1 ist pragmatisch, schafft aber Risi
 
 ## 5. Test-Strategien für 50-%-Projekte
 
+![Test-Strategien fuer 50-Prozent-Projekte](svg/test_strategien_50_prozent.svg)
+
+*Vier dedizierte Test-Arten fuer die Koexistenz: Integration-Tests ueber die Grenze, Shadow-Traffic, Chaos-Tests, Daten-Integrity-Checks. Jede Karte zeigt Ziel, Tools, Frequenz, Risiko-Abdeckung und eine konkrete Senior-Regel.*
+
 Zusätzlich zu den Standard-Tests (siehe Dokument 6):
 
 1. **Integration-Tests über die Grenze hinweg.** Jede API-Schnittstelle zwischen Mainframe und AWS bekommt einen Contract-Test mit Pact oder einem ähnlichen Werkzeug.
@@ -149,6 +169,10 @@ Zusätzlich zu den Standard-Tests (siehe Dokument 6):
 ---
 
 ## 6. Organisatorische Muster
+
+![Drei organisatorische Muster](svg/organisatorische_muster.svg)
+
+*Drei Muster als Karten: Cross-funktionale Feature-Teams (mit PL/I-Dev, Java-Dev, Architekt, Test-Engineer als Icons), Dedicated Integration Squad (neutral zwischen Mainframe- und Java-Seite), Knowledge Transfer als Daueraufgabe. Unten die Rolle des Understanding-Agents als verstaerkendes Element.*
 
 Auf Team-Ebene brauchen 50-%-Projekte spezifische Strukturen:
 
@@ -169,6 +193,10 @@ Unterstützung durch Agenten: der **Understanding-Agent** aus Dokument 4 hilft h
 ---
 
 ## 7. Rettungsplan: Ein 50-%-Projekt übernehmen
+
+![Rettungsplan ueber vier Wochen](svg/rettungsplan_4_wochen.svg)
+
+*Vier Spalten fuer vier Wochen (Inventur, Risikobewertung, Architektur-Plan, Stabilisierung), jede mit einer Checklisten-Struktur. Der Plan ist sequenziell — erst danach duerfen weitere Migration-Waves starten.*
 
 Wenn du als Senior-Architekt in ein laufendes 50-%-Projekt kommst, arbeite die folgenden Punkte in den ersten vier Wochen ab:
 
@@ -200,6 +228,10 @@ Erst wenn diese Stabilisierung steht, weitere Migrations-Waves starten.
 
 ## 8. Anti-Patterns
 
+![Fuenf Anti-Patterns fuer 50-Prozent-Projekte](svg/anti_patterns_50_prozent.svg)
+
+*Fuenf rote Warnkarten mit "!"-Icons: Big Bang, Dual-Master ignorieren, Integration-Tests separat, Hotfix-Doku auf manuelle Disziplin verlassen, Migration verschleppen. Jede Karte mit "Warum falsch?" und "Richtig:" Gegenueberstellung.*
+
 - **"Alles auf einmal umschalten":** nein. Koexistenz ist in 50-%-Projekten Pflicht.
 - **"Dual-Master ist egal, wir sorgen für Konsistenz im Code":** nein. Konfliktauflösung in verteilten Datenbanken ist kein Code-Thema.
 - **"Wir testen die Java-Seite separat, die PL/I-Seite ist ja schon produktiv":** nein. Die Integration ist oft der Hauptfehler-Herd, sie muss eigenständig getestet werden.
@@ -209,5 +241,9 @@ Erst wenn diese Stabilisierung steht, weitere Migrations-Waves starten.
 ---
 
 ## 9. Referenzen
+
+![Quellen-Cluster fuer Dokument 5](svg/referenzen_50_prozent_quellen.svg)
+
+*Sechs Quellen-Cluster rund um `_quellen.md`: Koexistenz-Patterns, DDD &amp; Bounded Contexts, CDC + Daten-Sync, Shadow-Traffic &amp; Tests, Organisatorische Muster, Saga &amp; Compensation. ~40 oeffentliche Quellen.*
 
 Siehe `_quellen.md`.

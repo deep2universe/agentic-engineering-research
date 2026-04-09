@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 640" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif">
+  <defs>
+    <filter id="sh39" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3"/>
+      <feOffset dx="0" dy="2" result="off"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.22"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="640" fill="#f8fafc"/>
+  <text x="600" y="42" text-anchor="middle" font-size="24" font-weight="700" fill="#0f172a">Referenzen — 50-%-Szenarien</text>
+  <text x="600" y="66" text-anchor="middle" font-size="13" fill="#475569">Quellen-Cluster fuer Dokument 5: Koexistenz, Patterns, Tests, Organisatorik</text>
+
+  <!-- Central node -->
+  <g filter="url(#sh39)">
+    <rect x="460" y="260" width="280" height="100" rx="14" fill="#0f172a"/>
+    <text x="600" y="292" text-anchor="middle" font-size="14" font-weight="700" fill="#ffffff">_quellen.md</text>
+    <text x="600" y="312" text-anchor="middle" font-size="11" fill="#cbd5e1">Dokument 5: 50-%-Szenarien</text>
+    <text x="600" y="328" text-anchor="middle" font-size="11" fill="#fbbf24">~40 oeffentliche Quellen</text>
+    <text x="600" y="344" text-anchor="middle" font-size="11" fill="#94a3b8">12 Suchstring-Gruppen</text>
+  </g>
+
+  <!-- Cluster 1: Koexistenz-Patterns -->
+  <g filter="url(#sh39)">
+    <rect x="60" y="110" width="280" height="120" rx="12" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <rect x="60" y="110" width="280" height="32" rx="12" fill="#2563eb"/>
+    <text x="200" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Koexistenz-Patterns</text>
+    <text x="74" y="158" font-size="10" fill="#334155">• AWS Modernization Whitepaper</text>
+    <text x="74" y="174" font-size="10" fill="#334155">• Strangler-Fig-Pattern (Fowler)</text>
+    <text x="74" y="190" font-size="10" fill="#334155">• API Gateway Design Patterns</text>
+    <text x="74" y="206" font-size="10" fill="#334155">• CICS Web Services Guide</text>
+    <text x="74" y="222" font-size="10" fill="#334155">• AWS Direct Connect Guide</text>
+  </g>
+
+  <g filter="url(#sh39)">
+    <rect x="860" y="110" width="280" height="120" rx="12" fill="#ffffff" stroke="#7b2cbf" stroke-width="2.5"/>
+    <rect x="860" y="110" width="280" height="32" rx="12" fill="#7b2cbf"/>
+    <text x="1000" y="131" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">DDD &amp; Bounded Contexts</text>
+    <text x="874" y="158" font-size="10" fill="#334155">• Domain-Driven Design (Evans)</text>
+    <text x="874" y="174" font-size="10" fill="#334155">• Implementing DDD (Vernon)</text>
+    <text x="874" y="190" font-size="10" fill="#334155">• Anti-Corruption-Layer Patterns</text>
+    <text x="874" y="206" font-size="10" fill="#334155">• Context Maps</text>
+    <text x="874" y="222" font-size="10" fill="#334155">• Event Storming Workshops</text>
+  </g>
+
+  <g filter="url(#sh39)">
+    <rect x="60" y="270" width="280" height="120" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <rect x="60" y="270" width="280" height="32" rx="12" fill="#059669"/>
+    <text x="200" y="291" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">CDC + Daten-Sync</text>
+    <text x="74" y="318" font-size="10" fill="#334155">• AWS DMS Best Practices</text>
+    <text x="74" y="334" font-size="10" fill="#334155">• Precisely Connect Docs</text>
+    <text x="74" y="350" font-size="10" fill="#334155">• Debezium / Kafka Connect</text>
+    <text x="74" y="366" font-size="10" fill="#334155">• Aurora PostgreSQL Replication</text>
+    <text x="74" y="382" font-size="10" fill="#334155">• CDC Anti-Patterns Papers</text>
+  </g>
+
+  <g filter="url(#sh39)">
+    <rect x="860" y="270" width="280" height="120" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2.5"/>
+    <rect x="860" y="270" width="280" height="32" rx="12" fill="#dc2626"/>
+    <text x="1000" y="291" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Shadow-Traffic &amp; Tests</text>
+    <text x="874" y="318" font-size="10" fill="#334155">• Shadow-Testing Best Practices</text>
+    <text x="874" y="334" font-size="10" fill="#334155">• Pact Contract Testing</text>
+    <text x="874" y="350" font-size="10" fill="#334155">• AWS Fault Injection Simulator</text>
+    <text x="874" y="366" font-size="10" fill="#334155">• Chaos Engineering Papers</text>
+    <text x="874" y="382" font-size="10" fill="#334155">• Gremlin Case Studies</text>
+  </g>
+
+  <g filter="url(#sh39)">
+    <rect x="60" y="430" width="280" height="120" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="60" y="430" width="280" height="32" rx="12" fill="#f59e0b"/>
+    <text x="200" y="451" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Organisatorische Muster</text>
+    <text x="74" y="478" font-size="10" fill="#334155">• Team Topologies (Skelton/Pais)</text>
+    <text x="74" y="494" font-size="10" fill="#334155">• Feature Teams (Larman)</text>
+    <text x="74" y="510" font-size="10" fill="#334155">• Spotify Model (limitiert)</text>
+    <text x="74" y="526" font-size="10" fill="#334155">• Mainframe-Team-Case-Studies</text>
+    <text x="74" y="542" font-size="10" fill="#334155">• Change Management Patterns</text>
+  </g>
+
+  <g filter="url(#sh39)">
+    <rect x="860" y="430" width="280" height="120" rx="12" fill="#ffffff" stroke="#0891b2" stroke-width="2.5"/>
+    <rect x="860" y="430" width="280" height="32" rx="12" fill="#0891b2"/>
+    <text x="1000" y="451" text-anchor="middle" font-size="12" font-weight="700" fill="#ffffff">Saga &amp; Compensation</text>
+    <text x="874" y="478" font-size="10" fill="#334155">• Saga Pattern Papers</text>
+    <text x="874" y="494" font-size="10" fill="#334155">• Microservices Patterns (Richardson)</text>
+    <text x="874" y="510" font-size="10" fill="#334155">• Compensating Transactions</text>
+    <text x="874" y="526" font-size="10" fill="#334155">• Choreography vs Orchestration</text>
+    <text x="874" y="542" font-size="10" fill="#334155">• Eventual Consistency Blogs</text>
+  </g>
+
+  <!-- Connectors -->
+  <g stroke="#64748b" stroke-width="2" stroke-dasharray="4 3" opacity="0.5" fill="none">
+    <line x1="340" y1="170" x2="460" y2="280"/>
+    <line x1="860" y1="170" x2="740" y2="280"/>
+    <line x1="340" y1="330" x2="460" y2="310"/>
+    <line x1="860" y1="330" x2="740" y2="310"/>
+    <line x1="340" y1="490" x2="460" y2="350"/>
+    <line x1="860" y1="490" x2="740" y2="350"/>
+  </g>
+
+  <text x="600" y="600" text-anchor="middle" font-size="11" fill="#64748b">Jede Aussage in Dokument 5 ist in _quellen.md durch mindestens eine dieser Quellen belegt.</text>
+</svg>
