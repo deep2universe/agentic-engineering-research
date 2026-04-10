@@ -6,7 +6,7 @@ nav_order: 1
 
 # Agentic Engineering Research
 
-Dieses Wiki dokumentiert Prinzipien, Patterns und Best Practices fuer Agentic Engineering, Deep Researches zur COBOL-Migration mit AWS und zur GitHub Copilot CLI -- basierend auf einer agentengestuetzten Recherche von ueber **400 Quellen** (Stand: April 2026).
+Dieses Wiki dokumentiert Prinzipien, Patterns und Best Practices fuer Agentic Engineering, Deep Researches zur COBOL-Migration mit AWS und zur GitHub Copilot CLI -- basierend auf einer agentengestuetzten Recherche von ueber **450 Quellen** (Stand: April 2026).
 
 > **Hinweis zur Erstellung:** Saemtliche Inhalte dieses Wikis wurden vollstaendig agentengestuetzt mit **[Claude Code](https://claude.com/claude-code)** erstellt. Es handelt sich ausschliesslich um Ergebnisse einer Deep Research und ein **menschliches Review hat nicht stattgefunden**. Alle Aussagen, Empfehlungen und Quellenangaben sollten daher kritisch gegengeprueft werden, bevor sie in produktiven Kontexten verwendet werden.
 
@@ -137,6 +137,24 @@ Deep Research zur GitHub Copilot CLI (`copilot`, GA Februar 2026): Coding Agent 
 | 05 | [Workflows und Vergleich](GCC-05-Workflows-und-Vergleich) | Typische Workflows, CI/CD-Automatisierung, Vergleichstabelle, Hidden Gems |
 | 06 | [Cheat Sheet](GCC-06-Cheat-Sheet) | Druckreife Kurzreferenz: Slash-Commands, Keybindings, MCP-Config, 7 Sicherheits-Mantras |
 | -- | [Quellen](GCC-Quellen) | Alle Recherche-Quellen |
+
+---
+
+## PL/I zu Java Migration
+
+Deep Research zur Migration von PL/I-Anwendungen nach Java mit AWS-Tooling und Agentic Engineering (Stand: April 2026).
+
+| Nr. | Kapitel | Inhalt |
+|-----|---------|--------|
+| 00 | [Hauptguide](PTJ-00-Hauptguide) | Executive Summary, Reading Guide, Onboarding Roadmap |
+| 01 | [Sprachmerkmale und Konvertierung](PTJ-01-Sprachmerkmale) | PL/I-Features und deren Java-Mapping |
+| 02 | [AWS Feature Uebersicht](PTJ-02-AWS-Features) | AWS-Services fuer PL/I-Migration |
+| 03 | [Agentic Engineering Workflows](PTJ-03-Agentic-Workflows) | KI-gestuetzte Migrations-Pipelines |
+| 04 | [50-Prozent-Szenarien](PTJ-04-50-Prozent-Szenarien) | Strategien fuer halb abgeschlossene Projekte |
+| 05 | [Testabdeckung und Teststrategien](PTJ-05-Teststrategien) | Test-Pyramide, Dual-Run, Mutation Testing |
+| 06 | [Best Practices](PTJ-06-Best-Practices) | Anti-Patterns, goldene Regeln, Security |
+| 07 | [Erweiterter Loesungshorizont](PTJ-07-Loesungshorizont) | Alternativen jenseits von AWS, 7 Rs, Koexistenz |
+| -- | [Quellen](PTJ-Quellen) | Alle Recherche-Quellen |
 
 ---
 
