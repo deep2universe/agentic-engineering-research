@@ -30,6 +30,7 @@ SZH_SRC="${MAIN_REPO_DIR}/agent_doc/skills_zero-to-hero"
 SSF_SRC="${MAIN_REPO_DIR}/agent_doc/skill_systeme_frameworks"
 CMA_SRC="${MAIN_REPO_DIR}/agent_doc/cobol-migration_aws"
 GCC_SRC="${MAIN_REPO_DIR}/agent_doc/github_copilot_cli"
+PTJ_SRC="${MAIN_REPO_DIR}/agent_doc/pl1_to_java"
 TEMPLATES="${MAIN_REPO_DIR}/scripts/wiki-templates"
 
 # --- Pages-Verzeichnis vorbereiten ---
@@ -79,6 +80,7 @@ convert_svgs "$TUMR_SRC" "tumr"
 convert_svgs "$SZH_SRC" "szh"
 convert_svgs "$CMA_SRC" "cma"
 convert_svgs "$GCC_SRC" "gcc"
+convert_svgs "$PTJ_SRC" "ptj"
 
 # ============================================================================
 # Hilfsfunktion: Front-Matter voranstellen und SVG-Refs ersetzen
@@ -393,6 +395,52 @@ _quellen.md:GCC-Quellen:7:Quellen
 GCC_EOF
 
 # ============================================================================
+# PTJ-Dateien transformieren (PL/I zu Java Migration)
+# ============================================================================
+echo ""
+echo "=== PTJ-Dateien transformieren ==="
+
+# Backtick-Referenzen -> Standard-Markdown-Links
+PTJ_LINK_SED=""
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`pl1_zu_java_hauptguide\\.md\`|[pl1_zu_java_hauptguide](PTJ-00-Hauptguide)|g"
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`pl1_sprachmerkmale_und_konvertierung\\.md\`|[pl1_sprachmerkmale_und_konvertierung](PTJ-01-Sprachmerkmale)|g"
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`aws_feature_uebersicht_fuer_pl1\\.md\`|[aws_feature_uebersicht_fuer_pl1](PTJ-02-AWS-Features)|g"
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`agentic_engineering_workflows\\.md\`|[agentic_engineering_workflows](PTJ-03-Agentic-Workflows)|g"
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`migration_50_prozent_szenarien\\.md\`|[migration_50_prozent_szenarien](PTJ-04-50-Prozent-Szenarien)|g"
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`testabdeckung_und_teststrategien\\.md\`|[testabdeckung_und_teststrategien](PTJ-05-Teststrategien)|g"
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`best_practices_pl1\\.md\`|[best_practices_pl1](PTJ-06-Best-Practices)|g"
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`loesungshorizont_erweitert\\.md\`|[loesungshorizont_erweitert](PTJ-07-Loesungshorizont)|g"
+PTJ_LINK_SED="$PTJ_LINK_SED -e s|\`_quellen\\.md\`|[_quellen](PTJ-Quellen)|g"
+
+while IFS=: read -r src_file dest_name nav_order title; do
+    [[ -z "$src_file" ]] && continue
+
+    front_matter="---
+title: \"${title}\"
+parent: \"PL/I zu Java Migration\"
+nav_order: ${nav_order}
+---"
+
+    transform_file "${PTJ_SRC}/${src_file}" "${PAGES_DIR}/${dest_name}.md" "ptj" "$front_matter"
+
+    # Backtick-Referenzen umschreiben
+    sed -i '' $PTJ_LINK_SED "${PAGES_DIR}/${dest_name}.md" 2>/dev/null || \
+    sed -i    $PTJ_LINK_SED "${PAGES_DIR}/${dest_name}.md"
+
+    echo "  ${src_file} -> ${dest_name}.md"
+done <<'PTJ_EOF'
+pl1_zu_java_hauptguide.md:PTJ-00-Hauptguide:1:00 Hauptguide
+pl1_sprachmerkmale_und_konvertierung.md:PTJ-01-Sprachmerkmale:2:01 Sprachmerkmale und Konvertierung
+aws_feature_uebersicht_fuer_pl1.md:PTJ-02-AWS-Features:3:02 AWS Feature Uebersicht
+agentic_engineering_workflows.md:PTJ-03-Agentic-Workflows:4:03 Agentic Engineering Workflows
+migration_50_prozent_szenarien.md:PTJ-04-50-Prozent-Szenarien:5:04 50-Prozent-Szenarien
+testabdeckung_und_teststrategien.md:PTJ-05-Teststrategien:6:05 Testabdeckung und Teststrategien
+best_practices_pl1.md:PTJ-06-Best-Practices:7:06 Best Practices
+loesungshorizont_erweitert.md:PTJ-07-Loesungshorizont:8:07 Erweiterter Loesungshorizont
+_quellen.md:PTJ-Quellen:9:Quellen
+PTJ_EOF
+
+# ============================================================================
 # Templates kopieren
 # ============================================================================
 echo ""
@@ -405,6 +453,7 @@ cp "$TEMPLATES/skills-zero-to-hero.md"          "$PAGES_DIR/skills-zero-to-hero.
 cp "$TEMPLATES/skill-systeme-frameworks.md"     "$PAGES_DIR/skill-systeme-frameworks.md"
 cp "$TEMPLATES/cobol-migration-aws.md"          "$PAGES_DIR/cobol-migration-aws.md"
 cp "$TEMPLATES/github-copilot-cli.md"           "$PAGES_DIR/github-copilot-cli.md"
+cp "$TEMPLATES/pl1-to-java.md"                 "$PAGES_DIR/pl1-to-java.md"
 cp "$TEMPLATES/workflow.svg"                    "$PAGES_IMAGES/workflow.svg"
 rsvg-convert -w 1400 "$TEMPLATES/workflow.svg" -o "$PAGES_IMAGES/workflow.png"
 echo "  index.md, _config.yml, Sektions-Seiten, workflow.svg/png kopiert"
@@ -433,7 +482,7 @@ else
     if git diff --cached --quiet; then
         echo "Keine Aenderungen — nichts zu publizieren."
     else
-        git commit -m "Sync von agent_doc/ — AEP, TUMR, SZH, SSF, CMA, GCC ($(date +%Y-%m-%d))"
+        git commit -m "Sync von agent_doc/ — AEP, TUMR, SZH, SSF, CMA, GCC, PTJ ($(date +%Y-%m-%d))"
         git push
         echo "GitHub Pages erfolgreich aktualisiert."
     fi
