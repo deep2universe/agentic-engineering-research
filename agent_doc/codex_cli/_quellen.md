@@ -283,3 +283,127 @@ Diese Datei wird fortlaufend gepflegt. Gruppierung nach Suchstring der jeweilige
 - **URL:** https://codex.danielvaughan.com/2026/03/26/codex-cli-model-selection/
   **Zusammenfassung:** Analyse der Modellselektion und wann welches Modell genutzt werden sollte.
   **Datum:** 2026-04-16
+
+## Suchstring: "OpenAI Codex CLI sandbox seatbelt landlock workspace-write approval modes 2026"
+
+- **URL:** https://developers.openai.com/codex/concepts/sandboxing
+  **Zusammenfassung:** Offizielle Sandbox-Konzepte: Seatbelt, Landlock/seccomp/bwrap, Netzwerk-Default off, Writable-Roots.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/agent-approvals-security
+  **Zusammenfassung:** Offizielle Doku zu Approval-Modi, Sandbox-Tiers und Convenience-Flags (`--full-auto`, `--yolo`).
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/security
+  **Zusammenfassung:** Codex Security-Overview mit Best Practices und Enterprise-Hinweisen.
+  **Datum:** 2026-04-16
+
+- **URL:** https://deepwiki.com/openai/codex/5.6-sandboxing-implementation
+  **Zusammenfassung:** Technischer Deep-Dive zur plattformspezifischen Sandbox-Implementierung von Codex.
+  **Datum:** 2026-04-16
+
+- **URL:** https://apidog.com/blog/bypass-codex-sandbox/
+  **Zusammenfassung:** Praxisanalyse zu Sandbox-Verhalten und bewussten Overrides (`--dangerously-bypass-approvals-and-sandbox`).
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI GitHub Actions VS Code extension Codex Cloud integration 2026"
+
+- **URL:** https://developers.openai.com/codex/github-action
+  **Zusammenfassung:** Offizielle Doku zur `openai/codex-action`: Inputs, Safety-Strategien, typische Workflows.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/openai/codex-action
+  **Zusammenfassung:** Repo der offiziellen GitHub Action mit vollständiger Parameter-Liste und Beispielen.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/ide
+  **Zusammenfassung:** IDE-Extension-Doku (VS Code / Cursor / Windsurf), Task-Tracker, Diff-View, Cloud-Handoff.
+  **Datum:** 2026-04-16
+
+- **URL:** https://docs.github.com/en/copilot/concepts/agents/openai-codex
+  **Zusammenfassung:** GitHub-Dokumentation zum OpenAI Codex-Agent innerhalb des Copilot-Ökosystems.
+  **Datum:** 2026-04-16
+
+- **URL:** https://openai.com/index/codex-now-generally-available/
+  **Zusammenfassung:** GA-Ankündigung Codex (inkl. CLI, IDE, Cloud) und Feature-Überblick.
+  **Datum:** 2026-04-16
+
+## Suchstring: "codex CLI config.toml sandbox_mode approval_policy notify model_providers"
+
+- **URL:** https://developers.openai.com/codex/config-basic
+  **Zusammenfassung:** Einsteiger-Config mit `sandbox_mode`, `approval_policy`, Minimalbeispiel.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/config-advanced
+  **Zusammenfassung:** Erweiterte Config inkl. `notify`-Hook, Plan-Mode, Experimental-Settings.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/config-sample
+  **Zusammenfassung:** Vollständiges Beispiel-`config.toml` inkl. Profiles und Providers.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/config-reference
+  **Zusammenfassung:** Vollständige Referenz aller Config-Keys mit Defaults.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/openai/codex/issues/2384
+  **Zusammenfassung:** Bug-Thread zur Interpretation von `sandbox_mode` in config.toml.
+  **Datum:** 2026-04-16
+
+## Suchstring: "codex exec non-interactive mode CI GitHub Actions example workflow"
+
+- **URL:** https://developers.openai.com/codex/noninteractive
+  **Zusammenfassung:** Offizielle Doku zu `codex exec`: `--json`, `--output-schema`, `--output-last-message`.
+  **Datum:** 2026-04-16
+
+- **URL:** https://smartscope.blog/en/generative-ai/chatgpt/codex-cli-github-actions/
+  **Zusammenfassung:** Praxis-Guide "Codex CLI Safely inside GitHub Actions" mit Permissions-Empfehlungen.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/icoretech/codex-action
+  **Zusammenfassung:** Community-Action mit ausführlichen Beispielen für non-interaktive Workflows.
+  **Datum:** 2026-04-16
+
+- **URL:** https://cookbook.openai.com/examples/codex/autofix-github-actions
+  **Zusammenfassung:** OpenAI-Cookbook-Beispiel "Codex CLI zum Autofix von CI-Fehlern".
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI slash commands /init /review /model /compact /approvals /diff /status 2026"
+
+- **URL:** https://developers.openai.com/codex/cli/slash-commands
+  **Zusammenfassung:** Offizielle Liste aller Slash-Commands mit Verhalten und Alias-Hinweisen.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/cli/features
+  **Zusammenfassung:** Offizielle Feature-Übersicht inkl. TUI, Slash-Commands, Input-Modi.
+  **Datum:** 2026-04-16
+
+- **URL:** https://machinelearningmastery.com/understanding-openai-codex-cli-commands/
+  **Zusammenfassung:** Community-Erklärung zu Codex-CLI-Commands mit Beispielen.
+  **Datum:** 2026-04-16
+
+- **URL:** https://toolsbase.dev/en/reference/codex-commands
+  **Zusammenfassung:** Cheat-Sheet mit 50 Codex-Commands und Shortcuts für 2026.
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI MCP server config.toml stdio example Playwright Filesystem Github 2026"
+
+- **URL:** https://developers.openai.com/codex/mcp
+  **Zusammenfassung:** Offizielle MCP-Doku für Codex inkl. Konfiguration und Best Practices.
+  **Datum:** 2026-04-16
+
+- **URL:** https://vladimirsiedykh.com/blog/codex-mcp-config-toml-shared-configuration-cli-vscode-setup-2025
+  **Zusammenfassung:** Shared-Config-Setup für CLI und VS Code via gemeinsamer config.toml.
+  **Datum:** 2026-04-16
+
+- **URL:** https://inventivehq.com/knowledge-base/openai/how-to-set-up-mcp-servers
+  **Zusammenfassung:** Step-by-Step-Anleitung zur Einrichtung von MCP-Servern in Codex CLI.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.vibesparking.com/en/blog/ai/openai/codex/mcp/2025-09-10-codex-mcp-setup-10-servers/
+  **Zusammenfassung:** Zehn gängige MCP-Server mit Copy-Paste-Configs für Codex.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/microsoft/playwright-mcp
+  **Zusammenfassung:** Playwright-MCP-Repo für Browser-Automation via MCP.
+  **Datum:** 2026-04-16
