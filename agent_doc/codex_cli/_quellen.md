@@ -469,3 +469,115 @@ Diese Datei wird fortlaufend gepflegt. Gruppierung nach Suchstring der jeweilige
 - **URL:** https://aitoolanalysis.com/chatgpt-codex-review/
   **Zusammenfassung:** Review zur Cloud-Agent-Performance (Multi-Hour-Tasks).
   **Datum:** 2026-04-16
+
+## Suchstring: "OpenAI Codex CLI best practices prompting AGENTS.md TDD workflow 2026"
+
+- **URL:** https://developers.openai.com/codex/learn/best-practices
+  **Zusammenfassung:** Offizielle Best-Practices (Task-Kontext, AGENTS.md, MCP, Skills, Automatisierung).
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/prompting
+  **Zusammenfassung:** Prompting-Guide mit Subagents, Test-First-Workflow und Kontext-Strategien.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/guides/agents-md
+  **Zusammenfassung:** AGENTS.md-Guide: wann Prompt, wann Instruktions-File.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/skills
+  **Zusammenfassung:** Agent-Skills-Konzept, SKILL.md, implicit Invocation.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/custom-prompts
+  **Zusammenfassung:** Custom-Prompts im `~/.codex/prompts/`, Platzhalter, Slash-Commands.
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI complete feature list image input web search compact resume reasoning 2026"
+
+- **URL:** https://developers.openai.com/codex/cli/features
+  **Zusammenfassung:** Offizielle Feature-Übersicht (Modelle, Web-Search, Images, Resume, Compact, Cloud).
+  **Datum:** 2026-04-16
+
+- **URL:** https://codex.danielvaughan.com/2026/03/28/codex-cli-image-workflows/
+  **Zusammenfassung:** Deep-Dive zu Codex-CLI-Image-Workflows und `view_image`-Tool.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/cli/reference
+  **Zusammenfassung:** Command-Line-Reference mit allen Flags und Defaults.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.littlemight.com/codex-cheat-sheet/
+  **Zusammenfassung:** Codex Cheat Sheet mit Kern-Flags und Slash-Commands.
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI agent skills custom commands prompts directory ~/.codex/prompts 2026"
+
+- **URL:** https://developers.openai.com/codex/custom-prompts
+  **Zusammenfassung:** Custom-Prompts-Dokumentation (Dateipfad, Platzhalter, Sharing via Skills).
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/skills
+  **Zusammenfassung:** Agent Skills: SKILL.md, Metadaten, on-demand Loading.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/feiskyer/codex-settings
+  **Zusammenfassung:** Community-Repo mit Beispiel-Skills, Prompts, Configs für Codex CLI.
+  **Datum:** 2026-04-16
+
+- **URL:** https://reading.sh/supercharge-your-codex-workflow-with-slash-commands-a53c59edde38
+  **Zusammenfassung:** Praxisguide zur Erstellung und Nutzung eigener Slash-Commands.
+  **Datum:** 2026-04-16
+
+## Suchstring: "gpt-5-codex OR gpt-5.3-codex prompting guide system prompt developer messages tools"
+
+- **URL:** https://cookbook.openai.com/examples/gpt-5/codex_prompting_guide
+  **Zusammenfassung:** Offizieller OpenAI-Cookbook-Prompting-Guide für Codex-Modelle.
+  **Datum:** 2026-04-16
+
+- **URL:** https://cookbook.openai.com/examples/gpt-5/gpt-5-1-codex-max_prompting_guide
+  **Zusammenfassung:** Prompting-Guide für GPT-5.1-Codex-Max (Compaction, Multi-Hour).
+  **Datum:** 2026-04-16
+
+- **URL:** https://openai.com/index/introducing-gpt-5-3-codex/
+  **Zusammenfassung:** Release-Blog GPT-5.3-Codex mit neuen Preamble-/Phase-Parametern.
+  **Datum:** 2026-04-16
+
+- **URL:** https://zilliz.com/ai-faq/how-do-i-prompt-gpt-53-codex-for-better-results
+  **Zusammenfassung:** Community-FAQ zu effektivem Prompting von GPT-5.3-Codex.
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI cheat sheet commands keyboard shortcuts flags complete reference 2026"
+
+- **URL:** https://computingforgeeks.com/codex-cli-cheat-sheet/
+  **Zusammenfassung:** Cheat-Sheet mit Tastatur-Shortcuts und Core-Commands.
+  **Datum:** 2026-04-16
+
+- **URL:** https://cheatsheets.zip/codex-cli
+  **Zusammenfassung:** Kompakte Quick-Reference zu CLI und Slash-Commands.
+  **Datum:** 2026-04-16
+
+- **URL:** https://shipyard.build/blog/codex-cli-cheat-sheet/
+  **Zusammenfassung:** Cheatsheet mit Config-Snippets, AGENTS.md-Empfehlungen und Best Practices.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/BA-CalderonMorales/codex-cheat-sheet
+  **Zusammenfassung:** Community-Cheat-Sheet-Repo mit Tipps und Workflows.
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI config.toml full reference profiles model_providers model_reasoning_effort history tui"
+
+- **URL:** https://developers.openai.com/codex/config-sample
+  **Zusammenfassung:** Vollständiges Beispiel-config.toml mit Profilen und Providers.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.oreateai.com/blog/unlocking-codex-a-deep-dive-into-configtoml-and-mcp-configuration
+  **Zusammenfassung:** Deep-Dive zu config.toml-Schema und MCP-Sektion.
+  **Datum:** 2026-04-16
+
+- **URL:** https://majesticlabs.dev/blog/202509/codex-cli-developer-guide/
+  **Zusammenfassung:** Entwickler-Guide mit Profile-Beispielen und Config-Pfaden.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.morphllm.com/codex-provider-configuration
+  **Zusammenfassung:** Provider-Config-Reference mit custom endpoints und wire_api-Varianten.
+  **Datum:** 2026-04-16
