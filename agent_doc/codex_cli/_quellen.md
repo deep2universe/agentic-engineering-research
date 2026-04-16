@@ -581,3 +581,43 @@ Diese Datei wird fortlaufend gepflegt. Gruppierung nach Suchstring der jeweilige
 - **URL:** https://www.morphllm.com/codex-provider-configuration
   **Zusammenfassung:** Provider-Config-Reference mit custom endpoints und wire_api-Varianten.
   **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI spec-driven development Kiro Github spec-kit workflow compatibility 2026"
+
+- **URL:** https://github.com/github/spec-kit
+  **Zusammenfassung:** GitHub Spec-Kit: Spec-Driven-Development-Toolkit mit Codex/Claude/Cursor/Copilot-Support.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/atman-33/kiro-for-codex
+  **Zusammenfassung:** VS-Code-Extension "Kiro for Codex" — Spec-Driven-Development-Port für Codex CLI.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/gotalab/cc-sdd
+  **Zusammenfassung:** Cross-Agent SDD-Commands (Kiro-Style) für Codex, Claude, Cursor, Copilot, Gemini, Windsurf.
+  **Datum:** 2026-04-16
+
+- **URL:** https://martinfowler.com/articles/exploring-gen-ai/sdd-3-tools.html
+  **Zusammenfassung:** Martin-Fowler-Artikel zu Kiro, Spec-Kit, Tessl und Spec-Driven-Development.
+  **Datum:** 2026-04-16
+
+- **URL:** https://tech-bridge-log.com/blog/kiro-for-codex
+  **Zusammenfassung:** Praxis-Integration von Kiro-for-Codex inklusive Workflow-Beispielen.
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI deployment CI/CD Docker Dockerfile release changelog generation 2026"
+
+- **URL:** https://hub.docker.com/r/diablotin74/codex-cli
+  **Zusammenfassung:** Community-Docker-Image für Codex CLI auf Node-Slim.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/Diatonic-AI/codex-cli-docker-mcp
+  **Zusammenfassung:** Dockerized Codex CLI mit Python-Orchestration und MCP-Servern.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.deployhq.com/blog/getting-started-with-openai-codex-cli-ai-powered-code-generation-from-your-terminal
+  **Zusammenfassung:** Getting-Started-Guide mit CI/CD- und Deployment-Best-Practices.
+  **Datum:** 2026-04-16
+
+- **URL:** https://registry.coder.com/modules/coder-labs/codex
+  **Zusammenfassung:** Coder-Template für Codex CLI in Cloud-Dev-Environments.
+  **Datum:** 2026-04-16
