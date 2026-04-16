@@ -407,3 +407,65 @@ Diese Datei wird fortlaufend gepflegt. Gruppierung nach Suchstring der jeweilige
 - **URL:** https://github.com/microsoft/playwright-mcp
   **Zusammenfassung:** Playwright-MCP-Repo für Browser-Automation via MCP.
   **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI notify hook config.toml example script slack webhook"
+
+- **URL:** https://developers.openai.com/codex/hooks
+  **Zusammenfassung:** Offizielle Hook-Doku — Event-Modell (`agent-turn-complete`) und Payload-Format.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/integrations/slack
+  **Zusammenfassung:** OpenAI-Guide zur Slack-Integration via notify-Hook und Bot-Bridge.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/Wangmerlyn/Codex-Slack-Notifier
+  **Zusammenfassung:** Community-Slack-Notifier mit Wrapper-Skript und Payload-Beispiel.
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/openai/codex/discussions/2150
+  **Zusammenfassung:** Diskussion "Hook would be a great feature" — Community-Wünsche und Implementierungspfad.
+  **Datum:** 2026-04-16
+
+## Suchstring: "Codex CLI IDE extension VS Code marketplace features diff viewer task tracker 2026"
+
+- **URL:** https://marketplace.visualstudio.com/items?itemName=openai.chatgpt
+  **Zusammenfassung:** VS-Code-Marketplace-Eintrag "Codex – OpenAI's coding agent" (ID `openai.chatgpt`).
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/ide/features
+  **Zusammenfassung:** Offizielle Feature-Liste der IDE-Extension (Diff, Task-Tracker, Thinking).
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/changelog
+  **Zusammenfassung:** Changelog mit IDE-Updates (PR-Badges, Cmd/Ctrl+F mit Auswahl, GPT-5.3-Codex-Spark Preview).
+  **Datum:** 2026-04-16
+
+- **URL:** https://vladimirsiedykh.com/blog/codex-cli-vscode-integration-complete-guide-2025
+  **Zusammenfassung:** Entwickler-Guide zu Codex + VS Code inkl. shared config.toml.
+  **Datum:** 2026-04-16
+
+- **URL:** https://releasebot.io/updates/openai/codex
+  **Zusammenfassung:** Release-Bot-Übersicht der April-2026-Updates von Codex.
+  **Datum:** 2026-04-16
+
+## Suchstring: "codex cloud chatgpt.com codex async task delegation CLI push 2026"
+
+- **URL:** https://chatgpt.com/codex
+  **Zusammenfassung:** Codex-Cloud-Oberfläche in ChatGPT für Task-Delegation und Monitoring.
+  **Datum:** 2026-04-16
+
+- **URL:** https://openai.com/index/introducing-codex/
+  **Zusammenfassung:** Einführungs-Blog zur Codex-Cloud-Philosophie (real-time + async).
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/quickstart
+  **Zusammenfassung:** Quickstart mit Cloud-Task-Handoff (`codex cloud exec`).
+  **Datum:** 2026-04-16
+
+- **URL:** https://help.openai.com/en/articles/11391654-chatgpt-business-release-notes
+  **Zusammenfassung:** ChatGPT-Business-Release-Notes zu Codex-Cloud-Features und Windows-App.
+  **Datum:** 2026-04-16
+
+- **URL:** https://aitoolanalysis.com/chatgpt-codex-review/
+  **Zusammenfassung:** Review zur Cloud-Agent-Performance (Multi-Hour-Tasks).
+  **Datum:** 2026-04-16
