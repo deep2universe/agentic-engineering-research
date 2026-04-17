@@ -1,0 +1,195 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex SDK - Host-Prozess steuert Codex CLI via JSONL-stdio</title>
+  <desc>Architektur des @openai/codex-sdk: Puppenspieler-Metapher. Host-Applikation startet die Codex-CLI als Child-Prozess und tauscht Turn-Events (reasoning_delta, tool_call, file_change, message_delta, turn_completed) ueber stdio aus. Zentrale API-Methoden: startThread, run, runStreamed, resumeThread, outputSchema.</desc>
+
+  <defs>
+    <marker id="arrIndigo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arrCyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">1. Codex SDK - Codex programmatisch steuern</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Host-Prozess als Puppenspieler: @openai/codex-sdk spawnt die CLI-Marionette ueber stdio, JSONL-Events bewegen die Faeden.</text>
+  <text x="1360" y="56" fill="#818cf8" font-size="14" text-anchor="end" font-weight="600">Codex CLI - Senior Guide</text>
+
+  <!-- Host-Prozess (Puppenspieler) -->
+  <g>
+    <rect x="60" y="150" width="460" height="560" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="90" y="185" fill="#818cf8" font-size="18" font-weight="700">Host-Prozess (Node / TypeScript)</text>
+    <text x="90" y="208" fill="#94a3b8" font-size="13">Backend, Electron, Automations-Service</text>
+
+    <!-- Puppenspieler-Icon -->
+    <g transform="translate(390,168)">
+      <circle cx="40" cy="28" r="18" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+      <rect x="22" y="48" width="36" height="42" rx="6" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+      <line x1="26" y1="90" x2="20" y2="116" stroke="#818cf8" stroke-width="2"/>
+      <line x1="54" y1="90" x2="60" y2="116" stroke="#818cf8" stroke-width="2"/>
+    </g>
+
+    <!-- SDK-API-Karten -->
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13">
+      <rect x="90" y="240" width="400" height="56" rx="10" fill="#0f172a" stroke="#6366f1"/>
+      <text x="104" y="262" fill="#a5b4fc" font-weight="700">new Codex({ env, apiKey })</text>
+      <text x="104" y="284" fill="#94a3b8" font-size="12" font-family="system-ui">Konstruktor: Env-Filter fuer Secrets</text>
+
+      <rect x="90" y="306" width="400" height="56" rx="10" fill="#0f172a" stroke="#6366f1"/>
+      <text x="104" y="328" fill="#a5b4fc" font-weight="700">codex.startThread({ profile, sandbox })</text>
+      <text x="104" y="350" fill="#94a3b8" font-size="12" font-family="system-ui">oeffnet neuen Thread, setzt Approval/Model</text>
+
+      <rect x="90" y="372" width="400" height="56" rx="10" fill="#0f172a" stroke="#6366f1"/>
+      <text x="104" y="394" fill="#a5b4fc" font-weight="700">thread.run(prompt, { outputSchema })</text>
+      <text x="104" y="416" fill="#94a3b8" font-size="12" font-family="system-ui">Single-Turn, strukturierter Output via JSON-Schema</text>
+
+      <rect x="90" y="438" width="400" height="56" rx="10" fill="#0f172a" stroke="#6366f1"/>
+      <text x="104" y="460" fill="#a5b4fc" font-weight="700">thread.runStreamed(prompt)</text>
+      <text x="104" y="482" fill="#94a3b8" font-size="12" font-family="system-ui">AsyncGenerator: Live-Token- und Event-Stream</text>
+
+      <rect x="90" y="504" width="400" height="56" rx="10" fill="#0f172a" stroke="#6366f1"/>
+      <text x="104" y="526" fill="#a5b4fc" font-weight="700">codex.resumeThread(&quot;&lt;uuid&gt;&quot;)</text>
+      <text x="104" y="548" fill="#94a3b8" font-size="12" font-family="system-ui">Wiederaufnahme aus ~/.codex/sessions</text>
+
+      <rect x="90" y="570" width="400" height="120" rx="10" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="104" y="594" fill="#c4b5fd" font-weight="700" font-family="system-ui">Strukturierter Output (outputSchema)</text>
+      <text x="104" y="618" fill="#94a3b8" font-size="12">zodToJsonSchema(z.object({</text>
+      <text x="114" y="638" fill="#94a3b8" font-size="12">summary, status, actions[] }))</text>
+      <text x="104" y="666" fill="#86efac" font-size="12" font-family="system-ui">→ JSON.parse(turn.finalResponse) sicher geparst</text>
+    </g>
+  </g>
+
+  <!-- stdio-Kanal -->
+  <g>
+    <rect x="560" y="300" width="280" height="320" rx="12" fill="#0b1220" stroke="#334155"/>
+    <text x="700" y="332" fill="#94a3b8" font-size="14" text-anchor="middle" font-weight="700">stdio-Kanal (JSONL)</text>
+    <text x="700" y="354" fill="#64748b" font-size="12" text-anchor="middle">Marionetten-Faeden</text>
+
+    <!-- Faeden -->
+    <g stroke="#475569" stroke-dasharray="3,4">
+      <line x1="600" y1="380" x2="800" y2="380"/>
+      <line x1="600" y1="420" x2="800" y2="420"/>
+      <line x1="600" y1="460" x2="800" y2="460"/>
+      <line x1="600" y1="500" x2="800" y2="500"/>
+      <line x1="600" y1="540" x2="800" y2="540"/>
+    </g>
+
+    <!-- Events -->
+    <g font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">
+      <rect x="586" y="368" width="228" height="24" rx="4" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="700" y="384" fill="#c4b5fd" text-anchor="middle">reasoning_delta</text>
+
+      <rect x="586" y="408" width="228" height="24" rx="4" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="700" y="424" fill="#67e8f9" text-anchor="middle">tool_call</text>
+
+      <rect x="586" y="448" width="228" height="24" rx="4" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="700" y="464" fill="#fbbf24" text-anchor="middle">file_change</text>
+
+      <rect x="586" y="488" width="228" height="24" rx="4" fill="#1e293b" stroke="#818cf8"/>
+      <text x="700" y="504" fill="#a5b4fc" text-anchor="middle">message_delta</text>
+
+      <rect x="586" y="528" width="228" height="24" rx="4" fill="#1e293b" stroke="#10b981"/>
+      <text x="700" y="544" fill="#6ee7b7" text-anchor="middle">turn_completed</text>
+    </g>
+
+    <text x="700" y="594" fill="#64748b" font-size="11" text-anchor="middle">Host liest zeilenweise JSON,</text>
+    <text x="700" y="610" fill="#64748b" font-size="11" text-anchor="middle">dispatcht an Handler/UI.</text>
+  </g>
+
+  <!-- Pfeile zwischen Host und stdio -->
+  <line x1="520" y1="400" x2="582" y2="400" stroke="#818cf8" stroke-width="2" marker-end="url(#arrIndigo)"/>
+  <text x="551" y="392" fill="#94a3b8" font-size="11" text-anchor="middle">stdin (prompt)</text>
+
+  <line x1="582" y1="480" x2="520" y2="480" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrCyan)"/>
+  <text x="551" y="496" fill="#94a3b8" font-size="11" text-anchor="middle">stdout (events)</text>
+
+  <!-- Codex CLI (Marionette) -->
+  <g>
+    <rect x="880" y="150" width="460" height="560" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="910" y="185" fill="#67e8f9" font-size="18" font-weight="700">Codex CLI (Child-Prozess)</text>
+    <text x="910" y="208" fill="#94a3b8" font-size="13">Marionette: spawnt als Binary, rendert Turns</text>
+
+    <!-- Marionette-Icon -->
+    <g transform="translate(1210,168)">
+      <circle cx="40" cy="28" r="16" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+      <rect x="26" y="46" width="28" height="36" rx="4" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="18" y1="50" x2="30" y2="64" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="62" y1="50" x2="50" y2="64" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="30" y1="82" x2="24" y2="106" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="50" y1="82" x2="56" y2="106" stroke="#22d3ee" stroke-width="2"/>
+    </g>
+
+    <!-- Turn-Loop -->
+    <rect x="910" y="240" width="400" height="160" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+    <text x="924" y="264" fill="#67e8f9" font-size="14" font-weight="700">Agent-Loop (pro Turn)</text>
+    <g font-size="12" fill="#cbd5e1">
+      <text x="924" y="290">1. plan → Reasoning-Token</text>
+      <text x="924" y="310">2. act → Tool-Calls (shell, apply_patch, MCP)</text>
+      <text x="924" y="330">3. Sandbox-Check + Approval-Gate</text>
+      <text x="924" y="350">4. message_delta → Antwort-Token</text>
+      <text x="924" y="370">5. summarize → turn_completed</text>
+      <text x="924" y="390" fill="#94a3b8" font-size="11">(GPT-5.3-Codex: phase-Parameter automatisch)</text>
+    </g>
+
+    <!-- Sandbox + Session -->
+    <rect x="910" y="414" width="192" height="110" rx="10" fill="#0f172a" stroke="#10b981"/>
+    <text x="924" y="438" fill="#6ee7b7" font-size="13" font-weight="700">Sandbox</text>
+    <text x="924" y="458" fill="#cbd5e1" font-size="11">workspace-write</text>
+    <text x="924" y="476" fill="#cbd5e1" font-size="11">read-only / danger-*</text>
+    <text x="924" y="498" fill="#94a3b8" font-size="11">askForApproval:</text>
+    <text x="924" y="514" fill="#94a3b8" font-size="11">never | on-request</text>
+
+    <rect x="1118" y="414" width="192" height="110" rx="10" fill="#0f172a" stroke="#f59e0b"/>
+    <text x="1132" y="438" fill="#fbbf24" font-size="13" font-weight="700">Session-Transkript</text>
+    <text x="1132" y="458" fill="#cbd5e1" font-size="11">~/.codex/sessions/</text>
+    <text x="1132" y="476" fill="#cbd5e1" font-size="11">&lt;uuid&gt;.jsonl</text>
+    <text x="1132" y="498" fill="#94a3b8" font-size="11">→ resumeThread()</text>
+    <text x="1132" y="514" fill="#94a3b8" font-size="11">→ Audit / Replay</text>
+
+    <!-- Final Response -->
+    <rect x="910" y="540" width="400" height="150" rx="10" fill="#0b1220" stroke="#a78bfa"/>
+    <text x="924" y="564" fill="#c4b5fd" font-size="14" font-weight="700">turn.finalResponse</text>
+    <text x="924" y="588" fill="#94a3b8" font-size="12">Text oder JSON (bei outputSchema)</text>
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#86efac">
+      <text x="924" y="616">{</text>
+      <text x="934" y="634">"summary": "...",</text>
+      <text x="934" y="652">"status": "action_required",</text>
+      <text x="934" y="670">"actions": [ ... ]</text>
+      <text x="924" y="688">}</text>
+    </g>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,730)">
+    <rect x="0" y="0" width="1280" height="140" rx="10" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="28" fill="#e2e8f0" font-size="14" font-weight="700">Legende &amp; Praxis-Hinweise</text>
+    <g font-size="12" fill="#cbd5e1">
+      <rect x="20" y="46" width="14" height="14" fill="#6366f1"/>
+      <text x="40" y="58">SDK-API (Host-seitig)</text>
+      <rect x="220" y="46" width="14" height="14" fill="#22d3ee"/>
+      <text x="240" y="58">CLI-Child-Prozess (Codex-Runtime)</text>
+      <rect x="480" y="46" width="14" height="14" fill="#a78bfa"/>
+      <text x="500" y="58">Events / Strukturierter Output</text>
+      <rect x="720" y="46" width="14" height="14" fill="#10b981"/>
+      <text x="740" y="58">Sandbox-Garantie</text>
+      <rect x="900" y="46" width="14" height="14" fill="#f59e0b"/>
+      <text x="920" y="58">Session / Audit-Trail</text>
+    </g>
+    <g font-size="12" fill="#94a3b8">
+      <text x="20" y="88">- Node ≥ 18 + installierte codex-CLI auf dem Host erforderlich.</text>
+      <text x="20" y="108">- Env-Filter (PATH/HOME) verhindert, dass Secrets in den Child-Prozess gelangen.</text>
+      <text x="720" y="88">- runStreamed liefert feingranulare Events - perfekt fuer UI-Progress.</text>
+      <text x="720" y="108">- outputSchema schaltet Modell in Strict-Mode und garantiert JSON-Format.</text>
+    </g>
+  </g>
+</svg>
