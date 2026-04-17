@@ -1,0 +1,361 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Tastatur-Shortcuts der Codex-TUI — Keyboard-Diagramm mit markierten Tasten</title>
+  <desc>Stilisiertes Keyboard mit hervorgehobenen Codex-relevanten Tasten: Ctrl, Tab, Shift, R, C, D, F, Pfeile, @, /, Esc. Rechts Referenz-Liste der Shortcuts mit Wirkung.</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">17. Tastatur-Shortcuts — Keyboard-Referenz</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="16">Die wichtigsten Tasten der Codex-TUI — muscle-memory für Senior-Workflows.</text>
+  <text x="1340" y="60" fill="#64748b" font-size="14" text-anchor="end">Codex CLI · Kapitel 17</text>
+
+  <defs>
+    <!-- Taste -->
+    <g id="key">
+      <rect width="50" height="50" rx="6" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    </g>
+    <g id="keyHL">
+      <rect width="50" height="50" rx="6" fill="#312e81" stroke="#6366f1" stroke-width="2"/>
+    </g>
+    <g id="keyHLR">
+      <rect width="50" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+    </g>
+    <g id="keyHLY">
+      <rect width="50" height="50" rx="6" fill="#713f12" stroke="#f59e0b" stroke-width="2"/>
+    </g>
+    <g id="keyHLG">
+      <rect width="50" height="50" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    </g>
+    <g id="keyHLC">
+      <rect width="50" height="50" rx="6" fill="#164e63" stroke="#22d3ee" stroke-width="2"/>
+    </g>
+  </defs>
+
+  <!-- Keyboard-Rahmen -->
+  <g transform="translate(60,150)">
+    <rect width="820" height="460" rx="18" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+
+    <!-- Reihe 1: Esc + Zahlen -->
+    <g transform="translate(20,30)">
+      <use href="#keyHLR" x="0" y="0"/>
+      <text x="25" y="32" fill="#fca5a5" font-size="12" text-anchor="middle" font-weight="700">Esc</text>
+      <g transform="translate(70,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">1</text>
+      </g>
+      <g transform="translate(128,0)">
+        <use href="#keyHLC"/>
+        <text x="25" y="32" fill="#67e8f9" font-size="12" text-anchor="middle" font-weight="700">2 @</text>
+      </g>
+      <g transform="translate(186,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">3</text>
+      </g>
+      <g transform="translate(244,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">4</text>
+      </g>
+      <g transform="translate(302,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">5</text>
+      </g>
+      <g transform="translate(360,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">6</text>
+      </g>
+      <g transform="translate(418,0)">
+        <use href="#keyHLG"/>
+        <text x="25" y="32" fill="#86efac" font-size="13" text-anchor="middle" font-weight="700">7 /</text>
+      </g>
+      <g transform="translate(476,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">8</text>
+      </g>
+      <g transform="translate(534,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">9</text>
+      </g>
+      <g transform="translate(592,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">0</text>
+      </g>
+      <g transform="translate(650,0)">
+        <rect width="130" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+        <text x="65" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Backspace</text>
+      </g>
+    </g>
+
+    <!-- Reihe 2: Tab QWERT -->
+    <g transform="translate(20,100)">
+      <use href="#keyHLY"/>
+      <rect width="76" height="50" rx="6" fill="#713f12" stroke="#f59e0b" stroke-width="2"/>
+      <text x="38" y="32" fill="#fbbf24" font-size="13" text-anchor="middle" font-weight="700">Tab →</text>
+      <g transform="translate(96,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">Q</text>
+      </g>
+      <g transform="translate(154,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">W</text>
+      </g>
+      <g transform="translate(212,0)">
+        <use href="#keyHL"/>
+        <text x="25" y="32" fill="#a5b4fc" font-size="14" text-anchor="middle" font-weight="700">E</text>
+      </g>
+      <g transform="translate(270,0)">
+        <use href="#keyHL"/>
+        <text x="25" y="32" fill="#a5b4fc" font-size="14" text-anchor="middle" font-weight="700">R</text>
+      </g>
+      <g transform="translate(328,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">T</text>
+      </g>
+      <g transform="translate(386,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">Y</text>
+      </g>
+      <g transform="translate(444,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">U</text>
+      </g>
+      <g transform="translate(502,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">I</text>
+      </g>
+      <g transform="translate(560,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">O</text>
+      </g>
+      <g transform="translate(618,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">P</text>
+      </g>
+    </g>
+
+    <!-- Reihe 3: Caps A S D F... -->
+    <g transform="translate(20,170)">
+      <rect width="86" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+      <text x="43" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Caps</text>
+      <g transform="translate(106,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">A</text>
+      </g>
+      <g transform="translate(164,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">S</text>
+      </g>
+      <g transform="translate(222,0)">
+        <use href="#keyHLR"/>
+        <text x="25" y="32" fill="#fca5a5" font-size="14" text-anchor="middle" font-weight="700">D</text>
+      </g>
+      <g transform="translate(280,0)">
+        <use href="#keyHLC"/>
+        <text x="25" y="32" fill="#67e8f9" font-size="14" text-anchor="middle" font-weight="700">F</text>
+      </g>
+      <g transform="translate(338,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">G</text>
+      </g>
+      <g transform="translate(396,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">H</text>
+      </g>
+      <g transform="translate(454,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">J</text>
+      </g>
+      <g transform="translate(512,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">K</text>
+      </g>
+      <g transform="translate(570,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">L</text>
+      </g>
+      <g transform="translate(628,0)">
+        <rect width="150" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+        <text x="75" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Enter ↵</text>
+      </g>
+    </g>
+
+    <!-- Reihe 4: Shift Z X C... -->
+    <g transform="translate(20,240)">
+      <use href="#keyHLY"/>
+      <rect width="106" height="50" rx="6" fill="#713f12" stroke="#f59e0b" stroke-width="2"/>
+      <text x="53" y="32" fill="#fbbf24" font-size="12" text-anchor="middle" font-weight="700">Shift ⇧</text>
+      <g transform="translate(126,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">Z</text>
+      </g>
+      <g transform="translate(184,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">X</text>
+      </g>
+      <g transform="translate(242,0)">
+        <use href="#keyHLR"/>
+        <text x="25" y="32" fill="#fca5a5" font-size="14" text-anchor="middle" font-weight="700">C</text>
+      </g>
+      <g transform="translate(300,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">V</text>
+      </g>
+      <g transform="translate(358,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">B</text>
+      </g>
+      <g transform="translate(416,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">N</text>
+      </g>
+      <g transform="translate(474,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">M</text>
+      </g>
+      <g transform="translate(532,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">,</text>
+      </g>
+      <g transform="translate(590,0)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="14" text-anchor="middle">.</text>
+      </g>
+      <g transform="translate(648,0)">
+        <rect width="130" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+        <text x="65" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Shift</text>
+      </g>
+    </g>
+
+    <!-- Reihe 5: Ctrl Alt Space Alt Ctrl -->
+    <g transform="translate(20,310)">
+      <use href="#keyHLR"/>
+      <rect width="76" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+      <text x="38" y="32" fill="#fca5a5" font-size="12" text-anchor="middle" font-weight="700">Ctrl</text>
+      <g transform="translate(96,0)">
+        <rect width="66" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+        <text x="33" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Cmd/⌘</text>
+      </g>
+      <g transform="translate(172,0)">
+        <rect width="56" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+        <text x="28" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Alt</text>
+      </g>
+      <g transform="translate(238,0)">
+        <rect width="320" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+        <text x="160" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Space</text>
+      </g>
+      <g transform="translate(568,0)">
+        <rect width="56" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+        <text x="28" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Alt</text>
+      </g>
+      <g transform="translate(634,0)">
+        <rect width="66" height="50" rx="6" fill="#1e293b" stroke="#334155"/>
+        <text x="33" y="32" fill="#94a3b8" font-size="12" text-anchor="middle">Cmd/⌘</text>
+      </g>
+      <g transform="translate(710,0)">
+        <use href="#keyHLR"/>
+        <rect width="70" height="50" rx="6" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+        <text x="35" y="32" fill="#fca5a5" font-size="12" text-anchor="middle" font-weight="700">Ctrl</text>
+      </g>
+    </g>
+
+    <!-- Pfeilblock -->
+    <g transform="translate(600,380)">
+      <g transform="translate(60,0)">
+        <use href="#keyHLG"/>
+        <text x="25" y="32" fill="#86efac" font-size="16" text-anchor="middle" font-weight="700">↑</text>
+      </g>
+      <g transform="translate(0,52)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="16" text-anchor="middle">←</text>
+      </g>
+      <g transform="translate(60,52)">
+        <use href="#keyHLG"/>
+        <text x="25" y="32" fill="#86efac" font-size="16" text-anchor="middle" font-weight="700">↓</text>
+      </g>
+      <g transform="translate(120,52)">
+        <use href="#key"/>
+        <text x="25" y="32" fill="#94a3b8" font-size="16" text-anchor="middle">→</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Referenz-Liste rechts -->
+  <g transform="translate(920,150)">
+    <rect width="420" height="630" rx="12" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="420" height="40" rx="12" fill="#6366f1" opacity="0.2"/>
+    <text x="20" y="26" fill="#818cf8" font-size="16" font-weight="700">Shortcut-Referenz</text>
+
+    <g font-family="'JetBrains Mono', monospace" font-size="13">
+      <g transform="translate(20,56)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#ef4444"/>
+        <text x="12" y="24" fill="#fca5a5" font-weight="700">Ctrl + C</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">aktuelle Operation abbrechen</text>
+      </g>
+      <g transform="translate(20,102)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#ef4444"/>
+        <text x="12" y="24" fill="#fca5a5" font-weight="700">Ctrl + D</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">Codex beenden (EOF)</text>
+      </g>
+      <g transform="translate(20,148)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#f59e0b"/>
+        <text x="12" y="24" fill="#fbbf24" font-weight="700">Tab</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">Auto-Complete · Approval "Ja"</text>
+      </g>
+      <g transform="translate(20,194)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#f59e0b"/>
+        <text x="12" y="24" fill="#fbbf24" font-weight="700">Shift + Tab</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">Approval "Nein"</text>
+      </g>
+      <g transform="translate(20,240)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#6366f1"/>
+        <text x="12" y="24" fill="#a5b4fc" font-weight="700">Ctrl + R</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">Reverse-History-Search</text>
+      </g>
+      <g transform="translate(20,286)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#10b981"/>
+        <text x="12" y="24" fill="#86efac" font-weight="700">↑ / ↓</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">History-Navigation</text>
+      </g>
+      <g transform="translate(20,332)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#ef4444"/>
+        <text x="12" y="24" fill="#fca5a5" font-weight="700">Esc Esc</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">letzte Message bearbeiten</text>
+      </g>
+      <g transform="translate(20,378)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#22d3ee"/>
+        <text x="12" y="24" fill="#67e8f9" font-weight="700">@</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">File-Fuzzy-Finder</text>
+      </g>
+      <g transform="translate(20,424)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#10b981"/>
+        <text x="12" y="24" fill="#86efac" font-weight="700">/</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">Slash-Command-Popup</text>
+      </g>
+      <g transform="translate(20,470)">
+        <rect width="380" height="40" rx="6" fill="#0f172a" stroke="#22d3ee"/>
+        <text x="12" y="24" fill="#67e8f9" font-weight="700">Cmd/Ctrl + F</text>
+        <text x="140" y="24" fill="#cbd5e1" font-size="11" font-family="system-ui">Suche (Seed = Auswahl)</text>
+      </g>
+    </g>
+
+    <!-- Tipps -->
+    <rect x="20" y="530" width="380" height="80" rx="6" fill="#0b1220" stroke="#334155"/>
+    <text x="32" y="552" fill="#e2e8f0" font-size="12" font-weight="700" font-family="system-ui">Senior-Tipp</text>
+    <text x="32" y="572" fill="#cbd5e1" font-size="11" font-family="system-ui">Tab/Shift+Tab beschleunigt Hunk-Approval massiv —</text>
+    <text x="32" y="588" fill="#cbd5e1" font-size="11" font-family="system-ui">kombiniert mit `/diff` erhält man einen PR-Review-</text>
+    <text x="32" y="604" fill="#cbd5e1" font-size="11" font-family="system-ui">Flow ohne Maus.</text>
+  </g>
+
+  <!-- Unten: Farbcode-Legende -->
+  <g transform="translate(60,810)">
+    <rect width="1280" height="60" rx="10" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="30" fill="#e2e8f0" font-size="13" font-weight="700">Farb-Code der Tasten</text>
+    <rect x="170" y="20" width="14" height="14" fill="#ef4444"/>
+    <text x="190" y="32" fill="#cbd5e1" font-size="12">Steuerung (abbrechen/beenden/edit)</text>
+    <rect x="430" y="20" width="14" height="14" fill="#f59e0b"/>
+    <text x="450" y="32" fill="#cbd5e1" font-size="12">Approval-Flow (Tab/Shift-Tab)</text>
+    <rect x="680" y="20" width="14" height="14" fill="#6366f1"/>
+    <text x="700" y="32" fill="#cbd5e1" font-size="12">History/Reverse-Search</text>
+    <rect x="900" y="20" width="14" height="14" fill="#22d3ee"/>
+    <text x="920" y="32" fill="#cbd5e1" font-size="12">Kontext-Einfügung (@/Cmd-F)</text>
+    <rect x="1130" y="20" width="14" height="14" fill="#10b981"/>
+    <text x="1150" y="32" fill="#cbd5e1" font-size="12">Slash/Navigation</text>
+  </g>
+</svg>
