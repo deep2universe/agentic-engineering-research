@@ -621,3 +621,81 @@ Diese Datei wird fortlaufend gepflegt. Gruppierung nach Suchstring der jeweilige
 - **URL:** https://registry.coder.com/modules/coder-labs/codex
   **Zusammenfassung:** Coder-Template für Codex CLI in Cloud-Dev-Environments.
   **Datum:** 2026-04-16
+
+## Suchstring: "@openai/codex-sdk npm typescript programmatic API example 2026"
+
+- **URL:** https://developers.openai.com/codex/sdk
+  **Zusammenfassung:** Offizielle Codex-SDK-Doku (TypeScript) mit startThread/run/runStreamed/outputSchema.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.npmjs.com/package/@openai/codex-sdk
+  **Zusammenfassung:** npm-Paketseite des offiziellen Codex-SDK (Node ≥ 18).
+  **Datum:** 2026-04-16
+
+- **URL:** https://github.com/openai/codex/blob/main/sdk/typescript/README.md
+  **Zusammenfassung:** SDK-README im Monorepo mit Architektur- und Usage-Details.
+  **Datum:** 2026-04-16
+
+- **URL:** https://dev.to/kachurun/openai-codex-as-a-native-agent-in-your-typescript-nodejs-app-kii
+  **Zusammenfassung:** Praxisbericht zur Integration des SDK in eine TS/Node-App.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.promptfoo.dev/docs/providers/openai-codex-sdk/
+  **Zusammenfassung:** Promptfoo-Integration für Codex-SDK mit Provider-Config und Tests.
+  **Datum:** 2026-04-16
+
+## Suchstring: "OpenAI Agents SDK codex handoff python sub agent pattern 2026"
+
+- **URL:** https://developers.openai.com/codex/guides/agents-sdk
+  **Zusammenfassung:** Offizielle Anleitung "Use Codex with the Agents SDK" inkl. Handoff-Pattern.
+  **Datum:** 2026-04-16
+
+- **URL:** https://openai.github.io/openai-agents-python/handoffs/
+  **Zusammenfassung:** Agents-SDK-Doku zu Handoffs als Tool-Aufrufe zwischen Agenten.
+  **Datum:** 2026-04-16
+
+- **URL:** https://openai.github.io/openai-agents-python/multi_agent/
+  **Zusammenfassung:** Orchestration-Patterns (Triage, Router, Swarm) im Agents-SDK.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/codex/subagents
+  **Zusammenfassung:** Offizielle Codex-Sub-Agent-Dokumentation inkl. AGENTS.md-Definitionen.
+  **Datum:** 2026-04-16
+
+- **URL:** https://developers.openai.com/cookbook/examples/codex/codex_mcp_agents_sdk/building_consistent_workflows_codex_cli_agents_sdk
+  **Zusammenfassung:** Cookbook-Beispiel: Codex CLI + Agents SDK + MCP in konsistenten Workflows.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.helpnetsecurity.com/2026/04/16/openai-agents-sdk-harness-and-sandbox-update/
+  **Zusammenfassung:** Release-Bericht zum Agents-SDK-Harness-Update 04/2026 mit Sandbox-Erweiterungen.
+  **Datum:** 2026-04-16
+
+## Suchstring: "codex vs claude code vs gemini cli vs aider comparison matrix 2026 open source"
+
+- **URL:** https://intuitionlabs.ai/articles/claude-code-vs-codex-vs-gemini-cli-comparison
+  **Zusammenfassung:** Feature-Matrix Claude Code / Codex / Gemini CLI mit Modellangaben.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.deployhq.com/blog/comparing-claude-code-openai-codex-and-google-gemini-cli-which-ai-coding-assistant-is-right-for-your-deployment-workflow
+  **Zusammenfassung:** DeployHQ-Vergleich inkl. CI/CD-Eignung und Pricing.
+  **Datum:** 2026-04-16
+
+- **URL:** https://dev.to/rahulxsingh/claude-code-vs-codex-cli-vs-gemini-cli-which-ai-terminal-agent-wins-in-2026-55f5
+  **Zusammenfassung:** Community-Vergleich mit Einsatzszenarien und Stärken.
+  **Datum:** 2026-04-16
+
+- **URL:** https://www.codeant.ai/blogs/claude-code-cli-vs-codex-cli-vs-gemini-cli-best-ai-cli-tool-for-developers-in-2025
+  **Zusammenfassung:** Benchmarks (SWE-bench, Terminal-Bench) und First-pass-Accuracy-Werte.
+  **Datum:** 2026-04-16
+
+- **URL:** https://sanj.dev/post/comparing-ai-cli-coding-assistants
+  **Zusammenfassung:** Aider / OpenCode / Claude Code Vergleich als Kontext für Codex.
+  **Datum:** 2026-04-16
+
+- **URL:** https://effloow.com/articles/terminal-ai-coding-agents-compared-claude-code-gemini-cli-2026
+  **Zusammenfassung:** Tiefer 2026-Vergleich Terminal-Agenten (Codex, Claude Code, Gemini, Aider).
+  **Datum:** 2026-04-16
+
+- **URL:** https://medium.com/@SoftwareInterviewBook/i-tested-claude-code-codex-gemini-cli-and-aider-back-to-back-heres-what-i-actually-bill-with-2aec70e75846
+  **Zusammenfassung:** Praxisreview (Billing, Geschwindigkeit, Qualität) der vier großen Terminal-Agenten.
+  **Datum:** 2026-04-16

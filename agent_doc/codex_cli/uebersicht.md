@@ -16,7 +16,9 @@ Diese Sammlung dokumentiert **OpenAI Codex CLI** (`@openai/codex`, Open-Source-R
 | 6 | [entwicklungs_lebenszyklus.md](entwicklungs_lebenszyklus.md) | 10 Phasen von der Idee bis zum Betrieb mit Prompts, Best Practices und Anti-Patterns. 10 Meta-Prinzipien, Multi-Agent-Muster, Greenfield-Skizze. |
 | 7 | [praktische_workflows.md](praktische_workflows.md) | 18 End-to-End-Rezepte (TDD, Bug-Repro, Security-Review, Dependency-Upgrade, Autofix-Bot, PR-Review-Action, Slack-Notifier, Cloud-Refactor, Rename, Release-Skill, Hotfix, Doc-Sync, Cost-Control, OSS-Modelle). |
 | 8 | [cheat_sheet.md](cheat_sheet.md) | Kompakt-Referenz: Install, Start-Befehle, Flags, Slash-Commands, Shortcuts, `config.toml`-Snippet, AGENTS.md-Skelett, Notify-Payload, GitHub-Action-Minimal, Pfade, 10-Sek-Workflow. |
-| 9 | [_quellen.md](_quellen.md) | Gruppierte Quellenliste aller verwendeten Web-Recherchen, versioniert mit Datum. |
+| 9 | [senior_developer_guide.md](senior_developer_guide.md) | Codex SDK (TypeScript: startThread/runStreamed/outputSchema), Sub-Agents, OpenAI Agents SDK (Handoffs, Tools), Advanced Prompting (Preambles, Phase-Parameter), Observability, fortgeschrittene CI-Patterns, Enterprise-Betrieb, Anti-Patterns, Senior-Ready-Checkliste. |
+| 10 | [vergleich_zu_alternativen.md](vergleich_zu_alternativen.md) | Positionierungs-Matrix Codex / Claude Code / Gemini CLI / Aider / Copilot CLI. Sandbox-, Kontext- und Benchmark-Vergleich, Ökosystem, Entscheidungs-Flowchart, Hybrid- und Migrationspfade. |
+| 11 | [_quellen.md](_quellen.md) | Gruppierte Quellenliste aller verwendeten Web-Recherchen, versioniert mit Datum. |
 
 ## Lesepfade
 
@@ -44,6 +46,12 @@ Diese Sammlung dokumentiert **OpenAI Codex CLI** (`@openai/codex`, Open-Source-R
 ### "Ich will den kompletten Lebenszyklus abbilden"
 
 → `entwicklungs_lebenszyklus.md` sequenziell, dann passende Rezepte aus `praktische_workflows.md` pro Phase.
+
+### "Ich baue Codex in eigene Tools ein / bin Senior"
+
+1. `senior_developer_guide.md` §§ 1–3 (SDK, Sub-Agents, Agents SDK)
+2. `senior_developer_guide.md` §§ 4–5 (Preambles, Phase, Observability)
+3. `vergleich_zu_alternativen.md` für Tool-Entscheidung im Team
 
 ## Kurz-Zusammenfassung
 
