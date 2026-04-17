@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Anti-Patterns aus der Praxis</title>
+  <desc>Acht Anti-Patterns im Codex-Einsatz, jeweils als rote Karte mit Begruendung und Fix. Metapher: Warnschilder, Dont-Board.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">Anti-Patterns - Dont-Board fuer Codex-Teams</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="16">8 rote Karten: Warum schlecht + konkreter Fix - Kapitel 8</text>
+  <text x="1280" y="54" fill="#ef4444" font-size="16" font-weight="600" text-anchor="end">Codex CLI / Senior 08</text>
+
+  <!-- Wiederverwendbare Warnschild-Karte als Gruppe -->
+  <!-- Karte 1: yolo on laptop -->
+  <g transform="translate(40,120)">
+    <rect x="0" y="0" width="320" height="180" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <path d="M16 16 L40 16 L40 36 L16 36 Z" fill="#7f1d1d" stroke="#fca5a5"/>
+    <text x="28" y="31" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">1</text>
+    <path d="M50 16 L290 16 L290 36 L50 36 Z" fill="#450a0a" stroke="#fca5a5"/>
+    <text x="170" y="31" fill="#fecaca" font-size="13" text-anchor="middle" font-weight="700">--yolo auf dem Laptop</text>
+
+    <text x="16" y="62" fill="#fca5a5" font-size="12" font-weight="700">Warum schlecht</text>
+    <text x="16" y="80" fill="#cbd5e1" font-size="11">Sandbox umgehen = kein</text>
+    <text x="16" y="96" fill="#cbd5e1" font-size="11">Produktivitaetsgewinn, nur Risiko.</text>
+
+    <text x="16" y="122" fill="#6ee7b7" font-size="12" font-weight="700">Fix</text>
+    <text x="16" y="140" fill="#cbd5e1" font-size="11">Lokal: --full-auto. YOLO nur</text>
+    <text x="16" y="156" fill="#cbd5e1" font-size="11">in VM / Container (Devpod,</text>
+    <text x="16" y="172" fill="#cbd5e1" font-size="11">Docker, Firecracker).</text>
+  </g>
+
+  <!-- Karte 2 -->
+  <g transform="translate(380,120)">
+    <rect x="0" y="0" width="320" height="180" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <path d="M16 16 L40 16 L40 36 L16 36 Z" fill="#7f1d1d" stroke="#fca5a5"/>
+    <text x="28" y="31" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">2</text>
+    <path d="M50 16 L290 16 L290 36 L50 36 Z" fill="#450a0a" stroke="#fca5a5"/>
+    <text x="170" y="31" fill="#fecaca" font-size="13" text-anchor="middle" font-weight="700">AGENTS.md &gt; 32 KB</text>
+
+    <text x="16" y="62" fill="#fca5a5" font-size="12" font-weight="700">Warum schlecht</text>
+    <text x="16" y="80" fill="#cbd5e1" font-size="11">Wird stillschweigend</text>
+    <text x="16" y="96" fill="#cbd5e1" font-size="11">abgeschnitten -&gt; Regeln</text>
+    <text x="16" y="112" fill="#cbd5e1" font-size="11">greifen nicht.</text>
+
+    <text x="16" y="138" fill="#6ee7b7" font-size="12" font-weight="700">Fix</text>
+    <text x="16" y="156" fill="#cbd5e1" font-size="11">Skills/ auslagern, Prompts in</text>
+    <text x="16" y="172" fill="#cbd5e1" font-size="11">.codex/prompts/ verlinken.</text>
+  </g>
+
+  <!-- Karte 3 -->
+  <g transform="translate(720,120)">
+    <rect x="0" y="0" width="320" height="180" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <path d="M16 16 L40 16 L40 36 L16 36 Z" fill="#7f1d1d" stroke="#fca5a5"/>
+    <text x="28" y="31" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">3</text>
+    <path d="M50 16 L290 16 L290 36 L50 36 Z" fill="#450a0a" stroke="#fca5a5"/>
+    <text x="170" y="31" fill="#fecaca" font-size="13" text-anchor="middle" font-weight="700">Subagents bei Trivial-Tasks</text>
+
+    <text x="16" y="62" fill="#fca5a5" font-size="12" font-weight="700">Warum schlecht</text>
+    <text x="16" y="80" fill="#cbd5e1" font-size="11">Jeder Subagent kostet extra</text>
+    <text x="16" y="96" fill="#cbd5e1" font-size="11">Tokens + Latenz - ohne Nutzen</text>
+    <text x="16" y="112" fill="#cbd5e1" font-size="11">bei kleinen Aenderungen.</text>
+
+    <text x="16" y="138" fill="#6ee7b7" font-size="12" font-weight="700">Fix</text>
+    <text x="16" y="156" fill="#cbd5e1" font-size="11">Subagents nur bei echter</text>
+    <text x="16" y="172" fill="#cbd5e1" font-size="11">Parallelitaet (&gt;= 3 Aspekte).</text>
+  </g>
+
+  <!-- Karte 4 -->
+  <g transform="translate(1060,120)">
+    <rect x="0" y="0" width="300" height="180" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <path d="M16 16 L40 16 L40 36 L16 36 Z" fill="#7f1d1d" stroke="#fca5a5"/>
+    <text x="28" y="31" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">4</text>
+    <path d="M50 16 L280 16 L280 36 L50 36 Z" fill="#450a0a" stroke="#fca5a5"/>
+    <text x="165" y="31" fill="#fecaca" font-size="13" text-anchor="middle" font-weight="700">Cloud-Task ohne Prompt-File</text>
+
+    <text x="16" y="62" fill="#fca5a5" font-size="12" font-weight="700">Warum schlecht</text>
+    <text x="16" y="80" fill="#cbd5e1" font-size="11">Ad-hoc-Prompts sind nicht</text>
+    <text x="16" y="96" fill="#cbd5e1" font-size="11">reproduzierbar, kein Audit.</text>
+
+    <text x="16" y="122" fill="#6ee7b7" font-size="12" font-weight="700">Fix</text>
+    <text x="16" y="140" fill="#cbd5e1" font-size="11">Prompts in .codex/prompts/</text>
+    <text x="16" y="156" fill="#cbd5e1" font-size="11">committen und referenzieren.</text>
+    <text x="16" y="172" fill="#cbd5e1" font-size="11">Nur prompt-file verwenden.</text>
+  </g>
+
+  <!-- Karte 5 -->
+  <g transform="translate(40,320)">
+    <rect x="0" y="0" width="320" height="200" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <path d="M16 16 L40 16 L40 36 L16 36 Z" fill="#7f1d1d" stroke="#fca5a5"/>
+    <text x="28" y="31" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">5</text>
+    <path d="M50 16 L290 16 L290 36 L50 36 Z" fill="#450a0a" stroke="#fca5a5"/>
+    <text x="170" y="31" fill="#fecaca" font-size="11" text-anchor="middle" font-weight="700">approval=never + cloud + danger-full</text>
+
+    <text x="16" y="62" fill="#fca5a5" font-size="12" font-weight="700">Warum schlecht</text>
+    <text x="16" y="80" fill="#cbd5e1" font-size="11">Alles ist erlaubt, nichts ist</text>
+    <text x="16" y="96" fill="#cbd5e1" font-size="11">dokumentiert. Maximales Blast-</text>
+    <text x="16" y="112" fill="#cbd5e1" font-size="11">Radius bei beliebigem Fehler.</text>
+
+    <text x="16" y="138" fill="#6ee7b7" font-size="12" font-weight="700">Fix</text>
+    <text x="16" y="156" fill="#cbd5e1" font-size="11">Mindestens approval=on-request.</text>
+    <text x="16" y="172" fill="#cbd5e1" font-size="11">Cloud-Sandbox nur mit</text>
+    <text x="16" y="188" fill="#cbd5e1" font-size="11">Netz-Allow-List.</text>
+  </g>
+
+  <!-- Karte 6 -->
+  <g transform="translate(380,320)">
+    <rect x="0" y="0" width="320" height="200" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <path d="M16 16 L40 16 L40 36 L16 36 Z" fill="#7f1d1d" stroke="#fca5a5"/>
+    <text x="28" y="31" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">6</text>
+    <path d="M50 16 L290 16 L290 36 L50 36 Z" fill="#450a0a" stroke="#fca5a5"/>
+    <text x="170" y="31" fill="#fecaca" font-size="13" text-anchor="middle" font-weight="700">Tests NACH Implementation</text>
+
+    <text x="16" y="62" fill="#fca5a5" font-size="12" font-weight="700">Warum schlecht</text>
+    <text x="16" y="80" fill="#cbd5e1" font-size="11">Codex hat keinen externen</text>
+    <text x="16" y="96" fill="#cbd5e1" font-size="11">Feedback-Loop und faelscht</text>
+    <text x="16" y="112" fill="#cbd5e1" font-size="11">Akzeptanz-Signale.</text>
+
+    <text x="16" y="138" fill="#6ee7b7" font-size="12" font-weight="700">Fix</text>
+    <text x="16" y="156" fill="#cbd5e1" font-size="11">TDD: Red-Commit vor der</text>
+    <text x="16" y="172" fill="#cbd5e1" font-size="11">Implementation. Codex soll</text>
+    <text x="16" y="188" fill="#cbd5e1" font-size="11">gegen die Tests arbeiten.</text>
+  </g>
+
+  <!-- Karte 7 -->
+  <g transform="translate(720,320)">
+    <rect x="0" y="0" width="320" height="200" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <path d="M16 16 L40 16 L40 36 L16 36 Z" fill="#7f1d1d" stroke="#fca5a5"/>
+    <text x="28" y="31" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">7</text>
+    <path d="M50 16 L290 16 L290 36 L50 36 Z" fill="#450a0a" stroke="#fca5a5"/>
+    <text x="170" y="31" fill="#fecaca" font-size="13" text-anchor="middle" font-weight="700">Keine /review-Pipeline</text>
+
+    <text x="16" y="62" fill="#fca5a5" font-size="12" font-weight="700">Warum schlecht</text>
+    <text x="16" y="80" fill="#cbd5e1" font-size="11">Bugs rutschen durch - Codex</text>
+    <text x="16" y="96" fill="#cbd5e1" font-size="11">hat einen blinden Fleck fuer</text>
+    <text x="16" y="112" fill="#cbd5e1" font-size="11">eigene Schwachstellen.</text>
+
+    <text x="16" y="138" fill="#6ee7b7" font-size="12" font-weight="700">Fix</text>
+    <text x="16" y="156" fill="#cbd5e1" font-size="11">Self-Review + GitHub-Action</text>
+    <text x="16" y="172" fill="#cbd5e1" font-size="11">openai/codex-action@v1 +</text>
+    <text x="16" y="188" fill="#cbd5e1" font-size="11">Pair-Review durch Mensch.</text>
+  </g>
+
+  <!-- Karte 8 -->
+  <g transform="translate(1060,320)">
+    <rect x="0" y="0" width="300" height="200" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <path d="M16 16 L40 16 L40 36 L16 36 Z" fill="#7f1d1d" stroke="#fca5a5"/>
+    <text x="28" y="31" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">8</text>
+    <path d="M50 16 L280 16 L280 36 L50 36 Z" fill="#450a0a" stroke="#fca5a5"/>
+    <text x="165" y="31" fill="#fecaca" font-size="13" text-anchor="middle" font-weight="700">Kontext mit @file ueberladen</text>
+
+    <text x="16" y="62" fill="#fca5a5" font-size="12" font-weight="700">Warum schlecht</text>
+    <text x="16" y="80" fill="#cbd5e1" font-size="11">Signal-/Rausch-Quote faellt.</text>
+    <text x="16" y="96" fill="#cbd5e1" font-size="11">Modell verliert Fokus und</text>
+    <text x="16" y="112" fill="#cbd5e1" font-size="11">produziert irrelevante Aenderungen.</text>
+
+    <text x="16" y="138" fill="#6ee7b7" font-size="12" font-weight="700">Fix</text>
+    <text x="16" y="156" fill="#cbd5e1" font-size="11">Nur relevante Dateien per</text>
+    <text x="16" y="172" fill="#cbd5e1" font-size="11">@file. /compact einsetzen,</text>
+    <text x="16" y="188" fill="#cbd5e1" font-size="11">wenn Kontext voll ist.</text>
+  </g>
+
+  <!-- Grosses Warnschild in der Mitte unten -->
+  <g transform="translate(40,560)">
+    <rect x="0" y="0" width="1320" height="300" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="20" y="34" fill="#e2e8f0" font-size="18" font-weight="700">Warum diese 8 Muster wiederkehren</text>
+    <text x="20" y="58" fill="#94a3b8" font-size="13">Typische Reibungspunkte zwischen "macht schnell etwas" und "macht nachhaltig das Richtige".</text>
+
+    <g transform="translate(20,76)">
+      <rect x="0" y="0" width="420" height="210" rx="10" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="14" y="28" fill="#fde68a" font-size="14" font-weight="700">Gemeinsame Ursachen</text>
+      <text x="14" y="54" fill="#cbd5e1" font-size="12">- Geschwindigkeit ueber Sicherheit</text>
+      <text x="14" y="74" fill="#cbd5e1" font-size="12">- Fehlende Guardrails in AGENTS.md</text>
+      <text x="14" y="94" fill="#cbd5e1" font-size="12">- Kein Cost-Bewusstsein im Team</text>
+      <text x="14" y="114" fill="#cbd5e1" font-size="12">- Prompt-Qualitaet nicht versioniert</text>
+      <text x="14" y="134" fill="#cbd5e1" font-size="12">- Blinde Uebernahme von Demos</text>
+      <text x="14" y="154" fill="#cbd5e1" font-size="12">- Fehlendes Pair-Review mit Mensch</text>
+      <text x="14" y="174" fill="#cbd5e1" font-size="12">- Unklare Trust-Levels pro Repo</text>
+      <text x="14" y="194" fill="#cbd5e1" font-size="12">- Reproduzierbarkeit nicht eingefordert</text>
+    </g>
+
+    <g transform="translate(460,76)">
+      <rect x="0" y="0" width="420" height="210" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="14" y="28" fill="#a5f3fc" font-size="14" font-weight="700">Systemische Gegenmassnahmen</text>
+      <text x="14" y="54" fill="#cbd5e1" font-size="12">- Team-Playbook + Review-Pflicht</text>
+      <text x="14" y="74" fill="#cbd5e1" font-size="12">- AGENTS.md klein, klar, versioniert</text>
+      <text x="14" y="94" fill="#cbd5e1" font-size="12">- Cost-Gate in jedem CI-Lauf</text>
+      <text x="14" y="114" fill="#cbd5e1" font-size="12">- Modell + Seed pinnen</text>
+      <text x="14" y="134" fill="#cbd5e1" font-size="12">- Session-ID im PR-Trailer</text>
+      <text x="14" y="154" fill="#cbd5e1" font-size="12">- TDD als Team-Kultur</text>
+      <text x="14" y="174" fill="#cbd5e1" font-size="12">- Sandbox-Defaults explizit setzen</text>
+      <text x="14" y="194" fill="#cbd5e1" font-size="12">- Regelmaessiges Anti-Pattern-Review</text>
+    </g>
+
+    <g transform="translate(900,76)">
+      <rect x="0" y="0" width="400" height="210" rx="10" fill="#1e293b" stroke="#10b981"/>
+      <text x="14" y="28" fill="#6ee7b7" font-size="14" font-weight="700">Senior-Reflex</text>
+      <text x="14" y="54" fill="#cbd5e1" font-size="12">Bevor Du Codex laufen laesst, frag:</text>
+      <text x="14" y="74" fill="#cbd5e1" font-size="12">- Ist der Scope scharf?</text>
+      <text x="14" y="94" fill="#cbd5e1" font-size="12">- Ist die Sandbox passend?</text>
+      <text x="14" y="114" fill="#cbd5e1" font-size="12">- Gibt es einen Kostendeckel?</text>
+      <text x="14" y="134" fill="#cbd5e1" font-size="12">- Sind Tests da?</text>
+      <text x="14" y="154" fill="#cbd5e1" font-size="12">- Wird das Ergebnis reviewt?</text>
+      <text x="14" y="174" fill="#cbd5e1" font-size="12">- Ist der Run reproduzierbar?</text>
+      <text x="14" y="194" fill="#cbd5e1" font-size="12">5x Ja - dann los.</text>
+    </g>
+  </g>
+</svg>

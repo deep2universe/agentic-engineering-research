@@ -1,0 +1,176 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Integration mit dem OpenAI Agents SDK</title>
+  <desc>Agents SDK mit Triage/Router. Codex ist als function_tool oder als Handoff-Target eingebunden. Memory, Guardrails und Tracing umschliessen die Verkehrsleitstelle. Metapher: Verkehrsleitstelle, die eingehende Tasks an den richtigen Spezialisten lotst.</desc>
+
+  <defs>
+    <marker id="arrC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#6366f1"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">Agents SDK + Codex - Verkehrsleitstelle</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="16">Triage-Agent routet Tasks, Codex als function_tool oder Handoff-Target - Kapitel 3</text>
+  <text x="1280" y="54" fill="#22d3ee" font-size="16" font-weight="600" text-anchor="end">Codex CLI / Senior 03</text>
+
+  <!-- Eingang: User-Task -->
+  <g>
+    <rect x="60" y="140" width="220" height="100" rx="14" fill="#1e293b" stroke="#64748b"/>
+    <text x="170" y="172" fill="#e2e8f0" font-size="15" font-weight="700" text-anchor="middle">Eingehender Task</text>
+    <text x="170" y="196" fill="#94a3b8" font-size="12" text-anchor="middle">Issue, Chat, Webhook</text>
+    <text x="170" y="218" fill="#94a3b8" font-size="12" text-anchor="middle">"Fix bug in cart.spec"</text>
+  </g>
+  <path d="M280 190 L340 190" stroke="#94a3b8" stroke-width="2" fill="none" marker-end="url(#arrC)"/>
+
+  <!-- Triage / Verkehrsleitstelle -->
+  <g>
+    <rect x="340" y="120" width="340" height="150" rx="14" fill="#0e7490" stroke="#22d3ee" stroke-width="2.5"/>
+    <text x="510" y="155" fill="#ecfeff" font-size="18" font-weight="700" text-anchor="middle">Triage / Router-Agent</text>
+    <text x="510" y="180" fill="#a5f3fc" font-size="12" text-anchor="middle">Verkehrsleitstelle - entscheidet Tool vs Handoff</text>
+
+    <g transform="translate(360,198)">
+      <rect x="0" y="0" width="300" height="28" rx="6" fill="#064e5b" stroke="#67e8f9"/>
+      <text x="12" y="19" fill="#cffafe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">instructions: route by task type</text>
+    </g>
+    <g transform="translate(360,232)">
+      <rect x="0" y="0" width="300" height="28" rx="6" fill="#064e5b" stroke="#67e8f9"/>
+      <text x="12" y="19" fill="#cffafe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">tools: [codex_edit], handoffs: [...]</text>
+    </g>
+  </g>
+
+  <!-- Pfeile nach rechts -->
+  <path d="M680 170 L840 170" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrC)"/>
+  <path d="M680 220 L840 320" stroke="#6366f1" stroke-width="2" fill="none" marker-end="url(#arrI)"/>
+  <text x="710" y="160" fill="#22d3ee" font-size="12">function_tool()</text>
+  <text x="710" y="290" fill="#818cf8" font-size="12">handoff()</text>
+
+  <!-- Codex als Tool -->
+  <g>
+    <rect x="840" y="120" width="440" height="150" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="860" y="152" fill="#a5f3fc" font-size="16" font-weight="700">Variante A: Codex als function_tool</text>
+    <text x="860" y="178" fill="#94a3b8" font-size="12">synchrone Sub-Aufrufe im gleichen Turn</text>
+
+    <g transform="translate(860,192)">
+      <rect x="0" y="0" width="400" height="66" rx="6" fill="#0b1220" stroke="#475569"/>
+      <text x="12" y="22" fill="#c7d2fe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">@function_tool</text>
+      <text x="12" y="40" fill="#c7d2fe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">async def codex_edit(prompt: str) -&gt; str:</text>
+      <text x="12" y="58" fill="#c7d2fe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">  return await thread.run(prompt).final</text>
+    </g>
+  </g>
+
+  <!-- Codex als Handoff -->
+  <g>
+    <rect x="840" y="290" width="440" height="170" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="860" y="322" fill="#c7d2fe" font-size="16" font-weight="700">Variante B: Codex als Handoff-Target</text>
+    <text x="860" y="346" fill="#94a3b8" font-size="12">Router uebergibt Steuerung - eigener Agent-Loop</text>
+
+    <g transform="translate(860,360)">
+      <rect x="0" y="0" width="400" height="90" rx="6" fill="#0b1220" stroke="#475569"/>
+      <text x="12" y="22" fill="#c7d2fe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">codex_agent = Agent(name="codex", ...)</text>
+      <text x="12" y="40" fill="#c7d2fe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">router = Agent(</text>
+      <text x="12" y="58" fill="#c7d2fe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">  handoffs=[handoff(codex_agent)])</text>
+      <text x="12" y="78" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">SDK generiert transfer_to_codex Tool</text>
+    </g>
+  </g>
+
+  <!-- Runtime-Box: Memory + Guardrails + Tracing -->
+  <g>
+    <rect x="60" y="300" width="720" height="260" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="80" y="332" fill="#e2e8f0" font-size="16" font-weight="700">Umgebende Runtime-Saeulen</text>
+
+    <g transform="translate(80,350)">
+      <rect x="0" y="0" width="220" height="200" rx="10" fill="#1e293b" stroke="#a78bfa"/>
+      <circle cx="40" cy="40" r="16" fill="#4c1d95" stroke="#a78bfa"/>
+      <path d="M32 40 L48 40 M40 32 L40 48" stroke="#ddd6fe" stroke-width="2"/>
+      <text x="70" y="45" fill="#ddd6fe" font-size="15" font-weight="700">Memory</text>
+      <text x="16" y="82" fill="#94a3b8" font-size="12">- thread-scoped Context</text>
+      <text x="16" y="104" fill="#94a3b8" font-size="12">- persistenter Session-Store</text>
+      <text x="16" y="126" fill="#94a3b8" font-size="12">- Handoff-Handoverstate</text>
+      <text x="16" y="148" fill="#94a3b8" font-size="12">- konfigurierbar (2026)</text>
+      <text x="16" y="176" fill="#94a3b8" font-size="12">- Sandbox-aware Retention</text>
+    </g>
+
+    <g transform="translate(320,350)">
+      <rect x="0" y="0" width="220" height="200" rx="10" fill="#1e293b" stroke="#ef4444"/>
+      <path d="M30 28 L52 28 L56 40 L52 58 L30 58 L26 40 Z" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+      <path d="M34 42 L40 48 L50 36" stroke="#fecaca" stroke-width="2" fill="none"/>
+      <text x="70" y="45" fill="#fecaca" font-size="15" font-weight="700">Guardrails</text>
+      <text x="16" y="82" fill="#94a3b8" font-size="12">- Input-Validierung</text>
+      <text x="16" y="104" fill="#94a3b8" font-size="12">- Output-Schema-Checks</text>
+      <text x="16" y="126" fill="#94a3b8" font-size="12">- Policy-Filter (PII, Secrets)</text>
+      <text x="16" y="148" fill="#94a3b8" font-size="12">- Abbruch bei Verletzung</text>
+      <text x="16" y="176" fill="#94a3b8" font-size="12">- vor + nach Agent-Aufruf</text>
+    </g>
+
+    <g transform="translate(560,350)">
+      <rect x="0" y="0" width="220" height="200" rx="10" fill="#1e293b" stroke="#10b981"/>
+      <path d="M28 46 L40 30 L48 40 L60 24" stroke="#6ee7b7" stroke-width="2.5" fill="none"/>
+      <circle cx="28" cy="46" r="3" fill="#6ee7b7"/>
+      <circle cx="40" cy="30" r="3" fill="#6ee7b7"/>
+      <circle cx="48" cy="40" r="3" fill="#6ee7b7"/>
+      <circle cx="60" cy="24" r="3" fill="#6ee7b7"/>
+      <text x="82" y="45" fill="#6ee7b7" font-size="15" font-weight="700">Tracing</text>
+      <text x="16" y="82" fill="#94a3b8" font-size="12">- Spans je Agent + Tool</text>
+      <text x="16" y="104" fill="#94a3b8" font-size="12">- Handoff-Edge sichtbar</text>
+      <text x="16" y="126" fill="#94a3b8" font-size="12">- OpenTelemetry-Export</text>
+      <text x="16" y="148" fill="#94a3b8" font-size="12">- Kosten + Latenz pro Turn</text>
+      <text x="16" y="176" fill="#94a3b8" font-size="12">- Jaeger / Honeycomb</text>
+    </g>
+  </g>
+
+  <!-- Ausgang: Ergebnis -->
+  <g>
+    <rect x="840" y="500" width="440" height="100" rx="14" fill="#1e293b" stroke="#10b981"/>
+    <text x="1060" y="532" fill="#6ee7b7" font-size="15" font-weight="700" text-anchor="middle">Ergebnis / PR</text>
+    <text x="1060" y="556" fill="#94a3b8" font-size="12" text-anchor="middle">Code-Aenderungen, Tests, Commit-Message</text>
+    <text x="1060" y="576" fill="#94a3b8" font-size="12" text-anchor="middle">zurueck an Triage -&gt; Nutzer</text>
+  </g>
+  <path d="M1060 460 L1060 500" stroke="#10b981" stroke-width="2" fill="none"/>
+
+  <!-- 2026 Harness Note -->
+  <g>
+    <rect x="60" y="600" width="1280" height="260" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="80" y="632" fill="#e2e8f0" font-size="16" font-weight="700">Agents-SDK-Harness 2026 - Neues</text>
+
+    <g transform="translate(80,650)">
+      <rect x="0" y="0" width="300" height="90" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="14" y="24" fill="#a5f3fc" font-size="13" font-weight="600">Konfigurierbares Memory</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12">- Scope, TTL, Filter pro Agent</text>
+      <text x="14" y="64" fill="#94a3b8" font-size="12">- Austausch via Handoff</text>
+      <text x="14" y="82" fill="#94a3b8" font-size="12">- Memory-Stores pluggable</text>
+    </g>
+
+    <g transform="translate(400,650)">
+      <rect x="0" y="0" width="300" height="90" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="14" y="24" fill="#ddd6fe" font-size="13" font-weight="600">Sandbox-aware Orchestration</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12">- uebernimmt Codex-Paradigmen</text>
+      <text x="14" y="64" fill="#94a3b8" font-size="12">- Approval + Trust-Level nativ</text>
+      <text x="14" y="82" fill="#94a3b8" font-size="12">- Multi-Agent unter einem Policy-Shield</text>
+    </g>
+
+    <g transform="translate(720,650)">
+      <rect x="0" y="0" width="300" height="90" rx="8" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="14" y="24" fill="#fde68a" font-size="13" font-weight="600">Filesystem-Tools eingebaut</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12">- read / write / patch</text>
+      <text x="14" y="64" fill="#94a3b8" font-size="12">- Repo-Scope-Boundaries</text>
+      <text x="14" y="82" fill="#94a3b8" font-size="12">- Codex-kompatibles Verhalten</text>
+    </g>
+
+    <g transform="translate(1040,650)">
+      <rect x="0" y="0" width="300" height="90" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="14" y="24" fill="#6ee7b7" font-size="13" font-weight="600">Standard-Integrationen</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12">- MCP-Primitives erstklassig</text>
+      <text x="14" y="64" fill="#94a3b8" font-size="12">- Hooks fuer OTel, Logging</text>
+      <text x="14" y="82" fill="#94a3b8" font-size="12">- Codex als First-Class-Agent</text>
+    </g>
+
+    <text x="80" y="776" fill="#94a3b8" font-size="12">Folge: Sandbox- und Approval-Konzepte von Codex skalieren nahtlos in Multi-Agent-Systeme.</text>
+    <text x="80" y="798" fill="#94a3b8" font-size="12">Kein Bruch zwischen CLI-Entwicklung (lokal) und SDK-Orchestrierung (Produktion) - gleiche Primitive.</text>
+    <text x="80" y="820" fill="#94a3b8" font-size="12">Best Practice 2026: Triage-Agent bleibt LLM-light; Codex bekommt den Code-Scope und die Write-Rechte.</text>
+    <text x="80" y="842" fill="#94a3b8" font-size="12">Guardrails VOR dem Handoff an Codex - nicht erst nachher. Trace-IDs in PR-Body kleben.</text>
+  </g>
+</svg>

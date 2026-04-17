@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>TUI-Features der Codex CLI — Terminal-Mockup mit beschrifteten Zonen</title>
+  <desc>Stilisiertes TUI-Mockup mit Chat-Panel, Thinking-Panel, Diff-Anzeige, Status-Bar, Notification-Badge, Theme-Toggle und Reverse-Search. Jede Zone mit Callout-Label und Config-Hinweis.</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">9. TUI-Features — Full-Screen-UI mit Live-Reasoning</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="16">Sechs funktionale Zonen: Chat, Thinking, Diff, Status, Badges, Theme. Tastatur-first, Maus-optional.</text>
+  <text x="1340" y="60" fill="#64748b" font-size="14" text-anchor="end">Codex CLI · Kapitel 9</text>
+
+  <!-- Terminal-Rahmen -->
+  <g transform="translate(60,140)">
+    <rect width="880" height="580" rx="12" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <!-- Titelleiste Terminal -->
+    <rect x="0" y="0" width="880" height="36" rx="12" fill="#1e293b"/>
+    <circle cx="20" cy="18" r="6" fill="#ef4444"/>
+    <circle cx="40" cy="18" r="6" fill="#f59e0b"/>
+    <circle cx="60" cy="18" r="6" fill="#10b981"/>
+    <text x="440" y="22" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="'JetBrains Mono', monospace">codex · session #412 · Auth-Refactor</text>
+
+    <!-- Thinking-Panel -->
+    <rect x="20" y="56" width="840" height="80" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+    <text x="32" y="78" fill="#c4b5fd" font-size="12" font-weight="700">Thinking</text>
+    <text x="32" y="98" fill="#cbd5e1" font-size="11" font-family="'JetBrains Mono', monospace">· prüfe Token-Lebenszyklus in session.rs</text>
+    <text x="32" y="114" fill="#cbd5e1" font-size="11" font-family="'JetBrains Mono', monospace">· teste RefreshFlow mit fake Clock</text>
+    <text x="32" y="130" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', monospace">▊ live…</text>
+
+    <!-- Diff-Anzeige -->
+    <rect x="20" y="150" width="500" height="250" rx="8" fill="#1e293b" stroke="#6366f1"/>
+    <text x="32" y="172" fill="#818cf8" font-size="12" font-weight="700">Diff · src/auth.rs</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="11">
+      <text x="32" y="196" fill="#64748b">@@ -42,8 +42,10 @@</text>
+      <text x="32" y="214" fill="#fca5a5">- fn verify(t: &amp;Token) -&gt; bool {</text>
+      <text x="32" y="232" fill="#fca5a5">-   t.exp &gt; now()</text>
+      <text x="32" y="250" fill="#fca5a5">- }</text>
+      <text x="32" y="268" fill="#86efac">+ fn verify(t: &amp;Token, skew: Duration) -&gt; Result&lt;()&gt; {</text>
+      <text x="32" y="286" fill="#86efac">+   ensure!(t.exp &gt; now() - skew, "token expired");</text>
+      <text x="32" y="304" fill="#86efac">+   Ok(())</text>
+      <text x="32" y="322" fill="#86efac">+ }</text>
+      <text x="32" y="346" fill="#cbd5e1">[ Tab ] approve hunk   [ Shift+Tab ] reject   [ e ] edit</text>
+    </g>
+    <!-- Approve-Indicator -->
+    <rect x="32" y="360" width="460" height="28" rx="5" fill="#0f172a" stroke="#334155"/>
+    <text x="42" y="378" fill="#22d3ee" font-size="11" font-family="'JetBrains Mono', monospace">approval needed · workspace-write · on-request</text>
+
+    <!-- Chat-Box -->
+    <rect x="540" y="150" width="320" height="250" rx="8" fill="#1e293b" stroke="#10b981"/>
+    <text x="552" y="172" fill="#34d399" font-size="12" font-weight="700">Chat</text>
+    <g font-family="system-ui" font-size="11">
+      <text x="552" y="196" fill="#94a3b8">user:</text>
+      <text x="552" y="214" fill="#cbd5e1">fix auth token skew bug</text>
+      <text x="552" y="244" fill="#94a3b8">assistant:</text>
+      <text x="552" y="262" fill="#cbd5e1">Ich habe ein skew-Argument</text>
+      <text x="552" y="278" fill="#cbd5e1">eingeführt und drei Tests</text>
+      <text x="552" y="294" fill="#cbd5e1">ergänzt. Diff links.</text>
+      <text x="552" y="324" fill="#94a3b8">tool_call:</text>
+      <text x="552" y="342" fill="#cbd5e1" font-family="'JetBrains Mono', monospace">edit_file(auth.rs)</text>
+      <text x="552" y="358" fill="#94a3b8" font-family="'JetBrains Mono', monospace">→ approved</text>
+      <text x="552" y="380" fill="#94a3b8" font-family="'JetBrains Mono', monospace">Ctrl+R reverse-search</text>
+    </g>
+
+    <!-- Composer -->
+    <rect x="20" y="420" width="840" height="60" rx="8" fill="#1e293b" stroke="#6366f1"/>
+    <text x="32" y="452" fill="#818cf8" font-size="12" font-family="'JetBrains Mono', monospace">&gt; run the new tests and write a PR description</text>
+    <rect x="30" y="442" width="2" height="16" fill="#818cf8">
+      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="740" y="452" fill="#64748b" font-size="11">[ @ file · / cmd ]</text>
+
+    <!-- Status-Bar -->
+    <rect x="0" y="500" width="880" height="36" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="522" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', monospace">gpt-5.3-codex</text>
+    <text x="200" y="522" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', monospace">effort: medium</text>
+    <text x="380" y="522" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', monospace">ctx 46k / 200k</text>
+    <text x="580" y="522" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', monospace">in 12.4k · out 3.2k</text>
+    <text x="780" y="522" fill="#34d399" font-size="12" font-family="'JetBrains Mono', monospace">● ready</text>
+
+    <!-- Notification-Badge -->
+    <g transform="translate(820,46)">
+      <circle r="10" fill="#ef4444"/>
+      <text x="0" y="4" fill="#e2e8f0" font-size="11" text-anchor="middle" font-weight="700">3</text>
+    </g>
+  </g>
+
+  <!-- Legende / Callouts rechts -->
+  <g transform="translate(970,140)">
+    <text x="0" y="22" fill="#e2e8f0" font-size="18" font-weight="700">Feature-Legende</text>
+
+    <g transform="translate(0,44)">
+      <rect width="370" height="86" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="14" y="22" fill="#c4b5fd" font-size="13" font-weight="700">Thinking-Panel</text>
+      <text x="14" y="40" fill="#cbd5e1" font-size="11">Live-Reasoning-Summary (1–2 Sätze).</text>
+      <text x="14" y="56" fill="#cbd5e1" font-size="11">Senior-Review-Hilfe, Debugging.</text>
+      <text x="14" y="76" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', monospace">model_reasoning_summary</text>
+    </g>
+
+    <g transform="translate(0,144)">
+      <rect width="370" height="86" rx="8" fill="#1e293b" stroke="#6366f1"/>
+      <text x="14" y="22" fill="#818cf8" font-size="13" font-weight="700">Diff-Anzeige mit Hunk-Approve</text>
+      <text x="14" y="40" fill="#cbd5e1" font-size="11">Tab = approve, Shift+Tab = reject,</text>
+      <text x="14" y="56" fill="#cbd5e1" font-size="11">e = bearbeiten vor Apply.</text>
+      <text x="14" y="76" fill="#94a3b8" font-size="11">Hunk-Granularität — kein All-or-Nothing.</text>
+    </g>
+
+    <g transform="translate(0,244)">
+      <rect width="370" height="86" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="14" y="22" fill="#34d399" font-size="13" font-weight="700">Status-Bar</text>
+      <text x="14" y="40" fill="#cbd5e1" font-size="11">aktives Modell · Reasoning-Effort</text>
+      <text x="14" y="56" fill="#cbd5e1" font-size="11">Kontext-Füllstand · Token-Zähler</text>
+      <text x="14" y="76" fill="#94a3b8" font-size="11">→ `/status` liefert volle Detail-View.</text>
+    </g>
+
+    <g transform="translate(0,344)">
+      <rect width="370" height="86" rx="8" fill="#1e293b" stroke="#ef4444"/>
+      <text x="14" y="22" fill="#fca5a5" font-size="13" font-weight="700">Notification-Badge</text>
+      <text x="14" y="40" fill="#cbd5e1" font-size="11">Anzahl wartender Cloud-Tasks oder</text>
+      <text x="14" y="56" fill="#cbd5e1" font-size="11">System-Events.</text>
+      <text x="14" y="76" fill="#94a3b8" font-size="11">Click/Enter → Detailansicht.</text>
+    </g>
+
+    <g transform="translate(0,444)">
+      <rect width="370" height="86" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="14" y="22" fill="#22d3ee" font-size="13" font-weight="700">Themes &amp; Mouse</text>
+      <text x="14" y="40" fill="#cbd5e1" font-size="11" font-family="'JetBrains Mono', monospace">tui.theme = "dark"|"light"|"high-contrast"</text>
+      <text x="14" y="60" fill="#cbd5e1" font-size="11">Hover-Tooltips, Click, Drag-and-Drop</text>
+      <text x="14" y="76" fill="#94a3b8" font-size="11">für Images direkt in den Composer.</text>
+    </g>
+  </g>
+
+  <!-- Unten: Komplett-Eigenschaften -->
+  <g transform="translate(60,740)">
+    <rect width="1280" height="130" rx="12" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="30" fill="#e2e8f0" font-size="15" font-weight="700">TUI-Eigenschaften im Überblick</text>
+    <g transform="translate(20,50)" font-size="12">
+      <text x="0" y="16" fill="#cbd5e1">· Full-Screen UI, 256-Color, Unicode-Box-Drawing</text>
+      <text x="0" y="36" fill="#cbd5e1">· Mouse-Support: Click, Scroll, Drag-and-Drop Images</text>
+      <text x="0" y="56" fill="#cbd5e1">· Hover-Tooltips für Keybindings und Status</text>
+      <text x="420" y="16" fill="#cbd5e1">· Reverse-Search (Ctrl+R) seit v0.121.0</text>
+      <text x="420" y="36" fill="#cbd5e1">· Thinking-Panel mit Live-Reasoning (gpt-5.x)</text>
+      <text x="420" y="56" fill="#cbd5e1">· Hunk-granulare Diff-Approvals</text>
+      <text x="820" y="16" fill="#cbd5e1">· Themes: dark / light / high-contrast + custom</text>
+      <text x="820" y="36" fill="#cbd5e1">· Notification-Badge für Cloud-/MCP-Tasks</text>
+      <text x="820" y="56" fill="#cbd5e1">· Status-Bar: Modell · Effort · Kontext · IO-Tokens</text>
+    </g>
+  </g>
+</svg>

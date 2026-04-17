@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Notify-Hook — Signallampe bei agent-turn-complete mit JSON-Payload</title>
+  <desc>Notify-Hook als Signallampe: beim Event `agent-turn-complete` ruft Codex ein Script mit JSON-Payload auf stdin. Payload-Felder (status, title, summary, duration, url, last_assistant_message) und drei Konsumenten-Beispiele (Slack, Desktop, Mail).</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">13. Notify-Hook — Signallampe für Agent-Turn-Complete</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="16">Codex ruft ein externes Script auf, sobald ein Turn fertig ist. JSON-Payload auf stdin — jede Notification-Pipeline möglich.</text>
+  <text x="1340" y="60" fill="#64748b" font-size="14" text-anchor="end">Codex CLI · Kapitel 13</text>
+
+  <defs>
+    <marker id="arr13" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+    <radialGradient id="lamp">
+      <stop offset="0%" stop-color="#facc15" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Codex-Box links -->
+  <g transform="translate(60,300)">
+    <rect width="280" height="200" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="140" y="40" fill="#818cf8" font-size="16" font-weight="700" text-anchor="middle">Codex-Agent</text>
+    <text x="140" y="62" fill="#cbd5e1" font-size="12" text-anchor="middle">Turn abgeschlossen</text>
+
+    <g transform="translate(40,80)">
+      <rect width="200" height="40" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="100" y="24" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', monospace">agent-turn-complete</text>
+    </g>
+    <g transform="translate(40,130)">
+      <rect width="200" height="40" rx="6" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="100" y="24" fill="#fbbf24" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', monospace">invoke notify-hook</text>
+    </g>
+  </g>
+
+  <!-- Signal-Lampe -->
+  <g transform="translate(440,380)">
+    <circle r="70" fill="url(#lamp)"/>
+    <circle r="40" fill="#fbbf24"/>
+    <circle r="30" fill="#fef3c7"/>
+    <text x="0" y="6" fill="#92400e" font-size="14" text-anchor="middle" font-weight="700">NOTIFY</text>
+    <text x="0" y="90" fill="#fbbf24" font-size="12" text-anchor="middle">Signallampe</text>
+  </g>
+
+  <!-- Script -->
+  <g transform="translate(620,300)">
+    <rect width="320" height="200" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="160" y="36" fill="#22d3ee" font-size="15" font-weight="700" text-anchor="middle">Notify-Script</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="11">
+      <text x="16" y="66" fill="#94a3b8">config.toml</text>
+      <text x="16" y="84" fill="#c4b5fd">notify = [</text>
+      <text x="16" y="100" fill="#cbd5e1">  "/usr/local/bin/codex-notify",</text>
+      <text x="16" y="116" fill="#cbd5e1">  "--channel=#ops"</text>
+      <text x="16" y="132" fill="#c4b5fd">]</text>
+      <text x="16" y="156" fill="#94a3b8">stdin:</text>
+      <text x="16" y="174" fill="#22d3ee">{ "status": "ok", ... }</text>
+    </g>
+  </g>
+
+  <!-- Payload-Tabelle -->
+  <g transform="translate(980,140)">
+    <rect width="360" height="620" rx="12" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="360" height="40" rx="12" fill="#6366f1" opacity="0.2"/>
+    <text x="20" y="26" fill="#818cf8" font-size="16" font-weight="700">JSON-Payload auf stdin</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="12">
+      <g transform="translate(0,60)">
+        <rect x="10" y="0" width="340" height="60" rx="6" fill="#0f172a" stroke="#10b981"/>
+        <text x="22" y="22" fill="#34d399" font-weight="700">status</text>
+        <text x="22" y="44" fill="#cbd5e1" font-size="11" font-family="system-ui">"ok" | "error" | "cancelled"</text>
+      </g>
+      <g transform="translate(0,130)">
+        <rect x="10" y="0" width="340" height="60" rx="6" fill="#0f172a" stroke="#10b981"/>
+        <text x="22" y="22" fill="#34d399" font-weight="700">title</text>
+        <text x="22" y="44" fill="#cbd5e1" font-size="11" font-family="system-ui">Session-Titel (z. B. "Auth-Refactor")</text>
+      </g>
+      <g transform="translate(0,200)">
+        <rect x="10" y="0" width="340" height="60" rx="6" fill="#0f172a" stroke="#10b981"/>
+        <text x="22" y="22" fill="#34d399" font-weight="700">summary</text>
+        <text x="22" y="44" fill="#cbd5e1" font-size="11" font-family="system-ui">kurze Zusammenfassung des Turns</text>
+      </g>
+      <g transform="translate(0,270)">
+        <rect x="10" y="0" width="340" height="60" rx="6" fill="#0f172a" stroke="#10b981"/>
+        <text x="22" y="22" fill="#34d399" font-weight="700">duration</text>
+        <text x="22" y="44" fill="#cbd5e1" font-size="11" font-family="system-ui">Sekunden bis Turn-Ende</text>
+      </g>
+      <g transform="translate(0,340)">
+        <rect x="10" y="0" width="340" height="60" rx="6" fill="#0f172a" stroke="#10b981"/>
+        <text x="22" y="22" fill="#34d399" font-weight="700">url</text>
+        <text x="22" y="44" fill="#cbd5e1" font-size="11" font-family="system-ui">Link zur Session / zum PR (falls vorhanden)</text>
+      </g>
+      <g transform="translate(0,410)">
+        <rect x="10" y="0" width="340" height="60" rx="6" fill="#0f172a" stroke="#10b981"/>
+        <text x="22" y="22" fill="#34d399" font-weight="700">last_assistant_message</text>
+        <text x="22" y="44" fill="#cbd5e1" font-size="11" font-family="system-ui">letzte Assistant-Message (für Toast-Body)</text>
+      </g>
+      <g transform="translate(0,480)">
+        <rect x="10" y="0" width="340" height="120" rx="6" fill="#0f172a" stroke="#334155"/>
+        <text x="22" y="22" fill="#94a3b8" font-weight="700" font-family="system-ui" font-size="11">Beispiel-Payload</text>
+        <text x="22" y="42" fill="#cbd5e1" font-size="10">{</text>
+        <text x="22" y="56" fill="#cbd5e1" font-size="10">  "status":"ok",</text>
+        <text x="22" y="70" fill="#cbd5e1" font-size="10">  "title":"Auth-Refactor",</text>
+        <text x="22" y="84" fill="#cbd5e1" font-size="10">  "duration":412,</text>
+        <text x="22" y="98" fill="#cbd5e1" font-size="10">  "url":"https://github.com/...",</text>
+        <text x="22" y="112" fill="#cbd5e1" font-size="10">}</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Konsumenten unten -->
+  <g transform="translate(60,560)">
+    <rect width="880" height="200" rx="12" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="34" fill="#e2e8f0" font-size="16" font-weight="700">Konsumenten-Beispiele</text>
+
+    <g transform="translate(20,60)">
+      <rect width="270" height="120" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="14" y="24" fill="#22d3ee" font-size="13" font-weight="700">Slack-Webhook</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="11">`jq` + `curl` an Incoming-Webhook,</text>
+      <text x="14" y="62" fill="#cbd5e1" font-size="11">Channel per CLI-Arg wählbar.</text>
+      <text x="14" y="88" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">status → color-coded badge</text>
+      <text x="14" y="104" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">url   → "View Session" button</text>
+    </g>
+
+    <g transform="translate(310,60)">
+      <rect width="270" height="120" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="14" y="24" fill="#c4b5fd" font-size="13" font-weight="700">Desktop-Toast</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="11">`notify-send` (Linux)</text>
+      <text x="14" y="62" fill="#cbd5e1" font-size="11">`osascript` / `terminal-notifier` (macOS)</text>
+      <text x="14" y="88" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">title  → Headline</text>
+      <text x="14" y="104" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">summary → Body</text>
+    </g>
+
+    <g transform="translate(600,60)">
+      <rect width="270" height="120" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="14" y="24" fill="#34d399" font-size="13" font-weight="700">Mail / PagerDuty</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="11">Error-Status → Paging-Policy</text>
+      <text x="14" y="62" fill="#cbd5e1" font-size="11">Duration &gt; N min → Eskalation</text>
+      <text x="14" y="88" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">status=error → page oncall</text>
+      <text x="14" y="104" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace">else → digest-mail</text>
+    </g>
+  </g>
+
+  <!-- Pfeile -->
+  <g>
+    <line x1="340" y1="400" x2="378" y2="400" stroke="#22d3ee" stroke-width="2" marker-end="url(#arr13)"/>
+    <line x1="506" y1="400" x2="616" y2="400" stroke="#22d3ee" stroke-width="2" marker-end="url(#arr13)"/>
+    <line x1="940" y1="400" x2="980" y2="400" stroke="#22d3ee" stroke-width="2" marker-end="url(#arr13)"/>
+    <line x1="780" y1="500" x2="780" y2="556" stroke="#334155" stroke-width="2" stroke-dasharray="3 3" marker-end="url(#arr13)"/>
+  </g>
+
+  <!-- Unten Leiste: Einsatztipps -->
+  <g transform="translate(60,790)">
+    <rect width="1280" height="80" rx="10" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="28" fill="#e2e8f0" font-size="14" font-weight="700">Best Practices</text>
+    <text x="20" y="50" fill="#cbd5e1" font-size="12">· Script muss exit 0 liefern — Codex ignoriert Fehler, aber lange Hänger blockieren die TUI.</text>
+    <text x="20" y="68" fill="#cbd5e1" font-size="12">· Mit `status=error` eigenes Retry-/Alerting-Protokoll koppeln · Für Long-Running-Tasks auch `url` in Session-Listing schreiben.</text>
+  </g>
+</svg>
