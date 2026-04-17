@@ -113,6 +113,8 @@ AGENTS.md ist der **gemeinsame Nenner** — alle fünf Tools können sie lesen (
 
 ## 8. Entscheidungs-Flowchart (kompakt)
 
+![Binärer Entscheidungsbaum mit fünf Fragen zu Kernel-Sandbox, 1-M-Kontext, Hook-Events, MIT/Python und GitHub-Nativität](svg/vergleich_08_entscheidungs_flowchart.svg)
+
 ```text
 Brauchst Du Kernel-Sandbox & autonome Multi-Hour-Tasks?
  ├── ja ──► Codex CLI
@@ -127,6 +129,8 @@ Brauchst Du Kernel-Sandbox & autonome Multi-Hour-Tasks?
 ```
 
 ## 9. Migrationspfade
+
+![Drei Gleise mit Weichen für Migration von Aider, Claude Code und Copilot CLI zu Codex CLI mit Config-Mapping und AGENTS.md als Zielknoten](svg/vergleich_09_migrationspfade.svg)
 
 ### Von Aider zu Codex CLI
 
@@ -146,6 +150,8 @@ Brauchst Du Kernel-Sandbox & autonome Multi-Hour-Tasks?
 - Copilot-spezifische Slash-Commands durch AGENTS.md-Prompts / Skills ersetzen.
 
 ## 10. Risiken und offene Punkte (Codex CLI)
+
+![Wachtafel mit sechs Risiko-Karten zu 0.x-Schema, OAuth-Override, auth.json, Cloud-ZDR, experimentellen Features und Phase-Parameter mit Severity und Mitigation](svg/vergleich_10_risiken_offene_punkte.svg)
 
 - **0.x-Schema**: breaking changes zwischen Minor-Versions möglich.
 - **OAuth-Override durch `OPENAI_API_KEY`** (still) — in CI `CODEX_API_KEY` nutzen.
