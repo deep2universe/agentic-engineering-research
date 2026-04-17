@@ -4,6 +4,8 @@
 
 ## 1. Was ist Codex CLI?
 
+![Kernmerkmale von Codex CLI (Agent-Loop, Kernel-Sandbox, Multi-Provider, Open Source) mit Abgrenzung zu Claude Code, Copilot CLI, Aider, Cursor und Gemini CLI](svg/installation_und_setup_01_was_ist_codex.svg)
+
 **Codex CLI** ist OpenAIs Open-Source-Coding-Agent für das Terminal. Offizielle Positionierung: *"lightweight coding agent that runs in your terminal"*. Das Projekt lebt im GitHub-Repo [`openai/codex`](https://github.com/openai/codex) unter **Apache-2.0** und ist einer der wenigen Frontier-Lab-Agents mit offenem Quellcode.
 
 Kernmerkmale:
@@ -29,6 +31,8 @@ Kernmerkmale:
 
 ## 2. Kurz-Historie (Meilensteine)
 
+![Horizontale Timeline von 04/2025 bis 04/2026 mit 12 farbkodierten Meilensteinen: erstes CLI-Release, Codex-Cloud, Rust-Rewrite, GPT-5-Codex bis GPT-5.3, Enterprise-Features, v0.121.0](svg/installation_und_setup_02_kurz_historie.svg)
+
 | Datum | Meilenstein |
 |---|---|
 | 16.04.2025 | Erstes CLI-Release (TypeScript / React Ink / Node 22+); `codex-mini` API-Modell |
@@ -46,6 +50,8 @@ Kernmerkmale:
 Das Projekt bleibt im **0.x-Schema**; es gibt bis April 2026 keine 1.0.
 
 ## 3. Installation
+
+![Vier parallele Installations-Lanes (npm, Homebrew, Pre-built Binaries, Cargo) münden in ein einzelnes Rust-Binary; rechts die Systemvoraussetzungen](svg/installation_und_setup_03_installation.svg)
 
 ### 3.1 npm (Rust-Binary-Wrapper)
 
@@ -97,6 +103,8 @@ cargo build --release
 | Windows | Native Binary seit 2026 mit AppContainer; WSL2 empfohlen für Produktion |
 
 ## 4. Authentifizierung
+
+![Drei Auth-Pfade (ChatGPT-OAuth, OpenAI API-Key, Third-Party-Provider) münden in eine Codex-Session; mit Rate-Limit-Tabelle, Warn-Box zum API-Key-Override und Auth-/State-Dateien](svg/installation_und_setup_04_authentifizierung.svg)
 
 Codex CLI unterstützt drei Auth-Pfade: **ChatGPT-OAuth**, **OpenAI-API-Key** und **Third-Party-Provider** via Config.
 
@@ -169,6 +177,8 @@ Wire-API-Protokolle:
 
 ## 5. Unterstützte Modelle
 
+![Modell-Hierarchie als Fuhrpark: GPT-5.3-Codex als Default, Kernreihe 5.x, Legacy (o3, o4-mini, gpt-4.1) und Third-Party (Claude, Gemini, OSS); rechts die Modellwechsel-Kommandos](svg/installation_und_setup_05_unterstuetzte_modelle.svg)
+
 | Modell | Einsatz |
 |---|---|
 | **GPT-5.3-Codex** | Default seit 02/2026, vereint GPT-5 + Codex-Training |
@@ -196,6 +206,8 @@ In einer Session:
 ```
 
 ## 6. Hello World — die erste Session
+
+![Onboarding-Funnel der ersten Session: Install, cd, Auth, Permissions, Welcome-Screen, TUI-Prompt; mit Info-Boxen zu ~/.codex-Dateien, AGENTS.md-Precedence und codex-exec Headless-Modus](svg/installation_und_setup_06_hello_world.svg)
 
 ```bash
 npm install -g @openai/codex
@@ -243,6 +255,8 @@ codex exec --sandbox read-only "<prompt>"
 - `--dangerously-bypass-approvals-and-sandbox` existiert, **nur in isolierten VMs** verwenden.
 
 ## 7. Kurz-Referenz: Sandbox & Approval (Details in `sicherheit_und_sandboxing.md`)
+
+![Sicherheits-Dashboard mit Dual-Matrix aus Sandbox-Werten (read-only, workspace-write, danger-full-access) und Approval-Werten (untrusted, on-request, on-failure, never); Convenience-Flag full-auto hervorgehoben](svg/installation_und_setup_07_kurz_referenz_sandbox_approval.svg)
 
 - `--sandbox read-only | workspace-write | danger-full-access`
 - `--ask-for-approval untrusted | on-request | on-failure | never`

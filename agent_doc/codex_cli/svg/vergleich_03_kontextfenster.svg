@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Kontextfenster und Reasoning-Tuning im Vergleich</title>
+  <desc>Glasbehälter-Metapher: jede Säule steht für ein Tool, der Füllstand repräsentiert das typische Kontextfenster. Badges zeigen Reasoning-Tuning-Optionen.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Kontextfenster &amp; Modelle — Tokenkapazitäten</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Glasbehälter-Metapher: Füllstand = typische Kapazität, Badges = Reasoning-Kontrolle</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 3 · Kontext</text>
+
+  <!-- y-Achse / Skala -->
+  <g font-size="12" fill="#94a3b8">
+    <line x1="160" y1="180" x2="160" y2="680" stroke="#334155" stroke-width="2"/>
+    <g>
+      <line x1="156" y1="180" x2="1320" y2="180" stroke="#334155" stroke-dasharray="4 6"/>
+      <text x="150" y="184" text-anchor="end">1 000 K</text>
+    </g>
+    <g>
+      <line x1="156" y1="280" x2="1320" y2="280" stroke="#334155" stroke-dasharray="4 6"/>
+      <text x="150" y="284" text-anchor="end">800 K</text>
+    </g>
+    <g>
+      <line x1="156" y1="380" x2="1320" y2="380" stroke="#334155" stroke-dasharray="4 6"/>
+      <text x="150" y="384" text-anchor="end">600 K</text>
+    </g>
+    <g>
+      <line x1="156" y1="480" x2="1320" y2="480" stroke="#334155" stroke-dasharray="4 6"/>
+      <text x="150" y="484" text-anchor="end">400 K</text>
+    </g>
+    <g>
+      <line x1="156" y1="580" x2="1320" y2="580" stroke="#334155" stroke-dasharray="4 6"/>
+      <text x="150" y="584" text-anchor="end">200 K</text>
+    </g>
+    <line x1="156" y1="680" x2="1320" y2="680" stroke="#94a3b8" stroke-width="1.5"/>
+    <text x="150" y="684" text-anchor="end">0</text>
+  </g>
+
+  <!-- Gradient Defs -->
+  <defs>
+    <linearGradient id="waterCodex" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="waterClaude" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#c4b5fd"/><stop offset="100%" stop-color="#4c1d95"/>
+    </linearGradient>
+    <linearGradient id="waterGemini" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#67e8f9"/><stop offset="100%" stop-color="#0e7490"/>
+    </linearGradient>
+    <linearGradient id="waterAider" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#6ee7b7"/><stop offset="100%" stop-color="#065f46"/>
+    </linearGradient>
+    <linearGradient id="waterCopilot" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fcd34d"/><stop offset="100%" stop-color="#92400e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Codex Glass (128-200K) -->
+  <g transform="translate(260,180)">
+    <rect x="-50" y="0" width="100" height="500" rx="10" fill="#1e293b" stroke="#334155"/>
+    <!-- water: 200K -> 500px scale 1K=0.5px; 200K=100px; 500-100=400 -->
+    <rect x="-48" y="400" width="96" height="98" rx="8" fill="url(#waterCodex)"/>
+    <!-- plan mode zone 128K -> 64px; start 500-64=436 -->
+    <rect x="-48" y="436" width="96" height="62" fill="#6366f1" opacity="0.3"/>
+    <!-- Surface line -->
+    <line x1="-50" y1="400" x2="50" y2="400" stroke="#c7d2fe" stroke-width="1.5"/>
+    <text x="0" y="390" font-size="12" fill="#c7d2fe" text-anchor="middle">200 K</text>
+    <text x="60" y="440" font-size="11" fill="#94a3b8">128 K</text>
+    <text x="0" y="520" font-size="16" font-weight="700" fill="#818cf8" text-anchor="middle">Codex CLI</text>
+    <text x="0" y="540" font-size="11" fill="#94a3b8" text-anchor="middle">128–200 K · modellabh.</text>
+    <g transform="translate(0,565)" text-anchor="middle">
+      <rect x="-55" y="-12" width="110" height="22" rx="4" fill="#312e81" stroke="#6366f1"/>
+      <text y="3" font-size="11" fill="#c7d2fe">low · med · high</text>
+    </g>
+    <g transform="translate(0,595)" text-anchor="middle">
+      <rect x="-80" y="-12" width="160" height="22" rx="4" fill="#1e1b4b" stroke="#a78bfa"/>
+      <text y="3" font-size="10" fill="#ddd6fe">plan_mode_reasoning_effort</text>
+    </g>
+    <g transform="translate(0,625)" text-anchor="middle">
+      <rect x="-80" y="-12" width="160" height="22" rx="4" fill="#1e1b4b" stroke="#a78bfa"/>
+      <text y="3" font-size="10" fill="#ddd6fe">Compaction → Multi-Hour</text>
+    </g>
+    <text x="0" y="670" font-size="11" fill="#fbbf24" text-anchor="middle">Phase-Parameter zwingend</text>
+    <text x="0" y="686" font-size="10" fill="#fbbf24" text-anchor="middle">bei GPT-5.3-Codex</text>
+  </g>
+
+  <!-- Claude Glass (200K / 1M mit Opus 4.6) -->
+  <g transform="translate(510,180)">
+    <rect x="-50" y="0" width="100" height="500" rx="10" fill="#1e293b" stroke="#334155"/>
+    <!-- 200K = 100px, 500-100=400 -->
+    <rect x="-48" y="400" width="96" height="98" rx="8" fill="url(#waterClaude)"/>
+    <!-- 1M optional (Opus 4.6) = 500px, gemustert -->
+    <rect x="-48" y="0" width="96" height="500" rx="8" fill="url(#waterClaude)" opacity="0.22"/>
+    <line x1="-50" y1="400" x2="50" y2="400" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="0" y="390" font-size="12" fill="#ddd6fe" text-anchor="middle">200 K</text>
+    <text x="0" y="15" font-size="11" fill="#ddd6fe" text-anchor="middle">1 M (Opus 4.6)</text>
+    <text x="0" y="520" font-size="16" font-weight="700" fill="#a78bfa" text-anchor="middle">Claude Code</text>
+    <text x="0" y="540" font-size="11" fill="#94a3b8" text-anchor="middle">200 K / 1 M optional</text>
+    <g transform="translate(0,565)" text-anchor="middle">
+      <rect x="-75" y="-12" width="150" height="22" rx="4" fill="#2e1065" stroke="#a78bfa"/>
+      <text y="3" font-size="11" fill="#ddd6fe">Extended Thinking</text>
+    </g>
+    <g transform="translate(0,595)" text-anchor="middle">
+      <rect x="-75" y="-12" width="150" height="22" rx="4" fill="#2e1065" stroke="#a78bfa"/>
+      <text y="3" font-size="11" fill="#ddd6fe">Effort-Stufen</text>
+    </g>
+    <g transform="translate(0,625)" text-anchor="middle">
+      <rect x="-80" y="-12" width="160" height="22" rx="4" fill="#1e1b4b" stroke="#a78bfa"/>
+      <text y="3" font-size="10" fill="#ddd6fe">Interleaved Thinking · Memory</text>
+    </g>
+  </g>
+
+  <!-- Gemini Glass (1M) -->
+  <g transform="translate(760,180)">
+    <rect x="-50" y="0" width="100" height="500" rx="10" fill="#1e293b" stroke="#334155"/>
+    <!-- 1M full -->
+    <rect x="-48" y="2" width="96" height="496" rx="8" fill="url(#waterGemini)"/>
+    <line x1="-50" y1="2" x2="50" y2="2" stroke="#cffafe" stroke-width="1.5"/>
+    <text x="0" y="-6" font-size="13" font-weight="700" fill="#cffafe" text-anchor="middle">1 M</text>
+    <text x="0" y="520" font-size="16" font-weight="700" fill="#22d3ee" text-anchor="middle">Gemini CLI</text>
+    <text x="0" y="540" font-size="11" fill="#94a3b8" text-anchor="middle">1 M Standard</text>
+    <g transform="translate(0,565)" text-anchor="middle">
+      <rect x="-55" y="-12" width="110" height="22" rx="4" fill="#083344" stroke="#22d3ee"/>
+      <text y="3" font-size="11" fill="#cffafe">—</text>
+    </g>
+    <text x="0" y="598" font-size="11" fill="#22d3ee" text-anchor="middle">führend bei</text>
+    <text x="0" y="614" font-size="11" fill="#22d3ee" text-anchor="middle">grossen Monorepos</text>
+    <text x="0" y="645" font-size="10" fill="#94a3b8" text-anchor="middle">kein explizites</text>
+    <text x="0" y="659" font-size="10" fill="#94a3b8" text-anchor="middle">Reasoning-Tuning</text>
+  </g>
+
+  <!-- Aider Glass (modellabh.) -->
+  <g transform="translate(1010,180)">
+    <rect x="-50" y="0" width="100" height="500" rx="10" fill="#1e293b" stroke="#334155"/>
+    <!-- modellabh. — angenommen 128K -> 64px -->
+    <rect x="-48" y="436" width="96" height="62" rx="8" fill="url(#waterAider)"/>
+    <rect x="-48" y="400" width="96" height="36" rx="0" fill="url(#waterAider)" opacity="0.25"/>
+    <line x1="-50" y1="436" x2="50" y2="436" stroke="#a7f3d0" stroke-width="1.5"/>
+    <text x="0" y="426" font-size="12" fill="#a7f3d0" text-anchor="middle">modellabh.</text>
+    <text x="0" y="520" font-size="16" font-weight="700" fill="#10b981" text-anchor="middle">Aider</text>
+    <text x="0" y="540" font-size="11" fill="#94a3b8" text-anchor="middle">provider-agnostisch</text>
+    <g transform="translate(0,565)" text-anchor="middle">
+      <rect x="-55" y="-12" width="110" height="22" rx="4" fill="#064e3b" stroke="#10b981"/>
+      <text y="3" font-size="11" fill="#a7f3d0">—</text>
+    </g>
+    <text x="0" y="598" font-size="11" fill="#10b981" text-anchor="middle">Fokus fokussierte</text>
+    <text x="0" y="614" font-size="11" fill="#10b981" text-anchor="middle">File-Edits</text>
+  </g>
+
+  <!-- Copilot Glass (modellabh.) -->
+  <g transform="translate(1260,180)">
+    <rect x="-50" y="0" width="100" height="500" rx="10" fill="#1e293b" stroke="#334155"/>
+    <rect x="-48" y="436" width="96" height="62" rx="8" fill="url(#waterCopilot)"/>
+    <rect x="-48" y="400" width="96" height="36" fill="url(#waterCopilot)" opacity="0.25"/>
+    <line x1="-50" y1="436" x2="50" y2="436" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="0" y="426" font-size="12" fill="#fde68a" text-anchor="middle">modellabh.</text>
+    <text x="0" y="520" font-size="16" font-weight="700" fill="#f59e0b" text-anchor="middle">Copilot CLI</text>
+    <text x="0" y="540" font-size="11" fill="#94a3b8" text-anchor="middle">GPT- + Claude</text>
+    <g transform="translate(0,565)" text-anchor="middle">
+      <rect x="-55" y="-12" width="110" height="22" rx="4" fill="#451a03" stroke="#f59e0b"/>
+      <text y="3" font-size="11" fill="#fde68a">—</text>
+    </g>
+    <text x="0" y="598" font-size="11" fill="#f59e0b" text-anchor="middle">GH-kontext-reich</text>
+  </g>
+
+  <!-- Glass reflection lines (dekorativ) -->
+  <g opacity="0.3" stroke="#e2e8f0" stroke-width="1">
+    <line x1="225" y1="200" x2="225" y2="670"/>
+    <line x1="475" y1="200" x2="475" y2="670"/>
+    <line x1="725" y1="200" x2="725" y2="670"/>
+    <line x1="975" y1="200" x2="975" y2="670"/>
+    <line x1="1225" y1="200" x2="1225" y2="670"/>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(60,760)" font-size="13" fill="#94a3b8">
+    <text y="0" font-weight="600" fill="#e2e8f0" font-size="14">Lesehilfe</text>
+    <text y="22">Farbintensiv = typisches Fenster, halbtransparent = erweiterbare Obergrenze. Phase-Parameter und Reasoning-Stufen als Badges.</text>
+    <text y="42">Gemini dominiert Rohkapazität, Codex punktet durch Reasoning-Stufen + Compaction, Claude bei Deep-Thinking.</text>
+  </g>
+</svg>

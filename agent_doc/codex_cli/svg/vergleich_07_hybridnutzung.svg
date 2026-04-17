@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Hybridnutzung — typische Codex-Paarungen</title>
+  <desc>Vier Tandem-Paarungen von Codex mit Claude, Aider, Gemini und Copilot. Jedes Paar zeigt Rollenverteilung; AGENTS.md liegt als gemeinsame Brücke zwischen allen.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Hybridnutzung — Tandems mit AGENTS.md als Brücke</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Vier typische Codex-Paarungen · gemeinsame Spezifikationssprache in der Mitte</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 7 · Hybrid</text>
+
+  <defs>
+    <marker id="arrL" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Zentrales AGENTS.md Panel -->
+  <g transform="translate(570,370)">
+    <rect x="0" y="0" width="260" height="160" rx="16" fill="#1e293b" stroke="#fbbf24" stroke-width="2.5"/>
+    <text x="130" y="40" font-size="18" font-weight="700" fill="#fbbf24" text-anchor="middle">AGENTS.md</text>
+    <text x="130" y="62" font-size="12" fill="#e2e8f0" text-anchor="middle">gemeinsamer Nenner</text>
+    <text x="130" y="82" font-size="11" fill="#94a3b8" text-anchor="middle">alle fünf Tools lesbar</text>
+    <g transform="translate(130,110)">
+      <!-- Bruecke Icon -->
+      <path d="M -50 0 Q 0 -28 50 0" stroke="#fbbf24" stroke-width="2" fill="none"/>
+      <line x1="-50" y1="0" x2="50" y2="0" stroke="#fbbf24" stroke-width="2"/>
+      <line x1="-40" y1="0" x2="-40" y2="10" stroke="#fbbf24" stroke-width="1.5"/>
+      <line x1="-20" y1="-8" x2="-20" y2="10" stroke="#fbbf24" stroke-width="1.5"/>
+      <line x1="0" y1="-14" x2="0" y2="10" stroke="#fbbf24" stroke-width="1.5"/>
+      <line x1="20" y1="-8" x2="20" y2="10" stroke="#fbbf24" stroke-width="1.5"/>
+      <line x1="40" y1="0" x2="40" y2="10" stroke="#fbbf24" stroke-width="1.5"/>
+    </g>
+  </g>
+
+  <!-- Tandem 1: Codex + Claude (oben links) -->
+  <g transform="translate(60,160)">
+    <rect width="480" height="170" rx="14" fill="#1e1b4b" stroke="#6366f1"/>
+    <text x="20" y="30" font-size="16" font-weight="700" fill="#fff">Codex + Claude Code</text>
+    <text x="20" y="50" font-size="11" fill="#c7d2fe">Tandem-Fahrer: vorne steuert Codex autonom, hinten kollaboriert Claude.</text>
+
+    <!-- Tandem -->
+    <g transform="translate(60,105)">
+      <!-- Raeder -->
+      <circle cx="0" cy="30" r="18" fill="none" stroke="#818cf8" stroke-width="2"/>
+      <circle cx="80" cy="30" r="18" fill="none" stroke="#a78bfa" stroke-width="2"/>
+      <!-- Rahmen -->
+      <line x1="0" y1="30" x2="80" y2="30" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="0" y1="30" x2="20" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="80" y1="30" x2="60" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="20" y1="5" x2="60" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <!-- Fahrer -->
+      <circle cx="20" cy="-10" r="8" fill="#818cf8"/>
+      <circle cx="60" cy="-10" r="8" fill="#a78bfa"/>
+    </g>
+
+    <g font-size="12" fill="#e2e8f0" transform="translate(200,85)">
+      <text y="0" font-weight="700" fill="#818cf8">Codex</text>
+      <text y="18" font-size="11" fill="#94a3b8">autonom im Hintergrund</text>
+      <text y="36" font-size="11" fill="#94a3b8">Multi-Hour · Kernel-Sandbox</text>
+    </g>
+    <g font-size="12" fill="#e2e8f0" transform="translate(340,85)">
+      <text y="0" font-weight="700" fill="#a78bfa">Claude</text>
+      <text y="18" font-size="11" fill="#94a3b8">präzise Kollaboration</text>
+      <text y="36" font-size="11" fill="#94a3b8">17 Hooks · Extended Thinking</text>
+    </g>
+    <text x="20" y="160" font-size="10" fill="#fbbf24">Brücke: codex mcp serve — wechselseitige Tool-Sichtbarkeit</text>
+  </g>
+
+  <!-- Tandem 2: Codex + Gemini (oben rechts) -->
+  <g transform="translate(860,160)">
+    <rect width="480" height="170" rx="14" fill="#0c2a2e" stroke="#22d3ee"/>
+    <text x="20" y="30" font-size="16" font-weight="700" fill="#fff">Codex + Gemini CLI</text>
+    <text x="20" y="50" font-size="11" fill="#cffafe">Gemini öffnet den Horizont, Codex implementiert.</text>
+
+    <g transform="translate(60,105)">
+      <circle cx="0" cy="30" r="18" fill="none" stroke="#818cf8" stroke-width="2"/>
+      <circle cx="80" cy="30" r="18" fill="none" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="0" y1="30" x2="80" y2="30" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="0" y1="30" x2="20" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="80" y1="30" x2="60" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="20" y1="5" x2="60" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <circle cx="20" cy="-10" r="8" fill="#818cf8"/>
+      <circle cx="60" cy="-10" r="8" fill="#22d3ee"/>
+    </g>
+
+    <g font-size="12" fill="#e2e8f0" transform="translate(200,85)">
+      <text y="0" font-weight="700" fill="#22d3ee">Gemini</text>
+      <text y="18" font-size="11" fill="#94a3b8">erklärt das Monorepo</text>
+      <text y="36" font-size="11" fill="#94a3b8">1 M Kontext · Read-only</text>
+    </g>
+    <g font-size="12" fill="#e2e8f0" transform="translate(340,85)">
+      <text y="0" font-weight="700" fill="#818cf8">Codex</text>
+      <text y="18" font-size="11" fill="#94a3b8">Implementiert Änderungen</text>
+      <text y="36" font-size="11" fill="#94a3b8">Kernel-Sandbox · Apply-Patch</text>
+    </g>
+    <text x="20" y="160" font-size="10" fill="#fbbf24">Brücke: AGENTS.md mit Architektur-Abschnitt, auf Gemini-Analyse gestützt</text>
+  </g>
+
+  <!-- Tandem 3: Codex + Aider (unten links) -->
+  <g transform="translate(60,570)">
+    <rect width="480" height="170" rx="14" fill="#02241b" stroke="#10b981"/>
+    <text x="20" y="30" font-size="16" font-weight="700" fill="#fff">Codex + Aider</text>
+    <text x="20" y="50" font-size="11" fill="#a7f3d0">Codex für komplexe Flows, Aider für schnelle Edits.</text>
+
+    <g transform="translate(60,105)">
+      <circle cx="0" cy="30" r="18" fill="none" stroke="#818cf8" stroke-width="2"/>
+      <circle cx="80" cy="30" r="18" fill="none" stroke="#10b981" stroke-width="2"/>
+      <line x1="0" y1="30" x2="80" y2="30" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="0" y1="30" x2="20" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="80" y1="30" x2="60" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="20" y1="5" x2="60" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <circle cx="20" cy="-10" r="8" fill="#818cf8"/>
+      <circle cx="60" cy="-10" r="8" fill="#10b981"/>
+    </g>
+
+    <g font-size="12" fill="#e2e8f0" transform="translate(200,85)">
+      <text y="0" font-weight="700" fill="#818cf8">Codex</text>
+      <text y="18" font-size="11" fill="#94a3b8">komplexe Refactorings</text>
+      <text y="36" font-size="11" fill="#94a3b8">Multi-File-Flows</text>
+    </g>
+    <g font-size="12" fill="#e2e8f0" transform="translate(340,85)">
+      <text y="0" font-weight="700" fill="#10b981">Aider</text>
+      <text y="18" font-size="11" fill="#94a3b8">schnelle Single-File-Edits</text>
+      <text y="36" font-size="11" fill="#94a3b8">Git-nah · Auto-Commits</text>
+    </g>
+    <text x="20" y="160" font-size="10" fill="#fbbf24">Brücke: geteilte AGENTS.md im Repo — beide Tools lesen sie (Aider partiell)</text>
+  </g>
+
+  <!-- Tandem 4: Codex + Copilot CLI (unten rechts) -->
+  <g transform="translate(860,570)">
+    <rect width="480" height="170" rx="14" fill="#3b1d05" stroke="#f59e0b"/>
+    <text x="20" y="30" font-size="16" font-weight="700" fill="#fff">Codex + Copilot CLI</text>
+    <text x="20" y="50" font-size="11" fill="#fde68a">Copilot für GH-Operations, Codex für Code-Transformationen.</text>
+
+    <g transform="translate(60,105)">
+      <circle cx="0" cy="30" r="18" fill="none" stroke="#818cf8" stroke-width="2"/>
+      <circle cx="80" cy="30" r="18" fill="none" stroke="#f59e0b" stroke-width="2"/>
+      <line x1="0" y1="30" x2="80" y2="30" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="0" y1="30" x2="20" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="80" y1="30" x2="60" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <line x1="20" y1="5" x2="60" y2="5" stroke="#cbd5e1" stroke-width="2"/>
+      <circle cx="20" cy="-10" r="8" fill="#818cf8"/>
+      <circle cx="60" cy="-10" r="8" fill="#f59e0b"/>
+    </g>
+
+    <g font-size="12" fill="#e2e8f0" transform="translate(200,85)">
+      <text y="0" font-weight="700" fill="#818cf8">Codex</text>
+      <text y="18" font-size="11" fill="#94a3b8">Code-Transformationen</text>
+      <text y="36" font-size="11" fill="#94a3b8">Sandbox · Multi-Hour</text>
+    </g>
+    <g font-size="12" fill="#e2e8f0" transform="translate(340,85)">
+      <text y="0" font-weight="700" fill="#f59e0b">Copilot</text>
+      <text y="18" font-size="11" fill="#94a3b8">Issue- &amp; PR-Operations</text>
+      <text y="36" font-size="11" fill="#94a3b8">GitHub-Nativ · Review</text>
+    </g>
+    <text x="20" y="160" font-size="10" fill="#fbbf24">Brücke: Copilot öffnet PRs, Codex führt die Implementierung via GH Action aus</text>
+  </g>
+
+  <!-- Verbindungslinien zu AGENTS.md -->
+  <g stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4 4" fill="none" marker-end="url(#arrL)">
+    <path d="M 540 245 Q 620 310 660 370"/>
+    <path d="M 860 245 Q 780 310 740 370"/>
+    <path d="M 540 655 Q 620 590 660 530"/>
+    <path d="M 860 655 Q 780 590 740 530"/>
+  </g>
+
+  <!-- Footer Legende -->
+  <g transform="translate(60,790)" font-size="12" fill="#94a3b8">
+    <text x="0" y="0" font-size="13" fill="#e2e8f0" font-weight="600">Metapher: Tandem-Fahrer</text>
+    <text x="0" y="22">Jedes Paar fährt im Gleichschritt — die vordere Rolle setzt die Richtung, die hintere unterstützt. AGENTS.md ist die gemeinsame Landkarte.</text>
+    <text x="0" y="42">Hinweis: Jedes Tandem kann via MCP (codex mcp serve) tiefer verzahnt werden — gegenseitige Tool-Sichtbarkeit inklusive.</text>
+  </g>
+</svg>

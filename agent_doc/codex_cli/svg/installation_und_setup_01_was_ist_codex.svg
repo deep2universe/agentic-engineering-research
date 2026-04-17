@@ -1,179 +1,186 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
-  <title>Was ist Codex CLI — Kernmerkmale und Abgrenzung</title>
-  <desc>Zentrale Kernmerkmale von Codex CLI (Agent-Loop, Kernel-Sandbox, Multi-Provider, Open Source) als Ring, rechts eine Vergleichsmatrix zu Claude Code, Copilot CLI, Aider, Cursor und Gemini CLI.</desc>
+  <title>Was ist Codex CLI? — Kernmerkmale und Abgrenzung</title>
+  <desc>Zentraler Ring mit den vier Kernmerkmalen Agent-Loop, Kernel-Sandbox, Multi-Provider und Open Source. Rechts: Abgrenzungs-Matrix zu Claude Code, Copilot CLI, Aider, Cursor, Gemini CLI.</desc>
+
+  <defs>
+    <marker id="arrowIndigo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <radialGradient id="coreGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#312e81" stop-opacity="0.3"/>
+    </radialGradient>
+  </defs>
 
   <rect width="1400" height="900" fill="#0f172a"/>
 
-  <!-- Titel -->
-  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">Was ist Codex CLI?</text>
-  <text x="40" y="82" fill="#94a3b8" font-size="15">Open-Source-Coding-Agent fürs Terminal — Kernmerkmale und Abgrenzung zum Wettbewerb</text>
-  <text x="1360" y="54" fill="#818cf8" font-size="13" text-anchor="end" font-weight="600">Kapitel 1</text>
-  <text x="1360" y="74" fill="#64748b" font-size="11" text-anchor="end">@openai/codex · Apache-2.0</text>
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Was ist Codex CLI?</text>
+  <text x="40" y="84" font-size="16" fill="#94a3b8">Lightweight coding agent im Terminal — Apache-2.0, Rust-basiert, Multi-Provider</text>
+  <text x="1360" y="56" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 1</text>
 
-  <!-- Linke Sektion: Ring um zentralen Knoten -->
-  <g transform="translate(360,470)">
-    <!-- Ring -->
-    <circle r="230" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 5"/>
+  <!-- LINKE SEITE: Kern-Mindmap -->
+  <g transform="translate(0,110)">
+    <text x="40" y="20" font-size="14" fill="#94a3b8">Kernmerkmale (Ring)</text>
 
     <!-- Zentrum -->
-    <circle r="110" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
-    <text x="0" y="-14" fill="#e2e8f0" text-anchor="middle" font-size="20" font-weight="700">Codex CLI</text>
-    <text x="0" y="10" fill="#818cf8" text-anchor="middle" font-size="12">lightweight coding agent</text>
-    <text x="0" y="30" fill="#94a3b8" text-anchor="middle" font-size="11">Rust · ~95 % Codebase</text>
-    <text x="0" y="48" fill="#94a3b8" text-anchor="middle" font-size="11">~67 k Stars · 400+ Contrib.</text>
+    <circle cx="370" cy="380" r="110" fill="url(#coreGrad)" stroke="#818cf8" stroke-width="2"/>
+    <text x="370" y="360" text-anchor="middle" font-size="22" font-weight="700" fill="#e2e8f0">Codex CLI</text>
+    <text x="370" y="388" text-anchor="middle" font-size="13" fill="#c7d2fe">@openai/codex</text>
+    <text x="370" y="410" text-anchor="middle" font-size="12" fill="#a5b4fc">Apache-2.0 · ~95% Rust</text>
+    <text x="370" y="428" text-anchor="middle" font-size="12" fill="#a5b4fc">67k Stars · 400+ Contrib.</text>
 
-    <!-- Satellit 1: Agent-Loop (oben) -->
-    <g transform="translate(0,-230)">
-      <rect x="-95" y="-40" width="190" height="80" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
-      <text x="0" y="-16" fill="#818cf8" text-anchor="middle" font-size="13" font-weight="700">Agent-Loop</text>
-      <text x="0" y="4" fill="#e2e8f0" text-anchor="middle" font-size="11">Read · Edit · Shell</text>
-      <text x="0" y="22" fill="#94a3b8" text-anchor="middle" font-size="11">bis Task erfüllt</text>
+    <!-- Oben: Agent-Loop -->
+    <g>
+      <line x1="370" y1="270" x2="370" y2="180" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowIndigo)"/>
+      <rect x="210" y="60" width="320" height="120" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <text x="370" y="90" text-anchor="middle" font-size="17" font-weight="700" fill="#818cf8">Agent-Loop</text>
+      <text x="370" y="115" text-anchor="middle" font-size="13" fill="#e2e8f0">Modell-Schleife: Read · Edit · Shell</text>
+      <text x="370" y="135" text-anchor="middle" font-size="13" fill="#e2e8f0">bis Task abgeschlossen ist</text>
+      <text x="370" y="160" text-anchor="middle" font-size="12" fill="#94a3b8">Terminal-First, keine IDE nötig</text>
     </g>
 
-    <!-- Satellit 2: Kernel-Sandbox (rechts) -->
-    <g transform="translate(220,-80)">
-      <rect x="-100" y="-42" width="200" height="84" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
-      <text x="0" y="-18" fill="#fbbf24" text-anchor="middle" font-size="13" font-weight="700">Kernel-Sandbox</text>
-      <text x="0" y="0" fill="#e2e8f0" text-anchor="middle" font-size="11">Seatbelt · Landlock</text>
-      <text x="0" y="18" fill="#e2e8f0" text-anchor="middle" font-size="11">seccomp · AppContainer</text>
+    <!-- Rechts: Kernel-Sandbox -->
+    <g>
+      <line x1="480" y1="380" x2="555" y2="380" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowIndigo)"/>
+      <rect x="560" y="320" width="240" height="140" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="680" y="350" text-anchor="middle" font-size="17" font-weight="700" fill="#f59e0b">Kernel-Sandbox</text>
+      <text x="680" y="375" text-anchor="middle" font-size="12" fill="#e2e8f0">macOS: Apple Seatbelt</text>
+      <text x="680" y="395" text-anchor="middle" font-size="12" fill="#e2e8f0">Linux: Landlock + seccomp</text>
+      <text x="680" y="415" text-anchor="middle" font-size="12" fill="#e2e8f0">Windows: AppContainer</text>
+      <text x="680" y="440" text-anchor="middle" font-size="11" fill="#94a3b8">(nativ seit Anfang 2026)</text>
     </g>
 
-    <!-- Satellit 3: Multi-Provider (unten) -->
-    <g transform="translate(0,230)">
-      <rect x="-110" y="-42" width="220" height="84" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
-      <text x="0" y="-18" fill="#22d3ee" text-anchor="middle" font-size="13" font-weight="700">Provider-agnostisch</text>
-      <text x="0" y="2" fill="#e2e8f0" text-anchor="middle" font-size="11">OpenAI · Anthropic · Gemini</text>
-      <text x="0" y="20" fill="#e2e8f0" text-anchor="middle" font-size="11">Ollama · Azure · OpenRouter</text>
+    <!-- Unten: Multi-Provider -->
+    <g>
+      <line x1="370" y1="490" x2="370" y2="570" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowIndigo)"/>
+      <rect x="190" y="580" width="360" height="130" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="370" y="610" text-anchor="middle" font-size="17" font-weight="700" fill="#22d3ee">Multi-Provider</text>
+      <text x="370" y="635" text-anchor="middle" font-size="12" fill="#e2e8f0">OpenAI (Default) · Anthropic · Gemini</text>
+      <text x="370" y="655" text-anchor="middle" font-size="12" fill="#e2e8f0">OpenRouter · Ollama · LM Studio · Azure</text>
+      <text x="370" y="680" text-anchor="middle" font-size="11" fill="#94a3b8">via [model_providers] in config.toml</text>
     </g>
 
-    <!-- Satellit 4: Open Source (links) -->
-    <g transform="translate(-220,-80)">
-      <rect x="-100" y="-42" width="200" height="84" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
-      <text x="0" y="-18" fill="#10b981" text-anchor="middle" font-size="13" font-weight="700">Open Source</text>
-      <text x="0" y="0" fill="#e2e8f0" text-anchor="middle" font-size="11">Apache-2.0</text>
-      <text x="0" y="18" fill="#94a3b8" text-anchor="middle" font-size="11">wöchentliche Releases</text>
-    </g>
-
-    <!-- Satellit 5: Terminal-First (links unten) -->
-    <g transform="translate(-200,150)">
-      <rect x="-90" y="-32" width="180" height="64" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
-      <text x="0" y="-10" fill="#c4b5fd" text-anchor="middle" font-size="12" font-weight="700">Terminal-First</text>
-      <text x="0" y="10" fill="#94a3b8" text-anchor="middle" font-size="11">TUI · codex exec</text>
-    </g>
-
-    <!-- Satellit 6: Cloud-Bridge (rechts unten) -->
-    <g transform="translate(200,150)">
-      <rect x="-90" y="-32" width="180" height="64" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
-      <text x="0" y="-10" fill="#c4b5fd" text-anchor="middle" font-size="12" font-weight="700">Codex-Cloud Bridge</text>
-      <text x="0" y="10" fill="#94a3b8" text-anchor="middle" font-size="11">chatgpt.com/codex</text>
-    </g>
-
-    <!-- Verbindungslinien Satellit→Zentrum -->
-    <g stroke="#475569" stroke-width="1" fill="none">
-      <line x1="0" y1="-190" x2="0" y2="-110"/>
-      <line x1="120" y1="-70" x2="80" y2="-60"/>
-      <line x1="-120" y1="-70" x2="-80" y2="-60"/>
-      <line x1="0" y1="188" x2="0" y2="110"/>
-      <line x1="-110" y1="120" x2="-70" y2="80"/>
-      <line x1="110" y1="120" x2="70" y2="80"/>
+    <!-- Links: Open Source -->
+    <g>
+      <line x1="260" y1="380" x2="185" y2="380" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowIndigo)"/>
+      <rect x="0" y="320" width="180" height="140" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+      <text x="90" y="350" text-anchor="middle" font-size="17" font-weight="700" fill="#10b981">Open Source</text>
+      <text x="90" y="375" text-anchor="middle" font-size="12" fill="#e2e8f0">Apache-2.0 · GitHub</text>
+      <text x="90" y="395" text-anchor="middle" font-size="12" fill="#e2e8f0">Rust-Rewrite 06/2025</text>
+      <text x="90" y="415" text-anchor="middle" font-size="12" fill="#e2e8f0">wöchentliche Releases</text>
+      <text x="90" y="440" text-anchor="middle" font-size="11" fill="#94a3b8">Transparenz &amp; Forks</text>
     </g>
   </g>
 
-  <!-- Rechte Sektion: Vergleichs-Matrix -->
-  <g transform="translate(760,130)">
-    <text x="0" y="0" fill="#e2e8f0" font-size="18" font-weight="700">Abgrenzung · Agent-CLI-Landschaft</text>
-    <text x="0" y="22" fill="#94a3b8" font-size="12">Radar über Lizenz, Fokus und Alleinstellungsmerkmal</text>
+  <!-- RECHTE SEITE: Abgrenzungs-Matrix -->
+  <g transform="translate(830,120)">
+    <text x="0" y="20" font-size="18" font-weight="700" fill="#e2e8f0">Abgrenzung im Markt</text>
+    <text x="0" y="42" font-size="12" fill="#94a3b8">Vergleichs-Radar: Lizenz · Fokus · USP</text>
 
-    <!-- Kopfzeile -->
-    <g transform="translate(0,50)">
-      <rect x="0" y="0" width="600" height="34" rx="6" fill="#1e293b" stroke="#334155"/>
-      <text x="14" y="22" fill="#94a3b8" font-size="12" font-weight="600">Tool</text>
-      <text x="160" y="22" fill="#94a3b8" font-size="12" font-weight="600">Lizenz</text>
-      <text x="280" y="22" fill="#94a3b8" font-size="12" font-weight="600">Fokus</text>
-      <text x="450" y="22" fill="#94a3b8" font-size="12" font-weight="600">Alleinstellung</text>
+    <!-- Header -->
+    <g transform="translate(0,60)">
+      <rect x="0" y="0" width="530" height="34" fill="#334155"/>
+      <text x="12" y="22" font-size="12" font-weight="700" fill="#e2e8f0">Tool</text>
+      <text x="170" y="22" font-size="12" font-weight="700" fill="#e2e8f0">Lizenz</text>
+      <text x="270" y="22" font-size="12" font-weight="700" fill="#e2e8f0">Fokus</text>
+      <text x="410" y="22" font-size="12" font-weight="700" fill="#e2e8f0">Besonderheit</text>
     </g>
 
-    <!-- Reihe Codex CLI (hervorgehoben) -->
-    <g transform="translate(0,92)">
-      <rect x="0" y="0" width="600" height="44" rx="6" fill="#312e81" stroke="#6366f1" stroke-width="1.5"/>
-      <circle cx="14" cy="22" r="5" fill="#818cf8"/>
-      <text x="28" y="27" fill="#e2e8f0" font-size="13" font-weight="700">Codex CLI</text>
-      <text x="160" y="27" fill="#10b981" font-size="12">Apache-2.0</text>
-      <text x="280" y="27" fill="#e2e8f0" font-size="12">autonomer Agent</text>
-      <text x="450" y="27" fill="#22d3ee" font-size="12">Kernel-Sandbox + Multi-Prov.</text>
+    <!-- Codex CLI (highlight) -->
+    <g transform="translate(0,94)">
+      <rect x="0" y="0" width="530" height="50" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+      <text x="12" y="22" font-size="13" font-weight="700" fill="#c7d2fe">Codex CLI</text>
+      <text x="12" y="40" font-size="11" fill="#94a3b8">@openai/codex</text>
+      <text x="170" y="22" font-size="12" fill="#10b981">Apache-2.0</text>
+      <text x="270" y="22" font-size="12" fill="#e2e8f0">Autonomer Agent</text>
+      <text x="270" y="40" font-size="11" fill="#94a3b8">Terminal-First</text>
+      <text x="410" y="22" font-size="12" fill="#22d3ee">Kernel-Sandbox</text>
+      <text x="410" y="40" font-size="11" fill="#94a3b8">Multi-Provider</text>
     </g>
 
     <!-- Claude Code -->
-    <g transform="translate(0,144)">
-      <rect x="0" y="0" width="600" height="40" rx="6" fill="#1e293b" stroke="#334155"/>
-      <circle cx="14" cy="20" r="5" fill="#f59e0b"/>
-      <text x="28" y="25" fill="#e2e8f0" font-size="13" font-weight="600">Claude Code</text>
-      <text x="160" y="25" fill="#ef4444" font-size="12">proprietär</text>
-      <text x="280" y="25" fill="#e2e8f0" font-size="12">Präzisionspartner</text>
-      <text x="450" y="25" fill="#fbbf24" font-size="12">17 Hook-Events</text>
+    <g transform="translate(0,146)">
+      <rect x="0" y="0" width="530" height="50" fill="#1e293b" stroke="#334155"/>
+      <text x="12" y="22" font-size="13" font-weight="700" fill="#e2e8f0">Claude Code</text>
+      <text x="12" y="40" font-size="11" fill="#94a3b8">Anthropic</text>
+      <text x="170" y="22" font-size="12" fill="#ef4444">proprietär</text>
+      <text x="270" y="22" font-size="12" fill="#e2e8f0">Kollab. Partner</text>
+      <text x="270" y="40" font-size="11" fill="#94a3b8">Präzision</text>
+      <text x="410" y="22" font-size="12" fill="#a78bfa">17 Hook-Events</text>
+      <text x="410" y="40" font-size="11" fill="#94a3b8">Feingranular</text>
     </g>
 
     <!-- Copilot CLI -->
-    <g transform="translate(0,192)">
-      <rect x="0" y="0" width="600" height="40" rx="6" fill="#1e293b" stroke="#334155"/>
-      <circle cx="14" cy="20" r="5" fill="#a78bfa"/>
-      <text x="28" y="25" fill="#e2e8f0" font-size="13" font-weight="600">GitHub Copilot CLI</text>
-      <text x="160" y="25" fill="#ef4444" font-size="12">proprietär · Preview</text>
-      <text x="280" y="25" fill="#e2e8f0" font-size="12">GitHub-Ökosystem</text>
-      <text x="450" y="25" fill="#c4b5fd" font-size="12">Issues / PR nativ</text>
+    <g transform="translate(0,198)">
+      <rect x="0" y="0" width="530" height="50" fill="#1e293b" stroke="#334155"/>
+      <text x="12" y="22" font-size="13" font-weight="700" fill="#e2e8f0">GitHub Copilot CLI</text>
+      <text x="12" y="40" font-size="11" fill="#94a3b8">Preview</text>
+      <text x="170" y="22" font-size="12" fill="#ef4444">proprietär</text>
+      <text x="270" y="22" font-size="12" fill="#e2e8f0">GitHub-Ökosystem</text>
+      <text x="270" y="40" font-size="11" fill="#94a3b8">Issues · PRs</text>
+      <text x="410" y="22" font-size="12" fill="#a78bfa">GH-Integration</text>
+      <text x="410" y="40" font-size="11" fill="#94a3b8">tief verzahnt</text>
     </g>
 
     <!-- Aider -->
-    <g transform="translate(0,240)">
-      <rect x="0" y="0" width="600" height="40" rx="6" fill="#1e293b" stroke="#334155"/>
-      <circle cx="14" cy="20" r="5" fill="#10b981"/>
-      <text x="28" y="25" fill="#e2e8f0" font-size="13" font-weight="600">Aider</text>
-      <text x="160" y="25" fill="#10b981" font-size="12">MIT</text>
-      <text x="280" y="25" fill="#e2e8f0" font-size="12">Git-orientiert</text>
-      <text x="450" y="25" fill="#34d399" font-size="12">Auto-Commits</text>
+    <g transform="translate(0,250)">
+      <rect x="0" y="0" width="530" height="50" fill="#1e293b" stroke="#334155"/>
+      <text x="12" y="22" font-size="13" font-weight="700" fill="#e2e8f0">Aider</text>
+      <text x="12" y="40" font-size="11" fill="#94a3b8">Python</text>
+      <text x="170" y="22" font-size="12" fill="#10b981">MIT</text>
+      <text x="270" y="22" font-size="12" fill="#e2e8f0">Git-orientiert</text>
+      <text x="270" y="40" font-size="11" fill="#94a3b8">Auto-Commits</text>
+      <text x="410" y="22" font-size="12" fill="#a78bfa">Provider-agnostisch</text>
+      <text x="410" y="40" font-size="11" fill="#94a3b8">Commit-Flow</text>
     </g>
 
     <!-- Cursor / Windsurf -->
-    <g transform="translate(0,288)">
-      <rect x="0" y="0" width="600" height="40" rx="6" fill="#1e293b" stroke="#334155"/>
-      <circle cx="14" cy="20" r="5" fill="#22d3ee"/>
-      <text x="28" y="25" fill="#e2e8f0" font-size="13" font-weight="600">Cursor / Windsurf</text>
-      <text x="160" y="25" fill="#ef4444" font-size="12">proprietär</text>
-      <text x="280" y="25" fill="#e2e8f0" font-size="12">IDE-First</text>
-      <text x="450" y="25" fill="#22d3ee" font-size="12">eigener Editor</text>
+    <g transform="translate(0,302)">
+      <rect x="0" y="0" width="530" height="50" fill="#1e293b" stroke="#334155"/>
+      <text x="12" y="22" font-size="13" font-weight="700" fill="#e2e8f0">Cursor / Windsurf</text>
+      <text x="12" y="40" font-size="11" fill="#94a3b8">Editor-Fork</text>
+      <text x="170" y="22" font-size="12" fill="#ef4444">proprietär</text>
+      <text x="270" y="22" font-size="12" fill="#e2e8f0">IDE-First</text>
+      <text x="270" y="40" font-size="11" fill="#94a3b8">GUI-Workflow</text>
+      <text x="410" y="22" font-size="12" fill="#a78bfa">Eigener Editor</text>
+      <text x="410" y="40" font-size="11" fill="#94a3b8">VSCode-Fork</text>
     </g>
 
     <!-- Gemini CLI -->
-    <g transform="translate(0,336)">
-      <rect x="0" y="0" width="600" height="40" rx="6" fill="#1e293b" stroke="#334155"/>
-      <circle cx="14" cy="20" r="5" fill="#f59e0b"/>
-      <text x="28" y="25" fill="#e2e8f0" font-size="13" font-weight="600">Gemini CLI</text>
-      <text x="160" y="25" fill="#10b981" font-size="12">Apache-2.0</text>
-      <text x="280" y="25" fill="#e2e8f0" font-size="12">Google-Stack</text>
-      <text x="450" y="25" fill="#fbbf24" font-size="12">großzügiger Free-Tier</text>
+    <g transform="translate(0,354)">
+      <rect x="0" y="0" width="530" height="50" fill="#1e293b" stroke="#334155"/>
+      <text x="12" y="22" font-size="13" font-weight="700" fill="#e2e8f0">Gemini CLI</text>
+      <text x="12" y="40" font-size="11" fill="#94a3b8">Google</text>
+      <text x="170" y="22" font-size="12" fill="#10b981">Apache-2.0</text>
+      <text x="270" y="22" font-size="12" fill="#e2e8f0">Google-Stack</text>
+      <text x="270" y="40" font-size="11" fill="#94a3b8">Gemini 2.x</text>
+      <text x="410" y="22" font-size="12" fill="#a78bfa">Grosser Free-Tier</text>
+      <text x="410" y="40" font-size="11" fill="#94a3b8">niedrige Hürde</text>
     </g>
 
-    <!-- Hinweisbox Verwechslung -->
-    <g transform="translate(0,410)">
-      <rect x="0" y="0" width="600" height="92" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.2"/>
-      <text x="16" y="24" fill="#fbbf24" font-size="13" font-weight="700">Verwechslungsgefahr</text>
-      <text x="16" y="46" fill="#e2e8f0" font-size="12">Codex-Modell (2021, Copilot-Basis) · deprecated 2023 — nicht dieselbe Sache.</text>
-      <text x="16" y="64" fill="#e2e8f0" font-size="12">Codex-Cloud (chatgpt.com/codex) · eigenes Produkt; interagiert nur mit der CLI.</text>
-      <text x="16" y="82" fill="#94a3b8" font-size="11">Diese Doku behandelt ausschließlich die lokale CLI @openai/codex (Rust-Binary).</text>
+    <!-- Warn-Box unten -->
+    <g transform="translate(0,420)">
+      <rect x="0" y="0" width="530" height="120" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="16" y="26" font-size="13" font-weight="700" fill="#f59e0b">Verwechslungsgefahr</text>
+      <text x="16" y="52" font-size="12" fill="#e2e8f0">· Altes Codex-Modell (2021, deprecated 2023) — nicht identisch!</text>
+      <text x="16" y="74" font-size="12" fill="#e2e8f0">· Codex-Cloud (chatgpt.com/codex) — eigenes Produkt, kein CLI.</text>
+      <text x="16" y="96" font-size="12" fill="#e2e8f0">· Doku bezieht sich auf lokale CLI (@openai/codex).</text>
     </g>
   </g>
 
-  <!-- Fußnote Legende -->
-  <g transform="translate(40,860)">
-    <rect x="0" y="-16" width="14" height="14" rx="3" fill="#6366f1"/>
-    <text x="22" y="-4" fill="#94a3b8" font-size="12">Kern / Agent-Loop</text>
-    <rect x="180" y="-16" width="14" height="14" rx="3" fill="#f59e0b"/>
-    <text x="202" y="-4" fill="#94a3b8" font-size="12">Sicherheit / Sandbox</text>
-    <rect x="360" y="-16" width="14" height="14" rx="3" fill="#22d3ee"/>
-    <text x="382" y="-4" fill="#94a3b8" font-size="12">Integration / Provider</text>
-    <rect x="560" y="-16" width="14" height="14" rx="3" fill="#10b981"/>
-    <text x="582" y="-4" fill="#94a3b8" font-size="12">Lizenz / Open Source</text>
-    <rect x="760" y="-16" width="14" height="14" rx="3" fill="#a78bfa"/>
-    <text x="782" y="-4" fill="#94a3b8" font-size="12">Ergänzende Funktion</text>
+  <!-- Footer -->
+  <g transform="translate(40,840)">
+    <rect x="0" y="0" width="18" height="18" fill="#6366f1"/>
+    <text x="26" y="14" font-size="12" fill="#94a3b8">Agent</text>
+    <rect x="90" y="0" width="18" height="18" fill="#f59e0b"/>
+    <text x="116" y="14" font-size="12" fill="#94a3b8">Sandbox</text>
+    <rect x="200" y="0" width="18" height="18" fill="#22d3ee"/>
+    <text x="226" y="14" font-size="12" fill="#94a3b8">Provider/Cloud</text>
+    <rect x="350" y="0" width="18" height="18" fill="#10b981"/>
+    <text x="376" y="14" font-size="12" fill="#94a3b8">Open / Erfolg</text>
+    <rect x="470" y="0" width="18" height="18" fill="#ef4444"/>
+    <text x="496" y="14" font-size="12" fill="#94a3b8">proprietär / Gefahr</text>
+    <rect x="650" y="0" width="18" height="18" fill="#a78bfa"/>
+    <text x="676" y="14" font-size="12" fill="#94a3b8">Highlight</text>
   </g>
 </svg>

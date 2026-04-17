@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Entscheidungs-Flowchart — Welches Tool passt?</title>
+  <desc>Binärer Entscheidungsbaum mit fünf Fragen zu Kernel-Sandbox, 1-M-Kontext, Hook-Events, MIT und Python sowie GitHub-Nativität. Jede Ja-Antwort führt zu einem Tool-Resultat.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Entscheidungs-Flowchart — Welches Tool?</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Binärer Baum · Weggabelung bei jeder Kernfrage · Endknoten = empfohlenes Tool</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 8 · Entscheidung</text>
+
+  <defs>
+    <marker id="arrFlow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Start -->
+  <g transform="translate(700,150)">
+    <rect x="-170" y="-40" width="340" height="80" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <text x="0" y="-8" font-size="14" font-weight="700" fill="#e2e8f0" text-anchor="middle">Frage 1</text>
+    <text x="0" y="18" font-size="15" fill="#e2e8f0" text-anchor="middle">Kernel-Sandbox + autonome Multi-Hour-Tasks?</text>
+  </g>
+
+  <!-- Left (ja) → Codex -->
+  <g transform="translate(210,300)">
+    <rect x="-130" y="-40" width="260" height="100" rx="14" fill="#1e1b4b" stroke="#6366f1" stroke-width="2.5"/>
+    <text x="0" y="-10" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Codex CLI</text>
+    <text x="0" y="12" font-size="11" fill="#c7d2fe" text-anchor="middle">Kernel-Sandbox · Multi-Hour</text>
+    <text x="0" y="32" font-size="11" fill="#c7d2fe" text-anchor="middle">MCP Client + Server</text>
+    <text x="0" y="50" font-size="10" fill="#fbbf24" text-anchor="middle">Endknoten</text>
+  </g>
+  <!-- Verbindung start -> codex -->
+  <path d="M 560 160 L 340 280" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(430,210)">
+    <rect x="-18" y="-14" width="36" height="26" rx="6" fill="#064e3b" stroke="#10b981"/>
+    <text x="0" y="3" font-size="12" font-weight="700" fill="#6ee7b7" text-anchor="middle">ja</text>
+  </g>
+
+  <!-- Right (nein) → Frage 2 -->
+  <g transform="translate(1000,290)">
+    <rect x="-170" y="-40" width="340" height="80" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <text x="0" y="-8" font-size="14" font-weight="700" fill="#e2e8f0" text-anchor="middle">Frage 2</text>
+    <text x="0" y="18" font-size="14" fill="#e2e8f0" text-anchor="middle">1 M Kontext ohne Aufpreis?</text>
+  </g>
+  <path d="M 840 160 L 1000 245" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(930,210)">
+    <rect x="-20" y="-14" width="40" height="26" rx="6" fill="#450a0a" stroke="#ef4444"/>
+    <text x="0" y="3" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">nein</text>
+  </g>
+
+  <!-- F2 ja → Gemini -->
+  <g transform="translate(750,430)">
+    <rect x="-130" y="-40" width="260" height="80" rx="14" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+    <text x="0" y="-6" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Gemini CLI</text>
+    <text x="0" y="16" font-size="11" fill="#cffafe" text-anchor="middle">1 M Standard · Free-Tier</text>
+    <text x="0" y="34" font-size="10" fill="#fbbf24" text-anchor="middle">Endknoten</text>
+  </g>
+  <path d="M 920 330 L 830 400" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(845,355)">
+    <rect x="-18" y="-14" width="36" height="26" rx="6" fill="#064e3b" stroke="#10b981"/>
+    <text x="0" y="3" font-size="12" font-weight="700" fill="#6ee7b7" text-anchor="middle">ja</text>
+  </g>
+
+  <!-- F2 nein → Frage 3 -->
+  <g transform="translate(1180,440)">
+    <rect x="-170" y="-40" width="340" height="80" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <text x="0" y="-8" font-size="14" font-weight="700" fill="#e2e8f0" text-anchor="middle">Frage 3</text>
+    <text x="0" y="18" font-size="13" fill="#e2e8f0" text-anchor="middle">17 Hooks / Extended Thinking?</text>
+  </g>
+  <path d="M 1080 330 L 1170 400" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(1145,360)">
+    <rect x="-20" y="-14" width="40" height="26" rx="6" fill="#450a0a" stroke="#ef4444"/>
+    <text x="0" y="3" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">nein</text>
+  </g>
+
+  <!-- F3 ja → Claude -->
+  <g transform="translate(1000,580)">
+    <rect x="-130" y="-40" width="260" height="80" rx="14" fill="#2e1065" stroke="#a78bfa" stroke-width="2"/>
+    <text x="0" y="-6" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Claude Code</text>
+    <text x="0" y="16" font-size="11" fill="#ddd6fe" text-anchor="middle">17 Hooks · Extended Thinking</text>
+    <text x="0" y="34" font-size="10" fill="#fbbf24" text-anchor="middle">Endknoten</text>
+  </g>
+  <path d="M 1140 480 L 1050 545" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(1075,505)">
+    <rect x="-18" y="-14" width="36" height="26" rx="6" fill="#064e3b" stroke="#10b981"/>
+    <text x="0" y="3" font-size="12" font-weight="700" fill="#6ee7b7" text-anchor="middle">ja</text>
+  </g>
+
+  <!-- F3 nein → Frage 4 -->
+  <g transform="translate(1290,620)">
+    <rect x="-110" y="-40" width="220" height="80" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <text x="0" y="-8" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="middle">Frage 4</text>
+    <text x="0" y="16" font-size="12" fill="#e2e8f0" text-anchor="middle">MIT + Python + Minimal?</text>
+  </g>
+  <path d="M 1240 480 L 1285 580" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(1275,528)">
+    <rect x="-20" y="-14" width="40" height="26" rx="6" fill="#450a0a" stroke="#ef4444"/>
+    <text x="0" y="3" font-size="12" font-weight="700" fill="#fca5a5" text-anchor="middle">nein</text>
+  </g>
+
+  <!-- F4 ja → Aider -->
+  <g transform="translate(1150,760)">
+    <rect x="-120" y="-40" width="240" height="80" rx="14" fill="#022c22" stroke="#10b981" stroke-width="2"/>
+    <text x="0" y="-6" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Aider</text>
+    <text x="0" y="16" font-size="11" fill="#a7f3d0" text-anchor="middle">MIT · Python · Minimal-Agent</text>
+    <text x="0" y="34" font-size="10" fill="#fbbf24" text-anchor="middle">Endknoten</text>
+  </g>
+  <path d="M 1270 660 L 1180 725" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(1200,685)">
+    <rect x="-18" y="-14" width="36" height="26" rx="6" fill="#064e3b" stroke="#10b981"/>
+    <text x="0" y="3" font-size="12" font-weight="700" fill="#6ee7b7" text-anchor="middle">ja</text>
+  </g>
+
+  <!-- F4 nein → Frage 5 -->
+  <!-- Positionierung rechts unten -->
+  <!-- Zur Platzausnutzung setze F5 linkslastig bei (260,580) -->
+  <g transform="translate(260,540)">
+    <rect x="-130" y="-40" width="260" height="80" rx="14" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <text x="0" y="-8" font-size="14" font-weight="700" fill="#e2e8f0" text-anchor="middle">Frage 5</text>
+    <text x="0" y="16" font-size="13" fill="#e2e8f0" text-anchor="middle">GitHub-Nativ?</text>
+  </g>
+  <!-- verbinde F4 nein an F5 (lange Kurve nach links) -->
+  <path d="M 1310 660 Q 1350 820 700 830 Q 260 820 260 585" stroke="#ef4444" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(700,842)">
+    <rect x="-28" y="-12" width="56" height="22" rx="6" fill="#450a0a" stroke="#ef4444"/>
+    <text x="0" y="4" font-size="11" font-weight="700" fill="#fca5a5" text-anchor="middle">nein</text>
+  </g>
+
+  <!-- F5 ja → Copilot -->
+  <g transform="translate(260,720)">
+    <rect x="-130" y="-40" width="260" height="80" rx="14" fill="#451a03" stroke="#f59e0b" stroke-width="2"/>
+    <text x="0" y="-6" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Copilot CLI</text>
+    <text x="0" y="16" font-size="11" fill="#fde68a" text-anchor="middle">GitHub-Nativ · Issue/PR</text>
+    <text x="0" y="34" font-size="10" fill="#fbbf24" text-anchor="middle">Endknoten</text>
+  </g>
+  <path d="M 260 590 L 260 680" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrFlow)"/>
+  <g transform="translate(260,635)">
+    <rect x="-18" y="-14" width="36" height="26" rx="6" fill="#064e3b" stroke="#10b981"/>
+    <text x="0" y="3" font-size="12" font-weight="700" fill="#6ee7b7" text-anchor="middle">ja</text>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,790)" font-size="12">
+    <text fill="#e2e8f0" font-size="14" font-weight="600">Metapher: Weggabelung</text>
+    <text y="22" fill="#94a3b8">Jede grüne Kante = ja, jede rote Kante = nein. Endknoten zeigen das empfohlene Tool.</text>
+    <g transform="translate(0,42)">
+      <line x1="0" y1="0" x2="24" y2="0" stroke="#10b981" stroke-width="2.5" marker-end="url(#arrFlow)"/>
+      <text x="36" y="4" fill="#e2e8f0">ja</text>
+      <line x1="80" y1="0" x2="104" y2="0" stroke="#ef4444" stroke-width="2.5" marker-end="url(#arrFlow)"/>
+      <text x="116" y="4" fill="#e2e8f0">nein</text>
+    </g>
+  </g>
+</svg>

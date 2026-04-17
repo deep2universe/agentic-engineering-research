@@ -1,0 +1,252 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI — Kurz-Referenz Sandbox &amp; Approval</title>
+  <desc>Kompakte Dual-Matrix aus Sandbox-Werten (read-only, workspace-write, danger-full-access) und Approval-Werten (untrusted, on-request, on-failure, never). Convenience-Flag full-auto hervorgehoben.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Kurz-Referenz — Sandbox &amp; Approval</text>
+  <text x="40" y="84" font-size="16" fill="#94a3b8">Sicherheits-Dashboard: zwei Regler, ein Convenience-Flag · Details in sicherheit_und_sandboxing.md</text>
+  <text x="1360" y="56" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 7</text>
+
+  <!-- LINKS: Sandbox-Werte (Ampel-Board) -->
+  <g transform="translate(40,130)">
+    <rect x="0" y="0" width="420" height="560" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="420" height="44" rx="14" fill="#334155"/>
+    <text x="16" y="28" font-size="16" font-weight="700" fill="#e2e8f0">--sandbox</text>
+    <text x="130" y="28" font-size="13" fill="#94a3b8">Datei- &amp; Netz-Zugriffs-Regler</text>
+
+    <!-- read-only -->
+    <g transform="translate(16,64)">
+      <rect x="0" y="0" width="388" height="140" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+      <circle cx="22" cy="22" r="10" fill="#10b981"/>
+      <text x="44" y="26" font-size="15" font-weight="700" fill="#6ee7b7">read-only</text>
+      <text x="240" y="26" font-size="11" fill="#94a3b8">Ampel: GRÜN</text>
+      <text x="12" y="58" font-size="12" fill="#e2e8f0">Lesen erlaubt · keine Writes · kein Netz.</text>
+      <text x="12" y="80" font-size="12" fill="#e2e8f0">Einsatz: Audits, Code-Walks, Recherche.</text>
+      <text x="12" y="104" font-family="'JetBrains Mono', monospace" font-size="11" fill="#6ee7b7">codex --sandbox read-only</text>
+      <text x="12" y="126" font-size="11" fill="#94a3b8">Default in vielen Enterprise-Setups</text>
+    </g>
+
+    <!-- workspace-write -->
+    <g transform="translate(16,212)">
+      <rect x="0" y="0" width="388" height="140" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <circle cx="22" cy="22" r="10" fill="#f59e0b"/>
+      <text x="44" y="26" font-size="15" font-weight="700" fill="#fde68a">workspace-write</text>
+      <text x="240" y="26" font-size="11" fill="#94a3b8">Ampel: GELB</text>
+      <text x="12" y="58" font-size="12" fill="#e2e8f0">Writes nur im cwd &amp; /tmp · eingeschränktes Netz.</text>
+      <text x="12" y="80" font-size="12" fill="#e2e8f0">Einsatz: Alltag im Projekt-Ordner.</text>
+      <text x="12" y="104" font-family="'JetBrains Mono', monospace" font-size="11" fill="#fde68a">codex --sandbox workspace-write</text>
+      <text x="12" y="126" font-size="11" fill="#94a3b8">Default bei Interactive-TUI</text>
+    </g>
+
+    <!-- danger-full-access -->
+    <g transform="translate(16,360)">
+      <rect x="0" y="0" width="388" height="140" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+      <circle cx="22" cy="22" r="10" fill="#ef4444"/>
+      <text x="44" y="26" font-size="15" font-weight="700" fill="#fca5a5">danger-full-access</text>
+      <text x="240" y="26" font-size="11" fill="#94a3b8">Ampel: ROT</text>
+      <text x="12" y="58" font-size="12" fill="#e2e8f0">Kein Sandboxing · voller FS- und Netz-Zugriff.</text>
+      <text x="12" y="80" font-size="12" fill="#e2e8f0">Einsatz: nur in isolierten VMs / Devcontainern.</text>
+      <text x="12" y="104" font-family="'JetBrains Mono', monospace" font-size="11" fill="#fca5a5">codex --sandbox danger-full-access</text>
+      <text x="12" y="126" font-size="11" fill="#fbbf24">Mit Bedacht — bei Host-Kompromittierung irreversibel</text>
+    </g>
+
+    <!-- Footnote -->
+    <text x="16" y="530" font-size="11" fill="#94a3b8">Kernel-Durchsetzung: Seatbelt (mac) · Landlock+seccomp (linux) · AppContainer (win)</text>
+  </g>
+
+  <!-- MITTE: Kreuz-Matrix (Dual) -->
+  <g transform="translate(490,130)">
+    <rect x="0" y="0" width="420" height="560" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="420" height="44" rx="14" fill="#334155"/>
+    <text x="16" y="28" font-size="16" font-weight="700" fill="#e2e8f0">Kombinations-Matrix</text>
+    <text x="200" y="28" font-size="11" fill="#94a3b8">Sandbox × Approval</text>
+
+    <!-- Spaltenköpfe (Approval) -->
+    <g transform="translate(80,70)" font-size="10">
+      <g><rect x="0" y="0" width="78" height="44" fill="#334155"/><text x="39" y="18" text-anchor="middle" font-weight="700" fill="#e2e8f0">untrusted</text><text x="39" y="34" text-anchor="middle" fill="#94a3b8">sehr strikt</text></g>
+      <g transform="translate(80,0)"><rect x="0" y="0" width="78" height="44" fill="#334155"/><text x="39" y="18" text-anchor="middle" font-weight="700" fill="#e2e8f0">on-request</text><text x="39" y="34" text-anchor="middle" fill="#94a3b8">Agent fragt</text></g>
+      <g transform="translate(160,0)"><rect x="0" y="0" width="78" height="44" fill="#334155"/><text x="39" y="18" text-anchor="middle" font-weight="700" fill="#e2e8f0">on-failure</text><text x="39" y="34" text-anchor="middle" fill="#94a3b8">nur bei Fehler</text></g>
+      <g transform="translate(240,0)"><rect x="0" y="0" width="78" height="44" fill="#7f1d1d"/><text x="39" y="18" text-anchor="middle" font-weight="700" fill="#fecaca">never</text><text x="39" y="34" text-anchor="middle" fill="#fca5a5">volle Autonomie</text></g>
+    </g>
+
+    <!-- Zeilenköpfe (Sandbox) + Zellen -->
+    <g transform="translate(16,118)">
+      <!-- Zeile 1: read-only -->
+      <g>
+        <rect x="0" y="0" width="64" height="60" fill="#064e3b"/>
+        <text x="32" y="26" text-anchor="middle" font-size="10" fill="#6ee7b7">read-only</text>
+        <text x="32" y="44" text-anchor="middle" font-size="9" fill="#a7f3d0">gruen</text>
+
+        <g transform="translate(64,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#6ee7b7">Audit</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">sehr sicher</text>
+        </g>
+        <g transform="translate(144,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#6ee7b7">Read+ask</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">Standard-Audit</text>
+        </g>
+        <g transform="translate(224,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#64748b">n/a</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">keine Writes</text>
+        </g>
+        <g transform="translate(304,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#6ee7b7">Autonom-RO</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">Monitor-Bots</text>
+        </g>
+      </g>
+
+      <!-- Zeile 2: workspace-write -->
+      <g transform="translate(0,64)">
+        <rect x="0" y="0" width="64" height="60" fill="#78350f"/>
+        <text x="32" y="26" text-anchor="middle" font-size="10" fill="#fde68a">workspace</text>
+        <text x="32" y="40" text-anchor="middle" font-size="10" fill="#fde68a">-write</text>
+        <text x="32" y="54" text-anchor="middle" font-size="9" fill="#fcd34d">gelb</text>
+
+        <g transform="translate(64,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#fde68a">strikt-TUI</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">jede Aktion</text>
+        </g>
+        <g transform="translate(144,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+          <text x="39" y="22" text-anchor="middle" font-size="10" font-weight="700" fill="#c7d2fe">full-auto</text>
+          <text x="39" y="36" text-anchor="middle" font-size="9" fill="#94a3b8">= Default</text>
+          <text x="39" y="50" text-anchor="middle" font-size="9" fill="#a5b4fc">interaktiv</text>
+        </g>
+        <g transform="translate(224,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#fde68a">selten nach</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">Tool-Error</text>
+        </g>
+        <g transform="translate(304,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#fcd34d">CI/Headless</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">exec-Alltag</text>
+        </g>
+      </g>
+
+      <!-- Zeile 3: danger-full-access -->
+      <g transform="translate(0,128)">
+        <rect x="0" y="0" width="64" height="60" fill="#7f1d1d"/>
+        <text x="32" y="26" text-anchor="middle" font-size="10" fill="#fecaca">danger-full</text>
+        <text x="32" y="40" text-anchor="middle" font-size="10" fill="#fecaca">-access</text>
+        <text x="32" y="54" text-anchor="middle" font-size="9" fill="#fca5a5">rot</text>
+
+        <g transform="translate(64,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#64748b">selten</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">wenig Sinn</text>
+        </g>
+        <g transform="translate(144,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#fbbf24">Power-User</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">mit Kontrolle</text>
+        </g>
+        <g transform="translate(224,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#0f172a" stroke="#334155"/>
+          <text x="39" y="24" text-anchor="middle" font-size="10" fill="#64748b">selten</text>
+          <text x="39" y="40" text-anchor="middle" font-size="9" fill="#94a3b8">unklar</text>
+        </g>
+        <g transform="translate(304,0)">
+          <rect x="0" y="0" width="78" height="60" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+          <text x="39" y="22" text-anchor="middle" font-size="10" font-weight="700" fill="#fca5a5">yolo</text>
+          <text x="39" y="36" text-anchor="middle" font-size="9" fill="#fecaca">nur VM!</text>
+          <text x="39" y="50" text-anchor="middle" font-size="9" fill="#fca5a5">bypass</text>
+        </g>
+      </g>
+    </g>
+
+    <text x="16" y="358" font-size="12" font-weight="700" fill="#c7d2fe">Heatmap-Lesart</text>
+    <text x="16" y="380" font-size="11" fill="#e2e8f0">· Grün = safe · Indigo = Default · Rot = nur in Isolation</text>
+    <text x="16" y="400" font-size="11" fill="#e2e8f0">· Markierte Zelle: </text>
+    <text x="150" y="400" font-family="'JetBrains Mono', monospace" font-size="11" fill="#c7d2fe">--full-auto</text>
+    <text x="228" y="400" font-size="11" fill="#e2e8f0">(workspace-write × on-request)</text>
+
+    <!-- Convenience-Flag -->
+    <g transform="translate(16,420)">
+      <rect x="0" y="0" width="388" height="108" rx="10" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+      <text x="16" y="26" font-size="14" font-weight="700" fill="#c7d2fe">Convenience-Flag</text>
+      <text x="16" y="52" font-family="'JetBrains Mono', monospace" font-size="14" fill="#f5f3ff">--full-auto</text>
+      <text x="16" y="76" font-size="11" fill="#a5b4fc">Kurzform für: --sandbox workspace-write</text>
+      <text x="16" y="94" font-size="11" fill="#a5b4fc">                   --ask-for-approval on-request</text>
+    </g>
+  </g>
+
+  <!-- RECHTS: Approval-Werte -->
+  <g transform="translate(940,130)">
+    <rect x="0" y="0" width="420" height="560" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="420" height="44" rx="14" fill="#334155"/>
+    <text x="16" y="28" font-size="16" font-weight="700" fill="#e2e8f0">--ask-for-approval</text>
+    <text x="190" y="28" font-size="13" fill="#94a3b8">Wann fragt der Agent?</text>
+
+    <!-- untrusted -->
+    <g transform="translate(16,64)">
+      <rect x="0" y="0" width="388" height="110" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+      <text x="16" y="26" font-size="15" font-weight="700" fill="#6ee7b7">untrusted</text>
+      <text x="300" y="26" font-size="11" fill="#94a3b8">sehr strikt</text>
+      <text x="16" y="50" font-size="12" fill="#e2e8f0">Agent fragt vor jeder untrusted-Aktion.</text>
+      <text x="16" y="70" font-size="12" fill="#e2e8f0">Lange Bestätigungs-Schleifen möglich.</text>
+      <text x="16" y="92" font-size="11" fill="#94a3b8">Einsatz: erste Tage, fremder Code.</text>
+    </g>
+
+    <!-- on-request -->
+    <g transform="translate(16,186)">
+      <rect x="0" y="0" width="388" height="110" rx="10" fill="#0f172a" stroke="#6366f1" stroke-width="2"/>
+      <text x="16" y="26" font-size="15" font-weight="700" fill="#c7d2fe">on-request</text>
+      <text x="300" y="26" font-size="11" fill="#94a3b8">Standard</text>
+      <text x="16" y="50" font-size="12" fill="#e2e8f0">Agent entscheidet, wann Zustimmung nötig ist.</text>
+      <text x="16" y="70" font-size="12" fill="#e2e8f0">Balance aus Autonomie &amp; Kontrolle.</text>
+      <text x="16" y="92" font-size="11" fill="#94a3b8">Einsatz: normaler Entwicklungs-Alltag.</text>
+    </g>
+
+    <!-- on-failure -->
+    <g transform="translate(16,308)">
+      <rect x="0" y="0" width="388" height="110" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <text x="16" y="26" font-size="15" font-weight="700" fill="#fde68a">on-failure</text>
+      <text x="300" y="26" font-size="11" fill="#94a3b8">opportunistisch</text>
+      <text x="16" y="50" font-size="12" fill="#e2e8f0">Agent fragt nur, wenn Tool-Aufruf fehlschlägt.</text>
+      <text x="16" y="70" font-size="12" fill="#e2e8f0">Erlaubt z. B. sudo-Retry.</text>
+      <text x="16" y="92" font-size="11" fill="#94a3b8">Einsatz: Troubleshooting, Recovery.</text>
+    </g>
+
+    <!-- never -->
+    <g transform="translate(16,430)">
+      <rect x="0" y="0" width="388" height="110" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+      <text x="16" y="26" font-size="15" font-weight="700" fill="#fca5a5">never</text>
+      <text x="300" y="26" font-size="11" fill="#94a3b8">volle Autonomie</text>
+      <text x="16" y="50" font-size="12" fill="#e2e8f0">Nie fragen — Fehler beenden den Task.</text>
+      <text x="16" y="70" font-size="12" fill="#e2e8f0">Kombiniert gern mit read-only für Sicherheit.</text>
+      <text x="16" y="92" font-size="11" fill="#fbbf24">Einsatz: CI/Headless, codex exec --full-auto</text>
+    </g>
+  </g>
+
+  <!-- Footer Hinweis-Box -->
+  <g transform="translate(40,720)">
+    <rect x="0" y="0" width="1320" height="140" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="0" y="0" width="1320" height="36" rx="14" fill="#581c87" opacity="0.6"/>
+    <text x="16" y="24" font-size="14" font-weight="700" fill="#ddd6fe">Hinweis — dies ist nur die Kurz-Referenz</text>
+
+    <g transform="translate(16,52)" font-size="12">
+      <text x="0" y="0" fill="#e2e8f0">· Vollständige Erläuterung zu Kernel-Mechanismen, Bypass-Flags, policy_whitelist, audit-Hooks und Threat-Model:</text>
+      <text x="0" y="24" fill="#e2e8f0">· siehe </text>
+      <text x="56" y="24" font-family="'JetBrains Mono', monospace" fill="#c4b5fd">sicherheit_und_sandboxing.md</text>
+      <text x="270" y="24" fill="#94a3b8">— dort: Defense-in-Depth, Exploit-Pfade, Enterprise-Setup.</text>
+      <text x="0" y="48" fill="#e2e8f0">· Kombinations-Regel: </text>
+      <text x="170" y="48" font-family="'JetBrains Mono', monospace" fill="#fde68a">--full-auto</text>
+      <text x="254" y="48" fill="#e2e8f0"> überschreibt Defaults · Config-Keys: </text>
+      <text x="510" y="48" font-family="'JetBrains Mono', monospace" fill="#a5b4fc">sandbox_mode</text>
+      <text x="608" y="48" fill="#e2e8f0"> &amp; </text>
+      <text x="630" y="48" font-family="'JetBrains Mono', monospace" fill="#a5b4fc">approval_policy</text>
+      <text x="756" y="48" fill="#e2e8f0"> in config.toml.</text>
+      <text x="0" y="72" fill="#fca5a5">· </text>
+      <text x="14" y="72" font-family="'JetBrains Mono', monospace" fill="#fca5a5">--dangerously-bypass-approvals-and-sandbox</text>
+      <text x="346" y="72" fill="#fca5a5"> existiert — </text>
+      <text x="432" y="72" fill="#e2e8f0">nur in VMs/Devcontainern verwenden.</text>
+    </g>
+  </g>
+</svg>
