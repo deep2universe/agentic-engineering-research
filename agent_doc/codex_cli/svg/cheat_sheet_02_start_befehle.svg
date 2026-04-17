@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Start-Befehle — Codex CLI Cockpit</title>
+  <desc>Befehls-Matrix in Cockpit-/Schaltpult-Metapher: codex, exec, resume, review, cloud, mcp serve, marketplace add, completion. Pro Befehl ein Icon und ein 1-Satz-Effekt.</desc>
+
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#172033"/>
+    </linearGradient>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0b1224"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg2)"/>
+
+  <!-- Titel -->
+  <text x="50" y="60" fill="#e2e8f0" font-size="32" font-weight="700">Start-Befehle</text>
+  <text x="50" y="90" fill="#94a3b8" font-size="15">Schaltpult — ein Griff, eine Wirkung</text>
+  <text x="1350" y="60" fill="#6366f1" font-size="14" font-weight="700" text-anchor="end">Codex CLI · 02</text>
+
+  <!-- Cockpit-Rahmen -->
+  <rect x="40" y="120" width="1320" height="720" rx="18" ry="18" fill="url(#panel)" stroke="#334155" stroke-width="1.5"/>
+  <!-- Top bar LEDs -->
+  <g transform="translate(60,140)">
+    <circle cx="0" cy="0" r="5" fill="#10b981"/>
+    <circle cx="14" cy="0" r="5" fill="#f59e0b"/>
+    <circle cx="28" cy="0" r="5" fill="#ef4444"/>
+    <text x="46" y="4" fill="#64748b" font-size="11" font-family="'JetBrains Mono',ui-monospace,monospace">codex console · v0.121+</text>
+  </g>
+
+  <!-- Generisches Kartentemplate wiederholen -->
+  <!-- 4 Spalten x 3 Zeilen = 12, wir brauchen 8 Hauptbefehle -->
+
+  <!-- Row 1 -->
+  <g transform="translate(70,180)">
+    <!-- codex -->
+    <g>
+      <rect width="300" height="170" rx="14" fill="#0f172a" stroke="#6366f1" stroke-width="1.5"/>
+      <g transform="translate(24,30)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#1e293b" stroke="#6366f1"/>
+        <text x="22" y="30" fill="#818cf8" font-size="22" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono',monospace">&gt;_</text>
+      </g>
+      <text x="84" y="56" fill="#e2e8f0" font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace">codex</text>
+      <text x="84" y="76" fill="#94a3b8" font-size="12">Interaktive TUI starten</text>
+      <text x="24" y="118" fill="#a5b4fc" font-size="12" font-family="'JetBrains Mono',monospace">codex "&lt;prompt&gt;"</text>
+      <text x="24" y="142" fill="#64748b" font-size="11">prefillt den ersten Turn</text>
+    </g>
+    <!-- codex exec -->
+    <g transform="translate(325,0)">
+      <rect width="300" height="170" rx="14" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+      <g transform="translate(24,30)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+        <path d="M10 14 L22 22 L10 30 Z" fill="#22d3ee"/>
+        <line x1="26" y1="32" x2="36" y2="32" stroke="#22d3ee" stroke-width="2"/>
+      </g>
+      <text x="84" y="56" fill="#e2e8f0" font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace">codex exec</text>
+      <text x="84" y="76" fill="#94a3b8" font-size="12">Nicht-interaktiv · pipe-fähig</text>
+      <text x="24" y="118" fill="#67e8f9" font-size="12" font-family="'JetBrains Mono',monospace">codex exec --json "&lt;p&gt;"</text>
+      <text x="24" y="142" fill="#64748b" font-size="11">JSONL-Events auf stdout</text>
+    </g>
+    <!-- codex resume -->
+    <g transform="translate(650,0)">
+      <rect width="300" height="170" rx="14" fill="#0f172a" stroke="#a78bfa" stroke-width="1.5"/>
+      <g transform="translate(24,30)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+        <path d="M14 22 a8 8 0 1 1 0 0.1" fill="none" stroke="#a78bfa" stroke-width="2.5"/>
+        <path d="M14 14 L14 22 L22 26" stroke="#a78bfa" stroke-width="2.5" fill="none"/>
+      </g>
+      <text x="84" y="56" fill="#e2e8f0" font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace">codex resume</text>
+      <text x="84" y="76" fill="#94a3b8" font-size="12">Session-Picker, --last direkt</text>
+      <text x="24" y="118" fill="#c4b5fd" font-size="12" font-family="'JetBrains Mono',monospace">codex resume --last</text>
+      <text x="24" y="142" fill="#64748b" font-size="11">liest ~/.codex/sessions/*.jsonl</text>
+    </g>
+    <!-- codex review -->
+    <g transform="translate(975,0)">
+      <rect width="300" height="170" rx="14" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+      <g transform="translate(24,30)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#1e293b" stroke="#10b981"/>
+        <path d="M12 22 L20 30 L34 16" stroke="#10b981" stroke-width="3" fill="none"/>
+      </g>
+      <text x="84" y="56" fill="#e2e8f0" font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace">codex review</text>
+      <text x="84" y="76" fill="#94a3b8" font-size="12">Dedizierter Review-Lauf</text>
+      <text x="24" y="118" fill="#6ee7b7" font-size="12" font-family="'JetBrains Mono',monospace">codex review --base main</text>
+      <text x="24" y="142" fill="#64748b" font-size="11">read-only Self-Review</text>
+    </g>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(70,370)">
+    <!-- codex cloud -->
+    <g>
+      <rect width="300" height="170" rx="14" fill="#0f172a" stroke="#06b6d4" stroke-width="1.5"/>
+      <g transform="translate(24,30)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#1e293b" stroke="#06b6d4"/>
+        <path d="M12 28 a6 6 0 0 1 6 -10 a8 8 0 0 1 15 2 a5 5 0 0 1 0 10 z" fill="#06b6d4" opacity="0.8"/>
+      </g>
+      <text x="84" y="56" fill="#e2e8f0" font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace">codex cloud</text>
+      <text x="84" y="76" fill="#94a3b8" font-size="12">Task an Remote-Env delegieren</text>
+      <text x="24" y="118" fill="#67e8f9" font-size="12" font-family="'JetBrains Mono',monospace">cloud exec --env &lt;id&gt;</text>
+      <text x="24" y="142" fill="#64748b" font-size="11">list · logs · pull &lt;id&gt;</text>
+    </g>
+    <!-- codex mcp serve -->
+    <g transform="translate(325,0)">
+      <rect width="300" height="170" rx="14" fill="#0f172a" stroke="#6366f1" stroke-width="1.5"/>
+      <g transform="translate(24,30)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#1e293b" stroke="#6366f1"/>
+        <rect x="10" y="14" width="24" height="6" fill="#818cf8"/>
+        <rect x="10" y="24" width="24" height="6" fill="#818cf8" opacity="0.7"/>
+        <rect x="10" y="34" width="24" height="4" fill="#818cf8" opacity="0.4"/>
+      </g>
+      <text x="84" y="56" fill="#e2e8f0" font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace">codex mcp serve</text>
+      <text x="84" y="76" fill="#94a3b8" font-size="12">Codex als MCP-Server exponieren</text>
+      <text x="24" y="118" fill="#a5b4fc" font-size="12" font-family="'JetBrains Mono',monospace">mcp add | list | remove</text>
+      <text x="24" y="142" fill="#64748b" font-size="11">stdio/HTTP · Tool-Schnittstelle</text>
+    </g>
+    <!-- marketplace add -->
+    <g transform="translate(650,0)">
+      <rect width="300" height="170" rx="14" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+      <g transform="translate(24,30)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#1e293b" stroke="#f59e0b"/>
+        <path d="M10 16 h24 v6 h-24 z M12 22 v16 h20 v-16" fill="none" stroke="#f59e0b" stroke-width="2"/>
+        <line x1="22" y1="22" x2="22" y2="38" stroke="#f59e0b" stroke-width="2"/>
+      </g>
+      <text x="84" y="56" fill="#e2e8f0" font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace">marketplace add</text>
+      <text x="84" y="76" fill="#94a3b8" font-size="12">Plugin/Skill installieren</text>
+      <text x="24" y="118" fill="#fcd34d" font-size="12" font-family="'JetBrains Mono',monospace">marketplace add &lt;name&gt;</text>
+      <text x="24" y="142" fill="#64748b" font-size="11">Skills &amp; Custom-Slash-Commands</text>
+    </g>
+    <!-- codex completion -->
+    <g transform="translate(975,0)">
+      <rect width="300" height="170" rx="14" fill="#0f172a" stroke="#94a3b8" stroke-width="1.5"/>
+      <g transform="translate(24,30)">
+        <rect x="0" y="0" width="44" height="44" rx="8" fill="#1e293b" stroke="#94a3b8"/>
+        <text x="22" y="30" fill="#cbd5e1" font-size="18" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono',monospace">⇥</text>
+      </g>
+      <text x="84" y="56" fill="#e2e8f0" font-size="18" font-weight="700" font-family="'JetBrains Mono',monospace">codex completion</text>
+      <text x="84" y="76" fill="#94a3b8" font-size="12">Shell-Completion ausgeben</text>
+      <text x="24" y="118" fill="#cbd5e1" font-size="12" font-family="'JetBrains Mono',monospace">completion bash|zsh|fish</text>
+      <text x="24" y="142" fill="#64748b" font-size="11">source &lt; &lt;(codex completion zsh)</text>
+    </g>
+  </g>
+
+  <!-- Hebel-Reihe als Cockpit-Bezug -->
+  <g transform="translate(70,580)">
+    <text x="0" y="0" fill="#94a3b8" font-size="13" font-weight="700" letter-spacing="2">SCHALT-HEBEL · Modi &amp; Signale</text>
+    <line x1="0" y1="12" x2="1260" y2="12" stroke="#334155"/>
+    <!-- Hebel-Karten -->
+    <g transform="translate(0,30)">
+      <!-- codex exec --json -->
+      <rect width="300" height="110" rx="12" fill="#0b1324" stroke="#334155"/>
+      <text x="20" y="30" fill="#818cf8" font-size="13" font-weight="700">I/O · JSON-Stream</text>
+      <text x="20" y="58" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono',monospace">codex exec --json \</text>
+      <text x="20" y="78" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono',monospace">  --output-schema s.json</text>
+      <text x="20" y="98" fill="#64748b" font-size="11">strukturierter Output für CI/Pipes</text>
+    </g>
+    <g transform="translate(325,30)">
+      <rect width="300" height="110" rx="12" fill="#0b1324" stroke="#334155"/>
+      <text x="20" y="30" fill="#67e8f9" font-size="13" font-weight="700">HEADLESS · --oss</text>
+      <text x="20" y="58" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono',monospace">codex --oss \</text>
+      <text x="20" y="78" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono',monospace">  -m llama-3.3-70b</text>
+      <text x="20" y="98" fill="#64748b" font-size="11">lokal via Ollama/LM Studio</text>
+    </g>
+    <g transform="translate(650,30)">
+      <rect width="300" height="110" rx="12" fill="#0b1324" stroke="#334155"/>
+      <text x="20" y="30" fill="#fbbf24" font-size="13" font-weight="700">BILDER · -i</text>
+      <text x="20" y="58" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono',monospace">codex -i mock.png \</text>
+      <text x="20" y="78" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono',monospace">  "baue diese UI"</text>
+      <text x="20" y="98" fill="#64748b" font-size="11">Multimodal-Prompt mit PNG/JPG</text>
+    </g>
+    <g transform="translate(975,30)">
+      <rect width="300" height="110" rx="12" fill="#0b1324" stroke="#334155"/>
+      <text x="20" y="30" fill="#6ee7b7" font-size="13" font-weight="700">PROFIL · -p</text>
+      <text x="20" y="58" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono',monospace">codex -p review</text>
+      <text x="20" y="78" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono',monospace">codex -p planning</text>
+      <text x="20" y="98" fill="#64748b" font-size="11">Voreinstellungen aus config.toml</text>
+    </g>
+  </g>
+
+  <!-- Footer-Hinweis -->
+  <g transform="translate(70,760)">
+    <rect width="1260" height="60" rx="10" fill="#0b1324" stroke="#334155"/>
+    <text x="20" y="26" fill="#94a3b8" font-size="12" font-weight="700" letter-spacing="1">LEGENDE</text>
+    <circle cx="120" cy="22" r="5" fill="#6366f1"/><text x="132" y="26" fill="#cbd5e1" font-size="12">Kern-Cmd</text>
+    <circle cx="220" cy="22" r="5" fill="#22d3ee"/><text x="232" y="26" fill="#cbd5e1" font-size="12">Non-Interactive</text>
+    <circle cx="360" cy="22" r="5" fill="#a78bfa"/><text x="372" y="26" fill="#cbd5e1" font-size="12">Session</text>
+    <circle cx="460" cy="22" r="5" fill="#10b981"/><text x="472" y="26" fill="#cbd5e1" font-size="12">Review</text>
+    <circle cx="550" cy="22" r="5" fill="#06b6d4"/><text x="562" y="26" fill="#cbd5e1" font-size="12">Cloud</text>
+    <circle cx="630" cy="22" r="5" fill="#f59e0b"/><text x="642" y="26" fill="#cbd5e1" font-size="12">Extension</text>
+    <circle cx="740" cy="22" r="5" fill="#94a3b8"/><text x="752" y="26" fill="#cbd5e1" font-size="12">Shell-Integration</text>
+    <text x="1248" y="46" fill="#64748b" font-size="11" text-anchor="end">ein Befehl → ein klarer Nebeneffekt</text>
+  </g>
+</svg>

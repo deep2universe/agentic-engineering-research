@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Install &amp; Login — Installationspfade und Auth-Switch der Codex CLI</title>
+  <desc>Flowchart mit drei Installationswegen (npm, brew, cargo/binary) und einem Auth-Switch zwischen OAuth und API-Key. Metapher: Schlüsselbund und Tür.</desc>
+
+  <defs>
+    <marker id="arrow1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowOk" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrowWarn" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <linearGradient id="gBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111a30"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="720" fill="url(#gBg)"/>
+
+  <!-- Titel -->
+  <text x="40" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Install &amp; Login</text>
+  <text x="40" y="88" fill="#94a3b8" font-size="15">Drei Installations-Pfade · zwei Auth-Wege · ein Schlüsselbund</text>
+  <text x="1160" y="60" fill="#6366f1" font-size="14" font-weight="700" text-anchor="end">Codex CLI · 01</text>
+
+  <!-- Spalte 1: Installation -->
+  <text x="70" y="140" fill="#818cf8" font-size="14" font-weight="700" letter-spacing="2">INSTALL</text>
+  <line x1="70" y1="150" x2="380" y2="150" stroke="#334155" stroke-width="1"/>
+
+  <!-- npm card -->
+  <g>
+    <rect x="70" y="170" width="310" height="110" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <circle cx="100" cy="200" r="14" fill="#6366f1"/>
+    <text x="100" y="205" fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle">npm</text>
+    <text x="128" y="198" fill="#e2e8f0" font-size="15" font-weight="600">npm — global</text>
+    <text x="128" y="218" fill="#94a3b8" font-size="12">Node &gt;= 18, einfach in CI/dev</text>
+    <text x="90" y="252" fill="#a5b4fc" font-size="13" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace">npm install -g @openai/codex</text>
+  </g>
+
+  <!-- brew card -->
+  <g>
+    <rect x="70" y="300" width="310" height="110" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <circle cx="100" cy="330" r="14" fill="#22d3ee"/>
+    <text x="100" y="335" fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle">brew</text>
+    <text x="128" y="328" fill="#e2e8f0" font-size="15" font-weight="600">Homebrew — macOS</text>
+    <text x="128" y="348" fill="#94a3b8" font-size="12">Signiertes Cask, auto-update</text>
+    <text x="90" y="382" fill="#67e8f9" font-size="13" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace">brew install --cask codex</text>
+  </g>
+
+  <!-- cargo/binary card -->
+  <g>
+    <rect x="70" y="430" width="310" height="110" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <circle cx="100" cy="460" r="14" fill="#a78bfa"/>
+    <text x="100" y="465" fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle">bin</text>
+    <text x="128" y="458" fill="#e2e8f0" font-size="15" font-weight="600">cargo / pre-built Binary</text>
+    <text x="128" y="478" fill="#94a3b8" font-size="12">Linux/BSD, offline, pinned</text>
+    <text x="90" y="512" fill="#c4b5fd" font-size="13" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace">cargo install codex-cli</text>
+  </g>
+
+  <!-- Sammel-Pfeile zum Schlüsselbund -->
+  <path d="M 380 225 C 450 225, 470 360, 520 360" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow1)"/>
+  <path d="M 380 355 L 520 360" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow1)"/>
+  <path d="M 380 485 C 450 485, 470 360, 520 360" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow1)"/>
+
+  <!-- Schlüsselbund -->
+  <g transform="translate(540,300)">
+    <text x="80" y="-18" fill="#f59e0b" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="2">SCHLÜSSELBUND</text>
+    <!-- Ring -->
+    <circle cx="80" cy="60" r="42" fill="none" stroke="#f59e0b" stroke-width="4"/>
+    <circle cx="80" cy="60" r="8" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/>
+    <!-- Schlüssel 1 OAuth -->
+    <g transform="translate(18,110) rotate(-20)">
+      <rect x="0" y="-6" width="60" height="12" rx="3" fill="#6366f1"/>
+      <rect x="55" y="-10" width="6" height="8" fill="#6366f1"/>
+      <rect x="55" y="2" width="6" height="8" fill="#6366f1"/>
+      <circle cx="-6" cy="0" r="10" fill="none" stroke="#6366f1" stroke-width="4"/>
+      <text x="30" y="-14" fill="#e2e8f0" font-size="11" font-weight="600" text-anchor="middle">OAuth</text>
+    </g>
+    <!-- Schlüssel 2 API-Key -->
+    <g transform="translate(18,30) rotate(18)">
+      <rect x="0" y="-6" width="60" height="12" rx="3" fill="#f59e0b"/>
+      <rect x="55" y="-10" width="6" height="8" fill="#f59e0b"/>
+      <rect x="55" y="2" width="6" height="8" fill="#f59e0b"/>
+      <circle cx="-6" cy="0" r="10" fill="none" stroke="#f59e0b" stroke-width="4"/>
+      <text x="30" y="22" fill="#e2e8f0" font-size="11" font-weight="600" text-anchor="middle">API-Key</text>
+    </g>
+  </g>
+
+  <!-- Spalte 3: Auth-Switch -->
+  <text x="720" y="140" fill="#818cf8" font-size="14" font-weight="700" letter-spacing="2">AUTH-SWITCH</text>
+  <line x1="720" y1="150" x2="1130" y2="150" stroke="#334155" stroke-width="1"/>
+
+  <!-- OAuth Box -->
+  <g>
+    <rect x="720" y="170" width="410" height="120" rx="12" ry="12" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="740" y="198" fill="#818cf8" font-size="13" font-weight="700" letter-spacing="1">A · CHATGPT-OAUTH</text>
+    <text x="740" y="222" fill="#e2e8f0" font-size="14">Browser-Login, interaktiv, plan-gebunden</text>
+    <text x="740" y="250" fill="#a5b4fc" font-size="13" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace">codex login</text>
+    <text x="740" y="272" fill="#a5b4fc" font-size="13" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace">codex login --device-auth  # SSH/Headless</text>
+  </g>
+
+  <!-- API-Key Box -->
+  <g>
+    <rect x="720" y="310" width="410" height="120" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="740" y="338" fill="#fbbf24" font-size="13" font-weight="700" letter-spacing="1">B · API-KEY (ENV)</text>
+    <text x="740" y="362" fill="#e2e8f0" font-size="14">Headless / CI, pay-per-token, überschreibt OAuth</text>
+    <text x="740" y="390" fill="#fcd34d" font-size="13" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace">export OPENAI_API_KEY=sk-...</text>
+    <text x="740" y="412" fill="#fcd34d" font-size="13" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace">export CODEX_API_KEY=sk-...   # CI-freundlich</text>
+  </g>
+
+  <!-- Warn: OAuth silent override -->
+  <g>
+    <rect x="720" y="450" width="410" height="60" rx="10" ry="10" fill="#3a2512" stroke="#f59e0b"/>
+    <path d="M740 480 l10 -18 l10 18 z" fill="#f59e0b"/>
+    <text x="750" y="483" fill="#0f172a" font-size="12" font-weight="700" text-anchor="middle">!</text>
+    <text x="770" y="476" fill="#fbbf24" font-size="13" font-weight="700">Achtung: OPENAI_API_KEY überschreibt OAuth stillschweigend.</text>
+    <text x="770" y="498" fill="#fde68a" font-size="12">Vor codex login prüfen — sonst wird ungewollt der API-Key genutzt.</text>
+  </g>
+
+  <!-- Tür / Zielsystem -->
+  <g transform="translate(520,540)">
+    <text x="300" y="-10" fill="#10b981" font-size="14" font-weight="700" text-anchor="middle" letter-spacing="2">AUTHENTIFIZIERT · codex bereit</text>
+    <!-- Türrahmen -->
+    <rect x="220" y="0" width="160" height="140" rx="4" fill="#0b1324" stroke="#10b981" stroke-width="2"/>
+    <rect x="236" y="16" width="128" height="108" rx="2" fill="#1e293b" stroke="#334155"/>
+    <circle cx="352" cy="70" r="4" fill="#10b981"/>
+    <!-- Prompt Zeichen -->
+    <text x="300" y="80" fill="#10b981" font-size="28" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace">&gt; _</text>
+    <!-- Auth→Tür-Pfeile -->
+  </g>
+  <path d="M 925 290 C 870 480, 830 540, 820 560" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowOk)"/>
+  <path d="M 925 430 C 870 510, 840 560, 820 590" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowOk)"/>
+  <path d="M 660 380 C 700 520, 720 580, 740 600" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrowOk)"/>
+
+  <!-- Legende -->
+  <g transform="translate(40,650)">
+    <rect width="14" height="14" fill="#6366f1"/>
+    <text x="22" y="12" fill="#94a3b8" font-size="12">OAuth</text>
+    <rect x="90" width="14" height="14" fill="#f59e0b"/>
+    <text x="112" y="12" fill="#94a3b8" font-size="12">API-Key</text>
+    <rect x="190" width="14" height="14" fill="#10b981"/>
+    <text x="212" y="12" fill="#94a3b8" font-size="12">Authentifiziert</text>
+    <rect x="320" width="14" height="14" fill="#a78bfa"/>
+    <text x="342" y="12" fill="#94a3b8" font-size="12">Binary/Offline</text>
+  </g>
+  <text x="40" y="695" fill="#64748b" font-size="11">codex logout · entfernt ~/.codex/auth.json · setzt OAuth-Session zurück</text>
+</svg>
