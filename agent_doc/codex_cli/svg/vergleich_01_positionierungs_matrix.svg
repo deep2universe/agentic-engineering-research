@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Positionierungs-Matrix: Codex CLI vs. Claude Code, Gemini CLI, Aider, Copilot CLI</title>
+  <desc>Fünf Werkzeug-Karten im Vergleich mit Anbieter, Lizenz, Sprache, Modellen und USP. Codex CLI ist visuell hervorgehoben als Leitfigur auf der Werkzeug-Landkarte.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Titel -->
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Positionierungs-Matrix · Terminal-first Coding-Agenten</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="15">Werkzeug-Landkarte · Codex CLI als Leitfigur · Stand Q1/2026</text>
+  <text x="1340" y="60" fill="#6366f1" font-size="16" font-weight="600" text-anchor="end">Kapitel 1</text>
+
+  <!-- Spaltenköpfe -->
+  <g font-size="13" fill="#94a3b8" font-weight="600">
+    <text x="305" y="140">Anbieter</text>
+    <text x="465" y="140">Lizenz</text>
+    <text x="615" y="140">Sprache</text>
+    <text x="775" y="140">Modelle</text>
+    <text x="1055" y="140">USP · Alleinstellung</text>
+  </g>
+  <line x1="60" y1="150" x2="1340" y2="150" stroke="#334155" stroke-width="1"/>
+
+  <!-- Codex CLI (hervorgehoben) -->
+  <g>
+    <rect x="60" y="170" width="1280" height="130" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2.5" filter="url(#glow)"/>
+    <rect x="60" y="170" width="6" height="130" fill="#6366f1"/>
+    <!-- Schachfigur König (Codex als Leitfigur) -->
+    <g transform="translate(100,235)" fill="#818cf8">
+      <circle r="26" fill="#312e81" stroke="#6366f1" stroke-width="2"/>
+      <path d="M -14 10 L 14 10 L 12 -4 L -12 -4 Z" fill="#818cf8"/>
+      <rect x="-3" y="-18" width="6" height="10" fill="#818cf8"/>
+      <rect x="-9" y="-15" width="18" height="4" fill="#818cf8"/>
+    </g>
+    <text x="150" y="215" fill="#e2e8f0" font-size="20" font-weight="700">Codex CLI</text>
+    <text x="150" y="238" fill="#a78bfa" font-size="12" font-weight="600">LEITFIGUR · Kernel-Sandbox</text>
+    <text x="305" y="215" fill="#e2e8f0" font-size="14">OpenAI</text>
+    <text x="465" y="215" fill="#10b981" font-size="14" font-weight="600">Apache-2.0</text>
+    <text x="615" y="215" fill="#f59e0b" font-size="14" font-weight="600">Rust</text>
+    <text x="775" y="215" fill="#e2e8f0" font-size="13">GPT-5.3-Codex + Spark</text>
+    <text x="775" y="233" fill="#94a3b8" font-size="12">GPT-5.2/5.1/5-Codex · o3 · OSS</text>
+    <text x="1055" y="215" fill="#e2e8f0" font-size="13">Kernel-Sandbox (Seatbelt/Landlock)</text>
+    <text x="1055" y="233" fill="#94a3b8" font-size="12">Multi-Hour autonom · Cloud-Handoff</text>
+    <text x="1055" y="251" fill="#94a3b8" font-size="12">AGENTS.md-Standard · Rust-Kern</text>
+  </g>
+
+  <!-- Claude Code -->
+  <g>
+    <rect x="60" y="320" width="1280" height="110" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="60" y="320" width="6" height="110" fill="#a78bfa"/>
+    <g transform="translate(100,375)">
+      <circle r="22" fill="#2e1065" stroke="#a78bfa" stroke-width="2"/>
+      <path d="M -10 -10 L 0 10 L 10 -10 Z" fill="#a78bfa"/>
+    </g>
+    <text x="150" y="360" fill="#e2e8f0" font-size="19" font-weight="700">Claude Code</text>
+    <text x="150" y="380" fill="#94a3b8" font-size="12">Kollaborativ · 17 Hooks</text>
+    <text x="305" y="365" fill="#e2e8f0" font-size="14">Anthropic</text>
+    <text x="465" y="365" fill="#ef4444" font-size="14">proprietär</text>
+    <text x="615" y="365" fill="#22d3ee" font-size="14">TypeScript</text>
+    <text x="775" y="365" fill="#e2e8f0" font-size="13">Claude 4.7 / 4.6</text>
+    <text x="775" y="383" fill="#94a3b8" font-size="12">Opus · Sonnet · Haiku</text>
+    <text x="1055" y="365" fill="#e2e8f0" font-size="13">Tiefes Reasoning · 17 Hook-Events</text>
+    <text x="1055" y="383" fill="#94a3b8" font-size="12">Skill-System · Interleaved Thinking</text>
+  </g>
+
+  <!-- Gemini CLI -->
+  <g>
+    <rect x="60" y="450" width="1280" height="110" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="60" y="450" width="6" height="110" fill="#22d3ee"/>
+    <g transform="translate(100,505)">
+      <circle r="22" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M 0 -12 L 8 0 L 0 12 L -8 0 Z" fill="#22d3ee"/>
+    </g>
+    <text x="150" y="490" fill="#e2e8f0" font-size="19" font-weight="700">Gemini CLI</text>
+    <text x="150" y="510" fill="#94a3b8" font-size="12">1M Kontext · Free-Tier</text>
+    <text x="305" y="495" fill="#e2e8f0" font-size="14">Google</text>
+    <text x="465" y="495" fill="#10b981" font-size="14" font-weight="600">Apache-2.0</text>
+    <text x="615" y="495" fill="#22d3ee" font-size="14">TypeScript</text>
+    <text x="775" y="495" fill="#e2e8f0" font-size="13">Gemini 2.5 / 3 Pro</text>
+    <text x="775" y="513" fill="#94a3b8" font-size="12">Standard 1M Tokens</text>
+    <text x="1055" y="495" fill="#e2e8f0" font-size="13">1M-Token-Kontext nativ</text>
+    <text x="1055" y="513" fill="#94a3b8" font-size="12">Großzügiger Free-Tier · Vertex AI</text>
+  </g>
+
+  <!-- Aider -->
+  <g>
+    <rect x="60" y="580" width="1280" height="110" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="60" y="580" width="6" height="110" fill="#10b981"/>
+    <g transform="translate(100,635)">
+      <circle r="22" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+      <path d="M -10 0 L 0 -10 L 10 0 L 0 10 Z M -10 0 L 10 0" stroke="#10b981" stroke-width="2" fill="none"/>
+      <circle r="3" fill="#10b981"/>
+    </g>
+    <text x="150" y="620" fill="#e2e8f0" font-size="19" font-weight="700">Aider</text>
+    <text x="150" y="640" fill="#94a3b8" font-size="12">Git-zentriert · Minimal</text>
+    <text x="305" y="625" fill="#e2e8f0" font-size="14">Community</text>
+    <text x="465" y="625" fill="#10b981" font-size="14" font-weight="600">MIT</text>
+    <text x="615" y="625" fill="#fbbf24" font-size="14">Python</text>
+    <text x="775" y="625" fill="#e2e8f0" font-size="13">provider-agnostisch</text>
+    <text x="775" y="643" fill="#94a3b8" font-size="12">OpenAI · Anthropic · Ollama · …</text>
+    <text x="1055" y="625" fill="#e2e8f0" font-size="13">Git-zentriert · Auto-Commits</text>
+    <text x="1055" y="643" fill="#94a3b8" font-size="12">Minimal-Agent · maximale Offenheit</text>
+  </g>
+
+  <!-- Copilot CLI -->
+  <g>
+    <rect x="60" y="710" width="1280" height="110" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="60" y="710" width="6" height="110" fill="#f59e0b"/>
+    <g transform="translate(100,765)">
+      <circle r="22" fill="#451a03" stroke="#f59e0b" stroke-width="2"/>
+      <circle r="8" fill="#f59e0b"/>
+      <path d="M -14 -6 Q 0 -16 14 -6" stroke="#f59e0b" stroke-width="2" fill="none"/>
+    </g>
+    <text x="150" y="750" fill="#e2e8f0" font-size="19" font-weight="700">GitHub Copilot CLI</text>
+    <text x="150" y="770" fill="#94a3b8" font-size="12">GitHub-Nativ · Preview</text>
+    <text x="305" y="755" fill="#e2e8f0" font-size="14">GitHub / Microsoft</text>
+    <text x="465" y="755" fill="#ef4444" font-size="14">proprietär</text>
+    <text x="615" y="755" fill="#22d3ee" font-size="14">TypeScript</text>
+    <text x="775" y="755" fill="#e2e8f0" font-size="13">GPT- + Claude-Modelle</text>
+    <text x="775" y="773" fill="#94a3b8" font-size="12">via Copilot-Routing</text>
+    <text x="1055" y="755" fill="#e2e8f0" font-size="13">Issue/PR/Repo-native Workflows</text>
+    <text x="1055" y="773" fill="#94a3b8" font-size="12">Enterprise-Integration mit GH-Seats</text>
+  </g>
+
+  <!-- Legende unten -->
+  <g transform="translate(60,850)" font-size="12" fill="#94a3b8">
+    <rect x="0" y="-10" width="14" height="14" rx="3" fill="#6366f1"/>
+    <text x="22" y="1">Codex</text>
+    <rect x="90" y="-10" width="14" height="14" rx="3" fill="#a78bfa"/>
+    <text x="112" y="1">Claude</text>
+    <rect x="180" y="-10" width="14" height="14" rx="3" fill="#22d3ee"/>
+    <text x="202" y="1">Gemini</text>
+    <rect x="270" y="-10" width="14" height="14" rx="3" fill="#10b981"/>
+    <text x="292" y="1">Aider</text>
+    <rect x="350" y="-10" width="14" height="14" rx="3" fill="#f59e0b"/>
+    <text x="372" y="1">Copilot</text>
+    <text x="1340" y="1" fill="#475569" text-anchor="end">Metapher · Schachfiguren auf der Werkzeug-Landkarte</text>
+  </g>
+
+  <defs>
+    <filter id="glow" x="-5%" y="-20%" width="110%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+</svg>

@@ -1,0 +1,177 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI — Meilensteine 04/2025 bis 04/2026</title>
+  <desc>Horizontaler Zeitstrahl mit zwölf Meilensteinen: CLI-Release, Codex-Cloud, Rust-Rewrite, brew-Release, GPT-5-Codex, 5.1-Max, 5.2, 5.3, Enterprise-Features, Pricing-Umstellung, v0.121.0. Ereigniskategorien nach Modell, CLI, Plattform und Business farbkodiert.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Titel -->
+  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">Kurz-Historie · Meilensteine</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="15">Ein Jahr Codex CLI — von 04/2025 bis 04/2026 · bleibt im 0.x-Schema</text>
+  <text x="1360" y="54" fill="#818cf8" font-size="13" text-anchor="end" font-weight="600">Kapitel 2</text>
+
+  <!-- Legende -->
+  <g transform="translate(40,120)">
+    <rect x="0" y="0" width="14" height="14" rx="3" fill="#6366f1"/>
+    <text x="22" y="12" fill="#cbd5e1" font-size="13">Modell</text>
+    <rect x="120" y="0" width="14" height="14" rx="3" fill="#22d3ee"/>
+    <text x="142" y="12" fill="#cbd5e1" font-size="13">CLI / Release</text>
+    <rect x="280" y="0" width="14" height="14" rx="3" fill="#10b981"/>
+    <text x="302" y="12" fill="#cbd5e1" font-size="13">Plattform</text>
+    <rect x="420" y="0" width="14" height="14" rx="3" fill="#f59e0b"/>
+    <text x="442" y="12" fill="#cbd5e1" font-size="13">Business / Pricing</text>
+  </g>
+
+  <!-- Zeitachse -->
+  <g>
+    <line x1="80" y1="480" x2="1340" y2="480" stroke="#334155" stroke-width="2"/>
+    <!-- Monats-Ticks -->
+    <g stroke="#475569" stroke-width="1" fill="#64748b" font-size="11" text-anchor="middle">
+      <line x1="80" y1="474" x2="80" y2="486"/><text x="80" y="508">04 / 2025</text>
+      <line x1="186" y1="474" x2="186" y2="486"/><text x="186" y="508">06 / 2025</text>
+      <line x1="291" y1="474" x2="291" y2="486"/><text x="291" y="508">08 / 2025</text>
+      <line x1="397" y1="474" x2="397" y2="486"/><text x="397" y="508">10 / 2025</text>
+      <line x1="502" y1="474" x2="502" y2="486"/><text x="502" y="508">12 / 2025</text>
+      <line x1="608" y1="474" x2="608" y2="486"/><text x="608" y="508">02 / 2026</text>
+      <line x1="713" y1="474" x2="713" y2="486"/><text x="713" y="508">04 / 2026</text>
+    </g>
+  </g>
+
+  <!-- Meilensteine (oben und unten abwechselnd) -->
+  <!-- Helper: Position = 80 + (tage_seit_apr25 / 365) * 1260 -->
+
+  <!-- 16.04.2025 - CLI-Release (CLI) -->
+  <g>
+    <line x1="90" y1="480" x2="90" y2="300" stroke="#22d3ee" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="90" cy="480" r="7" fill="#22d3ee" stroke="#0f172a" stroke-width="2"/>
+    <rect x="30" y="220" width="180" height="80" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+    <text x="40" y="242" fill="#22d3ee" font-size="11" font-weight="700">16.04.2025 · CLI</text>
+    <text x="40" y="262" fill="#e2e8f0" font-size="12" font-weight="600">Erstes CLI-Release</text>
+    <text x="40" y="280" fill="#94a3b8" font-size="11">TypeScript · React Ink</text>
+    <text x="40" y="295" fill="#94a3b8" font-size="11">codex-mini API-Modell</text>
+  </g>
+
+  <!-- 16.05.2025 - Codex-Cloud (Plattform) -->
+  <g>
+    <line x1="142" y1="480" x2="142" y2="630" stroke="#10b981" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="142" cy="480" r="7" fill="#10b981" stroke="#0f172a" stroke-width="2"/>
+    <rect x="82" y="630" width="180" height="70" rx="10" fill="#1e293b" stroke="#10b981"/>
+    <text x="92" y="652" fill="#10b981" font-size="11" font-weight="700">16.05.2025 · Plattform</text>
+    <text x="92" y="672" fill="#e2e8f0" font-size="12" font-weight="600">Codex-Cloud (Preview)</text>
+    <text x="92" y="690" fill="#94a3b8" font-size="11">ChatGPT Pro/Business/Ent.</text>
+  </g>
+
+  <!-- Juni 2025 - Rust-Rewrite angekündigt (CLI) -->
+  <g>
+    <line x1="205" y1="480" x2="205" y2="330" stroke="#22d3ee" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="205" cy="480" r="7" fill="#22d3ee" stroke="#0f172a" stroke-width="2"/>
+    <rect x="220" y="220" width="175" height="95" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+    <text x="230" y="242" fill="#22d3ee" font-size="11" font-weight="700">06 / 2025 · CLI</text>
+    <text x="230" y="262" fill="#e2e8f0" font-size="12" font-weight="600">Rust-Rewrite</text>
+    <text x="230" y="280" fill="#94a3b8" font-size="11">"Going Native"</text>
+    <text x="230" y="295" fill="#94a3b8" font-size="11">Discussion #1174</text>
+    <text x="230" y="310" fill="#94a3b8" font-size="11">~95 % Rust-Codebase</text>
+  </g>
+
+  <!-- Juni 2025 - brew-Release (CLI) -->
+  <g>
+    <line x1="230" y1="480" x2="230" y2="700" stroke="#22d3ee" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="230" cy="480" r="7" fill="#22d3ee" stroke="#0f172a" stroke-width="2"/>
+    <rect x="282" y="700" width="170" height="70" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+    <text x="292" y="722" fill="#22d3ee" font-size="11" font-weight="700">06 / 2025 · CLI</text>
+    <text x="292" y="742" fill="#e2e8f0" font-size="12" font-weight="600">brew install codex</text>
+    <text x="292" y="760" fill="#94a3b8" font-size="11">v0.2.0 · Rust-Binary</text>
+  </g>
+
+  <!-- 23.09.2025 - GPT-5-Codex (Modell) -->
+  <g>
+    <line x1="360" y1="480" x2="360" y2="300" stroke="#6366f1" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="360" cy="480" r="8" fill="#6366f1" stroke="#0f172a" stroke-width="2"/>
+    <rect x="415" y="220" width="190" height="85" rx="10" fill="#1e293b" stroke="#6366f1"/>
+    <text x="425" y="242" fill="#818cf8" font-size="11" font-weight="700">23.09.2025 · Modell</text>
+    <text x="425" y="262" fill="#e2e8f0" font-size="12" font-weight="600">GPT-5-Codex</text>
+    <text x="425" y="280" fill="#94a3b8" font-size="11">agentic Coding</text>
+    <text x="425" y="295" fill="#94a3b8" font-size="11">Copilot-Rollout</text>
+  </g>
+
+  <!-- 19.11.2025 - GPT-5.1-Codex-Max (Modell) -->
+  <g>
+    <line x1="472" y1="480" x2="472" y2="640" stroke="#6366f1" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="472" cy="480" r="8" fill="#6366f1" stroke="#0f172a" stroke-width="2"/>
+    <rect x="462" y="640" width="200" height="80" rx="10" fill="#1e293b" stroke="#6366f1"/>
+    <text x="472" y="662" fill="#818cf8" font-size="11" font-weight="700">19.11.2025 · Modell</text>
+    <text x="472" y="682" fill="#e2e8f0" font-size="12" font-weight="600">GPT-5.1-Codex-Max</text>
+    <text x="472" y="700" fill="#94a3b8" font-size="11">Context-Compaction</text>
+    <text x="472" y="715" fill="#94a3b8" font-size="11">Projekt-Scale</text>
+  </g>
+
+  <!-- 18.12.2025 - GPT-5.2-Codex (Modell) -->
+  <g>
+    <line x1="535" y1="480" x2="535" y2="330" stroke="#6366f1" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="535" cy="480" r="8" fill="#6366f1" stroke="#0f172a" stroke-width="2"/>
+    <rect x="620" y="220" width="200" height="95" rx="10" fill="#1e293b" stroke="#6366f1"/>
+    <text x="630" y="242" fill="#818cf8" font-size="11" font-weight="700">18.12.2025 · Modell</text>
+    <text x="630" y="262" fill="#e2e8f0" font-size="12" font-weight="600">GPT-5.2-Codex</text>
+    <text x="630" y="280" fill="#94a3b8" font-size="11">nativer Windows-Support</text>
+    <text x="630" y="295" fill="#94a3b8" font-size="11">Cybersecurity-Skills</text>
+    <text x="630" y="310" fill="#94a3b8" font-size="11">AppContainer-Sandbox</text>
+  </g>
+
+  <!-- 05.02.2026 - GPT-5.3-Codex (Modell, Default) -->
+  <g>
+    <line x1="714" y1="480" x2="714" y2="640" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <circle cx="714" cy="480" r="10" fill="#6366f1" stroke="#818cf8" stroke-width="3"/>
+    <rect x="672" y="640" width="220" height="95" rx="10" fill="#312e81" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="682" y="662" fill="#818cf8" font-size="11" font-weight="700">05.02.2026 · Modell · DEFAULT</text>
+    <text x="682" y="682" fill="#e2e8f0" font-size="13" font-weight="700">GPT-5.3-Codex</text>
+    <text x="682" y="700" fill="#94a3b8" font-size="11">vereint GPT-5 + Codex-Training</text>
+    <text x="682" y="715" fill="#94a3b8" font-size="11">aktuelles Default-Modell</text>
+  </g>
+
+  <!-- 19.03.2026 - Enterprise-Features (Business) -->
+  <g>
+    <line x1="934" y1="480" x2="934" y2="300" stroke="#f59e0b" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="934" cy="480" r="7" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
+    <rect x="855" y="220" width="200" height="80" rx="10" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="865" y="242" fill="#fbbf24" font-size="11" font-weight="700">19.03.2026 · Business</text>
+    <text x="865" y="262" fill="#e2e8f0" font-size="12" font-weight="600">v0.116.0</text>
+    <text x="865" y="280" fill="#94a3b8" font-size="11">Enterprise-Features</text>
+    <text x="865" y="295" fill="#94a3b8" font-size="11">zentrale Governance</text>
+  </g>
+
+  <!-- 02.04.2026 - Pricing-Umstellung (Business) -->
+  <g>
+    <line x1="1157" y1="480" x2="1157" y2="640" stroke="#f59e0b" stroke-width="1.3" stroke-dasharray="3 3"/>
+    <circle cx="1157" cy="480" r="7" fill="#f59e0b" stroke="#0f172a" stroke-width="2"/>
+    <rect x="1070" y="640" width="200" height="80" rx="10" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="1080" y="662" fill="#fbbf24" font-size="11" font-weight="700">02.04.2026 · Business</text>
+    <text x="1080" y="682" fill="#e2e8f0" font-size="12" font-weight="600">Pricing-Umstellung</text>
+    <text x="1080" y="700" fill="#94a3b8" font-size="11">API-Token-Usage-Modell</text>
+    <text x="1080" y="715" fill="#94a3b8" font-size="11">Promo bis 31.05.2026</text>
+  </g>
+
+  <!-- 15.04.2026 - v0.121.0 (CLI) -->
+  <g>
+    <line x1="1293" y1="480" x2="1293" y2="300" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <circle cx="1293" cy="480" r="9" fill="#22d3ee" stroke="#0f172a" stroke-width="2"/>
+    <rect x="1185" y="210" width="205" height="110" rx="10" fill="#083344" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="1195" y="232" fill="#22d3ee" font-size="11" font-weight="700">15.04.2026 · CLI · AKTUELL</text>
+    <text x="1195" y="252" fill="#e2e8f0" font-size="13" font-weight="700">v0.121.0</text>
+    <text x="1195" y="270" fill="#94a3b8" font-size="11">codex marketplace add</text>
+    <text x="1195" y="285" fill="#94a3b8" font-size="11">Ctrl+R Reverse-Search</text>
+    <text x="1195" y="300" fill="#94a3b8" font-size="11">Devcontainer-Sandbox</text>
+    <text x="1195" y="315" fill="#94a3b8" font-size="11">MCP-Apps Tool-Calls</text>
+  </g>
+
+  <!-- Heute-Marker -->
+  <g>
+    <line x1="1308" y1="440" x2="1308" y2="520" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="2 4"/>
+    <text x="1308" y="432" fill="#ef4444" font-size="11" font-weight="700" text-anchor="middle">HEUTE</text>
+    <text x="1308" y="536" fill="#ef4444" font-size="10" text-anchor="middle">17.04.2026</text>
+  </g>
+
+  <!-- Unterster Hinweis -->
+  <g transform="translate(40,830)">
+    <rect x="0" y="-20" width="1320" height="40" rx="8" fill="#1e293b" stroke="#334155"/>
+    <text x="16" y="6" fill="#94a3b8" font-size="12">Das Projekt bleibt im 0.x-Schema — keine 1.0 bis April 2026. Wöchentliche Releases, ~67 k Stars, 400+ Contributors.</text>
+  </g>
+</svg>

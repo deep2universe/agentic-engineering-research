@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Architektur und Sandboxing: Heatmap-Vergleich der fünf Coding-Agenten</title>
+  <desc>Dichte-Matrix mit Sandbox, Approval, Sub-Agents, Hooks und MCP-Support. Grün = stark, Gelb = mittel, Rot = fehlt. Codex CLI dominiert die Sicherheits-Achse.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Architektur &amp; Sandboxing · Dichte-Matrix</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="15">Heatmap über fünf Kern-Dimensionen · grün = stark, gelb = mittel, rot = fehlt</text>
+  <text x="1340" y="60" fill="#6366f1" font-size="16" font-weight="600" text-anchor="end">Kapitel 2</text>
+
+  <!-- Zeilenköpfe (Dimensionen) -->
+  <g font-size="14" fill="#e2e8f0" font-weight="600">
+    <text x="270" y="215" text-anchor="end">Sandbox</text>
+    <text x="270" y="305" text-anchor="end">Approval-Modell</text>
+    <text x="270" y="395" text-anchor="end">Sub-Agents</text>
+    <text x="270" y="485" text-anchor="end">Hooks</text>
+    <text x="270" y="575" text-anchor="end">MCP Client/Server</text>
+  </g>
+
+  <!-- Spaltenköpfe (Tools) -->
+  <g font-size="15" font-weight="700">
+    <g transform="translate(400,140)">
+      <rect x="-80" y="-30" width="160" height="40" rx="8" fill="#312e81" stroke="#6366f1" stroke-width="2"/>
+      <text x="0" y="-3" fill="#e2e8f0" text-anchor="middle">Codex CLI</text>
+    </g>
+    <g transform="translate(590,140)">
+      <rect x="-80" y="-30" width="160" height="40" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="0" y="-3" fill="#e2e8f0" text-anchor="middle">Claude Code</text>
+    </g>
+    <g transform="translate(780,140)">
+      <rect x="-80" y="-30" width="160" height="40" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="0" y="-3" fill="#e2e8f0" text-anchor="middle">Gemini CLI</text>
+    </g>
+    <g transform="translate(970,140)">
+      <rect x="-80" y="-30" width="160" height="40" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="0" y="-3" fill="#e2e8f0" text-anchor="middle">Aider</text>
+    </g>
+    <g transform="translate(1160,140)">
+      <rect x="-80" y="-30" width="160" height="40" rx="8" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="0" y="-3" fill="#e2e8f0" text-anchor="middle">Copilot CLI</text>
+    </g>
+  </g>
+
+  <!-- Heatmap-Zellen -->
+  <!-- Sandbox (y=180) -->
+  <g>
+    <rect x="320" y="180" width="160" height="70" rx="8" fill="#065f46" stroke="#10b981"/>
+    <text x="400" y="210" fill="#d1fae5" font-size="13" font-weight="700" text-anchor="middle">Kernel</text>
+    <text x="400" y="228" fill="#a7f3d0" font-size="11" text-anchor="middle">Seatbelt/Landlock</text>
+    <text x="400" y="242" fill="#a7f3d0" font-size="11" text-anchor="middle">AppContainer</text>
+  </g>
+  <g>
+    <rect x="510" y="180" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="590" y="215" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Allowlist</text>
+    <text x="590" y="233" fill="#fde68a" font-size="11" text-anchor="middle">+ Bind-Mount</text>
+  </g>
+  <g>
+    <rect x="700" y="180" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="780" y="220" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Allowlist</text>
+  </g>
+  <g>
+    <rect x="890" y="180" width="160" height="70" rx="8" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="970" y="220" fill="#fecaca" font-size="13" font-weight="700" text-anchor="middle">keine</text>
+  </g>
+  <g>
+    <rect x="1080" y="180" width="160" height="70" rx="8" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="1160" y="220" fill="#fecaca" font-size="13" font-weight="700" text-anchor="middle">keine</text>
+  </g>
+
+  <!-- Approval (y=270) -->
+  <g>
+    <rect x="320" y="270" width="160" height="70" rx="8" fill="#065f46" stroke="#10b981"/>
+    <text x="400" y="305" fill="#d1fae5" font-size="13" font-weight="700" text-anchor="middle">4 Stufen</text>
+    <text x="400" y="322" fill="#a7f3d0" font-size="11" text-anchor="middle">read·auto·on-fail·never</text>
+  </g>
+  <g>
+    <rect x="510" y="270" width="160" height="70" rx="8" fill="#065f46" stroke="#10b981"/>
+    <text x="590" y="305" fill="#d1fae5" font-size="13" font-weight="700" text-anchor="middle">Permissions</text>
+    <text x="590" y="322" fill="#a7f3d0" font-size="11" text-anchor="middle">+ Hooks</text>
+  </g>
+  <g>
+    <rect x="700" y="270" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="780" y="310" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">auto / ask</text>
+  </g>
+  <g>
+    <rect x="890" y="270" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="970" y="310" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">auto</text>
+  </g>
+  <g>
+    <rect x="1080" y="270" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="1160" y="310" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">auto / ask</text>
+  </g>
+
+  <!-- Sub-Agents (y=360) -->
+  <g>
+    <rect x="320" y="360" width="160" height="70" rx="8" fill="#065f46" stroke="#10b981"/>
+    <text x="400" y="395" fill="#d1fae5" font-size="13" font-weight="700" text-anchor="middle">ja</text>
+    <text x="400" y="412" fill="#a7f3d0" font-size="11" text-anchor="middle">via AGENTS.md</text>
+  </g>
+  <g>
+    <rect x="510" y="360" width="160" height="70" rx="8" fill="#065f46" stroke="#10b981"/>
+    <text x="590" y="395" fill="#d1fae5" font-size="13" font-weight="700" text-anchor="middle">ja</text>
+    <text x="590" y="412" fill="#a7f3d0" font-size="11" text-anchor="middle">Task-Tool · SDK</text>
+  </g>
+  <g>
+    <rect x="700" y="360" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="780" y="395" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">eingeschränkt</text>
+  </g>
+  <g>
+    <rect x="890" y="360" width="160" height="70" rx="8" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="970" y="400" fill="#fecaca" font-size="13" font-weight="700" text-anchor="middle">nein</text>
+  </g>
+  <g>
+    <rect x="1080" y="360" width="160" height="70" rx="8" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="1160" y="400" fill="#fecaca" font-size="13" font-weight="700" text-anchor="middle">nein</text>
+  </g>
+
+  <!-- Hooks (y=450) -->
+  <g>
+    <rect x="320" y="450" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="400" y="485" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">notify</text>
+    <text x="400" y="502" fill="#fde68a" font-size="11" text-anchor="middle">nur turn-end</text>
+  </g>
+  <g>
+    <rect x="510" y="450" width="160" height="70" rx="8" fill="#064e3b" stroke="#34d399"/>
+    <text x="590" y="485" fill="#d1fae5" font-size="13" font-weight="700" text-anchor="middle">17 Events</text>
+    <text x="590" y="502" fill="#a7f3d0" font-size="11" text-anchor="middle">pre/post · Stop · …</text>
+  </g>
+  <g>
+    <rect x="700" y="450" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="780" y="490" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">limitiert</text>
+  </g>
+  <g>
+    <rect x="890" y="450" width="160" height="70" rx="8" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="970" y="490" fill="#fecaca" font-size="13" font-weight="700" text-anchor="middle">nein</text>
+  </g>
+  <g>
+    <rect x="1080" y="450" width="160" height="70" rx="8" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="1160" y="490" fill="#fecaca" font-size="13" font-weight="700" text-anchor="middle">nein</text>
+  </g>
+
+  <!-- MCP (y=540) -->
+  <g>
+    <rect x="320" y="540" width="160" height="70" rx="8" fill="#064e3b" stroke="#34d399"/>
+    <text x="400" y="575" fill="#d1fae5" font-size="13" font-weight="700" text-anchor="middle">Client + Server</text>
+    <text x="400" y="592" fill="#a7f3d0" font-size="11" text-anchor="middle">bidirektional</text>
+  </g>
+  <g>
+    <rect x="510" y="540" width="160" height="70" rx="8" fill="#064e3b" stroke="#34d399"/>
+    <text x="590" y="575" fill="#d1fae5" font-size="13" font-weight="700" text-anchor="middle">Client + Server</text>
+    <text x="590" y="592" fill="#a7f3d0" font-size="11" text-anchor="middle">bidirektional</text>
+  </g>
+  <g>
+    <rect x="700" y="540" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="780" y="580" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Client</text>
+  </g>
+  <g>
+    <rect x="890" y="540" width="160" height="70" rx="8" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="970" y="580" fill="#fecaca" font-size="13" font-weight="700" text-anchor="middle">nein</text>
+  </g>
+  <g>
+    <rect x="1080" y="540" width="160" height="70" rx="8" fill="#78350f" stroke="#f59e0b"/>
+    <text x="1160" y="580" fill="#fef3c7" font-size="13" font-weight="700" text-anchor="middle">Client</text>
+  </g>
+
+  <!-- Scoring-Radar unten: Zusammenfassung -->
+  <g transform="translate(60,660)">
+    <rect x="0" y="0" width="1280" height="170" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="24" y="30" fill="#e2e8f0" font-size="16" font-weight="700">Aggregierte Sicherheits-Dichte (Sandbox + Approval + Sub-Agents + Hooks + MCP)</text>
+    <g font-size="13" fill="#94a3b8">
+      <!-- Codex -->
+      <text x="24" y="65" fill="#e2e8f0">Codex CLI</text>
+      <rect x="150" y="53" width="900" height="16" rx="3" fill="#0f172a"/>
+      <rect x="150" y="53" width="810" height="16" rx="3" fill="#6366f1"/>
+      <text x="1070" y="66" fill="#a5b4fc">9 / 10 · Security-Kern</text>
+      <!-- Claude -->
+      <text x="24" y="95" fill="#e2e8f0">Claude Code</text>
+      <rect x="150" y="83" width="900" height="16" rx="3" fill="#0f172a"/>
+      <rect x="150" y="83" width="720" height="16" rx="3" fill="#a78bfa"/>
+      <text x="1070" y="96" fill="#c4b5fd">8 / 10 · Kollab-Hooks</text>
+      <!-- Gemini -->
+      <text x="24" y="125" fill="#e2e8f0">Gemini CLI</text>
+      <rect x="150" y="113" width="900" height="16" rx="3" fill="#0f172a"/>
+      <rect x="150" y="113" width="450" height="16" rx="3" fill="#22d3ee"/>
+      <text x="1070" y="126" fill="#67e8f9">5 / 10 · Allowlist</text>
+      <!-- Aider -->
+      <text x="24" y="155" fill="#e2e8f0">Aider</text>
+      <rect x="150" y="143" width="900" height="16" rx="3" fill="#0f172a"/>
+      <rect x="150" y="143" width="180" height="16" rx="3" fill="#10b981"/>
+      <text x="1070" y="156" fill="#6ee7b7">2 / 10 · Minimal</text>
+    </g>
+  </g>
+
+  <!-- Legende Heatmap -->
+  <g transform="translate(60,855)" font-size="12" fill="#94a3b8">
+    <rect x="0" y="-12" width="16" height="16" rx="3" fill="#065f46" stroke="#10b981"/>
+    <text x="24" y="0">stark / vorhanden</text>
+    <rect x="180" y="-12" width="16" height="16" rx="3" fill="#78350f" stroke="#f59e0b"/>
+    <text x="204" y="0">mittel / eingeschränkt</text>
+    <rect x="380" y="-12" width="16" height="16" rx="3" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="404" y="0">fehlt / nein</text>
+    <text x="1340" y="0" fill="#475569" text-anchor="end">Metapher · Dichte-Matrix / Radar</text>
+  </g>
+</svg>
