@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Approval x Sandbox Matrix</title>
+  <desc>2D-Matrix der Approval-Policy (untrusted, on-request, on-failure, never) gegen Sandbox-Modus (read-only, workspace-write, danger-full-access) mit typischen Einsaetzen und Convenience-Flags fuer Codex CLI.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Titel -->
+  <text x="60" y="62" fill="#e2e8f0" font-size="30" font-weight="700">Approval x Sandbox - Das Safety-Radar</text>
+  <text x="60" y="92" fill="#94a3b8" font-size="15">Zwei unabhaengige Achsen bilden die vorkonfektionierte Sicherheits-Matrix der Codex CLI</text>
+  <text x="1260" y="62" fill="#94a3b8" font-size="14" text-anchor="end">Codex CLI - Kap. 1</text>
+
+  <!-- Achsen-Labels -->
+  <text x="700" y="150" fill="#fbbf24" font-size="17" font-weight="700" text-anchor="middle">Approval-Policy (--ask-for-approval)</text>
+  <text x="50" y="480" fill="#60a5fa" font-size="17" font-weight="700" text-anchor="middle" transform="rotate(-90 50 480)">Sandbox-Policy (--sandbox)</text>
+
+  <!-- Spalten-Header -->
+  <g font-size="14" fill="#e2e8f0" text-anchor="middle">
+    <rect x="240" y="170" width="260" height="50" rx="8" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="370" y="193" font-weight="700">untrusted</text>
+    <text x="370" y="211" fill="#94a3b8" font-size="12">fragt bei JEDER Op.</text>
+
+    <rect x="510" y="170" width="260" height="50" rx="8" fill="#1e293b" stroke="#fbbf24"/>
+    <text x="640" y="193" font-weight="700">on-request</text>
+    <text x="640" y="211" fill="#94a3b8" font-size="12">Agent entscheidet (Default)</text>
+
+    <rect x="780" y="170" width="260" height="50" rx="8" fill="#1e293b" stroke="#10b981"/>
+    <text x="910" y="193" font-weight="700">on-failure</text>
+    <text x="910" y="211" fill="#94a3b8" font-size="12">nur nach Sandbox-Block</text>
+
+    <rect x="1050" y="170" width="280" height="50" rx="8" fill="#1e293b" stroke="#ef4444"/>
+    <text x="1190" y="193" font-weight="700">never</text>
+    <text x="1190" y="211" fill="#94a3b8" font-size="12">niemals fragen</text>
+  </g>
+
+  <!-- Zeilen-Header -->
+  <g font-size="14" fill="#e2e8f0" text-anchor="middle">
+    <rect x="90" y="240" width="140" height="180" rx="8" fill="#1e293b" stroke="#60a5fa"/>
+    <text x="160" y="320" font-weight="700">read-only</text>
+    <text x="160" y="342" fill="#94a3b8" font-size="12">FS: nur lesen</text>
+    <text x="160" y="360" fill="#94a3b8" font-size="12">Netz: aus</text>
+
+    <rect x="90" y="430" width="140" height="180" rx="8" fill="#1e293b" stroke="#60a5fa"/>
+    <text x="160" y="510" font-weight="700">workspace-write</text>
+    <text x="160" y="532" fill="#94a3b8" font-size="12">FS: cwd + TMPDIR</text>
+    <text x="160" y="550" fill="#94a3b8" font-size="12">Netz: aus (togglebar)</text>
+
+    <rect x="90" y="620" width="140" height="180" rx="8" fill="#1e293b" stroke="#ef4444"/>
+    <text x="160" y="700" font-weight="700">danger-full</text>
+    <text x="160" y="718" font-weight="700">-access</text>
+    <text x="160" y="742" fill="#94a3b8" font-size="12">FS: frei</text>
+    <text x="160" y="760" fill="#94a3b8" font-size="12">Netz: an</text>
+  </g>
+
+  <!-- Zellen: read-only Zeile -->
+  <g font-size="13" fill="#e2e8f0" text-anchor="middle">
+    <rect x="240" y="240" width="260" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="370" y="280" font-weight="700" fill="#10b981">Max. Kontrolle</text>
+    <text x="370" y="310">Forensik, fremdes Repo</text>
+    <text x="370" y="332" fill="#94a3b8">Review ohne Trust</text>
+    <text x="370" y="380" fill="#94a3b8" font-size="11">Durchsatz: niedrig</text>
+
+    <rect x="510" y="240" width="260" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="640" y="280" font-weight="700" fill="#10b981">Safe-Explorer</text>
+    <text x="640" y="310">Code-Analyse interaktiv</text>
+    <text x="640" y="332" fill="#94a3b8">Agent fragt bei Risiko</text>
+    <text x="640" y="380" fill="#94a3b8" font-size="11">Balance</text>
+
+    <rect x="780" y="240" width="260" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="910" y="280" font-weight="700" fill="#10b981">Headless-Review</text>
+    <text x="910" y="310">kaum Eskalation</text>
+    <text x="910" y="332" fill="#94a3b8">Netz bleibt aus</text>
+    <text x="910" y="380" fill="#94a3b8" font-size="11">selten relevant</text>
+
+    <rect x="1050" y="240" width="280" height="180" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="1190" y="280" font-weight="700" fill="#10b981">codex exec Default</text>
+    <text x="1190" y="310">CI PR-Review</text>
+    <text x="1190" y="332" fill="#94a3b8">stumm &amp; sicher</text>
+    <text x="1190" y="380" fill="#10b981" font-size="11" font-weight="700">EMPFOHLEN fuer CI</text>
+  </g>
+
+  <!-- Zellen: workspace-write -->
+  <g font-size="13" fill="#e2e8f0" text-anchor="middle">
+    <rect x="240" y="430" width="260" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="370" y="470" font-weight="700" fill="#fbbf24">Extreme Paranoia</text>
+    <text x="370" y="500">fragt auch bei jedem</text>
+    <text x="370" y="518">Schreibzugriff</text>
+    <text x="370" y="560" fill="#94a3b8" font-size="11">impraktikabel</text>
+
+    <rect x="510" y="430" width="260" height="180" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <text x="640" y="470" font-weight="700" fill="#818cf8">Interaktiver Default</text>
+    <text x="640" y="500">taegliche Arbeit im TUI</text>
+    <text x="640" y="522" fill="#94a3b8">ausgewogen</text>
+    <text x="640" y="560" fill="#818cf8" font-size="11" font-weight="700">STANDARD</text>
+
+    <rect x="780" y="430" width="260" height="180" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="910" y="470" font-weight="700" fill="#f59e0b">--full-auto</text>
+    <text x="910" y="500">Autofix, langer Lauf</text>
+    <text x="910" y="522" fill="#94a3b8">eskaliert bei Block</text>
+    <text x="910" y="560" fill="#f59e0b" font-size="11" font-weight="700">CONVENIENCE-FLAG</text>
+
+    <rect x="1050" y="430" width="280" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="1190" y="470" font-weight="700" fill="#fbbf24">Autonome Runner-Jobs</text>
+    <text x="1190" y="500">kurzlebig, isoliert</text>
+    <text x="1190" y="522" fill="#94a3b8">VM empfohlen</text>
+    <text x="1190" y="560" fill="#94a3b8" font-size="11">Autofix CI</text>
+  </g>
+
+  <!-- Zellen: danger-full-access -->
+  <g font-size="13" fill="#e2e8f0" text-anchor="middle">
+    <rect x="240" y="620" width="260" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="370" y="660" font-weight="700" fill="#ef4444">unsinnig</text>
+    <text x="370" y="690">fragt alles ab, ohne</text>
+    <text x="370" y="708">Schutzschicht</text>
+    <text x="370" y="750" fill="#94a3b8" font-size="11">nicht empfohlen</text>
+
+    <rect x="510" y="620" width="260" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="640" y="660" font-weight="700" fill="#ef4444">riskant</text>
+    <text x="640" y="690">Netz + frei, Agent</text>
+    <text x="640" y="708">darf alles zwischendurch</text>
+    <text x="640" y="750" fill="#94a3b8" font-size="11">nur mit Wissen</text>
+
+    <rect x="780" y="620" width="260" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="910" y="660" font-weight="700" fill="#ef4444">unsinnig</text>
+    <text x="910" y="690">on-failure greift nie,</text>
+    <text x="910" y="708">weil Kernel nie blockt</text>
+    <text x="910" y="750" fill="#94a3b8" font-size="11">nicht empfohlen</text>
+
+    <rect x="1050" y="620" width="280" height="180" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="3"/>
+    <text x="1190" y="660" font-weight="700" fill="#ef4444">--yolo / --dangerously-</text>
+    <text x="1190" y="680" font-weight="700" fill="#ef4444">bypass-approvals</text>
+    <text x="1190" y="708">-and-sandbox</text>
+    <text x="1190" y="732" fill="#94a3b8">NUR in VM / Container</text>
+    <text x="1190" y="762" fill="#ef4444" font-size="11" font-weight="700">HOECHSTES RISIKO</text>
+  </g>
+
+  <!-- Legende -->
+  <g font-size="12" fill="#e2e8f0">
+    <rect x="60" y="830" width="1280" height="48" rx="8" fill="#1e293b" stroke="#334155"/>
+    <rect x="80" y="846" width="14" height="14" fill="#10b981"/><text x="102" y="858">sicher / empfohlen</text>
+    <rect x="240" y="846" width="14" height="14" fill="#818cf8"/><text x="262" y="858">Default interaktiv</text>
+    <rect x="400" y="846" width="14" height="14" fill="#f59e0b"/><text x="422" y="858">--full-auto Convenience</text>
+    <rect x="620" y="846" width="14" height="14" fill="#ef4444"/><text x="642" y="858">--yolo / nur VM</text>
+    <rect x="800" y="846" width="14" height="14" fill="#fbbf24"/><text x="822" y="858">Approval-Achse</text>
+    <rect x="980" y="846" width="14" height="14" fill="#60a5fa"/><text x="1002" y="858">Sandbox-Achse</text>
+  </g>
+</svg>

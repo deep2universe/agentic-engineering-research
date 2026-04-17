@@ -1,0 +1,159 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Top-Level-Keys als Schaltpult</title>
+  <desc>Config-Dashboard mit gruppierten Reglern für Modell, Sicherheit, Doku, Telemetrie und Experimentelles.</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="70" fill="#e2e8f0" font-size="30" font-weight="700">Top-Level-Keys — das Schaltpult</text>
+  <text x="60" y="102" fill="#94a3b8" font-size="16">Alle Top-Level-Keys sind optional. Gruppiert nach Zweck.</text>
+  <text x="1340" y="70" fill="#6366f1" font-size="14" text-anchor="end" font-weight="600">Codex CLI · §2</text>
+
+  <!-- Panel-Rahmen -->
+  <rect x="50" y="130" width="1300" height="730" rx="16" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Gruppe 1: Modell (indigo) -->
+  <g>
+    <rect x="80" y="160" width="390" height="320" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <rect x="80" y="160" width="390" height="36" rx="12" fill="#6366f1"/>
+    <rect x="80" y="184" width="390" height="12" fill="#6366f1"/>
+    <text x="100" y="184" fill="#0f172a" font-size="16" font-weight="700">Modell &amp; Reasoning</text>
+
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="100" y="222">model</text>            <text x="460" y="222" text-anchor="end" fill="#818cf8">gpt-5.3-codex</text>
+      <text x="100" y="248">model_provider</text>    <text x="460" y="248" text-anchor="end" fill="#818cf8">openai</text>
+      <text x="100" y="274">model_reasoning_effort</text><text x="460" y="274" text-anchor="end" fill="#818cf8">low|med|high</text>
+      <text x="100" y="300">model_reasoning_summary</text><text x="460" y="300" text-anchor="end" fill="#818cf8">auto|concise|detailed</text>
+      <text x="100" y="326">model_verbosity</text>   <text x="460" y="326" text-anchor="end" fill="#818cf8">quiet|normal|verbose</text>
+      <text x="100" y="352">plan_mode_reasoning_effort</text><text x="460" y="352" text-anchor="end" fill="#818cf8">erbt</text>
+    </g>
+
+    <!-- kleine Drehregler -->
+    <g stroke="#334155" stroke-width="2" fill="none">
+      <circle cx="120" cy="420" r="22"/>
+      <circle cx="200" cy="420" r="22"/>
+      <circle cx="280" cy="420" r="22"/>
+      <circle cx="360" cy="420" r="22"/>
+      <circle cx="440" cy="420" r="22"/>
+    </g>
+    <g stroke="#6366f1" stroke-width="3" stroke-linecap="round">
+      <line x1="120" y1="420" x2="120" y2="402"/>
+      <line x1="200" y1="420" x2="214" y2="410"/>
+      <line x1="280" y1="420" x2="298" y2="420"/>
+      <line x1="360" y1="420" x2="346" y2="410"/>
+      <line x1="440" y1="420" x2="440" y2="402"/>
+    </g>
+    <text x="275" y="465" fill="#94a3b8" font-size="12" text-anchor="middle">Effort-Dials · Verbosity · Provider-Switch</text>
+  </g>
+
+  <!-- Gruppe 2: Sicherheit (amber/red) -->
+  <g>
+    <rect x="490" y="160" width="420" height="320" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="490" y="160" width="420" height="36" rx="12" fill="#f59e0b"/>
+    <rect x="490" y="184" width="420" height="12" fill="#f59e0b"/>
+    <text x="510" y="184" fill="#0f172a" font-size="16" font-weight="700">Sicherheit &amp; Ausführung</text>
+
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="510" y="222">approval_policy</text> <text x="900" y="222" text-anchor="end" fill="#fbbf24">untrusted|on-request|on-failure|never</text>
+      <text x="510" y="248">sandbox_mode</text>    <text x="900" y="248" text-anchor="end" fill="#fbbf24">read-only|workspace-write|danger-full</text>
+      <text x="510" y="274">[sandbox_workspace_write]</text> <text x="900" y="274" text-anchor="end" fill="#94a3b8">§6</text>
+      <text x="510" y="300">[shell_environment_policy]</text> <text x="900" y="300" text-anchor="end" fill="#94a3b8">§7</text>
+    </g>
+
+    <!-- Kippschalter -->
+    <g>
+      <rect x="510" y="330" width="110" height="38" rx="19" fill="#0b1220" stroke="#f59e0b"/>
+      <circle cx="600" cy="349" r="14" fill="#f59e0b"/>
+      <text x="565" y="354" fill="#fbbf24" font-size="12" text-anchor="middle" font-weight="700">on-request</text>
+
+      <rect x="640" y="330" width="130" height="38" rx="19" fill="#0b1220" stroke="#ef4444"/>
+      <circle cx="740" cy="349" r="14" fill="#ef4444"/>
+      <text x="700" y="354" fill="#fca5a5" font-size="12" text-anchor="middle" font-weight="700">workspace-write</text>
+
+      <rect x="790" y="330" width="110" height="38" rx="19" fill="#0b1220" stroke="#ef4444"/>
+      <circle cx="810" cy="349" r="14" fill="#ef4444"/>
+      <text x="848" y="354" fill="#fca5a5" font-size="12" text-anchor="middle" font-weight="700">danger-full</text>
+    </g>
+
+    <text x="510" y="410" fill="#fca5a5" font-size="12">ACHTUNG: danger-full-access deaktiviert Sandbox komplett.</text>
+    <text x="510" y="430" fill="#94a3b8" font-size="12">Defaults: TUI = on-request/workspace-write, exec = never/read-only.</text>
+
+    <!-- Ampel-Icon -->
+    <g transform="translate(820,420)">
+      <rect x="0" y="0" width="40" height="55" rx="6" fill="#0b1220" stroke="#334155"/>
+      <circle cx="20" cy="12" r="6" fill="#ef4444"/>
+      <circle cx="20" cy="28" r="6" fill="#f59e0b"/>
+      <circle cx="20" cy="44" r="6" fill="#10b981"/>
+    </g>
+  </g>
+
+  <!-- Gruppe 3: Doku (cyan) -->
+  <g>
+    <rect x="930" y="160" width="390" height="320" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <rect x="930" y="160" width="390" height="36" rx="12" fill="#22d3ee"/>
+    <rect x="930" y="184" width="390" height="12" fill="#22d3ee"/>
+    <text x="950" y="184" fill="#0f172a" font-size="16" font-weight="700">Doku &amp; Instruktionen</text>
+
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="950" y="222">instructions</text>               <text x="1310" y="222" text-anchor="end" fill="#67e8f9">""</text>
+      <text x="950" y="248">project_doc_max_bytes</text>      <text x="1310" y="248" text-anchor="end" fill="#67e8f9">32768</text>
+      <text x="950" y="274">project_doc_fallback_filenames</text><text x="1310" y="274" text-anchor="end" fill="#67e8f9">[CLAUDE.md, GEMINI.md]</text>
+      <text x="950" y="300">hide_agent_reasoning</text>       <text x="1310" y="300" text-anchor="end" fill="#67e8f9">false</text>
+      <text x="950" y="326">show_raw_agent_reasoning</text>   <text x="1310" y="326" text-anchor="end" fill="#67e8f9">false</text>
+    </g>
+
+    <!-- Leuchtturm-Icon -->
+    <g transform="translate(1100,360)" fill="#22d3ee">
+      <polygon points="20,0 35,70 5,70" fill="#0b1220" stroke="#22d3ee" stroke-width="2"/>
+      <rect x="10" y="0" width="20" height="12" fill="#22d3ee"/>
+      <line x1="20" y1="-8" x2="20" y2="-2" stroke="#22d3ee" stroke-width="2"/>
+      <line x1="-8" y1="14" x2="4" y2="8" stroke="#22d3ee" stroke-width="1.5"/>
+      <line x1="48" y1="14" x2="36" y2="8" stroke="#22d3ee" stroke-width="1.5"/>
+    </g>
+    <text x="1120" y="460" fill="#94a3b8" font-size="12" text-anchor="middle">AGENTS.md-Einlese-Fenster</text>
+  </g>
+
+  <!-- Gruppe 4: Telemetrie & Notify (emerald) -->
+  <g>
+    <rect x="80" y="500" width="620" height="180" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <rect x="80" y="500" width="620" height="36" rx="12" fill="#10b981"/>
+    <rect x="80" y="524" width="620" height="12" fill="#10b981"/>
+    <text x="100" y="524" fill="#0f172a" font-size="16" font-weight="700">Telemetrie, Notify &amp; Storage</text>
+
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="100" y="562">disable_response_storage</text> <text x="690" y="562" text-anchor="end" fill="#6ee7b7">false (ZDR wenn true)</text>
+      <text x="100" y="588">notify</text>                    <text x="690" y="588" text-anchor="end" fill="#6ee7b7">[] — Slack, Desktop, CI</text>
+      <text x="100" y="614">tools</text>                     <text x="690" y="614" text-anchor="end" fill="#6ee7b7">table, §8</text>
+      <text x="100" y="640">default_profile</text>           <text x="690" y="640" text-anchor="end" fill="#6ee7b7">persistente Profil-Wahl</text>
+    </g>
+  </g>
+
+  <!-- Gruppe 5: Experimentell (violet) -->
+  <g>
+    <rect x="720" y="500" width="600" height="180" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="720" y="500" width="600" height="36" rx="12" fill="#a78bfa"/>
+    <rect x="720" y="524" width="600" height="12" fill="#a78bfa"/>
+    <text x="740" y="524" fill="#0f172a" font-size="16" font-weight="700">Experimentell (können sich ändern)</text>
+
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="740" y="562">experimental_use_rmcp_client</text>        <text x="1310" y="562" text-anchor="end" fill="#c4b5fd">false</text>
+      <text x="740" y="588">experimental_realtime_start_instructions</text><text x="1310" y="588" text-anchor="end" fill="#c4b5fd">false</text>
+      <text x="740" y="614">profiles.*</text>                           <text x="1310" y="614" text-anchor="end" fill="#c4b5fd">API instabil</text>
+      <text x="740" y="640">plan_mode_reasoning_effort</text>           <text x="1310" y="640" text-anchor="end" fill="#c4b5fd">experimentell</text>
+    </g>
+  </g>
+
+  <!-- Footer Hinweis -->
+  <rect x="80" y="710" width="1240" height="130" rx="12" fill="#0b1220" stroke="#334155"/>
+  <text x="110" y="742" fill="#e2e8f0" font-size="15" font-weight="700">Kanonisches TOML-Layout</text>
+  <text x="110" y="770" fill="#94a3b8" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">model = "gpt-5.3-codex"</text>
+  <text x="110" y="792" fill="#94a3b8" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">approval_policy = "on-request"   # TUI-Default</text>
+  <text x="110" y="814" fill="#94a3b8" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">sandbox_mode    = "workspace-write"</text>
+
+  <!-- Legende -->
+  <g font-size="12">
+    <rect x="780" y="732" width="14" height="14" fill="#6366f1"/>  <text x="802" y="744" fill="#cbd5e1">Modell</text>
+    <rect x="780" y="754" width="14" height="14" fill="#f59e0b"/>  <text x="802" y="766" fill="#cbd5e1">Sicherheit</text>
+    <rect x="780" y="776" width="14" height="14" fill="#22d3ee"/>  <text x="802" y="788" fill="#cbd5e1">Doku</text>
+    <rect x="900" y="732" width="14" height="14" fill="#10b981"/>  <text x="922" y="744" fill="#cbd5e1">Telemetrie</text>
+    <rect x="900" y="754" width="14" height="14" fill="#a78bfa"/>  <text x="922" y="766" fill="#cbd5e1">Experimentell</text>
+  </g>
+</svg>
