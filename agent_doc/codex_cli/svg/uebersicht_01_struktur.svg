@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title01 desc01">
-  <title id="title01">Struktur der Codex-CLI-Dokumentation als Wissens-Okosystem</title>
-  <desc id="desc01">Hub-and-Spoke-Diagramm: Im Zentrum eine Kompass-/Kartenrose „Codex CLI Deep Research", aussenherum elf nummerierte Panels fuer die elf Dokumente mit Titel, Fokus-Wort und farbcodierter Kategorie. Verbindungslinien zeigen die empfohlene Lesereihenfolge von 1 nach 11.</desc>
+  <title id="title01">Struktur der Codex-CLI-Dokumentation als Wissens-Ökosystem</title>
+  <desc id="desc01">Hub-and-Spoke-Diagramm: Im Zentrum eine Kompass-Rose „Codex CLI Deep Research", aussenherum elf nummerierte Panels für die elf Dokumente mit Titel, Fokus-Wort und farbcodierter Kategorie. Die innere Ringverbindung zeigt die empfohlene Lesereihenfolge von 1 nach 11. Metapher: Kompass + Karte.</desc>
 
   <defs>
     <marker id="arr01" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
     </marker>
     <radialGradient id="hub01" cx="50%" cy="50%" r="50%">
       <stop offset="0%" stop-color="#312e81"/>
@@ -20,215 +20,249 @@
   <!-- Hintergrund -->
   <rect width="1400" height="900" fill="#0f172a"/>
   <!-- Dezentes Karten-Grid -->
-  <g stroke="#1e293b" stroke-width="1" opacity="0.6">
+  <g stroke="#1e293b" stroke-width="1" opacity="0.55">
     <path d="M0 80 H1400 M0 160 H1400 M0 240 H1400 M0 320 H1400 M0 400 H1400 M0 480 H1400 M0 560 H1400 M0 640 H1400 M0 720 H1400 M0 800 H1400"/>
     <path d="M100 0 V900 M200 0 V900 M300 0 V900 M400 0 V900 M500 0 V900 M600 0 V900 M700 0 V900 M800 0 V900 M900 0 V900 M1000 0 V900 M1100 0 V900 M1200 0 V900 M1300 0 V900"/>
   </g>
 
   <!-- Titelleiste -->
   <rect x="0" y="0" width="1400" height="6" fill="url(#titlebar01)"/>
-  <text x="40" y="52" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="30" font-weight="700" fill="#e2e8f0">Struktur · 11 Dokumente als Wissens-Okosystem</text>
-  <text x="40" y="78" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#94a3b8">Kompass &amp; Karte: Lesereihenfolge 1 bis 11, farbkodiert nach Thema</text>
-  <text x="1360" y="52" text-anchor="end" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace" font-size="14" fill="#94a3b8">Codex CLI · uebersicht.md</text>
-  <text x="1360" y="78" text-anchor="end" font-family="'JetBrains Mono','Fira Code',ui-monospace,monospace" font-size="12" fill="#64748b">agent_doc/codex_cli/</text>
-
-  <!-- Zentrale Kompassrose -->
-  <g transform="translate(700,470)">
-    <circle r="150" fill="url(#hub01)" stroke="#6366f1" stroke-width="2"/>
-    <circle r="118" fill="none" stroke="#334155" stroke-width="1"/>
-    <circle r="86" fill="none" stroke="#334155" stroke-width="1" stroke-dasharray="3 3"/>
-    <!-- Kompassnadeln -->
-    <g stroke="#818cf8" stroke-width="1" opacity="0.6">
-      <line x1="-140" y1="0" x2="140" y2="0"/>
-      <line x1="0" y1="-140" x2="0" y2="140"/>
-      <line x1="-99" y1="-99" x2="99" y2="99"/>
-      <line x1="-99" y1="99" x2="99" y2="-99"/>
-    </g>
-    <!-- Kompass-Pfeil -->
-    <polygon points="0,-120 14,0 0,120 -14,0" fill="#22d3ee" opacity="0.85"/>
-    <polygon points="0,-120 14,0 0,0" fill="#6366f1"/>
-    <circle r="10" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
-    <!-- Himmelsrichtungen -->
-    <text y="-130" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#94a3b8">N</text>
-    <text x="132" y="4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#94a3b8">E</text>
-    <text y="140" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#94a3b8">S</text>
-    <text x="-132" y="4" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#94a3b8">W</text>
-    <!-- Zentraltitel -->
-    <text y="-30" text-anchor="middle" font-family="system-ui,sans-serif" font-size="19" font-weight="700" fill="#e2e8f0">Codex CLI</text>
-    <text y="-6" text-anchor="middle" font-family="system-ui,sans-serif" font-size="19" font-weight="700" fill="#e2e8f0">Deep Research</text>
-    <text y="20" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#22d3ee">11 Dokumente · 1 Karte</text>
-    <text y="42" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#94a3b8">Stand 2026-04-16</text>
-  </g>
-
-  <!-- Verbindungslinien im Kreis (Lesereihenfolge) -->
-  <g fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="2 4" opacity="0.55">
-    <path d="M300 260 Q 400 170 560 190"/>
-    <path d="M700 130 Q 830 140 930 200"/>
-    <path d="M1100 230 Q 1190 350 1160 480"/>
-    <path d="M1160 620 Q 1110 760 960 800"/>
-    <path d="M800 840 Q 620 860 430 800"/>
-    <path d="M240 720 Q 160 560 240 420"/>
-  </g>
-
-  <!-- 11 Dokument-Karten, im Kreis um den Hub -->
-  <!-- Kategorie-Farben: cyan=Basis, indigo=Config, red=Sicherheit, emerald=Integration, amber=Workflow, violet=Senior, slate=Meta -->
-
-  <!-- 01 Installation · oben links -->
-  <g transform="translate(160,140)">
-    <rect width="240" height="130" rx="12" ry="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
-    <rect width="10" height="130" rx="0" fill="#22d3ee"/>
-    <text x="24" y="30" font-family="'JetBrains Mono',monospace" font-size="13" fill="#22d3ee">01</text>
-    <text x="66" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">installation_und_setup</text>
-    <text x="24" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Positionierung, npm/brew/cargo,</text>
-    <text x="24" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Auth, Modelle, ~/.codex/.</text>
-    <rect x="24" y="92" width="110" height="24" rx="6" fill="#0f172a" stroke="#22d3ee"/>
-    <text x="79" y="109" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#22d3ee">Installation</text>
-  </g>
-
-  <!-- 02 Feature-Uebersicht · oben Mitte-Links -->
-  <g transform="translate(440,90)">
-    <rect width="240" height="130" rx="12" ry="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
-    <rect width="10" height="130" rx="0" fill="#22d3ee"/>
-    <text x="24" y="30" font-family="'JetBrains Mono',monospace" font-size="13" fill="#22d3ee">02</text>
-    <text x="66" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">feature_uebersicht</text>
-    <text x="24" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Laufmodi, Slash-Commands,</text>
-    <text x="24" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Flags, Tools, TUI, IDE, MCP.</text>
-    <rect x="24" y="92" width="90" height="24" rx="6" fill="#0f172a" stroke="#22d3ee"/>
-    <text x="69" y="109" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#22d3ee">Features</text>
-  </g>
-
-  <!-- 03 Konfiguration · oben Mitte-Rechts -->
-  <g transform="translate(730,90)">
-    <rect width="240" height="130" rx="12" ry="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
-    <rect width="10" height="130" rx="0" fill="#6366f1"/>
-    <text x="24" y="30" font-family="'JetBrains Mono',monospace" font-size="13" fill="#818cf8">03</text>
-    <text x="66" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">konfiguration_und_anpassung</text>
-    <text x="24" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">config.toml, Profile, Provider,</text>
-    <text x="24" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">MCP, Trust, Env, Logging.</text>
-    <rect x="24" y="92" width="110" height="24" rx="6" fill="#0f172a" stroke="#6366f1"/>
-    <text x="79" y="109" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#818cf8">Konfiguration</text>
-  </g>
-
-  <!-- 04 Sicherheit · rechts oben -->
-  <g transform="translate(1020,150)">
-    <rect width="240" height="130" rx="12" ry="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
-    <rect width="10" height="130" rx="0" fill="#ef4444"/>
-    <text x="24" y="30" font-family="'JetBrains Mono',monospace" font-size="13" fill="#fca5a5">04</text>
-    <text x="66" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">sicherheit_und_sandboxing</text>
-    <text x="24" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Approval x Sandbox, Kernel,</text>
-    <text x="24" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Trust, Secrets, Governance.</text>
-    <rect x="24" y="92" width="96" height="24" rx="6" fill="#0f172a" stroke="#ef4444"/>
-    <text x="72" y="109" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#fca5a5">Security</text>
-  </g>
-
-  <!-- 05 Integration · rechts Mitte -->
-  <g transform="translate(1120,360)">
-    <rect width="240" height="130" rx="12" ry="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
-    <rect width="10" height="130" rx="0" fill="#10b981"/>
-    <text x="24" y="30" font-family="'JetBrains Mono',monospace" font-size="13" fill="#6ee7b7">05</text>
-    <text x="66" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">integrationen_ide_ci_cd</text>
-    <text x="24" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">IDE, Cloud, GitHub Action,</text>
-    <text x="24" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">MCP, Notify, Plugins.</text>
-    <rect x="24" y="92" width="120" height="24" rx="6" fill="#0f172a" stroke="#10b981"/>
-    <text x="84" y="109" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#6ee7b7">Integration</text>
-  </g>
-
-  <!-- 06 Lebenszyklus · rechts unten -->
-  <g transform="translate(1020,580)">
-    <rect width="240" height="130" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
-    <rect width="10" height="130" rx="0" fill="#f59e0b"/>
-    <text x="24" y="30" font-family="'JetBrains Mono',monospace" font-size="13" fill="#fcd34d">06</text>
-    <text x="66" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">entwicklungs_lebenszyklus</text>
-    <text x="24" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">10 Phasen, Meta-Prinzipien,</text>
-    <text x="24" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Multi-Agent-Muster.</text>
-    <rect x="24" y="92" width="130" height="24" rx="6" fill="#0f172a" stroke="#f59e0b"/>
-    <text x="89" y="109" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#fcd34d">Lebenszyklus</text>
-  </g>
-
-  <!-- 07 Praktische Workflows · unten rechts -->
-  <g transform="translate(730,760)">
-    <rect width="240" height="110" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
-    <rect width="10" height="110" rx="0" fill="#f59e0b"/>
-    <text x="24" y="28" font-family="'JetBrains Mono',monospace" font-size="13" fill="#fcd34d">07</text>
-    <text x="66" y="30" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">praktische_workflows</text>
-    <text x="24" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">18 End-to-End-Rezepte</text>
-    <rect x="24" y="70" width="110" height="24" rx="6" fill="#0f172a" stroke="#f59e0b"/>
-    <text x="79" y="87" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#fcd34d">Workflows</text>
-  </g>
-
-  <!-- 08 Cheat-Sheet · unten Mitte -->
-  <g transform="translate(440,780)">
-    <rect width="240" height="110" rx="12" ry="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
-    <rect width="10" height="110" rx="0" fill="#a78bfa"/>
-    <text x="24" y="28" font-family="'JetBrains Mono',monospace" font-size="13" fill="#c4b5fd">08</text>
-    <text x="66" y="30" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">cheat_sheet</text>
-    <text x="24" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Kompakt-Referenz, Snippets</text>
-    <rect x="24" y="70" width="100" height="24" rx="6" fill="#0f172a" stroke="#a78bfa"/>
-    <text x="74" y="87" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#c4b5fd">Referenz</text>
-  </g>
-
-  <!-- 09 Senior-Guide · unten links -->
-  <g transform="translate(160,760)">
-    <rect width="240" height="110" rx="12" ry="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
-    <rect width="10" height="110" rx="0" fill="#a78bfa"/>
-    <text x="24" y="28" font-family="'JetBrains Mono',monospace" font-size="13" fill="#c4b5fd">09</text>
-    <text x="66" y="30" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">senior_developer_guide</text>
-    <text x="24" y="58" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">SDK, Sub-Agents, Observability</text>
-    <rect x="24" y="70" width="120" height="24" rx="6" fill="#0f172a" stroke="#a78bfa"/>
-    <text x="84" y="87" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#c4b5fd">Senior / SDK</text>
-  </g>
-
-  <!-- 10 Vergleich · links Mitte -->
-  <g transform="translate(50,580)">
-    <rect width="240" height="130" rx="12" ry="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
-    <rect width="10" height="130" rx="0" fill="#a78bfa"/>
-    <text x="24" y="30" font-family="'JetBrains Mono',monospace" font-size="13" fill="#c4b5fd">10</text>
-    <text x="66" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">vergleich_zu_alternativen</text>
-    <text x="24" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Claude Code, Gemini, Aider,</text>
-    <text x="24" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Copilot CLI · Benchmarks.</text>
-    <rect x="24" y="92" width="100" height="24" rx="6" fill="#0f172a" stroke="#a78bzf"/>
-    <text x="74" y="109" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#c4b5fd">Vergleich</text>
-  </g>
-
-  <!-- 11 Quellen · links oben -->
-  <g transform="translate(50,360)">
-    <rect width="240" height="130" rx="12" ry="12" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
-    <rect width="10" height="130" rx="0" fill="#64748b"/>
-    <text x="24" y="30" font-family="'JetBrains Mono',monospace" font-size="13" fill="#cbd5e1">11</text>
-    <text x="66" y="32" font-family="system-ui,sans-serif" font-size="16" font-weight="700" fill="#e2e8f0">_quellen</text>
-    <text x="24" y="60" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">Gruppierte Quellenliste</text>
-    <text x="24" y="78" font-family="system-ui,sans-serif" font-size="13" fill="#94a3b8">nach Suchstring, mit Datum.</text>
-    <rect x="24" y="92" width="90" height="24" rx="6" fill="#0f172a" stroke="#64748b"/>
-    <text x="69" y="109" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#cbd5e1">Quellen</text>
-  </g>
-
-  <!-- Pfeile vom Hub zu den Karten (Lesereihenfolge) -->
-  <g stroke="#818cf8" stroke-width="1.6" fill="none" opacity="0.9" marker-end="url(#arr01)">
-    <path d="M600 440 L 400 205"/>
-    <path d="M640 390 L 560 155"/>
-    <path d="M720 360 L 850 155"/>
-    <path d="M780 390 L 1020 215"/>
-    <path d="M820 460 L 1120 425"/>
-    <path d="M810 520 L 1020 645"/>
-    <path d="M760 580 L 850 760"/>
-    <path d="M680 600 L 560 780"/>
-    <path d="M620 580 L 400 760"/>
-    <path d="M580 520 L 290 645"/>
-    <path d="M570 450 L 290 425"/>
-  </g>
+  <text x="40" y="52" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="30" font-weight="700" fill="#e2e8f0">Struktur · 11 Dokumente als Wissens-Ökosystem</text>
+  <text x="40" y="78" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-size="15" fill="#94a3b8">Hub-and-Spoke · Kompass im Zentrum · Ringpfad 1 → 11 · Farbe = Kategorie</text>
+  <text x="1360" y="52" font-family="'JetBrains Mono', 'Fira Code', ui-monospace, monospace" font-size="14" fill="#94a3b8" text-anchor="end">codex_cli / uebersicht · 01</text>
 
   <!-- Legende -->
-  <g transform="translate(40,830)">
-    <rect width="1320" height="50" rx="10" ry="10" fill="#1e293b" stroke="#334155"/>
-    <text x="20" y="30" font-family="system-ui,sans-serif" font-size="13" font-weight="700" fill="#e2e8f0">Legende</text>
-    <g font-family="system-ui,sans-serif" font-size="12" fill="#cbd5e1">
-      <rect x="100" y="17" width="14" height="14" fill="#22d3ee"/><text x="122" y="29">Basis (01–02)</text>
-      <rect x="240" y="17" width="14" height="14" fill="#6366f1"/><text x="262" y="29">Konfiguration (03)</text>
-      <rect x="400" y="17" width="14" height="14" fill="#ef4444"/><text x="422" y="29">Sicherheit (04)</text>
-      <rect x="550" y="17" width="14" height="14" fill="#10b981"/><text x="572" y="29">Integration (05)</text>
-      <rect x="700" y="17" width="14" height="14" fill="#f59e0b"/><text x="722" y="29">Workflow (06–07)</text>
-      <rect x="860" y="17" width="14" height="14" fill="#a78bfa"/><text x="882" y="29">Referenz &amp; Senior (08–10)</text>
-      <rect x="1080" y="17" width="14" height="14" fill="#64748b"/><text x="1102" y="29">Meta / Quellen (11)</text>
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">
+    <rect x="40" y="820" width="1320" height="56" rx="10" fill="#1e293b" stroke="#334155"/>
+    <g>
+      <rect x="60" y="838" width="16" height="16" rx="3" fill="#6366f1"/>
+      <text x="84" y="851">Grundlagen</text>
+      <rect x="190" y="838" width="16" height="16" rx="3" fill="#22d3ee"/>
+      <text x="214" y="851">Konfiguration</text>
+      <rect x="340" y="838" width="16" height="16" rx="3" fill="#ef4444"/>
+      <text x="364" y="851">Sicherheit</text>
+      <rect x="460" y="838" width="16" height="16" rx="3" fill="#10b981"/>
+      <text x="484" y="851">Integration</text>
+      <rect x="590" y="838" width="16" height="16" rx="3" fill="#f59e0b"/>
+      <text x="614" y="851">Lebenszyklus/Praxis</text>
+      <rect x="790" y="838" width="16" height="16" rx="3" fill="#a78bfa"/>
+      <text x="814" y="851">Senior/Vergleich</text>
+      <rect x="960" y="838" width="16" height="16" rx="3" fill="#94a3b8"/>
+      <text x="984" y="851">Quellen</text>
     </g>
+    <text x="1080" y="851" fill="#94a3b8">Ring-Pfeile = empfohlene Lesereihenfolge</text>
+  </g>
+
+  <!-- Zentraler Hub: Kompass-Rose -->
+  <g transform="translate(700 430)">
+    <circle r="150" fill="url(#hub01)" stroke="#6366f1" stroke-width="2"/>
+    <circle r="110" fill="none" stroke="#334155" stroke-dasharray="3 4"/>
+    <!-- Kompass-Strahlen N/O/S/W -->
+    <g stroke="#818cf8" stroke-width="2" fill="none">
+      <path d="M0,-140 L0,140"/>
+      <path d="M-140,0 L140,0"/>
+      <path d="M-99,-99 L99,99" opacity="0.5"/>
+      <path d="M99,-99 L-99,99" opacity="0.5"/>
+    </g>
+    <!-- Kompass-Diamant -->
+    <polygon points="0,-90 20,0 0,90 -20,0" fill="#6366f1" opacity="0.9"/>
+    <polygon points="0,-90 20,0 0,0" fill="#c7d2fe"/>
+    <polygon points="0,90 -20,0 0,0" fill="#312e81"/>
+    <circle r="6" fill="#e2e8f0"/>
+    <!-- Beschriftung -->
+    <text y="-155" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">N</text>
+    <text x="155" text-anchor="middle" dominant-baseline="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">O</text>
+    <text y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">S</text>
+    <text x="-155" text-anchor="middle" dominant-baseline="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">W</text>
+    <text y="-30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="#e2e8f0">Codex CLI</text>
+    <text y="-8" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#c7d2fe">Deep Research</text>
+    <text y="30" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#94a3b8">agent_doc/codex_cli/</text>
+    <text y="52" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">11 Dokumente · 1 Karte</text>
+  </g>
+
+  <!-- Ringpfad als dünner Pfad zwischen Panels (visueller Hinweis) -->
+  <circle cx="700" cy="430" r="320" fill="none" stroke="#334155" stroke-dasharray="2 6" opacity="0.7"/>
+
+  <!-- Panels: 11 Dokumente als nummerierte Karten um den Hub -->
+  <!-- Panel 1: Installation -->
+  <g transform="translate(80 110)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#6366f1"/>
+    <circle cx="28" cy="26" r="14" fill="#312e81" stroke="#818cf8"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">1</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">installation_und_setup</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Positionierung · Auth · Modelle</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">AGENTS.md-Precedence · Hello-World</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#818cf8">Fokus: Installation</text>
+  </g>
+
+  <!-- Panel 2: Features -->
+  <g transform="translate(380 90)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#6366f1"/>
+    <circle cx="28" cy="26" r="14" fill="#312e81" stroke="#818cf8"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">2</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">feature_uebersicht</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Laufmodi · Flags · Slash-Commands</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Tools · TUI · Skills · Marketplace</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#818cf8">Fokus: Features</text>
+  </g>
+
+  <!-- Panel 3: Konfiguration -->
+  <g transform="translate(780 90)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#22d3ee"/>
+    <circle cx="28" cy="26" r="14" fill="#164e63" stroke="#22d3ee"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">3</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">konfiguration_und_anpassung</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">config.toml · Profile · Env-Policy</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">MCP · Trust · AGENTS.md · Skills</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#22d3ee">Fokus: Config</text>
+  </g>
+
+  <!-- Panel 4: Sicherheit -->
+  <g transform="translate(1080 110)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#ef4444"/>
+    <circle cx="28" cy="26" r="14" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">4</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">sicherheit_und_sandboxing</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Approval × Sandbox × Trust</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Seatbelt · Landlock · AppContainer</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#ef4444">Fokus: Security</text>
+  </g>
+
+  <!-- Panel 5: Integrationen (rechte Seite) -->
+  <g transform="translate(1140 290)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#10b981"/>
+    <circle cx="28" cy="26" r="14" fill="#064e3b" stroke="#10b981"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">5</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">integrationen_ide_ci_cd</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">VS Code · Cursor · JetBrains</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">GitHub Action · Cloud · MCP</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#10b981">Fokus: Integration</text>
+  </g>
+
+  <!-- Panel 6: Lebenszyklus -->
+  <g transform="translate(1140 470)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#f59e0b"/>
+    <circle cx="28" cy="26" r="14" fill="#78350f" stroke="#f59e0b"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">6</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">entwicklungs_lebenszyklus</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">10 Phasen · Prompts · Best Practices</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Meta-Prinzipien · Multi-Agent</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#f59e0b">Fokus: Lifecycle</text>
+  </g>
+
+  <!-- Panel 7: Workflows -->
+  <g transform="translate(1080 650)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#f59e0b"/>
+    <circle cx="28" cy="26" r="14" fill="#78350f" stroke="#f59e0b"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">7</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">praktische_workflows</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">18 End-to-End-Rezepte</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">TDD · Bugfix · Autofix · Release</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#f59e0b">Fokus: Rezepte</text>
+  </g>
+
+  <!-- Panel 8: Cheat Sheet -->
+  <g transform="translate(780 720)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#a78bfa"/>
+    <circle cx="28" cy="26" r="14" fill="#4c1d95" stroke="#a78bfa"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">8</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">cheat_sheet</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Install · Flags · Shortcuts</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">10-Sek-Workflow · Snippets</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#a78bfa">Fokus: Quickref</text>
+  </g>
+
+  <!-- Panel 9: Senior Guide -->
+  <g transform="translate(380 720)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#a78bfa"/>
+    <circle cx="28" cy="26" r="14" fill="#4c1d95" stroke="#a78bfa"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">9</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">senior_developer_guide</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">SDK · Sub-Agents · Handoffs</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Preambles · Observability · CI</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#a78bfa">Fokus: SDK</text>
+  </g>
+
+  <!-- Panel 10: Vergleich -->
+  <g transform="translate(80 650)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#a78bfa"/>
+    <circle cx="28" cy="26" r="14" fill="#4c1d95" stroke="#a78bfa"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">10</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">vergleich_zu_alternativen</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Codex · Claude · Gemini · Aider</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Sandbox · Benchmarks · Migration</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#a78bfa">Fokus: Vergleich</text>
+  </g>
+
+  <!-- Panel 11: Quellen -->
+  <g transform="translate(20 470)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#94a3b8" stroke-width="2"/>
+    <rect width="6" height="110" rx="2" fill="#94a3b8"/>
+    <circle cx="28" cy="26" r="14" fill="#334155" stroke="#cbd5e1"/>
+    <text x="28" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">11</text>
+    <text x="52" y="32" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#e2e8f0">_quellen</text>
+    <text x="20" y="62" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Gruppierte Quellenliste</text>
+    <text x="20" y="80" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">URL · Zusammenfassung · Datum</text>
+    <text x="20" y="100" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#94a3b8">Fokus: Quellen</text>
+  </g>
+
+  <!-- Panel 0: Leseeinstieg (virtuell) -->
+  <g transform="translate(20 290)">
+    <rect width="240" height="110" rx="12" fill="#1e293b" stroke="#334155" stroke-dasharray="3 4"/>
+    <text x="20" y="34" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#94a3b8">uebersicht.md</text>
+    <text x="20" y="58" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Struktur · Lesepfade</text>
+    <text x="20" y="76" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Kurz-Zusammenfassung</text>
+    <text x="20" y="94" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Forschungs-Meta</text>
+    <text x="220" y="94" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#64748b">Einstieg</text>
+  </g>
+
+  <!-- Ringpfad 1→2→3→...→11 als gerichtete Bezier-Pfade -->
+  <g fill="none" stroke="#818cf8" stroke-width="1.8" marker-end="url(#arr01)" opacity="0.85">
+    <!-- 1 → 2 -->
+    <path d="M320 140 C 350 120 360 120 380 130"/>
+    <!-- 2 → 3 -->
+    <path d="M620 130 C 700 120 720 120 780 130"/>
+    <!-- 3 → 4 -->
+    <path d="M1020 130 C 1050 120 1060 125 1080 140"/>
+    <!-- 4 → 5 -->
+    <path d="M1200 220 C 1230 240 1245 260 1240 290"/>
+    <!-- 5 → 6 -->
+    <path d="M1260 400 L 1260 470"/>
+    <!-- 6 → 7 -->
+    <path d="M1260 580 C 1240 610 1220 630 1200 650"/>
+    <!-- 7 → 8 -->
+    <path d="M1080 720 C 1050 735 1030 735 1020 730"/>
+    <!-- 8 → 9 -->
+    <path d="M780 775 L 620 775"/>
+    <!-- 9 → 10 -->
+    <path d="M380 770 C 350 770 340 760 320 720"/>
+    <!-- 10 → 11 -->
+    <path d="M140 650 C 120 620 120 600 140 580"/>
+  </g>
+
+  <!-- Strahlen vom Hub zu den Panels (dezent) -->
+  <g stroke="#334155" stroke-width="1" opacity="0.5" fill="none">
+    <path d="M 700 430 L 200 165"/>
+    <path d="M 700 430 L 500 145"/>
+    <path d="M 700 430 L 900 145"/>
+    <path d="M 700 430 L 1200 165"/>
+    <path d="M 700 430 L 1260 345"/>
+    <path d="M 700 430 L 1260 525"/>
+    <path d="M 700 430 L 1200 705"/>
+    <path d="M 700 430 L 900 775"/>
+    <path d="M 700 430 L 500 775"/>
+    <path d="M 700 430 L 200 705"/>
+    <path d="M 700 430 L 140 525"/>
+    <path d="M 700 430 L 140 345"/>
   </g>
 </svg>

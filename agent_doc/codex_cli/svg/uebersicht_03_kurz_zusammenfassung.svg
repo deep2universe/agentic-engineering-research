@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title03 desc03">
+  <title id="title03">Kurz-Zusammenfassung Codex CLI als Hexagon-Mindmap</title>
+  <desc id="desc03">Sechs Hexagon-Karten um einen zentralen Codex-CLI-Kern gruppiert, jede mit Icon, Überschrift und Kernaussage: Rust-Agent Apache-2.0, drei Säulen Approval × Sandbox × Trust, zentrale Config, IDE/GitHub/MCP-Integrationen, End-to-End-Lebenszyklus und Prompt = Programm. Metapher: Wabenstruktur einer Wissensbasis.</desc>
+
+  <defs>
+    <linearGradient id="titlebar03" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="core03" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#312e81"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+    <marker id="arr03" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect width="1400" height="900" fill="#0f172a"/>
+  <g stroke="#1e293b" stroke-width="1" opacity="0.5">
+    <path d="M0 100 H1400 M0 200 H1400 M0 300 H1400 M0 400 H1400 M0 500 H1400 M0 600 H1400 M0 700 H1400 M0 800 H1400"/>
+    <path d="M200 0 V900 M400 0 V900 M600 0 V900 M800 0 V900 M1000 0 V900 M1200 0 V900"/>
+  </g>
+
+  <rect x="0" y="0" width="1400" height="6" fill="url(#titlebar03)"/>
+  <text x="40" y="52" font-family="system-ui, sans-serif" font-size="30" font-weight="700" fill="#e2e8f0">Kurz-Zusammenfassung · Sechs Wabenkerne</text>
+  <text x="40" y="78" font-family="system-ui, sans-serif" font-size="15" fill="#94a3b8">Hexagon-Mindmap · Jeder Kern = eine Kernaussage · Kern im Zentrum verbindet alles</text>
+  <text x="1360" y="52" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="14" fill="#94a3b8" text-anchor="end">codex_cli / uebersicht · 03</text>
+
+  <!-- Verbindungslinien zwischen Kern und Hexagonen -->
+  <g stroke="#475569" stroke-width="1.5" fill="none" opacity="0.7">
+    <path d="M700 470 L 360 260"/>
+    <path d="M700 470 L 1040 260"/>
+    <path d="M700 470 L 260 470"/>
+    <path d="M700 470 L 1140 470"/>
+    <path d="M700 470 L 360 700"/>
+    <path d="M700 470 L 1040 700"/>
+  </g>
+
+  <!-- Zentrales Hexagon: Codex CLI Kern -->
+  <g transform="translate(700 470)">
+    <polygon points="-130,-75 -130,75 0,150 130,75 130,-75 0,-150" fill="url(#core03)" stroke="#6366f1" stroke-width="3"/>
+    <polygon points="-90,-52 -90,52 0,104 90,52 90,-52 0,-104" fill="none" stroke="#334155" stroke-dasharray="3 4"/>
+    <text y="-20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="700" fill="#e2e8f0">Codex CLI</text>
+    <text y="6" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" fill="#c7d2fe">OpenAI · Rust</text>
+    <text y="28" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#94a3b8">@openai/codex</text>
+    <text y="56" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Default 02/2026:</text>
+    <text y="76" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#22d3ee">GPT-5.3-Codex</text>
+    <!-- Kleines Zahnrad-Icon über Mitte -->
+    <g transform="translate(0 -66)" fill="#818cf8">
+      <circle r="10" fill="none" stroke="#818cf8" stroke-width="2"/>
+      <circle r="3" fill="#818cf8"/>
+      <g stroke="#818cf8" stroke-width="2" stroke-linecap="round">
+        <path d="M0,-13 V-17"/>
+        <path d="M0,13 V17"/>
+        <path d="M-13,0 H-17"/>
+        <path d="M13,0 H17"/>
+        <path d="M-9,-9 L-12,-12"/>
+        <path d="M9,9 L12,12"/>
+        <path d="M9,-9 L12,-12"/>
+        <path d="M-9,9 L-12,12"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Hexagon 1 (oben-links): Rust Apache-2.0 -->
+  <g transform="translate(360 260)">
+    <polygon points="-140,-80 -140,80 0,160 140,80 140,-80 0,-160" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <!-- Icon: Baustein -->
+    <g transform="translate(-100 -100)" fill="none" stroke="#818cf8" stroke-width="2">
+      <rect x="0" y="0" width="26" height="20" rx="2"/>
+      <rect x="8" y="-8" width="10" height="10" rx="2"/>
+    </g>
+    <text x="0" y="-108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#818cf8">1 · Open-Source-Agent</text>
+    <text x="0" y="-78" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">Rust · Apache-2.0</text>
+    <text x="0" y="-54" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Offizieller OpenAI-Coding-Agent</text>
+    <text x="0" y="-34" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">öffentliches GitHub-Repo</text>
+    <text x="0" y="-14" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">binär oder via npm/brew/cargo</text>
+    <text x="0" y="14" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#22d3ee">github.com/openai/codex</text>
+    <text x="0" y="40" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Default-Modell seit 02/2026:</text>
+    <text x="0" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#c7d2fe">GPT-5.3-Codex</text>
+    <text x="0" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">freie Nutzung · forkbar · auditierbar</text>
+  </g>
+
+  <!-- Hexagon 2 (oben-rechts): 3 Säulen Sicherheit -->
+  <g transform="translate(1040 260)">
+    <polygon points="-140,-80 -140,80 0,160 140,80 140,-80 0,-160" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <!-- Icon: Schild -->
+    <g transform="translate(-110 -110)" fill="none" stroke="#ef4444" stroke-width="2">
+      <path d="M12,0 L24,4 V14 C24,22 18,28 12,30 C6,28 0,22 0,14 V4 Z" fill="#7f1d1d" fill-opacity="0.5"/>
+      <path d="M6,14 L11,19 L20,10" stroke="#ef4444"/>
+    </g>
+    <text x="0" y="-108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#ef4444">2 · Drei Säulen Sicherheit</text>
+    <text x="0" y="-80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">Approval × Sandbox × Trust</text>
+    <!-- drei kleine Säulen -->
+    <g transform="translate(-70 -50)">
+      <rect x="0" y="0" width="30" height="60" rx="4" fill="#7f1d1d" stroke="#ef4444"/>
+      <text x="15" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#fecaca">Approval</text>
+      <rect x="50" y="0" width="30" height="60" rx="4" fill="#7f1d1d" stroke="#ef4444"/>
+      <text x="65" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#fecaca">Sandbox</text>
+      <rect x="100" y="0" width="30" height="60" rx="4" fill="#7f1d1d" stroke="#ef4444"/>
+      <text x="115" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#fecaca">Trust</text>
+    </g>
+    <text x="0" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Kernel-Sandboxes:</text>
+    <text x="0" y="58" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#fca5a5">Seatbelt · Landlock · AppContainer</text>
+    <text x="0" y="82" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">schützt selbst bei Prompt-Injection</text>
+  </g>
+
+  <!-- Hexagon 3 (links): Zentrale Config -->
+  <g transform="translate(260 470)">
+    <polygon points="-140,-80 -140,80 0,160 140,80 140,-80 0,-160" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <!-- Icon: Zahnrad -->
+    <g transform="translate(-110 -90)" fill="none" stroke="#22d3ee" stroke-width="2">
+      <circle cx="14" cy="14" r="8"/>
+      <circle cx="14" cy="14" r="3" fill="#22d3ee"/>
+      <g stroke-linecap="round">
+        <path d="M14,2 V6"/>
+        <path d="M14,22 V26"/>
+        <path d="M2,14 H6"/>
+        <path d="M22,14 H26"/>
+        <path d="M5,5 L8,8"/>
+        <path d="M20,20 L23,23"/>
+        <path d="M20,8 L23,5"/>
+        <path d="M5,23 L8,20"/>
+      </g>
+    </g>
+    <text x="0" y="-108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#22d3ee">3 · Zentrale Config</text>
+    <text x="0" y="-80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">ein Ort · drei Dateien</text>
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#a5f3fc">
+      <text x="0" y="-50" text-anchor="middle">~/.codex/config.toml</text>
+      <text x="0" y="-28" text-anchor="middle">AGENTS.md</text>
+      <text x="0" y="-6" text-anchor="middle">skills/</text>
+    </g>
+    <text x="0" y="24" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Profile decken Szenarien ab:</text>
+    <text x="0" y="44" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#cbd5e1">daily · planning · review</text>
+    <text x="0" y="62" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#cbd5e1">ci · local</text>
+    <text x="0" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Precedence: CLI > Profile > Global</text>
+  </g>
+
+  <!-- Hexagon 4 (rechts): Integrationen -->
+  <g transform="translate(1140 470)">
+    <polygon points="-140,-80 -140,80 0,160 140,80 140,-80 0,-160" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <!-- Icon: Stecker/Node -->
+    <g transform="translate(-110 -100)" fill="none" stroke="#10b981" stroke-width="2">
+      <circle cx="8" cy="14" r="4"/>
+      <circle cx="24" cy="14" r="4"/>
+      <path d="M12,14 H20"/>
+      <circle cx="16" cy="4" r="3"/>
+      <path d="M16,7 V11"/>
+      <circle cx="16" cy="26" r="3"/>
+      <path d="M16,17 V23"/>
+    </g>
+    <text x="0" y="-108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#10b981">4 · Integrationen</text>
+    <text x="0" y="-80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">IDE · GitHub · MCP</text>
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#a7f3d0">
+      <text x="0" y="-52" text-anchor="middle">VS Code / Cursor / Windsurf</text>
+      <text x="0" y="-32" text-anchor="middle">JetBrains Plugin</text>
+      <text x="0" y="-12" text-anchor="middle">openai/codex-action@v1</text>
+      <text x="0" y="10" text-anchor="middle">Codex Cloud (chatgpt.com)</text>
+      <text x="0" y="32" text-anchor="middle">MCP · Client + Server</text>
+    </g>
+    <text x="0" y="62" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#6ee7b7">openai.chatgpt (VS Code)</text>
+    <text x="0" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">Notify-Hook · Slack · Plugins</text>
+  </g>
+
+  <!-- Hexagon 5 (unten-links): Lebenszyklus -->
+  <g transform="translate(360 700)">
+    <polygon points="-140,-80 -140,80 0,160 140,80 140,-80 0,-160" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <!-- Icon: Pfeile zirkular -->
+    <g transform="translate(-110 -100)" fill="none" stroke="#f59e0b" stroke-width="2">
+      <path d="M16,4 A12,12 0 1 1 4,16" stroke-linecap="round"/>
+      <polygon points="16,0 20,6 12,6" fill="#f59e0b"/>
+    </g>
+    <text x="0" y="-108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#f59e0b">5 · Lebenszyklus End-to-End</text>
+    <text x="0" y="-80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">Spec → Impl → Betrieb</text>
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#fde68a">
+      <text x="0" y="-52" text-anchor="middle">/init · high Reasoning</text>
+      <text x="0" y="-32" text-anchor="middle">ticket-style Prompts · TDD</text>
+      <text x="0" y="-12" text-anchor="middle">Review · PR · Deployment</text>
+      <text x="0" y="10" text-anchor="middle">Sentry-MCP · Hotfix-Profil</text>
+    </g>
+    <text x="0" y="38" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Multi-Hour-Tasks → Cloud</text>
+    <text x="0" y="62" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Multi-Agent: Handoffs + Tools</text>
+    <text x="0" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">deckt 10 Phasen lückenlos ab</text>
+  </g>
+
+  <!-- Hexagon 6 (unten-rechts): Prompt = Programm -->
+  <g transform="translate(1040 700)">
+    <polygon points="-140,-80 -140,80 0,160 140,80 140,-80 0,-160" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <!-- Icon: Leuchtturm -->
+    <g transform="translate(-110 -106)" fill="none" stroke="#a78bfa" stroke-width="2">
+      <path d="M8,30 L20,30 L18,10 L10,10 Z"/>
+      <rect x="9" y="4" width="10" height="6" rx="1"/>
+      <path d="M24,4 L28,2" stroke-linecap="round"/>
+      <path d="M24,7 L28,7" stroke-linecap="round"/>
+      <path d="M24,10 L28,12" stroke-linecap="round"/>
+    </g>
+    <text x="0" y="-108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="17" font-weight="700" fill="#a78bfa">6 · Prompt = Programm</text>
+    <text x="0" y="-80" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">Kontext &gt; Raffinesse</text>
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#ddd6fe">
+      <text x="0" y="-52" text-anchor="middle">AGENTS.md trägt Intent</text>
+      <text x="0" y="-32" text-anchor="middle">Skills kapseln Rezepte</text>
+      <text x="0" y="-12" text-anchor="middle">Tests definieren Akzeptanz</text>
+    </g>
+    <g transform="translate(-100 16)" fill="#0f172a" stroke="#a78bfa">
+      <rect x="0" y="0" width="200" height="28" rx="4"/>
+      <text x="100" y="19" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#e2e8f0">codex &quot;Ticket 42 umsetzen&quot;</text>
+    </g>
+    <text x="0" y="68" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Kontext-Engineering skaliert</text>
+    <text x="0" y="88" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#64748b">reproduzierbar · versionierbar · teilbar</text>
+  </g>
+
+  <!-- Legende / Fussnote -->
+  <g transform="translate(40 840)" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">
+    <rect x="0" y="0" width="1320" height="44" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="27" fill="#94a3b8">Zentrale Botschaft: Codex CLI verbindet offene Implementierung · strikte Sicherheit · zentrale Konfig · breite Integration · durchgehenden Lebenszyklus · Prompt-als-Programm.</text>
+  </g>
+</svg>

@@ -1,0 +1,290 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title04 desc04">
+  <title id="title04">Forschungs-Meta als horizontale Destille mit Input, Methodik und Output</title>
+  <desc id="desc04">Horizontaler Prozess in drei Lanes: Links die Input-Quellen (Primär- und Sekundärquellen, WebSearch, Sub-Agents), mittig eine Destille mit Filtern für Arbeitssprache, Quellen-Pflicht und Methodik, rechts die strukturierte Ausgabe in agent_doc. Metapher: Destille, Filter und Trichter.</desc>
+
+  <defs>
+    <linearGradient id="titlebar04" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="flow04" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.15"/>
+      <stop offset="50%" stop-color="#22d3ee" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.2"/>
+    </linearGradient>
+    <marker id="arr04" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <radialGradient id="distill04" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#0e7490"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect width="1400" height="900" fill="#0f172a"/>
+  <g stroke="#1e293b" stroke-width="1" opacity="0.5">
+    <path d="M0 120 H1400 M0 220 H1400 M0 320 H1400 M0 420 H1400 M0 520 H1400 M0 620 H1400 M0 720 H1400 M0 820 H1400"/>
+    <path d="M200 0 V900 M400 0 V900 M600 0 V900 M800 0 V900 M1000 0 V900 M1200 0 V900"/>
+  </g>
+
+  <rect x="0" y="0" width="1400" height="6" fill="url(#titlebar04)"/>
+  <text x="40" y="52" font-family="system-ui, sans-serif" font-size="30" font-weight="700" fill="#e2e8f0">Forschungs-Meta · Destille von Rohquellen zur Deep Research</text>
+  <text x="40" y="78" font-family="system-ui, sans-serif" font-size="15" fill="#94a3b8">Drei Lanes · Input filtert durch Methodik · strukturierter Output</text>
+  <text x="1360" y="52" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="14" fill="#94a3b8" text-anchor="end">codex_cli / uebersicht · 04</text>
+
+  <!-- Lane-Hintergründe -->
+  <rect x="30" y="110" width="400" height="640" rx="14" fill="#0b1220" stroke="#334155"/>
+  <rect x="460" y="110" width="480" height="640" rx="14" fill="#0b1220" stroke="#334155"/>
+  <rect x="970" y="110" width="400" height="640" rx="14" fill="#0b1220" stroke="#334155"/>
+
+  <!-- Lane-Titel -->
+  <g font-family="system-ui, sans-serif">
+    <text x="230" y="142" text-anchor="middle" font-size="20" font-weight="700" fill="#818cf8">Lane 1 · Input</text>
+    <text x="230" y="164" text-anchor="middle" font-size="13" fill="#94a3b8">Rohstoff der Recherche</text>
+
+    <text x="700" y="142" text-anchor="middle" font-size="20" font-weight="700" fill="#22d3ee">Lane 2 · Methodik</text>
+    <text x="700" y="164" text-anchor="middle" font-size="13" fill="#94a3b8">Destille · Filter · Kontrolle</text>
+
+    <text x="1170" y="142" text-anchor="middle" font-size="20" font-weight="700" fill="#10b981">Lane 3 · Output</text>
+    <text x="1170" y="164" text-anchor="middle" font-size="13" fill="#94a3b8">Strukturierte Artefakte</text>
+  </g>
+
+  <!-- Fliessrichtung-Band -->
+  <rect x="50" y="400" width="1300" height="30" fill="url(#flow04)" rx="15" opacity="0.6"/>
+  <g stroke="#475569" stroke-width="1.5" fill="none" marker-end="url(#arr04)">
+    <path d="M430 415 L 460 415"/>
+    <path d="M940 415 L 970 415"/>
+  </g>
+
+  <!-- ============ LANE 1: INPUT ============ -->
+  <!-- Primärquellen -->
+  <g transform="translate(60 190)">
+    <rect width="340" height="108" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect width="6" height="108" rx="2" fill="#6366f1"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#c7d2fe">Primärquellen (Vorrang)</text>
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#e2e8f0">
+      <text x="20" y="54">github.com/openai/codex</text>
+      <text x="20" y="70">developers.openai.com/codex</text>
+      <text x="20" y="86">openai.com · Blog/Release-Notes</text>
+      <text x="20" y="102">agents.md · Spec</text>
+    </g>
+  </g>
+
+  <!-- Sekundärquellen -->
+  <g transform="translate(60 310)">
+    <rect width="340" height="108" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <rect width="6" height="108" rx="2" fill="#a78bfa"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ddd6fe">Sekundärquellen (Ergänzung)</text>
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">
+      <text x="20" y="54">InfoQ · VentureBeat · DeepWiki</text>
+      <text x="20" y="72">Community-Guides · Blogs</text>
+      <text x="20" y="90" fill="#94a3b8">Nur wenn Primärseiten Bot-Schutz</text>
+      <text x="20" y="106" fill="#94a3b8">(403) aktiv hatten</text>
+    </g>
+  </g>
+
+  <!-- WebSearch/WebFetch Werkzeuge -->
+  <g transform="translate(60 430)">
+    <rect width="340" height="95" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <rect width="6" height="95" rx="2" fill="#22d3ee"/>
+    <!-- Lupe-Icon -->
+    <g transform="translate(286 18)" stroke="#22d3ee" stroke-width="2" fill="none">
+      <circle cx="12" cy="12" r="8"/>
+      <path d="M18,18 L26,26" stroke-linecap="round"/>
+    </g>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#a5f3fc">Direkte Werkzeuge</text>
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">
+      <text x="20" y="52">WebSearch · breites Scanning</text>
+      <text x="20" y="70">WebFetch · gezieltes Extrahieren</text>
+      <text x="20" y="88">Read · Grep · Glob auf lokalem Corpus</text>
+    </g>
+  </g>
+
+  <!-- Sub-Agents -->
+  <g transform="translate(60 537)">
+    <rect width="340" height="108" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="6" height="108" rx="2" fill="#f59e0b"/>
+    <!-- Icon: Schachbrett/Agenten -->
+    <g transform="translate(280 18)">
+      <rect x="0" y="0" width="8" height="8" fill="#f59e0b"/>
+      <rect x="8" y="0" width="8" height="8" fill="#78350f"/>
+      <rect x="16" y="0" width="8" height="8" fill="#f59e0b"/>
+      <rect x="0" y="8" width="8" height="8" fill="#78350f"/>
+      <rect x="8" y="8" width="8" height="8" fill="#f59e0b"/>
+      <rect x="16" y="8" width="8" height="8" fill="#78350f"/>
+      <rect x="0" y="16" width="8" height="8" fill="#f59e0b"/>
+      <rect x="8" y="16" width="8" height="8" fill="#78350f"/>
+      <rect x="16" y="16" width="8" height="8" fill="#f59e0b"/>
+    </g>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#fde68a">Delegierte Sub-Agents</text>
+    <g font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">
+      <text x="20" y="54">Research-Agenten pro Kapitel</text>
+      <text x="20" y="72">Parallele Recherche-Threads</text>
+      <text x="20" y="90" fill="#94a3b8">Jeder Agent pflegt eigene</text>
+      <text x="20" y="106" fill="#94a3b8">Quellen-Liste, später konsolidiert</text>
+    </g>
+  </g>
+
+  <!-- Arbeitssprache Hinweis -->
+  <g transform="translate(60 657)">
+    <rect width="340" height="75" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">Arbeitssprache</text>
+    <text x="20" y="52" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Deutsch · Umlaute korrekt</text>
+    <text x="20" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Fachbegriffe bleiben englisch (Agent, Prompt, Token)</text>
+  </g>
+
+  <!-- ============ LANE 2: METHODIK (Destille) ============ -->
+  <!-- Destillenkörper -->
+  <g transform="translate(500 200)">
+    <!-- Trichter oben -->
+    <path d="M0 0 L400 0 L320 80 L80 80 Z" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="200" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#a5f3fc">Rohdaten-Trichter</text>
+    <!-- Röhre -->
+    <rect x="80" y="80" width="240" height="340" fill="url(#distill04)" stroke="#22d3ee" stroke-width="2"/>
+    <!-- Auslass -->
+    <path d="M80 420 L320 420 L250 470 L150 470 Z" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="200" y="453" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#6ee7b7">Destillat → Output</text>
+  </g>
+
+  <!-- Filter-Stufen innerhalb der Röhre -->
+  <!-- Filter 1: Arbeitssprache -->
+  <g transform="translate(580 308)">
+    <rect width="240" height="56" rx="6" fill="#0f172a" stroke="#818cf8"/>
+    <circle cx="24" cy="28" r="12" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+    <text x="24" y="33" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#e2e8f0">DE</text>
+    <text x="54" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Filter 1 · Arbeitssprache</text>
+    <text x="54" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Deutsche Übersetzung, Fachtermini en</text>
+  </g>
+
+  <!-- Filter 2: Quellen-Pflicht -->
+  <g transform="translate(580 374)">
+    <rect width="240" height="56" rx="6" fill="#0f172a" stroke="#22d3ee"/>
+    <!-- Buch-Icon -->
+    <g transform="translate(14 16)" fill="none" stroke="#22d3ee" stroke-width="2">
+      <path d="M0 2 L0 22 L20 22 L20 2 Z"/>
+      <path d="M0 2 L10 6 L20 2"/>
+      <path d="M10 6 L10 22"/>
+    </g>
+    <text x="54" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Filter 2 · Quellen-Pflicht</text>
+    <text x="54" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">_quellen.md · URL + Kurzfassung + Datum</text>
+  </g>
+
+  <!-- Filter 3: Methodik (Primärbevorzugung) -->
+  <g transform="translate(580 440)">
+    <rect width="240" height="56" rx="6" fill="#0f172a" stroke="#10b981"/>
+    <!-- Haken-Icon -->
+    <g transform="translate(14 16)" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M6 13 L11 18 L19 8"/>
+    </g>
+    <text x="54" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Filter 3 · Primär &gt; Sekundär</text>
+    <text x="54" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Offizielle Quellen zuerst · Fallback bei 403</text>
+  </g>
+
+  <!-- Filter 4: Struktur -->
+  <g transform="translate(580 506)">
+    <rect width="240" height="56" rx="6" fill="#0f172a" stroke="#a78bfa"/>
+    <g transform="translate(14 16)" fill="none" stroke="#a78bfa" stroke-width="2">
+      <rect x="0" y="0" width="22" height="22" rx="2"/>
+      <path d="M0 8 H22 M0 16 H22 M8 0 V22"/>
+    </g>
+    <text x="54" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Filter 4 · Struktur &amp; snake_case</text>
+    <text x="54" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">agent_doc/&lt;dir&gt;/ · sprechende Dateinamen</text>
+  </g>
+
+  <!-- Filter 5: Nachvollziehbarkeit -->
+  <g transform="translate(580 572)">
+    <rect width="240" height="56" rx="6" fill="#0f172a" stroke="#f59e0b"/>
+    <g transform="translate(14 16)" fill="none" stroke="#f59e0b" stroke-width="2">
+      <circle cx="12" cy="12" r="10"/>
+      <path d="M12 6 V12 L16 16" stroke-linecap="round"/>
+    </g>
+    <text x="54" y="24" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#e2e8f0">Filter 5 · Datum &amp; Version</text>
+    <text x="54" y="42" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Stand 2026-04-16 · reproduzierbar</text>
+  </g>
+
+  <!-- Tropfen-Animation statisch (mehrere Kreise fallend) -->
+  <g fill="#22d3ee" opacity="0.6">
+    <circle cx="700" cy="248" r="3"/>
+    <circle cx="720" cy="268" r="2"/>
+    <circle cx="680" cy="280" r="2"/>
+    <circle cx="710" cy="298" r="3"/>
+  </g>
+
+  <!-- Methodik-Side-Notes -->
+  <g transform="translate(500 680)">
+    <rect width="400" height="60" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="26" font-family="system-ui, sans-serif" font-size="13" font-weight="700" fill="#e2e8f0">Quality-Gates</text>
+    <text x="20" y="48" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Peer-Konsolidierung · Doppelquellen-Check · Stand-Datum pro Datei</text>
+  </g>
+
+  <!-- ============ LANE 3: OUTPUT ============ -->
+  <!-- Hauptausgabe: agent_doc -->
+  <g transform="translate(1000 200)">
+    <rect width="340" height="108" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect width="6" height="108" rx="2" fill="#10b981"/>
+    <!-- Ordner-Icon -->
+    <g transform="translate(284 18)" fill="none" stroke="#10b981" stroke-width="2">
+      <path d="M0 4 L10 4 L14 0 L30 0 L30 24 L0 24 Z" fill="#064e3b" fill-opacity="0.6"/>
+    </g>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#a7f3d0">Verzeichnis</text>
+    <text x="20" y="54" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#e2e8f0">agent_doc/codex_cli/</text>
+    <text x="20" y="74" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">10 Markdown-Dokumente + svg/</text>
+    <text x="20" y="94" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">zentraler Einstieg: uebersicht.md</text>
+  </g>
+
+  <!-- _quellen.md -->
+  <g transform="translate(1000 320)">
+    <rect width="340" height="108" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <rect width="6" height="108" rx="2" fill="#22d3ee"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#a5f3fc">_quellen.md</text>
+    <text x="20" y="54" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">Gruppiert nach Suchstring</text>
+    <text x="20" y="72" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#94a3b8">## Suchstring: "..."</text>
+    <text x="20" y="88" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#94a3b8">- URL · Zusammenfassung · Datum</text>
+    <text x="20" y="104" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">fortlaufend gepflegt</text>
+  </g>
+
+  <!-- SVG-Visualisierungen -->
+  <g transform="translate(1000 440)">
+    <rect width="340" height="95" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <rect width="6" height="95" rx="2" fill="#a78bfa"/>
+    <!-- Bild-Icon -->
+    <g transform="translate(286 18)" fill="none" stroke="#a78bfa" stroke-width="2">
+      <rect x="0" y="0" width="28" height="22" rx="2"/>
+      <circle cx="8" cy="8" r="2" fill="#a78bfa"/>
+      <path d="M2 18 L10 12 L18 18 L26 10 L28 10"/>
+    </g>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#ddd6fe">SVG-Visualisierungen</text>
+    <text x="20" y="52" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">Pro Kapitel ein SVG · Dark-Modus</text>
+    <text x="20" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Metaphern · Farbkodierung · Legenden</text>
+    <text x="20" y="88" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#94a3b8">codex_cli/svg/*.svg</text>
+  </g>
+
+  <!-- Stand & Reproduzierbarkeit -->
+  <g transform="translate(1000 547)">
+    <rect width="340" height="95" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="6" height="95" rx="2" fill="#f59e0b"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#fde68a">Stand &amp; Versionierung</text>
+    <text x="20" y="52" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">Forschungsstand 2026-04-16</text>
+    <text x="20" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Git-History trägt alle Änderungen</text>
+    <text x="20" y="88" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">Reproduzierbare Ergebnisse</text>
+  </g>
+
+  <!-- Zielgruppe -->
+  <g transform="translate(1000 657)">
+    <rect width="340" height="75" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="30" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#e2e8f0">Zielgruppe</text>
+    <text x="20" y="52" font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">Senior Developer &amp; Senior Architekten</text>
+    <text x="20" y="70" font-family="system-ui, sans-serif" font-size="12" fill="#94a3b8">dicht · metaphorisch · belegt</text>
+  </g>
+
+  <!-- Legende unten -->
+  <g transform="translate(40 790)" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">
+    <rect x="0" y="0" width="1320" height="58" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="22" font-weight="700" fill="#e2e8f0">Lesart:</text>
+    <text x="80" y="22" fill="#94a3b8">Rohquellen (links) fliessen in die Destille (mitte) und werden durch fünf Filter zu strukturierten Artefakten (rechts).</text>
+    <text x="20" y="44" font-weight="700" fill="#e2e8f0">Kernprinzip:</text>
+    <text x="110" y="44" fill="#94a3b8">keine unbelegte Aussage · jede Quelle datiert · jede Datei in snake_case · zentraler Einstieg uebersicht.md.</text>
+  </g>
+</svg>
