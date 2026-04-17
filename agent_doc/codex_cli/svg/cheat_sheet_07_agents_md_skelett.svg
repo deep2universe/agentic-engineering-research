@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>AGENTS.md — Skelett &amp; Rankhilfe</title>
+  <desc>Dokument-Skelett der AGENTS.md mit fünf H2-Abschnitten (Tooling, Architektur, Code-Style, Tests, Security-Regeln) als vertikale Rankhilfe mit Inhalten als Blättern.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="70" fill="#e2e8f0" font-size="30" font-weight="700">AGENTS.md — Skelett</text>
+  <text x="60" y="100" fill="#94a3b8" font-size="16">Projekt-Instruktionen als Rankhilfe · jeder Ast trägt eine Regel-Klasse</text>
+  <text x="1340" y="70" fill="#64748b" font-size="14" text-anchor="end">cheat_sheet · 07/13</text>
+
+  <!-- zentrale Rankhilfe (Stamm) -->
+  <g>
+    <rect x="680" y="140" width="40" height="720" rx="8" fill="#1e293b" stroke="#334155"/>
+    <line x1="700" y1="160" x2="700" y2="840" stroke="#6366f1" stroke-width="2" stroke-dasharray="4 4"/>
+    <circle cx="700" cy="150" r="14" fill="#4f46e5" stroke="#818cf8" stroke-width="2"/>
+    <text x="700" y="155" fill="#e2e8f0" font-size="11" font-weight="700" text-anchor="middle">#</text>
+
+    <text x="700" y="130" fill="#e2e8f0" font-size="16" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace"># &lt;Projekt&gt;</text>
+  </g>
+
+  <!-- 5 Äste (alternierend links/rechts) -->
+  <!-- 1 Tooling (links) -->
+  <g>
+    <line x1="680" y1="230" x2="540" y2="230" stroke="#6366f1" stroke-width="3"/>
+    <circle cx="540" cy="230" r="8" fill="#6366f1"/>
+    <g transform="translate(80 180)">
+      <rect width="460" height="100" rx="12" fill="#1e293b" stroke="#6366f1"/>
+      <text x="20" y="32" fill="#818cf8" font-size="16" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">## Tooling</text>
+      <text x="20" y="56" fill="#e2e8f0" font-size="13">Build · Test · Lint · Run · Format</text>
+      <text x="20" y="78" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">Build: npm run build  ·  Test: pytest</text>
+    </g>
+  </g>
+
+  <!-- 2 Architektur (rechts) -->
+  <g>
+    <line x1="720" y1="340" x2="860" y2="340" stroke="#22d3ee" stroke-width="3"/>
+    <circle cx="860" cy="340" r="8" fill="#22d3ee"/>
+    <g transform="translate(860 290)">
+      <rect width="460" height="100" rx="12" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="20" y="32" fill="#22d3ee" font-size="16" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">## Architektur</text>
+      <text x="20" y="56" fill="#e2e8f0" font-size="13">Module · Layer · Grenzen · Daten-Flüsse</text>
+      <text x="20" y="78" fill="#94a3b8" font-size="12">API → Service → Domain → Adapter (Ports)</text>
+    </g>
+  </g>
+
+  <!-- 3 Code-Style (links) -->
+  <g>
+    <line x1="680" y1="460" x2="540" y2="460" stroke="#a78bfa" stroke-width="3"/>
+    <circle cx="540" cy="460" r="8" fill="#a78bfa"/>
+    <g transform="translate(80 410)">
+      <rect width="460" height="100" rx="12" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="20" y="32" fill="#a78bfa" font-size="16" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">## Code-Style</text>
+      <text x="20" y="56" fill="#e2e8f0" font-size="13">Namensregeln · Formatter · Linter-Regeln</text>
+      <text x="20" y="78" fill="#94a3b8" font-size="12">prettier · eslint:strict · snake_case in DB</text>
+    </g>
+  </g>
+
+  <!-- 4 Tests (rechts) -->
+  <g>
+    <line x1="720" y1="580" x2="860" y2="580" stroke="#10b981" stroke-width="3"/>
+    <circle cx="860" cy="580" r="8" fill="#10b981"/>
+    <g transform="translate(860 530)">
+      <rect width="460" height="100" rx="12" fill="#1e293b" stroke="#10b981"/>
+      <text x="20" y="32" fill="#10b981" font-size="16" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">## Tests</text>
+      <text x="20" y="56" fill="#e2e8f0" font-size="13">Framework · Coverage ≥ 85 % · Naming</text>
+      <text x="20" y="78" fill="#94a3b8" font-size="12">vitest · spec/*.test.ts · AAA-Pattern</text>
+    </g>
+  </g>
+
+  <!-- 5 Security (links, rot) -->
+  <g>
+    <line x1="680" y1="700" x2="540" y2="700" stroke="#ef4444" stroke-width="3"/>
+    <circle cx="540" cy="700" r="8" fill="#ef4444"/>
+    <g transform="translate(80 650)">
+      <rect width="460" height="130" rx="12" fill="#1e293b" stroke="#ef4444"/>
+      <text x="20" y="32" fill="#ef4444" font-size="16" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">## Security-Regeln</text>
+      <text x="20" y="56" fill="#e2e8f0" font-size="13">Harte Verbote · Approvals · Secrets</text>
+      <text x="20" y="78" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">niemals rm -rf außerhalb dist/</text>
+      <text x="20" y="96" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">keine neuen npm-Scripts ohne Review</text>
+      <text x="20" y="114" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">keine Secrets committen</text>
+    </g>
+  </g>
+
+  <!-- Kontext-Karte unten -->
+  <g transform="translate(60 820)">
+    <rect width="1280" height="60" rx="12" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="24" fill="#a78bfa" font-size="13" font-weight="700" letter-spacing="1">WIRKUNG</text>
+    <text x="20" y="45" fill="#cbd5e1" font-size="12">Diese Datei wird automatisch als Projekt-Kontext geladen · kürzer = mehr Fokus · konkrete Regeln statt Prosa · Pfadbezüge mit Monospace</text>
+  </g>
+
+  <!-- rechts oben: Dokument-Icon -->
+  <g transform="translate(1180 140)">
+    <rect x="0" y="0" width="120" height="150" rx="8" fill="#0b1220" stroke="#6366f1" stroke-width="2"/>
+    <path d="M 0 0 L 90 0 L 120 30 L 120 150 L 0 150 Z" fill="none" stroke="#6366f1"/>
+    <path d="M 90 0 L 90 30 L 120 30" fill="none" stroke="#6366f1"/>
+    <line x1="15" y1="60" x2="105" y2="60" stroke="#334155" stroke-width="2"/>
+    <line x1="15" y1="75" x2="85" y2="75" stroke="#334155" stroke-width="2"/>
+    <line x1="15" y1="90" x2="105" y2="90" stroke="#334155" stroke-width="2"/>
+    <line x1="15" y1="105" x2="75" y2="105" stroke="#334155" stroke-width="2"/>
+    <line x1="15" y1="120" x2="95" y2="120" stroke="#334155" stroke-width="2"/>
+    <text x="60" y="170" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">AGENTS.md</text>
+  </g>
+</svg>

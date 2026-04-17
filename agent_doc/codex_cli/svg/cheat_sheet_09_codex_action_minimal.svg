@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>openai/codex-action@v1 — Minimal-Setup &amp; Fertigungsstraße</title>
+  <desc>YAML-Workflow links, rechts eine Fliessband-Pipeline: Checkout, Codex-Action, Review-File, PR-Comment als CI-Pipeline.</desc>
+
+  <defs>
+    <marker id="a9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="70" fill="#e2e8f0" font-size="30" font-weight="700">openai/codex-action@v1 · Minimal</text>
+  <text x="60" y="100" fill="#94a3b8" font-size="16">Fertigungsstraße: Checkout → Codex-Action → Review-File → PR-Comment</text>
+  <text x="1340" y="70" fill="#64748b" font-size="14" text-anchor="end">cheat_sheet · 09/13</text>
+
+  <!-- YAML-Block links -->
+  <g transform="translate(60 160)">
+    <rect width="540" height="600" rx="14" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+    <rect width="540" height="36" rx="14" fill="#1e293b"/>
+    <circle cx="20" cy="18" r="5" fill="#ef4444"/>
+    <circle cx="38" cy="18" r="5" fill="#f59e0b"/>
+    <circle cx="56" cy="18" r="5" fill="#10b981"/>
+    <text x="270" y="23" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">.github/workflows/codex-review.yml</text>
+
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13">
+      <text x="20" y="80" fill="#94a3b8">name</text>
+      <text x="60" y="80" fill="#e2e8f0">: </text>
+      <text x="78" y="80" fill="#10b981">Codex Review</text>
+
+      <text x="20" y="106" fill="#94a3b8">on</text>
+      <text x="40" y="106" fill="#e2e8f0">:</text>
+      <text x="40" y="128" fill="#94a3b8">  pull_request</text>
+      <text x="132" y="128" fill="#e2e8f0">:</text>
+      <text x="60" y="150" fill="#94a3b8">    types</text>
+      <text x="108" y="150" fill="#e2e8f0">: </text>
+      <text x="126" y="150" fill="#f59e0b">[opened, synchronize]</text>
+
+      <text x="20" y="184" fill="#94a3b8">jobs</text>
+      <text x="60" y="184" fill="#e2e8f0">:</text>
+      <text x="40" y="206" fill="#a78bfa">  review</text>
+      <text x="94" y="206" fill="#e2e8f0">:</text>
+      <text x="60" y="228" fill="#94a3b8">    runs-on</text>
+      <text x="128" y="228" fill="#e2e8f0">: </text>
+      <text x="146" y="228" fill="#10b981">ubuntu-latest</text>
+      <text x="60" y="250" fill="#94a3b8">    steps</text>
+      <text x="112" y="250" fill="#e2e8f0">:</text>
+
+      <text x="78" y="282" fill="#e2e8f0">- </text>
+      <text x="94" y="282" fill="#94a3b8">uses</text>
+      <text x="130" y="282" fill="#e2e8f0">: </text>
+      <text x="148" y="282" fill="#818cf8">actions/checkout@v4</text>
+
+      <text x="78" y="314" fill="#e2e8f0">- </text>
+      <text x="94" y="314" fill="#94a3b8">uses</text>
+      <text x="130" y="314" fill="#e2e8f0">: </text>
+      <text x="148" y="314" fill="#818cf8">openai/codex-action@v1</text>
+      <text x="94" y="336" fill="#94a3b8">with</text>
+      <text x="130" y="336" fill="#e2e8f0">:</text>
+      <text x="112" y="358" fill="#94a3b8">openai-api-key</text>
+      <text x="224" y="358" fill="#e2e8f0">: </text>
+      <text x="242" y="358" fill="#f59e0b">${{ secrets.OPENAI_API_KEY }}</text>
+      <text x="112" y="380" fill="#94a3b8">sandbox</text>
+      <text x="180" y="380" fill="#e2e8f0">: </text>
+      <text x="198" y="380" fill="#10b981">read-only</text>
+      <text x="112" y="402" fill="#94a3b8">safety-strategy</text>
+      <text x="234" y="402" fill="#e2e8f0">: </text>
+      <text x="252" y="402" fill="#10b981">drop-sudo</text>
+      <text x="112" y="424" fill="#94a3b8">prompt</text>
+      <text x="168" y="424" fill="#e2e8f0">: </text>
+      <text x="186" y="424" fill="#10b981">"Review the diff for regressions."</text>
+      <text x="112" y="446" fill="#94a3b8">codex-args</text>
+      <text x="198" y="446" fill="#e2e8f0">: </text>
+      <text x="216" y="446" fill="#10b981">"--ask-for-approval never"</text>
+      <text x="112" y="468" fill="#94a3b8">output-file</text>
+      <text x="198" y="468" fill="#e2e8f0">: </text>
+      <text x="216" y="468" fill="#10b981">review.md</text>
+
+      <text x="78" y="500" fill="#e2e8f0">- </text>
+      <text x="94" y="500" fill="#94a3b8">run</text>
+      <text x="124" y="500" fill="#e2e8f0">: </text>
+      <text x="142" y="500" fill="#f59e0b">|</text>
+      <text x="112" y="522" fill="#e2e8f0">gh pr comment "$PR" --body-file review.md</text>
+
+      <text x="20" y="564" fill="#64748b">; PR ID aus GITHUB_REF / event.pull_request.number</text>
+    </g>
+  </g>
+
+  <!-- Rechte Seite: Fliessband-Zeitstrahl -->
+  <g transform="translate(640 160)">
+    <text x="0" y="30" fill="#a78bfa" font-size="14" font-weight="700" letter-spacing="2">PIPELINE · RUN</text>
+
+    <!-- Band -->
+    <rect x="0" y="120" width="700" height="40" rx="20" fill="#1e293b" stroke="#334155"/>
+    <g stroke="#0f172a" stroke-width="2">
+      <line x1="40" y1="120" x2="40" y2="160"/>
+      <line x1="100" y1="120" x2="100" y2="160"/>
+      <line x1="160" y1="120" x2="160" y2="160"/>
+      <line x1="220" y1="120" x2="220" y2="160"/>
+      <line x1="280" y1="120" x2="280" y2="160"/>
+      <line x1="340" y1="120" x2="340" y2="160"/>
+      <line x1="400" y1="120" x2="400" y2="160"/>
+      <line x1="460" y1="120" x2="460" y2="160"/>
+      <line x1="520" y1="120" x2="520" y2="160"/>
+      <line x1="580" y1="120" x2="580" y2="160"/>
+      <line x1="640" y1="120" x2="640" y2="160"/>
+    </g>
+
+    <!-- Stationen -->
+    <g>
+      <circle cx="90" cy="140" r="30" fill="#0b1220" stroke="#818cf8" stroke-width="2"/>
+      <path d="M75 135 L90 145 L105 135 L105 145 L75 145 Z" fill="#818cf8"/>
+      <text x="90" y="200" fill="#818cf8" font-size="12" text-anchor="middle" font-weight="700">Checkout</text>
+      <text x="90" y="220" fill="#94a3b8" font-size="11" text-anchor="middle">actions/checkout</text>
+      <text x="90" y="240" fill="#64748b" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">~2s</text>
+    </g>
+
+    <g>
+      <circle cx="260" cy="140" r="34" fill="#0b1220" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M245 130 L245 150 L275 140 Z" fill="#22d3ee"/>
+      <text x="260" y="200" fill="#22d3ee" font-size="12" text-anchor="middle" font-weight="700">Codex-Action</text>
+      <text x="260" y="220" fill="#94a3b8" font-size="11" text-anchor="middle">--ask-for-approval never</text>
+      <text x="260" y="240" fill="#64748b" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">60–300s · read-only</text>
+    </g>
+
+    <g>
+      <circle cx="430" cy="140" r="30" fill="#0b1220" stroke="#10b981" stroke-width="2"/>
+      <rect x="418" y="130" width="24" height="28" fill="none" stroke="#10b981" stroke-width="2"/>
+      <text x="430" y="148" fill="#10b981" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">md</text>
+      <text x="430" y="200" fill="#10b981" font-size="12" text-anchor="middle" font-weight="700">review.md</text>
+      <text x="430" y="220" fill="#94a3b8" font-size="11" text-anchor="middle">strukturierter Bericht</text>
+      <text x="430" y="240" fill="#64748b" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">output-file</text>
+    </g>
+
+    <g>
+      <circle cx="610" cy="140" r="30" fill="#0b1220" stroke="#f59e0b" stroke-width="2"/>
+      <path d="M600 134 Q 610 120 620 134 L 620 146 L 617 152 L 603 152 L 600 146 Z" fill="none" stroke="#f59e0b" stroke-width="2"/>
+      <text x="610" y="143" fill="#f59e0b" font-size="11" text-anchor="middle">PR</text>
+      <text x="610" y="200" fill="#f59e0b" font-size="12" text-anchor="middle" font-weight="700">gh pr comment</text>
+      <text x="610" y="220" fill="#94a3b8" font-size="11" text-anchor="middle">Review als Bot-Kommentar</text>
+      <text x="610" y="240" fill="#64748b" font-size="10" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">--body-file review.md</text>
+    </g>
+
+    <!-- Flow-Pfeile -->
+    <path d="M 120 140 L 224 140" stroke="#22d3ee" stroke-width="2" marker-end="url(#a9)"/>
+    <path d="M 294 140 L 398 140" stroke="#22d3ee" stroke-width="2" marker-end="url(#a9)"/>
+    <path d="M 460 140 L 578 140" stroke="#22d3ee" stroke-width="2" marker-end="url(#a9)"/>
+
+    <!-- Infokarten unten -->
+    <g transform="translate(0 290)">
+      <rect width="700" height="120" rx="12" fill="#0b1220" stroke="#334155"/>
+      <text x="20" y="30" fill="#a78bfa" font-size="13" font-weight="700">SAFETY-DEFAULTS (Minimal)</text>
+      <text x="20" y="58" fill="#cbd5e1" font-size="12">• sandbox: <tspan fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">read-only</tspan> — keine Writes im Workspace</text>
+      <text x="20" y="80" fill="#cbd5e1" font-size="12">• safety-strategy: <tspan fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">drop-sudo</tspan> — kein Privilege-Escalation</text>
+      <text x="20" y="102" fill="#cbd5e1" font-size="12">• Approval: <tspan fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">never</tspan> — headless (CI braucht keine Prompts)</text>
+    </g>
+
+    <g transform="translate(0 430)">
+      <rect width="700" height="280" rx="12" fill="#0b1220" stroke="#334155"/>
+      <text x="20" y="30" fill="#a78bfa" font-size="13" font-weight="700">AUSGABE (review.md · Auszug)</text>
+      <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+        <text x="20" y="60" fill="#818cf8"># Codex Review</text>
+        <text x="20" y="84" fill="#e2e8f0">## Zusammenfassung</text>
+        <text x="20" y="104" fill="#94a3b8">- 4 Änderungen, 1 kritisches Finding</text>
+        <text x="20" y="128" fill="#e2e8f0">## Findings</text>
+        <text x="20" y="148" fill="#ef4444">- [critical] SQL-Injection in users.ts:42</text>
+        <text x="20" y="168" fill="#f59e0b">- [warning]  fehlender Null-Check src/order.ts:91</text>
+        <text x="20" y="188" fill="#10b981">- [nit]      inkonsistente Naming-Konvention</text>
+        <text x="20" y="212" fill="#e2e8f0">## Vorschläge</text>
+        <text x="20" y="232" fill="#94a3b8">- parametrisierte Queries nutzen</text>
+        <text x="20" y="252" fill="#94a3b8">- guard-clauses + TS-Strict</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Badges oben rechts -->
+  <g transform="translate(1200 160)">
+    <rect width="100" height="28" rx="6" fill="#1e293b" stroke="#10b981"/>
+    <text x="50" y="18" fill="#10b981" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">read-only</text>
+  </g>
+  <g transform="translate(1200 200)">
+    <rect width="100" height="28" rx="6" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="50" y="18" fill="#f59e0b" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">drop-sudo</text>
+  </g>
+</svg>

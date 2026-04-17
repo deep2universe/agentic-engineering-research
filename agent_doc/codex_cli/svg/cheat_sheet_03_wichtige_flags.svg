@@ -27,7 +27,7 @@
     <text x="30" y="62" fill="#94a3b8" font-size="13">welche Engine, welches Setup</text>
 
     <g font-family="'JetBrains Mono', ui-monospace, monospace">
-      <!-- -m / --model -->
+      <!-- model-flag -->
       <g transform="translate(30 90)">
         <rect width="260" height="70" rx="10" fill="#0b1220" stroke="#334155"/>
         <rect x="14" y="18" width="30" height="34" rx="4" fill="#0b1220" stroke="#818cf8"/>
