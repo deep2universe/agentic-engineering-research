@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Logging und Debugging — Observability-Turm mit Log-Streams</title>
+  <desc>Log-Orte ~/.codex/log/codex.log, sessions/*.jsonl, RUST_LOG, -v und CODEX_MCP_LOG als Streams in einen Observability-Turm.</desc>
+  <defs>
+    <marker id="arr15" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Logging &amp; Debugging — der Observability-Turm</text>
+  <text x="60" y="92" fill="#94a3b8" font-size="16">Fünf Log-Quellen fliessen in den Turm. Level-Regler: RUST_LOG, -v, CODEX_MCP_LOG.</text>
+  <text x="1340" y="60" fill="#6366f1" font-size="14" text-anchor="end" font-weight="600">Codex CLI · §15</text>
+
+  <!-- Turm -->
+  <g>
+    <polygon points="700,140 760,200 760,760 640,760 640,200" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect x="620" y="760" width="160" height="40" fill="#0f172a" stroke="#6366f1" stroke-width="2"/>
+    <circle cx="700" cy="170" r="20" fill="#f59e0b"/>
+    <circle cx="700" cy="170" r="10" fill="#fbbf24"/>
+    <text x="700" y="225" fill="#e2e8f0" font-size="14" font-weight="700" text-anchor="middle">CODEX</text>
+    <text x="700" y="245" fill="#94a3b8" font-size="11" text-anchor="middle">Runtime</text>
+
+    <!-- Turm-Ebenen -->
+    <line x1="640" y1="300" x2="760" y2="300" stroke="#334155"/>
+    <line x1="640" y1="400" x2="760" y2="400" stroke="#334155"/>
+    <line x1="640" y1="500" x2="760" y2="500" stroke="#334155"/>
+    <line x1="640" y1="600" x2="760" y2="600" stroke="#334155"/>
+    <line x1="640" y1="700" x2="760" y2="700" stroke="#334155"/>
+
+    <text x="700" y="350" fill="#818cf8" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">core</text>
+    <text x="700" y="450" fill="#22d3ee" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">mcp</text>
+    <text x="700" y="550" fill="#a78bfa" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">session</text>
+    <text x="700" y="650" fill="#10b981" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">tui</text>
+    <text x="700" y="750" fill="#f59e0b" font-size="11" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">spawn</text>
+    <text x="700" y="786" fill="#94a3b8" font-size="12" text-anchor="middle" font-weight="700">BASIS</text>
+  </g>
+
+  <!-- Links: Log-Quellen -->
+  <!-- codex.log -->
+  <g>
+    <rect x="60" y="140" width="470" height="100" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="80" y="168" fill="#818cf8" font-size="14" font-weight="700">1 · Haupt-Log</text>
+    <text x="80" y="192" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">~/.codex/log/codex.log</text>
+    <text x="80" y="214" fill="#94a3b8" font-size="12">rolling · alle Codex-Events · strukturierte Zeilen</text>
+    <text x="510" y="230" fill="#818cf8" font-size="11" text-anchor="end" font-weight="600">default</text>
+  </g>
+  <line x1="534" y1="190" x2="636" y2="330" stroke="#6366f1" stroke-width="2" marker-end="url(#arr15)"/>
+
+  <!-- Sessions -->
+  <g>
+    <rect x="60" y="260" width="470" height="100" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="80" y="288" fill="#a78bfa" font-size="14" font-weight="700">2 · Session-Transkripte</text>
+    <text x="80" y="312" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">~/.codex/sessions/&lt;uuid&gt;.jsonl</text>
+    <text x="80" y="334" fill="#94a3b8" font-size="12">jede Session eine JSONL · Replay · Audit</text>
+    <text x="510" y="350" fill="#a78bfa" font-size="11" text-anchor="end" font-weight="600">per-run</text>
+  </g>
+  <line x1="534" y1="310" x2="636" y2="430" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr15)"/>
+
+  <!-- MCP-Log -->
+  <g>
+    <rect x="60" y="380" width="470" height="100" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="80" y="408" fill="#22d3ee" font-size="14" font-weight="700">3 · MCP-Traffic</text>
+    <text x="80" y="432" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">CODEX_MCP_LOG=1 codex …</text>
+    <text x="80" y="454" fill="#94a3b8" font-size="12">request/response pro MCP-Tool · Latenz · Errors</text>
+    <text x="510" y="470" fill="#22d3ee" font-size="11" text-anchor="end" font-weight="600">opt-in</text>
+  </g>
+  <line x1="534" y1="430" x2="636" y2="470" stroke="#22d3ee" stroke-width="2" marker-end="url(#arr15)"/>
+
+  <!-- Rechts: Level-Regler -->
+  <g>
+    <rect x="870" y="140" width="470" height="150" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="890" y="168" fill="#f59e0b" font-size="14" font-weight="700">4 · RUST_LOG · Level-Filter</text>
+    <text x="890" y="192" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">RUST_LOG=codex=debug codex ...</text>
+    <text x="890" y="214" fill="#94a3b8" font-size="12">Per-Crate-Filter · Beispiele:</text>
+    <text x="890" y="234" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">codex=trace · codex_mcp=debug,info · off</text>
+    <text x="890" y="266" fill="#94a3b8" font-size="11">trace &gt; debug &gt; info &gt; warn &gt; error</text>
+    <text x="1320" y="282" fill="#f59e0b" font-size="11" text-anchor="end" font-weight="600">env</text>
+  </g>
+  <line x1="870" y1="230" x2="764" y2="330" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr15)"/>
+
+  <!-- Verbose -->
+  <g>
+    <rect x="870" y="310" width="470" height="100" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="890" y="338" fill="#10b981" font-size="14" font-weight="700">5 · TUI-Verbose</text>
+    <text x="890" y="362" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">codex -v "prompt"  ·  --verbose</text>
+    <text x="890" y="384" fill="#94a3b8" font-size="12">hebt TUI-Log-Level · zeigt Thinking + Tool-Events</text>
+    <text x="1320" y="400" fill="#10b981" font-size="11" text-anchor="end" font-weight="600">flag</text>
+  </g>
+  <line x1="870" y1="360" x2="764" y2="430" stroke="#10b981" stroke-width="2" marker-end="url(#arr15)"/>
+
+  <!-- Rotation & Retention -->
+  <g>
+    <rect x="870" y="430" width="470" height="190" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="890" y="458" fill="#94a3b8" font-size="13" font-weight="600">ROTATION &amp; RETENTION</text>
+    <text x="890" y="484" fill="#e2e8f0" font-size="13">· codex.log: rolling · mehrere Dateien</text>
+    <text x="890" y="506" fill="#e2e8f0" font-size="13">· sessions/: eine JSONL pro Run · behalten bis Cleanup</text>
+    <text x="890" y="528" fill="#e2e8f0" font-size="13">· max_bytes (history) betrifft Chat-Replay — nicht die Logs</text>
+    <text x="890" y="554" fill="#94a3b8" font-size="12">Auf CI: per `rm ~/.codex/sessions/*` nach Upload als Artifact.</text>
+    <text x="890" y="576" fill="#94a3b8" font-size="12">Für Observability: logrotate oder fluentbit nutzen.</text>
+    <text x="890" y="604" fill="#f59e0b" font-size="12" font-weight="600">⚠ JSONL kann Tokens/Prompts enthalten · Zugriff schützen!</text>
+  </g>
+
+  <!-- Typische Debug-Session -->
+  <g>
+    <rect x="60" y="500" width="470" height="270" rx="12" fill="#111827" stroke="#334155"/>
+    <text x="80" y="528" fill="#94a3b8" font-size="13" font-weight="600">TYPISCHE DEBUG-SESSION</text>
+
+    <rect x="80" y="548" width="430" height="40" rx="8" fill="#0f172a" stroke="#6366f1"/>
+    <text x="96" y="574" fill="#818cf8" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">tail -f ~/.codex/log/codex.log</text>
+
+    <rect x="80" y="598" width="430" height="40" rx="8" fill="#0f172a" stroke="#f59e0b"/>
+    <text x="96" y="624" fill="#f59e0b" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">RUST_LOG=codex=debug codex "fix bug"</text>
+
+    <rect x="80" y="648" width="430" height="40" rx="8" fill="#0f172a" stroke="#22d3ee"/>
+    <text x="96" y="674" fill="#22d3ee" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">CODEX_MCP_LOG=1 codex -v "use github-mcp"</text>
+
+    <rect x="80" y="698" width="430" height="40" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+    <text x="96" y="724" fill="#a78bfa" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">jq . ~/.codex/sessions/&lt;uuid&gt;.jsonl</text>
+
+    <text x="80" y="758" fill="#94a3b8" font-size="11">Kombinieren ergibt vollständige Request/Response-Timeline</text>
+  </g>
+
+  <!-- Output: Observability-Senke -->
+  <g>
+    <rect x="560" y="810" width="280" height="70" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="700" y="834" fill="#10b981" font-size="13" font-weight="700" text-anchor="middle">OBSERVABILITY</text>
+    <text x="700" y="860" fill="#e2e8f0" font-size="12" text-anchor="middle">ELK · Grafana · Datadog · Honeycomb</text>
+  </g>
+</svg>

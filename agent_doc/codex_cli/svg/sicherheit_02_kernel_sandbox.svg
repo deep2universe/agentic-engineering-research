@@ -1,146 +1,163 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
-  <title>Kernel-Sandbox pro Plattform</title>
-  <desc>Drei Plattform-Saeulen: macOS Seatbelt, Linux Landlock+seccomp+bwrap, Windows AppContainer. Zentral der OS-Kernel als Schutzschild, darueber die Codex-CLI und die Zwiebelschichten der Durchsetzung.</desc>
+  <title>Kernel-Sandbox — plattformspezifische Umsetzung</title>
+  <desc>Drei Plattform-Säulen (macOS Seatbelt, Linux Landlock+seccomp+bwrap, Windows AppContainer) zeigen Mechanismus, Version, Netzwerk-Default und Besonderheit. Der Kernel bildet den zentralen Schutzschild.</desc>
 
   <rect width="1400" height="900" fill="#0f172a"/>
 
-  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Kernel-Sandbox - drei Plattformen, ein Prinzip</text>
-  <text x="60" y="90" fill="#94a3b8" font-size="15">Durchsetzung wird an den OS-Kernel ausgelagert, nicht an In-Process-Checks</text>
-  <text x="1260" y="60" fill="#94a3b8" font-size="14" text-anchor="end">Codex CLI - Kap. 2</text>
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Kernel-Sandbox — Durchsetzung am OS-Kernel</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Codex delegiert die Filterung an den Kernel: robuster als In-Process-Checks, wirkt auch auf Subprozesse</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 2</text>
 
-  <!-- Zentrum: Kernel-Schild mit Codex -->
-  <g>
-    <rect x="560" y="130" width="280" height="70" rx="12" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
-    <text x="700" y="160" fill="#e2e8f0" font-size="17" font-weight="700" text-anchor="middle">Codex CLI (Agent)</text>
-    <text x="700" y="182" fill="#94a3b8" font-size="12" text-anchor="middle">spawned Subprozesse (find, jq, npm, git)</text>
-
-    <!-- Schild-Icon zentral -->
-    <path d="M 700 230 L 780 250 L 780 300 Q 780 350 700 380 Q 620 350 620 300 L 620 250 Z"
-          fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
-    <text x="700" y="298" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="middle">OS-KERNEL</text>
-    <text x="700" y="322" fill="#e2e8f0" font-size="13" text-anchor="middle">Schutzschild</text>
-    <text x="700" y="342" fill="#94a3b8" font-size="11" text-anchor="middle">auch fuer Subprozesse</text>
-  </g>
-
-  <!-- Pfeile -->
   <defs>
-    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    <marker id="arrDown2" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#94a3b8"/>
     </marker>
   </defs>
-  <line x1="700" y1="200" x2="700" y2="228" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/>
 
-  <!-- Saeule 1: macOS -->
-  <g>
-    <rect x="80" y="430" width="380" height="420" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="2"/>
-    <rect x="80" y="430" width="380" height="50" rx="14" fill="#1e3a5f"/>
-    <text x="270" y="462" fill="#60a5fa" font-size="20" font-weight="700" text-anchor="middle">macOS - Apple Seatbelt</text>
+  <!-- Central agent -->
+  <g transform="translate(640,300)">
+    <rect x="0" y="0" width="120" height="56" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="60" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">Codex-Agent</text>
+    <text x="60" y="44" text-anchor="middle" font-size="11" fill="#94a3b8">shell / write_file</text>
+  </g>
+  <path d="M700 360 L700 400" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrDown2)"/>
 
-    <text x="100" y="510" fill="#fbbf24" font-size="13" font-weight="700">Mechanismus</text>
-    <text x="100" y="532" fill="#e2e8f0" font-size="13">sandbox-exec + dyn. Profil</text>
-
-    <text x="100" y="565" fill="#fbbf24" font-size="13" font-weight="700">Version</text>
-    <text x="100" y="587" fill="#e2e8f0" font-size="13">stabil seit CLI v1</text>
-
-    <text x="100" y="620" fill="#fbbf24" font-size="13" font-weight="700">Netzwerk-Default</text>
-    <text x="100" y="642" fill="#ef4444" font-size="13" font-weight="700">AUS</text>
-
-    <text x="100" y="675" fill="#fbbf24" font-size="13" font-weight="700">Schreibpfade</text>
-    <text x="100" y="697" fill="#e2e8f0" font-size="13">cwd, $TMPDIR, ~/.codex</text>
-
-    <text x="100" y="730" fill="#fbbf24" font-size="13" font-weight="700">Besonderheit</text>
-    <text x="100" y="752" fill="#e2e8f0" font-size="12">Profil pro Session generiert,</text>
-    <text x="100" y="770" fill="#e2e8f0" font-size="12">TCC-Dialog beim ersten Start</text>
-
-    <!-- mini Zwiebel -->
-    <circle cx="400" cy="800" r="28" fill="none" stroke="#60a5fa" stroke-width="2"/>
-    <circle cx="400" cy="800" r="18" fill="none" stroke="#818cf8" stroke-width="2"/>
-    <circle cx="400" cy="800" r="8" fill="#f59e0b"/>
-    <text x="270" y="810" fill="#94a3b8" font-size="11">Zwiebel-Schicht</text>
+  <!-- Central kernel shield -->
+  <g transform="translate(700,530)">
+    <circle cx="0" cy="0" r="120" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <circle cx="0" cy="0" r="85" fill="#312e81" stroke="#818cf8" stroke-width="1.5" opacity="0.8"/>
+    <circle cx="0" cy="0" r="50" fill="#4338ca" stroke="#a5b4fc" stroke-width="1.5" opacity="0.9"/>
+    <path d="M0 -30 L22 -20 L22 8 Q22 26 0 34 Q-22 26 -22 8 L-22 -20 Z" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <path d="M-10 2 L-3 10 L12 -8" stroke="#22d3ee" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <text x="0" y="60" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">OS-Kernel</text>
+    <text x="0" y="78" text-anchor="middle" font-size="11" fill="#94a3b8">FS- &amp; Syscall-Gate</text>
+    <text x="0" y="102" text-anchor="middle" font-size="10" fill="#94a3b8">auch Subprozesse gefiltert</text>
   </g>
 
-  <!-- Saeule 2: Linux -->
-  <g>
-    <rect x="480" y="430" width="440" height="420" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
-    <rect x="480" y="430" width="440" height="50" rx="14" fill="#14532d"/>
-    <text x="700" y="462" fill="#10b981" font-size="20" font-weight="700" text-anchor="middle">Linux - Landlock + seccomp + bwrap</text>
+  <!-- macOS column -->
+  <g transform="translate(80,160)">
+    <rect x="0" y="0" width="340" height="620" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="340" height="56" rx="14" fill="#0b3a44"/>
+    <text x="170" y="35" text-anchor="middle" font-size="18" font-weight="700" fill="#67e8f9">macOS — Apple Seatbelt</text>
 
-    <text x="500" y="510" fill="#fbbf24" font-size="13" font-weight="700">Mechanismus</text>
-    <text x="500" y="532" fill="#e2e8f0" font-size="13">landlock-restrict-self + seccomp-bpf</text>
+    <text x="20" y="90" font-size="13" font-weight="700" fill="#e2e8f0">Mechanismus</text>
+    <text x="20" y="112" font-size="12" fill="#cbd5e1">sandbox-exec mit dynamisch</text>
+    <text x="20" y="130" font-size="12" fill="#cbd5e1">generiertem Seatbelt-Profil</text>
 
-    <text x="500" y="565" fill="#fbbf24" font-size="13" font-weight="700">Version</text>
-    <text x="500" y="587" fill="#e2e8f0" font-size="13">Kernel &gt;= 5.13 (ABI v2 ab 5.19)</text>
+    <text x="20" y="170" font-size="13" font-weight="700" fill="#e2e8f0">Version / Reife</text>
+    <text x="20" y="192" font-size="12" fill="#cbd5e1">Erprobt seit Codex v0.1</text>
+    <text x="20" y="210" font-size="12" fill="#cbd5e1">stabiler Referenz-Pfad</text>
 
-    <text x="500" y="620" fill="#fbbf24" font-size="13" font-weight="700">Netzwerk-Default</text>
-    <text x="500" y="642" fill="#ef4444" font-size="13" font-weight="700">AUS (keine connect())</text>
-    <text x="500" y="660" fill="#94a3b8" font-size="11">togglebar via network_access = true</text>
+    <text x="20" y="250" font-size="13" font-weight="700" fill="#e2e8f0">FS-Defaults</text>
+    <text x="20" y="272" font-size="12" fill="#cbd5e1">cwd · $TMPDIR · ~/.codex</text>
 
-    <text x="500" y="695" fill="#fbbf24" font-size="13" font-weight="700">Besonderheit</text>
-    <text x="500" y="717" fill="#e2e8f0" font-size="12">bubblewrap (bwrap) seit v0.121.0</text>
-    <text x="500" y="735" fill="#e2e8f0" font-size="12">insb. fuer Dev-Containers / Codespaces</text>
+    <text x="20" y="310" font-size="13" font-weight="700" fill="#e2e8f0">Netzwerk</text>
+    <g transform="translate(20,322)">
+      <rect x="0" y="0" width="76" height="22" rx="11" fill="#450a0a" stroke="#ef4444"/>
+      <text x="38" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#fecaca">aus</text>
+    </g>
 
-    <text x="500" y="768" fill="#fbbf24" font-size="13" font-weight="700">Syscall-Filter</text>
-    <text x="500" y="790" fill="#e2e8f0" font-size="12">kein ptrace, keine Netz-Syscalls</text>
-    <text x="500" y="808" fill="#e2e8f0" font-size="12">keine unsicheren Mounts</text>
+    <text x="20" y="380" font-size="13" font-weight="700" fill="#e2e8f0">Besonderheit</text>
+    <text x="20" y="402" font-size="12" fill="#cbd5e1">Profile dynamisch per CLI-Call</text>
+    <text x="20" y="420" font-size="12" fill="#cbd5e1">keine Installation nötig</text>
+    <text x="20" y="438" font-size="12" fill="#cbd5e1">system-nativ</text>
 
-    <!-- Drei Schichten -->
-    <g transform="translate(820 780)">
-      <rect x="0" y="0" width="80" height="18" rx="4" fill="#065f46"/><text x="40" y="13" fill="#e2e8f0" font-size="11" text-anchor="middle">bwrap</text>
-      <rect x="0" y="22" width="80" height="18" rx="4" fill="#047857"/><text x="40" y="35" fill="#e2e8f0" font-size="11" text-anchor="middle">seccomp</text>
-      <rect x="0" y="44" width="80" height="18" rx="4" fill="#10b981"/><text x="40" y="57" fill="#0f172a" font-size="11" text-anchor="middle" font-weight="700">landlock</text>
+    <g transform="translate(20,460)">
+      <rect x="0" y="0" width="300" height="140" rx="10" fill="#0b3a44" stroke="#22d3ee"/>
+      <text x="150" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#67e8f9">Seatbelt-Regeln</text>
+      <text x="14" y="52" font-size="11" fill="#cbd5e1">• deny file-write* except allowed</text>
+      <text x="14" y="72" font-size="11" fill="#cbd5e1">• deny network-outbound</text>
+      <text x="14" y="92" font-size="11" fill="#cbd5e1">• deny process-exec in /private</text>
+      <text x="14" y="112" font-size="11" fill="#cbd5e1">• allow file-read* (/System, /usr)</text>
+      <text x="14" y="132" font-size="11" fill="#94a3b8">— Apple-signed, nativ</text>
     </g>
   </g>
 
-  <!-- Saeule 3: Windows -->
-  <g>
-    <rect x="940" y="430" width="380" height="420" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
-    <rect x="940" y="430" width="380" height="50" rx="14" fill="#3b2661"/>
-    <text x="1130" y="462" fill="#a78bfa" font-size="20" font-weight="700" text-anchor="middle">Windows - AppContainer / WSL2</text>
+  <!-- Linux column -->
+  <g transform="translate(520,160)">
+    <rect x="0" y="0" width="360" height="120" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="360" height="56" rx="14" fill="#1e1b4b"/>
+    <text x="180" y="35" text-anchor="middle" font-size="18" font-weight="700" fill="#c7d2fe">Linux — 3-Layer Stack</text>
 
-    <text x="960" y="510" fill="#fbbf24" font-size="13" font-weight="700">Mechanismus (nativ)</text>
-    <text x="960" y="532" fill="#e2e8f0" font-size="13">AppContainer + Job Objects</text>
+    <text x="20" y="90" font-size="13" font-weight="700" fill="#e2e8f0">Landlock + seccomp + bwrap</text>
+    <text x="180" y="106" text-anchor="middle" font-size="11" fill="#94a3b8">Kernel ≥ 5.13 (ABI v2 ab 5.19)</text>
+  </g>
 
-    <text x="960" y="565" fill="#fbbf24" font-size="13" font-weight="700">Version</text>
-    <text x="960" y="587" fill="#e2e8f0" font-size="13">ab Codex 5.2 (Anfang 2026)</text>
+  <g transform="translate(520,620)">
+    <rect x="0" y="0" width="360" height="160" rx="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="26" font-size="13" font-weight="700" fill="#e2e8f0">Besonderheit</text>
+    <text x="20" y="48" font-size="12" fill="#cbd5e1">3-fache Schutzschicht —</text>
+    <text x="20" y="66" font-size="12" fill="#cbd5e1">ideal für Devcontainers /</text>
+    <text x="20" y="84" font-size="12" fill="#cbd5e1">GitHub Codespaces</text>
+    <text x="20" y="110" font-size="12" fill="#fbbf24">bwrap: neu seit v0.121.0</text>
+    <text x="20" y="134" font-size="11" fill="#94a3b8">Netzwerk aus, toggelbar via</text>
+    <text x="20" y="150" font-family="'JetBrains Mono',monospace" font-size="10" fill="#a78bfa">[sandbox_workspace_write].network_access</text>
+  </g>
 
-    <text x="960" y="620" fill="#fbbf24" font-size="13" font-weight="700">Netzwerk-Default</text>
-    <text x="960" y="642" fill="#ef4444" font-size="13" font-weight="700">AUS (Capability-Filter)</text>
+  <!-- Windows column -->
+  <g transform="translate(980,160)">
+    <rect x="0" y="0" width="340" height="620" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="340" height="56" rx="14" fill="#3b1e0f"/>
+    <text x="170" y="35" text-anchor="middle" font-size="18" font-weight="700" fill="#fbbf24">Windows — AppContainer / WSL2</text>
 
-    <text x="960" y="675" fill="#fbbf24" font-size="13" font-weight="700">Alternative WSL2</text>
-    <text x="960" y="697" fill="#e2e8f0" font-size="12">nutzt Linux-Sandbox-Stack</text>
-    <text x="960" y="715" fill="#10b981" font-size="12" font-weight="700">produktiv weiterhin empfohlen</text>
+    <text x="20" y="90" font-size="13" font-weight="700" fill="#e2e8f0">Mechanismus</text>
+    <text x="20" y="112" font-size="12" fill="#cbd5e1">AppContainer + Job Objects</text>
+    <text x="20" y="130" font-size="12" fill="#cbd5e1">Alternativ: WSL2 → Linux-Stack</text>
 
-    <text x="960" y="748" fill="#fbbf24" font-size="13" font-weight="700">Besonderheit</text>
-    <text x="960" y="770" fill="#e2e8f0" font-size="12">Integration Windows Defender</text>
-    <text x="960" y="788" fill="#e2e8f0" font-size="12">Capability-basiertes Modell</text>
+    <text x="20" y="170" font-size="13" font-weight="700" fill="#e2e8f0">Version / Reife</text>
+    <text x="20" y="192" font-size="12" fill="#cbd5e1">Nativ ab Codex 5.2 (Q1/2026)</text>
+    <text x="20" y="210" font-size="12" fill="#cbd5e1">WSL2 empfohlen für produktiv</text>
 
-    <!-- Burg-Icon -->
-    <g transform="translate(1220 780)">
-      <rect x="0" y="10" width="60" height="30" fill="#a78bfa"/>
-      <rect x="0" y="0" width="10" height="10" fill="#a78bfa"/>
-      <rect x="25" y="0" width="10" height="10" fill="#a78bfa"/>
-      <rect x="50" y="0" width="10" height="10" fill="#a78bfa"/>
+    <text x="20" y="250" font-size="13" font-weight="700" fill="#e2e8f0">FS-Defaults</text>
+    <text x="20" y="272" font-size="12" fill="#cbd5e1">cwd · %TEMP% · ~\.codex</text>
+
+    <text x="20" y="310" font-size="13" font-weight="700" fill="#e2e8f0">Netzwerk</text>
+    <g transform="translate(20,322)">
+      <rect x="0" y="0" width="76" height="22" rx="11" fill="#450a0a" stroke="#ef4444"/>
+      <text x="38" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#fecaca">aus</text>
+    </g>
+
+    <text x="20" y="380" font-size="13" font-weight="700" fill="#e2e8f0">Besonderheit</text>
+    <text x="20" y="402" font-size="12" fill="#cbd5e1">Capability-basiert, nativ</text>
+    <text x="20" y="420" font-size="12" fill="#cbd5e1">signiert — AppContainer-Token</text>
+    <text x="20" y="438" font-size="12" fill="#cbd5e1">reduziert Prozess-Rechte</text>
+
+    <g transform="translate(20,460)">
+      <rect x="0" y="0" width="300" height="140" rx="10" fill="#3b1e0f" stroke="#f59e0b"/>
+      <text x="150" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#fbbf24">Zwei Pfade</text>
+      <text x="14" y="52" font-size="11" fill="#cbd5e1">• Native: AppContainer + Job Obj.</text>
+      <text x="14" y="72" font-size="11" fill="#cbd5e1">• WSL2: identisch zu Linux-Stack</text>
+      <text x="14" y="92" font-size="11" fill="#cbd5e1">• Empfehlung: WSL2 für CI/heavy</text>
+      <text x="14" y="112" font-size="11" fill="#fbbf24">• Native reift mit Codex 5.2</text>
     </g>
   </g>
 
-  <!-- Default-Schreibpfade Panel unten -->
-  <g>
-    <rect x="80" y="220" width="420" height="170" rx="10" fill="#1e293b" stroke="#334155"/>
-    <text x="100" y="250" fill="#f59e0b" font-size="15" font-weight="700">Default-Schreibpfade (workspace-write)</text>
-    <text x="100" y="278" fill="#e2e8f0" font-size="13">- cwd und alles darunter</text>
-    <text x="100" y="300" fill="#e2e8f0" font-size="13">- $TMPDIR bzw. /tmp</text>
-    <text x="100" y="322" fill="#e2e8f0" font-size="13">- ~/.codex/ (eigene Konfig)</text>
-    <text x="100" y="352" fill="#94a3b8" font-size="12">Override: [sandbox_workspace_write].writable_roots</text>
-    <text x="100" y="372" fill="#94a3b8" font-size="12">network_access / exclude_tmpdir_env_var</text>
+  <!-- Linux layered stack -->
+  <g transform="translate(520,300)">
+    <rect x="0" y="0" width="360" height="300" rx="14" fill="#1e293b" stroke="#334155"/>
+    <text x="180" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#c7d2fe">Schichten-Stack (Zwiebel)</text>
+
+    <rect x="20" y="44" width="320" height="52" rx="8" fill="#4338ca" stroke="#818cf8"/>
+    <text x="36" y="68" font-size="12" font-weight="700" fill="#e2e8f0">bwrap</text>
+    <text x="36" y="86" font-size="11" fill="#c7d2fe">Mount- &amp; PID-Namespace (neu v0.121)</text>
+
+    <rect x="20" y="108" width="320" height="52" rx="8" fill="#6366f1" stroke="#a5b4fc"/>
+    <text x="36" y="132" font-size="12" font-weight="700" fill="#e2e8f0">seccomp-bpf</text>
+    <text x="36" y="150" font-size="11" fill="#c7d2fe">Syscall-Whitelist (no ptrace, no net)</text>
+
+    <rect x="20" y="172" width="320" height="52" rx="8" fill="#818cf8" stroke="#c7d2fe"/>
+    <text x="36" y="196" font-size="12" font-weight="700" fill="#0f172a">Landlock</text>
+    <text x="36" y="214" font-size="11" fill="#0f172a">FS-Kapsel: nur erlaubte Pfade</text>
+
+    <rect x="20" y="236" width="320" height="42" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="180" y="262" text-anchor="middle" font-size="12" fill="#94a3b8">⬇ Durchsetzung am Linux-Kernel</text>
   </g>
 
-  <g>
-    <rect x="900" y="220" width="420" height="170" rx="10" fill="#1e293b" stroke="#334155"/>
-    <text x="920" y="250" fill="#ef4444" font-size="15" font-weight="700">Warum Kernel-Level?</text>
-    <text x="920" y="278" fill="#e2e8f0" font-size="13">- robuster als Allowlist-Parser</text>
-    <text x="920" y="300" fill="#e2e8f0" font-size="13">- kompilierte Subprozesse werden gefiltert</text>
-    <text x="920" y="322" fill="#e2e8f0" font-size="13">- keine Umgehung durch exec/fork</text>
-    <text x="920" y="352" fill="#94a3b8" font-size="12">In-Process-Checks koennen leaken,</text>
-    <text x="920" y="372" fill="#94a3b8" font-size="12">Kernel-Checks nicht.</text>
+  <!-- Bottom legend -->
+  <g transform="translate(60,830)" font-size="13" fill="#e2e8f0">
+    <text x="0" y="0" font-weight="700">Gemeinsam:</text>
+    <text x="92" y="0" fill="#94a3b8">Net default aus · FS = cwd + tmp + ~/.codex · Override via </text>
+    <text x="620" y="0" font-family="'JetBrains Mono',monospace" fill="#a78bfa">[sandbox_workspace_write]</text>
+    <text x="60" y="22" fill="#94a3b8">Kernel-Durchsetzung wirkt auch auf Subprozesse wie find, jq, curl — kein In-Process-Bypass möglich.</text>
   </g>
 </svg>

@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Sandbox-Workspace-Write — Klimakapsel mit Türen</title>
+  <desc>Workspace-Write-Sandbox als Terrarium mit Default-Schreibpfaden, zusätzlichen writable_roots und Netz-Schalter.</desc>
+  <defs>
+    <linearGradient id="domeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e293b" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Sandbox-Workspace-Write — die Klimakapsel</text>
+  <text x="60" y="92" fill="#94a3b8" font-size="16">Default-Sandbox: Schreiben in cwd, $TMPDIR, ~/.codex. Extras per writable_roots. Netz ist Tür mit Schloss.</text>
+  <text x="1340" y="60" fill="#6366f1" font-size="14" text-anchor="end" font-weight="600">Codex CLI · §6</text>
+
+  <!-- Kuppel -->
+  <path d="M 180 480 Q 180 180 700 180 Q 1220 180 1220 480 L 1220 780 L 180 780 Z" fill="url(#domeGrad)" stroke="#22d3ee" stroke-width="2"/>
+  <path d="M 180 480 Q 180 180 700 180 Q 1220 180 1220 480" fill="none" stroke="#22d3ee" stroke-width="2" stroke-dasharray="0"/>
+
+  <!-- Kuppel-Beschriftung -->
+  <text x="700" y="215" fill="#22d3ee" font-size="18" font-weight="700" text-anchor="middle">[sandbox_workspace_write]</text>
+  <text x="700" y="240" fill="#94a3b8" font-size="13" text-anchor="middle">schreibgeschützte Hülle um writable_roots</text>
+
+  <!-- Interner Garten: Default writable -->
+  <rect x="240" y="300" width="920" height="240" rx="14" fill="#10b98122" stroke="#10b981" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="260" y="328" fill="#10b981" font-size="14" font-weight="700">DEFAULT WRITABLE · ohne Extra-Config</text>
+
+  <!-- Kachel cwd -->
+  <g>
+    <rect x="270" y="348" width="270" height="82" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="290" y="375" fill="#10b981" font-size="13" font-weight="700">cwd</text>
+    <text x="290" y="400" fill="#e2e8f0" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">&lt;Repo-Root&gt;</text>
+    <text x="290" y="420" fill="#94a3b8" font-size="11">aktuelles Arbeitsverzeichnis</text>
+  </g>
+
+  <!-- Kachel $TMPDIR -->
+  <g>
+    <rect x="560" y="348" width="270" height="82" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="580" y="375" fill="#10b981" font-size="13" font-weight="700">$TMPDIR</text>
+    <text x="580" y="400" fill="#e2e8f0" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">/var/folders/..</text>
+    <text x="580" y="420" fill="#94a3b8" font-size="11">temp · entfernbar via exclude_tmpdir_env_var</text>
+  </g>
+
+  <!-- Kachel ~/.codex -->
+  <g>
+    <rect x="850" y="348" width="290" height="82" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="870" y="375" fill="#10b981" font-size="13" font-weight="700">~/.codex (CODEX_HOME)</text>
+    <text x="870" y="400" fill="#e2e8f0" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">sessions · history · log</text>
+    <text x="870" y="420" fill="#94a3b8" font-size="11">Codex-State muss schreibbar sein</text>
+  </g>
+
+  <!-- /tmp (optional) -->
+  <g>
+    <rect x="270" y="450" width="400" height="70" rx="10" fill="#1e293b" stroke="#94a3b8" stroke-width="1.2" stroke-dasharray="4 3"/>
+    <text x="290" y="478" fill="#94a3b8" font-size="13" font-weight="700">/tmp (literal)</text>
+    <text x="290" y="502" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">exclude_slash_tmp = false → erlaubt</text>
+  </g>
+
+  <!-- writable_roots (extras) -->
+  <g>
+    <rect x="690" y="450" width="450" height="70" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+    <text x="710" y="478" fill="#a78bfa" font-size="13" font-weight="700">writable_roots · Extras</text>
+    <text x="710" y="502" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">["/srv/build", "/data/cache"]</text>
+  </g>
+
+  <!-- Netz-Tür -->
+  <g>
+    <rect x="580" y="620" width="240" height="140" rx="12" fill="#0f172a" stroke="#ef4444" stroke-width="2.5"/>
+    <rect x="580" y="620" width="240" height="32" rx="12" fill="#ef4444" opacity="0.2"/>
+    <text x="700" y="642" fill="#ef4444" font-size="14" font-weight="700" text-anchor="middle">NETZ-TÜR</text>
+    <text x="700" y="680" fill="#e2e8f0" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">network_access = false</text>
+    <text x="700" y="708" fill="#94a3b8" font-size="12" text-anchor="middle">Default: verriegelt</text>
+    <!-- Schloss-Icon -->
+    <g transform="translate(688 720)">
+      <rect x="0" y="6" width="24" height="18" rx="3" fill="#ef4444"/>
+      <path d="M 4 6 V 2 A 8 8 0 0 1 20 2 V 6" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+      <circle cx="12" cy="15" r="2" fill="#0f172a"/>
+    </g>
+  </g>
+
+  <!-- Seitenbeschriftung Links: Schalter-Panel -->
+  <rect x="60" y="600" width="490" height="260" rx="14" fill="#1e293b" stroke="#334155"/>
+  <text x="80" y="628" fill="#94a3b8" font-size="13" font-weight="600">FEINJUSTIERUNG</text>
+
+  <g>
+    <rect x="80" y="646" width="450" height="44" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+    <text x="98" y="672" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">writable_roots = ["/srv/build"]</text>
+    <circle cx="510" cy="668" r="7" fill="#a78bfa"/>
+  </g>
+  <g>
+    <rect x="80" y="700" width="450" height="44" rx="8" fill="#0f172a" stroke="#ef4444"/>
+    <text x="98" y="726" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">network_access = false</text>
+    <circle cx="510" cy="722" r="7" fill="#ef4444"/>
+  </g>
+  <g>
+    <rect x="80" y="754" width="450" height="44" rx="8" fill="#0f172a" stroke="#94a3b8"/>
+    <text x="98" y="780" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">exclude_tmpdir_env_var = false</text>
+    <circle cx="510" cy="776" r="7" fill="#94a3b8"/>
+  </g>
+  <g>
+    <rect x="80" y="808" width="450" height="44" rx="8" fill="#0f172a" stroke="#94a3b8"/>
+    <text x="98" y="834" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">exclude_slash_tmp = false</text>
+    <circle cx="510" cy="830" r="7" fill="#94a3b8"/>
+  </g>
+
+  <!-- Rechts: Ausserhalb-Hinweis -->
+  <rect x="850" y="600" width="490" height="260" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="870" y="628" fill="#ef4444" font-size="13" font-weight="700">AUSSERHALB DER KAPSEL · verboten</text>
+  <text x="870" y="660" fill="#e2e8f0" font-size="13">· System-Pfade (/etc, /usr, /opt)</text>
+  <text x="870" y="688" fill="#e2e8f0" font-size="13">· andere User-Homes</text>
+  <text x="870" y="716" fill="#e2e8f0" font-size="13">· Git-Worktrees außerhalb des Repos</text>
+  <text x="870" y="744" fill="#e2e8f0" font-size="13">· jegliches Netzwerk — außer freigeschaltet</text>
+  <text x="870" y="780" fill="#94a3b8" font-size="12">→ Writes fallen mit Policy-Violation-Error</text>
+  <text x="870" y="800" fill="#94a3b8" font-size="12">→ Approval-Prompt eskaliert ggf. an User</text>
+  <text x="870" y="830" fill="#f59e0b" font-size="12" font-weight="600">Alternative: danger-full-access (nur Container!)</text>
+</svg>

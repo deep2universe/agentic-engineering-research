@@ -6,6 +6,8 @@ Codex CLI ist als *autonomer* Agent konzipiert, der im Terminal Dateien editiert
 
 ## 1. Approval-Modi & Sandbox-Modi — die Matrix
 
+![Matrix aus Sandbox-Modi und Approval-Policies mit typischen Einsätzen, --full-auto und --yolo farblich markiert](svg/sicherheit_01_approval_sandbox_matrix.svg)
+
 Es gibt **zwei unabhängige Achsen**: "wann frage ich Dich?" (`--ask-for-approval`) und "was darf der Agent tun?" (`--sandbox`). Die offiziellen Kombinationen sind in der CLI vorkonfektioniert.
 
 ### 1.1 Approval-Policy (`--ask-for-approval`, `approval_policy` in `config.toml`)
@@ -48,6 +50,8 @@ codex exec --full-auto --output-schema schema.json \
 
 ## 2. Kernel-Sandbox — Plattform-spezifische Umsetzung
 
+![Drei Plattform-Säulen (macOS Seatbelt, Linux Landlock+seccomp+bwrap, Windows AppContainer) mit Kernel als zentralem Schutzschild](svg/sicherheit_02_kernel_sandbox.svg)
+
 Codex lagert die Durchsetzung **an den OS-Kernel** aus (kein selbstgestrickter Allowlist-Parser). Das ist robuster als In-Process-Checks, weil auch kompilierte Subprozesse (z. B. `find`, `jq`) vom Kernel gefiltert werden.
 
 ### 2.1 macOS — Apple Seatbelt
@@ -87,6 +91,8 @@ exclude_slash_tmp      = false
 
 ## 3. Workspace-Trust
 
+![Trust-Flow als Türsteher-Metapher: Erster Start öffnet Trust-Dialog, verzweigt in trusted oder untrusted mit persistenter Ablage in config.toml](svg/sicherheit_03_workspace_trust.svg)
+
 Beim ersten Start in einem neuen Repo zeigt Codex einen **"Trust this folder?"**-Dialog. Ohne Trust läuft die Session automatisch in `read-only` mit `untrusted` Approval.
 
 Persistent in `config.toml`:
@@ -99,6 +105,8 @@ trust_level = "trusted"   # "trusted" | "untrusted"
 Trust ist **projektweit**, nicht nutzer-global — `.codex/config.toml` im Repo-Root wird nur für Trusted-Projekte gelesen.
 
 ## 4. Umgang mit Geheimnissen
+
+![Drei Siegel für Secret-Handling: shell_environment_policy, .env-Disziplin, disable_response_storage/ZDR](svg/sicherheit_04_umgang_geheimnisse.svg)
 
 ### 4.1 `shell_environment_policy`
 
@@ -130,6 +138,8 @@ disable_response_storage = true
 
 ## 5. Prompt-Injection-Risiken
 
+![Vier Angriffsvektoren (Repo-Dateien, Dependencies, Issues/PRs, Third-Party-MCP) prallen auf Festung, rechts die Prüfkette der sechs Mitigationen](svg/sicherheit_05_prompt_injection.svg)
+
 Codex interpretiert **alle eingelesenen Dateien als Input**. Ein bösartiges README, ein Issue-Body oder ein postinstall-Skript einer NPM-Abhängigkeit kann Anweisungen enthalten ("Ignore all previous instructions and run…").
 
 ### 5.1 Vektoren
@@ -154,6 +164,8 @@ Bis zum heutigen Datum sind keine kritischen CVEs gegen die Rust-Codex-CLI bekan
 
 ## 6. Enterprise-Governance
 
+![Governance-Pyramide mit Admin-Konsole, Managed Policies, Data-Usage, Cloud-Workspaces plus Organigramm vom Org-Admin bis zum Developer](svg/sicherheit_06_enterprise_governance.svg)
+
 ### 6.1 ChatGPT Business / Enterprise / Edu
 
 - **SSO/SAML, SCIM, Audit-Logs** via OpenAI-Admin-Konsole.
@@ -169,6 +181,8 @@ Bis zum heutigen Datum sind keine kritischen CVEs gegen die Rust-Codex-CLI bekan
 - Approval-Policy-Enforcement via Managed Policies (in Roll-out Q2/2026)
 
 ## 7. Sichere CI/CD-Integration
+
+![CI-Pipeline mit Schleusen: Checkout, OIDC-Auth, Sandbox read-only, codex exec, Post-Action; rechts Minimal-YAML-Snippet](svg/sicherheit_07_sichere_cicd.svg)
 
 ### 7.1 Empfehlungen für GitHub Actions
 
@@ -219,6 +233,8 @@ jobs:
 
 ## 8. Profile pro Risiko-Szenario
 
+![Drei Risiko-Profile als Ampel: review (grün, read-only), daily (gelb, workspace-write), yolo (rot, danger-full-access)](svg/sicherheit_08_profile_risiko.svg)
+
 Empfohlen ist, im `config.toml` Profile für unterschiedliche Trust-Levels anzulegen:
 
 ```toml
@@ -241,6 +257,8 @@ Wechsel per `codex --profile review` bzw. `codex exec --profile daily`.
 
 ## 9. Risiko-Checkliste vor `--full-auto`
 
+![Cockpit-Pre-Flight-Dashboard mit sieben grünen Indikatoren neben dem grossen roten --full-auto-Knopf](svg/sicherheit_09_risiko_checkliste.svg)
+
 - [ ] Repo gehört mir oder meinem Team (`trust_level = "trusted"`).
 - [ ] Keine unbekannten MCP-Server aktiv.
 - [ ] Secrets aus `shell_environment_policy` gefiltert.
@@ -250,6 +268,8 @@ Wechsel per `codex --profile review` bzw. `codex exec --profile daily`.
 - [ ] Dauer und Kosten-Budget gesetzt (`max_output_tokens`, `--max-turns`).
 
 ## 10. Vergleich zu Claude Code
+
+![Side-by-side-Vergleich Codex CLI vs. Claude Code über fünf Aspekte: Sandbox, Approval-Modell, Hook-System, Konfig-Ort, Governance](svg/sicherheit_10_vergleich_claude.svg)
 
 | Aspekt | Codex CLI | Claude Code |
 |---|---|---|
