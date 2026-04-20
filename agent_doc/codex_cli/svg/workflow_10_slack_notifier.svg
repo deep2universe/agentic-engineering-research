@@ -1,0 +1,165 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Workflow 10 — Slack-Notifier via Notify-Hook</title>
+  <desc>Hook-Flow vom Codex agent-turn-complete-Event uber notify_slack.sh, JSON-Payload (status, title, summary), curl POST zum Slack-Channel. Webhook wird sicher uber Keychain bzw. 1Password injiziert. Metapher: Kurier mit Funkgeraet.</desc>
+
+  <defs>
+    <marker id="arr_in10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arr_em10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arr_am10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <linearGradient id="bg10" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111c34"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg10)"/>
+
+  <!-- Titel -->
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">10. Slack-Notifier mit Notify-Hook</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">agent-turn-complete -> notify_slack.sh -> JSON-Payload -> curl POST -> Slack-Channel</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 10</text>
+
+  <!-- Metapher: Kurier mit Funkgeraet -->
+  <g transform="translate(1140,110)">
+    <rect width="220" height="80" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <circle cx="40" cy="40" r="20" fill="#6366f1" opacity="0.3" stroke="#818cf8"/>
+    <path d="M30,42 q10,-18 20,0" stroke="#818cf8" stroke-width="2" fill="none"/>
+    <path d="M50,15 l8,-12 l4,2 l-8,12 z" fill="#22d3ee"/>
+    <text x="80" y="35" font-size="13" fill="#e2e8f0" font-weight="600">Metapher</text>
+    <text x="80" y="55" font-size="12" fill="#94a3b8">Kurier mit Funkgeraet</text>
+  </g>
+
+  <!-- Codex CLI -->
+  <g transform="translate(60,220)">
+    <rect width="220" height="130" rx="12" ry="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#e2e8f0">Codex CLI</text>
+    <text x="20" y="60" font-size="13" fill="#94a3b8">Event-Bus</text>
+    <rect x="20" y="74" width="180" height="40" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="90" font-size="12" fill="#a78bfa" font-family="'JetBrains Mono', ui-monospace, monospace">agent-turn-complete</text>
+    <text x="30" y="106" font-size="11" fill="#94a3b8">+ task-complete, error</text>
+  </g>
+
+  <!-- config.toml -->
+  <g transform="translate(60,400)">
+    <rect width="220" height="120" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="30" font-size="14" font-weight="600" fill="#e2e8f0">~/.codex/config.toml</text>
+    <rect x="20" y="44" width="180" height="60" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="64" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">notify = [</text>
+    <text x="30" y="80" font-size="11" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">  "/Users/.../</text>
+    <text x="30" y="94" font-size="11" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">  notify_slack.sh"]</text>
+  </g>
+
+  <!-- Pfeil config -> CLI -->
+  <path d="M170,400 L170,360" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3" fill="none" marker-end="url(#arr_in10)"/>
+  <text x="180" y="385" font-size="11" fill="#94a3b8">registriert Hook</text>
+
+  <!-- Pfeil 1: CLI -> Skript -->
+  <path d="M280,285 L420,285" stroke="#818cf8" stroke-width="2.5" fill="none" marker-end="url(#arr_in10)"/>
+  <text x="290" y="275" font-size="12" fill="#818cf8">stdin: JSON</text>
+
+  <!-- notify_slack.sh -->
+  <g transform="translate(420,220)">
+    <rect width="280" height="220" rx="12" ry="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="32" font-size="15" font-weight="700" fill="#e2e8f0">notify_slack.sh</text>
+    <text x="20" y="52" font-size="12" fill="#94a3b8">Bash, set -euo pipefail</text>
+
+    <rect x="20" y="64" width="240" height="140" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="82" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">PAYLOAD=$(cat)</text>
+    <text x="30" y="100" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">STATUS=$(jq -r .status)</text>
+    <text x="30" y="116" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">TITLE =$(jq -r .title)</text>
+    <text x="30" y="132" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">SUMMARY=$(jq -r .summary)</text>
+    <text x="30" y="156" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">curl -X POST $WEBHOOK</text>
+    <text x="30" y="172" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  -d "{...}"</text>
+    <text x="30" y="194" font-size="10" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">exit 0</text>
+  </g>
+
+  <!-- JSON-Payload-Karte -->
+  <g transform="translate(420,490)">
+    <rect width="280" height="180" rx="12" ry="12" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="20" y="32" font-size="14" font-weight="600" fill="#22d3ee">JSON-Payload</text>
+    <text x="20" y="56" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">{</text>
+    <text x="40" y="74" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">"status":</text>
+    <text x="130" y="74" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">"success",</text>
+    <text x="40" y="92" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">"title":</text>
+    <text x="120" y="92" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">"Refactor done",</text>
+    <text x="40" y="110" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">"summary":</text>
+    <text x="40" y="128" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  "12 Dateien, Tests OK",</text>
+    <text x="40" y="146" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">"turn":</text>
+    <text x="110" y="146" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">17</text>
+    <text x="20" y="164" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">}</text>
+  </g>
+  <path d="M560,440 L560,490" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="3,3" fill="none" marker-end="url(#arr_in10)"/>
+
+  <!-- curl POST -->
+  <g transform="translate(770,260)">
+    <rect width="240" height="120" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="20" y="32" font-size="15" font-weight="700" fill="#f59e0b">curl POST</text>
+    <text x="20" y="56" font-size="12" fill="#94a3b8">HTTPS, content-type: json</text>
+    <rect x="20" y="68" width="200" height="40" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="84" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">$SLACK_WEBHOOK_URL</text>
+    <text x="30" y="100" font-size="10" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">/services/T.../B.../...</text>
+  </g>
+  <path d="M700,310 L770,310" stroke="#f59e0b" stroke-width="2.5" fill="none" marker-end="url(#arr_am10)"/>
+
+  <!-- Slack-Channel -->
+  <g transform="translate(1080,260)">
+    <rect width="260" height="200" rx="12" ry="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="32" font-size="15" font-weight="700" fill="#10b981">Slack-Channel #codex</text>
+    <text x="20" y="52" font-size="11" fill="#94a3b8">Webhook-Endpoint</text>
+
+    <rect x="20" y="66" width="220" height="58" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="84" font-size="11" font-weight="700" fill="#10b981">[success] Refactor done</text>
+    <text x="30" y="102" font-size="11" fill="#e2e8f0">12 Dateien, Tests OK</text>
+    <text x="30" y="118" font-size="10" fill="#94a3b8">vor 2 Sek.  ·  Codex Bot</text>
+
+    <rect x="20" y="134" width="220" height="50" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="152" font-size="11" font-weight="700" fill="#ef4444">[failure] Build broken</text>
+    <text x="30" y="170" font-size="11" fill="#e2e8f0">Stacktrace -> Logs.</text>
+  </g>
+  <path d="M1010,320 L1080,320" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arr_em10)"/>
+
+  <!-- Sicherheits-Box -->
+  <g transform="translate(770,500)">
+    <rect width="570" height="220" rx="12" ry="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#ef4444">Sicherheit: Webhook NIEMALS plaintext committen</text>
+
+    <g transform="translate(20,54)">
+      <circle cx="14" cy="14" r="14" fill="#10b981" opacity="0.2" stroke="#10b981"/>
+      <path d="M8,14 l4,4 l8,-8" stroke="#10b981" stroke-width="2" fill="none"/>
+      <text x="40" y="12" font-size="13" font-weight="600" fill="#e2e8f0">macOS Keychain</text>
+      <text x="40" y="28" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">security find-generic-password ...</text>
+    </g>
+
+    <g transform="translate(20,104)">
+      <circle cx="14" cy="14" r="14" fill="#10b981" opacity="0.2" stroke="#10b981"/>
+      <path d="M8,14 l4,4 l8,-8" stroke="#10b981" stroke-width="2" fill="none"/>
+      <text x="40" y="12" font-size="13" font-weight="600" fill="#e2e8f0">1Password CLI</text>
+      <text x="40" y="28" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">op read "op://Privat/Slack/url"</text>
+    </g>
+
+    <g transform="translate(20,154)">
+      <circle cx="14" cy="14" r="14" fill="#ef4444" opacity="0.2" stroke="#ef4444"/>
+      <path d="M9,9 l10,10 M19,9 l-10,10" stroke="#ef4444" stroke-width="2" fill="none"/>
+      <text x="40" y="12" font-size="13" font-weight="600" fill="#e2e8f0">Anti-Pattern</text>
+      <text x="40" y="28" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#ef4444">SLACK_WEBHOOK_URL="https://..." in .env (committed)</text>
+    </g>
+
+    <text x="20" y="208" font-size="11" fill="#94a3b8">Tipp: Hook-Skript chmod 700; Logs nicht den Webhook ausgeben (set +x).</text>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,790)">
+    <text x="0" y="14" font-size="12" font-weight="700" fill="#94a3b8">Legende</text>
+    <rect x="0" y="26" width="14" height="14" fill="#6366f1"/><text x="22" y="38" font-size="12" fill="#e2e8f0">Codex / Workflow</text>
+    <rect x="160" y="26" width="14" height="14" fill="#a78bfa"/><text x="182" y="38" font-size="12" fill="#e2e8f0">Skript / Hook</text>
+    <rect x="320" y="26" width="14" height="14" fill="#f59e0b"/><text x="342" y="38" font-size="12" fill="#e2e8f0">HTTP / curl</text>
+    <rect x="460" y="26" width="14" height="14" fill="#10b981"/><text x="482" y="38" font-size="12" fill="#e2e8f0">Erfolg / Slack</text>
+    <rect x="620" y="26" width="14" height="14" fill="#ef4444"/><text x="642" y="38" font-size="12" fill="#e2e8f0">Sicherheit / Risiko</text>
+  </g>
+</svg>

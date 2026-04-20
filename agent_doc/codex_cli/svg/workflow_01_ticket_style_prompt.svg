@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Ticket-Style-Prompt: Goal, Constraints, Definition of Done als Drei-Block-Struktur</title>
+  <desc>Visualisierung des Grundprinzips eines Codex-Prompts als Jira-Ticket mit drei Pflichtblöcken und Beispiel rechts.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg)"/>
+
+  <!-- Titel -->
+  <text x="60" y="70" font-size="30" font-weight="700" fill="#e2e8f0">Ticket-Style-Prompt</text>
+  <text x="60" y="100" font-size="16" fill="#94a3b8">Das Grundprinzip: jede Anfrage als „Lastenheft" für den Agent.</text>
+  <text x="1340" y="70" text-anchor="end" font-size="14" fill="#64748b">Codex CLI · Workflow 01</text>
+
+  <!-- Linke Seite: Jira-Ticket-Karte -->
+  <g transform="translate(60,150)">
+    <rect width="600" height="680" rx="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+    <!-- Ticket-Header -->
+    <rect width="600" height="60" rx="14" fill="#312e81" stroke="#6366f1" stroke-width="1"/>
+    <circle cx="30" cy="30" r="10" fill="#6366f1"/>
+    <text x="55" y="36" font-size="16" font-weight="700" fill="#e2e8f0">PROMPT-142 · Ticket für den Agent</text>
+    <text x="570" y="36" text-anchor="end" font-size="13" fill="#a5b4fc">priority: high</text>
+
+    <!-- Block 1: Goal -->
+    <g transform="translate(20,80)">
+      <rect width="560" height="160" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="1.2"/>
+      <rect width="6" height="160" rx="3" fill="#22d3ee"/>
+      <text x="22" y="30" font-size="16" font-weight="700" fill="#22d3ee"># Goal</text>
+      <text x="22" y="55" font-size="13" fill="#94a3b8">Was soll erreicht werden? — Ein Satz reicht.</text>
+      <text x="22" y="90" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#e2e8f0">Add OAuth login to the web app.</text>
+      <text x="22" y="120" font-size="12" fill="#64748b">Klare Outcome-Beschreibung — kein „How".</text>
+      <text x="22" y="142" font-size="12" fill="#64748b">Ohne Goal verliert der Agent die Richtung.</text>
+    </g>
+
+    <!-- Block 2: Constraints -->
+    <g transform="translate(20,260)">
+      <rect width="560" height="200" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1.2"/>
+      <rect width="6" height="200" rx="3" fill="#f59e0b"/>
+      <text x="22" y="30" font-size="16" font-weight="700" fill="#f59e0b"># Constraints</text>
+      <text x="22" y="55" font-size="13" fill="#94a3b8">Was ist verboten / fix? — Bullets.</text>
+      <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12.5" fill="#e2e8f0">
+        <text x="22" y="85">- Do not change public endpoints.</text>
+        <text x="22" y="108">- Use existing config system (`src/config/`).</text>
+        <text x="22" y="131">- Keep Node 18 compatibility.</text>
+        <text x="22" y="154">- No new npm dependencies.</text>
+      </g>
+      <text x="22" y="182" font-size="12" fill="#64748b">Constraints schützen Architektur-Invarianten.</text>
+    </g>
+
+    <!-- Block 3: DoD -->
+    <g transform="translate(20,480)">
+      <rect width="560" height="180" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.2"/>
+      <rect width="6" height="180" rx="3" fill="#10b981"/>
+      <text x="22" y="30" font-size="16" font-weight="700" fill="#10b981"># Definition of Done</text>
+      <text x="22" y="55" font-size="13" fill="#94a3b8">Wann ist „fertig"? — Maschinen-prüfbar.</text>
+      <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12.5" fill="#e2e8f0">
+        <text x="22" y="85">- Tests pass (`pnpm test`).</text>
+        <text x="22" y="108">- Unit tests added for token refresh.</text>
+        <text x="22" y="131">- `docs/auth.md` updated.</text>
+        <text x="22" y="154">- `/review` returns "no blocking issues".</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Rechte Seite: Erklärung + Wirkung -->
+  <g transform="translate(720,150)">
+    <text x="0" y="20" font-size="20" font-weight="700" fill="#e2e8f0">Warum drei Blöcke?</text>
+    <text x="0" y="48" font-size="13" fill="#94a3b8">Jeder Block adressiert ein typisches Failure-Mode des Agents.</text>
+
+    <!-- Tabelle -->
+    <g transform="translate(0,80)" font-size="13">
+      <rect width="620" height="50" rx="8" fill="#1e293b" stroke="#334155"/>
+      <text x="14" y="20" font-weight="700" fill="#22d3ee">Goal</text>
+      <text x="14" y="40" fill="#cbd5e1">verhindert: „Agent baut das Falsche"</text>
+
+      <rect y="60" width="620" height="50" rx="8" fill="#1e293b" stroke="#334155"/>
+      <text x="14" y="80" font-weight="700" fill="#f59e0b">Constraints</text>
+      <text x="14" y="100" fill="#cbd5e1">verhindert: „Agent verletzt Konventionen / Deps"</text>
+
+      <rect y="120" width="620" height="50" rx="8" fill="#1e293b" stroke="#334155"/>
+      <text x="14" y="140" font-weight="700" fill="#10b981">Definition of Done</text>
+      <text x="14" y="160" fill="#cbd5e1">verhindert: „Agent stoppt zu früh / zu spät"</text>
+    </g>
+
+    <!-- Hebel-Box -->
+    <g transform="translate(0,280)">
+      <rect width="620" height="120" rx="12" fill="#312e81" stroke="#818cf8" stroke-width="1.4"/>
+      <text x="20" y="35" font-size="16" font-weight="700" fill="#e0e7ff">Single Biggest Leverage</text>
+      <text x="20" y="62" font-size="13" fill="#c7d2fe">Reichere jeden Prompt &gt; 2 Sätze um diese drei Blöcke an.</text>
+      <text x="20" y="85" font-size="13" fill="#c7d2fe">Wirkung: 80 % der Aufgaben werden ohne Re-Prompt sauber gelöst.</text>
+      <text x="20" y="108" font-size="12" fill="#a5b4fc">Faustregel: 30 s mehr Prompt-Aufwand → 5 min weniger Korrekturen.</text>
+    </g>
+
+    <!-- Wirkungs-Pfeil -->
+    <g transform="translate(0,430)">
+      <text x="0" y="20" font-size="16" font-weight="700" fill="#e2e8f0">Wirkungskette</text>
+      <g transform="translate(0,40)">
+        <rect width="180" height="50" rx="8" fill="#1e293b" stroke="#6366f1"/>
+        <text x="90" y="30" text-anchor="middle" font-size="13" fill="#e2e8f0">Strukturierter Prompt</text>
+        <line x1="180" y1="25" x2="220" y2="25" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+        <rect x="220" width="180" height="50" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+        <text x="310" y="30" text-anchor="middle" font-size="13" fill="#e2e8f0">Klares Acceptance</text>
+        <line x1="400" y1="25" x2="440" y2="25" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+        <rect x="440" width="180" height="50" rx="8" fill="#1e293b" stroke="#10b981"/>
+        <text x="530" y="30" text-anchor="middle" font-size="13" fill="#e2e8f0">Self-verify durch Agent</text>
+      </g>
+    </g>
+
+    <!-- Anti-Pattern -->
+    <g transform="translate(0,540)">
+      <rect width="620" height="120" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="1.2"/>
+      <text x="20" y="32" font-size="15" font-weight="700" fill="#fca5a5">Anti-Pattern (vermeiden)</text>
+      <text x="20" y="58" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#fecaca">"add oauth"</text>
+      <text x="20" y="84" font-size="12.5" fill="#94a3b8">Folge: Agent rät Provider, Routes, Lib — meist falsch oder zu generisch.</text>
+      <text x="20" y="106" font-size="12.5" fill="#94a3b8">Folge: keine Definition of Done → endloses Nachbessern in Re-Prompts.</text>
+    </g>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,860)" font-size="12" fill="#94a3b8">
+    <rect width="14" height="14" fill="#22d3ee"/><text x="22" y="12">Goal</text>
+    <rect x="90" width="14" height="14" fill="#f59e0b"/><text x="112" y="12">Constraints</text>
+    <rect x="220" width="14" height="14" fill="#10b981"/><text x="242" y="12">Definition of Done</text>
+    <rect x="400" width="14" height="14" fill="#6366f1"/><text x="422" y="12">Workflow-Hebel</text>
+  </g>
+</svg>
