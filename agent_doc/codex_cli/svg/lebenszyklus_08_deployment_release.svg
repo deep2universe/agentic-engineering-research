@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Phase 8 — Deployment und Release mit Codex Action, Docker und SBOM</title>
+  <desc>Frachtschiff und Container-Verladung: Release-Skill, Autofix-Job, Docker-Template mit gepinnter Version, Canary/Blue-Green, Provenance/SBOM via syft und cosign.</desc>
+
+  <defs>
+    <marker id="arr8" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#fb923c"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Phase 8 — Deployment &amp; Release</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Frachtschiff-Metapher: vom Bauplatz auf den Container, mit Provenance-Siegel.</text>
+  <text x="1360" y="56" fill="#fb923c" font-size="14" text-anchor="end">Codex CLI · Phase 08</text>
+
+  <!-- Pipeline -->
+  <g transform="translate(40,140)">
+    <rect width="1320" height="200" rx="14" fill="#1e293b" stroke="#fb923c" stroke-width="2"/>
+    <text x="20" y="34" fill="#fb923c" font-size="16" font-weight="700">Release-Pipeline · CI-orchestriert</text>
+
+    <g transform="translate(40,70)">
+      <!-- Stage 1 -->
+      <rect x="0" y="0" width="180" height="100" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <text x="90" y="32" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">Release-Skill</text>
+      <text x="90" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11">SemVer-Bump</text>
+      <text x="90" y="68" text-anchor="middle" fill="#cbd5e1" font-size="11">Conv. Commits</text>
+      <text x="90" y="84" text-anchor="middle" fill="#94a3b8" font-size="10">CHANGELOG · tag · push</text>
+
+      <!-- Arrow -->
+      <line x1="180" y1="50" x2="240" y2="50" stroke="#fb923c" stroke-width="2" marker-end="url(#arr8)"/>
+
+      <!-- Stage 2 -->
+      <rect x="240" y="0" width="180" height="100" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <text x="330" y="32" text-anchor="middle" fill="#22d3ee" font-size="13" font-weight="700">Autofix-Job</text>
+      <text x="330" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11">workflow_run</text>
+      <text x="330" y="68" text-anchor="middle" fill="#cbd5e1" font-size="11">--full-auto</text>
+      <text x="330" y="84" text-anchor="middle" fill="#94a3b8" font-size="10">openai/codex-action@v1</text>
+
+      <line x1="420" y1="50" x2="480" y2="50" stroke="#fb923c" stroke-width="2" marker-end="url(#arr8)"/>
+
+      <!-- Stage 3 -->
+      <rect x="480" y="0" width="180" height="100" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+      <text x="570" y="32" text-anchor="middle" fill="#10b981" font-size="13" font-weight="700">Build &amp; Sign</text>
+      <text x="570" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11">Docker · Helm</text>
+      <text x="570" y="68" text-anchor="middle" fill="#cbd5e1" font-size="11">syft · cosign</text>
+      <text x="570" y="84" text-anchor="middle" fill="#94a3b8" font-size="10">SBOM + Signatur</text>
+
+      <line x1="660" y1="50" x2="720" y2="50" stroke="#fb923c" stroke-width="2" marker-end="url(#arr8)"/>
+
+      <!-- Stage 4 -->
+      <rect x="720" y="0" width="180" height="100" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <text x="810" y="32" text-anchor="middle" fill="#f59e0b" font-size="13" font-weight="700">Canary</text>
+      <text x="810" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11">5% Traffic</text>
+      <text x="810" y="68" text-anchor="middle" fill="#cbd5e1" font-size="11">Metrics-Gate</text>
+      <text x="810" y="84" text-anchor="middle" fill="#94a3b8" font-size="10">Auto-Rollback bei Fehler</text>
+
+      <line x1="900" y1="50" x2="960" y2="50" stroke="#fb923c" stroke-width="2" marker-end="url(#arr8)"/>
+
+      <!-- Stage 5 -->
+      <rect x="960" y="0" width="180" height="100" rx="10" fill="#0f172a" stroke="#fb923c" stroke-width="2"/>
+      <text x="1050" y="32" text-anchor="middle" fill="#fb923c" font-size="13" font-weight="700">Blue-Green</text>
+      <text x="1050" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11">Switch-Traffic</text>
+      <text x="1050" y="68" text-anchor="middle" fill="#cbd5e1" font-size="11">helm upgrade</text>
+      <text x="1050" y="84" text-anchor="middle" fill="#94a3b8" font-size="10">Old → Standby</text>
+    </g>
+    <text x="20" y="190" fill="#94a3b8" font-size="11">Codex orchestriert kubectl/helm nur im danger-full-access-Container der CI — niemals lokal mit Prod-Creds.</text>
+  </g>
+
+  <!-- Docker template -->
+  <g transform="translate(40,360)">
+    <rect width="660" height="240" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="20" y="34" fill="#22d3ee" font-size="16" font-weight="700">Docker-Template (CI-only)</text>
+    <rect x="20" y="50" width="620" height="170" rx="10" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', 'Fira Code', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="36" y="78" fill="#94a3b8"># Dockerfile</text>
+      <text x="36" y="98">FROM node:20-slim</text>
+      <text x="36" y="118">RUN npm i -g <tspan fill="#10b981">@openai/codex@0.121.0</tspan></text>
+      <text x="36" y="138">WORKDIR /workspace</text>
+      <text x="36" y="158">ENTRYPOINT [<tspan fill="#22d3ee">"codex"</tspan>, <tspan fill="#22d3ee">"exec"</tspan>]</text>
+      <text x="36" y="194" fill="#f59e0b">⚠ Version pinnen — kein "latest" in CI</text>
+    </g>
+  </g>
+
+  <!-- SBOM / Provenance -->
+  <g transform="translate(720,360)">
+    <rect width="640" height="240" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Provenance &amp; SBOM</text>
+
+    <g transform="translate(20,54)">
+      <rect width="290" height="80" rx="10" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="24" fill="#10b981" font-size="13" font-weight="700">syft</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="12">Software Bill of Materials</text>
+      <text x="14" y="66" fill="#94a3b8" font-size="11">syft packages oci-archive:img.tar</text>
+    </g>
+    <g transform="translate(330,54)">
+      <rect width="290" height="80" rx="10" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="14" y="24" fill="#a78bfa" font-size="13" font-weight="700">cosign</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="12">Container-Signatur (Sigstore)</text>
+      <text x="14" y="66" fill="#94a3b8" font-size="11">cosign sign --key cosign.key img</text>
+    </g>
+    <g transform="translate(20,144)">
+      <rect width="600" height="76" rx="10" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="14" y="24" fill="#f59e0b" font-size="13" font-weight="700">Codex generiert Workflow-YAMLs</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="12">"Add SBOM-step + cosign sign step + provenance attestation</text>
+      <text x="14" y="62" fill="#cbd5e1" font-size="12"> in .github/workflows/release.yml — fail on missing signature."</text>
+    </g>
+  </g>
+
+  <!-- Best/Anti -->
+  <g transform="translate(40,620)">
+    <rect width="660" height="240" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Best Practices</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">· Version pinnen (@0.121.0) — kein "latest" in CI</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">· Release-Skill: SemVer-Bump, CHANGELOG, Tag, Push, GH Release</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">· Canary / Blue-Green im Skill beschreiben</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">· Provenance / SBOM via syft + cosign</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">· Codex orchestriert kubectl/helm nur im danger-full-access-Container</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">· Autofix-Job nach failing main-build (workflow_run trigger)</text>
+    <text x="20" y="194" fill="#cbd5e1" font-size="13">· shell_environment_policy für Secret-Injektion (nicht in Prompt)</text>
+    <text x="20" y="216" fill="#cbd5e1" font-size="13">· Container-Image-Scan (trivy/grype) im Pipeline-Gate</text>
+  </g>
+  <g transform="translate(720,620)">
+    <rect width="640" height="240" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" fill="#ef4444" font-size="16" font-weight="700">Anti-Patterns</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">✗ Codex in Produktionsumgebung mit --yolo</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">✗ Sekret-Injektion in Prompt statt via shell_environment_policy</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">✗ Docker-Tag "latest" in CI/CD-Pipeline</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">✗ Autofix-Job ohne PR-Gate — Direct-to-main</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">✗ Release-Skill mit Hard-coded Versionen statt SemVer-Bump</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">✗ Kein SBOM/Signatur — Supply-Chain-Risiko unsichtbar</text>
+    <text x="20" y="194" fill="#cbd5e1" font-size="13">✗ Direct-Deploy ohne Canary — Fault-Blast-Radius = 100%</text>
+    <text x="20" y="216" fill="#cbd5e1" font-size="13">✗ Helm-Werte mit Klartext-Secrets im Repo</text>
+  </g>
+</svg>

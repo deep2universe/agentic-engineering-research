@@ -10,6 +10,8 @@ Die Kern-Philosophie: **Codex ist ein autonomer Agent — Deine Aufgabe ist Kont
 
 ## Übersicht der Phasen
 
+![Übersicht der 10 Codex-CLI-Lebenszyklus-Phasen als Ringfluss mit Codex-Feature und Modus](svg/lebenszyklus_00_uebersicht_phasen.svg)
+
 | # | Phase | Primäres Codex-Feature | Modus |
 |---|---|---|---|
 | 1 | Idee & Spec | `/init`, `--search`, high Reasoning | TUI + Plan |
@@ -28,6 +30,8 @@ Diese Nummerierung ist linear zum Lesen; in der Praxis laufen Phasen **parallel*
 ---
 
 ## Phase 1 — Idee & Spezifikation
+
+![Phase 1 — Reissbrett mit Plan-Prompt, Spec-Driven Development via GitHub Spec Kit und Kiro-for-Codex, Best Practices und Anti-Patterns](svg/lebenszyklus_01_idee_spec.svg)
 
 **Ziel**: Problem verstehen, Scope festlegen, Abnahme-Kriterien formulieren.
 
@@ -57,6 +61,8 @@ Beispiel-Prompt:
 ---
 
 ## Phase 2 — Projekt-Setup
+
+![Phase 2 — Bauwerk-Fundament mit /init, AGENTS.md, Skills, Devcontainer und Trust-Level](svg/lebenszyklus_02_projekt_setup.svg)
 
 **Ziel**: Greenfield oder Brownfield startklar machen, AGENTS.md bereitstellen.
 
@@ -88,6 +94,8 @@ Beispiel-Prompt nach `/init`:
 
 ## Phase 3 — Design & Planung
 
+![Phase 3 — Architekten-Plan mit Plan-Mode, ADR-Skill, Mermaid-Diagrammen und persistenten Task-Listen](svg/lebenszyklus_03_design_planung.svg)
+
 **Ziel**: Komponenten-Schnitt, Datenmodell, ADRs.
 
 **Befehle**:
@@ -117,6 +125,8 @@ Prompts:
 ---
 
 ## Phase 4 — Implementierung
+
+![Phase 4 — Manufaktur-Werkbank mit Ticket-Style-Prompts, TDD-Loop, Sandbox workspace-write, /diff vor Akzeptanz und /compact](svg/lebenszyklus_04_implementierung.svg)
 
 **Ziel**: Code schreiben, inkrementell, rückbaufähig.
 
@@ -149,6 +159,8 @@ Muster-Prompts (klein und spezifisch):
 
 ## Phase 5 — Testen & Verifikation
 
+![Phase 5 — Labor mit Codex-Selbsttest in der Sandbox, Playwright-MCP, respx/vcr, Coverage-Gate, Flake-Resolver und Property-Based Tests](svg/lebenszyklus_05_testen_verifikation.svg)
+
 **Ziel**: Grüne Builds, realistische Tests, keine Flakiness.
 
 **Befehle**:
@@ -173,6 +185,8 @@ codex "Run `just test`. If anything fails, debug and fix the root cause — do n
 ---
 
 ## Phase 6 — Review & Qualität
+
+![Phase 6 — Lupe und Vier-Augen-Prinzip: lokal /review, Codex GitHub App, Lint/Format, Security-Prompt-Template, Two-Agent-Review](svg/lebenszyklus_06_review_qualitaet.svg)
 
 **Ziel**: Second-Pair-of-Eyes, Lint, Security, Regression.
 
@@ -203,6 +217,8 @@ codex /review
 
 ## Phase 7 — Dokumentation
 
+![Phase 7 — Living Documentation als lebendiges Buch mit README-First, OpenAPI/TSDoc/Sphinx/mdBook und docs_sync-Skill](svg/lebenszyklus_07_dokumentation.svg)
+
 **Ziel**: Living Documentation ohne Zeitverlust.
 
 **Befehle**:
@@ -227,6 +243,8 @@ codex "Summarize the changes since the last tag into CHANGELOG.md (Keep-a-Change
 ---
 
 ## Phase 8 — Deployment & Release
+
+![Phase 8 — Frachtschiff mit Release-Skill, Autofix-Job, gepinntem Docker-Template, Canary/Blue-Green und SBOM via syft+cosign](svg/lebenszyklus_08_deployment_release.svg)
 
 **Ziel**: Reproduzierbares Artefakt in Produktion.
 
@@ -267,6 +285,8 @@ ENTRYPOINT ["codex", "exec"]
 
 ## Phase 9 — Betrieb & Incident-Response
 
+![Phase 9 — Notfall-Cockpit mit Sentry/Grafana-MCP, Hotfix-Profil, Postmortem-Skill mit 5-Whys und On-Call-Runbooks](svg/lebenszyklus_09_betrieb_incident.svg)
+
 **Ziel**: Incidents schnell lokalisieren, dokumentieren, fixen.
 
 **Befehle**:
@@ -290,6 +310,8 @@ codex "Pull the last 2h of error logs via the Sentry MCP (service `payments`). C
 ---
 
 ## Phase 10 — Wartung & Migration
+
+![Phase 10 — Werkstatt mit Repo-Exploration, Dependency-Audit, Cloud-Handoff für Multi-Hour-Tasks, Frozen-Lock und Feature-Flag-Gate](svg/lebenszyklus_10_wartung_migration.svg)
 
 **Ziel**: Code gesund halten, technische Schulden reduzieren.
 
@@ -322,6 +344,8 @@ codex cloud exec --env python-mig "Port module `src/legacy/` from Python 2.7 to 
 
 ## Meta — 10 Prinzipien für effektives Codex-Engineering
 
+![Meta — 10 Prinzipien als Säulen-Tempel mit Hexagon-Karten und Leitlinien-Kompass](svg/lebenszyklus_meta_10_prinzipien.svg)
+
 1. **Der Prompt ist das Programm**: So präzise wie ein Jira-Ticket — Goal, Constraints, Definition of Done.
 2. **Kontext-Engineering statt Prompt-Engineering**: AGENTS.md + Skills + MCP zählen mehr als der eine clevere Prompt.
 3. **Klein-granulare Tasks** → bessere Reviews, bessere Diffs, weniger Rollback-Schmerz.
@@ -337,6 +361,8 @@ codex cloud exec --env python-mig "Port module `src/legacy/` from Python 2.7 to 
 
 ## Multi-Agent & Delegationsmuster
 
+![Multi-Agent — vier Muster: Codex-Client+MCP-Server, Codex+Claude Code, Issue-Bot und Swarm](svg/lebenszyklus_multi_agent.svg)
+
 - **Codex-Client + Codex-MCP-Server**: Entwickler arbeitet mit Codex in der IDE, delegiert Cloud-Jobs via `codex cloud exec` (z. B. Big-Refactor).
 - **Codex + Claude Code**: `codex mcp serve` bietet Review-Tool an; Claude steuert, Codex reviewt.
 - **Issue-Bot**: Codex-Cloud liest GitHub-Issue → lokale Clone → PR-Push. Review durch Menschen.
@@ -345,6 +371,8 @@ codex cloud exec --env python-mig "Port module `src/legacy/` from Python 2.7 to 
 ---
 
 ## Lebenszyklus-Skizze für ein Greenfield-Projekt
+
+![Greenfield-Roadmap als Kalender-Sprint von Day 0 Idee über Bootstrap, Implementation, Deployment, Betrieb bis zur quartalsweisen Wartung](svg/lebenszyklus_skizze_greenfield.svg)
 
 ```text
 Day 0 — Idee

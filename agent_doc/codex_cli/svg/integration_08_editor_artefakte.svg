@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI – Editor-übergreifende Artefakte</title>
+  <desc>Zentrales Repository-Lager mit verschiedenen Lieferdiensten: AGENTS.md, .codex/prompts/*.md und geteilte Configs werden von Codex, Cursor, Amp, Google Jules, Factory und Aider konsumiert.</desc>
+
+  <defs>
+    <marker id="arrArt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Editor-übergreifende Artefakte</text>
+  <text x="40" y="84" font-size="15" fill="#94a3b8">Zentrales Lager · ein Repo, viele Agenten · AGENTS.md, .codex/prompts, Config-Sharing</text>
+  <text x="1360" y="56" font-size="14" fill="#64748b" text-anchor="end">Codex CLI · Kapitel 8</text>
+
+  <!-- Zentrales Lager -->
+  <rect x="440" y="170" width="520" height="380" rx="14" ry="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+  <text x="700" y="200" font-size="18" font-weight="700" fill="#67e8f9" text-anchor="middle">Zentrales Repository-Lager</text>
+  <text x="700" y="220" font-size="12" fill="#94a3b8" text-anchor="middle">geteilte Artefakte · einmal pflegen, viele lesen</text>
+
+  <!-- Regalboden 1: AGENTS.md -->
+  <rect x="460" y="240" width="480" height="80" rx="10" fill="#0b1224" stroke="#10b981"/>
+  <text x="476" y="262" font-size="14" font-weight="700" fill="#6ee7b7">AGENTS.md</text>
+  <text x="476" y="282" font-size="12" fill="#cbd5e1">Repo-Kontext: Architektur, Konventionen, Build-Commands, Risk-Areas</text>
+  <text x="476" y="302" font-size="11" fill="#94a3b8">gelesen von Codex, Cursor, Amp, Google Jules, Factory · Aider partiell</text>
+
+  <!-- Regalboden 2: Slash-Prompts -->
+  <rect x="460" y="332" width="480" height="86" rx="10" fill="#0b1224" stroke="#a78bfa"/>
+  <text x="476" y="354" font-size="14" font-weight="700" fill="#c4b5fd">.codex/prompts/*.md</text>
+  <text x="476" y="374" font-size="12" fill="#cbd5e1">Custom Slash-Commands · /triage, /changelog, /db-migrate</text>
+  <text x="476" y="392" font-size="11" fill="#94a3b8">in IDE-Extension &amp; CLI gleichzeitig verfügbar</text>
+  <text x="476" y="410" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#cbd5e1">→ /triage   ./prompts/triage.md   ./prompts/changelog.md</text>
+
+  <!-- Regalboden 3: Config-Sharing -->
+  <rect x="460" y="430" width="480" height="100" rx="10" fill="#0b1224" stroke="#fbbf24"/>
+  <text x="476" y="452" font-size="14" font-weight="700" fill="#fbbf24">Config-Sharing</text>
+  <text x="476" y="472" font-size="12" fill="#cbd5e1">~/.codex/config.toml · ~/.codex/auth.json</text>
+  <text x="476" y="490" font-size="11" fill="#94a3b8">CLI-Login authentifiziert die IDE-Extension automatisch</text>
+  <text x="476" y="508" font-size="11" fill="#94a3b8">Profil-Overrides (profiles.ci, profiles.local) gelten überall</text>
+  <text x="476" y="524" font-size="11" fill="#94a3b8">vgl. v. Siedykh-Guide (siehe Quellen)</text>
+
+  <!-- Konsumenten links und rechts: 6 Tools -->
+  <!-- LINKS -->
+  <text x="60" y="160" font-size="14" font-weight="700" fill="#e2e8f0">Konsumenten · Lieferdienste</text>
+
+  <g font-size="13">
+    <rect x="40" y="180" width="370" height="80" rx="10" fill="#1e293b" stroke="#10b981"/>
+    <text x="56" y="206" font-weight="700" fill="#6ee7b7">Codex CLI &amp; Codex IDE-Extension</text>
+    <text x="56" y="226" fill="#cbd5e1">native Konsument · alle Artefakte</text>
+    <text x="56" y="246" font-size="11" fill="#94a3b8">AGENTS.md · prompts · config.toml · auth.json</text>
+
+    <rect x="40" y="276" width="370" height="80" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+    <text x="56" y="302" font-weight="700" fill="#67e8f9">Cursor</text>
+    <text x="56" y="322" fill="#cbd5e1">liest AGENTS.md (Roo-Code-Konvention)</text>
+    <text x="56" y="342" font-size="11" fill="#94a3b8">eigene Settings, aber AGENTS.md bridge</text>
+
+    <rect x="40" y="372" width="370" height="80" rx="10" fill="#1e293b" stroke="#a78bfa"/>
+    <text x="56" y="398" font-weight="700" fill="#c4b5fd">Amp (Sourcegraph)</text>
+    <text x="56" y="418" fill="#cbd5e1">AGENTS.md als primäre Repo-Doku</text>
+    <text x="56" y="438" font-size="11" fill="#94a3b8">Kontext-aware Code-Suche</text>
+  </g>
+
+  <!-- RECHTS -->
+  <g font-size="13">
+    <rect x="990" y="180" width="370" height="80" rx="10" fill="#1e293b" stroke="#fbbf24"/>
+    <text x="1006" y="206" font-weight="700" fill="#fcd34d">Google Jules</text>
+    <text x="1006" y="226" fill="#cbd5e1">AGENTS.md als Onboarding-Quelle</text>
+    <text x="1006" y="246" font-size="11" fill="#94a3b8">Cloud-Agent · liest Repo-Snapshots</text>
+
+    <rect x="990" y="276" width="370" height="80" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+    <text x="1006" y="302" font-weight="700" fill="#67e8f9">Factory.ai</text>
+    <text x="1006" y="322" fill="#cbd5e1">"Droids" konsumieren AGENTS.md</text>
+    <text x="1006" y="342" font-size="11" fill="#94a3b8">Multi-Agent-Workflows</text>
+
+    <rect x="990" y="372" width="370" height="80" rx="10" fill="#1e293b" stroke="#475569"/>
+    <text x="1006" y="398" font-weight="700" fill="#cbd5e1">Aider</text>
+    <text x="1006" y="418" fill="#cbd5e1">partielle Unterstützung von AGENTS.md</text>
+    <text x="1006" y="438" font-size="11" fill="#94a3b8">CONVENTIONS.md alternativ konfigurierbar</text>
+  </g>
+
+  <!-- Pfeile vom Lager zu den Konsumenten -->
+  <path d="M440 280 L 410 220" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrArt)"/>
+  <path d="M440 360 L 410 316" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrArt)"/>
+  <path d="M440 440 L 410 412" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrArt)"/>
+  <path d="M960 280 L 990 220" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrArt)"/>
+  <path d="M960 360 L 990 316" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrArt)"/>
+  <path d="M960 440 L 990 412" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrArt)"/>
+
+  <!-- Untere Tabelle: Was wird wie genutzt -->
+  <rect x="40" y="580" width="1320" height="290" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+  <text x="60" y="608" font-size="16" font-weight="700" fill="#e2e8f0">Kompatibilitäts-Matrix · welcher Agent liest welches Artefakt</text>
+
+  <!-- Header -->
+  <g font-size="12">
+    <rect x="60" y="624" width="320" height="28" fill="#0b1224" stroke="#475569"/>
+    <text x="76" y="643" fill="#94a3b8">Konsument</text>
+    <rect x="380" y="624" width="170" height="28" fill="#0b1224" stroke="#475569"/>
+    <text x="465" y="643" fill="#94a3b8" text-anchor="middle">AGENTS.md</text>
+    <rect x="550" y="624" width="190" height="28" fill="#0b1224" stroke="#475569"/>
+    <text x="645" y="643" fill="#94a3b8" text-anchor="middle">.codex/prompts/*</text>
+    <rect x="740" y="624" width="200" height="28" fill="#0b1224" stroke="#475569"/>
+    <text x="840" y="643" fill="#94a3b8" text-anchor="middle">~/.codex/config.toml</text>
+    <rect x="940" y="624" width="200" height="28" fill="#0b1224" stroke="#475569"/>
+    <text x="1040" y="643" fill="#94a3b8" text-anchor="middle">~/.codex/auth.json</text>
+    <rect x="1140" y="624" width="200" height="28" fill="#0b1224" stroke="#475569"/>
+    <text x="1240" y="643" fill="#94a3b8" text-anchor="middle">CONVENTIONS.md</text>
+  </g>
+
+  <!-- Zeilen -->
+  <g font-size="12">
+    <rect x="60" y="652" width="320" height="32" fill="#0f172a"/>
+    <text x="76" y="673" fill="#e2e8f0">Codex CLI &amp; Codex Extension</text>
+    <text x="465" y="673" fill="#10b981" text-anchor="middle">voll</text>
+    <text x="645" y="673" fill="#10b981" text-anchor="middle">voll</text>
+    <text x="840" y="673" fill="#10b981" text-anchor="middle">voll</text>
+    <text x="1040" y="673" fill="#10b981" text-anchor="middle">voll</text>
+    <text x="1240" y="673" fill="#94a3b8" text-anchor="middle">–</text>
+
+    <rect x="60" y="684" width="320" height="32" fill="#1e293b"/>
+    <text x="76" y="705" fill="#e2e8f0">Cursor</text>
+    <text x="465" y="705" fill="#10b981" text-anchor="middle">voll</text>
+    <text x="645" y="705" fill="#fbbf24" text-anchor="middle">via .cursor/rules</text>
+    <text x="840" y="705" fill="#94a3b8" text-anchor="middle">eigene Settings</text>
+    <text x="1040" y="705" fill="#94a3b8" text-anchor="middle">eigener Login</text>
+    <text x="1240" y="705" fill="#94a3b8" text-anchor="middle">–</text>
+
+    <rect x="60" y="716" width="320" height="32" fill="#0f172a"/>
+    <text x="76" y="737" fill="#e2e8f0">Amp</text>
+    <text x="465" y="737" fill="#10b981" text-anchor="middle">voll</text>
+    <text x="645" y="737" fill="#94a3b8" text-anchor="middle">–</text>
+    <text x="840" y="737" fill="#94a3b8" text-anchor="middle">eigene Konfig</text>
+    <text x="1040" y="737" fill="#94a3b8" text-anchor="middle">eigener Login</text>
+    <text x="1240" y="737" fill="#94a3b8" text-anchor="middle">–</text>
+
+    <rect x="60" y="748" width="320" height="32" fill="#1e293b"/>
+    <text x="76" y="769" fill="#e2e8f0">Google Jules</text>
+    <text x="465" y="769" fill="#10b981" text-anchor="middle">voll</text>
+    <text x="645" y="769" fill="#94a3b8" text-anchor="middle">–</text>
+    <text x="840" y="769" fill="#94a3b8" text-anchor="middle">Cloud-Konfig</text>
+    <text x="1040" y="769" fill="#94a3b8" text-anchor="middle">Google-Auth</text>
+    <text x="1240" y="769" fill="#94a3b8" text-anchor="middle">–</text>
+
+    <rect x="60" y="780" width="320" height="32" fill="#0f172a"/>
+    <text x="76" y="801" fill="#e2e8f0">Factory.ai</text>
+    <text x="465" y="801" fill="#10b981" text-anchor="middle">voll</text>
+    <text x="645" y="801" fill="#94a3b8" text-anchor="middle">–</text>
+    <text x="840" y="801" fill="#94a3b8" text-anchor="middle">Web-UI</text>
+    <text x="1040" y="801" fill="#94a3b8" text-anchor="middle">SSO</text>
+    <text x="1240" y="801" fill="#94a3b8" text-anchor="middle">–</text>
+
+    <rect x="60" y="812" width="320" height="32" fill="#1e293b"/>
+    <text x="76" y="833" fill="#e2e8f0">Aider</text>
+    <text x="465" y="833" fill="#fbbf24" text-anchor="middle">partiell</text>
+    <text x="645" y="833" fill="#94a3b8" text-anchor="middle">–</text>
+    <text x="840" y="833" fill="#94a3b8" text-anchor="middle">eigene .aider.conf</text>
+    <text x="1040" y="833" fill="#94a3b8" text-anchor="middle">eigener Login</text>
+    <text x="1240" y="833" fill="#10b981" text-anchor="middle">voll</text>
+  </g>
+
+  <text x="60" y="862" font-size="11" fill="#94a3b8">Legende: voll = nativer Support · partiell = eingeschränkt · – = wird nicht gelesen</text>
+</svg>

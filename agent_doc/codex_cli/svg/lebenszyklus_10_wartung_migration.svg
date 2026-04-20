@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Phase 10 — Wartung und Migration mit Cloud-Handoff, Frozen-Lock und Feature-Flag-Gate</title>
+  <desc>Werkstatt und periodische Inspektion: Repo-Exploration, Dependency-Audit, Cloud-Handoff fuer Multi-Hour-Tasks, Frozen-Lockfile vor Refactorings, Feature-Flag-Gate fuer riskante Migrationen.</desc>
+
+  <defs>
+    <marker id="arr10" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#fb7185"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Phase 10 — Wartung &amp; Migration</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Werkstatt-Metapher: TÜV, Ölwechsel, Ersatzteile — Code gesund halten, technische Schulden tilgen.</text>
+  <text x="1360" y="56" fill="#fb7185" font-size="14" text-anchor="end">Codex CLI · Phase 10</text>
+
+  <!-- Maintenance categories grid -->
+  <g transform="translate(40,140)">
+    <rect width="660" height="320" rx="14" fill="#1e293b" stroke="#fb7185" stroke-width="2"/>
+    <text x="20" y="34" fill="#fb7185" font-size="16" font-weight="700">Wartungs-Aufgaben</text>
+
+    <g transform="translate(20,54)">
+      <rect width="290" height="120" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="14" y="24" fill="#22d3ee" font-size="13" font-weight="700">Repo-Exploration</text>
+      <text x="14" y="48" fill="#cbd5e1" font-size="12">"Summarize architecture, 1 page,</text>
+      <text x="14" y="66" fill="#cbd5e1" font-size="12">entry points, data flow,</text>
+      <text x="14" y="84" fill="#cbd5e1" font-size="12">ownership per CODEOWNERS."</text>
+      <text x="14" y="106" fill="#94a3b8" font-size="11">Onboarding-Beschleuniger</text>
+    </g>
+    <g transform="translate(330,54)">
+      <rect width="290" height="120" rx="10" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="24" fill="#10b981" font-size="13" font-weight="700">Dependency-Audit</text>
+      <text x="14" y="48" fill="#cbd5e1" font-size="12">npm audit · cargo audit · pip-audit</text>
+      <text x="14" y="66" fill="#cbd5e1" font-size="12">Skill: skills/dep_audit/</text>
+      <text x="14" y="84" fill="#cbd5e1" font-size="12">Quarterly Cadence</text>
+      <text x="14" y="106" fill="#94a3b8" font-size="11">CVE → Patch → PR</text>
+    </g>
+    <g transform="translate(20,184)">
+      <rect width="290" height="120" rx="10" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="14" y="24" fill="#a78bfa" font-size="13" font-weight="700">Dependency-Upgrade</text>
+      <text x="14" y="48" fill="#cbd5e1" font-size="12">"Upgrade React 18.x → 19.2.</text>
+      <text x="14" y="66" fill="#cbd5e1" font-size="12">Use codemods. Fix type errors.</text>
+      <text x="14" y="84" fill="#cbd5e1" font-size="12">Run full test suite."</text>
+      <text x="14" y="106" fill="#94a3b8" font-size="11">via codex (TUI oder Cloud)</text>
+    </g>
+    <g transform="translate(330,184)">
+      <rect width="290" height="120" rx="10" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="14" y="24" fill="#f59e0b" font-size="13" font-weight="700">Language-Migration</text>
+      <text x="14" y="48" fill="#cbd5e1" font-size="12">Python 2.7 → 3.12, 2to3</text>
+      <text x="14" y="66" fill="#cbd5e1" font-size="12">+ Type-Annotations</text>
+      <text x="14" y="84" fill="#cbd5e1" font-size="12">Multi-Hour → Cloud</text>
+      <text x="14" y="106" fill="#94a3b8" font-size="11">codex cloud exec</text>
+    </g>
+  </g>
+
+  <!-- Cloud-Handoff -->
+  <g transform="translate(720,140)">
+    <rect width="640" height="320" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="20" y="34" fill="#22d3ee" font-size="16" font-weight="700">Cloud-Handoff für Multi-Hour-Tasks</text>
+
+    <g transform="translate(40,80)">
+      <!-- Local -->
+      <rect x="0" y="40" width="160" height="80" rx="10" fill="#0f172a" stroke="#6366f1" stroke-width="2"/>
+      <text x="80" y="70" text-anchor="middle" fill="#6366f1" font-size="14" font-weight="700">Lokal (TUI)</text>
+      <text x="80" y="90" text-anchor="middle" fill="#cbd5e1" font-size="11">Plan + Spec</text>
+      <text x="80" y="108" text-anchor="middle" fill="#94a3b8" font-size="10">codex --profile cloud-prep</text>
+
+      <!-- Wormhole -->
+      <path d="M 160 80 Q 240 40 320 80" stroke="#22d3ee" stroke-width="2" fill="none" stroke-dasharray="4,4" marker-end="url(#arr10)"/>
+      <path d="M 160 100 Q 240 140 320 100" stroke="#22d3ee" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+      <text x="240" y="34" text-anchor="middle" fill="#22d3ee" font-size="11">cloud exec</text>
+
+      <!-- Cloud -->
+      <rect x="320" y="40" width="200" height="80" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <text x="420" y="64" text-anchor="middle" fill="#22d3ee" font-size="14" font-weight="700">Codex Cloud</text>
+      <text x="420" y="84" text-anchor="middle" fill="#cbd5e1" font-size="11">GPT-5.1-Codex-Max / 5.3</text>
+      <text x="420" y="100" text-anchor="middle" fill="#cbd5e1" font-size="11">mit Compaction</text>
+      <text x="420" y="116" text-anchor="middle" fill="#94a3b8" font-size="10">Multi-Hour autonom</text>
+
+      <!-- Result -->
+      <path d="M 420 120 Q 420 160 420 180" stroke="#10b981" stroke-width="2" marker-end="url(#arr10)"/>
+      <rect x="320" y="180" width="200" height="60" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+      <text x="420" y="206" text-anchor="middle" fill="#10b981" font-size="13" font-weight="700">PR auf GitHub</text>
+      <text x="420" y="224" text-anchor="middle" fill="#94a3b8" font-size="10">Review durch Mensch</text>
+    </g>
+  </g>
+
+  <!-- Frozen-Lock + Feature-Flag-Gate -->
+  <g transform="translate(40,480)">
+    <rect width="660" height="200" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Frozen-Lock vor Refactorings</text>
+    <rect x="20" y="50" width="620" height="130" rx="10" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', monospace" font-size="13" fill="#e2e8f0">
+      <text x="36" y="78">$ pnpm install --frozen-lockfile</text>
+      <text x="36" y="100">$ poetry install --no-update</text>
+      <text x="36" y="122">$ cargo update --workspace --dry-run</text>
+      <text x="36" y="156" fill="#94a3b8">› deterministisches Baseline-Set vor großen Änderungen</text>
+    </g>
+  </g>
+
+  <g transform="translate(720,480)">
+    <rect width="640" height="200" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="20" y="34" fill="#f59e0b" font-size="16" font-weight="700">Feature-Flag-Gate</text>
+    <g transform="translate(40,60)">
+      <rect x="0" y="20" width="80" height="80" rx="40" fill="#0f172a" stroke="#10b981" stroke-width="3"/>
+      <text x="40" y="68" text-anchor="middle" fill="#10b981" font-size="14" font-weight="700">OFF</text>
+      <text x="40" y="118" text-anchor="middle" fill="#cbd5e1" font-size="11">Default</text>
+
+      <rect x="120" y="20" width="80" height="80" rx="40" fill="#0f172a" stroke="#f59e0b" stroke-width="3"/>
+      <text x="160" y="68" text-anchor="middle" fill="#f59e0b" font-size="13" font-weight="700">5%</text>
+      <text x="160" y="118" text-anchor="middle" fill="#cbd5e1" font-size="11">Canary</text>
+
+      <rect x="240" y="20" width="80" height="80" rx="40" fill="#0f172a" stroke="#22d3ee" stroke-width="3"/>
+      <text x="280" y="68" text-anchor="middle" fill="#22d3ee" font-size="13" font-weight="700">50%</text>
+      <text x="280" y="118" text-anchor="middle" fill="#cbd5e1" font-size="11">Roll-out</text>
+
+      <rect x="360" y="20" width="80" height="80" rx="40" fill="#0f172a" stroke="#a78bfa" stroke-width="3"/>
+      <text x="400" y="68" text-anchor="middle" fill="#a78bfa" font-size="13" font-weight="700">100%</text>
+      <text x="400" y="118" text-anchor="middle" fill="#cbd5e1" font-size="11">GA</text>
+
+      <text x="480" y="68" fill="#94a3b8" font-size="12">"Codex generiert</text>
+      <text x="480" y="86" fill="#94a3b8" font-size="12">Flag-Code &amp; Gate"</text>
+    </g>
+  </g>
+
+  <!-- Best/Anti -->
+  <g transform="translate(40,700)">
+    <rect width="1320" height="170" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Best Practices</text>
+    <g transform="translate(20,54)">
+      <text x="0" y="20" fill="#cbd5e1" font-size="13">· Cloud-Handoff für Multi-Hour-Tasks (GPT-5.1-Codex-Max / 5.3-Codex mit Compaction)</text>
+      <text x="0" y="44" fill="#cbd5e1" font-size="13">· Dependency-Audit als Skill mit Quarterly Cadence</text>
+      <text x="0" y="68" fill="#cbd5e1" font-size="13">· Frozen-Lock vor großen Refactorings — deterministische Baseline</text>
+      <text x="0" y="92" fill="#cbd5e1" font-size="13">· Feature-Flag-Gate für riskante Migrationen — schrittweises Roll-out</text>
+      <text x="640" y="20" fill="#fb7185" font-size="13" font-weight="700">Anti-Patterns:</text>
+      <text x="640" y="44" fill="#cbd5e1" font-size="13">✗ Ganze Codebase in einem Prompt migrieren</text>
+      <text x="640" y="68" fill="#cbd5e1" font-size="13">✗ Migration ohne Coverage-Safetynet starten</text>
+      <text x="640" y="92" fill="#cbd5e1" font-size="13">✗ Multi-Hour-Task lokal blockierend statt Cloud-Handoff</text>
+      <text x="640" y="116" fill="#cbd5e1" font-size="13">✗ Dependency-Upgrades direct-to-main, ohne Flag-Gate</text>
+    </g>
+  </g>
+</svg>

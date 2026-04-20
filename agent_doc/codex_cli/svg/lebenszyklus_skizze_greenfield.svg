@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Lebenszyklus-Skizze fuer ein Greenfield-Projekt — 7-Tage-Roadmap</title>
+  <desc>Kalender-Sprint und Roadmap: Day 0 Idee, Day 1 Bootstrap, Day 2-5 Implementation, Day 6 Deployment, Day 7 Betrieb, Week 2+ Wartung.</desc>
+
+  <defs>
+    <marker id="arrgf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Lebenszyklus-Skizze · Greenfield-Projekt</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Kalender-Sprint-Metapher: 7 Tage von der Idee bis zum laufenden Betrieb, plus Wartungs-Quartal.</text>
+  <text x="1360" y="56" fill="#22d3ee" font-size="14" text-anchor="end">Codex CLI · Greenfield</text>
+
+  <!-- Timeline -->
+  <g transform="translate(40,160)">
+    <line x1="0" y1="0" x2="1320" y2="0" stroke="#475569" stroke-width="2"/>
+    <!-- Tick marks for days -->
+    <g font-size="12" fill="#94a3b8" font-weight="600" text-anchor="middle">
+      <line x1="0" y1="-10" x2="0" y2="10" stroke="#475569"/>
+      <text x="0" y="-20">Day 0</text>
+      <line x1="180" y1="-10" x2="180" y2="10" stroke="#475569"/>
+      <text x="180" y="-20">Day 1</text>
+      <line x1="360" y1="-10" x2="360" y2="10" stroke="#475569"/>
+      <text x="360" y="-20">Day 2</text>
+      <line x1="540" y1="-10" x2="540" y2="10" stroke="#475569"/>
+      <text x="540" y="-20">Day 3-4</text>
+      <line x1="720" y1="-10" x2="720" y2="10" stroke="#475569"/>
+      <text x="720" y="-20">Day 5</text>
+      <line x1="900" y1="-10" x2="900" y2="10" stroke="#475569"/>
+      <text x="900" y="-20">Day 6</text>
+      <line x1="1080" y1="-10" x2="1080" y2="10" stroke="#475569"/>
+      <text x="1080" y="-20">Day 7</text>
+      <line x1="1320" y1="-10" x2="1320" y2="10" stroke="#475569"/>
+      <text x="1320" y="-20">Week 2+</text>
+    </g>
+  </g>
+
+  <!-- Day cards -->
+  <!-- Day 0 — Idee -->
+  <g transform="translate(40,210)">
+    <rect width="160" height="170" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <circle cx="20" cy="22" r="14" fill="#a78bfa"/>
+    <text x="20" y="27" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="700">0</text>
+    <text x="44" y="28" fill="#a78bfa" font-size="14" font-weight="700">Idee</text>
+    <text x="14" y="58" fill="#cbd5e1" font-size="11">codex --profile</text>
+    <text x="14" y="74" fill="#cbd5e1" font-size="11">planning</text>
+    <text x="14" y="98" fill="#94a3b8" font-size="10">Spec + 3 Optionen</text>
+    <text x="14" y="124" fill="#10b981" font-size="11" font-weight="600">Output:</text>
+    <text x="14" y="140" fill="#cbd5e1" font-size="11">docs/spec.md</text>
+    <text x="14" y="156" fill="#cbd5e1" font-size="11">docs/adr/0001-*.md</text>
+  </g>
+
+  <!-- Day 1 — Bootstrap -->
+  <g transform="translate(220,210)">
+    <rect width="160" height="170" rx="12" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <circle cx="20" cy="22" r="14" fill="#818cf8"/>
+    <text x="20" y="27" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="700">1</text>
+    <text x="44" y="28" fill="#818cf8" font-size="14" font-weight="700">Bootstrap</text>
+    <text x="14" y="58" fill="#cbd5e1" font-size="11">codex /init</text>
+    <text x="14" y="74" fill="#cbd5e1" font-size="11">"Setup pyproject,</text>
+    <text x="14" y="90" fill="#cbd5e1" font-size="11">pre-commit, AGENTS.md"</text>
+    <text x="14" y="116" fill="#10b981" font-size="11" font-weight="600">Output:</text>
+    <text x="14" y="132" fill="#cbd5e1" font-size="11">git push feat/bootstrap</text>
+    <text x="14" y="148" fill="#cbd5e1" font-size="11">Codex GH-App-Review</text>
+  </g>
+
+  <!-- Day 2 -->
+  <g transform="translate(400,210)">
+    <rect width="160" height="170" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <circle cx="20" cy="22" r="14" fill="#22d3ee"/>
+    <text x="20" y="27" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="700">2</text>
+    <text x="44" y="28" fill="#22d3ee" font-size="14" font-weight="700">Design</text>
+    <text x="14" y="58" fill="#cbd5e1" font-size="11">Plan-Mode</text>
+    <text x="14" y="74" fill="#cbd5e1" font-size="11">ADRs + Mermaid</text>
+    <text x="14" y="98" fill="#94a3b8" font-size="10">Komponenten-Schnitt</text>
+    <text x="14" y="124" fill="#10b981" font-size="11" font-weight="600">Output:</text>
+    <text x="14" y="140" fill="#cbd5e1" font-size="11">docs/architecture.md</text>
+    <text x="14" y="156" fill="#cbd5e1" font-size="11">Task-Backlog</text>
+  </g>
+
+  <!-- Day 3-4 — Impl -->
+  <g transform="translate(580,210)">
+    <rect width="160" height="170" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <circle cx="20" cy="22" r="14" fill="#6366f1"/>
+    <text x="20" y="27" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="700">3-4</text>
+    <text x="50" y="28" fill="#6366f1" font-size="14" font-weight="700">Impl</text>
+    <text x="14" y="58" fill="#cbd5e1" font-size="11">Feature-Branches</text>
+    <text x="14" y="74" fill="#cbd5e1" font-size="11">Ticket-Style-Prompts</text>
+    <text x="14" y="90" fill="#cbd5e1" font-size="11">TDD-Loops</text>
+    <text x="14" y="116" fill="#10b981" font-size="11" font-weight="600">Pflicht:</text>
+    <text x="14" y="132" fill="#cbd5e1" font-size="11">/review vor push</text>
+    <text x="14" y="148" fill="#cbd5e1" font-size="11">/compact ~20 Turns</text>
+  </g>
+
+  <!-- Day 5 — Test -->
+  <g transform="translate(760,210)">
+    <rect width="160" height="170" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="20" cy="22" r="14" fill="#10b981"/>
+    <text x="20" y="27" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="700">5</text>
+    <text x="44" y="28" fill="#10b981" font-size="14" font-weight="700">Test</text>
+    <text x="14" y="58" fill="#cbd5e1" font-size="11">Coverage-Gate</text>
+    <text x="14" y="74" fill="#cbd5e1" font-size="11">Playwright-MCP</text>
+    <text x="14" y="90" fill="#cbd5e1" font-size="11">respx / vcr</text>
+    <text x="14" y="116" fill="#10b981" font-size="11" font-weight="600">Output:</text>
+    <text x="14" y="132" fill="#cbd5e1" font-size="11">≥ 85% coverage</text>
+    <text x="14" y="148" fill="#cbd5e1" font-size="11">grüner main-build</text>
+  </g>
+
+  <!-- Day 6 — Deploy -->
+  <g transform="translate(940,210)">
+    <rect width="160" height="170" rx="12" fill="#1e293b" stroke="#fb923c" stroke-width="2"/>
+    <circle cx="20" cy="22" r="14" fill="#fb923c"/>
+    <text x="20" y="27" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="700">6</text>
+    <text x="44" y="28" fill="#fb923c" font-size="14" font-weight="700">Deploy</text>
+    <text x="14" y="58" fill="#cbd5e1" font-size="11">codex-action@v1</text>
+    <text x="14" y="74" fill="#cbd5e1" font-size="11">read-only Review</text>
+    <text x="14" y="90" fill="#cbd5e1" font-size="11">+ Autofix-Job</text>
+    <text x="14" y="116" fill="#10b981" font-size="11" font-weight="600">Output:</text>
+    <text x="14" y="132" fill="#cbd5e1" font-size="11">Container · Helm</text>
+    <text x="14" y="148" fill="#cbd5e1" font-size="11">Canary 5%</text>
+  </g>
+
+  <!-- Day 7 — Betrieb -->
+  <g transform="translate(1120,210)">
+    <rect width="160" height="170" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="20" cy="22" r="14" fill="#ef4444"/>
+    <text x="20" y="27" text-anchor="middle" fill="#0f172a" font-size="13" font-weight="700">7</text>
+    <text x="44" y="28" fill="#ef4444" font-size="14" font-weight="700">Betrieb</text>
+    <text x="14" y="58" fill="#cbd5e1" font-size="11">Sentry-MCP</text>
+    <text x="14" y="74" fill="#cbd5e1" font-size="11">Grafana-MCP</text>
+    <text x="14" y="90" fill="#cbd5e1" font-size="11">Hotfix-Branch</text>
+    <text x="14" y="116" fill="#10b981" font-size="11" font-weight="600">Output:</text>
+    <text x="14" y="132" fill="#cbd5e1" font-size="11">Alerts angeschlossen</text>
+    <text x="14" y="148" fill="#cbd5e1" font-size="11">Postmortem-Skill</text>
+  </g>
+
+  <!-- Week 2+ Wartung -->
+  <g transform="translate(1300,210)" opacity="0.95">
+    <rect width="60" height="170" rx="12" fill="#1e293b" stroke="#fb7185" stroke-width="2"/>
+    <text x="30" y="32" text-anchor="middle" fill="#fb7185" font-size="14" font-weight="700">∞</text>
+    <text x="30" y="58" text-anchor="middle" fill="#fb7185" font-size="11" font-weight="700">Wartung</text>
+    <text x="30" y="84" text-anchor="middle" fill="#cbd5e1" font-size="10">Cloud</text>
+    <text x="30" y="100" text-anchor="middle" fill="#cbd5e1" font-size="10">Audit</text>
+    <text x="30" y="116" text-anchor="middle" fill="#cbd5e1" font-size="10">Migr.</text>
+    <text x="30" y="142" text-anchor="middle" fill="#94a3b8" font-size="10">quart.</text>
+  </g>
+
+  <!-- Arrows connecting day cards to timeline -->
+  <g stroke="#475569" stroke-width="1" stroke-dasharray="2,3" fill="none">
+    <line x1="120" y1="170" x2="120" y2="210"/>
+    <line x1="300" y1="170" x2="300" y2="210"/>
+    <line x1="480" y1="170" x2="480" y2="210"/>
+    <line x1="660" y1="170" x2="660" y2="210"/>
+    <line x1="840" y1="170" x2="840" y2="210"/>
+    <line x1="1020" y1="170" x2="1020" y2="210"/>
+    <line x1="1200" y1="170" x2="1200" y2="210"/>
+  </g>
+
+  <!-- Bottom: Workflow -->
+  <g transform="translate(40,420)">
+    <rect width="660" height="220" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="20" y="34" fill="#22d3ee" font-size="16" font-weight="700">Tagesablauf-Beispiele</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="12" fill="#cbd5e1">
+      <text x="20" y="62" fill="#a78bfa">Day 0:</text>
+      <text x="80" y="62">codex --profile planning "… Spec + 3 Architektur-Optionen"</text>
+      <text x="20" y="86" fill="#818cf8">Day 1:</text>
+      <text x="80" y="86">codex /init</text>
+      <text x="80" y="104">codex "Setup pyproject, pre-commit, Makefile, AGENTS.md"</text>
+      <text x="20" y="128" fill="#6366f1">Day 3-4:</text>
+      <text x="80" y="128">Feature-Branches, ticket-style Prompts, TDD-Loops</text>
+      <text x="20" y="152" fill="#fb923c">Day 6:</text>
+      <text x="80" y="152">codex "Run release skill"</text>
+      <text x="20" y="176" fill="#ef4444">Day 7:</text>
+      <text x="80" y="176">Sentry-MCP + Grafana-MCP → Hotfix-Branch mit Codex</text>
+      <text x="20" y="200" fill="#fb7185">W2+:</text>
+      <text x="80" y="200">codex cloud exec für Multi-Hour Upgrades</text>
+    </g>
+  </g>
+
+  <!-- Right: Lessons learned -->
+  <g transform="translate(720,420)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Lessons Learned · Greenfield mit Codex</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">· Day 0 NICHT überspringen — Spec spart Tage 3-4 ein</text>
+    <text x="20" y="86" fill="#cbd5e1" font-size="13">· AGENTS.md am Tag 1 fixieren — driftet sonst</text>
+    <text x="20" y="110" fill="#cbd5e1" font-size="13">· Coverage-Gate ab Tag 5, nicht erst vor Release</text>
+    <text x="20" y="134" fill="#cbd5e1" font-size="13">· Day 6 Canary statt Big-Bang — Blast-Radius klein halten</text>
+    <text x="20" y="158" fill="#cbd5e1" font-size="13">· Day 7 Observability vor Day 7 Feature-Push</text>
+    <text x="20" y="182" fill="#cbd5e1" font-size="13">· Wartung quartalsweise einplanen — sonst Schulden-Spiral</text>
+    <text x="20" y="206" fill="#cbd5e1" font-size="13">· Skills aus jedem Sprint extrahieren und versionieren</text>
+  </g>
+
+  <!-- Phasenmapping -->
+  <g transform="translate(40,680)">
+    <rect width="1320" height="190" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="34" fill="#a78bfa" font-size="16" font-weight="700">Mapping zur 10-Phasen-Lebenszyklus-Übersicht</text>
+    <g transform="translate(20,54)">
+      <text x="0" y="20" fill="#cbd5e1" font-size="13">Day 0 → Phase 1 (Idee/Spec) · Day 1 → Phase 2 (Setup) · Day 2 → Phase 3 (Design) · Day 3-4 → Phase 4 (Impl)</text>
+      <text x="0" y="44" fill="#cbd5e1" font-size="13">Day 5 → Phase 5 (Test) + Phase 6 (Review) · Day 6 → Phase 7 (Doku) + Phase 8 (Deploy)</text>
+      <text x="0" y="68" fill="#cbd5e1" font-size="13">Day 7 → Phase 9 (Betrieb) · Week 2+ → Phase 10 (Wartung &amp; Migration)</text>
+      <text x="0" y="100" fill="#94a3b8" font-size="12">Die Skizze komprimiert die 10 linearen Phasen auf 7 Tage — in der Praxis laufen Phase 4-7 parallel auf mehreren Branches.</text>
+      <text x="0" y="124" fill="#94a3b8" font-size="12">Greenfield-Vorteil: AGENTS.md und Skills ab Tag 1 sauber, ohne Legacy-Reibung.</text>
+    </g>
+  </g>
+</svg>

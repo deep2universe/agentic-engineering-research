@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI – Terminal- und Shell-Ökosystem</title>
+  <desc>Codex als Schaltzentrale im Terminal-Multiplexer: Shell-Completions (bash, zsh, fish, powershell), Terminal-Hosts (tmux, Zellij, iTerm2, Ghostty, Warp Agent Mode) und TUI-Komfort (Mouse-Support, Hover-Tooltips).</desc>
+
+  <defs>
+    <marker id="arrTrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Terminal- und Shell-Ökosystem</text>
+  <text x="40" y="84" font-size="15" fill="#94a3b8">Codex als Schaltzentrale im Multiplexer · Shell-Completions, Terminal-Hosts und TUI-Komfort</text>
+  <text x="1360" y="56" font-size="14" fill="#64748b" text-anchor="end">Codex CLI · Kapitel 2</text>
+
+  <!-- Multiplexer-Panel (Mitte) -->
+  <rect x="430" y="120" width="540" height="500" rx="12" ry="12" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="700" y="148" font-size="18" font-weight="700" fill="#67e8f9" text-anchor="middle">Terminal-Multiplexer · Schaltzentrale</text>
+
+  <!-- Multiplexer-Splits -->
+  <rect x="450" y="170" width="250" height="200" rx="6" fill="#0b1224" stroke="#334155"/>
+  <text x="464" y="190" font-size="11" fill="#94a3b8">pane 0 · build</text>
+  <text x="464" y="212" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#86efac">$ pnpm build</text>
+  <text x="464" y="230" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#cbd5e1">✓ compiled in 4.2s</text>
+  <text x="464" y="252" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#86efac">$ pnpm test</text>
+  <text x="464" y="270" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#cbd5e1">●●●●○ 84/100 passed</text>
+
+  <rect x="710" y="170" width="240" height="200" rx="6" fill="#0b1224" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="724" y="190" font-size="11" fill="#a5b4fc">pane 1 · codex (TUI)</text>
+  <text x="724" y="214" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">› fix flaky e2e in checkout</text>
+  <text x="724" y="234" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">[reasoning] medium · gpt-5.3</text>
+  <rect x="724" y="246" width="216" height="60" rx="4" fill="#1e293b"/>
+  <text x="734" y="266" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#86efac">+ retry on timeout</text>
+  <text x="734" y="284" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#fca5a5">- await page.click(...)</text>
+  <text x="734" y="302" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#86efac">+ await page.waitFor(...)</text>
+  <!-- Hover-Tooltip -->
+  <rect x="734" y="322" width="200" height="36" rx="4" fill="#312e81" stroke="#a78bfa"/>
+  <text x="744" y="338" font-size="10" fill="#c4b5fd">Hover-Tooltip · Diff-Zeile</text>
+  <text x="744" y="352" font-size="10" fill="#cbd5e1">"6 ms langsamer als baseline"</text>
+
+  <rect x="450" y="380" width="500" height="220" rx="6" fill="#0b1224" stroke="#334155"/>
+  <text x="464" y="400" font-size="11" fill="#94a3b8">pane 2 · logs (tail -f)</text>
+  <g font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">
+    <text x="464" y="422" fill="#cbd5e1">[12:04:21] INFO  request POST /api/checkout</text>
+    <text x="464" y="440" fill="#cbd5e1">[12:04:22] INFO  payment authorized</text>
+    <text x="464" y="458" fill="#fbbf24">[12:04:23] WARN  rate-limit 80%</text>
+    <text x="464" y="476" fill="#fca5a5">[12:04:24] ERROR webhook 502</text>
+    <text x="464" y="494" fill="#cbd5e1">[12:04:25] INFO  retry scheduled</text>
+    <text x="464" y="514" fill="#cbd5e1">[12:04:26] INFO  webhook delivered</text>
+  </g>
+  <!-- Maus-Cursor + Drag-Selection -->
+  <rect x="588" y="455" width="220" height="20" fill="#22d3ee" opacity="0.18" stroke="#22d3ee"/>
+  <path d="M820 472 l 0 -10 l 7 7 l -3 1 l 3 6 l -3 1 l -3 -6 l -1 1 z" fill="#e2e8f0" stroke="#0f172a"/>
+  <text x="824" y="492" font-size="10" fill="#22d3ee">Mouse-Support · Drag-Selection</text>
+
+  <text x="700" y="592" font-size="12" fill="#94a3b8" text-anchor="middle">Status: ● connected · 3 panes · multiplexer aktiv</text>
+
+  <!-- Shell-Completions links -->
+  <rect x="40" y="120" width="370" height="500" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+  <text x="60" y="148" font-size="18" font-weight="700" fill="#e2e8f0">Shell-Completions</text>
+  <text x="60" y="170" font-size="12" fill="#94a3b8">codex completion &lt;shell&gt;</text>
+
+  <g font-size="13">
+    <rect x="60" y="186" width="330" height="44" rx="8" fill="#0b1224" stroke="#475569"/>
+    <text x="76" y="206" fill="#e2e8f0" font-weight="600">bash</text>
+    <text x="76" y="222" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#94a3b8">codex completion bash &gt; ~/.bash_completion.d/</text>
+
+    <rect x="60" y="240" width="330" height="44" rx="8" fill="#0b1224" stroke="#475569"/>
+    <text x="76" y="260" fill="#e2e8f0" font-weight="600">zsh</text>
+    <text x="76" y="276" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#94a3b8">codex completion zsh &gt; ~/.zfunc/_codex</text>
+
+    <rect x="60" y="294" width="330" height="44" rx="8" fill="#0b1224" stroke="#475569"/>
+    <text x="76" y="314" fill="#e2e8f0" font-weight="600">fish</text>
+    <text x="76" y="330" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#94a3b8">codex completion fish &gt; ~/.config/fish/...</text>
+
+    <rect x="60" y="348" width="330" height="44" rx="8" fill="#0b1224" stroke="#475569"/>
+    <text x="76" y="368" fill="#e2e8f0" font-weight="600">powershell</text>
+    <text x="76" y="384" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#94a3b8">codex completion powershell &gt; profile.ps1</text>
+  </g>
+
+  <!-- Tab-Completion-Demo -->
+  <rect x="60" y="410" width="330" height="190" rx="8" fill="#0b1224" stroke="#22d3ee"/>
+  <text x="76" y="432" font-size="12" font-weight="600" fill="#67e8f9">Tab-Completion in Aktion</text>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+    <text x="76" y="456" fill="#86efac">$ codex e&lt;TAB&gt;</text>
+    <text x="76" y="476" fill="#cbd5e1">  exec   extension</text>
+    <text x="76" y="500" fill="#86efac">$ codex exec --san&lt;TAB&gt;</text>
+    <text x="76" y="520" fill="#cbd5e1">  --sandbox  --sandbox-mode</text>
+    <text x="76" y="544" fill="#86efac">$ codex cloud li&lt;TAB&gt;</text>
+    <text x="76" y="564" fill="#cbd5e1">  list  logs</text>
+    <text x="76" y="588" fill="#94a3b8">// kontext-bewusst je Subkommando</text>
+  </g>
+
+  <!-- Terminal-Hosts rechts -->
+  <rect x="990" y="120" width="370" height="500" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+  <text x="1010" y="148" font-size="18" font-weight="700" fill="#e2e8f0">Terminal-Hosts</text>
+  <text x="1010" y="170" font-size="12" fill="#94a3b8">getestete &amp; offiziell empfohlene Umgebungen</text>
+
+  <g font-size="13">
+    <rect x="1010" y="186" width="330" height="56" rx="8" fill="#0b1224" stroke="#475569"/>
+    <text x="1026" y="208" fill="#e2e8f0" font-weight="600">tmux</text>
+    <text x="1026" y="226" font-size="11" fill="#94a3b8">Klassischer Multiplexer · Sessions persistent</text>
+
+    <rect x="1010" y="252" width="330" height="56" rx="8" fill="#0b1224" stroke="#475569"/>
+    <text x="1026" y="274" fill="#e2e8f0" font-weight="600">Zellij</text>
+    <text x="1026" y="292" font-size="11" fill="#94a3b8">Layouts &amp; Plugins · WASM-Erweiterungen</text>
+
+    <rect x="1010" y="318" width="330" height="56" rx="8" fill="#0b1224" stroke="#475569"/>
+    <text x="1026" y="340" fill="#e2e8f0" font-weight="600">iTerm2</text>
+    <text x="1026" y="358" font-size="11" fill="#94a3b8">macOS-Native · Tmux-Integration · Mouse</text>
+
+    <rect x="1010" y="384" width="330" height="56" rx="8" fill="#0b1224" stroke="#475569"/>
+    <text x="1026" y="406" fill="#e2e8f0" font-weight="600">Ghostty</text>
+    <text x="1026" y="424" font-size="11" fill="#94a3b8">GPU-Renderer · niedrige Latenz · True-Color</text>
+
+    <rect x="1010" y="450" width="330" height="56" rx="8" fill="#0b1224" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="1026" y="472" fill="#c4b5fd" font-weight="600">Warp · Agent Mode</text>
+    <text x="1026" y="490" font-size="11" fill="#cbd5e1">startet Codex direkt im Warp-Block · UI-natives Diff</text>
+
+    <rect x="1010" y="516" width="330" height="80" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="1026" y="538" fill="#6ee7b7" font-weight="600">TUI-Komfort (ab Mitte 2025)</text>
+    <text x="1026" y="558" font-size="11" fill="#cbd5e1">Mouse-Support für Scroll, Klick, Drag</text>
+    <text x="1026" y="574" font-size="11" fill="#cbd5e1">Hover-Tooltips für Diff-Zeilen &amp; Token-Counter</text>
+    <text x="1026" y="590" font-size="11" fill="#cbd5e1">True-Color, Bracketed Paste, OSC-52 Clipboard</text>
+  </g>
+
+  <!-- Verbindungspfeile von links und rechts ins Multiplexer-Panel -->
+  <path d="M390 400 L 430 400" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrTrm)"/>
+  <path d="M990 400 L 970 400" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrTrm)"/>
+
+  <!-- Footer-Hinweis -->
+  <rect x="40" y="650" width="1320" height="220" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+  <text x="60" y="680" font-size="16" font-weight="700" fill="#e2e8f0">Praxis-Tipps für die Schaltzentrale</text>
+
+  <g font-size="13">
+    <rect x="60" y="700" width="305" height="150" rx="8" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="76" y="722" fill="#67e8f9" font-weight="600">Pane-Layout</text>
+    <text x="76" y="744" fill="#cbd5e1">Build · Codex · Logs nebeneinander</text>
+    <text x="76" y="762" fill="#cbd5e1">Codex bekommt Hauptplatz, ≥ 100 cols breit</text>
+    <text x="76" y="780" fill="#cbd5e1">Reasoning-Panel braucht 24+ Zeilen Höhe</text>
+    <text x="76" y="804" fill="#94a3b8">tmux: split-window -h -p 60</text>
+    <text x="76" y="822" fill="#94a3b8">zellij: layout codex.kdl</text>
+
+    <rect x="380" y="700" width="305" height="150" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="396" y="722" fill="#c4b5fd" font-weight="600">Maus &amp; Hover</text>
+    <text x="396" y="744" fill="#cbd5e1">Klick auf Diff-Zeile → fokussierter Hunk</text>
+    <text x="396" y="762" fill="#cbd5e1">Hover über Datei → Pfad + Größen-Tooltip</text>
+    <text x="396" y="780" fill="#cbd5e1">Drag-Selection kopiert via OSC-52</text>
+    <text x="396" y="804" fill="#94a3b8">Toggle: F2 oder Maus-Modifier</text>
+
+    <rect x="700" y="700" width="305" height="150" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="716" y="722" fill="#6ee7b7" font-weight="600">Persistente Sessions</text>
+    <text x="716" y="744" fill="#cbd5e1">tmux/Zellij überleben SSH-Disconnect</text>
+    <text x="716" y="762" fill="#cbd5e1">codex resume &lt;session-id&gt;</text>
+    <text x="716" y="780" fill="#cbd5e1">Lange Tasks bleiben anhängbar</text>
+    <text x="716" y="804" fill="#94a3b8">Kombiniert mit notify = Slack-Ping</text>
+
+    <rect x="1020" y="700" width="320" height="150" rx="8" fill="#0b1224" stroke="#f59e0b"/>
+    <text x="1036" y="722" fill="#fbbf24" font-weight="600">Warp Agent Mode</text>
+    <text x="1036" y="744" fill="#cbd5e1">Codex direkt im Warp-Block</text>
+    <text x="1036" y="762" fill="#cbd5e1">Approvals als Native-Buttons</text>
+    <text x="1036" y="780" fill="#cbd5e1">Diff-Hunks in Warp-Drawer</text>
+    <text x="1036" y="804" fill="#94a3b8">Setup: settings → Agents → Codex</text>
+  </g>
+</svg>

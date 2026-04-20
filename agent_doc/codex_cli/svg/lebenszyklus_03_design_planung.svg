@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Phase 3 — Design &amp; Planung mit Plan-Mode, ADR-Skill und Mermaid</title>
+  <desc>Architekten-Plan mit Bleistift und Lineal: Plan-Mode mit hohem Reasoning, ADR-Skill, Mermaid- und PlantUML-Diagramme, Task-Listen.</desc>
+
+  <defs>
+    <marker id="arr3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <pattern id="grid3" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M20 0 L0 0 0 20" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Phase 3 — Design &amp; Planung</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Architekten-Plan-Metapher: Bleistift, Lineal, Schablone — Komponentenschnitt vor Implementierung.</text>
+  <text x="1360" y="56" fill="#22d3ee" font-size="14" text-anchor="end">Codex CLI · Phase 03</text>
+
+  <!-- Plan-Mode panel -->
+  <g transform="translate(60,140)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="0" y="0" width="640" height="220" rx="14" fill="url(#grid3)" opacity="0.3"/>
+    <text x="20" y="34" fill="#22d3ee" font-size="16" font-weight="700">Plan-Mode (TUI)</text>
+    <rect x="20" y="50" width="600" height="150" rx="10" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', 'Fira Code', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="36" y="74">$ codex --profile planning</text>
+      <text x="36" y="98" fill="#94a3b8">› plan_mode_reasoning_effort = "high"</text>
+      <text x="36" y="122" fill="#22d3ee">› "Draft an ADR for SQLite vs Postgres.</text>
+      <text x="36" y="140" fill="#22d3ee">  1 page — pros/cons, decision,</text>
+      <text x="36" y="158" fill="#22d3ee">  consequences."</text>
+      <text x="36" y="184" fill="#a78bfa">→ docs/adr/0001-metadata-store.md</text>
+    </g>
+  </g>
+
+  <!-- ADR card -->
+  <g transform="translate(720,140)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="34" fill="#a78bfa" font-size="16" font-weight="700">ADR-Skill · Architecture Decision Record</text>
+    <g transform="translate(20,54)">
+      <rect width="600" height="146" rx="10" fill="#0f172a" stroke="#334155"/>
+      <text x="20" y="28" fill="#e2e8f0" font-size="14" font-weight="700">ADR 0001 — Metadata Store</text>
+      <text x="20" y="52" fill="#94a3b8" font-size="12">Status: Accepted · Date: 2026-04-20</text>
+      <line x1="20" y1="62" x2="580" y2="62" stroke="#334155"/>
+      <text x="20" y="82" fill="#10b981" font-size="12" font-weight="700">Context</text>
+      <text x="120" y="82" fill="#cbd5e1" font-size="12">Lokales CLI-Tool, &lt; 100 K Records, single user.</text>
+      <text x="20" y="104" fill="#10b981" font-size="12" font-weight="700">Decision</text>
+      <text x="120" y="104" fill="#cbd5e1" font-size="12">SQLite — zero-ops, file-based, FTS5 verfügbar.</text>
+      <text x="20" y="126" fill="#10b981" font-size="12" font-weight="700">Consequences</text>
+      <text x="120" y="126" fill="#cbd5e1" font-size="12">Kein horizontales Scaling — bei &gt; 1 M später migrieren.</text>
+    </g>
+  </g>
+
+  <!-- Mermaid / PlantUML diagram -->
+  <g transform="translate(60,380)">
+    <rect width="640" height="280" rx="14" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+    <text x="20" y="34" fill="#06b6d4" font-size="16" font-weight="700">Mermaid · Datenfluss-Diagramm (autogen)</text>
+
+    <!-- Mini flowchart -->
+    <g transform="translate(40,70)">
+      <g>
+        <rect x="0" y="0" width="100" height="44" rx="8" fill="#0f172a" stroke="#22d3ee"/>
+        <text x="50" y="28" text-anchor="middle" fill="#e2e8f0" font-size="13">CLI</text>
+      </g>
+      <line x1="100" y1="22" x2="150" y2="22" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+      <g>
+        <rect x="150" y="0" width="120" height="44" rx="8" fill="#0f172a" stroke="#22d3ee"/>
+        <text x="210" y="28" text-anchor="middle" fill="#e2e8f0" font-size="13">Slack API</text>
+      </g>
+      <line x1="270" y1="22" x2="320" y2="22" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+      <g>
+        <rect x="320" y="0" width="130" height="44" rx="8" fill="#0f172a" stroke="#22d3ee"/>
+        <text x="385" y="28" text-anchor="middle" fill="#e2e8f0" font-size="13">Blob-Download</text>
+      </g>
+      <line x1="450" y1="22" x2="500" y2="22" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+      <g>
+        <rect x="500" y="0" width="100" height="44" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+        <text x="550" y="28" text-anchor="middle" fill="#e2e8f0" font-size="13">SQLite</text>
+      </g>
+      <line x1="385" y1="44" x2="385" y2="100" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr3)"/>
+      <g>
+        <rect x="320" y="100" width="130" height="44" rx="8" fill="#0f172a" stroke="#10b981"/>
+        <text x="385" y="128" text-anchor="middle" fill="#e2e8f0" font-size="13">FS-Write</text>
+      </g>
+    </g>
+    <text x="20" y="210" fill="#94a3b8" font-size="12">"Create a Mermaid diagram of the data flow for the Slack-download command."</text>
+    <text x="20" y="230" fill="#94a3b8" font-size="12">→ valid Markdown-Embedding · in docs/architecture.md committen</text>
+    <text x="20" y="252" fill="#cbd5e1" font-size="12">Alternative: PlantUML, D2, Excalidraw — Codex generiert &amp; verifiziert Syntax.</text>
+  </g>
+
+  <!-- Task list -->
+  <g transform="translate(720,380)">
+    <rect width="640" height="280" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Task-Listen · skills/plan/ vs Inline-Scratchpad</text>
+
+    <g transform="translate(20,56)">
+      <rect width="290" height="200" rx="10" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="24" fill="#10b981" font-size="13" font-weight="700">skills/plan/ (persistent)</text>
+      <text x="14" y="48" fill="#cbd5e1" font-size="12">[ ] Spec lesen</text>
+      <text x="14" y="68" fill="#cbd5e1" font-size="12">[ ] Komponenten-Schnitt</text>
+      <text x="14" y="88" fill="#cbd5e1" font-size="12">[ ] ADR 0001 schreiben</text>
+      <text x="14" y="108" fill="#cbd5e1" font-size="12">[ ] Mermaid-Diagramm</text>
+      <text x="14" y="128" fill="#cbd5e1" font-size="12">[ ] Task-Backlog generieren</text>
+      <text x="14" y="156" fill="#94a3b8" font-size="11">+ committet ins Repo</text>
+      <text x="14" y="174" fill="#94a3b8" font-size="11">+ Reuse über Sessions</text>
+      <text x="14" y="192" fill="#94a3b8" font-size="11">+ teilbar im Team</text>
+    </g>
+    <g transform="translate(330,56)">
+      <rect width="290" height="200" rx="10" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="14" y="24" fill="#f59e0b" font-size="13" font-weight="700">Inline-Scratchpad (flüchtig)</text>
+      <text x="14" y="48" fill="#cbd5e1" font-size="12">TODO im Chat-Kontext</text>
+      <text x="14" y="68" fill="#cbd5e1" font-size="12">Nur in aktueller Session</text>
+      <text x="14" y="88" fill="#cbd5e1" font-size="12">Verloren nach /new</text>
+      <text x="14" y="120" fill="#94a3b8" font-size="11">– kein Reuse</text>
+      <text x="14" y="138" fill="#94a3b8" font-size="11">– kein Audit-Trail</text>
+      <text x="14" y="156" fill="#94a3b8" font-size="11">+ schnell für Spike</text>
+    </g>
+  </g>
+
+  <!-- Best/Anti footer -->
+  <g transform="translate(60,680)">
+    <rect width="640" height="180" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Best Practices</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">· Plan-Mode mit reasoning_effort=high für Architektur-Entscheidungen</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">· ADRs ins Repo committen — werden von späteren Sessions wieder eingelesen</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">· Mermaid/PlantUML als Markdown-Embedding in docs/</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">· Task-Listen via Skill (skills/plan/) — Reuse über Sessions</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">· AGENTS.md verweist auf ADR-Index (docs/adr/README.md)</text>
+  </g>
+  <g transform="translate(720,680)">
+    <rect width="640" height="180" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" fill="#ef4444" font-size="16" font-weight="700">Anti-Patterns</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">✗ Sofort Code generieren ohne Plan-Review</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">✗ Design nur im Chat — Kontext-Verlust bei nächster Session</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">✗ ADR ohne "Consequences"-Abschnitt — späte Schmerzen</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">✗ Diagramme als Bilder einchecken statt als Quelltext</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">✗ Plan-Phase überspringen "weil Codex das schon richtig macht"</text>
+  </g>
+</svg>

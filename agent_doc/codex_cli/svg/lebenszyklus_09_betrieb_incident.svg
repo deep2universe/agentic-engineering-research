@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Phase 9 — Betrieb und Incident-Response mit Sentry/Grafana-MCP, Hotfix-Profil und Postmortem-Skill</title>
+  <desc>Feuerwehr und Notfall-Cockpit: Sentry/Grafana-MCP fuer Log-Analyse, Hotfix-Profil mit on-request Approval, Postmortem-Skill mit 5-Whys, On-Call-Runbooks als Skills.</desc>
+
+  <defs>
+    <marker id="arr9" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Phase 9 — Betrieb &amp; Incident-Response</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Feuerwehr-Metapher: Codex hört das Sirenensignal, lokalisiert den Brand, schlägt einen Hotfix vor — mit Approval.</text>
+  <text x="1360" y="56" fill="#ef4444" font-size="14" text-anchor="end">Codex CLI · Phase 09</text>
+
+  <!-- Incident-Loop -->
+  <g transform="translate(40,140)">
+    <rect width="1320" height="240" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" fill="#ef4444" font-size="16" font-weight="700">Incident-Loop · Sirenensignal → Hotfix-PR</text>
+
+    <g transform="translate(40,70)">
+      <!-- Sentry -->
+      <rect x="0" y="50" width="160" height="80" rx="10" fill="#0f172a" stroke="#fb7185" stroke-width="2"/>
+      <text x="80" y="80" text-anchor="middle" fill="#fb7185" font-size="14" font-weight="700">Sentry MCP</text>
+      <text x="80" y="100" text-anchor="middle" fill="#cbd5e1" font-size="11">last 2h errors</text>
+      <text x="80" y="118" text-anchor="middle" fill="#94a3b8" font-size="10">service: payments</text>
+
+      <line x1="160" y1="90" x2="220" y2="90" stroke="#ef4444" stroke-width="2" marker-end="url(#arr9)"/>
+
+      <!-- Codex Cluster -->
+      <rect x="220" y="50" width="160" height="80" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <text x="300" y="80" text-anchor="middle" fill="#22d3ee" font-size="14" font-weight="700">Codex Cluster</text>
+      <text x="300" y="100" text-anchor="middle" fill="#cbd5e1" font-size="11">Pattern-Mining</text>
+      <text x="300" y="118" text-anchor="middle" fill="#94a3b8" font-size="10">root-cause hypothesis</text>
+
+      <line x1="380" y1="90" x2="440" y2="90" stroke="#ef4444" stroke-width="2" marker-end="url(#arr9)"/>
+
+      <!-- Grafana -->
+      <rect x="440" y="0" width="160" height="80" rx="10" fill="#0f172a" stroke="#fb923c" stroke-width="2"/>
+      <text x="520" y="32" text-anchor="middle" fill="#fb923c" font-size="14" font-weight="700">Grafana MCP</text>
+      <text x="520" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11">Metrics-Korrelation</text>
+      <text x="520" y="68" text-anchor="middle" fill="#94a3b8" font-size="10">memory · latency · error rate</text>
+
+      <rect x="440" y="100" width="160" height="80" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <text x="520" y="130" text-anchor="middle" fill="#a78bfa" font-size="14" font-weight="700">Hotfix-Profil</text>
+      <text x="520" y="148" text-anchor="middle" fill="#cbd5e1" font-size="11">workspace-write</text>
+      <text x="520" y="164" text-anchor="middle" fill="#94a3b8" font-size="10">approval: on-request</text>
+
+      <line x1="600" y1="90" x2="660" y2="90" stroke="#ef4444" stroke-width="2" marker-end="url(#arr9)"/>
+
+      <!-- Hotfix branch -->
+      <rect x="660" y="50" width="160" height="80" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+      <text x="740" y="80" text-anchor="middle" fill="#10b981" font-size="14" font-weight="700">Hotfix-Branch</text>
+      <text x="740" y="100" text-anchor="middle" fill="#cbd5e1" font-size="11">hotfix/payments-oom</text>
+      <text x="740" y="118" text-anchor="middle" fill="#94a3b8" font-size="10">minimal patch</text>
+
+      <line x1="820" y1="90" x2="880" y2="90" stroke="#ef4444" stroke-width="2" marker-end="url(#arr9)"/>
+
+      <!-- 2nd Review -->
+      <rect x="880" y="50" width="160" height="80" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <text x="960" y="80" text-anchor="middle" fill="#f59e0b" font-size="14" font-weight="700">PR + 2nd Review</text>
+      <text x="960" y="100" text-anchor="middle" fill="#cbd5e1" font-size="11">Mensch + Bot</text>
+      <text x="960" y="118" text-anchor="middle" fill="#94a3b8" font-size="10">kein Auto-Merge!</text>
+
+      <line x1="1040" y1="90" x2="1100" y2="90" stroke="#ef4444" stroke-width="2" marker-end="url(#arr9)"/>
+
+      <!-- Postmortem -->
+      <rect x="1100" y="50" width="160" height="80" rx="10" fill="#0f172a" stroke="#fb7185" stroke-width="2"/>
+      <text x="1180" y="80" text-anchor="middle" fill="#fb7185" font-size="14" font-weight="700">Postmortem</text>
+      <text x="1180" y="100" text-anchor="middle" fill="#cbd5e1" font-size="11">5-Whys-Skill</text>
+      <text x="1180" y="118" text-anchor="middle" fill="#94a3b8" font-size="10">action items</text>
+    </g>
+  </g>
+
+  <!-- Hotfix Profile config -->
+  <g transform="translate(40,400)">
+    <rect width="660" height="220" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="34" fill="#a78bfa" font-size="16" font-weight="700">Hotfix-Profil · config.toml</text>
+    <rect x="20" y="50" width="620" height="150" rx="10" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', monospace" font-size="13" fill="#e2e8f0">
+      <text x="36" y="78">[profiles.hotfix]</text>
+      <text x="36" y="100"><tspan fill="#22d3ee">model</tspan> = <tspan fill="#10b981">"gpt-5.4-codex"</tspan></text>
+      <text x="36" y="122"><tspan fill="#22d3ee">sandbox_mode</tspan> = <tspan fill="#10b981">"workspace-write"</tspan></text>
+      <text x="36" y="144"><tspan fill="#22d3ee">approval_policy</tspan> = <tspan fill="#10b981">"on-request"</tspan></text>
+      <text x="36" y="166"><tspan fill="#22d3ee">reasoning_effort</tspan> = <tspan fill="#10b981">"high"</tspan></text>
+      <text x="36" y="188" fill="#f59e0b">› kein YOLO, kein full-auto, kein danger-full-access</text>
+    </g>
+  </g>
+
+  <!-- Postmortem 5 Whys -->
+  <g transform="translate(720,400)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#fb7185" stroke-width="2"/>
+    <text x="20" y="34" fill="#fb7185" font-size="16" font-weight="700">Postmortem-Skill · 5-Whys</text>
+    <g transform="translate(20,60)">
+      <text x="0" y="14" fill="#94a3b8" font-size="12" font-weight="700">Warum 1:</text>
+      <text x="80" y="14" fill="#cbd5e1" font-size="12">Pod OOM-killed</text>
+      <text x="0" y="38" fill="#94a3b8" font-size="12" font-weight="700">Warum 2:</text>
+      <text x="80" y="38" fill="#cbd5e1" font-size="12">Memory-Leak in Connection-Pool</text>
+      <text x="0" y="62" fill="#94a3b8" font-size="12" font-weight="700">Warum 3:</text>
+      <text x="80" y="62" fill="#cbd5e1" font-size="12">Idle-Connections nicht recycled</text>
+      <text x="0" y="86" fill="#94a3b8" font-size="12" font-weight="700">Warum 4:</text>
+      <text x="80" y="86" fill="#cbd5e1" font-size="12">max_idle_lifetime fehlte in Config</text>
+      <text x="0" y="110" fill="#94a3b8" font-size="12" font-weight="700">Warum 5:</text>
+      <text x="80" y="110" fill="#cbd5e1" font-size="12">Default-Konfig kopiert ohne Review</text>
+      <text x="0" y="146" fill="#10b981" font-size="12" font-weight="700">Action Items:</text>
+      <text x="0" y="166" fill="#cbd5e1" font-size="12">→ Config-Review-Checkliste · Lint-Rule für critical configs</text>
+    </g>
+  </g>
+
+  <!-- Best/Anti -->
+  <g transform="translate(40,640)">
+    <rect width="660" height="220" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Best Practices</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">· Sentry-/Grafana-MCP-Server für Log-Zugriff</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">· Niemals Prod-Creds in AGENTS.md</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">· Hotfix-Profile mit workspace-write + approval on-request</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">· Postmortem-Skill: 5-Whys aus Incident-Timeline</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">· On-Call-Runbooks als Skills (skills/oncall/payments/)</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">· Read-only Replicas oder sanitized Logs für Live-Debug</text>
+    <text x="20" y="194" fill="#cbd5e1" font-size="13">· Hotfix immer als PR + 2nd Review, nie direkt to main</text>
+  </g>
+  <g transform="translate(720,640)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" fill="#ef4444" font-size="16" font-weight="700">Anti-Patterns</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">✗ Live-Debugging gegen Produktion mit Schreibrechten</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">✗ Auto-Merge von Hotfixes ohne 2nd Review</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">✗ Prod-Creds als Env-Vars im AGENTS.md exportiert</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">✗ Postmortem ohne Action Items — gleiche Incident-Klasse wieder</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">✗ MCP-Server mit weitem Scope (write access auf Sentry-Projekte)</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">✗ Codex --yolo zur Incident-Beschleunigung</text>
+    <text x="20" y="194" fill="#cbd5e1" font-size="13">✗ On-Call-Runbook nur im Confluence — nicht für Codex zugänglich</text>
+  </g>
+</svg>

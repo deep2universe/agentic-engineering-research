@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI – Notify-Hook für Desktop, Chat und CI-Pings</title>
+  <desc>Signal-Kurier mit Funkverbindung: agent-turn-complete-Event triggert ein Custom-Skript, das einen JSON-Payload auf stdin erhält und an Slack, Discord, Telegram, Desktop oder CI weiterreicht.</desc>
+
+  <defs>
+    <marker id="arrNot" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Notify-Hook · Signal-Kurier mit Funkverbindung</text>
+  <text x="40" y="84" font-size="15" fill="#94a3b8">Event → JSON-Payload auf stdin → Custom-Skript → Slack, Discord, Telegram, Desktop, CI-Ping</text>
+  <text x="1360" y="56" font-size="14" fill="#64748b" text-anchor="end">Codex CLI · Kapitel 6</text>
+
+  <!-- Stage 1: Event -->
+  <rect x="40" y="140" width="220" height="160" rx="12" ry="12" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+  <text x="150" y="168" font-size="14" font-weight="700" fill="#67e8f9" text-anchor="middle">1 · Event</text>
+  <text x="150" y="200" font-size="13" fill="#e2e8f0" text-anchor="middle">Codex-Turn endet</text>
+  <rect x="58" y="216" width="184" height="30" rx="6" fill="#0b1224" stroke="#475569"/>
+  <text x="150" y="236" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#a5b4fc" text-anchor="middle">agent-turn-complete</text>
+  <text x="150" y="266" font-size="11" fill="#94a3b8" text-anchor="middle">aktuell einziger Hook-Typ</text>
+  <text x="150" y="284" font-size="11" fill="#94a3b8" text-anchor="middle">weitere Events folgen</text>
+
+  <path d="M260 220 L 320 220" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrNot)"/>
+
+  <!-- Stage 2: JSON-Payload -->
+  <rect x="320" y="140" width="380" height="280" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="510" y="168" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">2 · JSON-Payload auf stdin</text>
+
+  <rect x="340" y="184" width="340" height="220" rx="8" fill="#0b1224" stroke="#475569"/>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+    <text x="354" y="208" fill="#94a3b8">{</text>
+    <text x="354" y="226" fill="#a5b4fc">  "status":</text>
+    <text x="450" y="226" fill="#86efac">"success"</text>
+    <text x="354" y="244" fill="#a5b4fc">  "title":</text>
+    <text x="450" y="244" fill="#86efac">"Codex run"</text>
+    <text x="354" y="262" fill="#a5b4fc">  "summary":</text>
+    <text x="450" y="262" fill="#86efac">"Finished refactor"</text>
+    <text x="354" y="280" fill="#a5b4fc">  "duration":</text>
+    <text x="450" y="280" fill="#fcd34d">123</text>
+    <text x="354" y="298" fill="#a5b4fc">  "url":</text>
+    <text x="450" y="298" fill="#86efac">"https://chatgpt.com/...</text>
+    <text x="354" y="316" fill="#a5b4fc">  "last_assistant_message":</text>
+    <text x="354" y="334" fill="#86efac">    "All tests pass."</text>
+    <text x="354" y="352" fill="#94a3b8">}</text>
+    <text x="354" y="384" fill="#94a3b8">// stdin · UTF-8 · JSON-Object</text>
+  </g>
+
+  <path d="M700 280 L 760 280" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrNot)"/>
+
+  <!-- Stage 3: Custom-Skript -->
+  <rect x="760" y="140" width="280" height="280" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b"/>
+  <text x="900" y="168" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">3 · Custom-Skript</text>
+
+  <rect x="780" y="184" width="240" height="64" rx="8" fill="#0b1224" stroke="#10b981"/>
+  <text x="794" y="206" font-size="13" font-weight="600" fill="#6ee7b7">macOS</text>
+  <text x="794" y="226" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#cbd5e1">["bash","-lc",</text>
+  <text x="794" y="240" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#cbd5e1">"afplay …Blow.aiff"]</text>
+
+  <rect x="780" y="256" width="240" height="64" rx="8" fill="#0b1224" stroke="#22d3ee"/>
+  <text x="794" y="278" font-size="13" font-weight="600" fill="#67e8f9">Windows</text>
+  <text x="794" y="298" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#cbd5e1">powershell -File</text>
+  <text x="794" y="312" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#cbd5e1">notify.ps1</text>
+
+  <rect x="780" y="328" width="240" height="64" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+  <text x="794" y="350" font-size="13" font-weight="600" fill="#c4b5fd">Linux</text>
+  <text x="794" y="370" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#cbd5e1">/home/alice/.codex/</text>
+  <text x="794" y="384" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#cbd5e1">notify_slack.sh</text>
+
+  <text x="900" y="408" font-size="11" fill="#94a3b8" text-anchor="middle">Skript erhält Payload &amp; routet an Ziel</text>
+
+  <!-- Funkwellen vor Stage 4 -->
+  <g stroke="#f59e0b" fill="none" opacity="0.6">
+    <path d="M1054 280 q 14 -16 28 0" stroke-width="2"/>
+    <path d="M1052 264 q 18 -22 36 0" stroke-width="2"/>
+    <path d="M1050 248 q 22 -28 44 0" stroke-width="2"/>
+  </g>
+
+  <!-- Stage 4: Targets -->
+  <rect x="1100" y="140" width="260" height="280" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b"/>
+  <text x="1230" y="168" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">4 · Targets</text>
+
+  <g font-size="12">
+    <rect x="1120" y="184" width="220" height="34" rx="6" fill="#0b1224" stroke="#10b981"/>
+    <text x="1136" y="206" fill="#6ee7b7" font-weight="600">Slack</text>
+    <text x="1180" y="206" fill="#cbd5e1">chat.postMessage</text>
+
+    <rect x="1120" y="222" width="220" height="34" rx="6" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="1136" y="244" fill="#c4b5fd" font-weight="600">Discord</text>
+    <text x="1190" y="244" fill="#cbd5e1">Webhook-URL</text>
+
+    <rect x="1120" y="260" width="220" height="34" rx="6" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="1136" y="282" fill="#67e8f9" font-weight="600">Telegram</text>
+    <text x="1198" y="282" fill="#cbd5e1">Bot-API</text>
+
+    <rect x="1120" y="298" width="220" height="34" rx="6" fill="#0b1224" stroke="#fbbf24"/>
+    <text x="1136" y="320" fill="#fcd34d" font-weight="600">Desktop</text>
+    <text x="1196" y="320" fill="#cbd5e1">notify-send</text>
+
+    <rect x="1120" y="336" width="220" height="34" rx="6" fill="#0b1224" stroke="#475569"/>
+    <text x="1136" y="358" fill="#cbd5e1" font-weight="600">CI-Ping</text>
+    <text x="1196" y="358" fill="#94a3b8">curl Webhook</text>
+
+    <rect x="1120" y="374" width="220" height="34" rx="6" fill="#0b1224" stroke="#475569"/>
+    <text x="1136" y="396" fill="#cbd5e1" font-weight="600">PagerDuty</text>
+    <text x="1212" y="396" fill="#94a3b8">Events-API</text>
+  </g>
+
+  <!-- Konfiguration unten -->
+  <rect x="40" y="450" width="660" height="420" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+  <text x="60" y="478" font-size="16" font-weight="700" fill="#e2e8f0">Konfiguration · ~/.codex/config.toml</text>
+
+  <rect x="60" y="494" width="620" height="76" rx="8" fill="#0b1224" stroke="#10b981"/>
+  <text x="76" y="514" font-size="12" font-weight="600" fill="#6ee7b7"># macOS · Sound-Ton</text>
+  <text x="76" y="538" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#cbd5e1">notify = ["bash", "-lc",</text>
+  <text x="76" y="556" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#cbd5e1">          "afplay /System/Library/Sounds/Blow.aiff"]</text>
+
+  <rect x="60" y="582" width="620" height="76" rx="8" fill="#0b1224" stroke="#22d3ee"/>
+  <text x="76" y="602" font-size="12" font-weight="600" fill="#67e8f9"># Windows · PowerShell-Skript</text>
+  <text x="76" y="624" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#cbd5e1">notify = ["powershell", "-NoProfile", "-ExecutionPolicy",</text>
+  <text x="76" y="642" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#cbd5e1">          "Bypass", "-File", "C:\\Users\\User\\.codex\\notify.ps1"]</text>
+
+  <rect x="60" y="670" width="620" height="60" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+  <text x="76" y="690" font-size="12" font-weight="600" fill="#c4b5fd"># Linux · eigener Slack-Wrapper</text>
+  <text x="76" y="714" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#cbd5e1">notify = ["/home/alice/.codex/notify_slack.sh"]</text>
+
+  <text x="60" y="752" font-size="13" font-weight="600" fill="#e2e8f0">Profil-Override</text>
+  <rect x="60" y="762" width="620" height="96" rx="8" fill="#0b1224" stroke="#475569"/>
+  <text x="76" y="784" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#a5b4fc">[profiles.ci]</text>
+  <text x="76" y="804" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#cbd5e1">notify = []   <tspan fill="#94a3b8"># keine Pings im CI-Lauf</tspan></text>
+  <text x="76" y="824" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#a5b4fc">[profiles.local]</text>
+  <text x="76" y="844" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#cbd5e1">notify = ["~/.codex/notify_slack.sh"]</text>
+
+  <!-- Slack-Beispiel rechts unten -->
+  <rect x="720" y="450" width="640" height="420" rx="12" ry="12" fill="#1e293b" stroke="#10b981"/>
+  <text x="740" y="478" font-size="16" font-weight="700" fill="#6ee7b7">Slack-Wrapper · notify_slack.sh (Auszug)</text>
+  <text x="740" y="498" font-size="12" fill="#94a3b8">vgl. Wangmerlyn/Codex-Slack-Notifier · vollständiges Setup als Vorlage</text>
+
+  <rect x="740" y="514" width="600" height="338" rx="8" fill="#0b1224" stroke="#475569"/>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+    <text x="756" y="538" fill="#94a3b8">#!/usr/bin/env bash</text>
+    <text x="756" y="556" fill="#94a3b8">set -euo pipefail</text>
+    <text x="756" y="582" fill="#a5b4fc">PAYLOAD</text>
+    <text x="836" y="582" fill="#cbd5e1">=$(cat)             <tspan fill="#94a3b8"># JSON von stdin</tspan></text>
+    <text x="756" y="600" fill="#a5b4fc">STATUS</text>
+    <text x="836" y="600" fill="#cbd5e1">=$(jq -r .status &lt;&lt;&lt;"$PAYLOAD")</text>
+    <text x="756" y="618" fill="#a5b4fc">TITLE</text>
+    <text x="836" y="618" fill="#cbd5e1">=$(jq -r .title  &lt;&lt;&lt;"$PAYLOAD")</text>
+    <text x="756" y="636" fill="#a5b4fc">SUMMARY</text>
+    <text x="836" y="636" fill="#cbd5e1">=$(jq -r .summary &lt;&lt;&lt;"$PAYLOAD")</text>
+    <text x="756" y="654" fill="#a5b4fc">URL</text>
+    <text x="836" y="654" fill="#cbd5e1">=$(jq -r .url    &lt;&lt;&lt;"$PAYLOAD")</text>
+
+    <text x="756" y="684" fill="#86efac">curl -sX POST https://slack.com/api/chat.postMessage \</text>
+    <text x="756" y="702" fill="#86efac">  -H "Authorization: Bearer $SLACK_TOKEN" \</text>
+    <text x="756" y="720" fill="#86efac">  -H "Content-Type: application/json" \</text>
+    <text x="756" y="738" fill="#86efac">  -d "$(jq -n \</text>
+    <text x="756" y="756" fill="#86efac">        --arg ch "$SLACK_CHANNEL" \</text>
+    <text x="756" y="774" fill="#86efac">        --arg t  "[$STATUS] $TITLE" \</text>
+    <text x="756" y="792" fill="#86efac">        --arg s  "$SUMMARY · $URL" \</text>
+    <text x="756" y="810" fill="#86efac">        '{channel:$ch,text:$t,attachments:[{text:$s}]}')"</text>
+    <text x="756" y="836" fill="#94a3b8">// Exit-Code != 0 wird im Codex-Log angezeigt</text>
+  </g>
+</svg>

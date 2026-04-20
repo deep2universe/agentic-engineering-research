@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Phase 1 — Idee und Spezifikation mit Codex CLI</title>
+  <desc>Architekten-Tisch und Reissbrett: Plan-Prompt mit high reasoning und --search erzeugt docs/spec.md; Spec-Driven Development via GitHub Spec Kit oder Kiro-for-Codex; Best Practices und Anti-Patterns gegenübergestellt.</desc>
+
+  <defs>
+    <marker id="arr1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
+    </marker>
+    <pattern id="grid1" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0 L0 0 0 36" fill="none" stroke="#1e293b" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+  <rect width="1400" height="900" fill="url(#grid1)" opacity="0.4"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Phase 1 — Idee &amp; Spezifikation</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Reissbrett-Metapher: Codex zeichnet die Spec, bevor eine Zeile Code entsteht.</text>
+  <text x="1360" y="56" fill="#a78bfa" font-size="14" text-anchor="end">Codex CLI · Phase 01</text>
+
+  <g transform="translate(60,140)">
+    <rect width="640" height="400" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <line x1="40" y1="540" x2="0" y2="640" stroke="#475569" stroke-width="6"/>
+    <line x1="600" y1="540" x2="640" y2="640" stroke="#475569" stroke-width="6"/>
+    <text x="20" y="34" fill="#a78bfa" font-size="16" font-weight="700">Architekten-Tisch · Plan-Prompt</text>
+
+    <rect x="20" y="54" width="600" height="180" rx="10" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', 'Fira Code', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="36" y="78">$ codex --profile planning \</text>
+      <text x="36" y="98">    --model gpt-5.4 --search</text>
+      <text x="36" y="124" fill="#94a3b8">› reasoning_effort = high</text>
+      <text x="36" y="148" fill="#22d3ee">› "Don't write code. Produce a plan</text>
+      <text x="36" y="166" fill="#22d3ee">  with milestones, unknowns, risks,</text>
+      <text x="36" y="184" fill="#22d3ee">  acceptance criteria."</text>
+      <text x="36" y="210" fill="#94a3b8">› Output: docs/spec.md</text>
+    </g>
+
+    <g transform="translate(20,256)">
+      <rect width="184" height="120" rx="10" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="14" y="24" fill="#a78bfa" font-size="13" font-weight="700">docs/spec.md</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="12">· Goal &amp; Scope</text>
+      <text x="14" y="64" fill="#cbd5e1" font-size="12">· Acceptance Criteria</text>
+      <text x="14" y="82" fill="#cbd5e1" font-size="12">· Risks · Unknowns</text>
+      <text x="14" y="100" fill="#cbd5e1" font-size="12">· Milestones</text>
+    </g>
+    <g transform="translate(216,256)">
+      <rect width="184" height="120" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="14" y="24" fill="#22d3ee" font-size="13" font-weight="700">3 Architektur-Optionen</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="12">· CLI-only</text>
+      <text x="14" y="64" fill="#cbd5e1" font-size="12">· Daemon</text>
+      <text x="14" y="82" fill="#cbd5e1" font-size="12">· OAuth-App</text>
+      <text x="14" y="100" fill="#94a3b8" font-size="11">+ Trade-off-Tabelle</text>
+    </g>
+    <g transform="translate(412,256)">
+      <rect width="184" height="120" rx="10" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="24" fill="#10b981" font-size="13" font-weight="700">Empfehlung</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="12">Begründete Wahl</text>
+      <text x="14" y="64" fill="#cbd5e1" font-size="12">Stack-Pin</text>
+      <text x="14" y="82" fill="#cbd5e1" font-size="12">Roadmap-Skizze</text>
+      <text x="14" y="100" fill="#94a3b8" font-size="11">→ commit &amp; review</text>
+    </g>
+  </g>
+
+  <g transform="translate(740,140)">
+    <rect width="620" height="190" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="20" y="34" fill="#22d3ee" font-size="16" font-weight="700">Spec-Driven Development — Frameworks</text>
+    <g transform="translate(20,54)">
+      <rect width="280" height="120" rx="10" fill="#0f172a" stroke="#334155"/>
+      <text x="16" y="26" fill="#e2e8f0" font-size="14" font-weight="700">GitHub Spec Kit</text>
+      <text x="16" y="48" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', monospace">github/spec-kit</text>
+      <text x="16" y="72" fill="#cbd5e1" font-size="12">Requirements → Design → Tasks</text>
+      <text x="16" y="92" fill="#cbd5e1" font-size="12">Strukturierte Spec-Templates</text>
+      <text x="16" y="110" fill="#cbd5e1" font-size="12">Versionskontrolle der Specs</text>
+    </g>
+    <g transform="translate(320,54)">
+      <rect width="280" height="120" rx="10" fill="#0f172a" stroke="#334155"/>
+      <text x="16" y="26" fill="#e2e8f0" font-size="14" font-weight="700">Kiro-for-Codex</text>
+      <text x="16" y="48" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', monospace">atman-33/kiro-for-codex</text>
+      <text x="16" y="72" fill="#cbd5e1" font-size="12">Spec-First Workflow</text>
+      <text x="16" y="92" fill="#cbd5e1" font-size="12">Generiert Tasks aus Spec</text>
+      <text x="16" y="110" fill="#cbd5e1" font-size="12">Codex-native Integration</text>
+    </g>
+  </g>
+
+  <g transform="translate(740,350)">
+    <rect width="620" height="190" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Best Practices</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">· Plan-Prompt zuerst, nicht Code-Prompt</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">· reasoning_effort = high, --search aktivieren</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">· Output → docs/spec.md committen</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">· RFCs und aktuelle Lib-Versionen prüfen lassen</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">· Akzeptanz-Kriterien explizit benennen</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">· Spec-Driven Tools (Spec Kit / Kiro) nutzen</text>
+  </g>
+
+  <g transform="translate(60,560)">
+    <rect width="640" height="180" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" fill="#ef4444" font-size="16" font-weight="700">Anti-Patterns</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">✗ "Baue mir einen Slack-Scraper" — zu vage, Codex rät</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">✗ Mehrere Features im selben Prompt — Scope explodiert</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">✗ Plan überspringen und direkt implementieren</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">✗ Spec nur im Chat, nicht im Repo persistieren</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">✗ Reasoning-Effort low — spart Tokens, verliert Tiefe</text>
+  </g>
+
+  <g transform="translate(740,560)">
+    <rect width="620" height="180" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="20" y="34" fill="#f59e0b" font-size="16" font-weight="700">Definition of Done · Phase 1</text>
+    <text x="20" y="64" fill="#cbd5e1" font-size="13">✓ docs/spec.md committet, lesbar in &lt; 5 min</text>
+    <text x="20" y="86" fill="#cbd5e1" font-size="13">✓ Mind. 3 Architektur-Optionen mit Trade-offs</text>
+    <text x="20" y="108" fill="#cbd5e1" font-size="13">✓ Klare Empfehlung mit Begründung</text>
+    <text x="20" y="130" fill="#cbd5e1" font-size="13">✓ Stack pinned (Sprache, Lib-Versionen, Tooling)</text>
+    <text x="20" y="152" fill="#cbd5e1" font-size="13">✓ Akzeptanz-Kriterien testbar formuliert</text>
+  </g>
+
+  <line x1="700" y1="240" x2="740" y2="240" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <text x="40" y="870" fill="#64748b" font-size="11">Metapher: Reissbrett — bevor das Haus gebaut wird, entsteht der Bauplan.</text>
+</svg>
