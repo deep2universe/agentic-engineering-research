@@ -1,0 +1,175 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Workflow 16 — Dokumentations-Sync</title>
+  <desc>Goal: README und docs/ aktuell zur Public API. Constraints: kein neuer Abschnitt, Tonalitaet konsistent. DoD: Signaturen exakt, mkdocs build --strict gruen. Metapher: Spiegel-Sync, Verzahnung Code zu Docs.</desc>
+
+  <defs>
+    <marker id="arr_in16" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arr_em16" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <linearGradient id="bg16" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0c1f2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg16)"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">16. Dokumentations-Sync</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">README + docs/ ↔ Public API in src/  ·  mkdocs build --strict  ·  Tonalitaet konsistent</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 16</text>
+
+  <!-- Metapher Verzahnung -->
+  <g transform="translate(1100,100)">
+    <rect width="260" height="80" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <g transform="translate(36,40)">
+      <circle cx="0" cy="0" r="14" fill="none" stroke="#818cf8" stroke-width="3"/>
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#818cf8" stroke-width="1" stroke-dasharray="2,2"/>
+      <circle cx="32" cy="0" r="14" fill="none" stroke="#22d3ee" stroke-width="3"/>
+      <circle cx="32" cy="0" r="20" fill="none" stroke="#22d3ee" stroke-width="1" stroke-dasharray="2,2"/>
+    </g>
+    <text x="100" y="40" font-size="13" fill="#e2e8f0" font-weight="600">Metapher</text>
+    <text x="100" y="58" font-size="12" fill="#94a3b8">Verzahnung Code↔Docs</text>
+  </g>
+
+  <!-- Linke Saeule: Code (Quelle der Wahrheit) -->
+  <g transform="translate(40,180)">
+    <rect width="380" height="500" rx="14" ry="14" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#818cf8">Quelle: src/  (Source of Truth)</text>
+
+    <rect x="20" y="54" width="340" height="200" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="32" y="72" font-size="11" fill="#94a3b8">src/users/store.ts</text>
+    <text x="32" y="92" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">export class UserStore {</text>
+    <text x="32" y="108" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">  /** Get user by stable ID. */</text>
+    <text x="32" y="124" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">  getUserById(id: string):</text>
+    <text x="32" y="140" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">    Promise&lt;User | null&gt;</text>
+    <text x="32" y="160" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">  /** @since 2.1 */</text>
+    <text x="32" y="176" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">  upsert(u: User): Promise&lt;void&gt;</text>
+    <text x="32" y="196" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">}</text>
+
+    <text x="32" y="226" font-size="11" fill="#94a3b8">+ src/config/loader.ts</text>
+    <text x="32" y="244" font-size="11" fill="#94a3b8">+ src/api/server.ts</text>
+
+    <text x="20" y="290" font-size="14" font-weight="700" fill="#e2e8f0">Codex liest:</text>
+    <g transform="translate(20,300)">
+      <rect width="340" height="26" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="14" y="18" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">Public exports + JSDoc + types</text>
+    </g>
+    <g transform="translate(20,332)">
+      <rect width="340" height="26" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="14" y="18" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">CHANGELOG (since-Tags)</text>
+    </g>
+    <g transform="translate(20,364)">
+      <rect width="340" height="26" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="14" y="18" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">Bestehende docs/ als Stil-Anker</text>
+    </g>
+
+    <text x="20" y="412" font-size="13" font-weight="700" fill="#f59e0b">Constraints</text>
+    <text x="20" y="432" font-size="11" fill="#e2e8f0">- KEIN neuer Abschnitt</text>
+    <text x="20" y="450" font-size="11" fill="#e2e8f0">- Tonalitaet konsistent</text>
+    <text x="20" y="468" font-size="11" fill="#e2e8f0">- Kein Marketing-Text</text>
+    <text x="20" y="486" font-size="11" fill="#e2e8f0">- Code-Snippets aus echten Files</text>
+  </g>
+
+  <!-- Mitte: Codex (Spiegel) -->
+  <g transform="translate(450,260)">
+    <rect width="500" height="340" rx="14" ry="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#a78bfa">Codex Sync-Lauf</text>
+
+    <rect x="20" y="50" width="460" height="80" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+    <text x="32" y="70" font-size="13" font-weight="700" fill="#a78bfa"># Goal</text>
+    <text x="32" y="88" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">Ensure README and docs/ reflect</text>
+    <text x="32" y="104" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">the current public API.</text>
+    <text x="32" y="120" font-size="11" fill="#94a3b8">Diff-orientiert · keine Halluzinationen</text>
+
+    <text x="20" y="156" font-size="14" font-weight="700" fill="#e2e8f0">Verfahren</text>
+    <g transform="translate(20,168)">
+      <rect width="460" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="16" cy="14" r="9" fill="#818cf8"/><text x="16" y="18" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="700">1</text>
+      <text x="36" y="18" font-size="12" fill="#e2e8f0">Inventar bauen — alle public Symbols + Signaturen</text>
+    </g>
+    <g transform="translate(20,200)">
+      <rect width="460" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="16" cy="14" r="9" fill="#818cf8"/><text x="16" y="18" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="700">2</text>
+      <text x="36" y="18" font-size="12" fill="#e2e8f0">docs/ scannen — Drift gegen Inventar markieren</text>
+    </g>
+    <g transform="translate(20,232)">
+      <rect width="460" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="16" cy="14" r="9" fill="#818cf8"/><text x="16" y="18" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="700">3</text>
+      <text x="36" y="18" font-size="12" fill="#e2e8f0">Patch nur fuer Drift — bestehende Sections behalten</text>
+    </g>
+    <g transform="translate(20,264)">
+      <rect width="460" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="16" cy="14" r="9" fill="#818cf8"/><text x="16" y="18" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="700">4</text>
+      <text x="36" y="18" font-size="12" fill="#e2e8f0">Snippets aus Tests/Examples zitieren (kein Erfinden)</text>
+    </g>
+    <g transform="translate(20,296)">
+      <rect width="460" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="16" cy="14" r="9" fill="#10b981"/><text x="16" y="18" font-size="11" fill="#0f172a" text-anchor="middle" font-weight="700">5</text>
+      <text x="36" y="18" font-size="12" fill="#e2e8f0">mkdocs build --strict — DoD-Gate</text>
+    </g>
+  </g>
+
+  <!-- Rechte Saeule: Docs (Spiegelbild) -->
+  <g transform="translate(980,180)">
+    <rect width="380" height="500" rx="14" ry="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#22d3ee">Spiegel: README + docs/</text>
+
+    <rect x="20" y="54" width="340" height="120" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="32" y="72" font-size="11" fill="#94a3b8">README.md — Quickstart</text>
+    <text x="32" y="92" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">## Install</text>
+    <text x="32" y="108" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">npm install foo-store</text>
+    <text x="32" y="126" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">## Quickstart</text>
+    <text x="32" y="144" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">const u = await store.getUserById(id)</text>
+    <text x="32" y="162" font-size="10" fill="#10b981">^ exakt aus src/users/store.ts</text>
+
+    <rect x="20" y="186" width="340" height="120" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="32" y="204" font-size="11" fill="#94a3b8">docs/api/users.md</text>
+    <text x="32" y="224" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">### getUserById(id)</text>
+    <text x="32" y="240" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">Returns: Promise&lt;User | null&gt;</text>
+    <text x="32" y="258" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">### upsert(u)</text>
+    <text x="32" y="274" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">@since 2.1 (war: 2.0  -> drift!)</text>
+    <text x="32" y="294" font-size="10" fill="#f59e0b">Codex korrigiert die Versionsangabe</text>
+
+    <text x="20" y="332" font-size="14" font-weight="700" fill="#10b981">Definition of Done</text>
+    <rect x="20" y="342" width="340" height="28" rx="6" fill="#0f172a" stroke="#10b981"/>
+    <text x="32" y="360" font-size="11" fill="#e2e8f0">README install/quickstart aktuell</text>
+    <rect x="20" y="374" width="340" height="28" rx="6" fill="#0f172a" stroke="#10b981"/>
+    <text x="32" y="392" font-size="11" fill="#e2e8f0">Funktionssignaturen = src/ exakt</text>
+    <rect x="20" y="406" width="340" height="28" rx="6" fill="#0f172a" stroke="#10b981"/>
+    <text x="32" y="424" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">mkdocs build --strict  -> 0 errors</text>
+
+    <text x="20" y="466" font-size="11" fill="#94a3b8">Spaetere Re-Runs sind idempotent —</text>
+    <text x="20" y="484" font-size="11" fill="#94a3b8">kein Drift = keine Aenderung.</text>
+  </g>
+
+  <!-- Pfeile -->
+  <path d="M420,400 L450,360" stroke="#818cf8" stroke-width="2.5" fill="none" marker-end="url(#arr_in16)"/>
+  <text x="425" y="395" font-size="11" fill="#818cf8">read</text>
+  <path d="M950,400 L980,400" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arr_em16)"/>
+  <text x="953" y="392" font-size="11" fill="#10b981">patch</text>
+
+  <!-- Bottom: Anti-Pattern -->
+  <g transform="translate(40,720)">
+    <rect width="1320" height="100" rx="14" ry="14" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="20" y="34" font-size="14" font-weight="700" fill="#ef4444">Anti-Patterns (vermeiden)</text>
+    <g transform="translate(20,46)">
+      <text x="0" y="20" font-size="11" fill="#e2e8f0">- Codex erlauben, neue Doku-Sektionen "weil hilfreich" zu erstellen</text>
+      <text x="0" y="38" font-size="11" fill="#e2e8f0">- Beispiele frei erfinden ohne Test/Code-Quelle (Halluzinationsrisiko)</text>
+      <text x="600" y="20" font-size="11" fill="#e2e8f0">- Tonalitaet "verbessern" — Drift in Stil = Review-Schmerz</text>
+      <text x="600" y="38" font-size="11" fill="#e2e8f0">- mkdocs --strict ueberspringen — DoD muss hart sein</text>
+    </g>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,840)">
+    <text x="0" y="14" font-size="12" font-weight="700" fill="#94a3b8">Legende</text>
+    <rect x="0" y="26" width="14" height="14" fill="#818cf8"/><text x="22" y="38" font-size="12" fill="#e2e8f0">Code / Quelle</text>
+    <rect x="120" y="26" width="14" height="14" fill="#a78bfa"/><text x="142" y="38" font-size="12" fill="#e2e8f0">Codex / Sync</text>
+    <rect x="240" y="26" width="14" height="14" fill="#22d3ee"/><text x="262" y="38" font-size="12" fill="#e2e8f0">Docs / Spiegel</text>
+    <rect x="360" y="26" width="14" height="14" fill="#10b981"/><text x="382" y="38" font-size="12" fill="#e2e8f0">DoD / strict</text>
+    <rect x="460" y="26" width="14" height="14" fill="#f59e0b"/><text x="482" y="38" font-size="12" fill="#e2e8f0">Drift</text>
+    <rect x="540" y="26" width="14" height="14" fill="#ef4444"/><text x="562" y="38" font-size="12" fill="#e2e8f0">Anti-Pattern</text>
+  </g>
+</svg>

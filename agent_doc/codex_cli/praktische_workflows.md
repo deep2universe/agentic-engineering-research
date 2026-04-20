@@ -10,6 +10,8 @@ Alle Beispiele gehen von `~/.codex/config.toml` mit Default-`gpt-5.3-codex` aus.
 
 ## 1. Ticket-Style-Prompt (das Grundprinzip)
 
+![Jira-Ticket-Karte mit drei Pflichtblöcken Goal, Constraints, Definition of Done und konkretem OAuth-Beispiel](svg/workflow_01_ticket_style_prompt.svg)
+
 **Format** (wirkt für 80 % aller Aufgaben):
 
 ```
@@ -34,6 +36,8 @@ Reichere jeden Prompt, der länger als 2 Sätze ist, um diese drei Blöcke an. D
 ---
 
 ## 2. Greenfield-Projekt in 30 Minuten
+
+![Schnellstart-Pipeline mit fünf Prompts (Scope, TDD, Implementation, CLI, Release) und Stoppuhr für 30-Minuten-Budget](svg/workflow_02_greenfield_30min.svg)
 
 ```bash
 mkdir ~/code/tiny-kv && cd ~/code/tiny-kv
@@ -64,6 +68,8 @@ Prompt 5 — Release:
 
 ## 3. Bestehendes Repo verstehen
 
+![Plan-Profil als Stadtführerin mit Lupe, strukturierter Summary-Output und Folge-Prompt für payments-Modul mit Mermaid-Sequenz](svg/workflow_03_repo_verstehen.svg)
+
 ```bash
 cd ~/code/legacy-monolith
 codex --profile planning "Summarize this repository in 1 page for a new contributor. Include: entry points, data flow, test layout, deploy steps, and any pitfalls you can find in CI logs. End with 5 'gotchas' you think a new dev would trip over."
@@ -76,6 +82,8 @@ Folge-Prompt für einen spezifischen Bereich:
 ---
 
 ## 4. TDD-Loop (klassisch)
+
+![Verkehrsampel rot zu grün mit explizitem STOP-Checkpoint zwischen Failing-Test und Implementation, plus Regressions-Run](svg/workflow_04_tdd_loop.svg)
 
 ```bash
 codex --profile daily
@@ -99,6 +107,8 @@ Commit as `feat: …`. Then run `just test` and fix any regressions.
 
 ## 5. Bug-Reproduktion und Fix
 
+![Ermittler-Tafel mit Issue-Karte, failing Test, Red-Commit, Root-Cause-Patch und Coverage-Delta](svg/workflow_05_bug_repro_fix.svg)
+
 ```bash
 codex "Reproduce issue #142 (see below). Steps:
 1. Read the issue via the GitHub MCP.
@@ -114,6 +124,8 @@ Voraussetzung: GitHub-MCP-Server aktiv. Siehe [`integrationen_ide_ci_cd.md`](int
 ---
 
 ## 6. Security-Review eines Pull Requests
+
+![Lupen-Patrouille mit Read-only-Sandbox, sieben OWASP-Kategorien und Severity-Skala info-low-med-high](svg/workflow_06_security_review.svg)
 
 ```bash
 git switch feature/new-upload
@@ -136,6 +148,8 @@ Do NOT modify files."
 
 ## 7. Dependency-Upgrade (React 18 → 19)
 
+![Brücken-Sanierung React 18 zu 19 in zwei Phasen, Plan-Profil für Migrationsplan und Daily-Profil mit Stop-After-Each-Codemod](svg/workflow_07_dependency_upgrade.svg)
+
 ```bash
 codex --profile planning "Plan the upgrade from React 18 to 19.2 for this app. Output:
 - Breaking-changes checklist relevant to our code
@@ -153,6 +167,8 @@ codex --profile daily "Execute the upgrade plan from docs/plans/react-19.md. App
 ---
 
 ## 8. Autofix-Bot in GitHub Actions
+
+![Robot-Mechaniker im Pit-Stop, workflow_run-failure triggert codex-action mit workspace-write und drop-sudo, fixt und öffnet PR mit Backlink](svg/workflow_08_autofix_bot.svg)
 
 `.github/workflows/codex-autofix.yml`:
 
@@ -191,6 +207,8 @@ jobs:
 ---
 
 ## 9. Regelmäßige PR-Reviews via Action
+
+![Vier-Augen-Prinzip mit Review-Stempel-Maschine: pull_request-Trigger, Codex-Action read-only mit prompt-file, review.md, Auto-Comment und versioniertes pr_review.md-Template](svg/workflow_09_pr_review_action.svg)
 
 ```yaml
 name: Codex PR Review

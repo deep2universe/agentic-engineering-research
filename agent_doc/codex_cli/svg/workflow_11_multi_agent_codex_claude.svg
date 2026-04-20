@@ -1,136 +1,194 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
   <title>Workflow 11 — Multi-Agent: Codex + Claude als Reviewer</title>
-  <desc>Codex startet als MCP-Server via codex mcp serve --profile review. Claude Code bindet ihn als mcpServers-Eintrag (stdio) ein und nutzt das Tool codex-reviewer. Bidirektionale Variante möglich. Metapher: Tandem / Verstärker-Setup.</desc>
+  <desc>Codex laeuft als MCP-Server (codex mcp serve --profile review). Claude registriert ihn in mcpServers-Konfiguration und ruft codex-reviewer auf. Bidirektionale Variante: Claude als MCP-Server fuer Codex. Metapher: Tandem bzw. Verstaerker-Setup.</desc>
 
   <defs>
-    <marker id="arrow_violet11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="arr_v11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
     </marker>
-    <marker id="arrow_indigo11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+    <marker id="arr_in11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
     </marker>
+    <marker id="arr_cy11" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <linearGradient id="bg11" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#15102a"/>
+    </linearGradient>
   </defs>
 
-  <rect width="1400" height="900" fill="#0f172a"/>
+  <rect width="1400" height="900" fill="url(#bg11)"/>
 
-  <!-- Titel -->
-  <text x="60" y="68" fill="#e2e8f0" font-size="30" font-weight="700">11. Multi-Agent: Codex + Claude als Reviewer</text>
-  <text x="60" y="98" fill="#94a3b8" font-size="16">Tandem-Setup über MCP — Codex als Tool im Claude-Workflow (oder umgekehrt)</text>
-  <text x="1340" y="68" fill="#64748b" font-size="14" text-anchor="end">Codex CLI · Kapitel 11</text>
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">11. Multi-Agent: Codex + Claude als Reviewer</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">codex mcp serve --profile review  ·  Claude konsumiert Tool "codex-reviewer" via MCP-stdio</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 11</text>
 
-  <!-- Linke Spalte: Claude (Konsument) -->
-  <g>
-    <rect x="60" y="150" width="420" height="500" rx="16" ry="16" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
-    <text x="80" y="180" fill="#c4b5fd" font-size="14" font-weight="700">CLAUDE CODE · KONSUMENT</text>
-    <text x="80" y="208" fill="#e2e8f0" font-size="18" font-weight="600">Primär-Agent (Coder)</text>
+  <!-- Metapher: Tandem -->
+  <g transform="translate(1130,100)">
+    <rect width="230" height="80" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <circle cx="32" cy="50" r="14" fill="none" stroke="#a78bfa" stroke-width="2"/>
+    <circle cx="80" cy="50" r="14" fill="none" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="46" y1="50" x2="66" y2="50" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M28,50 l4,-20 l16,0 l4,16" stroke="#a78bfa" stroke-width="2" fill="none"/>
+    <path d="M76,50 l4,-20 l16,0 l4,16" stroke="#22d3ee" stroke-width="2" fill="none"/>
+    <text x="110" y="40" font-size="13" fill="#e2e8f0" font-weight="600">Metapher</text>
+    <text x="110" y="58" font-size="12" fill="#94a3b8">Tandem / Verstaerker</text>
+  </g>
+
+  <!-- Variante A: Claude konsumiert Codex -->
+  <g transform="translate(40,140)">
+    <rect width="660" height="380" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#a78bfa">Variante A — Claude nutzt Codex als Reviewer</text>
+
+    <!-- Claude (Konsument) -->
+    <g transform="translate(20,60)">
+      <rect width="220" height="120" rx="10" ry="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <text x="16" y="26" font-size="14" font-weight="700" fill="#a78bfa">Claude Code</text>
+      <text x="16" y="44" font-size="11" fill="#94a3b8">MCP-Konsument</text>
+      <rect x="16" y="56" width="188" height="50" rx="6" fill="#15102a" stroke="#334155"/>
+      <text x="24" y="74" font-size="10" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">"Use codex-reviewer to</text>
+      <text x="24" y="88" font-size="10" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace"> get a 2nd opinion on</text>
+      <text x="24" y="102" font-size="10" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace"> the last commit."</text>
+    </g>
 
     <!-- mcpServers JSON -->
-    <rect x="80" y="226" width="380" height="220" rx="8" fill="#0f172a" stroke="#475569"/>
-    <text x="92" y="248" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', monospace">// claude mcpServers (JSON)</text>
-    <text x="92" y="268" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', monospace">{</text>
-    <text x="106" y="286" fill="#67e8f9" font-size="12" font-family="'JetBrains Mono', monospace">"mcpServers": {</text>
-    <text x="120" y="304" fill="#a5b4fc" font-size="12" font-family="'JetBrains Mono', monospace">"codex-reviewer": {</text>
-    <text x="134" y="322" fill="#fbbf24" font-size="12" font-family="'JetBrains Mono', monospace">"type": "stdio",</text>
-    <text x="134" y="340" fill="#fbbf24" font-size="12" font-family="'JetBrains Mono', monospace">"command": "codex",</text>
-    <text x="134" y="358" fill="#fbbf24" font-size="12" font-family="'JetBrains Mono', monospace">"args": ["mcp", "serve",</text>
-    <text x="148" y="376" fill="#fbbf24" font-size="12" font-family="'JetBrains Mono', monospace">"--profile", "review"]</text>
-    <text x="120" y="394" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', monospace">}</text>
-    <text x="106" y="412" fill="#67e8f9" font-size="12" font-family="'JetBrains Mono', monospace">}</text>
-    <text x="92" y="430" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', monospace">}</text>
+    <g transform="translate(20,200)">
+      <rect width="300" height="160" rx="10" ry="10" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="16" y="24" font-size="13" font-weight="600" fill="#22d3ee">Claude-Side mcpServers JSON</text>
+      <text x="16" y="50" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">{</text>
+      <text x="32" y="66" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">"mcpServers": {</text>
+      <text x="48" y="82" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">"codex-reviewer": {</text>
+      <text x="64" y="98" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">"type": "stdio",</text>
+      <text x="64" y="112" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">"command": "codex",</text>
+      <text x="64" y="126" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">"args": ["mcp","serve",</text>
+      <text x="80" y="140" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">"--profile","review"]</text>
+      <text x="48" y="154" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">}}}</text>
+    </g>
 
-    <!-- Aufruf -->
-    <rect x="80" y="466" width="380" height="160" rx="8" fill="#0f172a" stroke="#a78bfa"/>
-    <text x="92" y="488" fill="#c4b5fd" font-size="12" font-weight="700">PROMPT-AUFRUF</text>
-    <text x="92" y="510" fill="#e2e8f0" font-size="13">"Use the codex-reviewer MCP to get</text>
-    <text x="92" y="530" fill="#e2e8f0" font-size="13">a second opinion on the last commit.</text>
-    <text x="92" y="550" fill="#e2e8f0" font-size="13">Summarize its findings."</text>
-    <text x="92" y="582" fill="#94a3b8" font-size="12">Claude → ruft Tool → erhält Codex-Output</text>
-    <text x="92" y="602" fill="#94a3b8" font-size="12">→ aggregiert mit eigenem Kontext.</text>
+    <!-- Codex MCP-Server -->
+    <g transform="translate(380,60)">
+      <rect width="260" height="300" rx="10" ry="10" fill="#0f172a" stroke="#818cf8" stroke-width="2"/>
+      <text x="16" y="26" font-size="14" font-weight="700" fill="#818cf8">Codex CLI (MCP-Server)</text>
+      <text x="16" y="44" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">$ codex mcp serve --profile review</text>
+
+      <text x="16" y="74" font-size="12" font-weight="600" fill="#94a3b8">Tools (exposed)</text>
+      <rect x="16" y="84" width="228" height="26" rx="6" fill="#15102a" stroke="#334155"/>
+      <text x="24" y="101" font-size="11" fill="#e2e8f0">codex.exec  ·  ein-Turn-Aufruf</text>
+      <rect x="16" y="116" width="228" height="26" rx="6" fill="#15102a" stroke="#334155"/>
+      <text x="24" y="133" font-size="11" fill="#e2e8f0">codex.review_diff  ·  diff-Eingabe</text>
+      <rect x="16" y="148" width="228" height="26" rx="6" fill="#15102a" stroke="#334155"/>
+      <text x="24" y="165" font-size="11" fill="#e2e8f0">codex.search_repo  ·  grep/glob</text>
+
+      <text x="16" y="194" font-size="12" font-weight="600" fill="#94a3b8">Profil "review"</text>
+      <text x="16" y="212" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">model = gpt-5.3-codex</text>
+      <text x="16" y="226" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">sandbox = read-only</text>
+      <text x="16" y="240" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">approval = never</text>
+      <text x="16" y="266" font-size="11" fill="#94a3b8">stdio-Transport, kein Netz noetig</text>
+    </g>
+
+    <!-- Pfeile -->
+    <path d="M240,120 L380,120" stroke="#a78bfa" stroke-width="2.5" fill="none" marker-end="url(#arr_v11)"/>
+    <text x="250" y="110" font-size="11" fill="#a78bfa">tool call</text>
+    <path d="M380,150 L240,150" stroke="#22d3ee" stroke-width="2.5" fill="none" marker-end="url(#arr_cy11)"/>
+    <text x="250" y="168" font-size="11" fill="#22d3ee">findings JSON</text>
   </g>
 
-  <!-- Rechte Spalte: Codex (MCP-Server) -->
-  <g>
-    <rect x="920" y="150" width="420" height="500" rx="16" ry="16" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
-    <text x="940" y="180" fill="#a5b4fc" font-size="14" font-weight="700">CODEX CLI · MCP-SERVER</text>
-    <text x="940" y="208" fill="#e2e8f0" font-size="18" font-weight="600">Reviewer (read-only)</text>
+  <!-- Variante B: bidirektional -->
+  <g transform="translate(720,140)">
+    <rect width="640" height="380" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#22d3ee">Variante B — bidirektional</text>
+    <text x="20" y="56" font-size="12" fill="#94a3b8">Codex registriert Claude als MCP-Server in ~/.codex/config.toml</text>
 
-    <rect x="940" y="226" width="380" height="120" rx="8" fill="#0f172a" stroke="#475569"/>
-    <text x="952" y="248" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', monospace">$ Start des Servers</text>
-    <text x="952" y="270" fill="#67e8f9" font-size="13" font-family="'JetBrains Mono', monospace">codex mcp serve --profile review</text>
-    <text x="952" y="296" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', monospace">stdio-Transport (default)</text>
-    <text x="952" y="316" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', monospace">Profil "review" = read-only Sandbox</text>
+    <!-- Codex Konsument -->
+    <g transform="translate(20,80)">
+      <rect width="240" height="120" rx="10" ry="10" fill="#0f172a" stroke="#818cf8" stroke-width="2"/>
+      <text x="16" y="26" font-size="14" font-weight="700" fill="#818cf8">Codex CLI (Konsument)</text>
+      <text x="16" y="46" font-size="11" fill="#94a3b8">Profil "daily"</text>
+      <rect x="16" y="58" width="208" height="50" rx="6" fill="#15102a" stroke="#334155"/>
+      <text x="24" y="76" font-size="10" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">"Ask claude-second to</text>
+      <text x="24" y="90" font-size="10" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0"> sanity-check this plan."</text>
+    </g>
 
-    <rect x="940" y="366" width="380" height="260" rx="8" fill="#0f172a" stroke="#475569"/>
-    <text x="952" y="388" fill="#a5b4fc" font-size="12" font-weight="700">EXPONIERTE TOOLS</text>
-    <g transform="translate(952,402)">
-      <circle cx="6" cy="14" r="3" fill="#10b981"/>
-      <text x="20" y="18" fill="#e2e8f0" font-size="13">review_diff(range)</text>
-      <circle cx="6" cy="38" r="3" fill="#10b981"/>
-      <text x="20" y="42" fill="#e2e8f0" font-size="13">explain_file(path)</text>
-      <circle cx="6" cy="62" r="3" fill="#10b981"/>
-      <text x="20" y="66" fill="#e2e8f0" font-size="13">grep_codebase(pattern)</text>
-      <circle cx="6" cy="86" r="3" fill="#10b981"/>
-      <text x="20" y="90" fill="#e2e8f0" font-size="13">test_subset(filter)</text>
-      <circle cx="6" cy="110" r="3" fill="#10b981"/>
-      <text x="20" y="114" fill="#e2e8f0" font-size="13">summarize_repo()</text>
-      <circle cx="6" cy="138" r="3" fill="#fbbf24"/>
-      <text x="20" y="142" fill="#fbbf24" font-size="12">Profil "review" verbietet Writes</text>
-      <circle cx="6" cy="162" r="3" fill="#a78bfa"/>
-      <text x="20" y="166" fill="#a78bfa" font-size="12">Eigener Modell-Endpoint möglich</text>
-      <circle cx="6" cy="186" r="3" fill="#22d3ee"/>
-      <text x="20" y="190" fill="#22d3ee" font-size="12">Verschachtelung erlaubt</text>
+    <!-- Claude MCP-Server -->
+    <g transform="translate(360,80)">
+      <rect width="260" height="280" rx="10" ry="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <text x="16" y="26" font-size="14" font-weight="700" fill="#a78bfa">Claude (MCP-Server)</text>
+      <text x="16" y="46" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">$ claude mcp serve</text>
+
+      <text x="16" y="76" font-size="12" font-weight="600" fill="#94a3b8">Tools (exposed)</text>
+      <rect x="16" y="86" width="228" height="26" rx="6" fill="#15102a" stroke="#334155"/>
+      <text x="24" y="103" font-size="11" fill="#e2e8f0">claude.ask  ·  freie Frage</text>
+      <rect x="16" y="118" width="228" height="26" rx="6" fill="#15102a" stroke="#334155"/>
+      <text x="24" y="135" font-size="11" fill="#e2e8f0">claude.review  ·  diff-orientiert</text>
+    </g>
+
+    <!-- config.toml -->
+    <g transform="translate(20,220)">
+      <rect width="320" height="140" rx="10" ry="10" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="16" y="24" font-size="13" font-weight="600" fill="#22d3ee">~/.codex/config.toml</text>
+      <text x="16" y="48" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">[mcp_servers.claude-second]</text>
+      <text x="16" y="64" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">command = "claude"</text>
+      <text x="16" y="80" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">args    = ["mcp","serve"]</text>
+      <text x="16" y="96" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">env     = { ... }</text>
+      <text x="16" y="120" font-size="11" fill="#94a3b8">Lokal stdio · keine API-Kosten doppelt</text>
+    </g>
+
+    <!-- Pfeile -->
+    <path d="M260,140 L360,140" stroke="#818cf8" stroke-width="2.5" fill="none" marker-end="url(#arr_in11)"/>
+    <text x="270" y="130" font-size="11" fill="#818cf8">tool call</text>
+    <path d="M360,170 L260,170" stroke="#a78bfa" stroke-width="2.5" fill="none" marker-end="url(#arr_v11)"/>
+    <text x="270" y="188" font-size="11" fill="#a78bfa">2nd-opinion</text>
+  </g>
+
+  <!-- Vorteile -->
+  <g transform="translate(40,560)">
+    <rect width="1320" height="220" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#e2e8f0">Warum 2 Modelle?</text>
+
+    <g transform="translate(20,60)">
+      <rect width="300" height="140" rx="10" ry="10" fill="#0f172a" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="16" y="26" font-size="13" font-weight="600" fill="#a78bfa">Ergaenzende Staerken</text>
+      <text x="16" y="48" font-size="12" fill="#e2e8f0">Codex: enge Repo-Kopplung</text>
+      <text x="16" y="68" font-size="12" fill="#e2e8f0">Claude: lange Erklaerungen,</text>
+      <text x="16" y="84" font-size="12" fill="#e2e8f0">grosser Kontext</text>
+      <text x="16" y="108" font-size="11" fill="#94a3b8">Diff-Review + Architekturkommentar</text>
+    </g>
+
+    <g transform="translate(340,60)">
+      <rect width="300" height="140" rx="10" ry="10" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="16" y="26" font-size="13" font-weight="600" fill="#22d3ee">Bias-Reduktion</text>
+      <text x="16" y="48" font-size="12" fill="#e2e8f0">Zwei Modelle finden andere</text>
+      <text x="16" y="68" font-size="12" fill="#e2e8f0">Fehlerklassen.</text>
+      <text x="16" y="92" font-size="11" fill="#94a3b8">Empirisch: Dissens markiert</text>
+      <text x="16" y="108" font-size="11" fill="#94a3b8">Hot-Spots fuer Menschen-Review.</text>
+    </g>
+
+    <g transform="translate(660,60)">
+      <rect width="300" height="140" rx="10" ry="10" fill="#0f172a" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="16" y="26" font-size="13" font-weight="600" fill="#818cf8">Local-First Loop</text>
+      <text x="16" y="48" font-size="12" fill="#e2e8f0">stdio-Transport: kein</text>
+      <text x="16" y="68" font-size="12" fill="#e2e8f0">Netzwerkkonto noetig.</text>
+      <text x="16" y="92" font-size="11" fill="#94a3b8">Beide Tools im selben Workspace.</text>
+      <text x="16" y="108" font-size="11" fill="#94a3b8">Sandboxen unabhaengig.</text>
+    </g>
+
+    <g transform="translate(980,60)">
+      <rect width="320" height="140" rx="10" ry="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="16" y="26" font-size="13" font-weight="600" fill="#f59e0b">Vorsicht</text>
+      <text x="16" y="48" font-size="12" fill="#e2e8f0">Doppelte Token-Kosten.</text>
+      <text x="16" y="68" font-size="12" fill="#e2e8f0">Loop-Risiko: harter Cap (max 1</text>
+      <text x="16" y="84" font-size="12" fill="#e2e8f0">2nd-opinion pro Turn).</text>
+      <text x="16" y="108" font-size="11" fill="#94a3b8">Approval-Policy je Server pruefen.</text>
     </g>
   </g>
 
-  <!-- Mittlere Bridge -->
-  <g>
-    <rect x="500" y="280" width="400" height="240" rx="14" ry="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
-    <text x="520" y="310" fill="#67e8f9" font-size="13" font-weight="700">MCP — TANDEM-BRIDGE</text>
-    <text x="520" y="338" fill="#e2e8f0" font-size="16" font-weight="600">Model Context Protocol</text>
-    <text x="520" y="362" fill="#94a3b8" font-size="13">stdio · JSON-RPC · listTools/callTool</text>
-
-    <!-- Tandem-Symbol: zwei Räder verbunden -->
-    <g transform="translate(560,400)">
-      <circle cx="40" cy="60" r="34" fill="none" stroke="#a78bfa" stroke-width="3"/>
-      <circle cx="40" cy="60" r="6" fill="#a78bfa"/>
-      <circle cx="240" cy="60" r="34" fill="none" stroke="#6366f1" stroke-width="3"/>
-      <circle cx="240" cy="60" r="6" fill="#6366f1"/>
-      <line x1="74" y1="60" x2="206" y2="60" stroke="#22d3ee" stroke-width="3"/>
-      <rect x="124" y="44" width="32" height="20" rx="3" fill="#0f172a" stroke="#67e8f9" stroke-width="1.5"/>
-      <text x="140" y="58" fill="#67e8f9" font-size="11" text-anchor="middle">MCP</text>
-      <text x="40" y="118" fill="#c4b5fd" font-size="11" text-anchor="middle">Claude</text>
-      <text x="240" y="118" fill="#a5b4fc" font-size="11" text-anchor="middle">Codex</text>
-    </g>
-  </g>
-
-  <!-- Pfeile zwischen Claude und MCP-Bridge -->
-  <line x1="480" y1="380" x2="498" y2="380" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrow_violet11)"/>
-  <line x1="498" y1="420" x2="480" y2="420" stroke="#818cf8" stroke-width="2.5" marker-end="url(#arrow_indigo11)"/>
-
-  <line x1="900" y1="380" x2="918" y2="380" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arrow_violet11)"/>
-  <line x1="918" y1="420" x2="900" y2="420" stroke="#818cf8" stroke-width="2.5" marker-end="url(#arrow_indigo11)"/>
-
-  <text x="700" y="270" fill="#94a3b8" font-size="12" text-anchor="middle">callTool(name, args) ↕ result/stream</text>
-
-  <!-- Bidirektionale Variante unten -->
-  <g>
-    <rect x="60" y="680" width="1280" height="180" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
-    <text x="80" y="710" fill="#fbbf24" font-size="14" font-weight="700">BIDIREKTIONALE VARIANTE — wer ist Server, wer ist Client?</text>
-
-    <g transform="translate(80,728)">
-      <rect x="0" y="0" width="600" height="120" rx="10" fill="#0f172a" stroke="#a78bfa"/>
-      <text x="14" y="22" fill="#c4b5fd" font-size="12" font-weight="700">VARIANTE A · CLAUDE PRIMÄR (oben gezeigt)</text>
-      <text x="14" y="46" fill="#e2e8f0" font-size="13">codex mcp serve · Claude orchestriert</text>
-      <text x="14" y="68" fill="#e2e8f0" font-size="13">Use-Case: Claude codiert, Codex reviewt unabhängig</text>
-      <text x="14" y="92" fill="#94a3b8" font-size="12">Stärke: Modell-Diversität, Bias-Reduktion</text>
-    </g>
-
-    <g transform="translate(720,728)">
-      <rect x="0" y="0" width="600" height="120" rx="10" fill="#0f172a" stroke="#6366f1"/>
-      <text x="14" y="22" fill="#a5b4fc" font-size="12" font-weight="700">VARIANTE B · CODEX PRIMÄR (umgekehrt)</text>
-      <text x="14" y="46" fill="#e2e8f0" font-size="13">Claude als MCP-Server in ~/.codex/config.toml registrieren</text>
-      <text x="14" y="68" fill="#e2e8f0" font-size="13">Use-Case: Codex codiert, Claude liefert Style-Critique</text>
-      <text x="14" y="92" fill="#94a3b8" font-size="12">Achtung: Token-Kosten verdoppeln sich, klar deckeln</text>
-    </g>
+  <!-- Legende -->
+  <g transform="translate(40,810)">
+    <text x="0" y="14" font-size="12" font-weight="700" fill="#94a3b8">Legende</text>
+    <rect x="0" y="26" width="14" height="14" fill="#818cf8"/><text x="22" y="38" font-size="12" fill="#e2e8f0">Codex</text>
+    <rect x="100" y="26" width="14" height="14" fill="#a78bfa"/><text x="122" y="38" font-size="12" fill="#e2e8f0">Claude</text>
+    <rect x="210" y="26" width="14" height="14" fill="#22d3ee"/><text x="232" y="38" font-size="12" fill="#e2e8f0">MCP-Konfig / Tool</text>
+    <rect x="380" y="26" width="14" height="14" fill="#f59e0b"/><text x="402" y="38" font-size="12" fill="#e2e8f0">Vorsicht / Cost</text>
   </g>
 </svg>
