@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Workflow 18 — Lokale OSS-Modelle fuer Privacy</title>
+  <desc>Profil local in ~/.codex/config.toml mit Ollama-Provider und llama-3.3-70b. Start via ollama serve, ollama pull, codex --profile local. Privacy-Use-Case sowie Limits bei komplexen Refactors. Metapher: Off-Grid-Setup, lokales Kraftwerk.</desc>
+
+  <defs>
+    <marker id="arr_em18" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arr_red18" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+    <linearGradient id="bg18" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0a1f1a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg18)"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">18. Lokale OSS-Modelle fuer Privacy</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Profil local · Ollama-Provider · llama-3.3-70b · keine Daten verlassen die Maschine</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 18</text>
+
+  <!-- Metapher Off-Grid -->
+  <g transform="translate(1100,100)">
+    <rect width="260" height="80" rx="12" ry="12" fill="#1e293b" stroke="#10b981"/>
+    <path d="M16,60 L16,30 L34,18 L52,30 L52,60 z" fill="#10b981" opacity="0.3" stroke="#10b981"/>
+    <line x1="16" y1="60" x2="52" y2="60" stroke="#10b981" stroke-width="2"/>
+    <circle cx="80" cy="36" r="10" fill="#f59e0b" opacity="0.7"/>
+    <line x1="80" y1="20" x2="80" y2="14" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="80" y1="52" x2="80" y2="58" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="64" y1="36" x2="58" y2="36" stroke="#f59e0b" stroke-width="2"/>
+    <line x1="96" y1="36" x2="102" y2="36" stroke="#f59e0b" stroke-width="2"/>
+    <text x="120" y="40" font-size="13" fill="#e2e8f0" font-weight="600">Metapher</text>
+    <text x="120" y="58" font-size="12" fill="#94a3b8">Off-Grid · lokales Kraftwerk</text>
+  </g>
+
+  <!-- config.toml -->
+  <g transform="translate(40,180)">
+    <rect width="560" height="430" rx="14" ry="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#10b981">~/.codex/config.toml</text>
+
+    <rect x="20" y="50" width="520" height="170" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="32" y="72" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">[profiles.local]</text>
+    <text x="32" y="92" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">model          = </text>
+    <text x="200" y="92" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">"llama-3.3-70b-instruct"</text>
+    <text x="32" y="112" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">model_provider = </text>
+    <text x="200" y="112" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">"ollama"</text>
+    <text x="32" y="132" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">approval_policy = </text>
+    <text x="220" y="132" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">"on-request"</text>
+    <text x="32" y="152" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">sandbox_mode    = </text>
+    <text x="220" y="152" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">"workspace-write"</text>
+    <text x="32" y="184" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8"># Profil-Aufruf: codex --profile local</text>
+    <text x="32" y="204" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8"># Default-Modell bleibt unangetastet</text>
+
+    <rect x="20" y="240" width="520" height="170" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="32" y="262" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">[model_providers.ollama]</text>
+    <text x="32" y="282" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">name     = </text>
+    <text x="140" y="282" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">"Ollama"</text>
+    <text x="32" y="302" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">base_url = </text>
+    <text x="140" y="302" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">"http://localhost:11434/v1"</text>
+    <text x="32" y="322" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">env_key  = </text>
+    <text x="140" y="322" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">"OLLAMA_API_KEY"</text>
+    <text x="32" y="342" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">wire_api = </text>
+    <text x="140" y="342" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">"chat"</text>
+    <text x="32" y="374" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8"># OpenAI-kompatibler Endpoint</text>
+    <text x="32" y="394" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8"># Codex spricht ueber wire_api="chat"</text>
+  </g>
+
+  <!-- Start-Befehle -->
+  <g transform="translate(620,180)">
+    <rect width="380" height="200" rx="14" ry="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#22d3ee">Start-Sequenz</text>
+
+    <g transform="translate(20,50)">
+      <rect width="340" height="36" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="18" r="11" fill="#22d3ee"/><text x="18" y="22" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">1</text>
+      <text x="40" y="22" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">$ ollama serve &amp;</text>
+    </g>
+    <g transform="translate(20,92)">
+      <rect width="340" height="36" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="18" r="11" fill="#22d3ee"/><text x="18" y="22" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">2</text>
+      <text x="40" y="22" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">$ ollama pull llama3.3:70b-instruct</text>
+    </g>
+    <g transform="translate(20,134)">
+      <rect width="340" height="36" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="18" r="11" fill="#22d3ee"/><text x="18" y="22" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">3</text>
+      <text x="40" y="22" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">$ codex --profile local</text>
+    </g>
+
+    <text x="20" y="190" font-size="11" fill="#94a3b8">Pull ist 1x — danach Modell offline nutzbar</text>
+  </g>
+
+  <!-- Datenfluss -->
+  <g transform="translate(620,400)">
+    <rect width="740" height="210" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#e2e8f0">Datenfluss — alles bleibt lokal</text>
+
+    <!-- Codex CLI -->
+    <g transform="translate(20,60)">
+      <rect width="160" height="100" rx="10" fill="#0f172a" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="80" y="22" font-size="12" font-weight="700" fill="#818cf8" text-anchor="middle">Codex CLI</text>
+      <text x="80" y="42" font-size="11" fill="#e2e8f0" text-anchor="middle">--profile local</text>
+      <text x="80" y="62" font-size="11" fill="#e2e8f0" text-anchor="middle">Sandbox: ws-write</text>
+      <text x="80" y="82" font-size="11" fill="#e2e8f0" text-anchor="middle">Approval: on-request</text>
+    </g>
+
+    <!-- Ollama -->
+    <g transform="translate(280,60)">
+      <rect width="160" height="100" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="80" y="22" font-size="12" font-weight="700" fill="#22d3ee" text-anchor="middle">Ollama Daemon</text>
+      <text x="80" y="42" font-size="11" fill="#e2e8f0" text-anchor="middle">localhost:11434</text>
+      <text x="80" y="62" font-size="11" fill="#e2e8f0" text-anchor="middle">OpenAI-API-kompat.</text>
+      <text x="80" y="82" font-size="11" fill="#e2e8f0" text-anchor="middle">/v1/chat/completions</text>
+    </g>
+
+    <!-- Llama-Modell -->
+    <g transform="translate(540,60)">
+      <rect width="180" height="100" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+      <text x="90" y="22" font-size="12" font-weight="700" fill="#10b981" text-anchor="middle">llama-3.3-70b</text>
+      <text x="90" y="42" font-size="11" fill="#e2e8f0" text-anchor="middle">~40 GB Quant. (Q4)</text>
+      <text x="90" y="62" font-size="11" fill="#e2e8f0" text-anchor="middle">GPU: 48 GB VRAM</text>
+      <text x="90" y="82" font-size="11" fill="#e2e8f0" text-anchor="middle">CPU-fallback moeglich</text>
+    </g>
+
+    <!-- Pfeile -->
+    <path d="M180,110 L280,110" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arr_em18)"/>
+    <text x="230" y="100" font-size="11" fill="#10b981" text-anchor="middle">prompt</text>
+    <path d="M280,140 L180,140" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arr_em18)"/>
+    <text x="230" y="158" font-size="11" fill="#10b981" text-anchor="middle">tokens</text>
+    <path d="M440,110 L540,110" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arr_em18)"/>
+    <path d="M540,140 L440,140" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arr_em18)"/>
+
+    <text x="20" y="194" font-size="11" fill="#94a3b8">Kein Outbound-Traffic · Audit per netstat -an | grep ESTABLISHED leer</text>
+  </g>
+
+  <!-- Use-Case + Limit -->
+  <g transform="translate(40,640)">
+    <rect width="660" height="200" rx="14" ry="14" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#10b981">Privacy-Use-Cases</text>
+    <g transform="translate(20,46)">
+      <text x="0" y="20" font-size="12" fill="#e2e8f0">- Regulierte Branchen (Finance, Health, Defense)</text>
+      <text x="0" y="40" font-size="12" fill="#e2e8f0">- NDA-/Lizenz-restriktive Codebases</text>
+      <text x="0" y="60" font-size="12" fill="#e2e8f0">- Air-Gapped Workstation (Offline-Einsatz)</text>
+      <text x="0" y="80" font-size="12" fill="#e2e8f0">- Schneller Lokal-Loop (kein API-Roundtrip)</text>
+      <text x="0" y="100" font-size="12" fill="#e2e8f0">- Eigene Custom-Modelle / Fine-Tunes via Ollama</text>
+      <text x="0" y="130" font-size="12" font-style="italic" fill="#94a3b8">Audit-Tipp: capability whitelist via host firewall</text>
+    </g>
+  </g>
+
+  <g transform="translate(720,640)">
+    <rect width="640" height="200" rx="14" ry="14" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#ef4444">Limits / Trade-Offs</text>
+    <g transform="translate(20,46)">
+      <text x="0" y="20" font-size="12" fill="#e2e8f0">- Komplexe Refactors leiden (langes Reasoning, mehr Halluzinationen)</text>
+      <text x="0" y="40" font-size="12" fill="#e2e8f0">- Kontextfenster meist kleiner als bei Frontier-Modellen</text>
+      <text x="0" y="60" font-size="12" fill="#e2e8f0">- GPU-Hardware-Aufwand (70B fluessig = mind. 48 GB VRAM)</text>
+      <text x="0" y="80" font-size="12" fill="#e2e8f0">- Tool-Calling/MCP teils weniger zuverlaessig (Schema-Drift)</text>
+      <text x="0" y="100" font-size="12" fill="#e2e8f0">- Patches gegen Codex-Spec laenger angewendet (Cold-Start)</text>
+      <text x="0" y="130" font-size="12" font-style="italic" fill="#94a3b8">Empfehlung: hybrid — local fuer Edits, Cloud-Modell fuer Plan</text>
+    </g>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,860)">
+    <text x="0" y="14" font-size="12" font-weight="700" fill="#94a3b8">Legende</text>
+    <rect x="80" y="4" width="14" height="14" fill="#10b981"/><text x="102" y="16" font-size="12" fill="#e2e8f0">Privacy / Local</text>
+    <rect x="220" y="4" width="14" height="14" fill="#22d3ee"/><text x="242" y="16" font-size="12" fill="#e2e8f0">Ollama / Provider</text>
+    <rect x="380" y="4" width="14" height="14" fill="#818cf8"/><text x="402" y="16" font-size="12" fill="#e2e8f0">Codex</text>
+    <rect x="470" y="4" width="14" height="14" fill="#f59e0b"/><text x="492" y="16" font-size="12" fill="#e2e8f0">Approval/Sandbox</text>
+    <rect x="640" y="4" width="14" height="14" fill="#ef4444"/><text x="662" y="16" font-size="12" fill="#e2e8f0">Limit / Trade-Off</text>
+  </g>
+</svg>

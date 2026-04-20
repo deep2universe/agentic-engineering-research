@@ -273,6 +273,8 @@ Be concise. No praise. Group by severity.
 
 ## 10. Slack-Notifier mit Notify-Hook
 
+![Notify-Hook agent-turn-complete sendet JSON-Payload via curl an Slack-Channel — Webhook über Keychain/1Password injiziert](svg/workflow_10_slack_notifier.svg)
+
 `~/.codex/notify_slack.sh`:
 
 ```bash
@@ -302,6 +304,8 @@ notify = ["/Users/alice/.codex/notify_slack.sh"]
 
 ## 11. Multi-Agent: Codex + Claude als Reviewer
 
+![Codex als MCP-Server (codex mcp serve --profile review) konsumiert von Claude via mcpServers-Konfiguration; bidirektionale Variante mit Claude als MCP-Server](svg/workflow_11_multi_agent_codex_claude.svg)
+
 1. Starte Codex als MCP-Server:
 
 ```bash
@@ -330,6 +334,8 @@ Umgekehrt funktioniert das analog — `codex` im Repo, mit Claude als MCP-Server
 
 ## 12. Cloud-Task: Multi-Hour Refactor
 
+![codex cloud exec mit env, prompt-file und label; Cloud-VM läuft mehrere Stunden, danach cloud list/logs/pull; Plan-Markdown im Repo](svg/workflow_12_cloud_multi_hour.svg)
+
 ```bash
 codex cloud exec --env python-mig \
   --prompt-file docs/plans/python3-migration.md \
@@ -344,6 +350,8 @@ codex cloud pull <task-id>    # Patch abrufen
 ---
 
 ## 13. Repo-weiter Refactor (Rename der Public API)
+
+![Ticket-Prompt mit Goal/Constraints/DoD: Rename findById zu getUserById, Deprecated-Alias mit Warnung, src/ und docs/ aktualisieren, CHANGELOG-Eintrag](svg/workflow_13_repo_weiter_refactor.svg)
 
 ```bash
 codex --profile daily "
@@ -367,6 +375,8 @@ Rename public API method `UserStore.findById` to `getUserById` across all usages
 ---
 
 ## 14. Release-Skill (beispielhafte Skill-Struktur)
+
+![Skill-Struktur skills/release/SKILL.md mit Front-Matter, Inputs $BUMP, 8 Schritte: Tree clean, Version bump, Update files, Tests, Changelog, Commit, Tag, Manual push](svg/workflow_14_release_skill.svg)
 
 `skills/release/SKILL.md`:
 
@@ -397,6 +407,8 @@ Aufruf: *"Run the release skill with `$BUMP=minor`."*
 
 ## 15. Hotfix-Workflow
 
+![main → hotfix-Branch mit on-request Approval und workspace-write Sandbox, Goal/Constraints (minimal change, Regression-Test, Sentry-ID), Definition of Done](svg/workflow_15_hotfix_workflow.svg)
+
 ```bash
 git switch main
 git pull
@@ -421,6 +433,8 @@ Fix the out-of-memory seen in service `payments` — Sentry event ID abc123.
 
 ## 16. Dokumentations-Sync
 
+![Sync von src/ Public API zu README und docs/, Constraints (kein neuer Abschnitt, Tonalität konsistent), DoD mkdocs build --strict](svg/workflow_16_docs_sync.svg)
+
 ```bash
 codex "
 # Goal
@@ -441,6 +455,8 @@ Ensure README and docs/ reflect the current public API.
 
 ## 17. Cost-/Token-Management
 
+![Werkzeuge: /status, codex usage, Modell-Wahl (5.3 vs. 5.4), Reasoning-Effort low/medium/high, /compact nach 20 Turns](svg/workflow_17_cost_token_mgmt.svg)
+
 - **`/status`** zeigt Token-Verbrauch der Session.
 - **`codex usage`** (falls aktiviert) fasst Tageswerte zusammen.
 - In CI: `--model gpt-5.3-codex` (Standard) reicht für die meisten Autofix-Jobs; `gpt-5.4` nur für komplexe Planungen.
@@ -450,6 +466,8 @@ Ensure README and docs/ reflect the current public API.
 ---
 
 ## 18. Lokale OSS-Modelle für Privacy
+
+![~/.codex/config.toml-Profil local mit Ollama-Provider und llama-3.3-70b, ollama serve/pull, codex --profile local; Privacy-Use-Case und Limits](svg/workflow_18_lokale_oss_modelle.svg)
 
 `~/.codex/config.toml`:
 
