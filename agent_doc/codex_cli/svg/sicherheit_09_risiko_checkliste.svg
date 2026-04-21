@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Risiko-Checkliste vor --full-auto — Cockpit-Pre-Flight</title>
+  <desc>Dashboard mit sieben Prüfpunkten (Repo-Trust, MCP-Server, Secrets-Policy, Netzwerk, Dependency-Audit, Git clean, Budget) vor Aktivierung des grossen roten --full-auto-Knopfes. Cockpit-Metapher.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Pre-Flight-Check — vor --full-auto</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Sieben Indikatoren müssen grün leuchten, bevor der grosse rote Knopf gedrückt wird</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 9</text>
+
+  <!-- Cockpit frame -->
+  <rect x="40" y="140" width="1320" height="620" rx="20" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+
+  <!-- Big red button on the right -->
+  <g transform="translate(1090,370)">
+    <rect x="0" y="0" width="230" height="230" rx="115" fill="#3b0f12" stroke="#ef4444" stroke-width="3"/>
+    <circle cx="115" cy="115" r="90" fill="#7f1d1d" stroke="#ef4444" stroke-width="4"/>
+    <circle cx="115" cy="115" r="70" fill="#ef4444" stroke="#fecaca" stroke-width="3"/>
+    <text x="115" y="108" text-anchor="middle" font-size="18" font-weight="800" fill="#0f172a">--full-auto</text>
+    <text x="115" y="132" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">GO</text>
+    <text x="115" y="230" text-anchor="middle" font-size="12" fill="#fca5a5">nur drücken, wenn alle 7 grün</text>
+  </g>
+
+  <!-- Dashboard gauges (checks 1-7) -->
+  <!-- Check 1 -->
+  <g transform="translate(80,170)">
+    <rect x="0" y="0" width="300" height="130" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="26" cy="26" r="14" fill="#10b981"/>
+    <path d="M19 26 L24 32 L34 20" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="50" y="30" font-size="14" font-weight="700" fill="#e2e8f0">1. Repo-Trust</text>
+    <text x="20" y="58" font-size="12" fill="#cbd5e1">trust_level = "trusted"</text>
+    <text x="20" y="78" font-size="12" fill="#cbd5e1">eigener oder Team-Code</text>
+    <text x="20" y="104" font-size="11" fill="#94a3b8">prüfbar via /trust oder config.toml</text>
+  </g>
+
+  <!-- Check 2 -->
+  <g transform="translate(400,170)">
+    <rect x="0" y="0" width="300" height="130" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="26" cy="26" r="14" fill="#10b981"/>
+    <path d="M19 26 L24 32 L34 20" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="50" y="30" font-size="14" font-weight="700" fill="#e2e8f0">2. MCP-Server</text>
+    <text x="20" y="58" font-size="12" fill="#cbd5e1">keine unbekannten Server aktiv</text>
+    <text x="20" y="78" font-size="12" fill="#cbd5e1">nur signiert + kuratiert</text>
+    <text x="20" y="104" font-size="11" fill="#94a3b8">Check: /mcp list</text>
+  </g>
+
+  <!-- Check 3 -->
+  <g transform="translate(720,170)">
+    <rect x="0" y="0" width="300" height="130" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="26" cy="26" r="14" fill="#10b981"/>
+    <path d="M19 26 L24 32 L34 20" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="50" y="30" font-size="14" font-weight="700" fill="#e2e8f0">3. Secrets-Policy</text>
+    <text x="20" y="58" font-size="12" fill="#cbd5e1">shell_environment_policy</text>
+    <text x="20" y="78" font-size="12" fill="#cbd5e1">*_KEY / *_TOKEN gefiltert</text>
+    <text x="20" y="104" font-size="11" fill="#94a3b8">include_only bevorzugt</text>
+  </g>
+
+  <!-- Check 4 -->
+  <g transform="translate(80,310)">
+    <rect x="0" y="0" width="300" height="130" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="26" cy="26" r="14" fill="#10b981"/>
+    <path d="M19 26 L24 32 L34 20" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="50" y="30" font-size="14" font-weight="700" fill="#e2e8f0">4. Netzwerk</text>
+    <text x="20" y="58" font-size="12" fill="#cbd5e1">network_access nur wenn nötig</text>
+    <text x="20" y="78" font-size="12" fill="#cbd5e1">Default: aus</text>
+    <text x="20" y="104" font-size="11" fill="#94a3b8">[sandbox_workspace_write]</text>
+  </g>
+
+  <!-- Check 5 -->
+  <g transform="translate(400,310)">
+    <rect x="0" y="0" width="300" height="130" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="26" cy="26" r="14" fill="#10b981"/>
+    <path d="M19 26 L24 32 L34 20" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="50" y="30" font-size="14" font-weight="700" fill="#e2e8f0">5. Dependency-Audit</text>
+    <text x="20" y="58" font-size="12" fill="#cbd5e1">npm audit / cargo audit / pip-audit</text>
+    <text x="20" y="78" font-size="12" fill="#cbd5e1">&lt; 24 h alt</text>
+    <text x="20" y="104" font-size="11" fill="#94a3b8">kritische CVEs = rot</text>
+  </g>
+
+  <!-- Check 6 -->
+  <g transform="translate(720,310)">
+    <rect x="0" y="0" width="300" height="130" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="26" cy="26" r="14" fill="#10b981"/>
+    <path d="M19 26 L24 32 L34 20" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="50" y="30" font-size="14" font-weight="700" fill="#e2e8f0">6. Git clean</text>
+    <text x="20" y="58" font-size="12" fill="#cbd5e1">git status — working tree clean</text>
+    <text x="20" y="78" font-size="12" fill="#cbd5e1">Rollback via git reset möglich</text>
+    <text x="20" y="104" font-size="11" fill="#94a3b8">kein uncommitted Arbeitsstand</text>
+  </g>
+
+  <!-- Check 7 -->
+  <g transform="translate(80,450)">
+    <rect x="0" y="0" width="940" height="130" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <circle cx="26" cy="26" r="14" fill="#10b981"/>
+    <path d="M19 26 L24 32 L34 20" stroke="#0f172a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <text x="50" y="30" font-size="14" font-weight="700" fill="#e2e8f0">7. Budget &amp; Zeit</text>
+    <text x="20" y="58" font-size="12" fill="#cbd5e1">max_output_tokens gesetzt · --max-turns limitiert</text>
+    <text x="20" y="78" font-size="12" fill="#cbd5e1">Kosten-Cap via codex usage · notify-Hook für Turn-Ende</text>
+    <!-- Gauge -->
+    <g transform="translate(560,26)">
+      <text x="0" y="14" font-size="12" fill="#94a3b8">Token-Budget</text>
+      <rect x="0" y="24" width="350" height="18" rx="9" fill="#0f172a" stroke="#334155"/>
+      <rect x="2" y="26" width="180" height="14" rx="7" fill="#10b981"/>
+      <text x="360" y="38" font-size="11" fill="#6ee7b7">~50 %</text>
+      <text x="0" y="68" font-size="12" fill="#94a3b8">Zeit-Cap (turns)</text>
+      <rect x="0" y="78" width="350" height="18" rx="9" fill="#0f172a" stroke="#334155"/>
+      <rect x="2" y="80" width="110" height="14" rx="7" fill="#22d3ee"/>
+      <text x="360" y="92" font-size="11" fill="#67e8f9">~32 %</text>
+    </g>
+  </g>
+
+  <!-- Status summary panel -->
+  <g transform="translate(80,600)">
+    <rect x="0" y="0" width="940" height="140" rx="12" fill="#052e2b" stroke="#10b981" stroke-width="2.5"/>
+    <text x="20" y="30" font-size="15" font-weight="700" fill="#6ee7b7">Status: ALLE CHECKS GRÜN</text>
+    <text x="20" y="58" font-size="12" fill="#d1fae5">Du darfst jetzt --full-auto bzw. --profile daily starten.</text>
+    <text x="20" y="80" font-size="12" fill="#d1fae5">Fehlt auch nur ein Check? → zurück zu --profile review / --ask-for-approval untrusted.</text>
+
+    <!-- 7 indicator lights -->
+    <g transform="translate(20,102)">
+      <circle cx="12" cy="12" r="10" fill="#10b981"/>
+      <text x="12" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">1</text>
+      <circle cx="52" cy="12" r="10" fill="#10b981"/>
+      <text x="52" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">2</text>
+      <circle cx="92" cy="12" r="10" fill="#10b981"/>
+      <text x="92" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">3</text>
+      <circle cx="132" cy="12" r="10" fill="#10b981"/>
+      <text x="132" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">4</text>
+      <circle cx="172" cy="12" r="10" fill="#10b981"/>
+      <text x="172" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">5</text>
+      <circle cx="212" cy="12" r="10" fill="#10b981"/>
+      <text x="212" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">6</text>
+      <circle cx="252" cy="12" r="10" fill="#10b981"/>
+      <text x="252" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#0f172a">7</text>
+      <text x="290" y="16" font-size="12" fill="#6ee7b7">7/7 ok</text>
+    </g>
+  </g>
+
+  <!-- Footer tip -->
+  <g transform="translate(1060,620)">
+    <rect x="0" y="0" width="290" height="120" rx="10" fill="#3b0f12" stroke="#ef4444"/>
+    <text x="145" y="26" text-anchor="middle" font-size="13" font-weight="700" fill="#fca5a5">Abbruchkriterium</text>
+    <text x="14" y="54" font-size="11" fill="#fecaca">Wenn ≥ 1 Check rot:</text>
+    <text x="14" y="74" font-size="11" fill="#fecaca">→ kein --full-auto</text>
+    <text x="14" y="94" font-size="11" fill="#fecaca">→ kein --yolo</text>
+    <text x="14" y="110" font-size="11" fill="#fecaca">→ zurück zu read-only</text>
+  </g>
+</svg>

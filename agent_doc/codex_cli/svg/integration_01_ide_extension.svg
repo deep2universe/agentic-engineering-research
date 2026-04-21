@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI – IDE-Extension Cockpit</title>
+  <desc>IDE-Mockup mit Side-Panel-Chat, Diff-Viewer, Inline-Approval, Task-Tracker mit PR-Badges, Thinking-Panel und Cloud-Handoff. Targets: VS Code, Cursor, Windsurf, JetBrains. Geteilte ~/.codex/config.toml.</desc>
+
+  <defs>
+    <marker id="arrIde" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <linearGradient id="bgIde" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#0b1224"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bgIde)"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">IDE-Extension – das Codex-Cockpit</text>
+  <text x="40" y="84" font-size="15" fill="#94a3b8">Side-Panel-Chat, Diff-Viewer, Inline-Approvals, Task-Tracker, Thinking-Panel und Cloud-Handoff in VS Code &amp; Co.</text>
+  <text x="1360" y="56" font-size="14" fill="#64748b" text-anchor="end">Codex CLI · Kapitel 1</text>
+
+  <rect x="40" y="120" width="1320" height="640" rx="14" ry="14" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+
+  <rect x="40" y="120" width="1320" height="36" rx="14" ry="14" fill="#0f172a" stroke="#334155"/>
+  <circle cx="62" cy="138" r="6" fill="#ef4444"/>
+  <circle cx="80" cy="138" r="6" fill="#f59e0b"/>
+  <circle cx="98" cy="138" r="6" fill="#10b981"/>
+  <text x="700" y="143" font-size="13" fill="#94a3b8" text-anchor="middle">payments-service · main · Codex Extension aktiv</text>
+  <text x="1340" y="143" font-size="12" fill="#94a3b8" text-anchor="end">Open config.toml</text>
+
+  <rect x="40" y="156" width="46" height="604" fill="#0b1224" stroke="#334155"/>
+  <g fill="#94a3b8" font-size="11" text-anchor="middle">
+    <rect x="51" y="170" width="24" height="24" rx="4" fill="#1e293b" stroke="#334155"/>
+    <text x="63" y="186">Exp</text>
+    <rect x="51" y="204" width="24" height="24" rx="4" fill="#1e293b" stroke="#334155"/>
+    <text x="63" y="220">Src</text>
+    <rect x="51" y="238" width="24" height="24" rx="4" fill="#1e293b" stroke="#334155"/>
+    <text x="63" y="254">Ext</text>
+    <rect x="51" y="272" width="24" height="24" rx="4" fill="#312e81" stroke="#6366f1"/>
+    <text x="63" y="288" fill="#a5b4fc">Cdx</text>
+  </g>
+
+  <rect x="86" y="156" width="640" height="604" fill="#0b1224" stroke="#334155"/>
+  <text x="100" y="180" font-size="12" fill="#94a3b8">checkout.ts</text>
+
+  <rect x="100" y="196" width="612" height="320" rx="8" ry="8" fill="#0f172a" stroke="#334155"/>
+  <text x="116" y="218" font-size="13" font-weight="600" fill="#e2e8f0">Diff-Viewer · Hunk 2 / 4</text>
+  <g font-family="'JetBrains Mono', 'Fira Code', ui-monospace, monospace" font-size="12">
+    <text x="120" y="244" fill="#64748b">42</text>
+    <text x="150" y="244" fill="#cbd5e1">function calcTotal(items) {</text>
+    <rect x="118" y="252" width="580" height="18" fill="#7f1d1d" opacity="0.35"/>
+    <text x="120" y="266" fill="#fca5a5">-  return items.reduce((s,i) =&gt; s + i.price, 0);</text>
+    <rect x="118" y="274" width="580" height="36" fill="#064e3b" opacity="0.4"/>
+    <text x="120" y="288" fill="#86efac">+  const sub = items.reduce((s,i) =&gt; s + i.price * i.qty, 0);</text>
+    <text x="120" y="304" fill="#86efac">+  return Math.round(sub * 100) / 100;</text>
+    <text x="120" y="322" fill="#cbd5e1">}</text>
+    <text x="120" y="354" fill="#64748b">// neue Tests</text>
+    <rect x="118" y="362" width="580" height="18" fill="#064e3b" opacity="0.4"/>
+    <text x="120" y="376" fill="#86efac">+ test('rounds to 2 decimals', () =&gt; { ... });</text>
+  </g>
+  <g font-size="12" font-weight="600">
+    <rect x="500" y="478" width="92" height="26" rx="6" fill="#10b981"/>
+    <text x="546" y="495" fill="#0f172a" text-anchor="middle">Hunk Accept</text>
+    <rect x="600" y="478" width="92" height="26" rx="6" fill="#ef4444" opacity="0.85"/>
+    <text x="646" y="495" fill="#0f172a" text-anchor="middle">Hunk Reject</text>
+  </g>
+
+  <rect x="100" y="528" width="612" height="100" rx="8" ry="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="116" y="552" font-size="13" font-weight="600" fill="#fbbf24">Inline Approval erforderlich</text>
+  <text x="116" y="572" font-size="12" fill="#94a3b8">Shell-Command außerhalb der Sandbox:</text>
+  <text x="116" y="592" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#e2e8f0">$ pnpm install --save-dev @types/node</text>
+  <g font-size="12" font-weight="600">
+    <rect x="450" y="600" width="78" height="22" rx="5" fill="#10b981"/>
+    <text x="489" y="615" fill="#0f172a" text-anchor="middle">Approve</text>
+    <rect x="536" y="600" width="78" height="22" rx="5" fill="#475569"/>
+    <text x="575" y="615" fill="#e2e8f0" text-anchor="middle">Once</text>
+    <rect x="622" y="600" width="78" height="22" rx="5" fill="#ef4444"/>
+    <text x="661" y="615" fill="#0f172a" text-anchor="middle">Deny</text>
+  </g>
+
+  <rect x="100" y="640" width="612" height="100" rx="8" ry="8" fill="#0f172a" stroke="#334155"/>
+  <text x="116" y="664" font-size="13" font-weight="600" fill="#e2e8f0">Search-Selection · Cmd/Ctrl+F</text>
+  <text x="116" y="684" font-size="12" fill="#94a3b8">Markierter Code-Block wird automatisch in Diff-/Review-Navigation übernommen.</text>
+  <text x="116" y="710" font-size="12" fill="#94a3b8">Modell: gpt-5.3-codex · Reasoning: medium · Sandbox: workspace-write</text>
+  <text x="116" y="730" font-size="12" fill="#10b981">Backend-Prozess (headless) · JSON-RPC mit IDE-UI</text>
+
+  <rect x="726" y="156" width="634" height="604" fill="#0b1224" stroke="#334155"/>
+  <text x="740" y="180" font-size="12" fill="#94a3b8">Codex Side-Panel</text>
+
+  <rect x="740" y="196" width="606" height="170" rx="8" ry="8" fill="#0f172a" stroke="#334155"/>
+  <text x="756" y="218" font-size="13" font-weight="600" fill="#e2e8f0">Side-Panel Chat</text>
+  <rect x="756" y="230" width="574" height="40" rx="6" fill="#1e293b"/>
+  <text x="766" y="252" font-size="12" fill="#cbd5e1">› Refactor calcTotal: berücksichtige qty und runde auf 2 Dezimalen.</text>
+  <rect x="756" y="278" width="574" height="76" rx="6" fill="#1e293b" stroke="#6366f1"/>
+  <text x="766" y="298" font-size="12" font-weight="600" fill="#a5b4fc">Codex</text>
+  <text x="766" y="316" font-size="12" fill="#cbd5e1">Habe calcTotal angepasst, Tests ergänzt und einen</text>
+  <text x="766" y="332" font-size="12" fill="#cbd5e1">Regression-Test für Cent-Rundung hinzugefügt.</text>
+  <text x="766" y="348" font-size="12" fill="#94a3b8">→ Diff im Editor öffnen · Continue in cloud</text>
+
+  <rect x="740" y="378" width="606" height="118" rx="8" ry="8" fill="#0f172a" stroke="#a78bfa"/>
+  <text x="756" y="400" font-size="13" font-weight="600" fill="#c4b5fd">Thinking Panel</text>
+  <text x="756" y="420" font-size="11" fill="#94a3b8">Reasoning-Summary · Live-Stream</text>
+  <text x="756" y="440" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#cbd5e1">› analyse cart-tests/checkout.spec.ts …</text>
+  <text x="756" y="456" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#cbd5e1">› identify rounding bug in totals helper …</text>
+  <text x="756" y="472" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#cbd5e1">› plan: extract sub, round, add regression test</text>
+  <text x="756" y="488" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#cbd5e1">› run pnpm test --filter checkout …</text>
+
+  <rect x="740" y="508" width="606" height="232" rx="8" ry="8" fill="#0f172a" stroke="#334155"/>
+  <text x="756" y="530" font-size="13" font-weight="600" fill="#e2e8f0">Task-Tracker</text>
+  <text x="756" y="548" font-size="11" fill="#94a3b8">aktive und abgeschlossene Codex-Tasks · Cloud + lokal</text>
+
+  <g font-size="12">
+    <rect x="756" y="558" width="574" height="38" rx="6" fill="#1e293b"/>
+    <circle cx="772" cy="577" r="5" fill="#10b981"/>
+    <text x="788" y="582" fill="#e2e8f0">checkout-rounding · Refactor + Tests</text>
+    <rect x="1180" y="565" width="64" height="22" rx="11" fill="#312e81"/>
+    <text x="1212" y="580" fill="#a5b4fc" text-anchor="middle" font-size="11">PR open</text>
+    <rect x="1252" y="565" width="68" height="22" rx="11" fill="#0f172a" stroke="#475569"/>
+    <text x="1286" y="580" fill="#94a3b8" text-anchor="middle" font-size="11">lokal</text>
+
+    <rect x="756" y="602" width="574" height="38" rx="6" fill="#1e293b"/>
+    <circle cx="772" cy="621" r="5" fill="#22d3ee"/>
+    <text x="788" y="626" fill="#e2e8f0">payments-refactor · läuft (Cloud, 2h 14m)</text>
+    <rect x="1170" y="609" width="74" height="22" rx="11" fill="#164e63"/>
+    <text x="1207" y="624" fill="#a5f3fc" text-anchor="middle" font-size="11">PR draft</text>
+    <rect x="1252" y="609" width="68" height="22" rx="11" fill="#083344" stroke="#22d3ee"/>
+    <text x="1286" y="624" fill="#a5f3fc" text-anchor="middle" font-size="11">cloud</text>
+
+    <rect x="756" y="646" width="574" height="38" rx="6" fill="#1e293b"/>
+    <circle cx="772" cy="665" r="5" fill="#a78bfa"/>
+    <text x="788" y="670" fill="#e2e8f0">webhook-triage · Sentry-Issue analysieren</text>
+    <rect x="1170" y="653" width="74" height="22" rx="11" fill="#3b0764"/>
+    <text x="1207" y="668" fill="#c4b5fd" text-anchor="middle" font-size="11">PR merged</text>
+    <rect x="1252" y="653" width="68" height="22" rx="11" fill="#0f172a" stroke="#475569"/>
+    <text x="1286" y="668" fill="#94a3b8" text-anchor="middle" font-size="11">lokal</text>
+
+    <rect x="756" y="690" width="574" height="38" rx="6" fill="#1e293b"/>
+    <circle cx="772" cy="709" r="5" fill="#94a3b8"/>
+    <text x="788" y="714" fill="#94a3b8">e2e-flaky-tests · abgeschlossen</text>
+    <rect x="1170" y="697" width="74" height="22" rx="11" fill="#1f2937"/>
+    <text x="1207" y="712" fill="#94a3b8" text-anchor="middle" font-size="11">PR closed</text>
+    <rect x="1252" y="697" width="68" height="22" rx="11" fill="#0f172a" stroke="#475569"/>
+    <text x="1286" y="712" fill="#94a3b8" text-anchor="middle" font-size="11">cloud</text>
+  </g>
+
+  <path d="M1336 622 C 1370 622, 1380 720, 1346 738" stroke="#22d3ee" stroke-width="2" fill="none" marker-end="url(#arrIde)"/>
+  <text x="1372" y="688" font-size="11" fill="#22d3ee" text-anchor="middle">Cloud-Handoff</text>
+
+  <rect x="40" y="780" width="820" height="100" rx="10" ry="10" fill="#1e293b" stroke="#334155"/>
+  <text x="60" y="806" font-size="14" font-weight="700" fill="#e2e8f0">IDE-Targets</text>
+
+  <g font-size="12">
+    <rect x="60" y="820" width="180" height="48" rx="8" fill="#0f172a" stroke="#6366f1"/>
+    <text x="76" y="842" fill="#a5b4fc" font-weight="600">VS Code</text>
+    <text x="76" y="858" fill="#94a3b8">Marketplace · openai.chatgpt</text>
+
+    <rect x="252" y="820" width="180" height="48" rx="8" fill="#0f172a" stroke="#6366f1"/>
+    <text x="268" y="842" fill="#a5b4fc" font-weight="600">Cursor</text>
+    <text x="268" y="858" fill="#94a3b8">VS-Code-Extension-Protokoll</text>
+
+    <rect x="444" y="820" width="180" height="48" rx="8" fill="#0f172a" stroke="#6366f1"/>
+    <text x="460" y="842" fill="#a5b4fc" font-weight="600">Windsurf</text>
+    <text x="460" y="858" fill="#94a3b8">VS-Code-Extension-Protokoll</text>
+
+    <rect x="636" y="820" width="204" height="48" rx="8" fill="#0f172a" stroke="#475569"/>
+    <text x="652" y="842" fill="#cbd5e1" font-weight="600">JetBrains (IntelliJ, PyCharm…)</text>
+    <text x="652" y="858" fill="#94a3b8">Eigenes Plugin · Feature-Subset</text>
+  </g>
+
+  <rect x="880" y="780" width="480" height="100" rx="10" ry="10" fill="#1e293b" stroke="#10b981"/>
+  <text x="900" y="806" font-size="14" font-weight="700" fill="#6ee7b7">Geteilte Konfiguration</text>
+  <text x="900" y="828" font-size="12" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">~/.codex/config.toml · ~/.codex/auth.json</text>
+  <text x="900" y="848" font-size="12" fill="#94a3b8">CLI-Login authentifiziert auch die Extension.</text>
+  <text x="900" y="868" font-size="12" fill="#94a3b8">Sessions, History und Prompts werden gemeinsam genutzt.</text>
+</svg>

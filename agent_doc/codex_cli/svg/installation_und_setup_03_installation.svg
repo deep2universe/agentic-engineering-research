@@ -1,0 +1,242 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI — Installationswege und Systemvoraussetzungen</title>
+  <desc>Vier parallele Installations-Lanes (npm, Homebrew, Pre-built Binaries, Cargo) münden in ein einzelnes Rust-Binary. Rechts die Systemvoraussetzungen als Tabelle.</desc>
+
+  <defs>
+    <marker id="arrowInst" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Installation — vier Wege, ein Binary</text>
+  <text x="40" y="84" font-size="16" fill="#94a3b8">Montageband-Metapher: npm · brew · pre-built · cargo build</text>
+  <text x="1360" y="56" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 3</text>
+
+  <!-- Lane-Header -->
+  <g transform="translate(40,130)">
+    <text x="0" y="0" font-size="13" fill="#94a3b8">Installations-Lanes → gemeinsames Rust-Binary</text>
+  </g>
+
+  <!-- 4 Lanes -->
+  <!-- LANE 1: npm -->
+  <g transform="translate(40,160)">
+    <rect x="0" y="0" width="260" height="540" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <rect x="0" y="0" width="260" height="44" rx="14" fill="#312e81"/>
+    <text x="16" y="28" font-size="16" font-weight="700" fill="#c7d2fe">1 · npm</text>
+    <text x="130" y="28" font-size="11" fill="#a5b4fc" text-anchor="start">Wrapper</text>
+
+    <text x="16" y="72" font-size="12" font-weight="700" fill="#94a3b8">Kommando</text>
+    <rect x="16" y="80" width="228" height="40" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="105" font-family="'JetBrains Mono', monospace" font-size="12" fill="#e2e8f0">npm install -g</text>
+    <text x="24" y="120" font-family="'JetBrains Mono', monospace" font-size="12" fill="#818cf8">  @openai/codex</text>
+
+    <text x="16" y="150" font-size="12" font-weight="700" fill="#94a3b8">Schritte</text>
+    <text x="24" y="170" font-size="11" fill="#e2e8f0">1. Node &gt;=18 prüfen</text>
+    <text x="24" y="188" font-size="11" fill="#e2e8f0">2. npm global install</text>
+    <text x="24" y="206" font-size="11" fill="#e2e8f0">3. Wrapper lädt Rust-Binary</text>
+    <text x="24" y="224" font-size="11" fill="#e2e8f0">4. codex --version</text>
+
+    <text x="16" y="258" font-size="12" font-weight="700" fill="#94a3b8">Zielplattformen</text>
+    <text x="24" y="278" font-size="11" fill="#22d3ee">· macOS arm64 / x64</text>
+    <text x="24" y="296" font-size="11" fill="#22d3ee">· Linux musl x64 / arm64</text>
+    <text x="24" y="314" font-size="11" fill="#22d3ee">· Windows x64 native / WSL2</text>
+
+    <text x="16" y="348" font-size="12" font-weight="700" fill="#94a3b8">Hinweis</text>
+    <text x="24" y="370" font-size="11" fill="#fde68a">Node nur für Installer</text>
+    <text x="24" y="388" font-size="11" fill="#fde68a">nicht zur Laufzeit</text>
+
+    <text x="16" y="420" font-size="12" font-weight="700" fill="#94a3b8">Stärke</text>
+    <text x="24" y="440" font-size="11" fill="#10b981">Breite Verbreitung</text>
+    <text x="24" y="458" font-size="11" fill="#10b981">einfachstes Update</text>
+
+    <text x="16" y="490" font-size="12" font-weight="700" fill="#94a3b8">Schwäche</text>
+    <text x="24" y="510" font-size="11" fill="#f87171">Node-Toolchain nötig</text>
+    <text x="24" y="528" font-size="11" fill="#f87171">für Install</text>
+  </g>
+
+  <!-- LANE 2: Homebrew -->
+  <g transform="translate(315,160)">
+    <rect x="0" y="0" width="260" height="540" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="0" y="0" width="260" height="44" rx="14" fill="#312e81"/>
+    <text x="16" y="28" font-size="16" font-weight="700" fill="#ddd6fe">2 · Homebrew</text>
+    <text x="130" y="28" font-size="11" fill="#c4b5fd">macOS/Linux</text>
+
+    <text x="16" y="72" font-size="12" font-weight="700" fill="#94a3b8">Kommando</text>
+    <rect x="16" y="80" width="228" height="58" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="100" font-family="'JetBrains Mono', monospace" font-size="12" fill="#e2e8f0">brew install</text>
+    <text x="24" y="115" font-family="'JetBrains Mono', monospace" font-size="12" fill="#a78bfa">  --cask codex</text>
+    <text x="24" y="131" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b"># alt: brew install codex</text>
+
+    <text x="16" y="162" font-size="12" font-weight="700" fill="#94a3b8">Schritte</text>
+    <text x="24" y="182" font-size="11" fill="#e2e8f0">1. brew update</text>
+    <text x="24" y="200" font-size="11" fill="#e2e8f0">2. cask/formula ziehen</text>
+    <text x="24" y="218" font-size="11" fill="#e2e8f0">3. Rust-Binary in PATH</text>
+    <text x="24" y="236" font-size="11" fill="#e2e8f0">4. brew upgrade codex</text>
+
+    <text x="16" y="270" font-size="12" font-weight="700" fill="#94a3b8">Zielplattformen</text>
+    <text x="24" y="290" font-size="11" fill="#22d3ee">· macOS arm64 / x64</text>
+    <text x="24" y="308" font-size="11" fill="#22d3ee">· Linux x64 / arm64</text>
+
+    <text x="16" y="340" font-size="12" font-weight="700" fill="#94a3b8">Hinweis</text>
+    <text x="24" y="360" font-size="11" fill="#fde68a">Seit 06/2025 Rust-Binary</text>
+    <text x="24" y="378" font-size="11" fill="#fde68a">via cask (empfohlen)</text>
+
+    <text x="16" y="410" font-size="12" font-weight="700" fill="#94a3b8">Stärke</text>
+    <text x="24" y="430" font-size="11" fill="#10b981">Integriert in Mac-Welt</text>
+    <text x="24" y="448" font-size="11" fill="#10b981">Auto-Updates</text>
+
+    <text x="16" y="480" font-size="12" font-weight="700" fill="#94a3b8">Schwäche</text>
+    <text x="24" y="500" font-size="11" fill="#f87171">Kein Windows-Support</text>
+    <text x="24" y="518" font-size="11" fill="#f87171">via Homebrew</text>
+  </g>
+
+  <!-- LANE 3: Pre-built Binaries -->
+  <g transform="translate(590,160)">
+    <rect x="0" y="0" width="260" height="540" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <rect x="0" y="0" width="260" height="44" rx="14" fill="#0e7490" opacity="0.5"/>
+    <text x="16" y="28" font-size="16" font-weight="700" fill="#a5f3fc">3 · Pre-built Binaries</text>
+    <text x="190" y="28" font-size="11" fill="#67e8f9">GH</text>
+
+    <text x="16" y="72" font-size="12" font-weight="700" fill="#94a3b8">Quelle</text>
+    <rect x="16" y="80" width="228" height="40" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="100" font-family="'JetBrains Mono', monospace" font-size="11" fill="#e2e8f0">github.com/openai/codex</text>
+    <text x="24" y="115" font-family="'JetBrains Mono', monospace" font-size="11" fill="#22d3ee">  /releases</text>
+
+    <text x="16" y="150" font-size="12" font-weight="700" fill="#94a3b8">Schritte</text>
+    <text x="24" y="170" font-size="11" fill="#e2e8f0">1. Release auswählen</text>
+    <text x="24" y="188" font-size="11" fill="#e2e8f0">2. Archiv für Arch laden</text>
+    <text x="24" y="206" font-size="11" fill="#e2e8f0">3. tar xvfz · entpacken</text>
+    <text x="24" y="224" font-size="11" fill="#e2e8f0">4. in $PATH verschieben</text>
+
+    <text x="16" y="258" font-size="12" font-weight="700" fill="#94a3b8">Verfügbare Targets</text>
+    <text x="24" y="278" font-size="10" fill="#67e8f9">aarch64-apple-darwin</text>
+    <text x="24" y="294" font-size="10" fill="#67e8f9">x86_64-apple-darwin</text>
+    <text x="24" y="310" font-size="10" fill="#67e8f9">x86_64-unknown-linux-musl</text>
+    <text x="24" y="326" font-size="10" fill="#67e8f9">aarch64-unknown-linux-musl</text>
+    <text x="24" y="342" font-size="10" fill="#67e8f9">x86_64-pc-windows-msvc</text>
+
+    <text x="16" y="374" font-size="12" font-weight="700" fill="#94a3b8">Hinweis</text>
+    <text x="24" y="394" font-size="11" fill="#fde68a">musl-statisch: keine</text>
+    <text x="24" y="412" font-size="11" fill="#fde68a">glibc-Abhängigkeit</text>
+
+    <text x="16" y="444" font-size="12" font-weight="700" fill="#94a3b8">Stärke</text>
+    <text x="24" y="464" font-size="11" fill="#10b981">Airgap · reproducible</text>
+
+    <text x="16" y="488" font-size="12" font-weight="700" fill="#94a3b8">Schwäche</text>
+    <text x="24" y="508" font-size="11" fill="#f87171">Updates manuell</text>
+    <text x="24" y="526" font-size="11" fill="#f87171">Checksumme prüfen</text>
+  </g>
+
+  <!-- LANE 4: Cargo Build -->
+  <g transform="translate(865,160)">
+    <rect x="0" y="0" width="260" height="540" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <rect x="0" y="0" width="260" height="44" rx="14" fill="#78350f" opacity="0.5"/>
+    <text x="16" y="28" font-size="16" font-weight="700" fill="#fde68a">4 · Cargo Build</text>
+    <text x="155" y="28" font-size="11" fill="#fbbf24">from Source</text>
+
+    <text x="16" y="72" font-size="12" font-weight="700" fill="#94a3b8">Kommandos</text>
+    <rect x="16" y="80" width="228" height="110" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="100" font-family="'JetBrains Mono', monospace" font-size="10" fill="#e2e8f0">git clone openai/codex</text>
+    <text x="24" y="115" font-family="'JetBrains Mono', monospace" font-size="10" fill="#e2e8f0">cd codex/codex-rs</text>
+    <text x="24" y="130" font-family="'JetBrains Mono', monospace" font-size="10" fill="#f59e0b">rustup component add</text>
+    <text x="24" y="145" font-family="'JetBrains Mono', monospace" font-size="10" fill="#f59e0b">  rustfmt clippy</text>
+    <text x="24" y="160" font-family="'JetBrains Mono', monospace" font-size="10" fill="#e2e8f0">cargo install just</text>
+    <text x="24" y="175" font-family="'JetBrains Mono', monospace" font-size="10" fill="#10b981">cargo build --release</text>
+
+    <text x="16" y="210" font-size="12" font-weight="700" fill="#94a3b8">Schritte</text>
+    <text x="24" y="230" font-size="11" fill="#e2e8f0">1. rustup via sh.rustup.rs</text>
+    <text x="24" y="248" font-size="11" fill="#e2e8f0">2. clippy + rustfmt</text>
+    <text x="24" y="266" font-size="11" fill="#e2e8f0">3. cargo-nextest (opt.)</text>
+    <text x="24" y="284" font-size="11" fill="#e2e8f0">4. target/release/codex</text>
+
+    <text x="16" y="316" font-size="12" font-weight="700" fill="#94a3b8">Zielplattformen</text>
+    <text x="24" y="336" font-size="11" fill="#fbbf24">· alle Rust-Targets</text>
+    <text x="24" y="354" font-size="11" fill="#fbbf24">· Cross-Compile möglich</text>
+
+    <text x="16" y="386" font-size="12" font-weight="700" fill="#94a3b8">Stärke</text>
+    <text x="24" y="406" font-size="11" fill="#10b981">Latest main · Patches</text>
+    <text x="24" y="424" font-size="11" fill="#10b981">Custom-Forks</text>
+
+    <text x="16" y="456" font-size="12" font-weight="700" fill="#94a3b8">Schwäche</text>
+    <text x="24" y="476" font-size="11" fill="#f87171">Längere Build-Zeit</text>
+    <text x="24" y="494" font-size="11" fill="#f87171">Rust-Toolchain nötig</text>
+    <text x="24" y="512" font-size="11" fill="#f87171">(~500 MB)</text>
+  </g>
+
+  <!-- RECHTE SEITE: Systemvoraussetzungen -->
+  <g transform="translate(1150,160)">
+    <rect x="0" y="0" width="220" height="540" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="220" height="40" rx="14" fill="#334155"/>
+    <text x="16" y="26" font-size="15" font-weight="700" fill="#e2e8f0">Voraussetzungen</text>
+
+    <g transform="translate(16,56)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#94a3b8">OS</text>
+      <text x="0" y="20" font-size="11" fill="#e2e8f0">macOS 12+</text>
+      <text x="0" y="38" font-size="11" fill="#e2e8f0">Ubuntu 20.04+</text>
+      <text x="0" y="56" font-size="11" fill="#e2e8f0">Debian 10+</text>
+      <text x="0" y="74" font-size="11" fill="#e2e8f0">Windows 11 native</text>
+      <text x="0" y="92" font-size="11" fill="#e2e8f0">oder WSL2</text>
+    </g>
+
+    <line x1="16" y1="172" x2="204" y2="172" stroke="#334155"/>
+
+    <g transform="translate(16,188)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#94a3b8">RAM</text>
+      <text x="0" y="20" font-size="11" fill="#e2e8f0">4 GB minimum</text>
+      <text x="0" y="38" font-size="11" fill="#10b981">8 GB empfohlen</text>
+    </g>
+
+    <line x1="16" y1="248" x2="204" y2="248" stroke="#334155"/>
+
+    <g transform="translate(16,264)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#94a3b8">Node.js</text>
+      <text x="0" y="20" font-size="11" fill="#e2e8f0">nicht zwingend</text>
+      <text x="0" y="38" font-size="11" fill="#64748b">nur für npm-Installer</text>
+    </g>
+
+    <line x1="16" y1="324" x2="204" y2="324" stroke="#334155"/>
+
+    <g transform="translate(16,340)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#94a3b8">Git</text>
+      <text x="0" y="20" font-size="11" fill="#e2e8f0">Version 2.23+</text>
+    </g>
+
+    <line x1="16" y1="380" x2="204" y2="380" stroke="#334155"/>
+
+    <g transform="translate(16,396)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#94a3b8">Windows</text>
+      <text x="0" y="20" font-size="11" fill="#e2e8f0">AppContainer-Sandbox</text>
+      <text x="0" y="38" font-size="11" fill="#e2e8f0">seit Anfang 2026</text>
+      <text x="0" y="56" font-size="11" fill="#fbbf24">WSL2 für Produktion</text>
+    </g>
+
+    <line x1="16" y1="474" x2="204" y2="474" stroke="#334155"/>
+
+    <g transform="translate(16,490)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#94a3b8">Netzwerk</text>
+      <text x="0" y="20" font-size="11" fill="#e2e8f0">HTTPS zu Provider-API</text>
+      <text x="0" y="38" font-size="11" fill="#e2e8f0">Proxy-fähig</text>
+    </g>
+  </g>
+
+  <!-- Montageband-Konvergenz -->
+  <g transform="translate(0,720)">
+    <!-- 4 Pfeile die sich zu einem Punkt bündeln -->
+    <line x1="170" y1="0" x2="575" y2="100" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowInst)"/>
+    <line x1="445" y1="0" x2="580" y2="100" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowInst)"/>
+    <line x1="720" y1="0" x2="590" y2="100" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowInst)"/>
+    <line x1="995" y1="0" x2="595" y2="100" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrowInst)"/>
+
+    <!-- Binary-Box -->
+    <rect x="450" y="100" width="300" height="70" rx="12" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+    <text x="600" y="130" text-anchor="middle" font-size="15" font-weight="700" fill="#e2e8f0">codex (Rust-Binary)</text>
+    <text x="600" y="152" text-anchor="middle" font-size="12" fill="#a5b4fc">einzelne statische Datei · ~95 % Rust</text>
+  </g>
+
+  <!-- Footer-Legende -->
+  <g transform="translate(40,860)">
+    <text x="0" y="0" font-size="12" fill="#94a3b8">Farbkodierung: indigo=npm · violett=brew · cyan=pre-built · amber=cargo — Konvergenz → ein einziges Binary</text>
+  </g>
+</svg>

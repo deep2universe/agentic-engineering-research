@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Sichere CI/CD-Integration — Pipeline mit Sicherheitsschleusen</title>
+  <desc>CI-Pipeline mit Schleusen: OIDC, Least-Privilege-Permissions, Read-only Sandbox, Cost-Gate, Safety-Strategy (drop-sudo / unprivileged-user). Minimal-YAML-Snippet rechts als Referenz.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Sichere CI/CD-Integration — Pipeline mit Schleusen</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Jede Schleuse reduziert Angriffsfläche: OIDC, Least Privilege, Read-only, Cost-Gate, drop-sudo</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 7</text>
+
+  <defs>
+    <marker id="arrPipe" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <!-- Pipeline track -->
+  <g transform="translate(60,170)">
+    <rect x="0" y="40" width="820" height="140" rx="14" fill="#0f172a" stroke="#334155"/>
+    <text x="20" y="28" font-size="16" font-weight="700" fill="#e2e8f0">Pipeline (PR → Review → Merge)</text>
+
+    <!-- Step 1 -->
+    <g transform="translate(20,60)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="70" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#67e8f9">1. Checkout</text>
+      <text x="70" y="42" text-anchor="middle" font-size="10" fill="#cbd5e1">actions/checkout@v4</text>
+      <text x="70" y="62" text-anchor="middle" font-size="10" fill="#cbd5e1">fetch-depth: 0</text>
+      <text x="70" y="84" text-anchor="middle" font-size="10" fill="#94a3b8">immutable SHA</text>
+    </g>
+    <path d="M160 110 L180 110" stroke="#10b981" stroke-width="2" marker-end="url(#arrPipe)"/>
+
+    <g transform="translate(180,60)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#1e293b" stroke="#6366f1"/>
+      <text x="70" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#a5b4fc">2. Auth</text>
+      <text x="70" y="42" text-anchor="middle" font-size="10" fill="#cbd5e1">OIDC Token-Exchange</text>
+      <text x="70" y="62" text-anchor="middle" font-size="10" fill="#cbd5e1">statt static Key</text>
+      <text x="70" y="84" text-anchor="middle" font-size="10" fill="#94a3b8">Enterprise-SSO</text>
+    </g>
+    <path d="M320 110 L340 110" stroke="#10b981" stroke-width="2" marker-end="url(#arrPipe)"/>
+
+    <g transform="translate(340,60)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="70" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#fbbf24">3. Sandbox</text>
+      <text x="70" y="42" text-anchor="middle" font-size="10" fill="#cbd5e1">sandbox: read-only</text>
+      <text x="70" y="62" text-anchor="middle" font-size="10" fill="#cbd5e1">safety: drop-sudo</text>
+      <text x="70" y="84" text-anchor="middle" font-size="10" fill="#94a3b8">kernel-enforced</text>
+    </g>
+    <path d="M480 110 L500 110" stroke="#10b981" stroke-width="2" marker-end="url(#arrPipe)"/>
+
+    <g transform="translate(500,60)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="70" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#c4b5fd">4. codex exec</text>
+      <text x="70" y="42" text-anchor="middle" font-size="10" fill="#cbd5e1">--ask-for-approval</text>
+      <text x="70" y="58" text-anchor="middle" font-size="10" fill="#cbd5e1">never</text>
+      <text x="70" y="84" text-anchor="middle" font-size="10" fill="#94a3b8">prompt-file gesetzt</text>
+    </g>
+    <path d="M640 110 L660 110" stroke="#10b981" stroke-width="2" marker-end="url(#arrPipe)"/>
+
+    <g transform="translate(660,60)">
+      <rect x="0" y="0" width="140" height="100" rx="10" fill="#1e293b" stroke="#10b981"/>
+      <text x="70" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#6ee7b7">5. Post-Action</text>
+      <text x="70" y="42" text-anchor="middle" font-size="10" fill="#cbd5e1">PR-Comment</text>
+      <text x="70" y="62" text-anchor="middle" font-size="10" fill="#cbd5e1">review.md</text>
+      <text x="70" y="84" text-anchor="middle" font-size="10" fill="#94a3b8">audit-fähig</text>
+    </g>
+  </g>
+
+  <!-- Gate checklist (left column under pipeline) -->
+  <g transform="translate(60,400)">
+    <text x="0" y="0" font-size="18" font-weight="700" fill="#e2e8f0">Schleusen / Gates</text>
+
+    <g transform="translate(0,24)" font-size="12">
+      <!-- G1 OIDC -->
+      <rect x="0" y="0" width="380" height="58" rx="10" fill="#1e293b" stroke="#6366f1"/>
+      <text x="16" y="24" font-weight="700" fill="#a5b4fc">OIDC statt static OPENAI_API_KEY</text>
+      <text x="16" y="44" fill="#cbd5e1">Token-Exchange · kurzlebig · Enterprise</text>
+
+      <rect x="0" y="70" width="380" height="58" rx="10" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="16" y="94" font-weight="700" fill="#fbbf24">Least-Privilege permissions:</text>
+      <text x="16" y="114" font-family="'JetBrains Mono',monospace" fill="#fde68a">contents: read · pull-requests: write</text>
+
+      <rect x="0" y="140" width="380" height="58" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="16" y="164" font-weight="700" fill="#67e8f9">Read-only für Review-Jobs</text>
+      <text x="16" y="184" fill="#cbd5e1">workspace-write nur für Autofix-Jobs</text>
+
+      <rect x="0" y="210" width="380" height="58" rx="10" fill="#1e293b" stroke="#ef4444"/>
+      <text x="16" y="234" font-weight="700" fill="#fca5a5">Cost-Gate</text>
+      <text x="16" y="254" fill="#cbd5e1">codex usage · Fail-Fast auf Budget</text>
+
+      <rect x="0" y="280" width="380" height="58" rx="10" fill="#1e293b" stroke="#10b981"/>
+      <text x="16" y="304" font-weight="700" fill="#6ee7b7">Safety-Strategy</text>
+      <text x="16" y="324" fill="#cbd5e1">drop-sudo (Default) · unprivileged-user</text>
+    </g>
+  </g>
+
+  <!-- YAML snippet (right) -->
+  <g transform="translate(520,400)">
+    <rect x="0" y="0" width="820" height="378" rx="12" fill="#0b1220" stroke="#334155"/>
+    <!-- traffic lights -->
+    <circle cx="20" cy="20" r="6" fill="#ef4444"/>
+    <circle cx="40" cy="20" r="6" fill="#f59e0b"/>
+    <circle cx="60" cy="20" r="6" fill="#10b981"/>
+    <text x="80" y="24" font-size="12" fill="#94a3b8" font-family="'JetBrains Mono',monospace">.github/workflows/codex-review.yml</text>
+
+    <g font-family="'JetBrains Mono',monospace" font-size="12">
+      <text x="20" y="60" fill="#22d3ee">name</text><text x="60" y="60" fill="#e2e8f0">: Codex PR Review</text>
+      <text x="20" y="80" fill="#22d3ee">on</text><text x="46" y="80" fill="#e2e8f0">: { pull_request: { types: [opened, synchronize] } }</text>
+      <text x="20" y="110" fill="#22d3ee">jobs</text><text x="64" y="110" fill="#e2e8f0">:</text>
+      <text x="40" y="130" fill="#c4b5fd">review</text><text x="96" y="130" fill="#e2e8f0">:</text>
+      <text x="60" y="150" fill="#22d3ee">permissions</text><text x="160" y="150" fill="#e2e8f0">:</text>
+      <text x="80" y="170" fill="#fbbf24">contents</text><text x="152" y="170" fill="#e2e8f0">: read</text>
+      <text x="80" y="190" fill="#fbbf24">pull-requests</text><text x="200" y="190" fill="#e2e8f0">: write</text>
+      <text x="60" y="210" fill="#22d3ee">runs-on</text><text x="140" y="210" fill="#e2e8f0">: ubuntu-latest</text>
+      <text x="60" y="230" fill="#22d3ee">steps</text><text x="116" y="230" fill="#e2e8f0">:</text>
+      <text x="80" y="250" fill="#e2e8f0">- uses: actions/checkout@v4</text>
+      <text x="80" y="270" fill="#e2e8f0">- uses: openai/codex-action@v1</text>
+      <text x="100" y="290" fill="#22d3ee">with</text><text x="140" y="290" fill="#e2e8f0">:</text>
+      <text x="120" y="310" fill="#fbbf24">openai-api-key</text><text x="240" y="310" fill="#e2e8f0">: ${{ secrets.OPENAI_API_KEY }}</text>
+      <text x="120" y="330" fill="#fbbf24">sandbox</text><text x="184" y="330" fill="#10b981">: read-only</text>
+      <text x="120" y="350" fill="#fbbf24">safety-strategy</text><text x="248" y="350" fill="#10b981">: drop-sudo</text>
+      <text x="120" y="370" fill="#fbbf24">codex-args</text><text x="212" y="370" fill="#e2e8f0">: "--ask-for-approval never"</text>
+    </g>
+  </g>
+
+  <!-- Footer tip -->
+  <g transform="translate(60,810)">
+    <rect x="0" y="0" width="1280" height="60" rx="10" fill="#1e293b" stroke="#10b981"/>
+    <text x="20" y="26" font-size="13" font-weight="700" fill="#6ee7b7">Merksatz</text>
+    <text x="20" y="48" font-size="12" fill="#cbd5e1">Review-Jobs = read-only + never; Autofix-Jobs = workspace-write + never; beides in kurzlebigem Runner mit drop-sudo.</text>
+  </g>
+</svg>

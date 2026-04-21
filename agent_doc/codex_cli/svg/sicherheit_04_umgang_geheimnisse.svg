@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Umgang mit Geheimnissen — Tresor mit drei Siegeln</title>
+  <desc>Drei Säulen des Secrets-Handlings: shell_environment_policy (inherit/exclude/include_only/set), .env-Handling (nicht automatisch gelesen) und disable_response_storage / ZDR. Metapher: Tresor mit abgestuften Siegeln.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Umgang mit Geheimnissen — drei Siegel</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Environment-Policy, .env-Disziplin und Zero-Data-Retention verhindern Secret-Leaks in Sandbox und Modell</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 4</text>
+
+  <!-- Central safe -->
+  <g transform="translate(700,800)">
+    <rect x="-120" y="-60" width="240" height="56" rx="10" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+    <text x="0" y="-35" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">Secret-Tresor</text>
+    <text x="0" y="-16" text-anchor="middle" font-size="12" fill="#cbd5e1">API-Keys · Tokens · Credentials</text>
+  </g>
+
+  <!-- Pillar 1 -->
+  <g transform="translate(80,150)">
+    <rect x="0" y="0" width="400" height="560" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="400" height="64" rx="14" fill="#1e1b4b"/>
+    <text x="200" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#c7d2fe">Siegel 1</text>
+    <text x="200" y="52" text-anchor="middle" font-size="14" fill="#a5b4fc">shell_environment_policy</text>
+
+    <!-- Seal icon -->
+    <g transform="translate(176,80)">
+      <circle cx="24" cy="24" r="24" fill="#1e1b4b" stroke="#a78bfa" stroke-width="2"/>
+      <path d="M12 24 L20 32 L36 16" stroke="#a78bfa" stroke-width="3" fill="none"/>
+    </g>
+
+    <text x="20" y="160" font-size="13" font-weight="700" fill="#e2e8f0">Welche Env-Vars gehen an Sandbox?</text>
+
+    <!-- inherit -->
+    <g transform="translate(20,180)">
+      <rect x="0" y="0" width="360" height="64" rx="10" fill="#0f172a" stroke="#6366f1"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#a5b4fc">inherit</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">"all" · "core" · "none"</text>
+      <text x="14" y="60" font-size="11" fill="#94a3b8">Grundstrategie der Weitergabe</text>
+      <rect x="300" y="20" width="48" height="24" rx="4" fill="#312e81"/>
+      <text x="324" y="37" text-anchor="middle" font-size="11" fill="#c7d2fe">core</text>
+    </g>
+
+    <!-- exclude -->
+    <g transform="translate(20,254)">
+      <rect x="0" y="0" width="360" height="64" rx="10" fill="#0f172a" stroke="#ef4444"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#fca5a5">exclude</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">AWS_* · GITHUB_TOKEN · ...</text>
+      <text x="14" y="60" font-size="11" fill="#94a3b8">zusätzlich ausschliessen</text>
+      <rect x="260" y="20" width="88" height="24" rx="4" fill="#450a0a"/>
+      <text x="304" y="37" text-anchor="middle" font-size="11" fill="#fca5a5">deny-list</text>
+    </g>
+
+    <!-- include_only -->
+    <g transform="translate(20,328)">
+      <rect x="0" y="0" width="360" height="64" rx="10" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#6ee7b7">include_only</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">PATH · HOME · USER</text>
+      <text x="14" y="60" font-size="11" fill="#94a3b8">explizite Allow-Liste</text>
+      <rect x="260" y="20" width="88" height="24" rx="4" fill="#052e2b"/>
+      <text x="304" y="37" text-anchor="middle" font-size="11" fill="#6ee7b7">allow-list</text>
+    </g>
+
+    <!-- set -->
+    <g transform="translate(20,402)">
+      <rect x="0" y="0" width="360" height="64" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#67e8f9">set</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">{ CI = "true", ... }</text>
+      <text x="14" y="60" font-size="11" fill="#94a3b8">Override / Neu-Setzen</text>
+      <rect x="260" y="20" width="88" height="24" rx="4" fill="#0b3a44"/>
+      <text x="304" y="37" text-anchor="middle" font-size="11" fill="#67e8f9">inject</text>
+    </g>
+
+    <!-- internal excludes -->
+    <g transform="translate(20,480)">
+      <rect x="0" y="0" width="360" height="60" rx="10" fill="#3b1e0f" stroke="#f59e0b"/>
+      <text x="180" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#fbbf24">Codex filtert intern:</text>
+      <text x="180" y="44" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fde68a">*_KEY · *_TOKEN · *_SECRET</text>
+    </g>
+  </g>
+
+  <!-- Pillar 2 -->
+  <g transform="translate(500,150)">
+    <rect x="0" y="0" width="400" height="560" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="400" height="64" rx="14" fill="#3b1e0f"/>
+    <text x="200" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#fbbf24">Siegel 2</text>
+    <text x="200" y="52" text-anchor="middle" font-size="14" fill="#fde68a">.env-Disziplin</text>
+
+    <!-- Seal -->
+    <g transform="translate(176,80)">
+      <circle cx="24" cy="24" r="24" fill="#3b1e0f" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="14" y="12" width="20" height="24" rx="3" fill="none" stroke="#fbbf24" stroke-width="2"/>
+      <text x="24" y="32" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">.env</text>
+    </g>
+
+    <text x="20" y="160" font-size="13" font-weight="700" fill="#e2e8f0">Default-Verhalten</text>
+    <g transform="translate(20,174)">
+      <rect x="0" y="0" width="360" height="64" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#fca5a5">NICHT automatisch gelesen</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">Codex liest .env-Dateien im cwd</text>
+      <text x="14" y="60" font-size="11" fill="#cbd5e1">nur, wenn explizit angefordert</text>
+    </g>
+
+    <text x="20" y="270" font-size="13" font-weight="700" fill="#e2e8f0">Trigger wären</text>
+    <g font-size="12" fill="#cbd5e1">
+      <circle cx="32" cy="294" r="4" fill="#fbbf24"/>
+      <text x="46" y="298">Prompt: "load .env in cwd"</text>
+      <circle cx="32" cy="318" r="4" fill="#fbbf24"/>
+      <text x="46" y="322">AGENTS.md verweist explizit</text>
+      <circle cx="32" cy="342" r="4" fill="#fbbf24"/>
+      <text x="46" y="346">Shell-Command: export $(cat .env)</text>
+    </g>
+
+    <text x="20" y="400" font-size="13" font-weight="700" fill="#e2e8f0">Regel für Agent-Loops</text>
+    <g transform="translate(20,414)">
+      <rect x="0" y="0" width="360" height="126" rx="10" fill="#052e2b" stroke="#10b981"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#6ee7b7">Niemals Secrets in den Prompt</text>
+      <text x="14" y="46" font-size="11" fill="#cbd5e1">statt:</text>
+      <text x="14" y="66" font-family="'JetBrains Mono',monospace" font-size="11" fill="#fca5a5">"Use token abc123..."</text>
+      <text x="14" y="90" font-size="11" fill="#cbd5e1">lieber:</text>
+      <text x="14" y="110" font-family="'JetBrains Mono',monospace" font-size="11" fill="#67e8f9">"Use $MY_TOKEN via shell_environment_policy.set"</text>
+    </g>
+  </g>
+
+  <!-- Pillar 3 -->
+  <g transform="translate(920,150)">
+    <rect x="0" y="0" width="400" height="560" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="400" height="64" rx="14" fill="#3b0f12"/>
+    <text x="200" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#fca5a5">Siegel 3</text>
+    <text x="200" y="52" text-anchor="middle" font-size="14" fill="#fecaca">disable_response_storage (ZDR)</text>
+
+    <!-- Seal -->
+    <g transform="translate(176,80)">
+      <circle cx="24" cy="24" r="24" fill="#3b0f12" stroke="#ef4444" stroke-width="2"/>
+      <path d="M10 30 L10 18 Q10 10 24 10 Q38 10 38 18 L38 30" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+      <rect x="10" y="28" width="28" height="14" rx="2" fill="#ef4444"/>
+    </g>
+
+    <text x="20" y="160" font-size="13" font-weight="700" fill="#e2e8f0">Toggle im config.toml</text>
+    <g transform="translate(20,176)">
+      <rect x="0" y="0" width="360" height="54" rx="10" fill="#0f172a" stroke="#334155"/>
+      <text x="14" y="32" font-family="'JetBrains Mono',monospace" font-size="12" fill="#67e8f9">disable_response_storage = true</text>
+    </g>
+
+    <text x="20" y="262" font-size="13" font-weight="700" fill="#e2e8f0">Wirkung</text>
+    <g font-size="12" fill="#cbd5e1">
+      <circle cx="32" cy="286" r="4" fill="#ef4444"/>
+      <text x="46" y="290">Requests/Responses nicht auf</text>
+      <text x="46" y="306">OpenAI-Seite gespeichert</text>
+      <circle cx="32" cy="330" r="4" fill="#ef4444"/>
+      <text x="46" y="334">Kein Training, keine Logs 30d</text>
+      <circle cx="32" cy="358" r="4" fill="#ef4444"/>
+      <text x="46" y="362">Audit-Trail bleibt nur lokal</text>
+    </g>
+
+    <text x="20" y="408" font-size="13" font-weight="700" fill="#e2e8f0">Voraussetzung</text>
+    <g transform="translate(20,422)">
+      <rect x="0" y="0" width="360" height="118" rx="10" fill="#3b0f12" stroke="#ef4444"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#fca5a5">ZDR muss freigeschaltet sein</text>
+      <text x="14" y="46" font-size="11" fill="#cbd5e1">• ChatGPT Enterprise / Edu</text>
+      <text x="14" y="66" font-size="11" fill="#cbd5e1">• Azure OpenAI</text>
+      <text x="14" y="86" font-size="11" fill="#cbd5e1">• API mit ZDR-Zertifizierung</text>
+      <text x="14" y="106" font-size="11" fill="#fbbf24">sonst 400-Fehler auf /responses</text>
+    </g>
+  </g>
+
+  <!-- Arrows to safe -->
+  <path d="M280 720 L660 780" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7"/>
+  <path d="M700 720 L700 745" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7"/>
+  <path d="M1120 720 L740 780" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="5 4" opacity="0.7"/>
+</svg>

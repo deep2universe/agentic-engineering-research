@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Workflow 15 — Hotfix-Workflow</title>
+  <desc>Branch von main zu hotfix/payments-oom, on-request Approval, workspace-write Sandbox. Goal/Constraints (minimal change, Regression-Test, Sentry-ID). Definition of Done. Metapher: Notarzt-Wagen, OP-Saal.</desc>
+
+  <defs>
+    <marker id="arr_red15" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arr_em15" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arr_in15" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <linearGradient id="bg15" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#2a0f12"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg15)"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">15. Hotfix-Workflow</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">main -> hotfix/payments-oom  ·  --ask-for-approval on-request  ·  --sandbox workspace-write</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 15</text>
+
+  <!-- Metapher Notarzt -->
+  <g transform="translate(1100,100)">
+    <rect width="260" height="80" rx="12" ry="12" fill="#1e293b" stroke="#ef4444"/>
+    <rect x="14" y="30" width="60" height="36" rx="4" fill="#ef4444" opacity="0.4"/>
+    <line x1="44" y1="32" x2="44" y2="64" stroke="#ef4444" stroke-width="3"/>
+    <line x1="28" y1="48" x2="60" y2="48" stroke="#ef4444" stroke-width="3"/>
+    <circle cx="86" cy="62" r="6" fill="#94a3b8"/>
+    <text x="120" y="40" font-size="13" fill="#e2e8f0" font-weight="600">Metapher</text>
+    <text x="120" y="58" font-size="12" fill="#94a3b8">Notarzt-Wagen / OP-Saal</text>
+  </g>
+
+  <!-- Branch-Diagramm -->
+  <g transform="translate(40,180)">
+    <rect width="1320" height="180" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#e2e8f0">Branch-Schnitt</text>
+
+    <!-- main line -->
+    <line x1="60" y1="100" x2="1280" y2="100" stroke="#22d3ee" stroke-width="3"/>
+    <text x="60" y="84" font-size="12" fill="#22d3ee" font-weight="700">main</text>
+
+    <circle cx="120" cy="100" r="8" fill="#22d3ee"/>
+    <text x="120" y="130" font-size="11" fill="#94a3b8" text-anchor="middle">v1.4.0</text>
+
+    <circle cx="280" cy="100" r="8" fill="#22d3ee"/>
+    <text x="280" y="130" font-size="11" fill="#94a3b8" text-anchor="middle">git pull</text>
+
+    <!-- hotfix branch -->
+    <path d="M280,100 Q360,100 400,140 L1100,140" stroke="#ef4444" stroke-width="3" fill="none"/>
+    <text x="640" y="160" font-size="12" fill="#ef4444" font-weight="700">hotfix/payments-oom</text>
+    <circle cx="500" cy="140" r="7" fill="#ef4444"/>
+    <text x="500" y="172" font-size="10" fill="#94a3b8" text-anchor="middle">test (red)</text>
+    <circle cx="650" cy="140" r="7" fill="#ef4444"/>
+    <text x="650" y="172" font-size="10" fill="#94a3b8" text-anchor="middle">fix</text>
+    <circle cx="800" cy="140" r="7" fill="#10b981"/>
+    <text x="800" y="172" font-size="10" fill="#94a3b8" text-anchor="middle">test (green)</text>
+    <circle cx="950" cy="140" r="7" fill="#a78bfa"/>
+    <text x="950" y="172" font-size="10" fill="#94a3b8" text-anchor="middle">PR</text>
+
+    <!-- merge back -->
+    <path d="M1100,140 Q1180,140 1220,100" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arr_em15)"/>
+    <circle cx="1240" cy="100" r="8" fill="#10b981"/>
+    <text x="1240" y="84" font-size="11" fill="#10b981" text-anchor="middle">v1.4.1</text>
+  </g>
+
+  <!-- Codex-Aufruf -->
+  <g transform="translate(40,380)">
+    <rect width="700" height="290" rx="14" ry="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#ef4444">Codex-Aufruf</text>
+
+    <rect x="20" y="50" width="660" height="60" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="32" y="72" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">$ codex --ask-for-approval on-request \</text>
+    <text x="32" y="92" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">         --sandbox workspace-write</text>
+
+    <!-- Goal -->
+    <rect x="20" y="120" width="660" height="46" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+    <text x="32" y="140" font-size="13" font-weight="700" fill="#a78bfa"># Goal</text>
+    <text x="80" y="140" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">Fix the OOM in payments — Sentry abc123.</text>
+    <text x="32" y="158" font-size="11" fill="#94a3b8">Eindeutiger Bezug auf Sentry-Event-ID — Audit + Reproduzierbarkeit</text>
+
+    <!-- Constraints -->
+    <rect x="20" y="174" width="660" height="56" rx="8" fill="#0f172a" stroke="#f59e0b"/>
+    <text x="32" y="194" font-size="13" font-weight="700" fill="#f59e0b"># Constraints</text>
+    <text x="32" y="212" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- Minimal change. No refactor.</text>
+    <text x="32" y="226" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- Add a regression test. Do not touch unrelated services.</text>
+
+    <!-- DoD -->
+    <rect x="20" y="238" width="660" height="44" rx="8" fill="#0f172a" stroke="#10b981"/>
+    <text x="32" y="258" font-size="13" font-weight="700" fill="#10b981"># Definition of Done</text>
+    <text x="32" y="276" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- Failing test reproduces OOM · Fix green · PR refs Sentry</text>
+  </g>
+
+  <!-- Sandbox / Approval -->
+  <g transform="translate(760,380)">
+    <rect width="600" height="290" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#e2e8f0">Sandbox + Approval</text>
+
+    <g transform="translate(20,54)">
+      <rect width="270" height="100" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#f59e0b">on-request Approval</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Codex fragt VOR jeder</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">riskanten Aktion (sudo,</text>
+      <text x="14" y="74" font-size="11" fill="#e2e8f0">Netz-Call, untyp. Datei).</text>
+      <text x="14" y="92" font-size="10" fill="#94a3b8">Hotfix = Sicherheits-Setting</text>
+    </g>
+
+    <g transform="translate(310,54)">
+      <rect width="270" height="100" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#22d3ee">workspace-write</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Schreibrecht NUR im</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">aktuellen Repo.</text>
+      <text x="14" y="74" font-size="11" fill="#e2e8f0">Alles ausserhalb = read-only.</text>
+      <text x="14" y="92" font-size="10" fill="#94a3b8">Verhindert Side-Effects</text>
+    </g>
+
+    <g transform="translate(20,170)">
+      <rect width="560" height="100" rx="10" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#ef4444">Hotfix-Disziplin (OP-Saal)</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">- Eine Aenderung pro Commit · jede Aenderung review-bar</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">- Regression-Test ZUERST (red) · Fix erst danach (green)</text>
+      <text x="14" y="74" font-size="11" fill="#e2e8f0">- PR-Body: Sentry-Link, Auswirkungs-Bereich, Rollback-Plan</text>
+      <text x="14" y="90" font-size="11" fill="#e2e8f0">- Manuelles deploy/merge — Codex fuehrt KEINEN release-Skill aus</text>
+    </g>
+  </g>
+
+  <!-- Pfeil von Aufruf zu Branch -->
+  <path d="M390,380 L500,360" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arr_red15)" fill="none"/>
+
+  <!-- Mini-Stop-Karten unten -->
+  <g transform="translate(40,690)">
+    <rect width="1320" height="130" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="14" font-weight="700" fill="#e2e8f0">Mini-Checkliste</text>
+    <g transform="translate(20,54)">
+      <rect width="200" height="60" rx="8" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#10b981">git switch main</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">git pull</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">git switch -c hotfix/...</text>
+    </g>
+    <g transform="translate(240,54)">
+      <rect width="200" height="60" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#a78bfa">Sentry oeffnen</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Event-ID greifen</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">Repro-Steps lesen</text>
+    </g>
+    <g transform="translate(460,54)">
+      <rect width="200" height="60" rx="8" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#f59e0b">codex Prompt</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Goal/Constraints/DoD</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">Sentry-ID inline</text>
+    </g>
+    <g transform="translate(680,54)">
+      <rect width="200" height="60" rx="8" fill="#0f172a" stroke="#ef4444"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#ef4444">Test (red)</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Reproduziert in CI</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">Commit "test:"</text>
+    </g>
+    <g transform="translate(900,54)">
+      <rect width="200" height="60" rx="8" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#10b981">Fix + Test (green)</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Minimaler Patch</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">Commit "fix:"</text>
+    </g>
+    <g transform="translate(1120,54)">
+      <rect width="180" height="60" rx="8" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#22d3ee">PR + Merge</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Sentry-Link im Body</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">v1.4.1 cherry-pick</text>
+    </g>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,840)">
+    <text x="0" y="14" font-size="12" font-weight="700" fill="#94a3b8">Legende</text>
+    <rect x="0" y="26" width="14" height="14" fill="#ef4444"/><text x="22" y="38" font-size="12" fill="#e2e8f0">Hotfix / Risiko</text>
+    <rect x="140" y="26" width="14" height="14" fill="#22d3ee"/><text x="162" y="38" font-size="12" fill="#e2e8f0">Main / Sandbox</text>
+    <rect x="280" y="26" width="14" height="14" fill="#10b981"/><text x="302" y="38" font-size="12" fill="#e2e8f0">Erfolg / DoD</text>
+    <rect x="420" y="26" width="14" height="14" fill="#f59e0b"/><text x="442" y="38" font-size="12" fill="#e2e8f0">Constraints/Approval</text>
+    <rect x="600" y="26" width="14" height="14" fill="#a78bfa"/><text x="622" y="38" font-size="12" fill="#e2e8f0">Goal / Kontext</text>
+  </g>
+</svg>

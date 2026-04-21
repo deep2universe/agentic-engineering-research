@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Enterprise-Betrieb</title>
+  <desc>Enterprise-Stack fuer Codex: Shared Cloud Workspace, ZDR, SSO, SCIM, Audit-Logs, Model-Restriction und Custom Responses-Proxy. Metapher: Firmen-Zentrale / Control-Tower.</desc>
+
+  <defs>
+    <marker id="arrS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">Enterprise-Betrieb - Control-Tower fuer Codex</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="16">Shared Workspace, ZDR, SSO/SCIM, Model-Restriction, Custom Responses-Proxy - Kapitel 7</text>
+  <text x="1280" y="54" fill="#64748b" font-size="16" font-weight="600" text-anchor="end">Codex CLI / Senior 07</text>
+
+  <!-- Zentrale: Control-Tower -->
+  <g>
+    <rect x="520" y="320" width="360" height="280" rx="14" fill="#1e293b" stroke="#60a5fa" stroke-width="2.5"/>
+    <!-- Turm -->
+    <path d="M700 340 L700 360 M680 360 L720 360 L716 400 L684 400 Z" fill="#1e3a8a" stroke="#60a5fa"/>
+    <path d="M670 400 L730 400 L735 460 L665 460 Z" fill="#1e3a8a" stroke="#60a5fa"/>
+    <rect x="684" y="418" width="32" height="20" fill="#0b1220" stroke="#60a5fa"/>
+    <text x="700" y="490" fill="#dbeafe" font-size="18" font-weight="700" text-anchor="middle">Shared Cloud Workspace</text>
+    <text x="700" y="514" fill="#94a3b8" font-size="12" text-anchor="middle">zentrale Task-Orchestrierung fuer das Unternehmen</text>
+    <text x="700" y="536" fill="#94a3b8" font-size="12" text-anchor="middle">- Quotas pro Team / Projekt</text>
+    <text x="700" y="554" fill="#94a3b8" font-size="12" text-anchor="middle">- Kostenabrechnung pro Workspace</text>
+    <text x="700" y="572" fill="#94a3b8" font-size="12" text-anchor="middle">- Shared Task-Monitoring + Transkripte</text>
+    <text x="700" y="590" fill="#94a3b8" font-size="12" text-anchor="middle">- Zentrales Onboarding / Offboarding</text>
+  </g>
+
+  <!-- Satellite: ZDR -->
+  <g>
+    <rect x="60" y="140" width="280" height="140" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <path d="M80 162 L100 150 L120 162 L120 190 Q100 210 80 190 Z" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+    <path d="M90 178 L98 186 L112 170" stroke="#6ee7b7" stroke-width="2" fill="none"/>
+    <text x="140" y="172" fill="#6ee7b7" font-size="15" font-weight="700">ZDR</text>
+    <text x="140" y="194" fill="#94a3b8" font-size="12">Zero-Data-Retention</text>
+    <text x="80" y="226" fill="#94a3b8" font-size="12">- Keine Trainings-/Retention-Nutzung</text>
+    <text x="80" y="244" fill="#94a3b8" font-size="12">- pro Workspace aktivierbar</text>
+    <text x="80" y="262" fill="#94a3b8" font-size="12">- vertraglich gesichert</text>
+  </g>
+
+  <!-- Satellite: SSO -->
+  <g>
+    <rect x="380" y="140" width="280" height="140" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <path d="M400 160 L420 160 L420 180 L440 180 L440 200 L400 200 Z" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+    <circle cx="430" cy="190" r="4" fill="#c7d2fe"/>
+    <text x="460" y="172" fill="#c7d2fe" font-size="15" font-weight="700">SSO</text>
+    <text x="460" y="194" fill="#94a3b8" font-size="12">Single-Sign-On</text>
+    <text x="400" y="226" fill="#94a3b8" font-size="12">- OIDC / SAML zu IdP</text>
+    <text x="400" y="244" fill="#94a3b8" font-size="12">- MFA-Pflicht</text>
+    <text x="400" y="262" fill="#94a3b8" font-size="12">- Okta / AzureAD / Google</text>
+  </g>
+
+  <!-- Satellite: SCIM -->
+  <g>
+    <rect x="700" y="140" width="280" height="140" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="718" y="158" width="44" height="44" rx="4" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+    <line x1="722" y1="170" x2="758" y2="170" stroke="#67e8f9" stroke-width="2"/>
+    <line x1="722" y1="182" x2="758" y2="182" stroke="#67e8f9" stroke-width="2"/>
+    <line x1="722" y1="194" x2="758" y2="194" stroke="#67e8f9" stroke-width="2"/>
+    <text x="780" y="172" fill="#a5f3fc" font-size="15" font-weight="700">SCIM</text>
+    <text x="780" y="194" fill="#94a3b8" font-size="12">User-Provisioning</text>
+    <text x="720" y="226" fill="#94a3b8" font-size="12">- Auto-Joiner / Leaver</text>
+    <text x="720" y="244" fill="#94a3b8" font-size="12">- Gruppen-Sync mit IdP</text>
+    <text x="720" y="262" fill="#94a3b8" font-size="12">- Rollen + Workspaces</text>
+  </g>
+
+  <!-- Satellite: Audit-Logs -->
+  <g>
+    <rect x="1020" y="140" width="320" height="140" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="1040" y="160" width="42" height="44" rx="2" fill="#2e1065" stroke="#a78bfa" stroke-width="2"/>
+    <line x1="1046" y1="170" x2="1076" y2="170" stroke="#ddd6fe" stroke-width="1.5"/>
+    <line x1="1046" y1="178" x2="1076" y2="178" stroke="#ddd6fe" stroke-width="1.5"/>
+    <line x1="1046" y1="186" x2="1076" y2="186" stroke="#ddd6fe" stroke-width="1.5"/>
+    <line x1="1046" y1="194" x2="1070" y2="194" stroke="#ddd6fe" stroke-width="1.5"/>
+    <text x="1100" y="172" fill="#ddd6fe" font-size="15" font-weight="700">Audit-Logs</text>
+    <text x="1100" y="194" fill="#94a3b8" font-size="12">Compliance-Trail</text>
+    <text x="1040" y="226" fill="#94a3b8" font-size="12">- Wer hat wann was gepromptet</text>
+    <text x="1040" y="244" fill="#94a3b8" font-size="12">- Session-IDs archivierbar</text>
+    <text x="1040" y="262" fill="#94a3b8" font-size="12">- SIEM-Export (Splunk, etc.)</text>
+  </g>
+
+  <!-- Satellite: Model Restriction (unten links) -->
+  <g>
+    <rect x="60" y="640" width="320" height="200" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="94" cy="672" r="20" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+    <path d="M84 672 L104 672 M94 662 L94 682" stroke="#fecaca" stroke-width="2.5"/>
+    <text x="126" y="678" fill="#fecaca" font-size="15" font-weight="700">Model-Restriction</text>
+    <text x="78" y="712" fill="#94a3b8" font-size="12">- Org-Policy erlaubt nur</text>
+    <text x="78" y="730" fill="#94a3b8" font-size="12">  GPT-5.x-Codex</text>
+    <text x="78" y="752" fill="#94a3b8" font-size="12">- verhindert Accidental-OSS</text>
+    <text x="78" y="770" fill="#94a3b8" font-size="12">  oder Drittanbieter-Modelle</text>
+    <text x="78" y="792" fill="#94a3b8" font-size="12">- pro sensiblem Repo separat</text>
+    <text x="78" y="810" fill="#94a3b8" font-size="12">- durchgesetzt serverseitig</text>
+    <text x="78" y="828" fill="#94a3b8" font-size="12">- Policy-Versionierung</text>
+  </g>
+
+  <!-- Satellite: Custom Proxy (unten rechts) -->
+  <g>
+    <rect x="1020" y="640" width="320" height="200" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <path d="M1044 668 L1080 668 L1090 678 L1090 704 L1040 704 L1040 678 Z" fill="#78350f" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="1054" cy="686" r="3" fill="#fde68a"/>
+    <circle cx="1070" cy="686" r="3" fill="#fde68a"/>
+    <text x="1106" y="678" fill="#fde68a" font-size="15" font-weight="700">Custom Responses-Proxy</text>
+    <text x="1040" y="726" fill="#94a3b8" font-size="12">- Azure OpenAI oder self-hosted</text>
+    <text x="1040" y="744" fill="#94a3b8" font-size="12">- Compliance-Filter vor dem Call</text>
+    <text x="1040" y="762" fill="#94a3b8" font-size="12">- PII-Redaction, Secret-Scan</text>
+    <text x="1040" y="780" fill="#94a3b8" font-size="12">- Regional-Routing (EU / US)</text>
+    <text x="1040" y="798" fill="#94a3b8" font-size="12">- Logging vor dem Provider</text>
+    <text x="1040" y="816" fill="#94a3b8" font-size="12">- Key-Rotation zentral</text>
+    <text x="1040" y="834" fill="#94a3b8" font-size="12">- Rate-Limits pro Team</text>
+  </g>
+
+  <!-- Verbindungslinien zur Zentrale -->
+  <g stroke="#64748b" stroke-width="1.5" stroke-dasharray="3 4" fill="none">
+    <path d="M200 280 Q 400 320 540 360"/>
+    <path d="M520 280 Q 560 300 610 340"/>
+    <path d="M840 280 Q 800 300 760 340"/>
+    <path d="M1180 280 Q 1020 320 860 360"/>
+    <path d="M220 640 Q 400 600 540 560"/>
+    <path d="M1180 640 Q 1020 600 860 560"/>
+  </g>
+
+  <!-- Integrations-Bereich Mitte unten -->
+  <g>
+    <rect x="420" y="640" width="560" height="200" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="440" y="672" fill="#e2e8f0" font-size="17" font-weight="700">Zusammenspiel - Enterprise-Checklist</text>
+
+    <g transform="translate(440,690)">
+      <rect x="0" y="0" width="260" height="60" rx="8" fill="#1e293b" stroke="#6366f1"/>
+      <text x="14" y="24" fill="#c7d2fe" font-size="13" font-weight="600">Identity-Layer</text>
+      <text x="14" y="44" fill="#94a3b8" font-size="11">SSO + SCIM + MFA</text>
+    </g>
+    <g transform="translate(720,690)">
+      <rect x="0" y="0" width="240" height="60" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="14" y="24" fill="#6ee7b7" font-size="13" font-weight="600">Data-Layer</text>
+      <text x="14" y="44" fill="#94a3b8" font-size="11">ZDR + Audit + Proxy</text>
+    </g>
+    <g transform="translate(440,760)">
+      <rect x="0" y="0" width="260" height="60" rx="8" fill="#1e293b" stroke="#ef4444"/>
+      <text x="14" y="24" fill="#fecaca" font-size="13" font-weight="600">Policy-Layer</text>
+      <text x="14" y="44" fill="#94a3b8" font-size="11">Model-Restriction + Trust-Levels</text>
+    </g>
+    <g transform="translate(720,760)">
+      <rect x="0" y="0" width="240" height="60" rx="8" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="14" y="24" fill="#fde68a" font-size="13" font-weight="600">Cost-Layer</text>
+      <text x="14" y="44" fill="#94a3b8" font-size="11">Quotas + Budget-Alarme</text>
+    </g>
+  </g>
+</svg>

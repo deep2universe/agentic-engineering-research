@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Notify-Hook — Telegraph vom Agent-Turn zum Kurier</title>
+  <desc>Event → Script → stdin-Payload (JSON) → Ausgabe an Slack, Desktop oder CI.</desc>
+  <defs>
+    <marker id="arr09" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arr09b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Notify-Hook — der Telegraph des Agents</text>
+  <text x="60" y="92" fill="#94a3b8" font-size="16">Events triggern ein Skript, das via stdin eine JSON-Payload erhält und sie an Slack, Desktop oder CI weiterreicht.</text>
+  <text x="1340" y="60" fill="#6366f1" font-size="14" text-anchor="end" font-weight="600">Codex CLI · §9</text>
+
+  <!-- Stage 1: Event -->
+  <g>
+    <rect x="60" y="180" width="240" height="180" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="180" y="212" fill="#818cf8" font-size="14" font-weight="700" text-anchor="middle">1 · EVENT</text>
+    <circle cx="180" cy="250" r="24" fill="#6366f1" opacity="0.25"/>
+    <circle cx="180" cy="250" r="14" fill="#6366f1"/>
+    <text x="180" y="300" fill="#e2e8f0" font-size="14" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">agent-turn-complete</text>
+    <text x="180" y="324" fill="#94a3b8" font-size="12" text-anchor="middle">Codex beendet einen Turn</text>
+    <text x="180" y="344" fill="#94a3b8" font-size="12" text-anchor="middle">(Roadmap: weitere Events)</text>
+  </g>
+
+  <line x1="310" y1="270" x2="360" y2="270" stroke="#22d3ee" stroke-width="2.5" marker-end="url(#arr09)"/>
+
+  <!-- Stage 2: notify-Config -->
+  <g>
+    <rect x="370" y="180" width="320" height="180" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="530" y="212" fill="#22d3ee" font-size="14" font-weight="700" text-anchor="middle">2 · NOTIFY-COMMAND</text>
+    <rect x="390" y="232" width="280" height="56" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="402" y="254" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">notify = [</text>
+    <text x="412" y="272" fill="#e2e8f0" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">"bash","-lc","./notify.sh"</text>
+    <text x="402" y="288" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">]</text>
+
+    <text x="530" y="314" fill="#94a3b8" font-size="12" text-anchor="middle">Liste → argv · beliebiges Executable</text>
+    <text x="530" y="334" fill="#94a3b8" font-size="12" text-anchor="middle">muss executable und erreichbar sein</text>
+  </g>
+
+  <line x1="700" y1="270" x2="750" y2="270" stroke="#22d3ee" stroke-width="2.5" marker-end="url(#arr09)"/>
+
+  <!-- Stage 3: stdin-Payload -->
+  <g>
+    <rect x="760" y="160" width="580" height="230" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="1050" y="192" fill="#a78bfa" font-size="14" font-weight="700" text-anchor="middle">3 · STDIN-PAYLOAD · JSON</text>
+    <rect x="780" y="210" width="540" height="160" rx="8" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13">
+      <text x="796" y="234" fill="#e2e8f0">{</text>
+      <text x="812" y="254" fill="#22d3ee">"status"</text>
+      <text x="876" y="254" fill="#e2e8f0">: </text>
+      <text x="900" y="254" fill="#10b981">"success"</text>
+      <text x="972" y="254" fill="#e2e8f0">,</text>
+      <text x="812" y="272" fill="#22d3ee">"title"</text>
+      <text x="864" y="272" fill="#e2e8f0">: </text>
+      <text x="888" y="272" fill="#10b981">"Codex run"</text>
+      <text x="982" y="272" fill="#e2e8f0">,</text>
+      <text x="812" y="290" fill="#22d3ee">"summary"</text>
+      <text x="884" y="290" fill="#e2e8f0">: </text>
+      <text x="908" y="290" fill="#10b981">"Finished refactor"</text>
+      <text x="1060" y="290" fill="#e2e8f0">,</text>
+      <text x="812" y="308" fill="#22d3ee">"duration"</text>
+      <text x="892" y="308" fill="#e2e8f0">: </text>
+      <text x="916" y="308" fill="#f59e0b">123</text>
+      <text x="944" y="308" fill="#e2e8f0">,</text>
+      <text x="812" y="326" fill="#22d3ee">"url"</text>
+      <text x="850" y="326" fill="#e2e8f0">: </text>
+      <text x="874" y="326" fill="#10b981">"https://chatgpt.com/codex/tasks/..."</text>
+      <text x="1180" y="326" fill="#e2e8f0">,</text>
+      <text x="812" y="344" fill="#22d3ee">"last_assistant_message"</text>
+      <text x="1008" y="344" fill="#e2e8f0">: </text>
+      <text x="1032" y="344" fill="#10b981">"…"</text>
+      <text x="796" y="362" fill="#e2e8f0">}</text>
+    </g>
+  </g>
+
+  <!-- Skript-Box -->
+  <g>
+    <rect x="450" y="440" width="500" height="140" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="700" y="468" fill="#f59e0b" font-size="14" font-weight="700" text-anchor="middle">SCRIPT · liest stdin · dispatched</text>
+    <rect x="470" y="484" width="460" height="76" rx="8" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#e2e8f0">
+      <text x="484" y="506">#!/usr/bin/env bash</text>
+      <text x="484" y="524">PAYLOAD=$(cat)</text>
+      <text x="484" y="542">STATUS=$(jq -r .status &lt;&lt;&lt; "$PAYLOAD")</text>
+      <text x="484" y="558">curl -X POST "$SLACK_WEBHOOK" -d "$PAYLOAD"</text>
+    </g>
+  </g>
+
+  <line x1="700" y1="390" x2="700" y2="430" stroke="#a78bfa" stroke-width="2.5" marker-end="url(#arr09)"/>
+
+  <!-- Drei Ausgabekanäle -->
+  <line x1="555" y1="590" x2="300" y2="680" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr09b)"/>
+  <line x1="700" y1="590" x2="700" y2="680" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr09b)"/>
+  <line x1="845" y1="590" x2="1100" y2="680" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr09b)"/>
+
+  <!-- Slack -->
+  <g>
+    <rect x="100" y="700" width="360" height="140" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="280" y="730" fill="#22d3ee" font-size="16" font-weight="700" text-anchor="middle">Slack / Teams</text>
+    <text x="280" y="758" fill="#e2e8f0" font-size="13" text-anchor="middle">Webhook + curl</text>
+    <text x="280" y="780" fill="#e2e8f0" font-size="13" text-anchor="middle">Status in Team-Channel</text>
+    <text x="280" y="808" fill="#94a3b8" font-size="12" text-anchor="middle">ideal für lange Aufgaben</text>
+  </g>
+
+  <!-- Desktop -->
+  <g>
+    <rect x="520" y="700" width="360" height="140" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="700" y="730" fill="#10b981" font-size="16" font-weight="700" text-anchor="middle">Desktop-Notify</text>
+    <text x="700" y="758" fill="#e2e8f0" font-size="13" text-anchor="middle">osascript · notify-send</text>
+    <text x="700" y="780" fill="#e2e8f0" font-size="13" text-anchor="middle">macOS-Toast · Linux-DBus</text>
+    <text x="700" y="808" fill="#94a3b8" font-size="12" text-anchor="middle">ideal für Solo-Workflow</text>
+  </g>
+
+  <!-- CI -->
+  <g>
+    <rect x="940" y="700" width="360" height="140" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1120" y="730" fill="#f59e0b" font-size="16" font-weight="700" text-anchor="middle">CI / Observability</text>
+    <text x="1120" y="758" fill="#e2e8f0" font-size="13" text-anchor="middle">Prometheus · Datadog · GH-API</text>
+    <text x="1120" y="780" fill="#e2e8f0" font-size="13" text-anchor="middle">Metriken · Artefakte</text>
+    <text x="1120" y="808" fill="#94a3b8" font-size="12" text-anchor="middle">ideal für headless-Runs</text>
+  </g>
+</svg>

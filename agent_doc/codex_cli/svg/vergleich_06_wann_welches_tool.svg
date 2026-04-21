@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Wann welches Tool — Werkzeugkasten</title>
+  <desc>Werkzeugkasten-Metapher mit fünf Fächern. Jedes Fach zeigt ein Tool mit seinen typischen Stärken und Einsatzgebieten.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Wann welches Tool? — Spezial-Fächer</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Werkzeugkasten mit fünf spezialisierten Fächern · Einsatzszenarien im Überblick</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 6 · Use-Cases</text>
+
+  <!-- Kastenrahmen -->
+  <rect x="40" y="130" width="1320" height="690" rx="16" fill="#0b1220" stroke="#475569" stroke-width="2"/>
+  <rect x="40" y="130" width="1320" height="22" fill="#334155"/>
+  <text x="1350" y="146" font-size="11" fill="#cbd5e1" text-anchor="end">SENIOR-TOOLKIT</text>
+  <!-- Griff -->
+  <rect x="620" y="110" width="160" height="24" rx="10" fill="#334155"/>
+
+  <!-- Fach 1: Codex CLI (gross) -->
+  <g transform="translate(70,175)">
+    <rect width="420" height="620" rx="14" fill="#1e1b4b" stroke="#6366f1" stroke-width="2.5"/>
+    <rect width="420" height="44" rx="14" fill="#312e81"/>
+    <text x="18" y="30" font-size="18" font-weight="700" fill="#fff">Codex CLI</text>
+    <text x="402" y="30" font-size="11" fill="#c7d2fe" text-anchor="end">Kompartiment A · gross</text>
+    <!-- Icon: Kernel-Tresor -->
+    <g transform="translate(210,110)">
+      <rect x="-40" y="-40" width="80" height="80" rx="8" fill="#1e1b4b" stroke="#818cf8" stroke-width="2.5"/>
+      <circle r="22" fill="none" stroke="#818cf8" stroke-width="2.5"/>
+      <circle r="6" fill="#fbbf24"/>
+      <line x1="0" y1="-22" x2="0" y2="-32" stroke="#818cf8" stroke-width="2"/>
+      <line x1="0" y1="22" x2="0" y2="32" stroke="#818cf8" stroke-width="2"/>
+      <line x1="-22" y1="0" x2="-32" y2="0" stroke="#818cf8" stroke-width="2"/>
+      <line x1="22" y1="0" x2="32" y2="0" stroke="#818cf8" stroke-width="2"/>
+    </g>
+    <text x="210" y="180" font-size="13" fill="#a5b4fc" text-anchor="middle">Metapher: Kernel-Tresor</text>
+
+    <g font-size="13" fill="#e2e8f0">
+      <g transform="translate(20,220)">
+        <circle cx="8" cy="8" r="5" fill="#6366f1"/>
+        <text x="22" y="12" font-weight="600">Autonome Multi-Hour-Tasks</text>
+        <text x="22" y="32" font-size="11" fill="#94a3b8">Refactoring-Serien · Migrationen · PR-Reviews</text>
+      </g>
+      <g transform="translate(20,280)">
+        <circle cx="8" cy="8" r="5" fill="#6366f1"/>
+        <text x="22" y="12" font-weight="600">Security-kritische Umgebungen</text>
+        <text x="22" y="32" font-size="11" fill="#94a3b8">Kernel-Sandbox · 4-Stufen-Trust-Modell</text>
+      </g>
+      <g transform="translate(20,340)">
+        <circle cx="8" cy="8" r="5" fill="#6366f1"/>
+        <text x="22" y="12" font-weight="600">Heterogene Provider-Setups</text>
+        <text x="22" y="32" font-size="11" fill="#94a3b8">OpenAI + Ollama + Claude + Gemini in einer CLI</text>
+      </g>
+      <g transform="translate(20,400)">
+        <circle cx="8" cy="8" r="5" fill="#6366f1"/>
+        <text x="22" y="12" font-weight="600">CI/CD-Automation</text>
+        <text x="22" y="32" font-size="11" fill="#94a3b8">Offizielle GitHub Action · Cloud-Handoff</text>
+      </g>
+      <g transform="translate(20,460)">
+        <circle cx="8" cy="8" r="5" fill="#6366f1"/>
+        <text x="22" y="12" font-weight="600">Multi-Agent mit AGENTS.md</text>
+        <text x="22" y="32" font-size="11" fill="#94a3b8">Explizite Sub-Agent-Definition</text>
+      </g>
+    </g>
+
+    <g transform="translate(20,540)">
+      <rect width="380" height="60" rx="8" fill="#312e81" stroke="#818cf8"/>
+      <text x="16" y="24" font-size="12" font-weight="700" fill="#c7d2fe">Kurzformel</text>
+      <text x="16" y="46" font-size="11" fill="#ddd6fe">"Autonom, sicher, orchestriert — wenn Codex in den Flow kommt."</text>
+    </g>
+  </g>
+
+  <!-- 4 kleine Faecher rechts: 2x2 -->
+  <!-- Claude Code -->
+  <g transform="translate(510,175)">
+    <rect width="420" height="300" rx="14" fill="#1e1b4b" stroke="#a78bfa" stroke-width="2"/>
+    <rect width="420" height="36" rx="14" fill="#2e1065"/>
+    <text x="18" y="25" font-size="16" font-weight="700" fill="#fff">Claude Code</text>
+    <text x="402" y="25" font-size="11" fill="#ddd6fe" text-anchor="end">Kompartiment B</text>
+    <g transform="translate(50,75)">
+      <path d="M 0 0 L 18 -14 L 36 0 L 36 20 L 0 20 Z" fill="#2e1065" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="18" cy="10" r="4" fill="#a78bfa"/>
+    </g>
+    <text x="110" y="80" font-size="12" fill="#a78bfa">Metapher: Präzisions-Zange</text>
+    <g font-size="12" fill="#e2e8f0">
+      <g transform="translate(20,120)"><circle cx="6" cy="6" r="4" fill="#a78bfa"/><text x="18" y="10" font-weight="600">17 Hook-Events</text><text x="18" y="28" font-size="10" fill="#94a3b8">feinkörnige Interventions</text></g>
+      <g transform="translate(20,170)"><circle cx="6" cy="6" r="4" fill="#a78bfa"/><text x="18" y="10" font-weight="600">Extended Thinking</text><text x="18" y="28" font-size="10" fill="#94a3b8">für schwierige Algorithmik</text></g>
+      <g transform="translate(20,220)"><circle cx="6" cy="6" r="4" fill="#a78bfa"/><text x="18" y="10" font-weight="600">Skill-Plugin-Library</text><text x="18" y="28" font-size="10" fill="#94a3b8">Human-in-the-loop-Workflows</text></g>
+    </g>
+  </g>
+
+  <!-- Gemini CLI -->
+  <g transform="translate(945,175)">
+    <rect width="420" height="300" rx="14" fill="#083344" stroke="#22d3ee" stroke-width="2"/>
+    <rect width="420" height="36" rx="14" fill="#0e7490"/>
+    <text x="18" y="25" font-size="16" font-weight="700" fill="#fff">Gemini CLI</text>
+    <text x="402" y="25" font-size="11" fill="#cffafe" text-anchor="end">Kompartiment C</text>
+    <g transform="translate(50,75)">
+      <circle cx="18" cy="10" r="16" fill="none" stroke="#22d3ee" stroke-width="2.5"/>
+      <path d="M 6 -6 L 18 10 L 6 26" stroke="#22d3ee" stroke-width="2" fill="none"/>
+    </g>
+    <text x="110" y="80" font-size="12" fill="#22d3ee">Metapher: Weitwinkel-Optik</text>
+    <g font-size="12" fill="#e2e8f0">
+      <g transform="translate(20,120)"><circle cx="6" cy="6" r="4" fill="#22d3ee"/><text x="18" y="10" font-weight="600">Monorepo-Exploration</text><text x="18" y="28" font-size="10" fill="#94a3b8">1 M Kontext nativ</text></g>
+      <g transform="translate(20,170)"><circle cx="6" cy="6" r="4" fill="#22d3ee"/><text x="18" y="10" font-weight="600">Budget-sensitiv</text><text x="18" y="28" font-size="10" fill="#94a3b8">grosszügiger Free-Tier</text></g>
+      <g transform="translate(20,220)"><circle cx="6" cy="6" r="4" fill="#22d3ee"/><text x="18" y="10" font-weight="600">Google Cloud / Vertex AI</text><text x="18" y="28" font-size="10" fill="#94a3b8">nahtlose Integration</text></g>
+    </g>
+  </g>
+
+  <!-- Aider -->
+  <g transform="translate(510,495)">
+    <rect width="420" height="300" rx="14" fill="#022c22" stroke="#10b981" stroke-width="2"/>
+    <rect width="420" height="36" rx="14" fill="#065f46"/>
+    <text x="18" y="25" font-size="16" font-weight="700" fill="#fff">Aider</text>
+    <text x="402" y="25" font-size="11" fill="#a7f3d0" text-anchor="end">Kompartiment D</text>
+    <g transform="translate(50,75)">
+      <path d="M 0 10 L 10 0 L 30 20 L 20 30 Z" fill="#10b981"/>
+      <circle cx="6" cy="24" r="3" fill="#022c22"/>
+    </g>
+    <text x="110" y="80" font-size="12" fill="#10b981">Metapher: Skalpell</text>
+    <g font-size="12" fill="#e2e8f0">
+      <g transform="translate(20,120)"><circle cx="6" cy="6" r="4" fill="#10b981"/><text x="18" y="10" font-weight="600">Single-File-Edits</text><text x="18" y="28" font-size="10" fill="#94a3b8">fokussiert · kein Agent-Overhead</text></g>
+      <g transform="translate(20,170)"><circle cx="6" cy="6" r="4" fill="#10b981"/><text x="18" y="10" font-weight="600">Maximale Offenheit</text><text x="18" y="28" font-size="10" fill="#94a3b8">MIT · Python · provider-agnostisch</text></g>
+      <g transform="translate(20,220)"><circle cx="6" cy="6" r="4" fill="#10b981"/><text x="18" y="10" font-weight="600">Git-Disziplin</text><text x="18" y="28" font-size="10" fill="#94a3b8">Einzelentwickler mit klarer Commit-Kultur</text></g>
+    </g>
+  </g>
+
+  <!-- Copilot CLI -->
+  <g transform="translate(945,495)">
+    <rect width="420" height="300" rx="14" fill="#451a03" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="420" height="36" rx="14" fill="#92400e"/>
+    <text x="18" y="25" font-size="16" font-weight="700" fill="#fff">Copilot CLI</text>
+    <text x="402" y="25" font-size="11" fill="#fde68a" text-anchor="end">Kompartiment E</text>
+    <g transform="translate(50,75)">
+      <circle cx="18" cy="14" r="16" fill="#f59e0b"/>
+      <path d="M 10 10 L 14 18 L 26 6" stroke="#451a03" stroke-width="3" fill="none"/>
+    </g>
+    <text x="110" y="80" font-size="12" fill="#f59e0b">Metapher: GH-Universalschlüssel</text>
+    <g font-size="12" fill="#e2e8f0">
+      <g transform="translate(20,120)"><circle cx="6" cy="6" r="4" fill="#f59e0b"/><text x="18" y="10" font-weight="600">GitHub-Integration</text><text x="18" y="28" font-size="10" fill="#94a3b8">Issues · PRs · Reviews</text></g>
+      <g transform="translate(20,170)"><circle cx="6" cy="6" r="4" fill="#f59e0b"/><text x="18" y="10" font-weight="600">GH-Enterprise-Teams</text><text x="18" y="28" font-size="10" fill="#94a3b8">vorhandene Copilot-Seats</text></g>
+      <g transform="translate(20,220)"><circle cx="6" cy="6" r="4" fill="#f59e0b"/><text x="18" y="10" font-weight="600">Operations im Repo-Umfeld</text><text x="18" y="28" font-size="10" fill="#94a3b8">Feinkontrolle via GH-Kontext</text></g>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(60,840)" font-size="12" fill="#94a3b8">
+    <text>Entscheidungsregel: zuerst die Aufgabencharakteristik (autonom/interaktiv · sicher/offen · eng/breit) klären, dann Fach wählen.</text>
+  </g>
+</svg>

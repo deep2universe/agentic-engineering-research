@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Observability, Tracing und Reproduzierbarkeit</title>
+  <desc>Observability-Konsole fuer Codex: Session-JSONL-Transkripte plus Structured Logs plus Seed/Model-Pinning plus OpenTelemetry via MCP. Pipeline leitet in Loki, OpenSearch, Jaeger oder Honeycomb. Metapher: Radarschirm / Observability-Konsole.</desc>
+
+  <defs>
+    <marker id="arrE" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <radialGradient id="radar" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#064e3b" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="1"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">Observability - Radarschirm fuer Codex-Runs</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="16">Transkripte, Structured Logs, Reproduzierbarkeit und OTel-MCP - Kapitel 5</text>
+  <text x="1280" y="54" fill="#10b981" font-size="16" font-weight="600" text-anchor="end">Codex CLI / Senior 05</text>
+
+  <!-- Quellen links -->
+  <g>
+    <rect x="40" y="120" width="360" height="700" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="60" y="152" fill="#e2e8f0" font-size="17" font-weight="700">Signal-Quellen</text>
+
+    <g transform="translate(60,178)">
+      <rect x="0" y="0" width="320" height="110" rx="10" fill="#1e293b" stroke="#10b981"/>
+      <text x="14" y="26" fill="#6ee7b7" font-size="14" font-weight="700">Session-JSONL</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">~/.codex/sessions/&lt;uuid&gt;.jsonl</text>
+      <text x="14" y="68" fill="#94a3b8" font-size="12">- jeder Turn als JSONL-Zeile</text>
+      <text x="14" y="86" fill="#94a3b8" font-size="12">- Tool-Calls, Usage, Timestamps</text>
+      <text x="14" y="104" fill="#94a3b8" font-size="12">- jq + Vector-Pipelines</text>
+    </g>
+
+    <g transform="translate(60,304)">
+      <rect x="0" y="0" width="320" height="110" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="14" y="26" fill="#a5f3fc" font-size="14" font-weight="700">Structured Logs</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">RUST_LOG=codex=debug,info</text>
+      <text x="14" y="68" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">codex exec --json "..."</text>
+      <text x="14" y="88" fill="#94a3b8" font-size="12">- tee -a run.jsonl + Shipper</text>
+      <text x="14" y="106" fill="#94a3b8" font-size="12">- ideal fuer Loki / OpenSearch</text>
+    </g>
+
+    <g transform="translate(60,430)">
+      <rect x="0" y="0" width="320" height="110" rx="10" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="14" y="26" fill="#ddd6fe" font-size="14" font-weight="700">OTel via MCP</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">mcp-server-otel</text>
+      <text x="14" y="68" fill="#94a3b8" font-size="12">- Spans aus Agent-Loop</text>
+      <text x="14" y="86" fill="#94a3b8" font-size="12">- Tool-Call-Dauer, Latenz</text>
+      <text x="14" y="104" fill="#94a3b8" font-size="12">- Kosten-Aggregation</text>
+    </g>
+
+    <g transform="translate(60,556)">
+      <rect x="0" y="0" width="320" height="110" rx="10" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="14" y="26" fill="#fde68a" font-size="14" font-weight="700">Reproduzierbarkeit</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">model="gpt-5.3-codex-2026-02-05"</text>
+      <text x="14" y="68" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">seed=42  (reduziert Variance)</text>
+      <text x="14" y="88" fill="#94a3b8" font-size="12">- Config-Hash in AGENTS.md</text>
+      <text x="14" y="106" fill="#94a3b8" font-size="12">- Session-ID in PR-Body</text>
+    </g>
+
+    <g transform="translate(60,682)">
+      <rect x="0" y="0" width="320" height="126" rx="10" fill="#1e293b" stroke="#ef4444"/>
+      <text x="14" y="26" fill="#fecaca" font-size="14" font-weight="700">Audit-Trail</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="12">- /status liefert Session-ID</text>
+      <text x="14" y="68" fill="#94a3b8" font-size="12">- JSONL-Transkript archivieren</text>
+      <text x="14" y="88" fill="#94a3b8" font-size="12">- Hash + Modellversion</text>
+      <text x="14" y="108" fill="#94a3b8" font-size="12">- erfuellt Compliance-Anforderungen</text>
+    </g>
+  </g>
+
+  <!-- Mitte: Radarschirm -->
+  <g transform="translate(700,470)">
+    <circle cx="0" cy="0" r="220" fill="url(#radar)" stroke="#10b981" stroke-width="1"/>
+    <circle cx="0" cy="0" r="170" fill="none" stroke="#064e3b" stroke-width="1"/>
+    <circle cx="0" cy="0" r="110" fill="none" stroke="#065f46" stroke-width="1"/>
+    <circle cx="0" cy="0" r="55" fill="none" stroke="#047857" stroke-width="1"/>
+    <line x1="-220" y1="0" x2="220" y2="0" stroke="#064e3b" stroke-width="1"/>
+    <line x1="0" y1="-220" x2="0" y2="220" stroke="#064e3b" stroke-width="1"/>
+    <line x1="-155" y1="-155" x2="155" y2="155" stroke="#064e3b" stroke-width="1"/>
+    <line x1="-155" y1="155" x2="155" y2="-155" stroke="#064e3b" stroke-width="1"/>
+
+    <!-- Radar-Sweep -->
+    <path d="M0 0 L180 -90 A200 200 0 0 1 200 40 Z" fill="#10b981" fill-opacity="0.12"/>
+
+    <!-- Blips -->
+    <circle cx="-60" cy="-80" r="6" fill="#6ee7b7"/>
+    <text x="-60" y="-94" fill="#6ee7b7" font-size="11" text-anchor="middle">tool_call</text>
+    <circle cx="90" cy="-40" r="5" fill="#fde68a"/>
+    <text x="90" y="-54" fill="#fde68a" font-size="11" text-anchor="middle">latency</text>
+    <circle cx="50" cy="100" r="5" fill="#c7d2fe"/>
+    <text x="50" y="118" fill="#c7d2fe" font-size="11" text-anchor="middle">cost</text>
+    <circle cx="-120" cy="50" r="6" fill="#fecaca"/>
+    <text x="-120" y="68" fill="#fecaca" font-size="11" text-anchor="middle">approval wait</text>
+    <circle cx="-30" cy="150" r="5" fill="#a5f3fc"/>
+    <text x="-30" y="168" fill="#a5f3fc" font-size="11" text-anchor="middle">turn end</text>
+
+    <text x="0" y="-190" fill="#e2e8f0" font-size="14" font-weight="700" text-anchor="middle">Codex-Run-Radar</text>
+    <text x="0" y="210" fill="#94a3b8" font-size="11" text-anchor="middle">Live-Sicht auf Agent-Loop-Events</text>
+  </g>
+
+  <!-- Pipeline Pfeile rechts -->
+  <g stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrE)">
+    <path d="M400 234 L700 320"/>
+    <path d="M400 360 L700 420"/>
+    <path d="M400 486 L700 480"/>
+    <path d="M400 612 L700 540"/>
+  </g>
+
+  <!-- Sinks rechts -->
+  <g>
+    <rect x="1000" y="120" width="360" height="700" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="1020" y="152" fill="#e2e8f0" font-size="17" font-weight="700">Observability-Sinks</text>
+
+    <g transform="translate(1020,178)">
+      <rect x="0" y="0" width="320" height="80" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+      <circle cx="30" cy="40" r="18" fill="#0e7490" stroke="#22d3ee"/>
+      <text x="30" y="46" fill="#cffafe" font-size="14" text-anchor="middle" font-weight="700">L</text>
+      <text x="60" y="34" fill="#a5f3fc" font-size="14" font-weight="700">Loki / Grafana</text>
+      <text x="60" y="56" fill="#94a3b8" font-size="12">Log-Lines aus JSONL + Logfmt</text>
+      <text x="60" y="72" fill="#94a3b8" font-size="12">LogQL-Dashboards</text>
+    </g>
+
+    <g transform="translate(1020,272)">
+      <rect x="0" y="0" width="320" height="80" rx="10" fill="#1e293b" stroke="#f59e0b"/>
+      <circle cx="30" cy="40" r="18" fill="#78350f" stroke="#f59e0b"/>
+      <text x="30" y="46" fill="#fde68a" font-size="14" text-anchor="middle" font-weight="700">O</text>
+      <text x="60" y="34" fill="#fde68a" font-size="14" font-weight="700">OpenSearch</text>
+      <text x="60" y="56" fill="#94a3b8" font-size="12">Volltext-Suche in Transkripten</text>
+      <text x="60" y="72" fill="#94a3b8" font-size="12">Dev-Debug-Archiv</text>
+    </g>
+
+    <g transform="translate(1020,366)">
+      <rect x="0" y="0" width="320" height="80" rx="10" fill="#1e293b" stroke="#a78bfa"/>
+      <circle cx="30" cy="40" r="18" fill="#4c1d95" stroke="#a78bfa"/>
+      <text x="30" y="46" fill="#ddd6fe" font-size="14" text-anchor="middle" font-weight="700">J</text>
+      <text x="60" y="34" fill="#ddd6fe" font-size="14" font-weight="700">Jaeger</text>
+      <text x="60" y="56" fill="#94a3b8" font-size="12">Trace-Tree pro Turn</text>
+      <text x="60" y="72" fill="#94a3b8" font-size="12">OTel-Spans via MCP</text>
+    </g>
+
+    <g transform="translate(1020,460)">
+      <rect x="0" y="0" width="320" height="80" rx="10" fill="#1e293b" stroke="#ef4444"/>
+      <circle cx="30" cy="40" r="18" fill="#7f1d1d" stroke="#ef4444"/>
+      <text x="30" y="46" fill="#fecaca" font-size="14" text-anchor="middle" font-weight="700">H</text>
+      <text x="60" y="34" fill="#fecaca" font-size="14" font-weight="700">Honeycomb</text>
+      <text x="60" y="56" fill="#94a3b8" font-size="12">High-Cardinality-Events</text>
+      <text x="60" y="72" fill="#94a3b8" font-size="12">Heatmaps + BubbleUp</text>
+    </g>
+
+    <g transform="translate(1020,560)">
+      <rect x="0" y="0" width="320" height="80" rx="10" fill="#1e293b" stroke="#10b981"/>
+      <circle cx="30" cy="40" r="18" fill="#064e3b" stroke="#10b981"/>
+      <text x="30" y="46" fill="#6ee7b7" font-size="14" text-anchor="middle" font-weight="700">$</text>
+      <text x="60" y="34" fill="#6ee7b7" font-size="14" font-weight="700">FinOps-Dashboards</text>
+      <text x="60" y="56" fill="#94a3b8" font-size="12">Token-Usage x Modell</text>
+      <text x="60" y="72" fill="#94a3b8" font-size="12">Team-Budgets + Alarme</text>
+    </g>
+
+    <g transform="translate(1020,660)">
+      <rect x="0" y="0" width="320" height="150" rx="10" fill="#1e293b" stroke="#64748b"/>
+      <text x="14" y="26" fill="#e2e8f0" font-size="14" font-weight="700">Typische Metriken</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="12">- Tool-Call-Frequenz pro Turn</text>
+      <text x="14" y="68" fill="#94a3b8" font-size="12">- Fehler-/Retry-Quote</text>
+      <text x="14" y="88" fill="#94a3b8" font-size="12">- Approval-Wartezeit (p50/p95)</text>
+      <text x="14" y="108" fill="#94a3b8" font-size="12">- LLM-Latency pro Phase</text>
+      <text x="14" y="128" fill="#94a3b8" font-size="12">- Kosten pro Task + Repo</text>
+    </g>
+  </g>
+
+  <!-- Pfeile Radar -> Sinks -->
+  <g stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrE)" stroke-dasharray="4 3">
+    <path d="M920 420 L1000 218"/>
+    <path d="M920 450 L1000 312"/>
+    <path d="M920 480 L1000 406"/>
+    <path d="M920 510 L1000 500"/>
+    <path d="M920 540 L1000 600"/>
+  </g>
+</svg>

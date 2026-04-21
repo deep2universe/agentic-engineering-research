@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Workflow 14 — Release-Skill (Skill-Struktur)</title>
+  <desc>Skill-Datei skills/release/SKILL.md mit Front-Matter, Inputs ($BUMP), 8 Schritte: Tree clean, Version bump, Update files, Tests, Changelog, Commit, Tag, Manual push. Metapher: Versand-Pipeline.</desc>
+
+  <defs>
+    <marker id="arr_am14" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <marker id="arr_em14" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <linearGradient id="bg14" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e1908"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg14)"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">14. Release-Skill — beispielhafte Skill-Struktur</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">skills/release/SKILL.md  ·  $BUMP = patch | minor | major  ·  8 Schritte bis zum Tag</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 14</text>
+
+  <!-- Metapher Versand-Pipeline -->
+  <g transform="translate(1100,100)">
+    <rect width="260" height="80" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <rect x="14" y="34" width="40" height="22" rx="3" fill="#f59e0b"/>
+    <rect x="58" y="34" width="40" height="22" rx="3" fill="#f59e0b" opacity="0.7"/>
+    <rect x="102" y="34" width="40" height="22" rx="3" fill="#f59e0b" opacity="0.5"/>
+    <line x1="14" y1="62" x2="142" y2="62" stroke="#94a3b8" stroke-width="2"/>
+    <text x="160" y="40" font-size="13" fill="#e2e8f0" font-weight="600">Metapher</text>
+    <text x="160" y="58" font-size="12" fill="#94a3b8">Versand-Pipeline</text>
+  </g>
+
+  <!-- SKILL.md Karte -->
+  <g transform="translate(40,180)">
+    <rect width="500" height="500" rx="14" ry="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#f59e0b">skills/release/SKILL.md</text>
+
+    <!-- Front-Matter -->
+    <rect x="20" y="50" width="460" height="80" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+    <text x="32" y="70" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">---</text>
+    <text x="32" y="88" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">name: release</text>
+    <text x="32" y="106" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">description: Bump version,</text>
+    <text x="32" y="120" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  changelog, tag, push.</text>
+    <text x="32" y="134" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">---</text>
+
+    <!-- Inputs -->
+    <rect x="20" y="148" width="460" height="64" rx="8" fill="#0f172a" stroke="#818cf8"/>
+    <text x="32" y="168" font-size="13" font-weight="700" fill="#818cf8">Inputs</text>
+    <text x="32" y="188" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">$BUMP = "patch" | "minor" | "major"</text>
+    <text x="32" y="204" font-size="11" fill="#94a3b8">Aufruf: "Run release skill with $BUMP=minor."</text>
+
+    <!-- Steps -->
+    <text x="20" y="240" font-size="14" font-weight="700" fill="#e2e8f0">Steps</text>
+
+    <g transform="translate(20,250)">
+      <rect width="460" height="32" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="16" r="11" fill="#10b981"/><text x="18" y="20" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">1</text>
+      <text x="40" y="20" font-size="12" fill="#e2e8f0">Verify tree clean</text>
+      <text x="190" y="20" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">git status --porcelain</text>
+    </g>
+    <g transform="translate(20,288)">
+      <rect width="460" height="32" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="16" r="11" fill="#10b981"/><text x="18" y="20" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">2</text>
+      <text x="40" y="20" font-size="12" fill="#e2e8f0">Compute next version</text>
+      <text x="200" y="20" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">latest-tag + $BUMP</text>
+    </g>
+    <g transform="translate(20,326)">
+      <rect width="460" height="32" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="16" r="11" fill="#10b981"/><text x="18" y="20" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">3</text>
+      <text x="40" y="20" font-size="12" fill="#e2e8f0">Update version files</text>
+      <text x="200" y="20" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">pyproject / package / Cargo</text>
+    </g>
+    <g transform="translate(20,364)">
+      <rect width="460" height="32" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="16" r="11" fill="#10b981"/><text x="18" y="20" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">4</text>
+      <text x="40" y="20" font-size="12" fill="#e2e8f0">Run test suite</text>
+      <text x="200" y="20" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">just test  /  cargo test</text>
+    </g>
+    <g transform="translate(20,402)">
+      <rect width="460" height="32" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="16" r="11" fill="#10b981"/><text x="18" y="20" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">5</text>
+      <text x="40" y="20" font-size="12" fill="#e2e8f0">Append CHANGELOG</text>
+      <text x="200" y="20" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">unreleased -> X.Y.Z heading</text>
+    </g>
+    <g transform="translate(20,440)">
+      <rect width="460" height="32" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="16" r="11" fill="#10b981"/><text x="18" y="20" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">6</text>
+      <text x="40" y="20" font-size="12" fill="#e2e8f0">Commit</text>
+      <text x="200" y="20" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">chore(release): vX.Y.Z</text>
+    </g>
+    <g transform="translate(20,478)">
+      <rect width="460" height="32" rx="6" fill="#0f172a" stroke="#334155"/>
+      <circle cx="18" cy="16" r="11" fill="#10b981"/><text x="18" y="20" font-size="12" fill="#0f172a" text-anchor="middle" font-weight="700">7</text>
+      <text x="40" y="20" font-size="12" fill="#e2e8f0">Tag</text>
+      <text x="200" y="20" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">git tag vX.Y.Z</text>
+    </g>
+    <g transform="translate(20,475)">
+      <!-- Step 8 below -->
+    </g>
+    <g transform="translate(20,475)">
+    </g>
+  </g>
+
+  <!-- Step 8 als separater Stop-Karten -->
+  <g transform="translate(580,180)">
+    <rect width="780" height="240" rx="14" ry="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#ef4444">Step 8 — Manual Push (Approval-Gate)</text>
+    <text x="20" y="58" font-size="12" fill="#94a3b8">Skill DARF nicht selbst pushen — Mensch entscheidet final.</text>
+    <rect x="20" y="74" width="740" height="60" rx="8" fill="#0f172a" stroke="#ef4444"/>
+    <text x="32" y="96" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#ef4444">"Tree is clean, version v1.4.0 tagged."</text>
+    <text x="32" y="116" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">"Run:  git push origin main --tags  (when ready)"</text>
+
+    <g transform="translate(20,150)">
+      <rect width="240" height="70" rx="10" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#10b981">Vorteil</text>
+      <text x="14" y="40" font-size="11" fill="#e2e8f0">Audit-Trail im Skill</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">Reproduzierbar fuer Team</text>
+    </g>
+    <g transform="translate(280,150)">
+      <rect width="240" height="70" rx="10" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#f59e0b">Wichtig</text>
+      <text x="14" y="40" font-size="11" fill="#e2e8f0">Idempotent: 2x Aufruf =</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">Abbruch bei vorhandenem Tag</text>
+    </g>
+    <g transform="translate(540,150)">
+      <rect width="220" height="70" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#22d3ee">CI-Reuse</text>
+      <text x="14" y="40" font-size="11" fill="#e2e8f0">Selber Skill in</text>
+      <text x="14" y="56" font-size="11" fill="#e2e8f0">GitHub Actions aufrufbar</text>
+    </g>
+  </g>
+
+  <!-- Pipeline-Visual rechts -->
+  <g transform="translate(580,440)">
+    <rect width="780" height="240" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#e2e8f0">Versand-Linie (Steps als Stationen)</text>
+
+    <line x1="40" y1="140" x2="740" y2="140" stroke="#94a3b8" stroke-width="3"/>
+
+    <g transform="translate(40,90)">
+      <circle cx="0" cy="50" r="20" fill="#10b981"/><text x="0" y="55" font-size="13" fill="#0f172a" text-anchor="middle" font-weight="700">1</text>
+      <text x="0" y="86" font-size="10" fill="#e2e8f0" text-anchor="middle">tree clean</text>
+    </g>
+    <g transform="translate(140,90)">
+      <circle cx="0" cy="50" r="20" fill="#10b981"/><text x="0" y="55" font-size="13" fill="#0f172a" text-anchor="middle" font-weight="700">2</text>
+      <text x="0" y="86" font-size="10" fill="#e2e8f0" text-anchor="middle">bump</text>
+    </g>
+    <g transform="translate(240,90)">
+      <circle cx="0" cy="50" r="20" fill="#10b981"/><text x="0" y="55" font-size="13" fill="#0f172a" text-anchor="middle" font-weight="700">3</text>
+      <text x="0" y="86" font-size="10" fill="#e2e8f0" text-anchor="middle">files</text>
+    </g>
+    <g transform="translate(340,90)">
+      <circle cx="0" cy="50" r="20" fill="#10b981"/><text x="0" y="55" font-size="13" fill="#0f172a" text-anchor="middle" font-weight="700">4</text>
+      <text x="0" y="86" font-size="10" fill="#e2e8f0" text-anchor="middle">tests</text>
+    </g>
+    <g transform="translate(440,90)">
+      <circle cx="0" cy="50" r="20" fill="#a78bfa"/><text x="0" y="55" font-size="13" fill="#0f172a" text-anchor="middle" font-weight="700">5</text>
+      <text x="0" y="86" font-size="10" fill="#e2e8f0" text-anchor="middle">changelog</text>
+    </g>
+    <g transform="translate(540,90)">
+      <circle cx="0" cy="50" r="20" fill="#22d3ee"/><text x="0" y="55" font-size="13" fill="#0f172a" text-anchor="middle" font-weight="700">6</text>
+      <text x="0" y="86" font-size="10" fill="#e2e8f0" text-anchor="middle">commit</text>
+    </g>
+    <g transform="translate(640,90)">
+      <circle cx="0" cy="50" r="20" fill="#22d3ee"/><text x="0" y="55" font-size="13" fill="#0f172a" text-anchor="middle" font-weight="700">7</text>
+      <text x="0" y="86" font-size="10" fill="#e2e8f0" text-anchor="middle">tag</text>
+    </g>
+    <g transform="translate(740,90)">
+      <circle cx="0" cy="50" r="20" fill="#ef4444"/><text x="0" y="55" font-size="13" fill="#fff" text-anchor="middle" font-weight="700">8</text>
+      <text x="0" y="86" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="700">manual push</text>
+    </g>
+
+    <text x="20" y="206" font-size="11" fill="#94a3b8">Schritte 1-7 vollautomatisch · Schritt 8 immer mit Approval</text>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,820)">
+    <text x="0" y="14" font-size="12" font-weight="700" fill="#94a3b8">Legende</text>
+    <rect x="0" y="26" width="14" height="14" fill="#f59e0b"/><text x="22" y="38" font-size="12" fill="#e2e8f0">Skill / Release</text>
+    <rect x="140" y="26" width="14" height="14" fill="#10b981"/><text x="162" y="38" font-size="12" fill="#e2e8f0">Auto / Verify</text>
+    <rect x="280" y="26" width="14" height="14" fill="#a78bfa"/><text x="302" y="38" font-size="12" fill="#e2e8f0">Front-Matter / Docs</text>
+    <rect x="450" y="26" width="14" height="14" fill="#22d3ee"/><text x="472" y="38" font-size="12" fill="#e2e8f0">Commit / Tag</text>
+    <rect x="610" y="26" width="14" height="14" fill="#ef4444"/><text x="632" y="38" font-size="12" fill="#e2e8f0">Approval-Gate</text>
+  </g>
+</svg>

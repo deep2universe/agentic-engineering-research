@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Workflow 12 — Cloud-Task: Multi-Hour Refactor</title>
+  <desc>Lokale CLI ruft codex cloud exec mit env-Profil, prompt-file und label auf. Eine Cloud-VM laeuft mehrere Stunden. Spaeter cloud list, logs und pull. Plan-Markdown im Repo. Metapher: Auftrag in der Werft, Frachtschiff zur Cloud.</desc>
+
+  <defs>
+    <marker id="arr_cy12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arr_in12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arr_em12" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <linearGradient id="bg12" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#0c1f2a"/>
+    </linearGradient>
+    <linearGradient id="cloud12" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#bg12)"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">12. Cloud-Task: Multi-Hour Refactor</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">codex cloud exec --env  ·  --prompt-file  ·  --label  ·  cloud list / logs / pull</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 12</text>
+
+  <!-- Metapher Werft -->
+  <g transform="translate(1120,100)">
+    <rect width="240" height="80" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <path d="M14,52 q24,-32 56,0 q-28,12 -56,0 z" fill="#22d3ee" opacity="0.5"/>
+    <line x1="42" y1="52" x2="42" y2="22" stroke="#94a3b8" stroke-width="2"/>
+    <path d="M42,22 l24,12 l-24,8 z" fill="#818cf8"/>
+    <text x="100" y="40" font-size="13" fill="#e2e8f0" font-weight="600">Metapher</text>
+    <text x="100" y="58" font-size="12" fill="#94a3b8">Frachtschiff zur Cloud</text>
+  </g>
+
+  <!-- Lokale CLI -->
+  <g transform="translate(40,180)">
+    <rect width="340" height="290" rx="14" ry="14" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#818cf8">Lokale CLI (Auftraggeber)</text>
+    <text x="20" y="54" font-size="11" fill="#94a3b8">~/code/legacy-monolith</text>
+
+    <rect x="20" y="68" width="300" height="86" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="86" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">$ codex cloud exec \</text>
+    <text x="30" y="102" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">    --env python-mig \</text>
+    <text x="30" y="118" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">    --prompt-file docs/plans/...md \</text>
+    <text x="30" y="134" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">    --label "py3-migration-q2"</text>
+    <text x="30" y="148" font-size="10" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">  -> task-id: tsk_a83f...</text>
+
+    <text x="20" y="182" font-size="13" font-weight="600" fill="#94a3b8">Folge-Befehle</text>
+    <rect x="20" y="194" width="300" height="22" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="210" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">codex cloud list</text>
+    <text x="180" y="210" font-size="10" fill="#94a3b8">(Status &amp; Progress)</text>
+    <rect x="20" y="222" width="300" height="22" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="238" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">codex cloud logs &lt;id&gt;</text>
+    <text x="200" y="238" font-size="10" fill="#94a3b8">(live tail)</text>
+    <rect x="20" y="250" width="300" height="22" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="266" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">codex cloud pull &lt;id&gt;</text>
+    <text x="200" y="266" font-size="10" fill="#94a3b8">(Patch ins Repo)</text>
+  </g>
+
+  <!-- Plan-MD -->
+  <g transform="translate(40,500)">
+    <rect width="340" height="180" rx="14" ry="14" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#a78bfa">Plan-Markdown im Repo</text>
+    <text x="20" y="50" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">docs/plans/python3-migration.md</text>
+    <rect x="20" y="60" width="300" height="100" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="78" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa"># Goal</text>
+    <text x="30" y="92" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">Migrate 312 modules py2 -> py3.</text>
+    <text x="30" y="108" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa"># Constraints</text>
+    <text x="30" y="122" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- Drop tornado, use asyncio.</text>
+    <text x="30" y="138" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa"># Definition of Done</text>
+    <text x="30" y="152" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- pytest -x green, &lt;5% RAM</text>
+  </g>
+
+  <!-- Cloud Block -->
+  <g transform="translate(440,180)">
+    <rect width="920" height="500" rx="20" ry="20" fill="url(#cloud12)" stroke="#22d3ee" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="20" y="34" font-size="18" font-weight="700" fill="#22d3ee">Codex Cloud</text>
+    <text x="20" y="54" font-size="12" fill="#94a3b8">Container · 4 vCPU · 16 GB · 6h Wall-Clock-Budget</text>
+
+    <!-- VM-Karte -->
+    <g transform="translate(20,76)">
+      <rect width="420" height="280" rx="14" ry="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+      <text x="16" y="30" font-size="14" font-weight="700" fill="#e2e8f0">VM tsk_a83f...</text>
+      <text x="16" y="48" font-size="11" fill="#94a3b8">env: python-mig (Dockerfile gepinnt)</text>
+
+      <rect x="16" y="60" width="388" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="26" y="78" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">git clone repo</text>
+      <text x="380" y="78" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981" text-anchor="end">OK</text>
+
+      <rect x="16" y="94" width="388" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="26" y="112" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">apply prompt-file</text>
+      <text x="380" y="112" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981" text-anchor="end">OK</text>
+
+      <rect x="16" y="128" width="388" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="26" y="146" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">codex agent loop · turn 84</text>
+      <text x="380" y="146" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b" text-anchor="end">RUN</text>
+
+      <rect x="16" y="162" width="388" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="26" y="180" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">pytest -x ./tests</text>
+      <text x="380" y="180" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8" text-anchor="end">…</text>
+
+      <rect x="16" y="196" width="388" height="28" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="26" y="214" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">git format-patch</text>
+      <text x="380" y="214" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8" text-anchor="end">…</text>
+
+      <text x="16" y="246" font-size="11" fill="#94a3b8">Sandbox: workspace-write · Network: outbound only · Approval: never</text>
+      <text x="16" y="264" font-size="11" fill="#94a3b8">Persist: Patches + Logs (kein State-Carry-Over)</text>
+    </g>
+
+    <!-- Status-Liste -->
+    <g transform="translate(460,76)">
+      <rect width="440" height="280" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+      <text x="16" y="30" font-size="14" font-weight="700" fill="#e2e8f0">cloud list (Beispiel-Output)</text>
+
+      <g transform="translate(16,50)">
+        <rect width="408" height="22" rx="4" fill="#0f172a"/>
+        <text x="10" y="16" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">ID            LABEL                 STATUS  RUNTIME</text>
+      </g>
+      <g transform="translate(16,76)">
+        <rect width="408" height="22" rx="4" fill="#0c1f2a"/>
+        <text x="10" y="16" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">tsk_a83f...  py3-migration-q2  RUN     2h13m</text>
+      </g>
+      <g transform="translate(16,100)">
+        <rect width="408" height="22" rx="4" fill="#0c1f2a"/>
+        <text x="10" y="16" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#10b981">tsk_91cd...  api-deprecation   DONE    47m</text>
+      </g>
+      <g transform="translate(16,124)">
+        <rect width="408" height="22" rx="4" fill="#0c1f2a"/>
+        <text x="10" y="16" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#ef4444">tsk_2b07...  flake-fixer       FAIL    18m</text>
+      </g>
+
+      <text x="16" y="170" font-size="13" font-weight="600" fill="#94a3b8">Best Practice</text>
+      <text x="16" y="190" font-size="12" fill="#e2e8f0">- Plan im Repo, nicht inline</text>
+      <text x="16" y="208" font-size="12" fill="#e2e8f0">- Label = Ticket-Nummer (Audit)</text>
+      <text x="16" y="226" font-size="12" fill="#e2e8f0">- Nach pull: PR + Review-Loop</text>
+      <text x="16" y="244" font-size="12" fill="#e2e8f0">- Wall-Clock-Budget setzen</text>
+    </g>
+
+    <!-- Patch-Output -->
+    <g transform="translate(20,376)">
+      <rect width="880" height="100" rx="14" ry="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+      <text x="16" y="30" font-size="14" font-weight="700" fill="#10b981">Patch-Bundle (cloud pull)</text>
+      <text x="16" y="50" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">312 Dateien geaendert · +9.214 / -7.103 · 84 Turns · Logs: ./.codex/cloud/tsk_a83f.log</text>
+      <text x="16" y="70" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#94a3b8">Apply als git am · oder direkt PR via gh pr create</text>
+      <text x="16" y="88" font-size="11" fill="#94a3b8">State-Trennung: lokales Repo bleibt unberuehrt bis zum Pull</text>
+    </g>
+  </g>
+
+  <!-- Pfeile -->
+  <path d="M380,300 L440,300" stroke="#22d3ee" stroke-width="3" fill="none" marker-end="url(#arr_cy12)"/>
+  <text x="385" y="290" font-size="11" fill="#22d3ee">exec</text>
+  <path d="M880,420 L380,420" stroke="#10b981" stroke-width="3" fill="none" marker-end="url(#arr_em12)"/>
+  <text x="600" y="412" font-size="12" fill="#10b981">pull (Patch)</text>
+  <path d="M380,580 L440,400" stroke="#a78bfa" stroke-width="2" stroke-dasharray="4,3" fill="none" marker-end="url(#arr_in12)"/>
+  <text x="385" y="540" font-size="11" fill="#a78bfa">prompt-file</text>
+
+  <!-- Legende -->
+  <g transform="translate(60,790)">
+    <text x="0" y="14" font-size="12" font-weight="700" fill="#94a3b8">Legende</text>
+    <rect x="0" y="26" width="14" height="14" fill="#818cf8"/><text x="22" y="38" font-size="12" fill="#e2e8f0">Lokale CLI</text>
+    <rect x="120" y="26" width="14" height="14" fill="#22d3ee"/><text x="142" y="38" font-size="12" fill="#e2e8f0">Cloud / VM</text>
+    <rect x="240" y="26" width="14" height="14" fill="#a78bfa"/><text x="262" y="38" font-size="12" fill="#e2e8f0">Plan-MD</text>
+    <rect x="340" y="26" width="14" height="14" fill="#10b981"/><text x="362" y="38" font-size="12" fill="#e2e8f0">Patch / Pull</text>
+    <rect x="460" y="26" width="14" height="14" fill="#f59e0b"/><text x="482" y="38" font-size="12" fill="#e2e8f0">Label / Status</text>
+  </g>
+</svg>

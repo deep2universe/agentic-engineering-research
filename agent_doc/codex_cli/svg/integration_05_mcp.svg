@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI – Model Context Protocol (MCP)</title>
+  <desc>Bidirektionaler USB-Hub: Codex als MCP-Client zieht Tools von Servern (filesystem, github, playwright, postgres, sentry, slack, linear, notion) und exponiert sich gleichzeitig als MCP-Server für andere Agenten. Per-Tool-Approval möglich.</desc>
+
+  <defs>
+    <marker id="arrMcp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arrMcpRev" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Model Context Protocol · bidirektionaler USB-Hub</text>
+  <text x="40" y="84" font-size="15" fill="#94a3b8">Codex als MCP-Client (zieht Server-Tools rein) und als MCP-Server (codex mcp serve) — per-Tool-Approval inklusive</text>
+  <text x="1360" y="56" font-size="14" fill="#64748b" text-anchor="end">Codex CLI · Kapitel 5</text>
+
+  <!-- Hub in der Mitte -->
+  <g>
+    <rect x="540" y="320" width="320" height="220" rx="20" ry="20" fill="#1e293b" stroke="#10b981" stroke-width="2.5"/>
+    <text x="700" y="356" font-size="22" font-weight="700" fill="#6ee7b7" text-anchor="middle">Codex CLI</text>
+    <text x="700" y="378" font-size="13" fill="#94a3b8" text-anchor="middle">MCP-Hub · stdio + JSON-RPC</text>
+
+    <!-- Anschlüsse links (Client-Seite) -->
+    <g>
+      <rect x="552" y="396" width="58" height="22" rx="4" fill="#064e3b" stroke="#10b981"/>
+      <text x="581" y="411" font-size="11" fill="#6ee7b7" text-anchor="middle">USB-A</text>
+      <rect x="552" y="424" width="58" height="22" rx="4" fill="#064e3b" stroke="#10b981"/>
+      <text x="581" y="439" font-size="11" fill="#6ee7b7" text-anchor="middle">USB-A</text>
+      <rect x="552" y="452" width="58" height="22" rx="4" fill="#064e3b" stroke="#10b981"/>
+      <text x="581" y="467" font-size="11" fill="#6ee7b7" text-anchor="middle">USB-A</text>
+      <rect x="552" y="480" width="58" height="22" rx="4" fill="#064e3b" stroke="#10b981"/>
+      <text x="581" y="495" font-size="11" fill="#6ee7b7" text-anchor="middle">USB-A</text>
+      <text x="616" y="411" font-size="10" fill="#94a3b8">Client-Port</text>
+    </g>
+    <!-- Anschlüsse rechts (Server-Seite) -->
+    <g>
+      <rect x="790" y="396" width="58" height="22" rx="4" fill="#3b0764" stroke="#a78bfa"/>
+      <text x="819" y="411" font-size="11" fill="#c4b5fd" text-anchor="middle">USB-C</text>
+      <rect x="790" y="424" width="58" height="22" rx="4" fill="#3b0764" stroke="#a78bfa"/>
+      <text x="819" y="439" font-size="11" fill="#c4b5fd" text-anchor="middle">USB-C</text>
+      <rect x="790" y="452" width="58" height="22" rx="4" fill="#3b0764" stroke="#a78bfa"/>
+      <text x="819" y="467" font-size="11" fill="#c4b5fd" text-anchor="middle">USB-C</text>
+      <text x="784" y="411" font-size="10" fill="#94a3b8" text-anchor="end">Server-Port</text>
+    </g>
+
+    <text x="700" y="528" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#cbd5e1" text-anchor="middle">codex mcp add | list | remove · codex mcp serve</text>
+  </g>
+
+  <!-- MCP-Server links (Codex als CLIENT) -->
+  <text x="280" y="140" font-size="18" font-weight="700" fill="#6ee7b7">Codex als MCP-Client</text>
+  <text x="280" y="160" font-size="12" fill="#94a3b8">externe Server liefern Tools in den Agent-Kontext</text>
+
+  <g font-size="12">
+    <rect x="40" y="180" width="240" height="60" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="56" y="202" font-weight="600" fill="#6ee7b7">filesystem</text>
+    <text x="56" y="220" fill="#cbd5e1">@modelcontextprotocol/...</text>
+    <text x="56" y="234" font-size="10" fill="#94a3b8">sicherer File-Access außerhalb cwd</text>
+
+    <rect x="40" y="248" width="240" height="60" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="56" y="270" font-weight="600" fill="#6ee7b7">github</text>
+    <text x="56" y="288" fill="#cbd5e1">Issues · PRs · Repos</text>
+    <text x="56" y="302" font-size="10" fill="#94a3b8">env: GITHUB_TOKEN</text>
+
+    <rect x="40" y="316" width="240" height="60" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="56" y="338" font-weight="600" fill="#6ee7b7">playwright</text>
+    <text x="56" y="356" fill="#cbd5e1">@playwright/mcp</text>
+    <text x="56" y="370" font-size="10" fill="#94a3b8">Browser-Automation / E2E</text>
+
+    <rect x="40" y="384" width="240" height="60" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="56" y="406" font-weight="600" fill="#6ee7b7">postgres</text>
+    <text x="56" y="424" fill="#cbd5e1">SQL-Queries</text>
+    <text x="56" y="438" font-size="10" fill="#94a3b8">postgres://app:pw@host/db</text>
+
+    <rect x="40" y="452" width="240" height="60" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="56" y="474" font-weight="600" fill="#6ee7b7">sentry</text>
+    <text x="56" y="492" fill="#cbd5e1">Incident-Triage</text>
+    <text x="56" y="506" font-size="10" fill="#94a3b8">Stacktraces, Releases</text>
+
+    <rect x="290" y="180" width="220" height="60" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="306" y="202" font-weight="600" fill="#6ee7b7">slack</text>
+    <text x="306" y="220" fill="#cbd5e1">Chat-Integration</text>
+    <text x="306" y="234" font-size="10" fill="#94a3b8">chat.postMessage</text>
+
+    <rect x="290" y="248" width="220" height="60" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="306" y="270" font-weight="600" fill="#6ee7b7">linear</text>
+    <text x="306" y="288" fill="#cbd5e1">Issues · Cycles</text>
+
+    <rect x="290" y="316" width="220" height="60" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="306" y="338" font-weight="600" fill="#6ee7b7">notion</text>
+    <text x="306" y="356" fill="#cbd5e1">Pages · Databases</text>
+  </g>
+
+  <!-- Pfeile von Servern zum Hub (Client) -->
+  <path d="M510 210 Q 540 320, 552 408" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrMcp)" opacity="0.7"/>
+  <path d="M510 278 Q 540 360, 552 425" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrMcp)" opacity="0.7"/>
+  <path d="M280 346 Q 420 410, 552 458" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrMcp)" opacity="0.7"/>
+  <path d="M280 414 Q 420 446, 552 488" stroke="#10b981" stroke-width="2" fill="none" marker-end="url(#arrMcp)" opacity="0.7"/>
+
+  <!-- Externe Agenten rechts (Codex als SERVER) -->
+  <text x="1110" y="140" font-size="18" font-weight="700" fill="#c4b5fd" text-anchor="middle">Codex als MCP-Server</text>
+  <text x="1110" y="160" font-size="12" fill="#94a3b8" text-anchor="middle">codex mcp serve · stdio-Server für andere Agenten</text>
+
+  <g font-size="12">
+    <rect x="900" y="180" width="200" height="60" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="916" y="202" font-weight="600" fill="#c4b5fd">Claude Code</text>
+    <text x="916" y="220" fill="#cbd5e1">Anthropic-Agent</text>
+    <text x="916" y="234" font-size="10" fill="#94a3b8">orchestriert Codex als Sub-Agent</text>
+
+    <rect x="900" y="248" width="200" height="60" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="916" y="270" font-weight="600" fill="#c4b5fd">Cline</text>
+    <text x="916" y="288" fill="#cbd5e1">VS-Code-Agent</text>
+
+    <rect x="900" y="316" width="200" height="60" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="916" y="338" font-weight="600" fill="#c4b5fd">Zed</text>
+    <text x="916" y="356" fill="#cbd5e1">Editor mit Agent-Mode</text>
+
+    <rect x="1110" y="180" width="200" height="60" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="1126" y="202" font-weight="600" fill="#c4b5fd">Windsurf</text>
+    <text x="1126" y="220" fill="#cbd5e1">Codex via MCP-Aufruf</text>
+
+    <rect x="1110" y="248" width="200" height="60" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="1126" y="270" font-weight="600" fill="#c4b5fd">Eigene Agent-Stacks</text>
+    <text x="1126" y="288" fill="#cbd5e1">Review-Tasks, Sub-Agents</text>
+  </g>
+
+  <!-- Pfeile vom Hub zu externen Agenten -->
+  <path d="M848 408 Q 880 300, 900 220" stroke="#a78bfa" stroke-width="2" fill="none" marker-end="url(#arrMcpRev)" opacity="0.7"/>
+  <path d="M848 435 Q 880 360, 900 280" stroke="#a78bfa" stroke-width="2" fill="none" marker-end="url(#arrMcpRev)" opacity="0.7"/>
+  <path d="M848 463 Q 1000 420, 1110 220" stroke="#a78bfa" stroke-width="2" fill="none" marker-end="url(#arrMcpRev)" opacity="0.7"/>
+  <path d="M848 463 Q 1010 380, 1110 280" stroke="#a78bfa" stroke-width="2" fill="none" marker-end="url(#arrMcpRev)" opacity="0.7"/>
+
+  <!-- TOML-Snippet links unten -->
+  <rect x="40" y="580" width="640" height="290" rx="12" ry="12" fill="#1e293b" stroke="#10b981"/>
+  <text x="60" y="608" font-size="16" font-weight="700" fill="#6ee7b7">Server-Stanza · ~/.codex/config.toml</text>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+    <text x="60" y="634" fill="#a5b4fc">[mcp_servers.playwright]</text>
+    <text x="60" y="652" fill="#cbd5e1">command = "npx"</text>
+    <text x="60" y="670" fill="#cbd5e1">args    = ["@playwright/mcp@latest"]</text>
+    <text x="60" y="688" fill="#cbd5e1">enabled = true</text>
+
+    <text x="60" y="716" fill="#a5b4fc">[mcp_servers.github]</text>
+    <text x="60" y="734" fill="#cbd5e1">command = "npx"</text>
+    <text x="60" y="752" fill="#cbd5e1">args    = ["-y", "@modelcontextprotocol/server-github"]</text>
+    <text x="60" y="770" fill="#cbd5e1">env     = { GITHUB_TOKEN = "${env:GITHUB_TOKEN}" }</text>
+
+    <text x="60" y="798" fill="#a5b4fc">[mcp_servers.filesystem]</text>
+    <text x="60" y="816" fill="#cbd5e1">startup_timeout_sec = 30</text>
+    <text x="60" y="834" fill="#cbd5e1">tool_timeout_sec    = 60</text>
+    <text x="60" y="852" fill="#fbbf24">default_tools_approval_mode = "on-request"</text>
+  </g>
+
+  <!-- Approval-Modi rechts unten -->
+  <rect x="720" y="580" width="640" height="290" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b"/>
+  <text x="740" y="608" font-size="16" font-weight="700" fill="#fbbf24">Per-Server- &amp; Per-Tool-Approval</text>
+  <text x="740" y="630" font-size="12" fill="#94a3b8">Granularität bis auf einzelne Tool-Namen</text>
+
+  <g font-size="12">
+    <rect x="740" y="648" width="180" height="68" rx="8" fill="#0b1224" stroke="#ef4444"/>
+    <text x="830" y="672" font-weight="700" fill="#fca5a5" text-anchor="middle">untrusted</text>
+    <text x="830" y="690" fill="#cbd5e1" text-anchor="middle">jeder Tool-Call</text>
+    <text x="830" y="706" fill="#94a3b8" text-anchor="middle">braucht Approval</text>
+
+    <rect x="930" y="648" width="180" height="68" rx="8" fill="#0b1224" stroke="#f59e0b"/>
+    <text x="1020" y="672" font-weight="700" fill="#fbbf24" text-anchor="middle">on-request</text>
+    <text x="1020" y="690" fill="#cbd5e1" text-anchor="middle">Modell entscheidet,</text>
+    <text x="1020" y="706" fill="#94a3b8" text-anchor="middle">User approved</text>
+
+    <rect x="1120" y="648" width="220" height="68" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="1230" y="672" font-weight="700" fill="#6ee7b7" text-anchor="middle">never</text>
+    <text x="1230" y="690" fill="#cbd5e1" text-anchor="middle">vollständig autonom</text>
+    <text x="1230" y="706" fill="#94a3b8" text-anchor="middle">(z. B. Browser-Klicks)</text>
+  </g>
+
+  <text x="740" y="744" font-size="13" font-weight="600" fill="#e2e8f0">Pro-Server-Flags</text>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11">
+    <text x="740" y="764" fill="#cbd5e1">command · args · env · cwd</text>
+    <text x="740" y="782" fill="#cbd5e1">startup_timeout_sec (10) · tool_timeout_sec (60)</text>
+    <text x="740" y="800" fill="#cbd5e1">enabled · supports_parallel_tool_calls</text>
+    <text x="740" y="818" fill="#cbd5e1">default_tools_approval_mode</text>
+    <text x="740" y="836" fill="#fbbf24">tools.&lt;name&gt;.approval_mode = "never"   <tspan fill="#94a3b8">// Per-Tool Override</tspan></text>
+    <text x="740" y="856" fill="#94a3b8">CLI: codex mcp add &lt;name&gt; --env K=V -- cmd args</text>
+  </g>
+</svg>

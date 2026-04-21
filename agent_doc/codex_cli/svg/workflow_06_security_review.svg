@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Security-Review eines Pull Requests</title>
+  <desc>Sicherheits-Audit mit Lupen-Patrouille: Read-only-Sandbox, OWASP-Prüfliste mit Severity-Skala, Bericht-Template.</desc>
+
+  <defs>
+    <marker id="arrowS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="60" y="64" font-size="30" font-weight="700" fill="#e2e8f0">Security-Review eines Pull Requests</text>
+  <text x="60" y="94" font-size="16" fill="#94a3b8">Lupen-Patrouille im Read-only-Modus: OWASP-Kategorien systematisch prüfen, Findings nach Severity gruppieren</text>
+  <text x="1340" y="64" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Workflow 06</text>
+
+  <!-- Left: Setup card -->
+  <g transform="translate(60,140)">
+    <rect width="340" height="690" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="20" y="36" font-size="18" font-weight="700" fill="#e2e8f0">1 · Read-only-Setup</text>
+
+    <!-- Magnifier + shield icon -->
+    <g transform="translate(120,60)">
+      <path d="M50 4 L94 22 L94 60 Q94 94 50 110 Q6 94 6 60 L6 22 Z" fill="none" stroke="#f59e0b" stroke-width="3"/>
+      <circle cx="50" cy="58" r="22" fill="none" stroke="#fbbf24" stroke-width="3"/>
+      <line x1="68" y1="74" x2="84" y2="92" stroke="#fbbf24" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    <text x="170" y="200" font-size="12" fill="#94a3b8" text-anchor="middle">Schild + Lupe</text>
+
+    <text x="20" y="230" font-size="13" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">git switch feature/new-upload</text>
+
+    <rect x="20" y="248" width="300" height="142" rx="8" fill="#0b1220" stroke="#334155"/>
+    <text x="32" y="270" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">codex --profile review \</text>
+    <text x="32" y="288" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">  --sandbox read-only \</text>
+    <text x="32" y="306" font-size="11" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">  "Security review of</text>
+    <text x="32" y="322" font-size="11" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">   uncommitted +</text>
+    <text x="32" y="338" font-size="11" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">   diff-to-main changes."</text>
+    <text x="32" y="362" font-size="11" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace"># Do NOT modify files.</text>
+    <text x="32" y="378" font-size="11" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace"># Sandbox = Tresor.</text>
+
+    <text x="20" y="424" font-size="14" font-weight="700" fill="#ef4444">Garantien durch Sandbox</text>
+    <g transform="translate(20,438)">
+      <circle cx="6" cy="14" r="4" fill="#ef4444"/>
+      <text x="18" y="18" font-size="12" fill="#cbd5e1">Kein Write auf Workspace</text>
+      <circle cx="6" cy="38" r="4" fill="#ef4444"/>
+      <text x="18" y="42" font-size="12" fill="#cbd5e1">Kein Network-Egress</text>
+      <circle cx="6" cy="62" r="4" fill="#ef4444"/>
+      <text x="18" y="66" font-size="12" fill="#cbd5e1">Kein git commit</text>
+      <circle cx="6" cy="86" r="4" fill="#ef4444"/>
+      <text x="18" y="90" font-size="12" fill="#cbd5e1">Read-Patrouille = sicher</text>
+    </g>
+
+    <text x="20" y="554" font-size="14" font-weight="700" fill="#22d3ee">Was geprüft wird</text>
+    <text x="20" y="576" font-size="12" fill="#cbd5e1">- Diff zu origin/main</text>
+    <text x="20" y="594" font-size="12" fill="#cbd5e1">- Lokale uncommitted Änderungen</text>
+    <text x="20" y="612" font-size="12" fill="#cbd5e1">- Indirekte Imports im Diff-Pfad</text>
+    <text x="20" y="630" font-size="12" fill="#cbd5e1">- Tests + Fixtures auf Secrets</text>
+
+    <rect x="20" y="650" width="300" height="22" rx="4" fill="#0b1220" stroke="#334155"/>
+    <text x="170" y="666" font-size="11" fill="#94a3b8" text-anchor="middle">Output: Markdown-Report</text>
+  </g>
+
+  <!-- Middle: OWASP checklist -->
+  <g transform="translate(420,140)">
+    <rect width="600" height="690" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="36" font-size="18" font-weight="700" fill="#e2e8f0">2 · OWASP-Prüfliste</text>
+    <text x="20" y="58" font-size="12" fill="#94a3b8">Sieben Vektoren — jede Position mit Severity</text>
+
+    <!-- Header -->
+    <g transform="translate(20,80)">
+      <rect width="560" height="32" rx="6" fill="#0b1220"/>
+      <text x="14" y="20" font-size="12" font-weight="700" fill="#94a3b8">Kategorie</text>
+      <text x="280" y="20" font-size="12" font-weight="700" fill="#94a3b8">Beispielmuster</text>
+      <text x="510" y="20" font-size="12" font-weight="700" fill="#94a3b8">Schwere</text>
+    </g>
+
+    <!-- Items -->
+    <g transform="translate(20,120)" font-size="12">
+      <!-- 1 -->
+      <rect width="560" height="68" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" fill="#e2e8f0" font-weight="700">Command-Injection</text>
+      <text x="14" y="44" fill="#94a3b8">unsafe shell interpolation</text>
+      <text x="280" y="22" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">exec(`ls ${input}`)</text>
+      <text x="280" y="44" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">spawn(cmd, [...])</text>
+      <rect x="500" y="20" width="50" height="22" rx="4" fill="#7f1d1d"/>
+      <text x="525" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#fecaca">high</text>
+    </g>
+
+    <g transform="translate(20,196)" font-size="12">
+      <rect width="560" height="68" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" fill="#e2e8f0" font-weight="700">SQL-Injection</text>
+      <text x="14" y="44" fill="#94a3b8">unescaped queries</text>
+      <text x="280" y="22" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">"SELECT … " + id</text>
+      <text x="280" y="44" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">prepared stmt fehlt</text>
+      <rect x="500" y="20" width="50" height="22" rx="4" fill="#7f1d1d"/>
+      <text x="525" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#fecaca">high</text>
+    </g>
+
+    <g transform="translate(20,272)" font-size="12">
+      <rect width="560" height="68" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" fill="#e2e8f0" font-weight="700">Path-Traversal</text>
+      <text x="14" y="44" fill="#94a3b8">file handling</text>
+      <text x="280" y="22" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">readFile(path.join(.., input))</text>
+      <text x="280" y="44" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">../../etc/passwd</text>
+      <rect x="500" y="20" width="50" height="22" rx="4" fill="#9a3412"/>
+      <text x="525" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#fed7aa">med</text>
+    </g>
+
+    <g transform="translate(20,348)" font-size="12">
+      <rect width="560" height="68" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" fill="#e2e8f0" font-weight="700">XSS</text>
+      <text x="14" y="44" fill="#94a3b8">untrusted HTML interpolation</text>
+      <text x="280" y="22" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">innerHTML = userInput</text>
+      <text x="280" y="44" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">dangerouslySetInnerHTML</text>
+      <rect x="500" y="20" width="50" height="22" rx="4" fill="#9a3412"/>
+      <text x="525" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#fed7aa">med</text>
+    </g>
+
+    <g transform="translate(20,424)" font-size="12">
+      <rect width="560" height="68" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" fill="#e2e8f0" font-weight="700">Secrets in Logs</text>
+      <text x="14" y="44" fill="#94a3b8">tokens/keys versehentlich geloggt</text>
+      <text x="280" y="22" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">log.error(err) — err.req</text>
+      <text x="280" y="44" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">Authorization-Header</text>
+      <rect x="500" y="20" width="50" height="22" rx="4" fill="#7f1d1d"/>
+      <text x="525" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#fecaca">high</text>
+    </g>
+
+    <g transform="translate(20,500)" font-size="12">
+      <rect width="560" height="68" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" fill="#e2e8f0" font-weight="700">Broken Auth / Authz</text>
+      <text x="14" y="44" fill="#94a3b8">missing access checks</text>
+      <text x="280" y="22" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">Route ohne requireRole(...)</text>
+      <text x="280" y="44" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">UUID-Enumeration</text>
+      <rect x="500" y="20" width="50" height="22" rx="4" fill="#7f1d1d"/>
+      <text x="525" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#fecaca">high</text>
+    </g>
+
+    <g transform="translate(20,576)" font-size="12">
+      <rect width="560" height="68" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" fill="#e2e8f0" font-weight="700">Prototype Pollution</text>
+      <text x="14" y="44" fill="#94a3b8">unsafe JSON merge</text>
+      <text x="280" y="22" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">Object.assign({}, untrusted)</text>
+      <text x="280" y="44" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">__proto__ key</text>
+      <rect x="500" y="20" width="50" height="22" rx="4" fill="#9a3412"/>
+      <text x="525" y="36" text-anchor="middle" font-size="12" font-weight="700" fill="#fed7aa">med</text>
+    </g>
+  </g>
+
+  <!-- Right: Severity & Report panel -->
+  <g transform="translate(1040,140)">
+    <rect width="300" height="690" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="20" y="36" font-size="18" font-weight="700" fill="#e2e8f0">3 · Severity-Skala</text>
+
+    <g transform="translate(20,60)">
+      <rect width="260" height="40" rx="6" fill="#0b1220" stroke="#334155"/>
+      <rect x="0" y="0" width="6" height="40" rx="3" fill="#94a3b8"/>
+      <text x="20" y="18" font-size="12" font-weight="700" fill="#cbd5e1">info</text>
+      <text x="20" y="34" font-size="11" fill="#94a3b8">Hinweis · keine Aktion nötig</text>
+    </g>
+
+    <g transform="translate(20,108)">
+      <rect width="260" height="40" rx="6" fill="#0b1220" stroke="#334155"/>
+      <rect x="0" y="0" width="6" height="40" rx="3" fill="#22d3ee"/>
+      <text x="20" y="18" font-size="12" font-weight="700" fill="#a5f3fc">low</text>
+      <text x="20" y="34" font-size="11" fill="#94a3b8">geringes Risiko</text>
+    </g>
+
+    <g transform="translate(20,156)">
+      <rect width="260" height="40" rx="6" fill="#0b1220" stroke="#334155"/>
+      <rect x="0" y="0" width="6" height="40" rx="3" fill="#f59e0b"/>
+      <text x="20" y="18" font-size="12" font-weight="700" fill="#fbbf24">med</text>
+      <text x="20" y="34" font-size="11" fill="#94a3b8">vor Merge fixen</text>
+    </g>
+
+    <g transform="translate(20,204)">
+      <rect width="260" height="40" rx="6" fill="#0b1220" stroke="#334155"/>
+      <rect x="0" y="0" width="6" height="40" rx="3" fill="#ef4444"/>
+      <text x="20" y="18" font-size="12" font-weight="700" fill="#fecaca">high</text>
+      <text x="20" y="34" font-size="11" fill="#94a3b8">Blocker · sofort handeln</text>
+    </g>
+
+    <text x="20" y="290" font-size="14" font-weight="700" fill="#a78bfa">Report-Template</text>
+    <rect x="20" y="304" width="260" height="240" rx="8" fill="#0b1220" stroke="#334155"/>
+    <text x="32" y="324" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">## OWASP Findings</text>
+    <text x="32" y="346" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">### Command-Injection</text>
+    <text x="32" y="362" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- file:line · severity</text>
+    <text x="32" y="378" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- problem (1 sentence)</text>
+    <text x="32" y="394" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- suggested patch</text>
+
+    <text x="32" y="420" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">### SQL-Injection</text>
+    <text x="32" y="436" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- src/db/users.ts:42</text>
+    <text x="32" y="452" font-size="11" fill="#fecaca" font-family="'JetBrains Mono', ui-monospace, monospace">  severity: high</text>
+
+    <text x="32" y="478" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">### Secrets</text>
+    <text x="32" y="494" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- src/log/redact.ts:8</text>
+    <text x="32" y="510" font-size="11" fill="#fbbf24" font-family="'JetBrains Mono', ui-monospace, monospace">  severity: med</text>
+    <text x="32" y="532" font-size="11" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">_grouped by severity_</text>
+
+    <text x="20" y="580" font-size="14" font-weight="700" fill="#10b981">Hinweise</text>
+    <text x="20" y="600" font-size="11" fill="#cbd5e1">- "Group by category" einfordern</text>
+    <text x="20" y="618" font-size="11" fill="#cbd5e1">- "No praise, only findings"</text>
+    <text x="20" y="636" font-size="11" fill="#cbd5e1">- file:line Pflicht-Format</text>
+    <text x="20" y="654" font-size="11" fill="#cbd5e1">- read-only verhindert Drift</text>
+  </g>
+
+  <!-- Connection arrows -->
+  <line x1="404" y1="450" x2="420" y2="450" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowS)"/>
+  <line x1="1024" y1="450" x2="1040" y2="450" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowS)"/>
+</svg>

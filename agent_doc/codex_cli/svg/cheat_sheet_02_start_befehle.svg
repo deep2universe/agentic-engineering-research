@@ -1,0 +1,168 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Start-Befehle — Codex CLI Cockpit</title>
+  <desc>Befehls-Matrix in Cockpit-/Schaltpult-Metapher: codex, exec, resume, review, cloud, mcp serve, marketplace add, completion. Pro Befehl ein Icon und ein 1-Satz-Effekt.</desc>
+
+  <defs>
+    <linearGradient id="panel" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="70" fill="#e2e8f0" font-size="30" font-weight="700">Start-Befehle</text>
+  <text x="60" y="100" fill="#94a3b8" font-size="16">Cockpit der Codex CLI · jeder Knopf ein Einstieg</text>
+  <text x="1340" y="70" fill="#64748b" font-size="14" text-anchor="end">cheat_sheet · 02/13</text>
+
+  <!-- Cockpit-Rahmen -->
+  <rect x="40" y="130" width="1320" height="740" rx="20" fill="url(#panel)" stroke="#334155" stroke-width="2"/>
+
+  <!-- Skalenleiste oben -->
+  <g transform="translate(70 150)">
+    <rect x="0" y="0" width="1260" height="36" rx="18" fill="#0b1220" stroke="#334155"/>
+    <circle cx="22" cy="18" r="8" fill="#10b981"/>
+    <circle cx="46" cy="18" r="8" fill="#f59e0b"/>
+    <circle cx="70" cy="18" r="8" fill="#ef4444"/>
+    <text x="1240" y="23" fill="#64748b" font-size="12" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, monospace">codex --version · v0.121+</text>
+    <text x="130" y="23" fill="#94a3b8" font-size="13">entry points · binary dispatch</text>
+  </g>
+
+  <!-- Grid 4 × 3 -->
+  <g font-family="'JetBrains Mono', 'Fira Code', ui-monospace, monospace">
+
+    <!-- codex -->
+    <g transform="translate(70 220)">
+      <rect width="300" height="160" rx="14" fill="#0b1220" stroke="#6366f1" stroke-width="2"/>
+      <circle cx="30" cy="32" r="14" fill="#0f172a" stroke="#818cf8"/>
+      <rect x="22" y="26" width="16" height="12" fill="none" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="55" y="38" fill="#e2e8f0" font-size="16" font-weight="700">codex</text>
+      <text x="20" y="75" fill="#818cf8" font-size="14">interaktive TUI</text>
+      <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="system-ui">Einstieg in den TUI-Modus,</text>
+      <text x="20" y="116" fill="#94a3b8" font-size="12" font-family="system-ui">Session-Loop mit Prompt &amp; Tools.</text>
+      <text x="20" y="146" fill="#64748b" font-size="11">codex "&lt;prompt&gt;" · vorbelegt</text>
+    </g>
+
+    <!-- codex exec -->
+    <g transform="translate(390 220)">
+      <rect width="300" height="160" rx="14" fill="#0b1220" stroke="#22d3ee" stroke-width="2"/>
+      <path d="M20 26 L32 32 L20 38 Z" fill="#22d3ee"/>
+      <rect x="36" y="30" width="18" height="4" fill="#22d3ee"/>
+      <text x="65" y="38" fill="#e2e8f0" font-size="16" font-weight="700">codex exec</text>
+      <text x="20" y="75" fill="#22d3ee" font-size="14">non-interaktiv · stdout</text>
+      <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="system-ui">Headless-Lauf für Scripts,</text>
+      <text x="20" y="116" fill="#94a3b8" font-size="12" font-family="system-ui">CI-Pipelines und cron.</text>
+      <text x="20" y="146" fill="#64748b" font-size="11">--json · --output-last-message</text>
+    </g>
+
+    <!-- codex resume -->
+    <g transform="translate(710 220)">
+      <rect width="300" height="160" rx="14" fill="#0b1220" stroke="#a78bfa" stroke-width="2"/>
+      <path d="M22 32 A 12 12 0 1 1 34 44 L 34 38 M34 44 L 40 44" fill="none" stroke="#a78bfa" stroke-width="2"/>
+      <text x="55" y="38" fill="#e2e8f0" font-size="16" font-weight="700">codex resume</text>
+      <text x="20" y="75" fill="#a78bfa" font-size="14">Session fortsetzen</text>
+      <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="system-ui">Picker über ~/.codex/sessions/*,</text>
+      <text x="20" y="116" fill="#94a3b8" font-size="12" font-family="system-ui">Kontext bleibt erhalten.</text>
+      <text x="20" y="146" fill="#64748b" font-size="11">--last · sofort letzte weiter</text>
+    </g>
+
+    <!-- codex review -->
+    <g transform="translate(1030 220)">
+      <rect width="300" height="160" rx="14" fill="#0b1220" stroke="#10b981" stroke-width="2"/>
+      <path d="M22 28 L30 38 L44 24" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="55" y="38" fill="#e2e8f0" font-size="16" font-weight="700">codex review</text>
+      <text x="20" y="75" fill="#10b981" font-size="14">dedizierter Review-Lauf</text>
+      <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="system-ui">Diff-Analyse &amp; Checks,</text>
+      <text x="20" y="116" fill="#94a3b8" font-size="12" font-family="system-ui">read-only · keine Writes.</text>
+      <text x="20" y="146" fill="#64748b" font-size="11">PR-Review, Regressions-Scan</text>
+    </g>
+
+    <!-- codex cloud -->
+    <g transform="translate(70 400)">
+      <rect width="300" height="160" rx="14" fill="#0b1220" stroke="#06b6d4" stroke-width="2"/>
+      <path d="M22 36 A10 10 0 0 1 34 26 A12 12 0 0 1 54 32 A8 8 0 0 1 56 42 L22 42 Z" fill="none" stroke="#06b6d4" stroke-width="2"/>
+      <text x="65" y="38" fill="#e2e8f0" font-size="16" font-weight="700">codex cloud …</text>
+      <text x="20" y="75" fill="#06b6d4" font-size="14">Cloud-Task orchestrieren</text>
+      <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="system-ui">exec --env · list · logs · pull,</text>
+      <text x="20" y="116" fill="#94a3b8" font-size="12" font-family="system-ui">entkoppelt lokal vom Runner.</text>
+      <text x="20" y="146" fill="#64748b" font-size="11">lange Jobs, Multi-Repo</text>
+    </g>
+
+    <!-- codex mcp serve -->
+    <g transform="translate(390 400)">
+      <rect width="300" height="160" rx="14" fill="#0b1220" stroke="#818cf8" stroke-width="2"/>
+      <circle cx="30" cy="32" r="10" fill="none" stroke="#818cf8" stroke-width="2"/>
+      <path d="M30 22 V42 M20 32 H40" stroke="#818cf8" stroke-width="2"/>
+      <text x="55" y="38" fill="#e2e8f0" font-size="16" font-weight="700">codex mcp serve</text>
+      <text x="20" y="75" fill="#818cf8" font-size="14">Codex als MCP-Server</text>
+      <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="system-ui">Andere Agents rufen Codex</text>
+      <text x="20" y="116" fill="#94a3b8" font-size="12" font-family="system-ui">als Tool über MCP auf.</text>
+      <text x="20" y="146" fill="#64748b" font-size="11">add · list · remove (Verwaltung)</text>
+    </g>
+
+    <!-- codex marketplace add -->
+    <g transform="translate(710 400)">
+      <rect width="300" height="160" rx="14" fill="#0b1220" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="22" y="22" width="20" height="20" fill="none" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="26" y="26" width="12" height="4" fill="#f59e0b"/>
+      <text x="55" y="38" fill="#e2e8f0" font-size="16" font-weight="700">marketplace add</text>
+      <text x="20" y="75" fill="#f59e0b" font-size="14">Plugin / Skill laden</text>
+      <text x="20" y="100" fill="#94a3b8" font-size="12" font-family="system-ui">Installiert Skills &amp; Slash-</text>
+      <text x="20" y="116" fill="#94a3b8" font-size="12" font-family="system-ui">Commands aus Marketplace.</text>
+      <text x="20" y="146" fill="#64748b" font-size="11">/plugins · list · update</text>
+    </g>
+
+    <!-- codex completion -->
+    <g transform="translate(1030 400)">
+      <rect width="300" height="160" rx="14" fill="#0b1220" stroke="#94a3b8" stroke-width="2"/>
+      <path d="M20 28 H50 M20 36 H42 M20 44 H36" stroke="#94a3b8" stroke-width="2"/>
+      <text x="65" y="38" fill="#e2e8f0" font-size="16" font-weight="700">codex completion</text>
+      <text x="20" y="75" fill="#94a3b8" font-size="14">Shell-Completion</text>
+      <text x="20" y="100" fill="#cbd5e1" font-size="12" font-family="system-ui">Erzeugt Completion-Script</text>
+      <text x="20" y="116" fill="#cbd5e1" font-size="12" font-family="system-ui">für bash · zsh · fish.</text>
+      <text x="20" y="146" fill="#64748b" font-size="11">eval &lt;(codex completion zsh)</text>
+    </g>
+
+    <!-- Zusätzliche Reihe: Login/Logout + Hilfe + MCP-Mgmt -->
+    <g transform="translate(70 580)">
+      <rect width="300" height="130" rx="14" fill="#0b1220" stroke="#10b981" stroke-width="2"/>
+      <text x="20" y="35" fill="#10b981" font-size="14" font-weight="700">codex login [--device-auth]</text>
+      <text x="20" y="60" fill="#94a3b8" font-size="12" font-family="system-ui">Browser-OAuth oder Device-Code</text>
+      <text x="20" y="85" fill="#10b981" font-size="14" font-weight="700">codex logout</text>
+      <text x="20" y="110" fill="#94a3b8" font-size="12" font-family="system-ui">Session &amp; Token entfernen</text>
+    </g>
+
+    <g transform="translate(390 580)">
+      <rect width="300" height="130" rx="14" fill="#0b1220" stroke="#a78bfa" stroke-width="2"/>
+      <text x="20" y="35" fill="#a78bfa" font-size="14" font-weight="700">codex cloud list | logs | pull</text>
+      <text x="20" y="60" fill="#94a3b8" font-size="12" font-family="system-ui">Tasks beobachten &amp; Artefakte holen</text>
+      <text x="20" y="85" fill="#a78bfa" font-size="14" font-weight="700">codex cloud exec --env &lt;id&gt;</text>
+      <text x="20" y="110" fill="#94a3b8" font-size="12" font-family="system-ui">Remote-Task starten</text>
+    </g>
+
+    <g transform="translate(710 580)">
+      <rect width="300" height="130" rx="14" fill="#0b1220" stroke="#818cf8" stroke-width="2"/>
+      <text x="20" y="35" fill="#818cf8" font-size="14" font-weight="700">codex mcp add · list · remove</text>
+      <text x="20" y="60" fill="#94a3b8" font-size="12" font-family="system-ui">MCP-Server registrieren/pflegen</text>
+      <text x="20" y="85" fill="#818cf8" font-size="14" font-weight="700">codex --help / -h</text>
+      <text x="20" y="110" fill="#94a3b8" font-size="12" font-family="system-ui">Subcommand-Referenz</text>
+    </g>
+
+    <g transform="translate(1030 580)">
+      <rect width="300" height="130" rx="14" fill="#0b1220" stroke="#ef4444" stroke-width="2"/>
+      <text x="20" y="35" fill="#ef4444" font-size="14" font-weight="700">codex --yolo</text>
+      <text x="20" y="60" fill="#94a3b8" font-size="12" font-family="system-ui">ohne Sandbox/Approval — nur VM!</text>
+      <text x="20" y="85" fill="#f59e0b" font-size="14" font-weight="700">codex --full-auto</text>
+      <text x="20" y="110" fill="#94a3b8" font-size="12" font-family="system-ui">workspace-write + on-request</text>
+    </g>
+  </g>
+
+  <!-- Skala / Bodenleiste -->
+  <g transform="translate(70 740)">
+    <rect x="0" y="0" width="1260" height="110" rx="12" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="30" fill="#94a3b8" font-size="13" font-weight="600">ENTSCHEIDUNGS-TIPPS</text>
+    <text x="20" y="55" fill="#cbd5e1" font-size="12">• Interaktive Arbeit → <tspan fill="#818cf8" font-family="'JetBrains Mono', ui-monospace, monospace">codex</tspan> · CI/Script → <tspan fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">codex exec</tspan></text>
+    <text x="20" y="78" fill="#cbd5e1" font-size="12">• Lange Tasks → <tspan fill="#06b6d4" font-family="'JetBrains Mono', ui-monospace, monospace">codex cloud exec</tspan> · Reviews → <tspan fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">codex review</tspan></text>
+    <text x="20" y="100" fill="#cbd5e1" font-size="12">• Tool-Server → <tspan fill="#818cf8" font-family="'JetBrains Mono', ui-monospace, monospace">codex mcp serve</tspan> · Shortcut-Komfort → <tspan fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">codex completion</tspan></text>
+  </g>
+</svg>

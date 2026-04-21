@@ -1,0 +1,194 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI — Authentifizierung: OAuth, API-Key, Third-Party</title>
+  <desc>Drei Auth-Pfade: ChatGPT-OAuth (empfohlen), OpenAI API-Key (Pay-per-Use), Third-Party-Provider. Rate-Limit-Tabelle, Warn-Box zum API-Key-Override und Auth-Dateien.</desc>
+
+  <defs>
+    <marker id="arrowAuth" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Authentifizierung — Schlüsselbund &amp; Drehkreuz</text>
+  <text x="40" y="84" font-size="16" fill="#94a3b8">Drei Wege zum Token · Priorität, Fallstricke, Persistenz</text>
+  <text x="1360" y="56" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 4</text>
+
+  <!-- Drei Pfade -->
+  <g transform="translate(40,120)">
+    <text x="0" y="0" font-size="14" fill="#94a3b8">Drei Auth-Pfade → ein aktives Codex-Session-Token</text>
+  </g>
+
+  <!-- PFAD 1: OAuth -->
+  <g transform="translate(40,150)">
+    <rect x="0" y="0" width="300" height="280" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="46" rx="14" fill="#064e3b"/>
+    <text x="16" y="28" font-size="15" font-weight="700" fill="#6ee7b7">1 · Sign in with ChatGPT</text>
+    <text x="240" y="28" font-size="11" fill="#34d399">empfohlen</text>
+
+    <text x="16" y="72" font-size="12" font-weight="700" fill="#94a3b8">Kommandos</text>
+    <rect x="16" y="80" width="268" height="100" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="100" font-family="'JetBrains Mono', monospace" font-size="11" fill="#e2e8f0">codex login</text>
+    <text x="24" y="118" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">  # Browser-OAuth</text>
+    <text x="24" y="136" font-family="'JetBrains Mono', monospace" font-size="11" fill="#e2e8f0">codex login --device-auth</text>
+    <text x="24" y="154" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">  # headless / SSH</text>
+    <text x="24" y="172" font-family="'JetBrains Mono', monospace" font-size="11" fill="#10b981">codex login status</text>
+
+    <text x="16" y="208" font-size="12" font-weight="700" fill="#94a3b8">Unterstützte Pläne</text>
+    <text x="16" y="228" font-size="11" fill="#e2e8f0">Plus · Pro · Business</text>
+    <text x="16" y="246" font-size="11" fill="#e2e8f0">Edu · Enterprise</text>
+    <text x="16" y="264" font-size="11" fill="#fbbf24">temporär 2026: Free/Go</text>
+  </g>
+
+  <!-- PFAD 2: API-Key -->
+  <g transform="translate(360,150)">
+    <rect x="0" y="0" width="300" height="280" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="46" rx="14" fill="#312e81"/>
+    <text x="16" y="28" font-size="15" font-weight="700" fill="#c7d2fe">2 · OpenAI API-Key</text>
+    <text x="230" y="28" font-size="11" fill="#a5b4fc">Pay-per-Use</text>
+
+    <text x="16" y="72" font-size="12" font-weight="700" fill="#94a3b8">Setup</text>
+    <rect x="16" y="80" width="268" height="90" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="100" font-family="'JetBrains Mono', monospace" font-size="11" fill="#e2e8f0">export OPENAI_API_KEY=</text>
+    <text x="24" y="118" font-family="'JetBrains Mono', monospace" font-size="11" fill="#818cf8">  "sk-..."</text>
+    <text x="24" y="140" font-family="'JetBrains Mono', monospace" font-size="11" fill="#e2e8f0">codex</text>
+    <text x="24" y="158" font-family="'JetBrains Mono', monospace" font-size="10" fill="#64748b">  # nutzt Env-Var</text>
+
+    <text x="16" y="198" font-size="12" font-weight="700" fill="#94a3b8">Abrechnung</text>
+    <text x="16" y="218" font-size="11" fill="#e2e8f0">direkt via platform.openai.com</text>
+    <text x="16" y="236" font-size="11" fill="#e2e8f0">Token-basiert · kein Plan-Limit</text>
+    <text x="16" y="254" font-size="11" fill="#fbbf24">kein Fast-Mode · keine Credits</text>
+    <text x="16" y="272" font-size="11" fill="#fbbf24">(nur via ChatGPT-Login)</text>
+  </g>
+
+  <!-- PFAD 3: Third-Party -->
+  <g transform="translate(680,150)">
+    <rect x="0" y="0" width="300" height="280" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="46" rx="14" fill="#164e63"/>
+    <text x="16" y="28" font-size="15" font-weight="700" fill="#a5f3fc">3 · Third-Party-Provider</text>
+    <text x="250" y="28" font-size="11" fill="#67e8f9">Config</text>
+
+    <text x="16" y="72" font-size="12" font-weight="700" fill="#94a3b8">config.toml</text>
+    <rect x="16" y="80" width="268" height="100" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="24" y="100" font-family="'JetBrains Mono', monospace" font-size="10" fill="#22d3ee">model = "claude-sonnet-4.5"</text>
+    <text x="24" y="116" font-family="'JetBrains Mono', monospace" font-size="10" fill="#22d3ee">model_provider = "anthropic"</text>
+    <text x="24" y="140" font-family="'JetBrains Mono', monospace" font-size="10" fill="#e2e8f0">[model_providers.anthropic]</text>
+    <text x="24" y="156" font-family="'JetBrains Mono', monospace" font-size="10" fill="#e2e8f0">base_url = "..."</text>
+    <text x="24" y="172" font-family="'JetBrains Mono', monospace" font-size="10" fill="#e2e8f0">wire_api = "chat"</text>
+
+    <text x="16" y="204" font-size="12" font-weight="700" fill="#94a3b8">Provider-Optionen</text>
+    <text x="16" y="224" font-size="11" fill="#e2e8f0">Anthropic · Gemini · Ollama</text>
+    <text x="16" y="242" font-size="11" fill="#e2e8f0">Azure OpenAI · OpenRouter</text>
+    <text x="16" y="260" font-size="11" fill="#e2e8f0">LM Studio · Mistral · Morph</text>
+    <text x="16" y="270" font-size="10" fill="#94a3b8"> </text>
+  </g>
+
+  <!-- RECHTE SPALTE: Auth-/State-Dateien -->
+  <g transform="translate(1000,150)">
+    <rect x="0" y="0" width="370" height="280" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="370" height="40" rx="14" fill="#334155"/>
+    <text x="16" y="26" font-size="15" font-weight="700" fill="#e2e8f0">Auth- &amp; State-Dateien</text>
+
+    <g transform="translate(16,56)" font-size="11">
+      <g>
+        <text font-family="'JetBrains Mono', monospace" fill="#818cf8">~/.codex/auth.json</text>
+        <text y="15" fill="#94a3b8">gecachte OAuth-Tokens</text>
+      </g>
+      <g transform="translate(0,36)">
+        <text font-family="'JetBrains Mono', monospace" fill="#818cf8">CODEX_HOME</text>
+        <text y="15" fill="#94a3b8">Basisverzeichnis (Default ~/.codex)</text>
+      </g>
+      <g transform="translate(0,72)">
+        <text font-family="'JetBrains Mono', monospace" fill="#818cf8">CODEX_SQLITE_HOME</text>
+        <text y="15" fill="#94a3b8">SQLite-State-Location</text>
+      </g>
+      <g transform="translate(0,108)">
+        <text font-family="'JetBrains Mono', monospace" fill="#818cf8">CODEX_CA_CERTIFICATE</text>
+        <text y="15" fill="#94a3b8">Custom-CA PEM</text>
+      </g>
+      <g transform="translate(0,144)">
+        <text font-family="'JetBrains Mono', monospace" fill="#818cf8">SSL_CERT_FILE</text>
+        <text y="15" fill="#94a3b8">Fallback-CA</text>
+      </g>
+      <g transform="translate(0,180)">
+        <text font-family="'JetBrains Mono', monospace" fill="#10b981">CODEX_API_KEY</text>
+        <text y="15" fill="#34d399">CI-freundliches Secret</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Drehkreuz / Konvergenz -->
+  <g transform="translate(0,460)">
+    <!-- Drei Pfeile Richtung Drehkreuz -->
+    <line x1="190" y1="0" x2="700" y2="80" stroke="#10b981" stroke-width="2" marker-end="url(#arrowAuth)"/>
+    <line x1="510" y1="0" x2="700" y2="80" stroke="#6366f1" stroke-width="2" marker-end="url(#arrowAuth)"/>
+    <line x1="830" y1="0" x2="705" y2="80" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowAuth)"/>
+
+    <!-- Drehkreuz Session -->
+    <rect x="560" y="80" width="300" height="70" rx="12" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+    <text x="710" y="108" text-anchor="middle" font-size="15" font-weight="700" fill="#e2e8f0">Aktive Codex-Session</text>
+    <text x="710" y="130" text-anchor="middle" font-size="12" fill="#a5b4fc">Token fliesst zu Modell-Provider</text>
+  </g>
+
+  <!-- Warn-Box: API-Key-Override -->
+  <g transform="translate(40,640)">
+    <rect x="0" y="0" width="640" height="220" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect x="0" y="0" width="640" height="38" rx="14" fill="#7f1d1d"/>
+    <text x="16" y="26" font-size="15" font-weight="700" fill="#fecaca">Warnung — API-Key überschreibt OAuth-Session still</text>
+
+    <text x="16" y="66" font-size="12" fill="#e2e8f0">Ist </text>
+    <text x="44" y="66" font-family="'JetBrains Mono', monospace" font-size="12" fill="#fca5a5">OPENAI_API_KEY</text>
+    <text x="172" y="66" font-size="12" fill="#e2e8f0">im Environment gesetzt, überschreibt es eine aktive</text>
+    <text x="16" y="86" font-size="12" fill="#e2e8f0">OAuth-Session — und erzeugt verwirrende 401-Fehler.</text>
+
+    <text x="16" y="114" font-size="12" font-weight="700" fill="#fde68a">Bekannte Issues</text>
+    <text x="16" y="134" font-size="12" fill="#e2e8f0">· #15151 · #3286 · #2733 (OAuth/API-Key-Konflikt)</text>
+
+    <text x="16" y="164" font-size="12" font-weight="700" fill="#fde68a">Empfehlung für CI</text>
+    <text x="16" y="184" font-size="12" fill="#e2e8f0">statt </text>
+    <text x="56" y="184" font-family="'JetBrains Mono', monospace" font-size="12" fill="#fca5a5">OPENAI_API_KEY</text>
+    <text x="184" y="184" font-size="12" fill="#e2e8f0">nutze</text>
+    <text x="222" y="184" font-family="'JetBrains Mono', monospace" font-size="12" fill="#6ee7b7">CODEX_API_KEY</text>
+    <text x="344" y="184" font-size="12" fill="#e2e8f0">— kein Override-Effekt.</text>
+  </g>
+
+  <!-- Rate-Limit-Tabelle -->
+  <g transform="translate(700,640)">
+    <rect x="0" y="0" width="660" height="220" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="660" height="38" rx="14" fill="#334155"/>
+    <text x="16" y="26" font-size="15" font-weight="700" fill="#e2e8f0">Rate-Limits (5-Stunden-Fenster, 04/2026)</text>
+
+    <g transform="translate(0,44)">
+      <rect x="0" y="0" width="660" height="30" fill="#1e293b"/>
+      <text x="16" y="20" font-size="12" font-weight="700" fill="#94a3b8">Plan</text>
+      <text x="170" y="20" font-size="12" font-weight="700" fill="#94a3b8">Lokale Messages</text>
+      <text x="340" y="20" font-size="12" font-weight="700" fill="#94a3b8">Cloud-Tasks</text>
+      <text x="500" y="20" font-size="12" font-weight="700" fill="#94a3b8">Features</text>
+    </g>
+
+    <g transform="translate(0,78)">
+      <rect x="0" y="0" width="660" height="30" fill="#0f172a"/>
+      <text x="16" y="20" font-size="12" fill="#e2e8f0">Plus</text>
+      <text x="170" y="20" font-size="12" fill="#e2e8f0">600</text>
+      <text x="340" y="20" font-size="12" fill="#e2e8f0">200</text>
+      <text x="500" y="20" font-size="12" fill="#94a3b8">Basis</text>
+    </g>
+    <g transform="translate(0,110)">
+      <rect x="0" y="0" width="660" height="30" fill="#1e293b"/>
+      <text x="16" y="20" font-size="12" font-weight="700" fill="#6ee7b7">Pro</text>
+      <text x="170" y="20" font-size="12" fill="#e2e8f0">~3.000 (5× Plus)</text>
+      <text x="340" y="20" font-size="12" fill="#e2e8f0">~1.000</text>
+      <text x="500" y="20" font-size="12" fill="#6ee7b7">Fast-Mode, Credits</text>
+    </g>
+    <g transform="translate(0,142)">
+      <rect x="0" y="0" width="660" height="30" fill="#0f172a"/>
+      <text x="16" y="20" font-size="12" fill="#e2e8f0">Business</text>
+      <text x="170" y="20" font-size="12" fill="#e2e8f0">1.500 – 3.000</text>
+      <text x="340" y="20" font-size="12" fill="#e2e8f0">600 – 1.200</text>
+      <text x="500" y="20" font-size="12" fill="#94a3b8">SSO · Policies</text>
+    </g>
+
+    <text x="16" y="192" font-size="11" fill="#fbbf24">Promo bis 31.05.2026: Pro effektiv 10× Plus-Limits · Pay-per-Credit möglich bei Limit</text>
+    <text x="16" y="210" font-size="11" fill="#94a3b8">Fast Mode nur via ChatGPT-Login · nicht per API-Key</text>
+  </g>
+</svg>

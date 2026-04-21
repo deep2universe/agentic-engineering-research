@@ -1,0 +1,155 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Custom Prompts, Skills, Marketplace — drei Artefakttypen als Plugin-Regal</title>
+  <desc>Drei nebeneinanderstehende Module: Custom Slash-Commands (lokal), Agent Skills (repo-shared, implicit invocation), Marketplace-Bundles. Visualisiert das Zusammenspiel von Beschreibung und Matching.</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Titel -->
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">6. Custom Prompts, Skills, Marketplace — Plugin-Regal</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="16">Drei Artefakt-Typen erweitern Codex: lokaler Slash-Command, geteilter Agent-Skill, installiertes Marketplace-Bundle.</text>
+  <text x="1340" y="60" fill="#64748b" font-size="14" text-anchor="end">Codex CLI · Kapitel 6</text>
+
+  <defs>
+    <marker id="arr6" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+
+  <!-- Regal-Rahmen -->
+  <g transform="translate(60,140)">
+    <rect width="1280" height="460" rx="12" fill="#0b1220" stroke="#334155"/>
+    <line x1="0" y1="40" x2="1280" y2="40" stroke="#334155"/>
+    <text x="20" y="28" fill="#e2e8f0" font-size="16" font-weight="700">Codex-Plugin-Regal</text>
+
+    <!-- Modul 1: Custom Slash-Command -->
+    <g transform="translate(30,70)">
+      <rect width="380" height="370" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+      <rect x="0" y="0" width="380" height="40" rx="12" fill="#6366f1" opacity="0.25"/>
+      <text x="20" y="26" fill="#818cf8" font-size="16" font-weight="700">6.1 Custom Slash-Command</text>
+      <text x="20" y="60" fill="#94a3b8" font-size="12">Lokal, pro Maschine — nicht repo-geteilt</text>
+
+      <rect x="20" y="78" width="340" height="130" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="32" y="100" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', monospace">~/.codex/prompts/refactor.md</text>
+      <line x1="32" y1="108" x2="350" y2="108" stroke="#334155"/>
+      <text x="32" y="128" fill="#c4b5fd" font-size="11" font-family="'JetBrains Mono', monospace">---</text>
+      <text x="32" y="142" fill="#c4b5fd" font-size="11" font-family="'JetBrains Mono', monospace">description: Refactor $1 idiomatisch</text>
+      <text x="32" y="156" fill="#c4b5fd" font-size="11" font-family="'JetBrains Mono', monospace">---</text>
+      <text x="32" y="178" fill="#cbd5e1" font-size="11" font-family="'JetBrains Mono', monospace"># Refactor $1</text>
+      <text x="32" y="194" fill="#cbd5e1" font-size="11" font-family="'JetBrains Mono', monospace">Wende Clean-Code-Regeln an ...</text>
+
+      <text x="20" y="232" fill="#e2e8f0" font-size="13" font-weight="700">Aktivierung</text>
+      <text x="20" y="252" fill="#cbd5e1" font-size="12" font-family="'JetBrains Mono', monospace">/refactor auth.ts</text>
+      <text x="20" y="272" fill="#94a3b8" font-size="11">→ Platzhalter: $1…$9 · $ARGUMENTS · $KEY</text>
+
+      <rect x="20" y="290" width="340" height="66" rx="6" fill="#0b1220" stroke="#6366f1"/>
+      <text x="32" y="312" fill="#818cf8" font-size="12" font-weight="700">Merke</text>
+      <text x="32" y="330" fill="#cbd5e1" font-size="11">Nicht in Git — für Team-sharing</text>
+      <text x="32" y="346" fill="#cbd5e1" font-size="11">nutze Skills (Modul 2).</text>
+    </g>
+
+    <!-- Modul 2: Agent Skill -->
+    <g transform="translate(450,70)">
+      <rect width="380" height="370" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+      <rect x="0" y="0" width="380" height="40" rx="12" fill="#22d3ee" opacity="0.25"/>
+      <text x="20" y="26" fill="#22d3ee" font-size="16" font-weight="700">6.2 Agent Skill</text>
+      <text x="20" y="60" fill="#94a3b8" font-size="12">Repo-Verzeichnis mit SKILL.md — implicit invocation</text>
+
+      <rect x="20" y="78" width="340" height="150" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="32" y="100" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', monospace">skills/release/SKILL.md</text>
+      <line x1="32" y1="108" x2="350" y2="108" stroke="#334155"/>
+      <text x="32" y="128" fill="#c4b5fd" font-size="11" font-family="'JetBrains Mono', monospace">---</text>
+      <text x="32" y="142" fill="#c4b5fd" font-size="11" font-family="'JetBrains Mono', monospace">name: release</text>
+      <text x="32" y="156" fill="#c4b5fd" font-size="11" font-family="'JetBrains Mono', monospace">description: Bump version,</text>
+      <text x="32" y="170" fill="#c4b5fd" font-size="11" font-family="'JetBrains Mono', monospace">  changelog, tag, push.</text>
+      <text x="32" y="184" fill="#c4b5fd" font-size="11" font-family="'JetBrains Mono', monospace">---</text>
+      <text x="32" y="204" fill="#cbd5e1" font-size="11" font-family="'JetBrains Mono', monospace"># Release-Skill ...</text>
+
+      <text x="20" y="252" fill="#e2e8f0" font-size="13" font-weight="700">Implicit Invocation</text>
+      <text x="20" y="272" fill="#94a3b8" font-size="11">Codex liest beim Start nur die Metadaten,</text>
+      <text x="20" y="288" fill="#94a3b8" font-size="11">lädt den vollen Inhalt erst, wenn der</text>
+      <text x="20" y="304" fill="#94a3b8" font-size="11">Task zur `description` passt (Match).</text>
+
+      <rect x="20" y="318" width="340" height="38" rx="6" fill="#0b1220" stroke="#22d3ee"/>
+      <text x="32" y="341" fill="#cbd5e1" font-size="11">Vorteil: repo-geteilt · PR-fähig · versionierbar</text>
+    </g>
+
+    <!-- Modul 3: Marketplace -->
+    <g transform="translate(870,70)">
+      <rect width="380" height="370" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+      <rect x="0" y="0" width="380" height="40" rx="12" fill="#a78bfa" opacity="0.25"/>
+      <text x="20" y="26" fill="#c4b5fd" font-size="16" font-weight="700">6.3 Marketplace</text>
+      <text x="20" y="60" fill="#94a3b8" font-size="12">Bundles aus Slash-Commands + Skills + MCP-Defs</text>
+
+      <rect x="20" y="78" width="340" height="56" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="32" y="106" fill="#c4b5fd" font-size="13" font-family="'JetBrains Mono', monospace">codex marketplace add</text>
+      <text x="32" y="124" fill="#c4b5fd" font-size="13" font-family="'JetBrains Mono', monospace">  &lt;bundle&gt;</text>
+
+      <!-- Paket-Visualisierung -->
+      <g transform="translate(20,148)">
+        <rect width="340" height="40" rx="6" fill="#0b1220" stroke="#a78bfa"/>
+        <rect x="10" y="10" width="20" height="20" rx="3" fill="#6366f1"/>
+        <text x="40" y="26" fill="#e2e8f0" font-size="12">Slash-Commands</text>
+      </g>
+      <g transform="translate(20,196)">
+        <rect width="340" height="40" rx="6" fill="#0b1220" stroke="#a78bfa"/>
+        <rect x="10" y="10" width="20" height="20" rx="3" fill="#22d3ee"/>
+        <text x="40" y="26" fill="#e2e8f0" font-size="12">Agent Skills (SKILL.md)</text>
+      </g>
+      <g transform="translate(20,244)">
+        <rect width="340" height="40" rx="6" fill="#0b1220" stroke="#a78bfa"/>
+        <rect x="10" y="10" width="20" height="20" rx="3" fill="#10b981"/>
+        <text x="40" y="26" fill="#e2e8f0" font-size="12">MCP-Server-Definitionen</text>
+      </g>
+
+      <rect x="20" y="298" width="340" height="58" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="32" y="320" fill="#c4b5fd" font-size="12" font-weight="700">Einsatz in TUI</text>
+      <text x="32" y="340" fill="#cbd5e1" font-size="11" font-family="'JetBrains Mono', monospace">/plugins · ab v0.121.0</text>
+    </g>
+  </g>
+
+  <!-- Unten: Matching-Flow -->
+  <g transform="translate(60,620)">
+    <rect width="1280" height="250" rx="12" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="34" fill="#e2e8f0" font-size="18" font-weight="700">Wie findet Codex den richtigen Skill? — Implicit-Invocation-Flow</text>
+
+    <g transform="translate(40,70)">
+      <!-- User prompt -->
+      <rect width="220" height="80" rx="8" fill="#1e293b" stroke="#6366f1"/>
+      <text x="110" y="30" fill="#818cf8" font-size="13" text-anchor="middle" font-weight="700">User-Prompt</text>
+      <text x="110" y="52" fill="#cbd5e1" font-size="12" text-anchor="middle">"Release v2.3"</text>
+      <text x="110" y="68" fill="#94a3b8" font-size="11" text-anchor="middle">freie Formulierung</text>
+    </g>
+
+    <line x1="260" y1="110" x2="320" y2="110" stroke="#22d3ee" stroke-width="2" marker-end="url(#arr6)"/>
+
+    <g transform="translate(320,70)">
+      <rect width="260" height="80" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="130" y="30" fill="#22d3ee" font-size="13" text-anchor="middle" font-weight="700">Codex-Agent</text>
+      <text x="130" y="52" fill="#cbd5e1" font-size="12" text-anchor="middle">Match gegen</text>
+      <text x="130" y="68" fill="#cbd5e1" font-size="12" text-anchor="middle">Skill-Metadata-Index</text>
+    </g>
+
+    <line x1="580" y1="110" x2="640" y2="110" stroke="#22d3ee" stroke-width="2" marker-end="url(#arr6)"/>
+
+    <g transform="translate(640,70)">
+      <rect width="260" height="80" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="130" y="30" fill="#34d399" font-size="13" text-anchor="middle" font-weight="700">Skill gematched</text>
+      <text x="130" y="52" fill="#cbd5e1" font-size="12" text-anchor="middle">"release" description</text>
+      <text x="130" y="68" fill="#cbd5e1" font-size="12" text-anchor="middle">passt zum Task</text>
+    </g>
+
+    <line x1="900" y1="110" x2="960" y2="110" stroke="#22d3ee" stroke-width="2" marker-end="url(#arr6)"/>
+
+    <g transform="translate(960,70)">
+      <rect width="280" height="80" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="140" y="30" fill="#c4b5fd" font-size="13" text-anchor="middle" font-weight="700">Skill-Body nachladen</text>
+      <text x="140" y="52" fill="#cbd5e1" font-size="12" text-anchor="middle">Schritte, Scripts, Files</text>
+      <text x="140" y="68" fill="#cbd5e1" font-size="12" text-anchor="middle">on-demand, kein Context-Bloat</text>
+    </g>
+
+    <g transform="translate(40,170)">
+      <text x="0" y="20" fill="#e2e8f0" font-size="13" font-weight="700">Engineering-Regel</text>
+      <text x="0" y="40" fill="#cbd5e1" font-size="12">`description` soll Task-Intent spiegeln — sie ist der Such-Index. Konkrete Verben, klare Scope-Grenzen, kein Marketing.</text>
+      <text x="0" y="58" fill="#94a3b8" font-size="11">Anti-Pattern: "helper for devs". Besser: "Bump SemVer, update CHANGELOG.md, create signed tag, push, open release PR."</text>
+    </g>
+  </g>
+</svg>

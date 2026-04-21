@@ -6,6 +6,8 @@ Diese Seite listet **alle wesentlichen Features** der Codex CLI in thematischen 
 
 ## 1. Laufmodi
 
+![Sieben Laufmodi der Codex CLI als Mode-Dial-Panel-Grid: Interactive TUI, Headless Exec, Resume, Cloud Handoff, MCP Server, Review, Completion](svg/feature_uebersicht_01_laufmodi.svg)
+
 | Modus | Aufruf | Zweck |
 |---|---|---|
 | **Interactive TUI** | `codex` | Default, Full-Screen-UI mit Prompt-Box, Diff-View, Thinking-Panel |
@@ -18,6 +20,8 @@ Diese Seite listet **alle wesentlichen Features** der Codex CLI in thematischen 
 
 ## 2. Eingabe-Modi
 
+![Eingabe-Pipelines als Trichter: Inline-Prompt, Prompt-Datei, Image, Drag-and-Drop, @-Mention, Skill-Trigger](svg/feature_uebersicht_02_eingabe_modi.svg)
+
 - **Prompt inline**: `codex "fix the failing tests"` startet TUI mit vorbelegtem Prompt.
 - **Prompt-Datei**: `codex exec --prompt-file task.md` bzw. `-f`.
 - **Image-Input**: `-i screenshot.png` oder `--image`, Drag-and-Drop in die TUI, Paste aus Clipboard.
@@ -28,6 +32,8 @@ Diese Seite listet **alle wesentlichen Features** der Codex CLI in thematischen 
 - **Skill-Trigger**: bei passender Beschreibung lädt Codex ein *Agent Skill* automatisch nach (siehe §6).
 
 ## 3. Slash-Commands (TUI)
+
+![Sechzehn Slash-Commands gruppiert nach Session, Modell/Policy, Workflow und Utilities als Kommando-Tafel mit Slash-Dial](svg/feature_uebersicht_03_slash_commands.svg)
 
 Type `/` im Composer öffnet das Slash-Popup. Alle Commands sind Markdown-Dateien; Custom-Commands via `~/.codex/prompts/<name>.md` (siehe §6).
 
@@ -52,6 +58,8 @@ Type `/` im Composer öffnet das Slash-Popup. Alle Commands sind Markdown-Dateie
 
 ## 4. Kommandozeilen-Flags (Kurzliste)
 
+![CLI-Flags als DIP-Switch-Matrix gruppiert nach Modell/Profil, Sandbox/Approval, Output, Modus und Debug](svg/feature_uebersicht_04_kommandozeilen_flags.svg)
+
 | Flag | Wirkung |
 |---|---|
 | `-m`, `--model <name>` | Modell wählen |
@@ -71,6 +79,8 @@ Type `/` im Composer öffnet das Slash-Popup. Alle Commands sind Markdown-Dateie
 
 ## 5. Kontext- und Session-Management
 
+![Session-Timeline mit Compaction, Resume und History als Akkordeon: Turns werden zu kompakter Summary gefaltet, Reverse-Search erschliesst alte Prompts](svg/feature_uebersicht_05_kontext_session.svg)
+
 - **Compaction** (`/compact`, `model_reasoning_summary`) fasst Turns zusammen, damit Kontext-Fenster nicht überläuft. Mit **GPT-5.1-Codex-Max** und **5.3-Codex** sind Multi-Hour-Sessions robust.
 - **Resume** lädt komplette Session-History inkl. Images.
 - **History** (`history.persistence`, `history.max_bytes`) steuert SQLite-Speicher.
@@ -78,6 +88,8 @@ Type `/` im Composer öffnet das Slash-Popup. Alle Commands sind Markdown-Dateie
 - **Session-Title** und **PR-Badges** (in IDE) erleichtern Wiederfinden.
 
 ## 6. Custom Prompts, Skills, Marketplace
+
+![Drei Artefakttypen als Plugin-Regal: Custom Slash-Commands, Agent Skills mit implicit invocation, Marketplace-Bundles](svg/feature_uebersicht_06_custom_prompts_skills.svg)
 
 ### 6.1 Custom Slash-Commands
 
@@ -120,6 +132,8 @@ Schritte:
 
 ## 7. Tools, mit denen der Agent arbeitet
 
+![Werkzeuggürtel des Codex-Agenten mit acht Tool-Kategorien: File R/W/E, Shell Exec, Web Search, View Image, Apply Patch, Plan Mode, MCP Tools, Custom Tools](svg/feature_uebersicht_07_tools.svg)
+
 - **File Read / Write / Edit** — primäre Tools, Diff-Erzeugung, Patch-Apply über internes `apply_patch` Protokoll.
 - **Shell Execution** — sandboxed; stdout/stderr gestreamt.
 - **Web Search** — default cached, `--search` / `/search` für live; konfigurierbar via `tools.web_search`.
@@ -131,6 +145,8 @@ Schritte:
 
 ## 8. Modelle & Reasoning
 
+![Codex-Cockpit: Modell-Wähler mit Default gpt-5.3-codex, Reasoning-Effort-Dial low/medium/high, Preamble-Beispiel und Phase-Parameter-Hinweis](svg/feature_uebersicht_08_modelle_reasoning.svg)
+
 - **GPT-5.3-Codex** (Default seit 02/2026), plus `-Spark` (Research Preview, >1000 tok/s).
 - **GPT-5.2-Codex**, **GPT-5.1-Codex-Max**, **GPT-5-Codex**, **GPT-5.4** als Alternative.
 - **Legacy**: `o3`, `o4-mini`, `gpt-4.1`.
@@ -139,6 +155,8 @@ Schritte:
 - **Phase-Parameter** (Responses-API): `phase` ist für GPT-5.3-Codex zwingend gesetzt, sonst deutliche Performance-Drops.
 
 ## 9. TUI-Features
+
+![Stilisiertes TUI-Mockup mit Chat-Panel, Thinking-Panel, Diff-Anzeige, Composer, Status-Bar, Notification-Badge und Theme-Hinweis](svg/feature_uebersicht_09_tui_features.svg)
 
 - **Full-Screen UI**, Mouse-Support, Hover-Tooltips.
 - **Reverse-Search** (Ctrl+R) über History.
@@ -149,6 +167,8 @@ Schritte:
 - **Status-Bar**: aktives Modell, Token-Verbrauch, Session-ID.
 
 ## 10. IDE-Extension (Feature-Kurzfassung)
+
+![IDE-Mockup der Codex-Extension: Side-Panel-Chat, Inline-Approval, Task-Tracker mit PR-Badges, Diff-Preview und Continue-in-Cloud-Button](svg/feature_uebersicht_10_ide_extension.svg)
 
 - Chat-Panel mit Thread-Integration (VS Code / Cursor / Windsurf).
 - Inline-Approval für Shell/Schreib-Tools.
@@ -161,12 +181,16 @@ Details in [`integrationen_ide_ci_cd.md`](integrationen_ide_ci_cd.md).
 
 ## 11. MCP-Integration
 
+![MCP-Integration bidirektional: Codex als Client bindet fremde MCP-Server ein, als Server via codex mcp serve exponiert er sich andere Agenten, mit Per-Tool-Approval](svg/feature_uebersicht_11_mcp_integration.svg)
+
 - **Client**: beliebige MCP-Server anbinden (stdio, HTTP ab v0.115).
 - **Server**: `codex mcp serve` — andere Agenten sprechen Codex an.
 - Per-Tool-Approval-Mode (`tools.<name>.approval_mode`).
 - Parallel-Tool-Calls (`supports_parallel_tool_calls = true`).
 
 ## 12. GitHub-Integration
+
+![Vier Arme der Codex-GitHub-Integration: codex-action@v1, Codex Review App, Autofix via workflow_run und Issue-to-PR-Flow über Cloud-Tasks](svg/feature_uebersicht_12_github_integration.svg)
 
 - **openai/codex-action@v1** (GitHub Action) — siehe [`integrationen_ide_ci_cd.md`](integrationen_ide_ci_cd.md).
 - **Codex Review App** (GitHub App) — auto-Review auf PRs.
@@ -175,9 +199,13 @@ Details in [`integrationen_ide_ci_cd.md`](integrationen_ide_ci_cd.md).
 
 ## 13. Notify / Hooks
 
+![Notify-Hook als Signallampe mit JSON-Payload-Feldern status, title, summary, duration, url, last_assistant_message und drei Konsumenten-Beispielen (Slack, Desktop, Mail)](svg/feature_uebersicht_13_notify_hooks.svg)
+
 `notify`-Hook wird bei `agent-turn-complete` aufgerufen. Script erhält JSON auf stdin: `status`, `title`, `summary`, `duration`, `url`, `last_assistant_message`. Beispiele in [`integrationen_ide_ci_cd.md`](integrationen_ide_ci_cd.md) §6.
 
 ## 14. Provider-Pluralität
+
+![Codex-Hub mit Speichen zu neun Providern: OpenAI, Azure, Anthropic, Gemini, OpenRouter, Mistral, Morph, Ollama, LM Studio, unterteilt nach Wire-API responses vs. chat](svg/feature_uebersicht_14_provider_pluralitaet.svg)
 
 - **OpenAI** (Default, `responses` API)
 - **Azure OpenAI** (`responses` API, Foundry-kompatibel)
@@ -187,6 +215,8 @@ Details in [`integrationen_ide_ci_cd.md`](integrationen_ide_ci_cd.md).
 
 ## 15. Kostenkontrolle & Telemetrie
 
+![Tacho-Dashboard für Kostenkontrolle: Rate-Limit-Tacho, codex-usage-Output, ZDR-Switch, Session-Log-Pfade und OpenTelemetry-Pipeline](svg/feature_uebersicht_15_kostenkontrolle_telemetrie.svg)
+
 - **Rate Limits** je ChatGPT-Plan (siehe Installation-Doku).
 - `codex usage` — Token-/Cost-Statistik.
 - `disable_response_storage = true` für ZDR.
@@ -194,6 +224,8 @@ Details in [`integrationen_ide_ci_cd.md`](integrationen_ide_ci_cd.md).
 - OpenTelemetry-Integration via externem MCP-Server (community).
 
 ## 16. Experimentelle / Neuere Features (Stand 04/2026)
+
+![Labor-Tisch mit neun Experiment-Flaschen: Plan-Mode, Realtime-Start-Instructions, RMCP-Client, Codex-Spark, Devcontainer via bwrap, Marketplace, Reverse-Search, Phase-Parameter, MCP-Apps, mit Stabilitätsampel je Feature](svg/feature_uebersicht_16_experimentelle_features.svg)
 
 | Feature | Ort |
 |---|---|
@@ -208,6 +240,8 @@ Details in [`integrationen_ide_ci_cd.md`](integrationen_ide_ci_cd.md).
 | **MCP-Apps** | Tool-Calls via MCP-Registry |
 
 ## 17. Tastatur-Shortcuts (TUI)
+
+![Keyboard-Diagramm mit hervorgehobenen Codex-Tasten Ctrl+C, Ctrl+D, Tab, Shift+Tab, Ctrl+R, Pfeile, Esc, @, / und Cmd/Ctrl+F, mit Referenz-Liste rechts](svg/feature_uebersicht_17_tastatur_shortcuts.svg)
 
 | Taste | Wirkung |
 |---|---|
@@ -225,6 +259,8 @@ Details in [`integrationen_ide_ci_cd.md`](integrationen_ide_ci_cd.md).
 ---
 
 ## Mini-Matrix: Feature vs. Aktivierung
+
+![Stellwerks-Dashboard als Feature-mal-Aktivierung-Matrix mit Spalten CLI-Flag, Slash-Command, config.toml, Environment-Variable für zwölf Features](svg/feature_uebersicht_18_mini_matrix.svg)
 
 | Feature | CLI-Flag | Slash | config.toml | Env |
 |---|---|---|---|---|

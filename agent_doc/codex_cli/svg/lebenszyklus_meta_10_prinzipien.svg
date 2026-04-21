@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Meta — 10 Prinzipien fuer effektives Codex-Engineering als Saulen-Tempel</title>
+  <desc>Saulen-Tempel mit Leitlinien-Kompass: 10 Prinzipien als Hexagon-Karten von Prompt=Programm, Kontext-Engineering, klein-granular, Test-First, Human-in-Loop, Full-Auto in Sandbox, Multi-Agent, Sessions enden, Skills versionieren, Observability.</desc>
+
+  <defs>
+    <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Meta — 10 Prinzipien für Codex-Engineering</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Säulen-Tempel-Metapher: Leitlinien tragen das Codex-Engineering-Dach.</text>
+  <text x="1360" y="56" fill="#a78bfa" font-size="14" text-anchor="end">Codex CLI · Meta</text>
+
+  <!-- Tempel-Dach -->
+  <g transform="translate(140,130)">
+    <polygon points="0,60 560,60 510,0 50,0" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="280" y="38" text-anchor="middle" fill="#e2e8f0" font-size="16" font-weight="700">Effective Codex Engineering</text>
+    <rect x="0" y="60" width="560" height="14" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+  </g>
+
+  <g transform="translate(840,130)">
+    <polygon points="0,60 420,60 380,0 40,0" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="210" y="38" text-anchor="middle" fill="#22d3ee" font-size="14" font-weight="700">Leitlinien-Kompass</text>
+    <text x="210" y="56" text-anchor="middle" fill="#94a3b8" font-size="11">Norden: Code-Qualität · Süden: Geschwindigkeit</text>
+    <rect x="0" y="60" width="420" height="14" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+  </g>
+
+  <!-- 10 Hexagon pillars -->
+  <!-- Define hex helper at translate -->
+  <g font-family="system-ui, -apple-system, sans-serif">
+    <!-- Row 1: 5 hexagons -->
+    <!-- 1 -->
+    <g transform="translate(140,260)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#a78bfa" font-size="22" font-weight="700">1</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Prompt =</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Programm</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">Goal · Constraints</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">DoD</text>
+    </g>
+    <!-- 2 -->
+    <g transform="translate(310,260)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#818cf8" font-size="22" font-weight="700">2</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Kontext-</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Engineering</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">AGENTS.md · Skills</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">MCP</text>
+    </g>
+    <!-- 3 -->
+    <g transform="translate(480,260)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#22d3ee" font-size="22" font-weight="700">3</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Klein-</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">granular</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">1 Turn ≈ 1 Diff</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">bessere Reviews</text>
+    </g>
+    <!-- 4 -->
+    <g transform="translate(650,260)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#10b981" font-size="22" font-weight="700">4</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Test-</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">First</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">externe Wahrheit</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">red→green</text>
+    </g>
+    <!-- 5 -->
+    <g transform="translate(820,260)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#14b8a6" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#14b8a6" font-size="22" font-weight="700">5</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Human-in-</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">the-Loop</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">Approvals bei</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">"externer Welt"</text>
+    </g>
+
+    <!-- Row 2: 5 hexagons -->
+    <g transform="translate(140,440)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#f59e0b" font-size="22" font-weight="700">6</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Full-Auto</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">in Sandbox</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">CI · VM · Container</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">nicht lokal</text>
+    </g>
+    <g transform="translate(310,440)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#fb923c" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#fb923c" font-size="22" font-weight="700">7</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Multi-Agent-</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Muster</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">Codex impl,</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">Claude reviewt</text>
+    </g>
+    <g transform="translate(480,440)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#ef4444" font-size="22" font-weight="700">8</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Sessions</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">enden</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">/compact, /new</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">vor Overflow</text>
+    </g>
+    <g transform="translate(650,440)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#fb7185" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#fb7185" font-size="22" font-weight="700">9</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Skills</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">versionieren</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">Teilen statt</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">neu prompten</text>
+    </g>
+    <g transform="translate(820,440)">
+      <polygon points="60,0 110,30 110,90 60,120 10,90 10,30" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+      <text x="60" y="30" text-anchor="middle" fill="#6366f1" font-size="22" font-weight="700">10</text>
+      <text x="60" y="58" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">Observa-</text>
+      <text x="60" y="74" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">bility</text>
+      <text x="60" y="96" text-anchor="middle" fill="#94a3b8" font-size="10">codex usage</text>
+      <text x="60" y="110" text-anchor="middle" fill="#94a3b8" font-size="10">Notify-Hook</text>
+    </g>
+  </g>
+
+  <!-- Tempel-Boden / Stylobat -->
+  <g transform="translate(140,580)">
+    <rect width="800" height="20" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <rect width="800" height="14" y="-14" fill="#1e293b" stroke="#a78bfa" stroke-width="1"/>
+  </g>
+
+  <!-- Compass on right -->
+  <g transform="translate(1100,330)">
+    <circle r="120" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <circle r="100" fill="none" stroke="#475569" stroke-width="1" stroke-dasharray="2,4"/>
+    <line x1="0" y1="-100" x2="0" y2="100" stroke="#475569" stroke-width="1"/>
+    <line x1="-100" y1="0" x2="100" y2="0" stroke="#475569" stroke-width="1"/>
+    <polygon points="0,-90 -10,10 0,0 10,10" fill="#22d3ee"/>
+    <polygon points="0,90 -10,-10 0,0 10,-10" fill="#475569"/>
+    <text x="0" y="-105" text-anchor="middle" fill="#22d3ee" font-size="14" font-weight="700">N</text>
+    <text x="0" y="118" text-anchor="middle" fill="#94a3b8" font-size="14" font-weight="700">S</text>
+    <text x="-110" y="6" text-anchor="middle" fill="#94a3b8" font-size="12">W</text>
+    <text x="110" y="6" text-anchor="middle" fill="#94a3b8" font-size="12">O</text>
+    <text x="0" y="148" text-anchor="middle" fill="#cbd5e1" font-size="11">N: Qualität · S: Speed</text>
+    <text x="0" y="164" text-anchor="middle" fill="#cbd5e1" font-size="11">W: Solo · O: Multi-Agent</text>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(40,650)">
+    <rect width="1320" height="220" rx="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" fill="#a78bfa" font-size="16" font-weight="700">Anwendungs-Hinweise</text>
+    <g transform="translate(20,54)">
+      <text x="0" y="20" fill="#cbd5e1" font-size="13">· Prinzipien sind kein Dogma — sie helfen bei Entscheidungen unter Zeitdruck.</text>
+      <text x="0" y="44" fill="#cbd5e1" font-size="13">· Bei Konflikt zwischen "Speed" und "Qualität" gewinnt Test-First (Prinzip 4) langfristig.</text>
+      <text x="0" y="68" fill="#cbd5e1" font-size="13">· Multi-Agent-Patterns brauchen klare Rollen — sonst entsteht Bias-Stacking.</text>
+      <text x="0" y="92" fill="#cbd5e1" font-size="13">· Observability (Prinzip 10) macht alle anderen Prinzipien messbar — sonst nur Bauchgefühl.</text>
+      <text x="0" y="116" fill="#cbd5e1" font-size="13">· Skills versionieren = Wissen aus dem Prompt-Kontext in das Repo verlagern.</text>
+      <text x="0" y="140" fill="#cbd5e1" font-size="13">· Sessions bewusst enden: lange Threads sind kein Status-Symbol, sondern technische Schuld.</text>
+      <text x="0" y="164" fill="#cbd5e1" font-size="13">· Full-Auto immer mit Sandbox-Käfig. Niemals --yolo lokal mit Prod-Creds.</text>
+    </g>
+  </g>
+</svg>

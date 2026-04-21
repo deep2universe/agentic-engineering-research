@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Kostenkontrolle und Telemetrie — Tacho-Dashboard für Codex-Nutzung</title>
+  <desc>Dashboard mit Token-Tacho, Rate-Limit-Bars, codex-usage-Panel, ZDR-Umschalter, Session-Log-Pfad und OpenTelemetry-Fluss.</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">15. Kostenkontrolle &amp; Telemetrie — Dashboard für Token-Flow</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="16">Tacho, Rate-Limits, Usage-CLI, Zero-Data-Retention und OpenTelemetry-Integration.</text>
+  <text x="1340" y="60" fill="#64748b" font-size="14" text-anchor="end">Codex CLI · Kapitel 15</text>
+
+  <defs>
+    <marker id="arr15" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+
+  <!-- Tacho -->
+  <g transform="translate(280,360)">
+    <rect x="-240" y="-200" width="480" height="400" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="0" y="-168" fill="#fbbf24" font-size="16" font-weight="700" text-anchor="middle">Token-Tacho</text>
+
+    <!-- Ziffernblatt -->
+    <g transform="translate(0,30)">
+      <!-- Halbkreis -->
+      <path d="M -160 0 A 160 160 0 0 1 160 0" stroke="#334155" stroke-width="18" fill="none"/>
+      <path d="M -160 0 A 160 160 0 0 1 -70 -144" stroke="#10b981" stroke-width="18" fill="none"/>
+      <path d="M -70 -144 A 160 160 0 0 1 70 -144" stroke="#f59e0b" stroke-width="18" fill="none"/>
+      <path d="M 70 -144 A 160 160 0 0 1 160 0" stroke="#ef4444" stroke-width="18" fill="none"/>
+      <!-- Zeiger bei ~70% -->
+      <line x1="0" y1="0" x2="110" y2="-110" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round"/>
+      <circle r="8" fill="#e2e8f0"/>
+      <text x="-160" y="20" fill="#34d399" font-size="11" text-anchor="middle">0</text>
+      <text x="0" y="-170" fill="#fbbf24" font-size="11" text-anchor="middle">Limit/2</text>
+      <text x="160" y="20" fill="#fca5a5" font-size="11" text-anchor="middle">Limit</text>
+    </g>
+
+    <!-- Zahlen -->
+    <text x="0" y="130" fill="#e2e8f0" font-size="22" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', monospace">72 %</text>
+    <text x="0" y="154" fill="#cbd5e1" font-size="12" text-anchor="middle">aktueller Rate-Limit-Verbrauch</text>
+    <text x="0" y="178" fill="#94a3b8" font-size="11" text-anchor="middle">ChatGPT-Plan Pro · Reset in 1h 12m</text>
+  </g>
+
+  <!-- codex usage -->
+  <g transform="translate(540,140)">
+    <rect width="820" height="280" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect x="0" y="0" width="820" height="40" rx="12" fill="#6366f1" opacity="0.2"/>
+    <text x="20" y="26" fill="#818cf8" font-size="16" font-weight="700">codex usage</text>
+    <text x="20" y="60" fill="#94a3b8" font-size="12">Token- und Kosten-Statistik pro Session/Tag/Monat</text>
+
+    <!-- Terminal-Mock -->
+    <rect x="20" y="80" width="780" height="180" rx="6" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', monospace" font-size="12">
+      <text x="36" y="104" fill="#94a3b8">$ codex usage --since 7d</text>
+      <text x="36" y="126" fill="#e2e8f0">Model                Sessions   in-tok     out-tok    $</text>
+      <line x1="36" y1="134" x2="780" y2="134" stroke="#334155"/>
+      <text x="36" y="152" fill="#cbd5e1">gpt-5.3-codex        42         1.82M      412k       $8.41</text>
+      <text x="36" y="170" fill="#cbd5e1">gpt-5.3-codex-spark  6          612k       187k       $3.02</text>
+      <text x="36" y="188" fill="#cbd5e1">gpt-5.1-codex-max    3          890k       201k       $4.10</text>
+      <text x="36" y="206" fill="#cbd5e1">qwen2.5-coder:32b    11         1.20M      380k       $0.00</text>
+      <line x1="36" y1="214" x2="780" y2="214" stroke="#334155"/>
+      <text x="36" y="232" fill="#34d399">Total                62         4.52M      1.18M      $15.53</text>
+    </g>
+  </g>
+
+  <!-- ZDR -->
+  <g transform="translate(540,450)">
+    <rect width="400" height="180" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <rect x="0" y="0" width="400" height="40" rx="12" fill="#ef4444" opacity="0.2"/>
+    <text x="20" y="26" fill="#fca5a5" font-size="16" font-weight="700">Zero-Data-Retention (ZDR)</text>
+    <text x="20" y="62" fill="#94a3b8" font-size="12">Kein Server-seitiges Logging beim Provider</text>
+    <rect x="20" y="80" width="360" height="50" rx="6" fill="#0f172a" stroke="#ef4444"/>
+    <text x="32" y="100" fill="#fca5a5" font-size="12" font-family="'JetBrains Mono', monospace">disable_response_storage = true</text>
+    <text x="32" y="116" fill="#94a3b8" font-size="11">in `~/.codex/config.toml`</text>
+    <text x="20" y="152" fill="#cbd5e1" font-size="11">Compliance-Option für Enterprise,</text>
+    <text x="20" y="168" fill="#cbd5e1" font-size="11">gesundheits-/finanzkritische Repos.</text>
+  </g>
+
+  <!-- Session-Logs -->
+  <g transform="translate(960,450)">
+    <rect width="400" height="180" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="0" y="0" width="400" height="40" rx="12" fill="#22d3ee" opacity="0.2"/>
+    <text x="20" y="26" fill="#22d3ee" font-size="16" font-weight="700">Session-Logs</text>
+    <text x="20" y="62" fill="#94a3b8" font-size="12">Lokal nachvollziehbar, audit-fähig</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="12">
+      <text x="20" y="90" fill="#22d3ee">~/.codex/log/</text>
+      <text x="32" y="108" fill="#cbd5e1">debug-2026-04-17.log</text>
+      <text x="20" y="134" fill="#22d3ee">~/.codex/sessions/</text>
+      <text x="32" y="152" fill="#cbd5e1">412.jsonl · 411.jsonl · ...</text>
+    </g>
+    <text x="20" y="172" fill="#94a3b8" font-size="11">JSONL = 1 Event pro Zeile, grep/jq-fähig</text>
+  </g>
+
+  <!-- OpenTelemetry -->
+  <g transform="translate(60,660)">
+    <rect width="1280" height="220" rx="12" fill="#0b1220" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="0" y="0" width="1280" height="40" rx="12" fill="#a78bfa" opacity="0.2"/>
+    <text x="20" y="26" fill="#c4b5fd" font-size="16" font-weight="700">OpenTelemetry-Integration (community)</text>
+    <text x="20" y="60" fill="#94a3b8" font-size="12">Via externem MCP-Server — Spans pro Tool-Call, Attribute: model, tokens, latency, status.</text>
+
+    <g transform="translate(20,80)">
+      <rect width="200" height="120" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="100" y="26" fill="#c4b5fd" font-size="13" font-weight="700" text-anchor="middle">Codex</text>
+      <text x="100" y="46" fill="#cbd5e1" font-size="11" text-anchor="middle">emits events</text>
+      <text x="100" y="80" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">tool_call.start/end</text>
+      <text x="100" y="96" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">turn.complete</text>
+    </g>
+    <line x1="230" y1="140" x2="278" y2="140" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr15)"/>
+    <g transform="translate(280,80)">
+      <rect width="260" height="120" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="130" y="26" fill="#c4b5fd" font-size="13" font-weight="700" text-anchor="middle">OTel-MCP-Server</text>
+      <text x="130" y="46" fill="#cbd5e1" font-size="11" text-anchor="middle">konvertiert zu OTLP</text>
+      <text x="130" y="80" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">Spans, Metrics, Logs</text>
+      <text x="130" y="96" fill="#94a3b8" font-size="10" font-family="'JetBrains Mono', monospace" text-anchor="middle">OTLP/gRPC Exporter</text>
+    </g>
+    <line x1="550" y1="140" x2="598" y2="140" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr15)"/>
+    <g transform="translate(600,80)">
+      <rect width="200" height="120" rx="8" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="100" y="26" fill="#c4b5fd" font-size="13" font-weight="700" text-anchor="middle">OTel-Collector</text>
+      <text x="100" y="46" fill="#cbd5e1" font-size="11" text-anchor="middle">zentrale Pipeline</text>
+    </g>
+    <line x1="810" y1="140" x2="858" y2="140" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr15)"/>
+    <g transform="translate(860,80)">
+      <rect width="400" height="120" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="200" y="26" fill="#34d399" font-size="13" font-weight="700" text-anchor="middle">Backend-Auswahl</text>
+      <text x="16" y="52" fill="#cbd5e1" font-size="11">· Grafana Tempo / Jaeger (Traces)</text>
+      <text x="16" y="72" fill="#cbd5e1" font-size="11">· Prometheus / Mimir (Metrics)</text>
+      <text x="16" y="92" fill="#cbd5e1" font-size="11">· Loki / Elasticsearch (Logs)</text>
+      <text x="16" y="112" fill="#94a3b8" font-size="10">Kosten-Dashboards + Latenz-SLOs ableitbar</text>
+    </g>
+  </g>
+</svg>

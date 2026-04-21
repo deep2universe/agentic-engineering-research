@@ -1,0 +1,227 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Checkliste - Senior-Ready Codex-Setup</title>
+  <desc>Cockpit-Dashboard mit 11 Badges fuer ein Senior-Ready Codex-Setup: config.toml-Profile, AGENTS.md, .codex/prompts, skills, MCP, GH-Action, notify, Session-ID, Cost-Gate, Trust-Levels, Observability. Metapher: Audit-Board / Cockpit-Bordkarte.</desc>
+
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <radialGradient id="badgeBg" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0b1220"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">Senior-Ready Codex - Cockpit-Bordkarte</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="16">11 Must-Haves fuer ein audit-faehiges, produktives Setup - Kapitel 9</text>
+  <text x="1280" y="54" fill="#fde68a" font-size="16" font-weight="600" text-anchor="end">Codex CLI / Senior 09</text>
+
+  <!-- Cockpit-Rahmen -->
+  <rect x="40" y="110" width="1320" height="770" rx="18" fill="#111827" stroke="#334155" stroke-width="2"/>
+  <rect x="60" y="130" width="1280" height="42" rx="8" fill="#1e293b" stroke="#334155"/>
+  <circle cx="88" cy="151" r="8" fill="#ef4444"/>
+  <circle cx="112" cy="151" r="8" fill="#f59e0b"/>
+  <circle cx="136" cy="151" r="8" fill="#10b981"/>
+  <text x="170" y="156" fill="#e2e8f0" font-size="14" font-weight="600">codex-audit-console / senior-ready.dashboard</text>
+  <text x="1320" y="156" fill="#94a3b8" font-size="12" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, monospace">STATUS: 11/11 READY</text>
+
+  <!-- Badge 1: config.toml Profile -->
+  <g transform="translate(80,200)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">01</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">config.toml</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">&gt;= 3 Profile</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- daily, planning, review, ci</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- unterschiedliche Sandbox/Approval</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- Modell + reasoning_effort</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- pro Kontext optimiert</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 2: AGENTS.md -->
+  <g transform="translate(400,200)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">02</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">AGENTS.md</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">&lt;= 32 KB</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- Tooling + Style</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- Gotchas + Security-Regeln</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- Preambles-Regel</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- Subagent-Definitionen</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 3: .codex/prompts/ -->
+  <g transform="translate(720,200)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">03</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">.codex/prompts/</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">versionierte Prompts</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- pr_review.md</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- release.md</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- security_review.md</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- reproduzierbar, gereviewt</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 4: skills/ -->
+  <g transform="translate(1040,200)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">04</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">skills/</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">wiederverwendbar</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- release/</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- hotfix/</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- docs_sync/</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- entlastet AGENTS.md</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 5: MCP -->
+  <g transform="translate(80,370)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">05</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">MCP-Server</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">Tool-Landschaft</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- github</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- playwright</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- sentry / postgres (optional)</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- otel-mcp fuer Tracing</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 6: GH Action -->
+  <g transform="translate(400,370)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">06</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">openai/codex-action@v1</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">Review + Autofix</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- PR-Review automatisch</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- Issue-to-PR-Pipeline</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- matrix pro Modul moeglich</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- Sandbox-Level konfiguriert</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 7: notify -->
+  <g transform="translate(720,370)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">07</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">notify-Hook</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">Slack / Desktop</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- turn_completed -&gt; Notif</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- Approval-Requests in Slack</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- Desktop-Popup-Fallback</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- reduziert Kontext-Switch</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 8: Session-ID -->
+  <g transform="translate(1040,370)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">08</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">Session-ID</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">in PR-Template</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- PR-Body-Trailer Pflicht</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- /status liefert die ID</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- Audit-Link zu JSONL</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- Compliance erfuellt</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 9: Cost-Gate -->
+  <g transform="translate(80,540)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">09</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">Cost-Gate in CI</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">Token-Limit</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- jq Aggregation</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- ::error:: bei Ueberschreitung</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- Warn-Level 70 %</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- Budget pro Workflow</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 10: Trust-Levels -->
+  <g transform="translate(400,540)">
+    <rect x="0" y="0" width="300" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">10</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">Trust-Levels</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">pro Repo gesetzt</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- explizite Policy pro Dev-Repo</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- Sandbox-Default klar</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- Approval-Default klar</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- keine impliziten Defaults</text>
+    <rect x="258" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="272" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Badge 11: Observability-Stack -->
+  <g transform="translate(720,540)">
+    <rect x="0" y="0" width="620" height="150" rx="12" fill="url(#badgeBg)" stroke="#fde68a" stroke-width="2"/>
+    <circle cx="36" cy="34" r="18" fill="url(#gold)" stroke="#fde68a"/>
+    <text x="36" y="40" fill="#78350f" font-size="14" font-weight="700" text-anchor="middle">11</text>
+    <text x="64" y="30" fill="#fde68a" font-size="14" font-weight="700">Observability-Stack</text>
+    <text x="64" y="48" fill="#fde68a" font-size="13">Logs + Transkripte regelmaessig exportieren</text>
+    <text x="16" y="78" fill="#94a3b8" font-size="12">- Loki / OpenSearch fuer Logs</text>
+    <text x="16" y="96" fill="#94a3b8" font-size="12">- Jaeger / Honeycomb fuer Spans (OTel)</text>
+    <text x="16" y="114" fill="#94a3b8" font-size="12">- FinOps-Dashboard fuer Tokens + Kosten</text>
+    <text x="16" y="132" fill="#94a3b8" font-size="12">- Alerts bei Latenz-/Fehler-Spikes</text>
+    <rect x="578" y="118" width="28" height="20" rx="10" fill="#065f46" stroke="#10b981"/>
+    <text x="592" y="132" fill="#6ee7b7" font-size="11" text-anchor="middle" font-weight="700">OK</text>
+  </g>
+
+  <!-- Dashboard-Footer-Leiste -->
+  <g>
+    <rect x="60" y="710" width="1280" height="150" rx="12" fill="#0b1220" stroke="#334155"/>
+    <text x="80" y="740" fill="#e2e8f0" font-size="16" font-weight="700">Zusammenfassung - warum diese 11 Punkte?</text>
+    <text x="80" y="762" fill="#94a3b8" font-size="12">Sie spannen die 4 Dimensionen eines tragfaehigen Codex-Setups auf:</text>
+
+    <g transform="translate(80,778)">
+      <rect x="0" y="0" width="290" height="70" rx="8" fill="#1e293b" stroke="#6366f1"/>
+      <text x="14" y="24" fill="#c7d2fe" font-size="13" font-weight="700">Struktur</text>
+      <text x="14" y="44" fill="#94a3b8" font-size="11">config.toml, AGENTS.md, prompts,</text>
+      <text x="14" y="58" fill="#94a3b8" font-size="11">skills - wiederverwendbar + kuratiert</text>
+    </g>
+    <g transform="translate(390,778)">
+      <rect x="0" y="0" width="290" height="70" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="14" y="24" fill="#a5f3fc" font-size="13" font-weight="700">Integration</text>
+      <text x="14" y="44" fill="#94a3b8" font-size="11">MCP, GH-Action, notify-Hook -</text>
+      <text x="14" y="58" fill="#94a3b8" font-size="11">Codex im Team-Flow</text>
+    </g>
+    <g transform="translate(700,778)">
+      <rect x="0" y="0" width="290" height="70" rx="8" fill="#1e293b" stroke="#ef4444"/>
+      <text x="14" y="24" fill="#fecaca" font-size="13" font-weight="700">Kontrolle</text>
+      <text x="14" y="44" fill="#94a3b8" font-size="11">Cost-Gate, Trust-Levels -</text>
+      <text x="14" y="58" fill="#94a3b8" font-size="11">Budget + Blast-Radius begrenzt</text>
+    </g>
+    <g transform="translate(1010,778)">
+      <rect x="0" y="0" width="290" height="70" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="14" y="24" fill="#6ee7b7" font-size="13" font-weight="700">Nachvollziehbarkeit</text>
+      <text x="14" y="44" fill="#94a3b8" font-size="11">Session-ID + Observability -</text>
+      <text x="14" y="58" fill="#94a3b8" font-size="11">Audit, Debug, Reproduzierbarkeit</text>
+    </g>
+  </g>
+</svg>

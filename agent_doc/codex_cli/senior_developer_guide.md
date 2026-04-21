@@ -6,6 +6,8 @@ Dieses Dokument zielt auf Entwickler, die Codex CLI **bereits produktiv nutzen**
 
 ## 1. Codex SDK — Codex programmatisch steuern
 
+![Codex SDK als Puppenspieler-Metapher: Host-Prozess steuert die Codex-CLI als Marionette ueber JSONL-stdio-Events wie reasoning_delta, tool_call, file_change, message_delta und turn_completed](svg/senior_01_codex_sdk.svg)
+
 Das Paket [`@openai/codex-sdk`](https://www.npmjs.com/package/@openai/codex-sdk) spawnt die CLI im Hintergrund und tauscht JSONL-Events über stdio aus. Damit kannst Du Codex aus einer eigenen Node-/TypeScript-Anwendung heraus **als Komponente** einsetzen — in einem Backend, einem Electron-Tool oder einem Automations-Service.
 
 ### 1.1 Installation
@@ -92,6 +94,8 @@ Keine Secrets im Child-Prozess bedeutet: `shell_environment_policy` greift in `c
 
 ## 2. Subagents — parallelisierte Spezialisten
 
+![Subagents als Dirigent-mit-Orchester-Metapher: Haupt-Agent delegiert parallel an sec-reviewer, perf-reviewer und doc-writer und konsolidiert die Findings zu einer priorisierten Liste](svg/senior_02_subagents.svg)
+
 Codex kann **Subagenten** spawnen (explizit auf Anforderung), die jeweils einen engen Scope, ein eigenes Modell und einen eigenen Tool-Satz haben. Ideal für:
 
 - Codebase-Exploration (ein Agent pro Verzeichnis/Modul)
@@ -132,6 +136,8 @@ Du bittest den Haupt-Agent, Aufgaben zu delegieren:
 - **Ergebnis-Konsolidierung**: der Haupt-Agent synthetisiert — Subagenten reden nicht direkt mit Dir.
 
 ## 3. Integration mit dem OpenAI Agents SDK
+
+![Verkehrsleitstelle mit Triage-Router-Agent, der Codex als function_tool oder Handoff-Target nutzt; umschlossen von Memory, Guardrails und Tracing sowie den 2026er Harness-Neuerungen](svg/senior_03_agents_sdk_integration.svg)
 
 Das **OpenAI Agents SDK** (`openai-agents-python` bzw. `@openai/agents`) ist ein Framework für Multi-Agent-Systeme mit Handoffs, Guardrails, Tracing. Codex passt hinein als **Tool oder Handoff-Target**.
 
@@ -188,6 +194,8 @@ Für Codex heißt das: Du kannst die bekannten Sandbox- und Approval-Konzepte na
 
 ## 4. Advanced Prompting — Preambles & Phase-Parameter
 
+![Prompt-Architektur als 4-Bauteile-Blueprint (Rolle, Kontext, Goal/DoD, Output-Vertrag) plus Preambles-Format, Phase-Parameter-Fluss plan-act-summarize und Reasoning-Effort-Heuristik](svg/senior_04_advanced_prompting.svg)
+
 ### 4.1 Preambles
 
 GPT-5.3-Codex und GPT-5.4 geben **Preambles** vor Tool-Calls aus: 1 Satz Acknowledgement + 1–2 Sätze Plan. Das hält das Thread-Log lesbar. Konfigurierbar über `model_reasoning_summary = "detailed"` (lange) oder `"concise"` (kurz). In AGENTS.md kannst Du eine Stil-Regel vorgeben:
@@ -225,6 +233,8 @@ Gute Heuristik:
 
 ## 5. Observability, Tracing und Reproduzierbarkeit
 
+![Observability-Radarschirm: Session-JSONL, Structured Logs, OTel-MCP und Reproduzierbarkeit speisen Loki, OpenSearch, Jaeger, Honeycomb und FinOps-Dashboards mit typischen Agent-Loop-Metriken](svg/senior_05_observability.svg)
+
 ### 5.1 Session-Transkripte
 
 Unter `~/.codex/sessions/<uuid>.jsonl` liegt jeder Turn als JSONL. Beispiel-Parser:
@@ -261,6 +271,8 @@ Community-MCP-Server `mcp-server-otel` schickt Spans vom Agent-Loop an Deinen Co
 - Kosten-Aggregation
 
 ## 6. CI/CD — fortgeschrittene Patterns
+
+![CI/CD als Fliessband mit Werkstaetten: Issue-Label-Trigger, Checkout, openai/codex-action, Cost-Gate und PR; parallel Matrix-Sub-Agenten pro Modul mit Aggregator-Job](svg/senior_06_cicd_patterns.svg)
 
 ### 6.1 Issue-to-PR-Pipeline
 
@@ -321,12 +333,16 @@ jobs:
 
 ## 7. Enterprise-Betrieb
 
+![Enterprise-Control-Tower mit Shared-Cloud-Workspace in der Mitte und den Satelliten ZDR, SSO, SCIM, Audit-Logs, Model-Restriction und Custom-Responses-Proxy auf vier Integrations-Layern](svg/senior_07_enterprise_betrieb.svg)
+
 - **Shared Codex Cloud Workspace**: zentrales Task-Monitoring, Quotas pro Team, Kostenabrechnung pro Workspace.
 - **ZDR + SSO + SCIM + Audit-Logs** (siehe `sicherheit_und_sandboxing.md`).
 - **Model-Restriction** per Org-Policy (z. B. nur GPT-5.x-Codex) — verhindert Accidental-OSS-Modelle in sensiblen Repos.
 - **Custom Responses-API-Proxy** (Azure OpenAI oder self-hosted Relay) für Compliance-Filter.
 
 ## 8. Anti-Patterns aus der Praxis
+
+![Dont-Board mit 8 roten Warnkarten (yolo-Laptop, AGENTS.md-Overflow, Trivial-Subagents, Prompt-lose Cloud-Tasks, never+danger-full-Kombi, Tests nach Implementation, keine Review-Pipeline, ueberladener Kontext) plus systemische Ursachen und Senior-Reflex](svg/senior_08_anti_patterns.svg)
 
 | Anti-Pattern | Warum schlecht | Fix |
 |---|---|---|
@@ -340,6 +356,8 @@ jobs:
 | Kontext überladen mit `@file` | Signal-/Rausch-Quote fällt | Nur relevante Dateien, sonst `/compact` |
 
 ## 9. Checkliste für ein "Senior-Ready" Codex-Setup
+
+![Cockpit-Bordkarte mit 11 goldenen Badges fuer config.toml-Profile, AGENTS.md, .codex/prompts, skills, MCP, GH-Action, notify, Session-ID, Cost-Gate, Trust-Levels und Observability-Stack - gegliedert nach Struktur, Integration, Kontrolle und Nachvollziehbarkeit](svg/senior_09_senior_ready_checkliste.svg)
 
 - [ ] `~/.codex/config.toml` mit **≥ 3 Profilen** (daily, planning, review, ci).
 - [ ] `AGENTS.md` im Repo ≤ 32 KB, mit **Tooling + Style + Gotchas + Security-Regeln**.

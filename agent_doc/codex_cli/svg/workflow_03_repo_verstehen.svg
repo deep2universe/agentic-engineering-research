@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Bestehendes Repo verstehen — Plan-Profil + Folge-Prompt</title>
+  <desc>Dreiteiliges Layout: Plan-Profil-Trigger, strukturierter Summary-Output (Entry Points, Data Flow, Tests, Deploy, Gotchas) und Folge-Prompt für payments-Modul mit Mermaid-Sequenz.</desc>
+
+  <defs>
+    <marker id="arrowR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="60" y="64" font-size="30" font-weight="700" fill="#e2e8f0">Bestehendes Repo verstehen</text>
+  <text x="60" y="94" font-size="16" fill="#94a3b8">Ortskundige Stadtführerin: ein Plan-Profil verschafft Überblick und Folge-Prompts greifen tiefer</text>
+  <text x="1340" y="64" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Workflow 03</text>
+
+  <!-- Left: Trigger card (planning profile + magnifier) -->
+  <g transform="translate(60,140)">
+    <rect width="320" height="690" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="20" y="36" font-size="18" font-weight="700" fill="#e2e8f0">1 · Plan-Profil starten</text>
+
+    <!-- Magnifier icon -->
+    <g transform="translate(20,60)">
+      <circle cx="50" cy="50" r="32" fill="none" stroke="#22d3ee" stroke-width="3"/>
+      <line x1="74" y1="74" x2="100" y2="100" stroke="#22d3ee" stroke-width="5" stroke-linecap="round"/>
+      <text x="50" y="56" font-size="28" fill="#22d3ee" text-anchor="middle">?</text>
+    </g>
+
+    <text x="20" y="200" font-size="13" fill="#94a3b8">cd ~/code/legacy-monolith</text>
+    <rect x="20" y="216" width="280" height="120" rx="8" fill="#0b1220" stroke="#334155"/>
+    <text x="32" y="240" font-size="12" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">codex --profile planning \</text>
+    <text x="32" y="260" font-size="12" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">"Summarize this repo</text>
+    <text x="32" y="278" font-size="12" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace"> in 1 page for a new</text>
+    <text x="32" y="296" font-size="12" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace"> contributor."</text>
+    <text x="32" y="320" font-size="11" fill="#64748b" font-family="'JetBrains Mono', ui-monospace, monospace"># profile = read-only,</text>
+    <text x="32" y="332" font-size="11" fill="#64748b" font-family="'JetBrains Mono', ui-monospace, monospace"># reasoning = high</text>
+
+    <text x="20" y="372" font-size="14" font-weight="700" fill="#a78bfa">Warum Plan-Profil?</text>
+    <text x="20" y="396" font-size="12" fill="#cbd5e1">- Kein write, keine shell-execs.</text>
+    <text x="20" y="416" font-size="12" fill="#cbd5e1">- Hohe Reasoning-Stufe.</text>
+    <text x="20" y="436" font-size="12" fill="#cbd5e1">- Repo-weite Suche erlaubt.</text>
+    <text x="20" y="456" font-size="12" fill="#cbd5e1">- Ergebnis: Markdown-Bericht.</text>
+
+    <text x="20" y="498" font-size="14" font-weight="700" fill="#10b981">Was abfragen?</text>
+    <text x="20" y="522" font-size="12" fill="#cbd5e1">- entry points</text>
+    <text x="20" y="540" font-size="12" fill="#cbd5e1">- data flow</text>
+    <text x="20" y="558" font-size="12" fill="#cbd5e1">- test layout</text>
+    <text x="20" y="576" font-size="12" fill="#cbd5e1">- deploy steps</text>
+    <text x="20" y="594" font-size="12" fill="#cbd5e1">- 5 "gotchas" aus CI-Logs</text>
+
+    <rect x="20" y="612" width="280" height="60" rx="8" fill="#0b1220" stroke="#f59e0b" stroke-dasharray="4 4"/>
+    <text x="34" y="634" font-size="12" font-weight="700" fill="#f59e0b">Tipp</text>
+    <text x="34" y="654" font-size="11" fill="#cbd5e1">Antwort &lt;= 1 Seite verlangen —</text>
+    <text x="34" y="666" font-size="11" fill="#cbd5e1">Detailtiefe in Folge-Prompt.</text>
+  </g>
+
+  <!-- Arrow 1 -> 2 -->
+  <line x1="390" y1="450" x2="430" y2="450" stroke="#818cf8" stroke-width="3" marker-end="url(#arrowR)"/>
+
+  <!-- Middle: Summary output panel -->
+  <g transform="translate(440,140)">
+    <rect width="420" height="690" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="36" font-size="18" font-weight="700" fill="#e2e8f0">2 · Summary-Output</text>
+    <text x="20" y="58" font-size="12" fill="#94a3b8">"Repo-Wegweiser für neue Entwickler"</text>
+
+    <!-- Section: Entry points -->
+    <g transform="translate(20,80)">
+      <rect width="380" height="100" rx="8" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#22d3ee">Entry Points</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">cmd/api/main.go</text>
+      <text x="14" y="60" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">cmd/worker/main.go</text>
+      <text x="14" y="76" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">scripts/migrate.sh</text>
+      <text x="14" y="92" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">internal/web/router.go</text>
+    </g>
+
+    <!-- Section: Data flow -->
+    <g transform="translate(20,196)">
+      <rect width="380" height="100" rx="8" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#a78bfa">Data Flow</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">HTTP → router → service → repo (Postgres)</text>
+      <text x="14" y="62" font-size="11" fill="#cbd5e1">Worker konsumiert Kafka-Topics:</text>
+      <text x="14" y="78" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">orders.created, payments.captured</text>
+      <text x="14" y="94" font-size="11" fill="#cbd5e1">Cache: Redis (5 min TTL)</text>
+    </g>
+
+    <!-- Section: Tests -->
+    <g transform="translate(20,312)">
+      <rect width="380" height="80" rx="8" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#10b981">Test Layout</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">Unit: *_test.go neben Source</text>
+      <text x="14" y="60" font-size="11" fill="#cbd5e1">Integration: tests/integration/ (docker-compose)</text>
+      <text x="14" y="76" font-size="11" fill="#cbd5e1">E2E: cypress in apps/web</text>
+    </g>
+
+    <!-- Section: Deploy -->
+    <g transform="translate(20,408)">
+      <rect width="380" height="80" rx="8" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#22d3ee">Deploy Steps</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">main → CI → ECR → Argo CD → k8s/prod</text>
+      <text x="14" y="60" font-size="11" fill="#cbd5e1">Rollback: argocd app rollback &lt;name&gt;</text>
+      <text x="14" y="76" font-size="11" fill="#cbd5e1">Migrationen: separater Job vor Rollout</text>
+    </g>
+
+    <!-- Section: Gotchas -->
+    <g transform="translate(20,504)">
+      <rect width="380" height="166" rx="8" fill="#0b1220" stroke="#f59e0b"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#f59e0b">5 Gotchas</text>
+      <text x="14" y="44" font-size="11" fill="#cbd5e1">1) make seed muss zweimal laufen.</text>
+      <text x="14" y="62" font-size="11" fill="#cbd5e1">2) Env DB_URL ohne ?sslmode=disable bricht.</text>
+      <text x="14" y="80" font-size="11" fill="#cbd5e1">3) Kafka-Topic-TTL = 7d, Replays brauchen --start.</text>
+      <text x="14" y="98" font-size="11" fill="#cbd5e1">4) Frontend-Build verlangt Node 18 exakt.</text>
+      <text x="14" y="116" font-size="11" fill="#cbd5e1">5) Sentry-DSN nicht in tests/ committen!</text>
+      <text x="14" y="146" font-size="11" fill="#94a3b8" font-style="italic">Aus CI-Logs der letzten 30 Tage abgeleitet.</text>
+    </g>
+  </g>
+
+  <!-- Arrow 2 -> 3 -->
+  <line x1="870" y1="450" x2="910" y2="450" stroke="#818cf8" stroke-width="3" marker-end="url(#arrowR)"/>
+
+  <!-- Right: Folge-Prompt + Mermaid sequence -->
+  <g transform="translate(920,140)">
+    <rect width="420" height="690" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="36" font-size="18" font-weight="700" fill="#e2e8f0">3 · Folge-Prompt: payments/</text>
+
+    <rect x="20" y="58" width="380" height="80" rx="8" fill="#0b1220" stroke="#334155"/>
+    <text x="32" y="80" font-size="11" fill="#a78bfa" font-family="'JetBrains Mono', ui-monospace, monospace">"Now dive into payments/.</text>
+    <text x="32" y="96" font-size="11" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">Produce a Mermaid sequence</text>
+    <text x="32" y="112" font-size="11" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">diagram of a successful</text>
+    <text x="32" y="128" font-size="11" fill="#e2e8f0" font-family="'JetBrains Mono', ui-monospace, monospace">charge + table of services."</text>
+
+    <!-- Sequence diagram -->
+    <text x="20" y="170" font-size="14" font-weight="700" fill="#22d3ee">Sequence: successful charge</text>
+
+    <g transform="translate(20,190)" font-size="11" fill="#cbd5e1">
+      <!-- Lifelines -->
+      <rect x="0" y="0" width="76" height="24" rx="6" fill="#312e81"/>
+      <text x="38" y="16" text-anchor="middle" fill="#e2e8f0">Client</text>
+      <line x1="38" y1="24" x2="38" y2="240" stroke="#334155" stroke-dasharray="3 3"/>
+
+      <rect x="92" y="0" width="76" height="24" rx="6" fill="#312e81"/>
+      <text x="130" y="16" text-anchor="middle" fill="#e2e8f0">API</text>
+      <line x1="130" y1="24" x2="130" y2="240" stroke="#334155" stroke-dasharray="3 3"/>
+
+      <rect x="184" y="0" width="76" height="24" rx="6" fill="#312e81"/>
+      <text x="222" y="16" text-anchor="middle" fill="#e2e8f0">Service</text>
+      <line x1="222" y1="24" x2="222" y2="240" stroke="#334155" stroke-dasharray="3 3"/>
+
+      <rect x="276" y="0" width="76" height="24" rx="6" fill="#312e81"/>
+      <text x="314" y="16" text-anchor="middle" fill="#e2e8f0">Stripe</text>
+      <line x1="314" y1="24" x2="314" y2="240" stroke="#334155" stroke-dasharray="3 3"/>
+
+      <!-- Messages -->
+      <line x1="38" y1="56" x2="124" y2="56" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowR)"/>
+      <text x="80" y="50" text-anchor="middle" fill="#94a3b8">POST /charge</text>
+
+      <line x1="130" y1="92" x2="216" y2="92" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowR)"/>
+      <text x="174" y="86" text-anchor="middle" fill="#94a3b8">authorize</text>
+
+      <line x1="222" y1="128" x2="308" y2="128" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowR)"/>
+      <text x="266" y="122" text-anchor="middle" fill="#94a3b8">PaymentIntent</text>
+
+      <line x1="308" y1="164" x2="222" y2="164" stroke="#10b981" stroke-width="2" marker-end="url(#arrowR)"/>
+      <text x="266" y="158" text-anchor="middle" fill="#94a3b8">succeeded</text>
+
+      <line x1="216" y1="200" x2="130" y2="200" stroke="#10b981" stroke-width="2" marker-end="url(#arrowR)"/>
+      <text x="174" y="194" text-anchor="middle" fill="#94a3b8">persist</text>
+
+      <line x1="124" y1="236" x2="38" y2="236" stroke="#10b981" stroke-width="2" marker-end="url(#arrowR)"/>
+      <text x="80" y="230" text-anchor="middle" fill="#94a3b8">201 Created</text>
+    </g>
+
+    <!-- Services table -->
+    <g transform="translate(20,460)">
+      <text x="0" y="0" font-size="14" font-weight="700" fill="#f59e0b">External Services</text>
+      <rect x="0" y="14" width="380" height="180" rx="8" fill="#0b1220" stroke="#334155"/>
+      <line x1="0" y1="40" x2="380" y2="40" stroke="#334155"/>
+      <line x1="120" y1="14" x2="120" y2="194" stroke="#334155"/>
+      <line x1="220" y1="14" x2="220" y2="194" stroke="#334155"/>
+
+      <text x="60" y="32" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">Service</text>
+      <text x="170" y="32" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">Protocol</text>
+      <text x="300" y="32" font-size="12" font-weight="700" fill="#94a3b8" text-anchor="middle">Auth</text>
+
+      <text x="12" y="62" font-size="11" fill="#cbd5e1">Stripe</text>
+      <text x="132" y="62" font-size="11" fill="#cbd5e1">HTTPS REST</text>
+      <text x="232" y="62" font-size="11" fill="#cbd5e1">Bearer (sk_*)</text>
+
+      <text x="12" y="88" font-size="11" fill="#cbd5e1">Postgres</text>
+      <text x="132" y="88" font-size="11" fill="#cbd5e1">TCP / pgwire</text>
+      <text x="232" y="88" font-size="11" fill="#cbd5e1">SCRAM-SHA-256</text>
+
+      <text x="12" y="114" font-size="11" fill="#cbd5e1">Kafka</text>
+      <text x="132" y="114" font-size="11" fill="#cbd5e1">SASL/PLAIN</text>
+      <text x="232" y="114" font-size="11" fill="#cbd5e1">user/pass</text>
+
+      <text x="12" y="140" font-size="11" fill="#cbd5e1">Redis</text>
+      <text x="132" y="140" font-size="11" fill="#cbd5e1">RESP3 / TLS</text>
+      <text x="232" y="140" font-size="11" fill="#cbd5e1">Token (ACL)</text>
+
+      <text x="12" y="166" font-size="11" fill="#cbd5e1">Sentry</text>
+      <text x="132" y="166" font-size="11" fill="#cbd5e1">HTTPS REST</text>
+      <text x="232" y="166" font-size="11" fill="#cbd5e1">DSN</text>
+
+      <text x="12" y="188" font-size="11" fill="#cbd5e1">Vault</text>
+      <text x="132" y="188" font-size="11" fill="#cbd5e1">HTTPS / mTLS</text>
+      <text x="232" y="188" font-size="11" fill="#cbd5e1">AppRole</text>
+    </g>
+  </g>
+</svg>

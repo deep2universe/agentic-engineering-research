@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Autofix-Bot in GitHub Actions</title>
+  <desc>Robot-Mechaniker im Pit-Stop: workflow_run + failure → checkout head_sha → codex-action@v1 → Fix + PR mit Backlink.</desc>
+
+  <defs>
+    <marker id="arrowA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="60" y="64" font-size="30" font-weight="700" fill="#e2e8f0">Autofix-Bot in GitHub Actions</text>
+  <text x="60" y="94" font-size="16" fill="#94a3b8">Robot-Mechaniker im Pit-Stop: CI scheitert, Codex-Action repariert automatisch und öffnet einen PR</text>
+  <text x="1340" y="64" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Workflow 08</text>
+
+  <!-- Pipeline lane (top) -->
+  <g transform="translate(60,140)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#94a3b8">CI Pipeline</text>
+
+    <!-- CI box -->
+    <g transform="translate(0,16)">
+      <rect width="220" height="100" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+      <text x="20" y="30" font-size="14" font-weight="700" fill="#e2e8f0">CI Workflow</text>
+      <text x="20" y="50" font-size="11" fill="#94a3b8">name: CI</text>
+      <text x="20" y="68" font-size="11" fill="#94a3b8">on: push, pull_request</text>
+      <text x="20" y="88" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">jobs: lint · test · build</text>
+    </g>
+
+    <!-- Failure indicator -->
+    <g transform="translate(260,16)">
+      <rect width="160" height="100" rx="10" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+      <text x="80" y="40" text-anchor="middle" font-size="32" font-weight="700" fill="#fecaca">✗</text>
+      <text x="80" y="68" text-anchor="middle" font-size="13" font-weight="700" fill="#fecaca">FAILURE</text>
+      <text x="80" y="86" text-anchor="middle" font-size="11" fill="#fda4af">conclusion = failure</text>
+    </g>
+
+    <!-- Trigger arrow -->
+    <line x1="430" y1="66" x2="490" y2="66" stroke="#22d3ee" stroke-width="3" marker-end="url(#arrowA)"/>
+    <text x="460" y="56" text-anchor="middle" font-size="11" fill="#22d3ee">workflow_run</text>
+
+    <!-- Autofix workflow header -->
+    <g transform="translate(500,16)">
+      <rect width="240" height="100" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+      <text x="20" y="30" font-size="14" font-weight="700" fill="#e2e8f0">Codex Autofix</text>
+      <text x="20" y="50" font-size="11" fill="#94a3b8">on: workflow_run</text>
+      <text x="20" y="68" font-size="11" fill="#94a3b8">types: [completed]</text>
+      <text x="20" y="88" font-size="11" fill="#a78bfa" font-family="'JetBrains Mono', ui-monospace, monospace">if: conclusion == failure</text>
+    </g>
+  </g>
+
+  <!-- Pit-Stop metaphor (right side, top) -->
+  <g transform="translate(840,156)">
+    <rect width="500" height="100" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="28" font-size="14" font-weight="700" fill="#e2e8f0">Pit-Stop · Robot-Mechaniker</text>
+
+    <!-- Car body -->
+    <g transform="translate(20,46)">
+      <rect x="0" y="14" width="100" height="22" rx="6" fill="#22d3ee"/>
+      <rect x="14" y="6" width="50" height="14" rx="4" fill="#22d3ee"/>
+      <circle cx="20" cy="40" r="8" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
+      <circle cx="84" cy="40" r="8" fill="#0f172a" stroke="#94a3b8" stroke-width="2"/>
+    </g>
+
+    <!-- Robot mechanic (gear + arm) -->
+    <g transform="translate(140,40)">
+      <circle cx="30" cy="30" r="22" fill="none" stroke="#a78bfa" stroke-width="3"/>
+      <circle cx="30" cy="30" r="8" fill="#a78bfa"/>
+      <line x1="30" y1="2" x2="30" y2="14" stroke="#a78bfa" stroke-width="3"/>
+      <line x1="30" y1="46" x2="30" y2="58" stroke="#a78bfa" stroke-width="3"/>
+      <line x1="2" y1="30" x2="14" y2="30" stroke="#a78bfa" stroke-width="3"/>
+      <line x1="46" y1="30" x2="58" y2="30" stroke="#a78bfa" stroke-width="3"/>
+    </g>
+
+    <!-- Wrench -->
+    <g transform="translate(220,46)" fill="#10b981">
+      <rect x="0" y="14" width="60" height="6" rx="2"/>
+      <circle cx="64" cy="17" r="10" fill="none" stroke="#10b981" stroke-width="4"/>
+    </g>
+
+    <text x="320" y="52" font-size="12" fill="#cbd5e1">- Lokales Reproduzieren</text>
+    <text x="320" y="70" font-size="12" fill="#cbd5e1">- Minimaler Patch</text>
+    <text x="320" y="88" font-size="12" fill="#cbd5e1">- Pull Request öffnen</text>
+  </g>
+
+  <!-- Steps lane (middle, the real workflow steps) -->
+  <g transform="translate(60,290)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#94a3b8">Job-Steps</text>
+
+    <!-- Step 1: checkout -->
+    <g transform="translate(0,16)">
+      <rect width="300" height="200" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="32" cy="32" r="20" fill="#155e75"/>
+      <text x="32" y="38" font-size="16" font-weight="700" fill="#a5f3fc" text-anchor="middle">1</text>
+      <text x="64" y="38" font-size="14" font-weight="700" fill="#e2e8f0">actions/checkout@v4</text>
+      <rect x="20" y="64" width="260" height="120" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="32" y="84" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">- uses: actions/checkout@v4</text>
+      <text x="32" y="102" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  with:</text>
+      <text x="32" y="120" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    ref: ${{ workflow_run.</text>
+      <text x="32" y="138" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">         head_sha }}</text>
+      <text x="32" y="156" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    fetch-depth: 0</text>
+      <text x="32" y="178" font-size="11" fill="#94a3b8">denselben Commit holen</text>
+    </g>
+
+    <!-- Step 2: codex-action -->
+    <g transform="translate(340,16)">
+      <rect width="380" height="200" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+      <circle cx="32" cy="32" r="20" fill="#312e81"/>
+      <text x="32" y="38" font-size="16" font-weight="700" fill="#c7d2fe" text-anchor="middle">2</text>
+      <text x="64" y="38" font-size="14" font-weight="700" fill="#e2e8f0">openai/codex-action@v1</text>
+      <rect x="20" y="64" width="340" height="120" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="32" y="84" font-size="11" fill="#6366f1" font-family="'JetBrains Mono', ui-monospace, monospace">- uses: openai/codex-action@v1</text>
+      <text x="32" y="102" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  with:</text>
+      <text x="32" y="120" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">    sandbox: workspace-write</text>
+      <text x="32" y="138" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">    safety-strategy: drop-sudo</text>
+      <text x="32" y="156" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    codex-args: --full-auto \</text>
+      <text x="32" y="174" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">                --ask-for-approval never</text>
+    </g>
+
+    <!-- Step 3: fix + PR -->
+    <g transform="translate(740,16)">
+      <rect width="320" height="200" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+      <circle cx="32" cy="32" r="20" fill="#064e3b"/>
+      <text x="32" y="38" font-size="16" font-weight="700" fill="#a7f3d0" text-anchor="middle">3</text>
+      <text x="64" y="38" font-size="14" font-weight="700" fill="#e2e8f0">Fix + PR öffnen</text>
+      <rect x="20" y="64" width="280" height="120" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="32" y="84" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">prompt:</text>
+      <text x="32" y="102" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  "Reproduce locally,</text>
+      <text x="32" y="120" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">   fix root cause in a</text>
+      <text x="32" y="138" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">   minimal patch, open PR</text>
+      <text x="32" y="156" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">   titled 'fix(ci): autofix</text>
+      <text x="32" y="174" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">   for run &lt;ID&gt;'."</text>
+    </g>
+
+    <!-- Step 4: PR result -->
+    <g transform="translate(1080,16)">
+      <rect width="260" height="200" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="32" cy="32" r="20" fill="#4c1d95"/>
+      <text x="32" y="38" font-size="16" font-weight="700" fill="#ddd6fe" text-anchor="middle">4</text>
+      <text x="64" y="38" font-size="14" font-weight="700" fill="#e2e8f0">PR + Backlink</text>
+      <rect x="20" y="64" width="220" height="120" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="32" y="84" font-size="11" fill="#a78bfa" font-family="'JetBrains Mono', ui-monospace, monospace">PR #874</text>
+      <text x="32" y="102" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">fix(ci): autofix for</text>
+      <text x="32" y="120" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">run 1234567</text>
+      <text x="32" y="142" font-size="10" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">Body referenziert</text>
+      <text x="32" y="156" font-size="10" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">failed run-URL.</text>
+      <text x="32" y="178" font-size="10" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">CI re-run: green ✓</text>
+    </g>
+  </g>
+
+  <!-- Permissions + secrets panel (bottom-left) -->
+  <g transform="translate(60,540)">
+    <rect width="640" height="300" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="20" y="36" font-size="16" font-weight="700" fill="#e2e8f0">Permissions, Sandbox &amp; Secrets</text>
+
+    <g transform="translate(20,56)">
+      <rect width="290" height="220" rx="8" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#22d3ee">Job-Block</text>
+      <text x="14" y="46" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">jobs:</text>
+      <text x="14" y="62" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  autofix:</text>
+      <text x="14" y="78" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    runs-on: ubuntu-latest</text>
+      <text x="14" y="94" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    permissions:</text>
+      <text x="14" y="110" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">      contents: write</text>
+      <text x="14" y="126" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">      pull-requests: write</text>
+      <text x="14" y="146" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    if: ${{ ... failure }}</text>
+      <text x="14" y="174" font-size="11" fill="#94a3b8">Least-Privilege:</text>
+      <text x="14" y="190" font-size="11" fill="#94a3b8">- nur Inhalte + PRs</text>
+      <text x="14" y="206" font-size="11" fill="#94a3b8">- kein issues:write nötig</text>
+    </g>
+
+    <g transform="translate(330,56)">
+      <rect width="290" height="220" rx="8" fill="#0b1220" stroke="#334155"/>
+      <text x="14" y="22" font-size="13" font-weight="700" fill="#a78bfa">Sandbox &amp; Secrets</text>
+      <text x="14" y="46" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">sandbox: workspace-write</text>
+      <text x="14" y="62" font-size="11" fill="#94a3b8">→ darf src/ ändern</text>
+      <text x="14" y="86" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">safety-strategy: drop-sudo</text>
+      <text x="14" y="102" font-size="11" fill="#94a3b8">→ keine root-eskalation</text>
+      <text x="14" y="126" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">--ask-for-approval never</text>
+      <text x="14" y="142" font-size="11" fill="#94a3b8">→ headless headless headless</text>
+      <text x="14" y="166" font-size="13" font-weight="700" fill="#f59e0b">Secret</text>
+      <text x="14" y="186" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">openai-api-key:</text>
+      <text x="14" y="202" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  ${{ secrets.OPENAI_API_KEY }}</text>
+    </g>
+  </g>
+
+  <!-- Cycle illustration (bottom-right) -->
+  <g transform="translate(720,540)">
+    <rect width="620" height="300" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="36" font-size="16" font-weight="700" fill="#e2e8f0">Selbstheilender Loop</text>
+
+    <g transform="translate(40,80)">
+      <!-- circle nodes -->
+      <circle cx="80" cy="80" r="40" fill="#0b1220" stroke="#22d3ee" stroke-width="2"/>
+      <text x="80" y="76" text-anchor="middle" font-size="12" fill="#a5f3fc">CI rot</text>
+      <text x="80" y="92" text-anchor="middle" font-size="11" fill="#94a3b8">push/PR</text>
+
+      <circle cx="280" cy="80" r="40" fill="#0b1220" stroke="#6366f1" stroke-width="2"/>
+      <text x="280" y="76" text-anchor="middle" font-size="12" fill="#c7d2fe">Autofix</text>
+      <text x="280" y="92" text-anchor="middle" font-size="11" fill="#94a3b8">codex-action</text>
+
+      <circle cx="480" cy="80" r="40" fill="#0b1220" stroke="#10b981" stroke-width="2"/>
+      <text x="480" y="76" text-anchor="middle" font-size="12" fill="#a7f3d0">PR + Re-Run</text>
+      <text x="480" y="92" text-anchor="middle" font-size="11" fill="#94a3b8">CI grün</text>
+
+      <!-- arrows -->
+      <line x1="120" y1="80" x2="240" y2="80" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowA)"/>
+      <line x1="320" y1="80" x2="440" y2="80" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowA)"/>
+      <path d="M480 120 Q 480 200 80 200 Q 80 140 80 120" stroke="#22d3ee" stroke-width="2" stroke-dasharray="4 4" fill="none" marker-end="url(#arrowA)"/>
+      <text x="280" y="220" text-anchor="middle" font-size="11" fill="#94a3b8">nächster Push wieder rot? → Bot greift erneut</text>
+    </g>
+  </g>
+</svg>

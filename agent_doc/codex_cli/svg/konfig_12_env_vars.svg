@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Environment-Variablen — Steckdosenleiste mit beschrifteten Steckern</title>
+  <desc>Alle relevanten Env-Vars als Karten gruppiert: Auth, Paths, TLS, Provider-Keys, Logging.</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Environment-Variablen — Steckdosenleiste</text>
+  <text x="60" y="92" fill="#94a3b8" font-size="16">Gruppiert nach Zweck. Manche Vars überschreiben Codex-Einstellungen silently — Warnsymbole beachten.</text>
+  <text x="1340" y="60" fill="#6366f1" font-size="14" text-anchor="end" font-weight="600">Codex CLI · §12</text>
+
+  <!-- Steckdosenleiste-Rahmen -->
+  <rect x="50" y="130" width="1300" height="720" rx="16" fill="#111827" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- Gruppe: AUTH (rot/amber) -->
+  <g>
+    <rect x="80" y="160" width="610" height="220" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="100" y="188" fill="#ef4444" font-size="14" font-weight="700">AUTH · API-Keys</text>
+
+    <!-- OPENAI_API_KEY mit Warnung -->
+    <g>
+      <rect x="100" y="204" width="280" height="72" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+      <text x="116" y="226" fill="#f59e0b" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">OPENAI_API_KEY</text>
+      <text x="116" y="248" fill="#e2e8f0" font-size="12">Wichtigster OpenAI-Key</text>
+      <text x="116" y="266" fill="#f59e0b" font-size="11" font-weight="600">⚠ überschreibt OAuth silently!</text>
+    </g>
+
+    <g>
+      <rect x="396" y="204" width="280" height="72" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+      <text x="412" y="226" fill="#10b981" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">CODEX_API_KEY</text>
+      <text x="412" y="248" fill="#e2e8f0" font-size="12">CI-freundlicher Override</text>
+      <text x="412" y="266" fill="#94a3b8" font-size="11">hat Vorrang vor OPENAI_*</text>
+    </g>
+
+    <g>
+      <rect x="100" y="286" width="280" height="76" rx="10" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="116" y="308" fill="#a78bfa" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">ANTHROPIC_API_KEY</text>
+      <text x="116" y="330" fill="#e2e8f0" font-size="12">Claude-Provider</text>
+      <text x="116" y="348" fill="#94a3b8" font-size="11">passt zu env_key in Stanza</text>
+    </g>
+
+    <g>
+      <rect x="396" y="286" width="280" height="76" rx="10" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="412" y="308" fill="#a78bfa" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">GEMINI_API_KEY</text>
+      <text x="412" y="328" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">OPENROUTER_API_KEY</text>
+      <text x="412" y="348" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">OLLAMA_API_KEY</text>
+    </g>
+  </g>
+
+  <!-- Gruppe: PATHS -->
+  <g>
+    <rect x="710" y="160" width="610" height="220" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="730" y="188" fill="#818cf8" font-size="14" font-weight="700">PFADE · Storage &amp; State</text>
+
+    <g>
+      <rect x="730" y="204" width="280" height="72" rx="10" fill="#0f172a" stroke="#6366f1"/>
+      <text x="746" y="226" fill="#818cf8" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">CODEX_HOME</text>
+      <text x="746" y="248" fill="#e2e8f0" font-size="12">Basis-Verzeichnis</text>
+      <text x="746" y="266" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">Default: ~/.codex</text>
+    </g>
+
+    <g>
+      <rect x="1026" y="204" width="280" height="72" rx="10" fill="#0f172a" stroke="#6366f1"/>
+      <text x="1042" y="226" fill="#818cf8" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">CODEX_SQLITE_HOME</text>
+      <text x="1042" y="248" fill="#e2e8f0" font-size="12">SQLite-State-Location</text>
+      <text x="1042" y="266" fill="#94a3b8" font-size="11">Sessions · History-Index</text>
+    </g>
+
+    <g>
+      <rect x="730" y="286" width="576" height="76" rx="10" fill="#0f172a" stroke="#6366f1" stroke-dasharray="4 3"/>
+      <text x="746" y="308" fill="#94a3b8" font-size="12">Relevanz</text>
+      <text x="746" y="328" fill="#e2e8f0" font-size="13">Air-Gap-Setups · Shared-Machines · Docker-Mounts</text>
+      <text x="746" y="350" fill="#94a3b8" font-size="11">Alle Codex-Commands respektieren diese Pfade (auch exec-Mode).</text>
+    </g>
+  </g>
+
+  <!-- Gruppe: TLS -->
+  <g>
+    <rect x="80" y="400" width="610" height="220" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="100" y="428" fill="#22d3ee" font-size="14" font-weight="700">TLS · Custom-CA</text>
+
+    <g>
+      <rect x="100" y="444" width="576" height="72" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <text x="116" y="466" fill="#22d3ee" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">CODEX_CA_CERTIFICATE</text>
+      <text x="116" y="488" fill="#e2e8f0" font-size="12">Custom-CA PEM — hat Vorrang vor SSL_CERT_FILE</text>
+      <text x="116" y="506" fill="#94a3b8" font-size="11">ideal für Corporate-Proxies mit eigenem Root-CA</text>
+    </g>
+
+    <g>
+      <rect x="100" y="526" width="576" height="72" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="116" y="548" fill="#22d3ee" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">SSL_CERT_FILE</text>
+      <text x="116" y="570" fill="#e2e8f0" font-size="12">Fallback-CA · Standard-Env für OpenSSL-basierte Tools</text>
+      <text x="116" y="588" fill="#94a3b8" font-size="11">wird nach CODEX_CA_CERTIFICATE geprüft</text>
+    </g>
+  </g>
+
+  <!-- Gruppe: LOGGING -->
+  <g>
+    <rect x="710" y="400" width="610" height="220" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="730" y="428" fill="#f59e0b" font-size="14" font-weight="700">LOGGING · Tracing</text>
+
+    <g>
+      <rect x="730" y="444" width="280" height="72" rx="10" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="746" y="466" fill="#f59e0b" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">RUST_LOG</text>
+      <text x="746" y="488" fill="#e2e8f0" font-size="12">Log-Level filter</text>
+      <text x="746" y="506" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">codex=debug,info</text>
+    </g>
+
+    <g>
+      <rect x="1026" y="444" width="280" height="72" rx="10" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="1042" y="466" fill="#f59e0b" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">CODEX_MCP_LOG</text>
+      <text x="1042" y="488" fill="#e2e8f0" font-size="12">MCP-Traffic-Trace</text>
+      <text x="1042" y="506" fill="#94a3b8" font-size="11">Wert "1" → verbose MCP-Logs</text>
+    </g>
+
+    <g>
+      <rect x="730" y="526" width="576" height="72" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-dasharray="4 3"/>
+      <text x="746" y="548" fill="#94a3b8" font-size="12">Praxis-Tipp</text>
+      <text x="746" y="570" fill="#e2e8f0" font-size="13">Kombinieren für Enterprise-Debug:</text>
+      <text x="746" y="590" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">RUST_LOG=codex=debug CODEX_MCP_LOG=1 codex ...</text>
+    </g>
+  </g>
+
+  <!-- Hinweis-Box unten -->
+  <g>
+    <rect x="80" y="640" width="1240" height="190" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="100" y="668" fill="#94a3b8" font-size="13" font-weight="600">PRECEDENCE · Env vs. config.toml vs. Flags</text>
+
+    <rect x="100" y="688" width="380" height="120" rx="10" fill="#1e293b" stroke="#ef4444"/>
+    <text x="120" y="712" fill="#ef4444" font-size="13" font-weight="700">ENV überschreibt config.toml</text>
+    <text x="120" y="734" fill="#e2e8f0" font-size="12">OPENAI_API_KEY stoppt OAuth-Flow</text>
+    <text x="120" y="754" fill="#e2e8f0" font-size="12">→ bei Fehlermeldung prüfen:</text>
+    <text x="120" y="776" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">env | grep -E 'OPENAI|CODEX'</text>
+
+    <rect x="500" y="688" width="380" height="120" rx="10" fill="#1e293b" stroke="#10b981"/>
+    <text x="520" y="712" fill="#10b981" font-size="13" font-weight="700">Shell-Env-Policy filtert</text>
+    <text x="520" y="734" fill="#e2e8f0" font-size="12">Nur weitergereichte Vars erreichen</text>
+    <text x="520" y="754" fill="#e2e8f0" font-size="12">die Shell-Sandbox (§7).</text>
+    <text x="520" y="776" fill="#94a3b8" font-size="11">→ Secrets sind standardmäßig weg.</text>
+
+    <rect x="900" y="688" width="400" height="120" rx="10" fill="#1e293b" stroke="#6366f1"/>
+    <text x="920" y="712" fill="#818cf8" font-size="13" font-weight="700">Zugriff per ${env:VAR}</text>
+    <text x="920" y="734" fill="#e2e8f0" font-size="12">In config.toml (z. B. MCP-env):</text>
+    <text x="920" y="758" fill="#e2e8f0" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">env = { T = "${env:GITHUB_TOKEN}" }</text>
+    <text x="920" y="782" fill="#94a3b8" font-size="11">→ keine Secrets in TOML committen</text>
+  </g>
+</svg>

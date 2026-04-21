@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Phase 6 — Review und Qualität mit /review, Codex GitHub App und Two-Agent-Review</title>
+  <desc>Lupe und Vier-Augen-Prinzip: Self-Review per /review, Codex Review App, Lint/Format, Security-Prompt-Template, Two-Agent-Review zwischen Claude Code und Codex.</desc>
+
+  <defs>
+    <marker id="arr6" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#14b8a6"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Phase 6 — Review &amp; Qualität</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Lupe-Metapher: zweite Augen — automatisch, lokal, in CI und cross-Agent.</text>
+  <text x="1360" y="56" fill="#14b8a6" font-size="14" text-anchor="end">Codex CLI · Phase 06</text>
+
+  <!-- Lupe -->
+  <g transform="translate(70,170)" opacity="0.18">
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#14b8a6" stroke-width="14"/>
+    <line x1="70" y1="70" x2="160" y2="160" stroke="#14b8a6" stroke-width="20" stroke-linecap="round"/>
+  </g>
+
+  <!-- Three review stages -->
+  <g transform="translate(40,140)">
+    <text x="0" y="0" fill="#14b8a6" font-size="16" font-weight="700">Review-Pyramide · drei Ebenen</text>
+  </g>
+
+  <g transform="translate(40,170)">
+    <!-- Lokal /review -->
+    <rect x="0" y="0" width="430" height="200" rx="14" fill="#1e293b" stroke="#14b8a6" stroke-width="2"/>
+    <text x="20" y="34" fill="#14b8a6" font-size="16" font-weight="700">1) Lokal — /review</text>
+    <rect x="20" y="50" width="390" height="60" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="36" y="78" fill="#22d3ee" font-family="'JetBrains Mono', monospace" font-size="13">$ codex /review</text>
+    <text x="36" y="98" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="12">› vor git push</text>
+    <text x="20" y="134" fill="#cbd5e1" font-size="12">Self-Review im selben Repo-Kontext</text>
+    <text x="20" y="154" fill="#cbd5e1" font-size="12">Erkennt: TODOs, fehlende Tests,</text>
+    <text x="20" y="174" fill="#cbd5e1" font-size="12">inkonsistente Style-Regeln</text>
+    <text x="20" y="194" fill="#94a3b8" font-size="11">Latency: Sekunden</text>
+  </g>
+
+  <g transform="translate(485,170)">
+    <rect x="0" y="0" width="430" height="200" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="20" y="34" fill="#22d3ee" font-size="16" font-weight="700">2) GitHub — Codex Review App</text>
+    <rect x="20" y="50" width="390" height="60" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="36" y="78" fill="#22d3ee" font-family="'JetBrains Mono', monospace" font-size="13">openai/codex-action@v1</text>
+    <text x="36" y="98" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="12">sandbox: read-only</text>
+    <text x="20" y="134" fill="#cbd5e1" font-size="12">Auto-Erst-Review auf jedem PR</text>
+    <text x="20" y="154" fill="#cbd5e1" font-size="12">Inline-Kommentare</text>
+    <text x="20" y="174" fill="#cbd5e1" font-size="12">prompt-file: .codex/prompts/pr_review.md</text>
+    <text x="20" y="194" fill="#94a3b8" font-size="11">Latency: Minuten</text>
+  </g>
+
+  <g transform="translate(930,170)">
+    <rect x="0" y="0" width="430" height="200" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="34" fill="#a78bfa" font-size="16" font-weight="700">3) Two-Agent-Review</text>
+    <rect x="20" y="50" width="390" height="60" rx="8" fill="#0f172a" stroke="#334155"/>
+    <text x="36" y="78" fill="#22d3ee" font-family="'JetBrains Mono', monospace" font-size="13">codex mcp serve</text>
+    <text x="36" y="98" fill="#94a3b8" font-family="'JetBrains Mono', monospace" font-size="12">› Claude Code als Reviewer</text>
+    <text x="20" y="134" fill="#cbd5e1" font-size="12">Cross-Agent-Bias-Reduktion</text>
+    <text x="20" y="154" fill="#cbd5e1" font-size="12">Codex impl, Claude reviewt (oder umgekehrt)</text>
+    <text x="20" y="174" fill="#cbd5e1" font-size="12">Vier-Augen mit unterschiedlicher Heuristik</text>
+    <text x="20" y="194" fill="#94a3b8" font-size="11">Latency: Minuten</text>
+  </g>
+
+  <!-- Quality gates -->
+  <g transform="translate(40,400)">
+    <rect width="660" height="220" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Quality-Gates im AGENTS.md verankert</text>
+    <g transform="translate(20,54)">
+      <rect width="200" height="68" rx="10" fill="#0f172a" stroke="#10b981"/>
+      <text x="14" y="24" fill="#10b981" font-size="13" font-weight="700">Lint</text>
+      <text x="14" y="46" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="12">ruff --fix</text>
+      <text x="14" y="62" fill="#94a3b8" font-size="11">deterministisch</text>
+    </g>
+    <g transform="translate(230,54)">
+      <rect width="200" height="68" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="14" y="24" fill="#22d3ee" font-size="13" font-weight="700">Format</text>
+      <text x="14" y="46" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="12">prettier --write</text>
+      <text x="14" y="62" fill="#94a3b8" font-size="11">style einheitlich</text>
+    </g>
+    <g transform="translate(440,54)">
+      <rect width="200" height="68" rx="10" fill="#0f172a" stroke="#f59e0b"/>
+      <text x="14" y="24" fill="#f59e0b" font-size="13" font-weight="700">Strict</text>
+      <text x="14" y="46" fill="#cbd5e1" font-family="'JetBrains Mono', monospace" font-size="12">clippy -D warnings</text>
+      <text x="14" y="62" fill="#94a3b8" font-size="11">no warnings policy</text>
+    </g>
+    <g transform="translate(20,134)">
+      <rect width="620" height="68" rx="10" fill="#0f172a" stroke="#ef4444"/>
+      <text x="14" y="24" fill="#ef4444" font-size="13" font-weight="700">Security-Prompt-Template</text>
+      <text x="14" y="46" fill="#cbd5e1" font-size="12">"Scan for: command injection, SQL injection, XSS, secrets in logs,</text>
+      <text x="14" y="62" fill="#cbd5e1" font-size="12"> path traversal. Report by OWASP category."</text>
+    </g>
+  </g>
+
+  <!-- Two-Agent diagram -->
+  <g transform="translate(720,400)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="34" fill="#a78bfa" font-size="16" font-weight="700">Two-Agent-Review · Topologie</text>
+
+    <g transform="translate(40,80)">
+      <rect x="0" y="0" width="160" height="80" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <text x="80" y="32" text-anchor="middle" fill="#22d3ee" font-size="14" font-weight="700">Codex (Impl)</text>
+      <text x="80" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11">apply_patch</text>
+      <text x="80" y="68" text-anchor="middle" fill="#94a3b8" font-size="10">commits + push</text>
+
+      <rect x="400" y="0" width="160" height="80" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="2"/>
+      <text x="480" y="32" text-anchor="middle" fill="#a78bfa" font-size="14" font-weight="700">Claude (Review)</text>
+      <text x="480" y="52" text-anchor="middle" fill="#cbd5e1" font-size="11">via codex mcp serve</text>
+      <text x="480" y="68" text-anchor="middle" fill="#94a3b8" font-size="10">analyziert PR</text>
+
+      <line x1="160" y1="40" x2="400" y2="40" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr6)"/>
+      <text x="280" y="32" text-anchor="middle" fill="#cbd5e1" font-size="11">PR Diff</text>
+      <path d="M 400 60 Q 280 100 160 60" stroke="#a78bfa" stroke-width="2" fill="none" stroke-dasharray="4,4" marker-end="url(#arr6)"/>
+      <text x="280" y="100" text-anchor="middle" fill="#a78bfa" font-size="11">Feedback / Request changes</text>
+    </g>
+  </g>
+
+  <!-- Best/Anti -->
+  <g transform="translate(40,640)">
+    <rect width="660" height="220" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Best Practices</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">· Self-Review via /review vor git push (lokal, schnell)</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">· Codex Review App auf dem Repo einschalten — automatisches Erst-Review</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">· Lint/Format/Strict im AGENTS.md-Testschritt verankert</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">· Security-Prompt-Template (OWASP) als Skill bereitstellen</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">· Two-Agent-Review zur Bias-Reduktion (Claude + Codex)</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">· prompt-file: .codex/prompts/pr_review.md versionieren</text>
+    <text x="20" y="194" fill="#cbd5e1" font-size="13">· Read-only Sandbox in CI — keine Schreibrechte für Reviewer</text>
+  </g>
+  <g transform="translate(720,640)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" fill="#ef4444" font-size="16" font-weight="700">Anti-Patterns</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">✗ Review-Agent im selben Thread wie Implementation — Bias</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">✗ Pre-Commit-Hooks per --no-verify umgehen lassen</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">✗ Review-Prompt nicht versioniert — driftet schweigend</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">✗ Reviewer-Sandbox auf workspace-write — kann Code mutieren</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">✗ Security-Scan ohne OWASP-Kategorisierung — schwer triagierbar</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">✗ Auto-Approve auf Bot-Reviews — Vier-Augen ad absurdum</text>
+  </g>
+</svg>

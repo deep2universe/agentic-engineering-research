@@ -6,6 +6,8 @@ Dieses Dokument ordnet Codex CLI im Feld der **Terminal-first Coding-Agenten** e
 
 ## 1. Positionierungs-Matrix
 
+![Positionierungs-Matrix der fünf Terminal-first Coding-Agenten mit Codex CLI als hervorgehobenem Leitfigur-König in Schach-Metapher](svg/vergleich_01_positionierungs_matrix.svg)
+
 | Tool | Anbieter | Lizenz | Sprache | Modell(e) | USP |
 |---|---|---|---|---|---|
 | **Codex CLI** | OpenAI | Apache-2.0 | Rust | GPT-5.3-Codex (+ Spark), GPT-5.2/5.1/5-Codex, GPT-5/5.4, o3, OSS | Kernel-Sandbox, autonome Multi-Hour-Tasks, Cloud-Handoff |
@@ -15,6 +17,8 @@ Dieses Dokument ordnet Codex CLI im Feld der **Terminal-first Coding-Agenten** e
 | **GitHub Copilot CLI** | GitHub/Microsoft | proprietär (Preview) | TypeScript | GPT- + Claude-Modelle | GitHub-Nativ (Issues/PRs/Repos) |
 
 ## 2. Architektur & Sandboxing
+
+![Heatmap-Matrix zu Sandbox, Approval, Sub-Agents, Hooks und MCP mit grün-gelb-rot-Codes pro Tool](svg/vergleich_02_architektur_sandboxing.svg)
 
 | Aspekt | Codex CLI | Claude Code | Gemini CLI | Aider | Copilot CLI |
 |---|---|---|---|---|---|
@@ -26,6 +30,8 @@ Dieses Dokument ordnet Codex CLI im Feld der **Terminal-first Coding-Agenten** e
 
 ## 3. Kontextfenster & Modelle (typisch)
 
+![Glasbehälter-Metapher mit Füllständen von 128K bis 1M Tokens plus Reasoning-Tuning-Badges pro Tool](svg/vergleich_03_kontextfenster.svg)
+
 | Tool | Kontext | Reasoning-Tuning | Notizen |
 |---|---|---|---|
 | Codex CLI | 128 K–200 K (modellabhängig); Compaction bis Multi-Hour | `low/medium/high` + `plan_mode_reasoning_effort` | Phase-Parameter zwingend bei GPT-5.3-Codex |
@@ -35,6 +41,8 @@ Dieses Dokument ordnet Codex CLI im Feld der **Terminal-first Coding-Agenten** e
 | Copilot CLI | modellabhängig | – | GH-kontext-reich |
 
 ## 4. Öffentliche Benchmarks (gerundet)
+
+![Leaderboard mit Balkendiagrammen zu SWE-bench, Terminal-Bench, First-pass und Tokens pro Task; Codex führt bei Terminal-Bench und Token-Effizienz](svg/vergleich_04_benchmarks.svg)
 
 | Benchmark | Codex CLI | Claude Code | Gemini CLI |
 |---|---|---|---|
@@ -47,6 +55,8 @@ Dieses Dokument ordnet Codex CLI im Feld der **Terminal-first Coding-Agenten** e
 
 ## 5. Ökosystem & Adoption
 
+![Flaggenmast-Metapher mit GitHub-Stars als Höhe, Lizenz-Fahnen und Bubbles für AGENTS.md und IDE-Extension](svg/vergleich_05_oekosystem_adoption.svg)
+
 | Metrik | Codex | Claude Code | Gemini CLI | Aider |
 |---|---|---|---|---|
 | GitHub-Stars | ~67 k | n/a (closed) | ~45 k | ~42 k |
@@ -55,6 +65,8 @@ Dieses Dokument ordnet Codex CLI im Feld der **Terminal-first Coding-Agenten** e
 | IDE-Extension | VS Code/Cursor/Windsurf/JetBrains | VS Code + Claude Desktop | VS Code | nein (CLI-only) |
 
 ## 6. Wann welches Tool?
+
+![Werkzeugkasten mit fünf spezialisierten Fächern pro Tool und deren Stärken als Use-Case-Panel](svg/vergleich_06_wann_welches_tool.svg)
 
 ### Codex CLI passt am besten bei …
 
@@ -90,6 +102,8 @@ Dieses Dokument ordnet Codex CLI im Feld der **Terminal-first Coding-Agenten** e
 
 ## 7. Hybridnutzung — die typischen Kombinationen
 
+![Vier Tandem-Paarungen mit Codex und Claude, Gemini, Aider und Copilot; AGENTS.md als zentrale Brücke zwischen allen](svg/vergleich_07_hybridnutzung.svg)
+
 - **Codex + Claude Code**: Codex autonom im Hintergrund, Claude für präzise Kollaboration; via `codex mcp serve` gegenseitig als Tool sichtbar.
 - **Codex + Aider**: Codex für komplexe Flows, Aider für schnelle Edits; teilen sich AGENTS.md.
 - **Codex + Gemini**: Gemini für "erklär mir das Monorepo", Codex für die Implementation.
@@ -98,6 +112,8 @@ Dieses Dokument ordnet Codex CLI im Feld der **Terminal-first Coding-Agenten** e
 AGENTS.md ist der **gemeinsame Nenner** — alle fünf Tools können sie lesen (Aider partiell, siehe Versionshinweis).
 
 ## 8. Entscheidungs-Flowchart (kompakt)
+
+![Binärer Entscheidungsbaum mit fünf Fragen zu Kernel-Sandbox, 1-M-Kontext, Hook-Events, MIT/Python und GitHub-Nativität](svg/vergleich_08_entscheidungs_flowchart.svg)
 
 ```text
 Brauchst Du Kernel-Sandbox & autonome Multi-Hour-Tasks?
@@ -113,6 +129,8 @@ Brauchst Du Kernel-Sandbox & autonome Multi-Hour-Tasks?
 ```
 
 ## 9. Migrationspfade
+
+![Drei Gleise mit Weichen für Migration von Aider, Claude Code und Copilot CLI zu Codex CLI mit Config-Mapping und AGENTS.md als Zielknoten](svg/vergleich_09_migrationspfade.svg)
 
 ### Von Aider zu Codex CLI
 
@@ -132,6 +150,8 @@ Brauchst Du Kernel-Sandbox & autonome Multi-Hour-Tasks?
 - Copilot-spezifische Slash-Commands durch AGENTS.md-Prompts / Skills ersetzen.
 
 ## 10. Risiken und offene Punkte (Codex CLI)
+
+![Wachtafel mit sechs Risiko-Karten zu 0.x-Schema, OAuth-Override, auth.json, Cloud-ZDR, experimentellen Features und Phase-Parameter mit Severity und Mitigation](svg/vergleich_10_risiken_offene_punkte.svg)
 
 - **0.x-Schema**: breaking changes zwischen Minor-Versions möglich.
 - **OAuth-Override durch `OPENAI_API_KEY`** (still) — in CI `CODEX_API_KEY` nutzen.

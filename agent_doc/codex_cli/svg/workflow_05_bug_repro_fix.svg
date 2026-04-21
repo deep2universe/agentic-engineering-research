@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Bug-Reproduktion und Fix — Spurensicherung</title>
+  <desc>Sechs-stufiger Bug-Workflow als Ermittler-Tafel: Issue lesen, failing test, Red-Commit, Root-Cause Fix, Suite-Run, Coverage-Delta.</desc>
+
+  <defs>
+    <marker id="arrowB" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="60" y="64" font-size="30" font-weight="700" fill="#e2e8f0">Bug-Reproduktion und Fix</text>
+  <text x="60" y="94" font-size="16" fill="#94a3b8">Spurensicherung: Issue → failing Test → Red-Commit → Root-Cause Fix → Coverage-Delta</text>
+  <text x="1340" y="64" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Workflow 05</text>
+
+  <!-- Detective board background -->
+  <rect x="50" y="130" width="1300" height="730" rx="14" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+  <text x="70" y="160" font-size="14" font-weight="700" fill="#94a3b8">Ermittler-Tafel · Issue #142</text>
+
+  <!-- Pin metaphor at top corners -->
+  <circle cx="80" cy="148" r="6" fill="#ef4444"/>
+  <circle cx="1320" cy="148" r="6" fill="#ef4444"/>
+
+  <!-- Step 1: Issue card (top-left) -->
+  <g transform="translate(80,180)">
+    <rect width="300" height="200" rx="10" fill="#0b1220" stroke="#6366f1" stroke-width="2"/>
+    <rect x="0" y="0" width="300" height="36" rx="10" fill="#312e81"/>
+    <text x="14" y="24" font-size="13" font-weight="700" fill="#e2e8f0">Issue #142 (GitHub MCP)</text>
+    <text x="14" y="60" font-size="12" fill="#94a3b8">Title</text>
+    <text x="14" y="78" font-size="13" fill="#e2e8f0">"Charge fails for amounts &gt; 999.99"</text>
+    <text x="14" y="106" font-size="12" fill="#94a3b8">Reporter</text>
+    <text x="14" y="124" font-size="12" fill="#cbd5e1">@finance-team · 2026-04-18</text>
+    <text x="14" y="148" font-size="12" fill="#94a3b8">Labels</text>
+    <rect x="14" y="156" width="60" height="20" rx="10" fill="#7f1d1d"/>
+    <text x="44" y="170" font-size="11" font-weight="700" fill="#fecaca" text-anchor="middle">bug</text>
+    <rect x="80" y="156" width="80" height="20" rx="10" fill="#78350f"/>
+    <text x="120" y="170" font-size="11" font-weight="700" fill="#fde68a" text-anchor="middle">payments</text>
+    <rect x="166" y="156" width="80" height="20" rx="10" fill="#312e81"/>
+    <text x="206" y="170" font-size="11" font-weight="700" fill="#c7d2fe" text-anchor="middle">priority/p1</text>
+  </g>
+
+  <!-- Step 2: Failing test card (top-mid) -->
+  <g transform="translate(420,180)">
+    <rect width="320" height="200" rx="10" fill="#0b1220" stroke="#ef4444" stroke-width="2"/>
+    <rect x="0" y="0" width="320" height="36" rx="10" fill="#7f1d1d"/>
+    <text x="14" y="24" font-size="13" font-weight="700" fill="#fecaca">2 · Failing Test schreiben</text>
+    <text x="14" y="60" font-size="12" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">tests/regressions/issue_142.ts</text>
+    <rect x="14" y="74" width="290" height="110" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="22" y="92" font-size="11" fill="#a78bfa" font-family="'JetBrains Mono', ui-monospace, monospace">test('charge of 1000.00', () =&gt; {</text>
+    <text x="22" y="108" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  const r = charge(1000.00);</text>
+    <text x="22" y="124" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  expect(r.ok).toBe(true);</text>
+    <text x="22" y="140" font-size="11" fill="#a78bfa" font-family="'JetBrains Mono', ui-monospace, monospace">});</text>
+    <text x="22" y="170" font-size="11" fill="#ef4444" font-family="'JetBrains Mono', ui-monospace, monospace">npm test → 1 failing ✗</text>
+  </g>
+
+  <!-- Step 3: Red commit (top-right) -->
+  <g transform="translate(780,180)">
+    <rect width="540" height="200" rx="10" fill="#0b1220" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="0" y="0" width="540" height="36" rx="10" fill="#78350f"/>
+    <text x="14" y="24" font-size="13" font-weight="700" fill="#fde68a">3 · Red-Commit (Vertrag)</text>
+    <text x="14" y="62" font-size="12" fill="#94a3b8">Der rote Commit dient als nachweisbare Reproduktion.</text>
+    <rect x="14" y="78" width="510" height="48" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="22" y="98" font-size="11" fill="#f59e0b" font-family="'JetBrains Mono', ui-monospace, monospace">git add tests/regressions/issue_142.ts</text>
+    <text x="22" y="116" font-size="11" fill="#f59e0b" font-family="'JetBrains Mono', ui-monospace, monospace">git commit -m "test: red — repro #142"</text>
+    <text x="14" y="146" font-size="12" fill="#cbd5e1">Vorteile</text>
+    <text x="14" y="166" font-size="11" fill="#94a3b8">- Bisect-fähig: jeder Folge-Commit ist eindeutig zuordenbar.</text>
+    <text x="14" y="184" font-size="11" fill="#94a3b8">- Die Regression bleibt für alle Zeiten dokumentiert.</text>
+  </g>
+
+  <!-- Step 4: Root-Cause Fix (mid-left) -->
+  <g transform="translate(80,420)">
+    <rect width="600" height="220" rx="10" fill="#0b1220" stroke="#10b981" stroke-width="2"/>
+    <rect x="0" y="0" width="600" height="36" rx="10" fill="#064e3b"/>
+    <text x="14" y="24" font-size="13" font-weight="700" fill="#a7f3d0">4 · Root-Cause Fix in src/</text>
+    <text x="14" y="60" font-size="12" fill="#94a3b8">Codex bewegt sich nur im notwendigen Pfad — Constraint:</text>
+    <text x="14" y="76" font-size="12" fill="#cbd5e1" font-style="italic">"Do NOT change unrelated files."</text>
+
+    <rect x="14" y="92" width="280" height="110" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="22" y="110" font-size="11" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">--- src/payments/charge.ts</text>
+    <text x="22" y="128" font-size="11" fill="#ef4444" font-family="'JetBrains Mono', ui-monospace, monospace">- if (amount &gt; 999) {</text>
+    <text x="22" y="144" font-size="11" fill="#ef4444" font-family="'JetBrains Mono', ui-monospace, monospace">-   throw new Error("limit");</text>
+    <text x="22" y="160" font-size="11" fill="#ef4444" font-family="'JetBrains Mono', ui-monospace, monospace">- }</text>
+    <text x="22" y="180" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">+ if (amount &gt; MAX_DAILY) {</text>
+    <text x="22" y="196" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">+   throw new LimitExceeded();</text>
+
+    <rect x="306" y="92" width="280" height="110" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="316" y="112" font-size="12" fill="#22d3ee" font-weight="700">Wurzelursache</text>
+    <text x="316" y="132" font-size="11" fill="#cbd5e1">Hardcoded "999" als Off-by-One,</text>
+    <text x="316" y="148" font-size="11" fill="#cbd5e1">stammt aus alter Mock-Konfiguration.</text>
+    <text x="316" y="170" font-size="12" fill="#22d3ee" font-weight="700">Patch-Scope</text>
+    <text x="316" y="190" font-size="11" fill="#cbd5e1">2 Dateien · 18 Zeilen · 1 Test grün</text>
+  </g>
+
+  <!-- Step 5: Suite + green commit (mid-right) -->
+  <g transform="translate(720,420)">
+    <rect width="600" height="220" rx="10" fill="#0b1220" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="0" y="0" width="600" height="36" rx="10" fill="#155e75"/>
+    <text x="14" y="24" font-size="13" font-weight="700" fill="#a5f3fc">5 · Full Test Suite + Green-Commit</text>
+
+    <rect x="14" y="60" width="280" height="142" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="22" y="80" font-size="12" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">npm test</text>
+    <text x="22" y="100" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">PASS  tests/regressions/issue_142</text>
+    <text x="22" y="118" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">PASS  tests/payments/charge</text>
+    <text x="22" y="136" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">PASS  tests/auth/refresh</text>
+    <text x="22" y="154" font-size="11" fill="#94a3b8" font-family="'JetBrains Mono', ui-monospace, monospace">...</text>
+    <text x="22" y="174" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">Tests: 286 passed, 0 failed</text>
+    <text x="22" y="192" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">Time:  18.4 s</text>
+
+    <rect x="306" y="60" width="280" height="142" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="316" y="80" font-size="12" font-weight="700" fill="#a78bfa">Commit-Sequenz</text>
+    <circle cx="324" cy="100" r="5" fill="#ef4444"/>
+    <text x="338" y="104" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">test: red — repro #142</text>
+    <line x1="324" y1="106" x2="324" y2="124" stroke="#334155" stroke-width="2"/>
+    <circle cx="324" cy="130" r="5" fill="#10b981"/>
+    <text x="338" y="134" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">fix: charge limit (#142)</text>
+    <line x1="324" y1="136" x2="324" y2="154" stroke="#334155" stroke-width="2"/>
+    <circle cx="324" cy="160" r="5" fill="#22d3ee"/>
+    <text x="338" y="164" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">chore: changelog entry</text>
+    <text x="316" y="192" font-size="11" fill="#94a3b8" font-style="italic">Lineare History, leichtes Cherry-Pick.</text>
+  </g>
+
+  <!-- Step 6: Coverage delta (bottom row) -->
+  <g transform="translate(80,680)">
+    <rect width="1240" height="160" rx="10" fill="#0b1220" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="0" y="0" width="1240" height="36" rx="10" fill="#4c1d95"/>
+    <text x="14" y="24" font-size="13" font-weight="700" fill="#ddd6fe">6 · Coverage-Delta berichten</text>
+
+    <text x="20" y="64" font-size="12" fill="#94a3b8">Codex meldet Coverage-Veränderung als Teil des Final-Reports.</text>
+
+    <!-- Coverage bars -->
+    <g transform="translate(20,80)">
+      <text x="0" y="14" font-size="12" fill="#cbd5e1">vorher</text>
+      <rect x="80" y="0" width="500" height="20" rx="4" fill="#1e293b" stroke="#334155"/>
+      <rect x="80" y="0" width="376" height="20" rx="4" fill="#f59e0b"/>
+      <text x="590" y="14" font-size="12" fill="#fbbf24" font-weight="700">75.2 %</text>
+
+      <text x="0" y="50" font-size="12" fill="#cbd5e1">nachher</text>
+      <rect x="80" y="36" width="500" height="20" rx="4" fill="#1e293b" stroke="#334155"/>
+      <rect x="80" y="36" width="394" height="20" rx="4" fill="#10b981"/>
+      <text x="590" y="50" font-size="12" fill="#10b981" font-weight="700">78.8 %</text>
+
+      <rect x="660" y="0" width="200" height="56" rx="8" fill="#1e293b" stroke="#10b981"/>
+      <text x="760" y="22" text-anchor="middle" font-size="14" fill="#10b981" font-weight="700">Δ +3.6 pp</text>
+      <text x="760" y="44" text-anchor="middle" font-size="11" fill="#94a3b8">payments/charge.ts</text>
+
+      <rect x="880" y="0" width="320" height="56" rx="8" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="900" y="22" font-size="12" fill="#22d3ee" font-weight="700">Final-Report im TUI</text>
+      <text x="900" y="42" font-size="11" fill="#cbd5e1">"#142 reproduced + fixed; +3.6 pp coverage"</text>
+    </g>
+  </g>
+
+  <!-- Connection arrows -->
+  <line x1="380" y1="280" x2="420" y2="280" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowB)"/>
+  <line x1="740" y1="280" x2="780" y2="280" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowB)"/>
+  <line x1="220" y1="380" x2="220" y2="420" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowB)"/>
+  <line x1="680" y1="530" x2="720" y2="530" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowB)"/>
+  <line x1="700" y1="640" x2="700" y2="680" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowB)"/>
+</svg>

@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Phase 2 — Projekt-Setup mit /init, AGENTS.md, Skills und Trust-Level</title>
+  <desc>Bauwerk-Fundament: Greenfield- oder Brownfield-Repo wird mit /init, AGENTS.md, Skill-Verzeichnis, Devcontainer und Trust-Level startklar gemacht.</desc>
+
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" fill="#e2e8f0" font-size="30" font-weight="700">Phase 2 — Projekt-Setup</text>
+  <text x="40" y="84" fill="#94a3b8" font-size="15">Bootstrap-Metapher: Fundament, Mauern, Dachstuhl — alles, bevor Codex eine Feature-Zeile schreibt.</text>
+  <text x="1360" y="56" fill="#818cf8" font-size="14" text-anchor="end">Codex CLI · Phase 02</text>
+
+  <!-- Foundation layers (stack metaphor) -->
+  <g transform="translate(60,140)">
+    <text x="0" y="-10" fill="#818cf8" font-size="16" font-weight="700">Bootstrap-Stack (von unten nach oben)</text>
+
+    <!-- Layer 5 - Trust -->
+    <g transform="translate(0,10)">
+      <rect width="600" height="76" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+      <rect x="14" y="16" width="44" height="44" rx="8" fill="#a78bfa"/>
+      <text x="36" y="44" text-anchor="middle" fill="#0f172a" font-size="22" font-weight="700">5</text>
+      <text x="78" y="34" fill="#e2e8f0" font-size="15" font-weight="700">Trust-Level für Verzeichnis</text>
+      <text x="78" y="58" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', monospace">~/.codex/config.toml → [projects."/path"]</text>
+    </g>
+    <!-- Layer 4 - Devcontainer/justfile -->
+    <g transform="translate(0,96)">
+      <rect width="600" height="76" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+      <rect x="14" y="16" width="44" height="44" rx="8" fill="#22d3ee"/>
+      <text x="36" y="44" text-anchor="middle" fill="#0f172a" font-size="22" font-weight="700">4</text>
+      <text x="78" y="34" fill="#e2e8f0" font-size="15" font-weight="700">Reproducible Env</text>
+      <text x="78" y="58" fill="#94a3b8" font-size="12">Devcontainer · justfile · Makefile · pre-commit</text>
+    </g>
+    <!-- Layer 3 - Skills -->
+    <g transform="translate(0,182)">
+      <rect width="600" height="76" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+      <rect x="14" y="16" width="44" height="44" rx="8" fill="#10b981"/>
+      <text x="36" y="44" text-anchor="middle" fill="#0f172a" font-size="22" font-weight="700">3</text>
+      <text x="78" y="34" fill="#e2e8f0" font-size="15" font-weight="700">Skills pro Task</text>
+      <text x="78" y="58" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', monospace">skills/new_feature/ · skills/release/ · skills/flake/</text>
+    </g>
+    <!-- Layer 2 - AGENTS.md -->
+    <g transform="translate(0,268)">
+      <rect width="600" height="76" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+      <rect x="14" y="16" width="44" height="44" rx="8" fill="#f59e0b"/>
+      <text x="36" y="44" text-anchor="middle" fill="#0f172a" font-size="22" font-weight="700">2</text>
+      <text x="78" y="34" fill="#e2e8f0" font-size="15" font-weight="700">AGENTS.md (House-Rules)</text>
+      <text x="78" y="58" fill="#94a3b8" font-size="12">Stack · Commands · Style · Gotchas · Security · &lt; 32 KB</text>
+    </g>
+    <!-- Layer 1 - /init -->
+    <g transform="translate(0,354)">
+      <rect width="600" height="76" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+      <rect x="14" y="16" width="44" height="44" rx="8" fill="#818cf8"/>
+      <text x="36" y="44" text-anchor="middle" fill="#0f172a" font-size="22" font-weight="700">1</text>
+      <text x="78" y="34" fill="#e2e8f0" font-size="15" font-weight="700">/init Befehl</text>
+      <text x="78" y="58" fill="#94a3b8" font-size="12">Erkennt Sprache, legt AGENTS.md-Gerüst an, ruft Bootstrap-Prompt</text>
+    </g>
+  </g>
+
+  <!-- Right: Bootstrap Prompt + Files -->
+  <g transform="translate(720,140)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <text x="20" y="34" fill="#818cf8" font-size="16" font-weight="700">Bootstrap-Prompt (nach /init)</text>
+    <rect x="20" y="50" width="600" height="150" rx="10" fill="#0f172a" stroke="#334155"/>
+    <g font-family="'JetBrains Mono', 'Fira Code', ui-monospace, monospace" font-size="13" fill="#e2e8f0">
+      <text x="36" y="74">"Bootstrap a Python 3.12 project with</text>
+      <text x="36" y="92"> Poetry, pytest, ruff, mypy.</text>
+      <text x="36" y="114" fill="#22d3ee">  Add Makefile: setup, lint, test, run.</text>
+      <text x="36" y="132" fill="#22d3ee">  Create AGENTS.md (stack, commands,</text>
+      <text x="36" y="150" fill="#22d3ee">  Black 24, 100-char lines).</text>
+      <text x="36" y="172" fill="#a78bfa">  Commit as `chore: bootstrap`."</text>
+    </g>
+  </g>
+
+  <!-- Repo tree -->
+  <g transform="translate(720,380)">
+    <rect width="640" height="220" rx="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" fill="#e2e8f0" font-size="16" font-weight="700">Resultierendes Repo-Skelett</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="13" fill="#cbd5e1">
+      <text x="20" y="62">project/</text>
+      <text x="40" y="82">├── AGENTS.md          <tspan fill="#f59e0b">(House-Rules)</tspan></text>
+      <text x="40" y="102">├── pyproject.toml     <tspan fill="#94a3b8">(Poetry)</tspan></text>
+      <text x="40" y="122">├── Makefile           <tspan fill="#94a3b8">(setup/lint/test/run)</tspan></text>
+      <text x="40" y="142">├── .pre-commit-config.yaml</text>
+      <text x="40" y="162">├── .devcontainer/     <tspan fill="#22d3ee">(Reproducibility)</tspan></text>
+      <text x="40" y="182">└── skills/            <tspan fill="#10b981">(SKILL.md je Task)</tspan></text>
+    </g>
+  </g>
+
+  <!-- Best practices vs Anti -->
+  <g transform="translate(60,620)">
+    <rect width="600" height="240" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="20" y="34" fill="#10b981" font-size="16" font-weight="700">Best Practices</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">· AGENTS.md von Anfang an pflegen — Stack, Commands, Gotchas</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">· Ein Skill pro wiederkehrender Task</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">· Devcontainer / justfile — reproducible env</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">· Trust-Level für Verzeichnis explizit setzen</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">· `chore: bootstrap` als sauberer erster Commit</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">· Code-Style (Black 24, 100-char) im AGENTS.md festschreiben</text>
+    <text x="20" y="194" fill="#cbd5e1" font-size="13">· Security-Regeln direkt im Bootstrap dokumentieren</text>
+    <text x="20" y="216" fill="#cbd5e1" font-size="13">· Pre-Commit-Hooks aktivieren (lint/format/test)</text>
+  </g>
+  <g transform="translate(720,620)">
+    <rect width="640" height="240" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="20" y="34" fill="#ef4444" font-size="16" font-weight="700">Anti-Patterns</text>
+    <text x="20" y="62" fill="#cbd5e1" font-size="13">✗ AGENTS.md mit &gt; 32 KB überladen — wird abgeschnitten</text>
+    <text x="20" y="84" fill="#cbd5e1" font-size="13">✗ README.md statt AGENTS.md — funktioniert, aber unstandardisiert</text>
+    <text x="20" y="106" fill="#cbd5e1" font-size="13">✗ Skills inline im Prompt statt im Repo — kein Reuse</text>
+    <text x="20" y="128" fill="#cbd5e1" font-size="13">✗ Trust-Level "trusted" für jedes neue Repo blind setzen</text>
+    <text x="20" y="150" fill="#cbd5e1" font-size="13">✗ Globale Tools statt isolierter Devcontainer</text>
+    <text x="20" y="172" fill="#cbd5e1" font-size="13">✗ Bootstrap ohne Test-Runner — Phase 5 leidet</text>
+    <text x="20" y="194" fill="#cbd5e1" font-size="13">✗ Multi-Language-Setup im selben /init-Aufruf</text>
+    <text x="20" y="216" fill="#cbd5e1" font-size="13">✗ Pre-Commit-Hooks per --no-verify aushebeln dürfen</text>
+  </g>
+</svg>

@@ -1,0 +1,196 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Full Sample config.toml — annotierter Blueprint</title>
+  <desc>Technische Zeichnung der Beispiel-config.toml mit Sektions-Annotationen am Rand.</desc>
+  <defs>
+    <marker id="arr16" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Full Sample config.toml — Blueprint</text>
+  <text x="60" y="92" fill="#94a3b8" font-size="16">Annotiertes Beispiel · Sektionen am Rand erklärt · alle 8 Hauptblöcke sichtbar.</text>
+  <text x="1340" y="60" fill="#6366f1" font-size="14" text-anchor="end" font-weight="600">Codex CLI · §16</text>
+
+  <!-- Blueprint-Raster -->
+  <g stroke="#1e293b" stroke-width="0.5">
+    <line x1="60" y1="140" x2="60" y2="860"/>
+    <line x1="1340" y1="140" x2="1340" y2="860"/>
+  </g>
+
+  <!-- Dokument-Karton -->
+  <rect x="420" y="130" width="560" height="740" rx="8" fill="#111827" stroke="#6366f1" stroke-width="2"/>
+  <rect x="420" y="130" width="560" height="36" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+  <text x="700" y="154" fill="#818cf8" font-size="13" font-weight="700" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">~/.codex/config.toml</text>
+
+  <!-- Inhalt der config.toml -->
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11">
+    <!-- Sektion 1: Globale Defaults -->
+    <text x="440" y="186" fill="#94a3b8"># Globale Defaults</text>
+    <text x="440" y="202" fill="#e2e8f0">model                    = "gpt-5.3-codex"</text>
+    <text x="440" y="218" fill="#e2e8f0">model_provider           = "openai"</text>
+    <text x="440" y="234" fill="#e2e8f0">approval_policy          = "on-request"</text>
+    <text x="440" y="250" fill="#e2e8f0">sandbox_mode             = "workspace-write"</text>
+    <text x="440" y="266" fill="#e2e8f0">model_reasoning_effort   = "medium"</text>
+    <text x="440" y="282" fill="#e2e8f0">model_reasoning_summary  = "concise"</text>
+    <text x="440" y="298" fill="#e2e8f0">project_doc_max_bytes    = 32768</text>
+    <text x="440" y="314" fill="#e2e8f0">disable_response_storage = false</text>
+
+    <!-- Sektion 2: Notify -->
+    <text x="440" y="338" fill="#94a3b8"># Notify-Hook</text>
+    <text x="440" y="354" fill="#e2e8f0">notify = ["/home/alice/.codex/notify_slack.sh"]</text>
+
+    <!-- Sektion 3: Shell -->
+    <text x="440" y="378" fill="#94a3b8"># Shell-Sicherheit</text>
+    <text x="440" y="394" fill="#22d3ee">[shell_environment_policy]</text>
+    <text x="440" y="410" fill="#e2e8f0">inherit = "core"</text>
+    <text x="440" y="426" fill="#e2e8f0">exclude = ["AWS_*", "GITHUB_TOKEN"]</text>
+    <text x="440" y="442" fill="#e2e8f0">set     = { CI = "true" }</text>
+
+    <!-- Sektion 4: Sandbox -->
+    <text x="440" y="466" fill="#94a3b8"># Sandbox</text>
+    <text x="440" y="482" fill="#22d3ee">[sandbox_workspace_write]</text>
+    <text x="440" y="498" fill="#e2e8f0">network_access = false</text>
+    <text x="440" y="514" fill="#e2e8f0">writable_roots = ["/srv/builds"]</text>
+
+    <!-- Sektion 5: Tools -->
+    <text x="440" y="538" fill="#94a3b8"># Tools</text>
+    <text x="440" y="554" fill="#22d3ee">[tools.web_search]</text>
+    <text x="440" y="570" fill="#e2e8f0">enabled = true</text>
+    <text x="440" y="586" fill="#e2e8f0">mode    = "cached"</text>
+
+    <!-- Sektion 6: MCP -->
+    <text x="440" y="610" fill="#94a3b8"># MCP</text>
+    <text x="440" y="626" fill="#22d3ee">[mcp_servers.github]</text>
+    <text x="440" y="642" fill="#e2e8f0">command = "npx"</text>
+    <text x="440" y="658" fill="#e2e8f0">args    = ["-y", "@modelcontextprotocol/server-github"]</text>
+    <text x="440" y="674" fill="#e2e8f0">env     = { GITHUB_TOKEN = "${env:GITHUB_TOKEN}" }</text>
+
+    <!-- Sektion 7: Provider -->
+    <text x="440" y="698" fill="#94a3b8"># Provider</text>
+    <text x="440" y="714" fill="#22d3ee">[model_providers.anthropic]</text>
+    <text x="440" y="730" fill="#e2e8f0">name     = "Anthropic"</text>
+    <text x="440" y="746" fill="#e2e8f0">wire_api = "chat"</text>
+
+    <!-- Sektion 8: Profiles -->
+    <text x="440" y="770" fill="#94a3b8"># Profiles</text>
+    <text x="440" y="786" fill="#22d3ee">[profiles.review]</text>
+    <text x="440" y="802" fill="#e2e8f0">approval_policy = "never"</text>
+    <text x="440" y="818" fill="#e2e8f0">sandbox_mode    = "read-only"</text>
+    <text x="440" y="834" fill="#e2e8f0">model_verbosity = "quiet"</text>
+
+    <text x="440" y="856" fill="#94a3b8"># + [history] [tui] [projects."..."] …</text>
+  </g>
+
+  <!-- Annotationen LINKS -->
+  <!-- Globale Defaults -->
+  <g>
+    <rect x="70" y="180" width="330" height="120" rx="10" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+    <text x="84" y="204" fill="#818cf8" font-size="13" font-weight="700">A · GLOBALE DEFAULTS</text>
+    <text x="84" y="224" fill="#e2e8f0" font-size="12">Top-Level · gelten für alle Sessions</text>
+    <text x="84" y="244" fill="#e2e8f0" font-size="12">ohne aktives Profil.</text>
+    <text x="84" y="266" fill="#94a3b8" font-size="11">model · sandbox_mode · approval_policy</text>
+    <text x="84" y="286" fill="#94a3b8" font-size="11">reasoning_effort · ZDR-Flag</text>
+  </g>
+  <line x1="400" y1="240" x2="436" y2="240" stroke="#818cf8" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Notify -->
+  <g>
+    <rect x="70" y="320" width="330" height="80" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="84" y="344" fill="#22d3ee" font-size="13" font-weight="700">B · NOTIFY-HOOK</text>
+    <text x="84" y="364" fill="#e2e8f0" font-size="12">Shell-Script erhält JSON-Payload</text>
+    <text x="84" y="384" fill="#94a3b8" font-size="11">auf stdin · §9</text>
+  </g>
+  <line x1="400" y1="354" x2="436" y2="354" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Shell -->
+  <g>
+    <rect x="70" y="420" width="330" height="100" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="84" y="444" fill="#10b981" font-size="13" font-weight="700">C · SHELL-ENV-POLICY</text>
+    <text x="84" y="464" fill="#e2e8f0" font-size="12">Zollkontrolle für Env-Vars</text>
+    <text x="84" y="484" fill="#94a3b8" font-size="11">inherit · exclude · include_only · set</text>
+    <text x="84" y="504" fill="#94a3b8" font-size="11">→ siehe §7</text>
+  </g>
+  <line x1="400" y1="465" x2="436" y2="418" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Sandbox -->
+  <g>
+    <rect x="70" y="540" width="330" height="90" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="84" y="564" fill="#a78bfa" font-size="13" font-weight="700">D · SANDBOX-WORKSPACE-WRITE</text>
+    <text x="84" y="584" fill="#e2e8f0" font-size="12">Netz-Toggle · zusätzliche</text>
+    <text x="84" y="604" fill="#e2e8f0" font-size="12">Schreibpfade (§6)</text>
+  </g>
+  <line x1="400" y1="582" x2="436" y2="490" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Tools -->
+  <g>
+    <rect x="70" y="650" width="330" height="90" rx="10" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="84" y="674" fill="#818cf8" font-size="13" font-weight="700">E · TOOLS</text>
+    <text x="84" y="694" fill="#e2e8f0" font-size="12">web_search · apply_patch · view_image</text>
+    <text x="84" y="714" fill="#e2e8f0" font-size="12">shell (max_output_bytes) · §8</text>
+  </g>
+  <line x1="400" y1="690" x2="436" y2="570" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Annotationen RECHTS -->
+  <!-- MCP -->
+  <g>
+    <rect x="1000" y="600" width="340" height="110" rx="10" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="1320" y="624" fill="#22d3ee" font-size="13" font-weight="700" text-anchor="end">F · MCP-SERVERS</text>
+    <text x="1320" y="644" fill="#e2e8f0" font-size="12" text-anchor="end">externe Tools via MCP-Protokoll</text>
+    <text x="1320" y="664" fill="#e2e8f0" font-size="12" text-anchor="end">${env:VAR}-Expansion für Secrets</text>
+    <text x="1320" y="688" fill="#94a3b8" font-size="11" text-anchor="end">per-Tool approval_mode · §5</text>
+  </g>
+  <line x1="1000" y1="645" x2="964" y2="645" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Provider -->
+  <g>
+    <rect x="1000" y="720" width="340" height="90" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+    <text x="1320" y="744" fill="#a78bfa" font-size="13" font-weight="700" text-anchor="end">G · MODEL-PROVIDERS</text>
+    <text x="1320" y="764" fill="#e2e8f0" font-size="12" text-anchor="end">Custom-IDs · responses vs. chat</text>
+    <text x="1320" y="788" fill="#94a3b8" font-size="11" text-anchor="end">OpenAI/Ollama/LMStudio reserviert · §4</text>
+  </g>
+  <line x1="1000" y1="744" x2="964" y2="728" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Profiles -->
+  <g>
+    <rect x="1000" y="820" width="340" height="60" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1320" y="844" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="end">H · PROFILES</text>
+    <text x="1320" y="864" fill="#94a3b8" font-size="11" text-anchor="end">Szenario-Sets (daily · review · ci) · §3</text>
+  </g>
+  <line x1="1000" y1="835" x2="964" y2="810" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Header-Annotation oben -->
+  <g>
+    <rect x="1000" y="180" width="340" height="100" rx="10" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="1320" y="204" fill="#ef4444" font-size="13" font-weight="700" text-anchor="end">SPEICHERORT &amp; PRECEDENCE</text>
+    <text x="1320" y="224" fill="#e2e8f0" font-size="12" text-anchor="end">~/.codex/config.toml (User)</text>
+    <text x="1320" y="242" fill="#e2e8f0" font-size="12" text-anchor="end">.codex/config.toml (Repo · trusted)</text>
+    <text x="1320" y="260" fill="#94a3b8" font-size="11" text-anchor="end">§1: CLI &gt; Profil &gt; Projekt &gt; User &gt; System</text>
+  </g>
+  <line x1="1000" y1="220" x2="964" y2="180" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arr16)" stroke-dasharray="3 3"/>
+
+  <!-- Commit-Hinweis -->
+  <g>
+    <rect x="1000" y="300" width="340" height="90" rx="10" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="1320" y="324" fill="#f59e0b" font-size="13" font-weight="700" text-anchor="end">COMMIT-REGEL</text>
+    <text x="1320" y="344" fill="#e2e8f0" font-size="12" text-anchor="end">Repo-.codex/config.toml committable</text>
+    <text x="1320" y="362" fill="#e2e8f0" font-size="12" text-anchor="end">wenn keine Secrets (nur ${env:…})</text>
+    <text x="1320" y="380" fill="#94a3b8" font-size="11" text-anchor="end">User-Config niemals committen</text>
+  </g>
+
+  <!-- Legende unten -->
+  <rect x="1000" y="410" width="340" height="160" rx="10" fill="#111827" stroke="#334155"/>
+  <text x="1320" y="434" fill="#94a3b8" font-size="12" font-weight="700" text-anchor="end">LEGENDE</text>
+  <rect x="1014" y="444" width="12" height="12" fill="#818cf8"/>
+  <text x="1032" y="454" fill="#e2e8f0" font-size="11">Modell · Reasoning · Defaults</text>
+  <rect x="1014" y="464" width="12" height="12" fill="#22d3ee"/>
+  <text x="1032" y="474" fill="#e2e8f0" font-size="11">Integrationen (Notify · MCP)</text>
+  <rect x="1014" y="484" width="12" height="12" fill="#10b981"/>
+  <text x="1032" y="494" fill="#e2e8f0" font-size="11">Env-Policy · Shell</text>
+  <rect x="1014" y="504" width="12" height="12" fill="#a78bfa"/>
+  <text x="1032" y="514" fill="#e2e8f0" font-size="11">Sandbox · Provider</text>
+  <rect x="1014" y="524" width="12" height="12" fill="#6366f1"/>
+  <text x="1032" y="534" fill="#e2e8f0" font-size="11">Tools-Block</text>
+  <rect x="1014" y="544" width="12" height="12" fill="#f59e0b"/>
+  <text x="1032" y="554" fill="#e2e8f0" font-size="11">Profiles</text>
+</svg>

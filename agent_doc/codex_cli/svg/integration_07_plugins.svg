@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI – Plugins (experimentell, ab 03/2026)</title>
+  <desc>Plugin-Konzept als App-Store / Plug-in-Regal: wiederverwendbare Slash-Commands, Custom Tools und MCP-Server-Bundles. Distribution über codex marketplace add. Stand 04/2026 noch klein, wächst schnell.</desc>
+
+  <defs>
+    <marker id="arrPlg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Plugins · App-Store für Codex CLI</text>
+  <text x="40" y="84" font-size="15" fill="#94a3b8">Wiederverwendbare Slash-Commands, Custom Tools und gebundelte MCP-Server · ab Codex 0.121.0 (03/2026)</text>
+  <text x="1360" y="56" font-size="14" fill="#64748b" text-anchor="end">Codex CLI · Kapitel 7</text>
+
+  <!-- Marketplace / Regal -->
+  <rect x="40" y="120" width="900" height="540" rx="14" ry="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+  <text x="60" y="150" font-size="18" font-weight="700" fill="#c4b5fd">Codex Marketplace · Plug-in-Regal</text>
+  <text x="60" y="172" font-size="12" fill="#94a3b8">codex marketplace add &lt;name&gt;   ·   ab v0.121.0 verfügbar</text>
+
+  <!-- Regalbretter -->
+  <line x1="40" y1="290" x2="940" y2="290" stroke="#475569" stroke-width="2"/>
+  <line x1="40" y1="450" x2="940" y2="450" stroke="#475569" stroke-width="2"/>
+  <line x1="40" y1="610" x2="940" y2="610" stroke="#475569" stroke-width="2"/>
+
+  <!-- Reihe 1: Slash-Commands -->
+  <text x="60" y="208" font-size="14" font-weight="600" fill="#e2e8f0">Reihe 1 · Slash-Commands</text>
+  <g font-size="12">
+    <rect x="60" y="218" width="200" height="64" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="76" y="240" font-weight="600" fill="#c4b5fd">/triage-issue</text>
+    <text x="76" y="258" fill="#cbd5e1">Issue lesen → Repro</text>
+    <text x="76" y="274" fill="#94a3b8">Slash-Command-Bundle</text>
+
+    <rect x="280" y="218" width="200" height="64" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="296" y="240" font-weight="600" fill="#c4b5fd">/changelog</text>
+    <text x="296" y="258" fill="#cbd5e1">Release-Notes generieren</text>
+    <text x="296" y="274" fill="#94a3b8">Slash-Command-Bundle</text>
+
+    <rect x="500" y="218" width="200" height="64" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="516" y="240" font-weight="600" fill="#c4b5fd">/security-scan</text>
+    <text x="516" y="258" fill="#cbd5e1">SAST-Workflow starten</text>
+    <text x="516" y="274" fill="#94a3b8">Slash-Command-Bundle</text>
+
+    <rect x="720" y="218" width="200" height="64" rx="8" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="736" y="240" font-weight="600" fill="#c4b5fd">/db-migrate</text>
+    <text x="736" y="258" fill="#cbd5e1">Schema-Diff + Migration</text>
+    <text x="736" y="274" fill="#94a3b8">Slash-Command-Bundle</text>
+  </g>
+
+  <!-- Reihe 2: Custom Tools -->
+  <text x="60" y="308" font-size="14" font-weight="600" fill="#e2e8f0">Reihe 2 · Custom Tools</text>
+  <g font-size="12">
+    <rect x="60" y="318" width="200" height="120" rx="8" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="76" y="340" font-weight="600" fill="#67e8f9">json-validator</text>
+    <text x="76" y="358" fill="#cbd5e1">Schema-Check als Tool</text>
+    <text x="76" y="376" fill="#94a3b8">Eingabe: file</text>
+    <text x="76" y="392" fill="#94a3b8">Ausgabe: errors[]</text>
+    <text x="76" y="412" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#a5b4fc">tool.exec(...)</text>
+
+    <rect x="280" y="318" width="200" height="120" rx="8" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="296" y="340" font-weight="600" fill="#67e8f9">grafana-query</text>
+    <text x="296" y="358" fill="#cbd5e1">PromQL-Helper</text>
+    <text x="296" y="376" fill="#94a3b8">Eingabe: q, range</text>
+    <text x="296" y="392" fill="#94a3b8">Ausgabe: series[]</text>
+    <text x="296" y="412" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#a5b4fc">tool.exec(...)</text>
+
+    <rect x="500" y="318" width="200" height="120" rx="8" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="516" y="340" font-weight="600" fill="#67e8f9">k8s-diff</text>
+    <text x="516" y="358" fill="#cbd5e1">kubectl diff Wrapper</text>
+    <text x="516" y="376" fill="#94a3b8">Eingabe: ns, manifest</text>
+    <text x="516" y="392" fill="#94a3b8">Ausgabe: diff (yaml)</text>
+    <text x="516" y="412" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#a5b4fc">tool.exec(...)</text>
+
+    <rect x="720" y="318" width="200" height="120" rx="8" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="736" y="340" font-weight="600" fill="#67e8f9">openapi-lint</text>
+    <text x="736" y="358" fill="#cbd5e1">Spec-Validator</text>
+    <text x="736" y="376" fill="#94a3b8">Eingabe: spec</text>
+    <text x="736" y="392" fill="#94a3b8">Ausgabe: rules[]</text>
+    <text x="736" y="412" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#a5b4fc">tool.exec(...)</text>
+  </g>
+
+  <!-- Reihe 3: MCP-Server-Bundles -->
+  <text x="60" y="468" font-size="14" font-weight="600" fill="#e2e8f0">Reihe 3 · MCP-Server-Bundles</text>
+  <g font-size="12">
+    <rect x="60" y="478" width="200" height="120" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="76" y="500" font-weight="600" fill="#6ee7b7">data-stack</text>
+    <text x="76" y="518" fill="#cbd5e1">postgres + redis +</text>
+    <text x="76" y="534" fill="#cbd5e1">elasticsearch MCP</text>
+    <text x="76" y="554" fill="#94a3b8">enabled in einem Schritt</text>
+    <text x="76" y="574" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#a5b4fc">3 servers · Approval ro</text>
+
+    <rect x="280" y="478" width="200" height="120" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="296" y="500" font-weight="600" fill="#6ee7b7">qa-stack</text>
+    <text x="296" y="518" fill="#cbd5e1">playwright + lighthouse</text>
+    <text x="296" y="534" fill="#cbd5e1">+ axe-core MCP</text>
+    <text x="296" y="554" fill="#94a3b8">E2E + Perf + a11y</text>
+    <text x="296" y="574" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#a5b4fc">3 servers · approval never</text>
+
+    <rect x="500" y="478" width="200" height="120" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="516" y="500" font-weight="600" fill="#6ee7b7">obs-stack</text>
+    <text x="516" y="518" fill="#cbd5e1">sentry + grafana +</text>
+    <text x="516" y="534" fill="#cbd5e1">datadog MCP</text>
+    <text x="516" y="554" fill="#94a3b8">Incident-Triage Bundle</text>
+    <text x="516" y="574" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#a5b4fc">3 servers · approval req</text>
+
+    <rect x="720" y="478" width="200" height="120" rx="8" fill="#0b1224" stroke="#10b981"/>
+    <text x="736" y="500" font-weight="600" fill="#6ee7b7">issue-tracker</text>
+    <text x="736" y="518" fill="#cbd5e1">linear + jira + notion</text>
+    <text x="736" y="534" fill="#cbd5e1">MCP</text>
+    <text x="736" y="554" fill="#94a3b8">Cross-Tool Sync</text>
+    <text x="736" y="574" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="10" fill="#a5b4fc">3 servers · approval req</text>
+  </g>
+
+  <!-- Bottom: Hinweis Status -->
+  <rect x="60" y="624" width="860" height="22" rx="6" fill="#0b1224" stroke="#f59e0b"/>
+  <text x="76" y="640" font-size="11" fill="#fbbf24">Stand 04/2026: Ökosystem klein · wächst schnell · API noch experimentell</text>
+
+  <!-- Rechte Seite: Distribution / CLI / Skelett -->
+  <rect x="970" y="120" width="390" height="380" rx="12" ry="12" fill="#1e293b" stroke="#a78bfa"/>
+  <text x="990" y="148" font-size="18" font-weight="700" fill="#c4b5fd">Distribution</text>
+
+  <rect x="990" y="166" width="350" height="60" rx="8" fill="#0b1224" stroke="#475569"/>
+  <text x="1006" y="188" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#86efac">codex marketplace add &lt;name&gt;</text>
+  <text x="1006" y="212" font-size="11" fill="#94a3b8">installiert lokal nach ~/.codex/plugins/</text>
+
+  <rect x="990" y="234" width="350" height="44" rx="8" fill="#0b1224" stroke="#475569"/>
+  <text x="1006" y="256" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#86efac">codex marketplace list</text>
+  <text x="1006" y="272" font-size="11" fill="#94a3b8">zeigt installierte Plugins</text>
+
+  <rect x="990" y="286" width="350" height="44" rx="8" fill="#0b1224" stroke="#475569"/>
+  <text x="1006" y="308" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#86efac">codex marketplace remove</text>
+  <text x="1006" y="324" font-size="11" fill="#94a3b8">deinstallieren</text>
+
+  <rect x="990" y="338" width="350" height="44" rx="8" fill="#0b1224" stroke="#475569"/>
+  <text x="1006" y="360" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#86efac">codex marketplace search q</text>
+  <text x="1006" y="376" font-size="11" fill="#94a3b8">Plugin-Index durchsuchen</text>
+
+  <text x="990" y="406" font-size="14" font-weight="600" fill="#e2e8f0">Mindest-Codex-Version</text>
+  <rect x="990" y="416" width="350" height="40" rx="8" fill="#0b1224" stroke="#10b981"/>
+  <text x="1006" y="442" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" fill="#6ee7b7">codex &gt;= 0.121.0</text>
+
+  <rect x="990" y="466" width="350" height="22" rx="6" fill="#0b1224" stroke="#f59e0b"/>
+  <text x="1006" y="482" font-size="11" fill="#fbbf24">experimentell · Breaking-Changes möglich</text>
+
+  <!-- Plugin-Skelett rechts unten -->
+  <rect x="970" y="520" width="390" height="350" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+  <text x="990" y="548" font-size="16" font-weight="700" fill="#e2e8f0">Plugin-Skelett</text>
+  <text x="990" y="568" font-size="12" fill="#94a3b8">~/.codex/plugins/&lt;name&gt;/</text>
+
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+    <text x="1006" y="594" fill="#a5b4fc">plugin.toml</text>
+    <text x="1140" y="594" fill="#94a3b8">Manifest, Version</text>
+    <text x="1006" y="614" fill="#a5b4fc">commands/</text>
+    <text x="1140" y="614" fill="#94a3b8">*.md Slash-Commands</text>
+    <text x="1006" y="634" fill="#a5b4fc">tools/</text>
+    <text x="1140" y="634" fill="#94a3b8">Custom-Tool-Skripte</text>
+    <text x="1006" y="654" fill="#a5b4fc">mcp/</text>
+    <text x="1140" y="654" fill="#94a3b8">Server-Stanzas</text>
+    <text x="1006" y="674" fill="#a5b4fc">prompts/</text>
+    <text x="1140" y="674" fill="#94a3b8">Prompt-Snippets</text>
+    <text x="1006" y="694" fill="#a5b4fc">README.md</text>
+    <text x="1140" y="694" fill="#94a3b8">Doku &amp; Beispiele</text>
+  </g>
+
+  <text x="990" y="730" font-size="14" font-weight="600" fill="#e2e8f0">Beispiel · plugin.toml</text>
+  <rect x="990" y="742" width="350" height="116" rx="8" fill="#0b1224" stroke="#475569"/>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11">
+    <text x="1006" y="762" fill="#a5b4fc">name</text>
+    <text x="1056" y="762" fill="#cbd5e1">= "qa-stack"</text>
+    <text x="1006" y="780" fill="#a5b4fc">version</text>
+    <text x="1080" y="780" fill="#cbd5e1">= "0.4.1"</text>
+    <text x="1006" y="798" fill="#a5b4fc">codex_min</text>
+    <text x="1110" y="798" fill="#cbd5e1">= "0.121.0"</text>
+    <text x="1006" y="816" fill="#a5b4fc">commands</text>
+    <text x="1110" y="816" fill="#cbd5e1">= ["e2e", "perf"]</text>
+    <text x="1006" y="834" fill="#a5b4fc">mcp_servers</text>
+    <text x="1132" y="834" fill="#cbd5e1">= ["pw","lh","axe"]</text>
+    <text x="1006" y="852" fill="#a5b4fc">approval</text>
+    <text x="1090" y="852" fill="#cbd5e1">= "never"</text>
+  </g>
+
+  <!-- Zentraler Pfeil von Marketplace zum Plugin-Skelett -->
+  <path d="M810 660 Q 880 700, 970 700" stroke="#a78bfa" stroke-width="2" fill="none" marker-end="url(#arrPlg)"/>
+  <text x="850" y="688" font-size="11" fill="#c4b5fd" text-anchor="middle">install</text>
+</svg>

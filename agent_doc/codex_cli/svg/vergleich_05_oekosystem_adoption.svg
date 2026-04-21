@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Ökosystem und Adoption je Tool</title>
+  <desc>Flaggen-Metapher: Jedes Tool hat einen Fahnenmast, dessen Höhe GitHub-Stars zeigt. Zusatzmetriken als Bubble/Badge.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Ökosystem &amp; Adoption — Flaggenhöhe</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Mast-Höhe = GitHub-Stars · Fahne = Lizenz · Badges = AGENTS.md &amp; IDE-Extension</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 5 · Ökosystem</text>
+
+  <!-- Grund-Boden -->
+  <line x1="40" y1="730" x2="1360" y2="730" stroke="#334155" stroke-width="3"/>
+  <text x="60" y="755" font-size="11" fill="#64748b">Boden</text>
+
+  <!-- Skala links -->
+  <g font-size="11" fill="#94a3b8">
+    <line x1="90" y1="180" x2="90" y2="730" stroke="#334155" stroke-dasharray="2 4"/>
+    <g><line x1="86" y1="180" x2="1360" y2="180" stroke="#334155" stroke-dasharray="2 6"/><text x="82" y="184" text-anchor="end">80 k</text></g>
+    <g><line x1="86" y1="318" x2="1360" y2="318" stroke="#334155" stroke-dasharray="2 6"/><text x="82" y="322" text-anchor="end">60 k</text></g>
+    <g><line x1="86" y1="455" x2="1360" y2="455" stroke="#334155" stroke-dasharray="2 6"/><text x="82" y="459" text-anchor="end">40 k</text></g>
+    <g><line x1="86" y1="592" x2="1360" y2="592" stroke="#334155" stroke-dasharray="2 6"/><text x="82" y="596" text-anchor="end">20 k</text></g>
+    <text x="82" y="734" text-anchor="end">0</text>
+    <text x="88" y="166" font-size="10">Stars</text>
+  </g>
+
+  <!-- Flagge-Makro Helper: Mast+Fahne -->
+  <!-- Codex: 67k → y=730 - (67/80)*550 = 730 - 460 = 270 -->
+  <g transform="translate(250,730)">
+    <!-- Mast -->
+    <line x1="0" y1="0" x2="0" y2="-460" stroke="#cbd5e1" stroke-width="4"/>
+    <circle cx="0" cy="-460" r="5" fill="#fbbf24"/>
+    <!-- Fahne -->
+    <path d="M 0 -460 L 140 -440 L 140 -390 L 0 -400 Z" fill="#6366f1" stroke="#818cf8" stroke-width="2"/>
+    <text x="14" y="-435" font-size="16" font-weight="700" fill="#fff">Codex CLI</text>
+    <text x="14" y="-416" font-size="11" fill="#c7d2fe">Apache-2.0</text>
+    <!-- Sockel -->
+    <rect x="-40" y="-8" width="80" height="14" fill="#1e293b" stroke="#334155"/>
+    <text x="0" y="28" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="middle">~67 k Stars</text>
+    <!-- Bubbles -->
+    <g transform="translate(0,60)">
+      <circle r="22" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+      <text y="4" font-size="10" fill="#6ee7b7" text-anchor="middle">AGENTS</text>
+      <text y="16" font-size="9" fill="#6ee7b7" text-anchor="middle">nativ</text>
+    </g>
+    <g transform="translate(0,120)">
+      <circle r="22" fill="#1e3a8a" stroke="#6366f1" stroke-width="2"/>
+      <text y="2" font-size="9" fill="#c7d2fe" text-anchor="middle">VS · Cursor</text>
+      <text y="14" font-size="9" fill="#c7d2fe" text-anchor="middle">Wind · JB</text>
+    </g>
+  </g>
+
+  <!-- Claude Code: closed → mast mit ? Höhe symbolisch 40k -->
+  <g transform="translate(470,730)">
+    <line x1="0" y1="0" x2="0" y2="-275" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="6 4"/>
+    <circle cx="0" cy="-275" r="5" fill="#94a3b8"/>
+    <path d="M 0 -275 L 140 -255 L 140 -205 L 0 -215 Z" fill="#a78bfa" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="14" y="-250" font-size="16" font-weight="700" fill="#fff">Claude Code</text>
+    <text x="14" y="-231" font-size="11" fill="#ede9fe">proprietär</text>
+    <rect x="-40" y="-8" width="80" height="14" fill="#1e293b" stroke="#334155"/>
+    <text x="0" y="28" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="middle">n/a (closed)</text>
+    <g transform="translate(0,60)">
+      <circle r="22" fill="#3f2903" stroke="#f59e0b" stroke-width="2"/>
+      <text y="2" font-size="9" fill="#fde68a" text-anchor="middle">AGENTS</text>
+      <text y="14" font-size="9" fill="#fde68a" text-anchor="middle">via Spec-Kit</text>
+    </g>
+    <g transform="translate(0,120)">
+      <circle r="22" fill="#1e3a8a" stroke="#6366f1" stroke-width="2"/>
+      <text y="2" font-size="9" fill="#c7d2fe" text-anchor="middle">VS Code</text>
+      <text y="14" font-size="9" fill="#c7d2fe" text-anchor="middle">Desktop</text>
+    </g>
+  </g>
+
+  <!-- Gemini CLI: 45k → 730-(45/80)*550 = 730-309 = 421 -->
+  <g transform="translate(690,730)">
+    <line x1="0" y1="0" x2="0" y2="-309" stroke="#cbd5e1" stroke-width="4"/>
+    <circle cx="0" cy="-309" r="5" fill="#fbbf24"/>
+    <path d="M 0 -309 L 140 -289 L 140 -239 L 0 -249 Z" fill="#22d3ee" stroke="#67e8f9" stroke-width="2"/>
+    <text x="14" y="-284" font-size="16" font-weight="700" fill="#083344">Gemini CLI</text>
+    <text x="14" y="-265" font-size="11" fill="#083344">Apache-2.0</text>
+    <rect x="-40" y="-8" width="80" height="14" fill="#1e293b" stroke="#334155"/>
+    <text x="0" y="28" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="middle">~45 k Stars</text>
+    <g transform="translate(0,60)">
+      <circle r="22" fill="#3f2903" stroke="#f59e0b" stroke-width="2"/>
+      <text y="2" font-size="9" fill="#fde68a" text-anchor="middle">AGENTS</text>
+      <text y="14" font-size="9" fill="#fde68a" text-anchor="middle">via Spec-Kit</text>
+    </g>
+    <g transform="translate(0,120)">
+      <circle r="22" fill="#1e3a8a" stroke="#6366f1" stroke-width="2"/>
+      <text y="4" font-size="10" fill="#c7d2fe" text-anchor="middle">VS Code</text>
+    </g>
+  </g>
+
+  <!-- Aider: 42k → 730-(42/80)*550 = 730-289 = 441 -->
+  <g transform="translate(910,730)">
+    <line x1="0" y1="0" x2="0" y2="-289" stroke="#cbd5e1" stroke-width="4"/>
+    <circle cx="0" cy="-289" r="5" fill="#fbbf24"/>
+    <path d="M 0 -289 L 140 -269 L 140 -219 L 0 -229 Z" fill="#10b981" stroke="#6ee7b7" stroke-width="2"/>
+    <text x="14" y="-264" font-size="16" font-weight="700" fill="#022c22">Aider</text>
+    <text x="14" y="-245" font-size="11" fill="#022c22">MIT</text>
+    <rect x="-40" y="-8" width="80" height="14" fill="#1e293b" stroke="#334155"/>
+    <text x="0" y="28" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="middle">~42 k Stars</text>
+    <g transform="translate(0,60)">
+      <circle r="22" fill="#3f2903" stroke="#f59e0b" stroke-width="2"/>
+      <text y="4" font-size="10" fill="#fde68a" text-anchor="middle">partiell</text>
+    </g>
+    <g transform="translate(0,120)">
+      <circle r="22" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+      <text y="4" font-size="10" fill="#fca5a5" text-anchor="middle">CLI-only</text>
+    </g>
+  </g>
+
+  <!-- Copilot CLI: closed → symbolisch 35k -->
+  <g transform="translate(1130,730)">
+    <line x1="0" y1="0" x2="0" y2="-250" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="6 4"/>
+    <circle cx="0" cy="-250" r="5" fill="#94a3b8"/>
+    <path d="M 0 -250 L 140 -230 L 140 -180 L 0 -190 Z" fill="#f59e0b" stroke="#fcd34d" stroke-width="2"/>
+    <text x="14" y="-225" font-size="16" font-weight="700" fill="#451a03">Copilot CLI</text>
+    <text x="14" y="-206" font-size="11" fill="#451a03">prop. (Preview)</text>
+    <rect x="-40" y="-8" width="80" height="14" fill="#1e293b" stroke="#334155"/>
+    <text x="0" y="28" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="middle">Preview · n/a</text>
+    <g transform="translate(0,60)">
+      <circle r="22" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+      <text y="4" font-size="10" fill="#fca5a5" text-anchor="middle">nein</text>
+    </g>
+    <g transform="translate(0,120)">
+      <circle r="22" fill="#1e3a8a" stroke="#6366f1" stroke-width="2"/>
+      <text y="4" font-size="10" fill="#c7d2fe" text-anchor="middle">VS + GH</text>
+    </g>
+  </g>
+
+  <!-- Legenden-Panel -->
+  <g transform="translate(60,790)">
+    <rect width="1280" height="80" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="28" font-size="14" font-weight="600" fill="#e2e8f0">Legende der Badges</text>
+    <g transform="translate(250,45)" font-size="12" fill="#e2e8f0">
+      <circle r="10" fill="#064e3b" stroke="#10b981"/><text x="20" y="4">AGENTS.md nativ</text>
+      <g transform="translate(180,0)"><circle r="10" fill="#3f2903" stroke="#f59e0b"/><text x="20" y="4">AGENTS.md partiell / Spec-Kit</text></g>
+      <g transform="translate(430,0)"><circle r="10" fill="#450a0a" stroke="#ef4444"/><text x="20" y="4">AGENTS.md fehlt</text></g>
+      <g transform="translate(620,0)"><circle r="10" fill="#1e3a8a" stroke="#6366f1"/><text x="20" y="4">IDE-Extension</text></g>
+      <g transform="translate(810,0)"><rect x="-10" y="-8" width="20" height="16" fill="#6366f1" stroke="#818cf8"/><text x="20" y="4">Fahnenfarbe = Tool</text></g>
+    </g>
+    <text x="20" y="70" font-size="11" fill="#94a3b8">Hinweis: Closed-Source-Tools haben keinen öffentlichen Stars-Wert — Fahnenhöhe symbolisch.</text>
+  </g>
+</svg>

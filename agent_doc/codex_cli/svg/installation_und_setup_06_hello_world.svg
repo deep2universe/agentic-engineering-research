@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI — Hello World: erste Session und Onboarding-Funnel</title>
+  <desc>Erste-Session-Flow als Onboarding-Funnel von Install bis TUI-Prompt. Seitlich Info-Box zu ~/.codex/-Dateien, AGENTS.md-Precedence und codex-exec Headless-Modus.</desc>
+
+  <defs>
+    <marker id="arrowHW" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Hello World — die erste Session</text>
+  <text x="40" y="84" font-size="16" fill="#94a3b8">Onboarding-Funnel: Install → Auth → Permissions → TUI-Prompt</text>
+  <text x="1360" y="56" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 6</text>
+
+  <!-- LINKS: Onboarding-Funnel (6 Schritte vertikal) -->
+  <g transform="translate(40,130)">
+    <text x="0" y="0" font-size="14" fill="#94a3b8">Countdown zum ersten Prompt</text>
+
+    <!-- Schritt 1: Install -->
+    <g transform="translate(0,24)">
+      <rect x="0" y="0" width="520" height="70" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <circle cx="34" cy="35" r="22" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+      <text x="34" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#c7d2fe">1</text>
+      <text x="70" y="30" font-size="15" font-weight="700" fill="#e2e8f0">Install</text>
+      <text x="70" y="52" font-family="'JetBrains Mono', monospace" font-size="12" fill="#818cf8">npm install -g @openai/codex</text>
+    </g>
+    <line x1="260" y1="94" x2="260" y2="110" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowHW)"/>
+
+    <!-- Schritt 2: cd -->
+    <g transform="translate(0,114)">
+      <rect x="0" y="0" width="520" height="70" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+      <circle cx="34" cy="35" r="22" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+      <text x="34" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#c7d2fe">2</text>
+      <text x="70" y="30" font-size="15" font-weight="700" fill="#e2e8f0">Projekt-Verzeichnis betreten</text>
+      <text x="70" y="52" font-family="'JetBrains Mono', monospace" font-size="12" fill="#818cf8">cd ~/my-project &amp;&amp; codex</text>
+    </g>
+    <line x1="260" y1="184" x2="260" y2="200" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowHW)"/>
+
+    <!-- Schritt 3: Auth-Prompt -->
+    <g transform="translate(0,204)">
+      <rect x="0" y="0" width="520" height="80" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+      <circle cx="34" cy="40" r="22" fill="#064e3b" stroke="#34d399" stroke-width="2"/>
+      <text x="34" y="45" text-anchor="middle" font-size="16" font-weight="700" fill="#6ee7b7">3</text>
+      <text x="70" y="30" font-size="15" font-weight="700" fill="#e2e8f0">Auth-Prompt</text>
+      <text x="70" y="52" font-size="12" fill="#94a3b8">Sign in with ChatGPT · OAuth (empfohlen)</text>
+      <text x="70" y="70" font-size="12" fill="#94a3b8">oder OPENAI_API_KEY / Provider-Config</text>
+    </g>
+    <line x1="260" y1="284" x2="260" y2="300" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowHW)"/>
+
+    <!-- Schritt 4: Permissions -->
+    <g transform="translate(0,304)">
+      <rect x="0" y="0" width="520" height="80" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+      <circle cx="34" cy="40" r="22" fill="#78350f" stroke="#fbbf24" stroke-width="2"/>
+      <text x="34" y="45" text-anchor="middle" font-size="16" font-weight="700" fill="#fde68a">4</text>
+      <text x="70" y="30" font-size="15" font-weight="700" fill="#e2e8f0">Permissions wählen</text>
+      <text x="70" y="52" font-size="12" fill="#94a3b8">„auto" (workspace-write) — autonom im Projekt</text>
+      <text x="70" y="70" font-size="12" fill="#94a3b8">oder „ask me first" — Approval-on-request</text>
+    </g>
+    <line x1="260" y1="384" x2="260" y2="400" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowHW)"/>
+
+    <!-- Schritt 5: Welcome -->
+    <g transform="translate(0,404)">
+      <rect x="0" y="0" width="520" height="70" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+      <circle cx="34" cy="35" r="22" fill="#581c87" stroke="#c4b5fd" stroke-width="2"/>
+      <text x="34" y="40" text-anchor="middle" font-size="16" font-weight="700" fill="#ddd6fe">5</text>
+      <text x="70" y="30" font-size="15" font-weight="700" fill="#e2e8f0">Welcome-Screen</text>
+      <text x="70" y="52" font-size="12" fill="#94a3b8">Default-Modell GPT-5.3-Codex · Reasoning medium</text>
+    </g>
+    <line x1="260" y1="474" x2="260" y2="490" stroke="#818cf8" stroke-width="2" marker-end="url(#arrowHW)"/>
+
+    <!-- Schritt 6: TUI-Prompt -->
+    <g transform="translate(0,494)">
+      <rect x="0" y="0" width="520" height="130" rx="12" fill="#0f172a" stroke="#818cf8" stroke-width="2.5"/>
+      <circle cx="34" cy="40" r="22" fill="#6366f1" stroke="#f5f3ff" stroke-width="2"/>
+      <text x="34" y="45" text-anchor="middle" font-size="16" font-weight="700" fill="#f5f3ff">6</text>
+      <text x="70" y="30" font-size="15" font-weight="700" fill="#e2e8f0">Full-Screen TUI — Natural-Language-Prompt</text>
+      <rect x="70" y="44" width="436" height="72" rx="6" fill="#020617" stroke="#334155"/>
+      <text x="82" y="66" font-family="'JetBrains Mono', monospace" font-size="11" fill="#64748b">codex ~/my-project · 5.3-codex · medium · auto</text>
+      <text x="82" y="86" font-family="'JetBrains Mono', monospace" font-size="12" fill="#6ee7b7">&gt; Refactor the auth module and add tests_</text>
+      <text x="82" y="106" font-family="'JetBrains Mono', monospace" font-size="11" fill="#94a3b8">[Enter] send · /model · /reasoning · Ctrl+C quit</text>
+    </g>
+
+    <text x="260" y="650" text-anchor="middle" font-size="13" fill="#10b981">Session läuft — Agent-Loop aktiv</text>
+  </g>
+
+  <!-- RECHTS OBEN: Config-/State-Dateien -->
+  <g transform="translate(590,130)">
+    <rect x="0" y="0" width="370" height="220" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="370" height="38" rx="14" fill="#334155"/>
+    <text x="16" y="26" font-size="14" font-weight="700" fill="#e2e8f0">~/.codex/ (oder $CODEX_HOME)</text>
+
+    <g transform="translate(16,54)" font-size="11">
+      <g>
+        <text font-family="'JetBrains Mono', monospace" font-size="12" fill="#818cf8">config.toml</text>
+        <text y="16" fill="#94a3b8">Hauptkonfiguration</text>
+      </g>
+      <g transform="translate(0,38)">
+        <text font-family="'JetBrains Mono', monospace" font-size="12" fill="#818cf8">auth.json</text>
+        <text y="16" fill="#94a3b8">Tokens / API-Key-Cache</text>
+      </g>
+      <g transform="translate(0,76)">
+        <text font-family="'JetBrains Mono', monospace" font-size="12" fill="#818cf8">AGENTS.md / AGENTS.override.md</text>
+        <text y="16" fill="#94a3b8">globale Agent-Instruktionen</text>
+      </g>
+      <g transform="translate(0,114)">
+        <text font-family="'JetBrains Mono', monospace" font-size="12" fill="#818cf8">sessions/*.sqlite</text>
+        <text y="16" fill="#94a3b8">SQLite-State-DB</text>
+      </g>
+      <g transform="translate(0,152)">
+        <text font-family="'JetBrains Mono', monospace" font-size="12" fill="#818cf8">sessions/*.jsonl</text>
+        <text y="16" fill="#94a3b8">Session-Transkripte</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- RECHTS MITTE: AGENTS.md Precedence -->
+  <g transform="translate(590,362)">
+    <rect x="0" y="0" width="370" height="220" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="1.5"/>
+    <rect x="0" y="0" width="370" height="38" rx="14" fill="#581c87" opacity="0.6"/>
+    <text x="16" y="26" font-size="14" font-weight="700" fill="#ddd6fe">AGENTS.md — Precedence-Regeln</text>
+
+    <g transform="translate(16,54)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#c4b5fd">Reihenfolge (obere gewinnt)</text>
+
+      <g transform="translate(0,16)">
+        <rect x="0" y="0" width="340" height="24" rx="4" fill="#0f172a"/>
+        <text x="12" y="16" font-size="11" fill="#e2e8f0">1. AGENTS.override.md (nächstgelegen zum cwd)</text>
+      </g>
+      <g transform="translate(0,44)">
+        <rect x="0" y="0" width="340" height="24" rx="4" fill="#0f172a"/>
+        <text x="12" y="16" font-size="11" fill="#e2e8f0">2. AGENTS.md (nächstgelegen zum cwd)</text>
+      </g>
+      <g transform="translate(0,72)">
+        <rect x="0" y="0" width="340" height="24" rx="4" fill="#0f172a"/>
+        <text x="12" y="16" font-size="11" fill="#94a3b8">3. Fallback-Namen (project_doc_fallback_filenames)</text>
+      </g>
+      <g transform="translate(0,100)">
+        <rect x="0" y="0" width="340" height="24" rx="4" fill="#0f172a"/>
+        <text x="12" y="16" font-size="11" fill="#94a3b8">4. Scan bis Project-Root</text>
+      </g>
+
+      <text x="0" y="152" font-size="11" fill="#fbbf24">→ Subprojekte können eigene AGENTS.md bündeln.</text>
+    </g>
+  </g>
+
+  <!-- RECHTS UNTEN: codex exec Headless -->
+  <g transform="translate(590,594)">
+    <rect x="0" y="0" width="370" height="280" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <rect x="0" y="0" width="370" height="38" rx="14" fill="#164e63"/>
+    <text x="16" y="26" font-size="14" font-weight="700" fill="#a5f3fc">codex exec — Headless für CI</text>
+
+    <g transform="translate(16,54)">
+      <rect x="0" y="0" width="340" height="178" rx="6" fill="#0f172a" stroke="#334155"/>
+      <g transform="translate(12,20)" font-family="'JetBrains Mono', monospace" font-size="10">
+        <text y="0" fill="#22d3ee">codex exec</text>
+        <text y="0" x="80" fill="#e2e8f0">"fix TS errors"</text>
+        <text y="22" fill="#22d3ee">codex exec --json</text>
+        <text y="36" x="16" fill="#e2e8f0">--output-last-message result.txt</text>
+        <text y="58" fill="#22d3ee">codex exec --output-schema</text>
+        <text y="72" x="16" fill="#e2e8f0">schema.json "&lt;prompt&gt;"</text>
+        <text y="94" fill="#22d3ee">codex exec --full-auto</text>
+        <text y="108" x="16" fill="#64748b"># = workspace-write + on-request</text>
+        <text y="130" fill="#22d3ee">codex exec --sandbox read-only</text>
+        <text y="154" fill="#ef4444">--dangerously-bypass-...</text>
+      </g>
+    </g>
+
+    <text x="16" y="256" font-size="11" fill="#94a3b8">Progress → stderr · Final-Message → stdout</text>
+    <text x="16" y="272" font-size="11" fill="#fca5a5">bypass-Flag nur in isolierten VMs!</text>
+  </g>
+
+  <!-- GANZ RECHTS: Raketenstart-Metapher -->
+  <g transform="translate(990,130)">
+    <rect x="0" y="0" width="370" height="744" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="370" height="38" rx="14" fill="#334155"/>
+    <text x="16" y="26" font-size="14" font-weight="700" fill="#e2e8f0">Countdown — 10-Sekunden-Start</text>
+
+    <!-- Stilisierte Rakete als Funnel -->
+    <g transform="translate(185,70)">
+      <!-- Rakete -->
+      <path d="M 0,0 L -22,52 L -22,180 L -30,200 L -30,240 L 30,240 L 30,200 L 22,180 L 22,52 Z"
+            fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+      <circle cx="0" cy="100" r="12" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="0" cy="100" r="5" fill="#22d3ee"/>
+      <path d="M -30,200 L -55,260 L -30,240 Z" fill="#6366f1" stroke="#a5b4fc"/>
+      <path d="M 30,200 L 55,260 L 30,240 Z" fill="#6366f1" stroke="#a5b4fc"/>
+      <!-- Flamme -->
+      <path d="M -18,240 Q 0,320 18,240 Q 10,280 0,300 Q -10,280 -18,240 Z"
+            fill="#f59e0b" opacity="0.8"/>
+    </g>
+
+    <!-- Countdown-Labels -->
+    <g transform="translate(0,400)" font-size="13" fill="#e2e8f0">
+      <g transform="translate(20,0)">
+        <text font-weight="700" fill="#6ee7b7">T-10s</text>
+        <text x="60">codex installiert</text>
+      </g>
+      <g transform="translate(20,28)">
+        <text font-weight="700" fill="#6ee7b7">T-8s</text>
+        <text x="60">cd ins Projekt</text>
+      </g>
+      <g transform="translate(20,56)">
+        <text font-weight="700" fill="#fbbf24">T-6s</text>
+        <text x="60">Auth wählen</text>
+      </g>
+      <g transform="translate(20,84)">
+        <text font-weight="700" fill="#fbbf24">T-4s</text>
+        <text x="60">Permissions setzen</text>
+      </g>
+      <g transform="translate(20,112)">
+        <text font-weight="700" fill="#c4b5fd">T-2s</text>
+        <text x="60">Welcome-Screen</text>
+      </g>
+      <g transform="translate(20,140)">
+        <text font-weight="700" fill="#f5f3ff">T-0</text>
+        <text x="60">TUI offen — Prompt!</text>
+      </g>
+    </g>
+
+    <!-- Hinweis Headless -->
+    <g transform="translate(16,600)">
+      <rect x="0" y="0" width="338" height="120" rx="8" fill="#0f172a" stroke="#334155"/>
+      <text x="12" y="22" font-size="12" font-weight="700" fill="#a5f3fc">Alternativ: Headless-Modus</text>
+      <text x="12" y="44" font-size="11" fill="#e2e8f0">CI-Pipelines überspringen die TUI</text>
+      <text x="12" y="62" font-size="11" fill="#e2e8f0">via </text>
+      <text x="40" y="62" font-family="'JetBrains Mono', monospace" font-size="11" fill="#22d3ee">codex exec "&lt;prompt&gt;"</text>
+      <text x="12" y="84" font-size="11" fill="#94a3b8">Keine interaktiven Prompts</text>
+      <text x="12" y="102" font-size="11" fill="#94a3b8">JSONL-Event-Stream mit --json</text>
+    </g>
+  </g>
+</svg>

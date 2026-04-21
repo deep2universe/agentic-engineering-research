@@ -6,6 +6,8 @@ Codex CLI ist ein **Terminal-First-Agent**, dockt aber an vielen Stellen an das 
 
 ## 1. IDE-Extension (VS Code, Cursor, Windsurf)
 
+![IDE-Cockpit-Mockup mit Side-Panel-Chat, Diff-Viewer, Inline-Approval, Task-Tracker mit PR-Badges, Thinking-Panel und Cloud-Handoff sowie Hinweise auf VS Code, Cursor, Windsurf, JetBrains und geteilter ~/.codex/config.toml](svg/integration_01_ide_extension.svg)
+
 ### 1.1 Installation
 
 - **VS Code Marketplace**: `openai.chatgpt` — gelistet als "Codex – OpenAI's coding agent".
@@ -34,11 +36,15 @@ Die IDE-Extension startet lokal einen Codex-Backend-Prozess (headless), der übe
 
 ## 2. Terminal-/Shell-Ökosystem
 
+![Terminal-Multiplexer als Schaltzentrale mit Codex im mittleren Pane, Shell-Completions für bash/zsh/fish/powershell und unterstützten Hosts tmux, Zellij, iTerm2, Ghostty, Warp Agent Mode inklusive Mouse-Support und Hover-Tooltips](svg/integration_02_terminal_shell.svg)
+
 - **Shell-Completions**: `codex completion bash|zsh|fish|powershell` generiert Completion-Scripts.
 - **tmux / Zellij / iTerm2 / Ghostty / Warp**: Codex ist kompatibel; Warps *Agent Mode* startet Codex direkt in einem Warp-Block.
 - **Mouse-Support** in der TUI (ab Mitte 2025), inkl. Hover-Tooltip für Diff-Zeilen.
 
 ## 3. Codex Cloud (chatgpt.com/codex)
+
+![Lokale Erde liefert Tasks an die Codex-Cloud-Raumstation mit isolierten Containern, Handoff-Befehlen cloud exec/list/logs/pull und Lizenzkarten für Plus, Pro, Business, Enterprise und Edu](svg/integration_03_codex_cloud.svg)
 
 ### 3.1 Was ist Codex Cloud?
 
@@ -69,6 +75,8 @@ codex cloud pull <task-id>   # Diff als Patch abrufen, lokal anwenden
 - **Admin-Controls**: separater Toggle "Codex Cloud" vs. "Codex Local" pro Workspace.
 
 ## 4. GitHub-Integration
+
+![GitHub-Octopus mit Codex-Armen: Codex Review App mit AGENTS.md/.codex/review.md, openai/codex-action@v1 mit allen Inputs und ein Autofix-Pattern via workflow_run plus failure-Bedingung](svg/integration_04_github_integration.svg)
 
 ### 4.1 Codex Review App
 
@@ -138,6 +146,8 @@ jobs:
 - **Gitpod / Coder**: vorkonfigurierte Templates im `registry.coder.com`.
 
 ## 5. Model Context Protocol (MCP)
+
+![Codex als bidirektionaler USB-Hub: links MCP-Client-Ports zu filesystem, github, playwright, postgres, sentry, slack, linear und notion, rechts MCP-Server-Ports zu Claude Code, Cline, Zed und Windsurf, plus Approval-Modi und TOML-Snippets](svg/integration_05_mcp.svg)
 
 ### 5.1 Codex als MCP-**Client**
 
@@ -213,6 +223,8 @@ Damit können andere Agenten (Claude Code, Cline, Zed, Windsurf) Codex als Tool 
 
 ## 6. Notify-Hook (Desktop / Chat / CI-Pings)
 
+![Signal-Kurier mit Funkverbindung in vier Stufen: agent-turn-complete-Event, JSON-Payload auf stdin, plattformspezifisches Custom-Skript (macOS afplay, Windows PowerShell, Linux Slack-Wrapper) und Targets Slack, Discord, Telegram, Desktop, CI-Ping, PagerDuty](svg/integration_06_notify_hook.svg)
+
 `notify` wird bei bestimmten Events (aktuell *agent-turn-complete*) aufgerufen. Nutze ein externes Script für Slack/Discord/Telegram.
 
 ```toml
@@ -243,15 +255,21 @@ Ein Community-Slack-Notifier (Wangmerlyn/Codex-Slack-Notifier) zeigt ein vollst�
 
 ## 7. Plugins (experimentell, ab 03/2026)
 
+![App-Store / Plug-in-Regal mit drei Reihen: wiederverwendbare Slash-Commands, Custom Tools und MCP-Server-Bundles, plus Distribution via codex marketplace add und Plugin-Skelett mit plugin.toml](svg/integration_07_plugins.svg)
+
 OpenAI-Devs-Seite listet unter `/codex/plugins` ein Plugin-Konzept für wiederverwendbare Slash-Commands, Custom Tools und gebundelte MCP-Server. Die Distribution läuft über den neuen `codex marketplace add <name>` Command (v0.121.0). Stand 04/2026 ist das Ökosystem klein, wächst aber schnell.
 
 ## 8. Editor-übergreifende Artefakte
+
+![Zentrales Repository-Lager mit AGENTS.md, .codex/prompts/*.md und Config-Sharing als Regalböden, dazu Lieferdienste Codex, Cursor, Amp, Google Jules, Factory und Aider sowie eine Kompatibilitäts-Matrix](svg/integration_08_editor_artefakte.svg)
 
 - **AGENTS.md** — gelesen von Codex, Cursor, Amp, Google Jules, Factory, Aider (partiell).
 - **`.codex/prompts/*.md`** — Custom Slash-Commands; wenn geteilt mit IDE-Extension, werden sie auch dort verfügbar.
 - **Config-Sharing** zwischen CLI und IDE-Extension: siehe v. Siedykh-Guide (Quellen).
 
 ## 9. Beispiel-Setup: Codex + Slack + GitHub + Playwright
+
+![Verkabeltes Architektur-Setup mit ~/.codex/config.toml (Notify, MCP github, MCP playwright mit approval never, profile ci) und Beispiel-Workflow Issue lesen, Bug reproduzieren, Fix, PR, Slack-Message](svg/integration_09_beispiel_setup.svg)
 
 ```toml
 # ~/.codex/config.toml
@@ -285,6 +303,8 @@ fix it, add a regression test, and open a PR. Post a Slack message when done.
 ```
 
 ## 10. Typische Architektur-Muster
+
+![Vier Pattern-Karten als Architektur-Galerie: Local-First Cloud-Burst, IDE-Zentral, Agent-gestütztes GitOps und MCP-Orchestrator (Variante Codex als Client und Codex als Server)](svg/integration_10_architektur_muster.svg)
 
 - **Local-First, Cloud-Burst**: lokal prototypisieren, bei Deadline-Druck Cloud-Parallel-Tasks.
 - **IDE-Zentral**: Entwickler arbeiten in VS Code, Codex schlägt vor, Diffs bleiben überprüfbar.

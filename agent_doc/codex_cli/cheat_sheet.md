@@ -4,6 +4,8 @@
 
 ## Install & Login
 
+![Installationspfade npm · brew · cargo und Auth-Switch OAuth vs. API-Key mit Schlüsselbund-Metapher](svg/cheat_sheet_01_install_login.svg)
+
 ```bash
 npm install -g @openai/codex     # oder: brew install --cask codex
 codex login                      # ChatGPT-OAuth
@@ -13,6 +15,8 @@ export OPENAI_API_KEY=sk-...     # alternativ: API-Key
 ```
 
 ## Start-Befehle
+
+![Cockpit-Matrix der Codex-Start-Befehle: codex, exec, resume, review, cloud, mcp serve, marketplace add, completion](svg/cheat_sheet_02_start_befehle.svg)
 
 | Befehl | Wirkung |
 |---|---|
@@ -31,6 +35,8 @@ export OPENAI_API_KEY=sk-...     # alternativ: API-Key
 
 ## Wichtige Flags
 
+![Flag-Gruppen Modell/Profil, Sicherheit, Output, Modus als DIP-Switch-Karten im Synthesizer-Stil](svg/cheat_sheet_03_wichtige_flags.svg)
+
 | Flag | Wirkung |
 |---|---|
 | `-m, --model <name>` | Modell |
@@ -48,6 +54,8 @@ export OPENAI_API_KEY=sk-...     # alternativ: API-Key
 | `--output-schema <json>` | strukturierter Output |
 
 ## Slash-Commands (TUI)
+
+![Speed-Dial mit 15 Slash-Commands /init /model /reasoning /approvals /compact /diff /review /status /resume /new /title /mention /plugins /copy /help](svg/cheat_sheet_04_slash_commands.svg)
 
 | Command | Kurzbeschreibung |
 |---|---|
@@ -69,6 +77,8 @@ export OPENAI_API_KEY=sk-...     # alternativ: API-Key
 
 ## Tastatur (TUI)
 
+![Stilisierte Tastatur mit hervorgehobenen Shortcuts Ctrl+C, Ctrl+D, Tab, Shift+Tab, Ctrl+R, Pfeile, Esc Esc, @, /, Cmd/Ctrl+F](svg/cheat_sheet_05_tastatur.svg)
+
 | Taste | Wirkung |
 |---|---|
 | `Ctrl+C` | aktuelle Op abbrechen |
@@ -83,6 +93,8 @@ export OPENAI_API_KEY=sk-...     # alternativ: API-Key
 | `Cmd/Ctrl+F` | Suche (nimmt Selection) |
 
 ## Minimales `config.toml`
+
+![Schichttorte der config.toml Sektionen: globale Defaults, profiles, mcp_servers, model_providers, projects mit gespiegeltem Code-Block](svg/cheat_sheet_06_minimal_config_toml.svg)
 
 ```toml
 model                  = "gpt-5.3-codex"
@@ -116,6 +128,8 @@ trust_level = "trusted"
 
 ## AGENTS.md-Skelett
 
+![Dokument-Rankhilfe mit H2-Abschnitten Tooling, Architektur, Code-Style, Tests, Security-Regeln](svg/cheat_sheet_07_agents_md_skelett.svg)
+
 ```markdown
 # <Projekt>
 
@@ -138,6 +152,8 @@ trust_level = "trusted"
 
 ## Notify-Payload (stdin)
 
+![JSON-Brief mit Postroute zu drei Zielen Slack, Desktop, CI als Pipeline-Dispatcher](svg/cheat_sheet_08_notify_payload.svg)
+
 ```json
 {
   "status": "success",
@@ -150,6 +166,8 @@ trust_level = "trusted"
 ```
 
 ## `openai/codex-action@v1` — Minimal
+
+![Fertigungsstraße Checkout, Codex-Action, review.md, gh pr comment als CI-Pipeline mit YAML-Workflow](svg/cheat_sheet_09_codex_action_minimal.svg)
 
 ```yaml
 - uses: openai/codex-action@v1
@@ -164,6 +182,8 @@ trust_level = "trusted"
 
 ## Modi-Cheat
 
+![2D-Matrix Sandbox gegen Approval mit Einsatzszenarien Analyse, Tägliche Arbeit, CI-Autofix, VM, Planning](svg/cheat_sheet_10_modi_cheat.svg)
+
 | Ziel | Kombination |
 |---|---|
 | Analyse / PR-Review | `-s read-only -a never` |
@@ -173,6 +193,8 @@ trust_level = "trusted"
 | Multi-Hour-Planning | `-p planning --model gpt-5.4 --search` |
 
 ## Umgebungsvariablen
+
+![Sechs beschriftete Kabel/Karten zu CODEX_HOME, CODEX_API_KEY, CODEX_SQLITE_HOME, CODEX_CA_CERTIFICATE, OPENAI_API_KEY mit Warnhinweis, RUST_LOG](svg/cheat_sheet_11_env_vars.svg)
 
 | Var | Zweck |
 |---|---|
@@ -184,6 +206,8 @@ trust_level = "trusted"
 | `RUST_LOG` | `codex=debug,info` |
 
 ## Dateipfade
+
+![Zwei Verzeichnisbäume für ~/.codex und Repo-Scope mit config, auth, prompts, sessions, log, AGENTS.md, skills](svg/cheat_sheet_12_dateipfade.svg)
 
 | Pfad | Zweck |
 |---|---|
@@ -198,6 +222,8 @@ trust_level = "trusted"
 | `<repo>/skills/<name>/SKILL.md` | geteilter Skill |
 
 ## 10-Sekunden-Workflow
+
+![Stoppuhr und Zeitstrahl mit fünf Stempeln cd, codex, /diff, /review, git commit](svg/cheat_sheet_13_10_sekunden_workflow.svg)
 
 ```bash
 cd ~/code/app

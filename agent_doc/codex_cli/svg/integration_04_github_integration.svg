@@ -1,0 +1,188 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI – GitHub-Integration</title>
+  <desc>GitHub-Octopus mit Codex-Armen: Codex Review App auf PR-Events, offizielle GitHub Action openai/codex-action@v1 mit allen Inputs, Autofix-Pattern via workflow_run + failure.</desc>
+
+  <defs>
+    <marker id="arrGh" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a78bfa"/>
+    </marker>
+    <marker id="arrGhCi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">GitHub-Integration · Octopus mit Codex-Armen</text>
+  <text x="40" y="84" font-size="15" fill="#94a3b8">Review App, openai/codex-action@v1 mit Inputs, Autofix-Pattern (workflow_run + failure)</text>
+  <text x="1360" y="56" font-size="14" fill="#64748b" text-anchor="end">Codex CLI · Kapitel 4</text>
+
+  <!-- Octopus-Body in Mitte -->
+  <g>
+    <circle cx="700" cy="320" r="100" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <circle cx="675" cy="305" r="10" fill="#0f172a"/>
+    <circle cx="725" cy="305" r="10" fill="#0f172a"/>
+    <circle cx="675" cy="305" r="4" fill="#a78bfa"/>
+    <circle cx="725" cy="305" r="4" fill="#a78bfa"/>
+    <text x="700" y="350" font-size="18" font-weight="700" fill="#c4b5fd" text-anchor="middle">GitHub</text>
+    <text x="700" y="370" font-size="12" fill="#94a3b8" text-anchor="middle">Repos · PRs · Actions · Webhooks</text>
+  </g>
+
+  <!-- Tentakel: Review App -->
+  <path d="M610 340 Q 480 460, 320 460" stroke="#a78bfa" stroke-width="3" fill="none" marker-end="url(#arrGh)"/>
+  <path d="M790 340 Q 920 460, 1080 460" stroke="#a78bfa" stroke-width="3" fill="none" marker-end="url(#arrGh)"/>
+  <path d="M700 420 Q 700 540, 700 640" stroke="#f59e0b" stroke-width="3" fill="none" marker-end="url(#arrGhCi)"/>
+
+  <!-- Codex Review App (links) -->
+  <rect x="40" y="160" width="540" height="320" rx="12" ry="12" fill="#1e293b" stroke="#a78bfa"/>
+  <text x="60" y="188" font-size="18" font-weight="700" fill="#c4b5fd">Codex Review App</text>
+  <text x="60" y="210" font-size="12" fill="#94a3b8">GitHub App · kommentiert PRs automatisch</text>
+
+  <rect x="60" y="226" width="500" height="60" rx="8" fill="#0b1224" stroke="#475569"/>
+  <text x="76" y="248" font-size="12" fill="#94a3b8">Trigger:</text>
+  <text x="146" y="248" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#cbd5e1">pull_request.opened · synchronize · review_requested</text>
+  <text x="76" y="270" font-size="12" fill="#94a3b8">Output:</text>
+  <text x="146" y="270" font-size="12" fill="#cbd5e1">Inline-Review-Kommentare + Summary</text>
+
+  <text x="60" y="306" font-size="13" font-weight="600" fill="#e2e8f0">Konfiguration pro Repo</text>
+  <rect x="60" y="316" width="240" height="74" rx="8" fill="#0b1224" stroke="#475569"/>
+  <text x="76" y="338" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#a5b4fc">.codex/review.md</text>
+  <text x="76" y="358" font-size="11" fill="#94a3b8">Review-Prompt (Stil, Fokus,</text>
+  <text x="76" y="374" font-size="11" fill="#94a3b8">Severity-Schwellen)</text>
+
+  <rect x="320" y="316" width="240" height="74" rx="8" fill="#0b1224" stroke="#475569"/>
+  <text x="336" y="338" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12" fill="#a5b4fc">AGENTS.md</text>
+  <text x="336" y="358" font-size="11" fill="#94a3b8">Repo-Kontext: Architektur,</text>
+  <text x="336" y="374" font-size="11" fill="#94a3b8">Konventionen, Glossar</text>
+
+  <text x="60" y="416" font-size="12" fill="#94a3b8">Review-Scope steuerbar:</text>
+  <text x="60" y="436" font-size="12" fill="#cbd5e1">  · Globs (welche Dateien)</text>
+  <text x="60" y="454" font-size="12" fill="#cbd5e1">  · Checks (Style, Security, Tests)</text>
+  <text x="60" y="472" font-size="12" fill="#cbd5e1">  · Severity (block / warn / nit)</text>
+
+  <!-- GitHub Action (rechts) -->
+  <rect x="820" y="160" width="540" height="320" rx="12" ry="12" fill="#1e293b" stroke="#a78bfa"/>
+  <text x="840" y="188" font-size="18" font-weight="700" fill="#c4b5fd">openai/codex-action@v1</text>
+  <text x="840" y="210" font-size="12" fill="#94a3b8">Offizielle GitHub Action · CLI + Responses-API-Proxy + codex exec</text>
+
+  <text x="840" y="234" font-size="13" font-weight="600" fill="#e2e8f0">Inputs (Auszug)</text>
+
+  <g font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">
+    <rect x="840" y="244" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="850" y="259" fill="#a5b4fc">openai-api-key</text>
+    <text x="1000" y="259" fill="#94a3b8">/ responses-api-endpoint</text>
+
+    <rect x="1095" y="244" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="1105" y="259" fill="#a5b4fc">prompt</text>
+    <text x="1185" y="259" fill="#94a3b8">/ prompt-file</text>
+
+    <rect x="840" y="270" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="850" y="285" fill="#a5b4fc">output-file</text>
+    <rect x="1095" y="270" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="1105" y="285" fill="#a5b4fc">working-directory</text>
+
+    <rect x="840" y="296" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="850" y="311" fill="#a5b4fc">sandbox</text>
+    <text x="930" y="311" fill="#94a3b8">read-only / workspace-write / dfa</text>
+    <rect x="1095" y="296" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="1105" y="311" fill="#a5b4fc">codex-version</text>
+    <text x="1220" y="311" fill="#94a3b8">pinned</text>
+
+    <rect x="840" y="322" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="850" y="337" fill="#a5b4fc">codex-args</text>
+    <text x="945" y="337" fill="#94a3b8">--model · --approval</text>
+    <rect x="1095" y="322" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="1105" y="337" fill="#a5b4fc">output-schema</text>
+    <text x="1230" y="337" fill="#94a3b8">JSON</text>
+
+    <rect x="840" y="348" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="850" y="363" fill="#a5b4fc">model · effort</text>
+    <rect x="1095" y="348" width="245" height="22" rx="4" fill="#0b1224"/>
+    <text x="1105" y="363" fill="#a5b4fc">codex-home</text>
+    <text x="1210" y="363" fill="#94a3b8">CODEX_HOME</text>
+
+    <rect x="840" y="374" width="245" height="22" rx="4" fill="#0b1224" stroke="#10b981"/>
+    <text x="850" y="389" fill="#6ee7b7">safety-strategy</text>
+    <text x="970" y="389" fill="#94a3b8">drop-sudo · unpriv · ro · unsafe</text>
+    <rect x="1095" y="374" width="245" height="22" rx="4" fill="#0b1224" stroke="#10b981"/>
+    <text x="1105" y="389" fill="#6ee7b7">codex-user</text>
+    <text x="1195" y="389" fill="#94a3b8">unprivileged uid</text>
+
+    <rect x="840" y="400" width="245" height="22" rx="4" fill="#0b1224" stroke="#f59e0b"/>
+    <text x="850" y="415" fill="#fbbf24">allow-users</text>
+    <text x="945" y="415" fill="#94a3b8">Whitelist Trigger-User</text>
+    <rect x="1095" y="400" width="245" height="22" rx="4" fill="#0b1224" stroke="#f59e0b"/>
+    <text x="1105" y="415" fill="#fbbf24">allow-bots</text>
+    <text x="1195" y="415" fill="#94a3b8">Whitelist Bots</text>
+  </g>
+
+  <text x="840" y="448" font-size="11" fill="#94a3b8">Minimal-Job für Reviews siehe sicherheit_und_sandboxing.md §7.2</text>
+
+  <!-- Autofix-Pattern unten -->
+  <rect x="40" y="560" width="1320" height="320" rx="12" ry="12" fill="#1e293b" stroke="#f59e0b"/>
+  <text x="60" y="588" font-size="18" font-weight="700" fill="#fbbf24">Autofix-Pattern · workflow_run + failure</text>
+  <text x="60" y="610" font-size="12" fill="#94a3b8">Cookbook: CI-Fail → Codex repariert → öffnet Fix-PR</text>
+
+  <!-- Pipeline -->
+  <g>
+    <rect x="60" y="630" width="180" height="80" rx="10" fill="#0b1224" stroke="#10b981"/>
+    <text x="150" y="660" font-size="14" font-weight="700" fill="#6ee7b7" text-anchor="middle">CI Workflow</text>
+    <text x="150" y="680" font-size="11" fill="#cbd5e1" text-anchor="middle">tests, lint, build</text>
+    <text x="150" y="698" font-size="11" fill="#fca5a5" text-anchor="middle">conclusion: failure</text>
+
+    <path d="M240 670 L 290 670" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrGhCi)"/>
+
+    <rect x="290" y="630" width="220" height="80" rx="10" fill="#0b1224" stroke="#f59e0b"/>
+    <text x="400" y="652" font-size="14" font-weight="700" fill="#fbbf24" text-anchor="middle">Trigger</text>
+    <text x="400" y="672" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#cbd5e1" text-anchor="middle">on: workflow_run</text>
+    <text x="400" y="690" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#cbd5e1" text-anchor="middle">workflows: ["CI"]</text>
+    <text x="400" y="706" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11" fill="#cbd5e1" text-anchor="middle">types: [completed]</text>
+
+    <path d="M510 670 L 560 670" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrGhCi)"/>
+
+    <rect x="560" y="630" width="220" height="80" rx="10" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="670" y="652" font-size="14" font-weight="700" fill="#c4b5fd" text-anchor="middle">codex-action</text>
+    <text x="670" y="672" font-size="11" fill="#cbd5e1" text-anchor="middle">sandbox: workspace-write</text>
+    <text x="670" y="690" font-size="11" fill="#cbd5e1" text-anchor="middle">--full-auto · approval never</text>
+    <text x="670" y="706" font-size="11" fill="#cbd5e1" text-anchor="middle">model: gpt-5.3-codex</text>
+
+    <path d="M780 670 L 830 670" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrGhCi)"/>
+
+    <rect x="830" y="630" width="220" height="80" rx="10" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="940" y="652" font-size="14" font-weight="700" fill="#67e8f9" text-anchor="middle">Reproduce + Fix</text>
+    <text x="940" y="672" font-size="11" fill="#cbd5e1" text-anchor="middle">lokal nachstellen</text>
+    <text x="940" y="690" font-size="11" fill="#cbd5e1" text-anchor="middle">Root-Cause beheben</text>
+    <text x="940" y="706" font-size="11" fill="#cbd5e1" text-anchor="middle">Tests anpassen</text>
+
+    <path d="M1050 670 L 1100 670" stroke="#f59e0b" stroke-width="2" marker-end="url(#arrGhCi)"/>
+
+    <rect x="1100" y="630" width="240" height="80" rx="10" fill="#0b1224" stroke="#10b981"/>
+    <text x="1220" y="652" font-size="14" font-weight="700" fill="#6ee7b7" text-anchor="middle">PR öffnen</text>
+    <text x="1220" y="672" font-size="11" fill="#cbd5e1" text-anchor="middle">contents: write · pulls: write</text>
+    <text x="1220" y="690" font-size="11" fill="#cbd5e1" text-anchor="middle">Referenz auf workflow_run.id</text>
+    <text x="1220" y="706" font-size="11" fill="#cbd5e1" text-anchor="middle">Reviewer-Assignment</text>
+  </g>
+
+  <!-- YAML-Snippet -->
+  <rect x="60" y="730" width="640" height="130" rx="10" fill="#0b1224" stroke="#475569"/>
+  <text x="76" y="752" font-size="12" font-weight="600" fill="#e2e8f0">YAML · .github/workflows/codex-autofix.yml</text>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="11">
+    <text x="76" y="772" fill="#cbd5e1">on:</text>
+    <text x="76" y="788" fill="#cbd5e1">  workflow_run: { workflows: ["CI"], types: [completed] }</text>
+    <text x="76" y="804" fill="#cbd5e1">jobs:</text>
+    <text x="76" y="820" fill="#cbd5e1">  autofix:</text>
+    <text x="76" y="836" fill="#cbd5e1">    if: github.event.workflow_run.conclusion == 'failure'</text>
+    <text x="76" y="852" fill="#86efac">    uses: openai/codex-action@v1   <tspan fill="#94a3b8">// + with: prompt, sandbox, codex-args</tspan></text>
+  </g>
+
+  <!-- Andere CI/CD Systeme -->
+  <rect x="720" y="730" width="640" height="130" rx="10" fill="#0b1224" stroke="#334155"/>
+  <text x="736" y="752" font-size="12" font-weight="600" fill="#e2e8f0">Andere CI/CD-Systeme</text>
+  <g font-size="11" fill="#cbd5e1">
+    <text x="736" y="774">● GitLab CI · docker run codex-cli + codex exec --full-auto</text>
+    <text x="736" y="792">● CircleCI · Jenkins · Buildkite · Secrets als Env-Var (CODEX_API_KEY)</text>
+    <text x="736" y="810">● GitHub Codespaces / Dev Containers · ghcr.io/openai/codex-devcontainer-feature</text>
+    <text x="736" y="828">● Gitpod / Coder · vorkonfigurierte Templates in registry.coder.com</text>
+    <text x="736" y="846">● Sandbox via bubblewrap (Linux) oder Seatbelt (macOS)</text>
+  </g>
+</svg>

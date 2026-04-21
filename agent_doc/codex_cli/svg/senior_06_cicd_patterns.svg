@@ -1,0 +1,178 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>CI/CD - fortgeschrittene Patterns</title>
+  <desc>Fliessband mit mehreren Werkstaetten: Issue-to-PR-Pipeline per Label-Trigger, Cost-Gate mit Token-Check, Matrix-Sub-Agenten pro Modul. Metapher: Fliessband.</desc>
+
+  <defs>
+    <marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">CI/CD Patterns - Fliessband mit Werkstaetten</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="16">Issue-to-PR, Cost-Gate und Matrix-Subagenten fuer Codex im GitHub-Flow - Kapitel 6</text>
+  <text x="1280" y="54" fill="#f59e0b" font-size="16" font-weight="600" text-anchor="end">Codex CLI / Senior 06</text>
+
+  <!-- Fliessband-Linie -->
+  <line x1="80" y1="260" x2="1320" y2="260" stroke="#334155" stroke-width="8" stroke-linecap="round"/>
+  <g fill="#1e293b" stroke="#475569">
+    <rect x="120" y="253" width="60" height="14" rx="3"/>
+    <rect x="260" y="253" width="60" height="14" rx="3"/>
+    <rect x="400" y="253" width="60" height="14" rx="3"/>
+    <rect x="540" y="253" width="60" height="14" rx="3"/>
+    <rect x="680" y="253" width="60" height="14" rx="3"/>
+    <rect x="820" y="253" width="60" height="14" rx="3"/>
+    <rect x="960" y="253" width="60" height="14" rx="3"/>
+    <rect x="1100" y="253" width="60" height="14" rx="3"/>
+  </g>
+
+  <!-- Station 1: Issue mit Label -->
+  <g>
+    <rect x="60" y="130" width="240" height="110" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <circle cx="88" cy="162" r="14" fill="#78350f" stroke="#f59e0b"/>
+    <text x="88" y="167" fill="#fde68a" font-size="14" text-anchor="middle" font-weight="700">!</text>
+    <text x="112" y="167" fill="#fde68a" font-size="15" font-weight="700">Issue</text>
+    <rect x="80" y="185" width="200" height="24" rx="12" fill="#7c2d12" stroke="#fb923c"/>
+    <text x="180" y="201" fill="#fed7aa" font-size="12" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">label: codex:implement</text>
+    <text x="80" y="228" fill="#94a3b8" font-size="11">Trigger: on.issues.types=[labeled]</text>
+  </g>
+
+  <!-- Station 2: Checkout -->
+  <g>
+    <rect x="340" y="130" width="240" height="110" rx="14" fill="#1e293b" stroke="#64748b"/>
+    <text x="460" y="162" fill="#e2e8f0" font-size="15" font-weight="700" text-anchor="middle">Checkout</text>
+    <text x="460" y="188" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">actions/checkout@v4</text>
+    <text x="460" y="210" fill="#94a3b8" font-size="12" text-anchor="middle">Repo + Issue-Body laden</text>
+  </g>
+
+  <!-- Station 3: Codex Action -->
+  <g>
+    <rect x="620" y="100" width="320" height="170" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2.5"/>
+    <text x="780" y="132" fill="#c7d2fe" font-size="16" font-weight="700" text-anchor="middle">openai/codex-action@v1</text>
+    <rect x="640" y="148" width="280" height="24" rx="6" fill="#0b1220" stroke="#475569"/>
+    <text x="650" y="166" fill="#e2e8f0" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">sandbox: workspace-write</text>
+    <rect x="640" y="178" width="280" height="24" rx="6" fill="#0b1220" stroke="#475569"/>
+    <text x="650" y="196" fill="#e2e8f0" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">safety: unprivileged-user</text>
+    <rect x="640" y="208" width="280" height="24" rx="6" fill="#0b1220" stroke="#475569"/>
+    <text x="650" y="226" fill="#e2e8f0" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">model: gpt-5.3-codex --full-auto</text>
+    <rect x="640" y="238" width="280" height="24" rx="6" fill="#0b1220" stroke="#475569"/>
+    <text x="650" y="256" fill="#e2e8f0" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">prompt: Implement #&lt;num&gt;</text>
+  </g>
+
+  <!-- Station 4: Cost-Gate -->
+  <g>
+    <rect x="980" y="130" width="240" height="110" rx="14" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+    <text x="1100" y="162" fill="#fecaca" font-size="15" font-weight="700" text-anchor="middle">Cost-Gate</text>
+    <rect x="1000" y="178" width="200" height="24" rx="6" fill="#0b1220" stroke="#475569"/>
+    <text x="1100" y="196" fill="#e2e8f0" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" text-anchor="middle">jq .usage.total_tokens</text>
+    <text x="1100" y="220" fill="#94a3b8" font-size="11" text-anchor="middle">limit &gt; 500k -&gt; ::error::</text>
+  </g>
+
+  <!-- Station 5: PR -->
+  <g>
+    <rect x="1240" y="130" width="140" height="110" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="1310" y="162" fill="#6ee7b7" font-size="15" font-weight="700" text-anchor="middle">PR</text>
+    <text x="1310" y="188" fill="#94a3b8" font-size="11" text-anchor="middle">feat: ...</text>
+    <text x="1310" y="206" fill="#94a3b8" font-size="11" text-anchor="middle">(closes #num)</text>
+    <text x="1310" y="224" fill="#94a3b8" font-size="11" text-anchor="middle">Session-ID Trailer</text>
+  </g>
+
+  <!-- Pfeile auf Band -->
+  <g stroke="#f59e0b" stroke-width="2" fill="none" marker-end="url(#arrA)">
+    <path d="M300 260 L340 260"/>
+    <path d="M580 260 L620 260"/>
+    <path d="M940 260 L980 260"/>
+    <path d="M1220 260 L1240 260"/>
+  </g>
+
+  <!-- Werkstatt 2: Matrix Sub-Agents -->
+  <g>
+    <rect x="40" y="320" width="720" height="540" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="60" y="352" fill="#e2e8f0" font-size="18" font-weight="700">Werkstatt B - Matrix-Sub-Agenten</text>
+    <text x="60" y="374" fill="#94a3b8" font-size="12">GitHub-Actions-Matrix: pro Modul ein Codex-Lauf, parallel. Zeit-Reduktion statt sequenziell.</text>
+
+    <g transform="translate(60,396)">
+      <rect x="0" y="0" width="680" height="90" rx="10" fill="#0b1220" stroke="#6366f1"/>
+      <text x="14" y="24" fill="#c7d2fe" font-size="12" font-weight="600" font-family="'JetBrains Mono', ui-monospace, monospace">strategy:</text>
+      <text x="14" y="42" fill="#c7d2fe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">  matrix:</text>
+      <text x="14" y="60" fill="#c7d2fe" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">    module: [billing, auth, ui]</text>
+      <text x="14" y="80" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">  # working-directory: packages/${{ matrix.module }}</text>
+    </g>
+
+    <g transform="translate(60,506)">
+      <rect x="0" y="0" width="200" height="110" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="100" y="30" fill="#a5f3fc" font-size="14" font-weight="700" text-anchor="middle">billing</text>
+      <text x="100" y="54" fill="#94a3b8" font-size="11" text-anchor="middle">module_review.md</text>
+      <text x="100" y="74" fill="#94a3b8" font-size="11" text-anchor="middle">sandbox: read-only</text>
+      <text x="100" y="94" fill="#94a3b8" font-size="11" text-anchor="middle">-&gt; diff + comments</text>
+    </g>
+    <g transform="translate(300,506)">
+      <rect x="0" y="0" width="200" height="110" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="100" y="30" fill="#a5f3fc" font-size="14" font-weight="700" text-anchor="middle">auth</text>
+      <text x="100" y="54" fill="#94a3b8" font-size="11" text-anchor="middle">module_review.md</text>
+      <text x="100" y="74" fill="#94a3b8" font-size="11" text-anchor="middle">sandbox: read-only</text>
+      <text x="100" y="94" fill="#94a3b8" font-size="11" text-anchor="middle">-&gt; diff + comments</text>
+    </g>
+    <g transform="translate(540,506)">
+      <rect x="0" y="0" width="200" height="110" rx="10" fill="#1e293b" stroke="#22d3ee"/>
+      <text x="100" y="30" fill="#a5f3fc" font-size="14" font-weight="700" text-anchor="middle">ui</text>
+      <text x="100" y="54" fill="#94a3b8" font-size="11" text-anchor="middle">module_review.md</text>
+      <text x="100" y="74" fill="#94a3b8" font-size="11" text-anchor="middle">sandbox: read-only</text>
+      <text x="100" y="94" fill="#94a3b8" font-size="11" text-anchor="middle">-&gt; diff + comments</text>
+    </g>
+
+    <g transform="translate(60,640)">
+      <rect x="0" y="0" width="680" height="90" rx="10" fill="#1e293b" stroke="#a78bfa"/>
+      <text x="14" y="26" fill="#ddd6fe" font-size="14" font-weight="700">Aggregator-Job</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="12">- sammelt Ergebnisse aller Matrix-Runs</text>
+      <text x="14" y="66" fill="#94a3b8" font-size="12">- dedupliziert, priorisiert</text>
+      <text x="14" y="84" fill="#94a3b8" font-size="12">- postet als EINE PR-Review</text>
+    </g>
+
+    <g transform="translate(60,750)">
+      <rect x="0" y="0" width="680" height="90" rx="10" fill="#1e293b" stroke="#64748b"/>
+      <text x="14" y="26" fill="#e2e8f0" font-size="13" font-weight="700">Vorteile</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="12">- parallele Wall-Clock - 3x Modul = 1x Laufzeit</text>
+      <text x="14" y="66" fill="#94a3b8" font-size="12">- scope-scharf pro Modul - weniger Kontext-Rauschen</text>
+      <text x="14" y="84" fill="#94a3b8" font-size="12">- einfach skalierbar bei Monorepo</text>
+    </g>
+  </g>
+
+  <!-- Werkstatt 3: Cost-Gate Detail -->
+  <g>
+    <rect x="780" y="320" width="580" height="540" rx="14" fill="#111827" stroke="#334155"/>
+    <text x="800" y="352" fill="#e2e8f0" font-size="18" font-weight="700">Werkstatt C - Cost-Gate im Detail</text>
+    <text x="800" y="374" fill="#94a3b8" font-size="12">Token-Budget als harter Stopper - verhindert Runaway-Kosten.</text>
+
+    <g transform="translate(800,396)">
+      <rect x="0" y="0" width="540" height="200" rx="10" fill="#0b1220" stroke="#ef4444"/>
+      <text x="14" y="24" fill="#fecaca" font-size="13" font-weight="700" font-family="'JetBrains Mono', ui-monospace, monospace">- name: Cost gate</text>
+      <text x="14" y="46" fill="#fecaca" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">  run: |</text>
+      <text x="14" y="66" fill="#fecaca" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">    tokens=$(jq -s '[.[].usage.total_tokens]</text>
+      <text x="14" y="84" fill="#fecaca" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">               | add' output.jsonl)</text>
+      <text x="14" y="108" fill="#fecaca" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">    if (( tokens &gt; 500000 )); then</text>
+      <text x="14" y="128" fill="#fecaca" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">      echo "::error::Codex exceeded 500k"</text>
+      <text x="14" y="148" fill="#fecaca" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">      exit 1</text>
+      <text x="14" y="168" fill="#fecaca" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">    fi</text>
+      <text x="14" y="192" fill="#94a3b8" font-size="11">Workflow bricht ab, Job scheitert, PR bleibt aus.</text>
+    </g>
+
+    <g transform="translate(800,616)">
+      <rect x="0" y="0" width="540" height="110" rx="10" fill="#1e293b" stroke="#f59e0b"/>
+      <text x="14" y="26" fill="#fde68a" font-size="14" font-weight="700">Eskalations-Strategie</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="12">- Warn-Level 70 %: Slack-Notify</text>
+      <text x="14" y="66" fill="#94a3b8" font-size="12">- Error-Level 100 %: Job-Abbruch</text>
+      <text x="14" y="84" fill="#94a3b8" font-size="12">- On-Call-Eskalation per PagerDuty</text>
+      <text x="14" y="102" fill="#94a3b8" font-size="12">- monatliches Budget-Review</text>
+    </g>
+
+    <g transform="translate(800,746)">
+      <rect x="0" y="0" width="540" height="94" rx="10" fill="#1e293b" stroke="#10b981"/>
+      <text x="14" y="26" fill="#6ee7b7" font-size="14" font-weight="700">Best Practices</text>
+      <text x="14" y="48" fill="#94a3b8" font-size="12">- Session-ID als PR-Trailer fuer Audit</text>
+      <text x="14" y="66" fill="#94a3b8" font-size="12">- Modell pinnen, Seed setzen - Reproduzierbarkeit</text>
+      <text x="14" y="84" fill="#94a3b8" font-size="12">- Prompts ins Repo committen - keine Ad-hoc-Strings</text>
+    </g>
+  </g>
+</svg>

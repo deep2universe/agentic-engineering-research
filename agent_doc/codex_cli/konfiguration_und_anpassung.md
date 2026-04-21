@@ -6,6 +6,8 @@ Dieses Dokument ist die **Konfigurations-Referenz** für Codex CLI. Die CLI und 
 
 ## 1. Config-Precedence (wichtig!)
 
+![Sechsstufiger Precedence-Stack von CLI-Flags bis Built-in Defaults als Schichttorte](svg/konfig_01_config_precedence.svg)
+
 Codex fügt Werte aus mehreren Quellen zusammen. Von **höchster zu niedrigster** Priorität:
 
 1. **CLI-Flags** (`-m`, `-c key=value`, `-s`, `-a`, …)
@@ -18,6 +20,8 @@ Codex fügt Werte aus mehreren Quellen zusammen. Von **höchster zu niedrigster*
 Das Schema ist **TOML**. Alle Top-Level-Keys und Blöcke sind optional.
 
 ## 2. Top-Level-Keys
+
+![Top-Level-Keys als Schaltpult mit Gruppen für Modell, Sicherheit, Doku, Telemetrie und Experimentelles](svg/konfig_02_top_level_keys.svg)
 
 | Key | Typ | Default | Bedeutung |
 |---|---|---|---|
@@ -41,6 +45,8 @@ Das Schema ist **TOML**. Alle Top-Level-Keys und Blöcke sind optional.
 | `tools` | table | `{}` | siehe §8. |
 
 ## 3. Profile — Konfigurations-Sets
+
+![Fünf Profile daily, planning, review, local und ci als Umschalt-Karten mit Aktivierungsweg](svg/konfig_03_profile.svg)
 
 Profile bündeln Werte für bestimmte Szenarien (Daily, CI, Review, Local-OSS, Enterprise).
 
@@ -77,6 +83,8 @@ Aktivierung: `codex --profile planning "<prompt>"` oder persistent via `default_
 > *Hinweis*: Profile sind formell als *experimental* markiert und können sich ändern.
 
 ## 4. Model Providers
+
+![Provider-Galaxie mit Codex im Zentrum und OpenAI, Azure, Anthropic, OpenRouter, Morph, Ollama und LM Studio als Satelliten](svg/konfig_04_model_providers.svg)
 
 Built-in: `openai`, `ollama`, `lmstudio`. Custom-IDs jeden Namens möglich — die Built-in-IDs sind reserviert und dürfen **nicht** überschrieben werden.
 
@@ -121,6 +129,8 @@ model_provider = "anthropic"
 
 ## 5. MCP-Server
 
+![MCP-Server-Stanza als Steckleiste mit Feldern und per-Tool-Kippschaltern für Approval-Modes](svg/konfig_05_mcp_server.svg)
+
 ```toml
 [mcp_servers.filesystem]
 command = "npx"
@@ -148,6 +158,8 @@ env = { GITHUB_TOKEN = "${env:GITHUB_TOKEN}" }
 
 ## 6. Sandbox-Workspace-Write
 
+![Klimakapsel-Sandbox mit Default-Writeable-Pfaden, zusätzlichen writable_roots und verschlossener Netz-Tür](svg/konfig_06_sandbox_workspace_write.svg)
+
 Feinjustierung des Default-Sandbox-Modes:
 
 ```toml
@@ -159,6 +171,8 @@ exclude_slash_tmp       = false          # literal /tmp ausschließen?
 ```
 
 ## 7. Shell-Environment-Policy
+
+![Vierstufige Filter-Siebbatterie für Env-Variablen mit inherit, exclude, include_only und set](svg/konfig_07_shell_env_policy.svg)
 
 ```toml
 [shell_environment_policy]
@@ -175,6 +189,8 @@ set                     = { CI = "true" }
 - `set` überschreibt oder ergänzt.
 
 ## 8. Tools-Block
+
+![Werkzeugregal mit web_search, apply_patch, view_image und shell inklusive Config-Reglern und max_output_bytes](svg/konfig_08_tools_block.svg)
 
 ```toml
 [tools]
@@ -196,6 +212,8 @@ max_output_bytes = 1048576
 
 ## 9. Notify-Hook
 
+![Event-Telegraph vom agent-turn-complete über Script und stdin-JSON-Payload zu Slack, Desktop und CI](svg/konfig_09_notify_hook.svg)
+
 ```toml
 notify = ["bash", "-lc", "afplay /System/Library/Sounds/Blow.aiff"]
 ```
@@ -216,6 +234,8 @@ Payload auf `stdin`:
 
 ## 10. History & TUI
 
+![Terminal-Cockpit mit History-Persistence, max_bytes-Rolling und TUI-Optionen für Theme, Mouse und Token-Usage](svg/konfig_10_history_tui.svg)
+
 ```toml
 [history]
 persistence = "save-all"   # "save-all" | "none"
@@ -230,6 +250,8 @@ show_token_usage    = true
 
 ## 11. Projects & Workspace-Trust
 
+![Trusted-Tresor mit Siegel und untrusted-Regal durchgestrichen zeigt Laden oder Ignorieren der Repo-Config](svg/konfig_11_projects_trust.svg)
+
 ```toml
 [projects."/Users/alice/work/app"]
 trust_level = "trusted"   # "trusted" | "untrusted"
@@ -241,6 +263,8 @@ trust_level = "untrusted"
 Nur in `trusted` Projekten wird `.codex/config.toml` im Repo geladen.
 
 ## 12. Environment-Variablen
+
+![Steckdosenleiste mit beschrifteten Env-Var-Karten gruppiert nach Auth, Pfaden, TLS und Logging](svg/konfig_12_env_vars.svg)
 
 | Var | Zweck |
 |---|---|
@@ -254,6 +278,8 @@ Nur in `trusted` Projekten wird `.codex/config.toml` im Repo geladen.
 | `RUST_LOG` | Log-Level (z. B. `codex=debug,info`) |
 
 ## 13. AGENTS.md — projektweite Anweisungen
+
+![Leuchtturm mit AGENTS.md-Sektionen, Precedence-Hierarchie und 32-KiB-Limit](svg/konfig_13_agents_md.svg)
 
 ### 13.1 Struktur-Empfehlung
 
@@ -307,6 +333,8 @@ Nur in `trusted` Projekten wird `.codex/config.toml` im Repo geladen.
 
 ## 14. Custom Prompts & Skills
 
+![Baukasten-Regal mit expliziten Slash-Commands aus prompts-Ordner und impliziten Shared Skills via SKILL.md-Description](svg/konfig_14_custom_prompts_skills.svg)
+
 ### 14.1 Custom Slash-Commands
 
 Dateien in `~/.codex/prompts/*.md` werden Slash-Commands:
@@ -330,6 +358,8 @@ Skill-Verzeichnis im Repo (z. B. `skills/release/SKILL.md`), ausgewählt automat
 
 ## 15. Logging & Debugging
 
+![Observability-Turm mit Log-Streams aus codex.log, Sessions-JSONL, RUST_LOG, -v und CODEX_MCP_LOG](svg/konfig_15_logging_debugging.svg)
+
 - **Codex Log**: `~/.codex/log/codex.log` (rolling).
 - **Sessions**: `~/.codex/sessions/<uuid>.jsonl`.
 - **RUST_LOG**: `RUST_LOG=codex=debug codex ...` für detaillierte Traces.
@@ -337,6 +367,8 @@ Skill-Verzeichnis im Repo (z. B. `skills/release/SKILL.md`), ausgewählt automat
 - **MCP-Debug**: `CODEX_MCP_LOG=1 codex ...` (falls gesetzt, Info in Discussions-Thread #2150).
 
 ## 16. Full Sample `config.toml`
+
+![Annotierter Blueprint der config.toml mit Sektions-Beschriftungen am Rand für alle acht Hauptblöcke](svg/konfig_16_full_sample_config.svg)
 
 ```toml
 # Globale Defaults

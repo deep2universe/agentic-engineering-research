@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Minimales config.toml — Schichttorte</title>
+  <desc>Geschichtetes Config-Dokument mit nummerierten Sektionen: globale Defaults, [profiles.*], [mcp_servers.*], [model_providers.*], [projects.*]. Metapher Schichttorte/Stempelstapel.</desc>
+
+  <defs>
+    <linearGradient id="layer1" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#4338ca"/>
+      <stop offset="1" stop-color="#6366f1"/>
+    </linearGradient>
+    <linearGradient id="layer2" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="layer3" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#a78bfa"/>
+      <stop offset="1" stop-color="#c4b5fd"/>
+    </linearGradient>
+    <linearGradient id="layer4" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="layer5" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0" stop-color="#10b981"/>
+      <stop offset="1" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="70" fill="#e2e8f0" font-size="30" font-weight="700">Minimales config.toml</text>
+  <text x="60" y="100" fill="#94a3b8" font-size="16">Schichttorte: fünf Sektionen von Global bis Projekt-lokal</text>
+  <text x="1340" y="70" fill="#64748b" font-size="14" text-anchor="end">cheat_sheet · 06/13</text>
+  <text x="1340" y="100" fill="#64748b" font-size="12" text-anchor="end" font-family="'JetBrains Mono', ui-monospace, monospace">~/.codex/config.toml</text>
+
+  <!-- Torten-/Schichtstapel -->
+  <g transform="translate(80 150)">
+    <!-- Layer 1 · globale Defaults -->
+    <g>
+      <path d="M 20 40 Q 420 0 820 40 L 820 110 Q 420 150 20 110 Z" fill="url(#layer1)" opacity="0.95"/>
+      <ellipse cx="420" cy="40" rx="400" ry="18" fill="#4f46e5" opacity="0.6"/>
+      <circle cx="50" cy="74" r="18" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+      <text x="50" y="80" fill="#e2e8f0" font-size="16" font-weight="700" text-anchor="middle">1</text>
+      <text x="95" y="70" fill="#e2e8f0" font-size="16" font-weight="700">Globale Defaults</text>
+      <text x="95" y="90" fill="#e0e7ff" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">model · approval_policy · sandbox_mode · notify</text>
+    </g>
+
+    <!-- Layer 2 · [profiles.*] -->
+    <g transform="translate(0 120)">
+      <path d="M 20 40 Q 420 0 820 40 L 820 110 Q 420 150 20 110 Z" fill="url(#layer2)" opacity="0.95"/>
+      <ellipse cx="420" cy="40" rx="400" ry="18" fill="#0891b2" opacity="0.6"/>
+      <circle cx="50" cy="74" r="18" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+      <text x="50" y="80" fill="#e2e8f0" font-size="16" font-weight="700" text-anchor="middle">2</text>
+      <text x="95" y="70" fill="#0f172a" font-size="16" font-weight="700">[profiles.*]</text>
+      <text x="95" y="90" fill="#0f172a" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">benannte Setups · -p &lt;name&gt; aktiviert</text>
+    </g>
+
+    <!-- Layer 3 · [mcp_servers.*] -->
+    <g transform="translate(0 240)">
+      <path d="M 20 40 Q 420 0 820 40 L 820 110 Q 420 150 20 110 Z" fill="url(#layer3)" opacity="0.95"/>
+      <ellipse cx="420" cy="40" rx="400" ry="18" fill="#8b5cf6" opacity="0.6"/>
+      <circle cx="50" cy="74" r="18" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+      <text x="50" y="80" fill="#e2e8f0" font-size="16" font-weight="700" text-anchor="middle">3</text>
+      <text x="95" y="70" fill="#0f172a" font-size="16" font-weight="700">[mcp_servers.*]</text>
+      <text x="95" y="90" fill="#0f172a" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">command · args · env  — externe Tools via MCP</text>
+    </g>
+
+    <!-- Layer 4 · [model_providers.*] -->
+    <g transform="translate(0 360)">
+      <path d="M 20 40 Q 420 0 820 40 L 820 110 Q 420 150 20 110 Z" fill="url(#layer4)" opacity="0.95"/>
+      <ellipse cx="420" cy="40" rx="400" ry="18" fill="#d97706" opacity="0.6"/>
+      <circle cx="50" cy="74" r="18" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+      <text x="50" y="80" fill="#e2e8f0" font-size="16" font-weight="700" text-anchor="middle">4</text>
+      <text x="95" y="70" fill="#0f172a" font-size="16" font-weight="700">[model_providers.*]</text>
+      <text x="95" y="90" fill="#0f172a" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">base_url · env_key · wire_api — eigene Backends</text>
+    </g>
+
+    <!-- Layer 5 · [projects."…"] -->
+    <g transform="translate(0 480)">
+      <path d="M 20 40 Q 420 0 820 40 L 820 110 Q 420 150 20 110 Z" fill="url(#layer5)" opacity="0.95"/>
+      <ellipse cx="420" cy="40" rx="400" ry="18" fill="#059669" opacity="0.6"/>
+      <circle cx="50" cy="74" r="18" fill="#0b1220" stroke="#e2e8f0" stroke-width="2"/>
+      <text x="50" y="80" fill="#e2e8f0" font-size="16" font-weight="700" text-anchor="middle">5</text>
+      <text x="95" y="70" fill="#0f172a" font-size="16" font-weight="700">[projects."…"]</text>
+      <text x="95" y="90" fill="#0f172a" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">trust_level · repo-spezifische Overrides</text>
+    </g>
+  </g>
+
+  <!-- Rechte Seite: Code-Spiegel -->
+  <g transform="translate(940 160)">
+    <rect width="420" height="680" rx="14" fill="#0b1220" stroke="#334155"/>
+    <rect x="0" y="0" width="420" height="34" rx="14" fill="#1e293b"/>
+    <circle cx="20" cy="17" r="5" fill="#ef4444"/>
+    <circle cx="38" cy="17" r="5" fill="#f59e0b"/>
+    <circle cx="56" cy="17" r="5" fill="#10b981"/>
+    <text x="210" y="22" fill="#94a3b8" font-size="12" text-anchor="middle" font-family="'JetBrains Mono', ui-monospace, monospace">~/.codex/config.toml</text>
+
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+      <text x="20" y="70" fill="#818cf8">model                  </text>
+      <text x="195" y="70" fill="#e2e8f0">= </text>
+      <text x="215" y="70" fill="#10b981">"gpt-5.3-codex"</text>
+
+      <text x="20" y="90" fill="#818cf8">approval_policy        </text>
+      <text x="195" y="90" fill="#e2e8f0">= </text>
+      <text x="215" y="90" fill="#10b981">"on-request"</text>
+
+      <text x="20" y="110" fill="#818cf8">sandbox_mode           </text>
+      <text x="195" y="110" fill="#e2e8f0">= </text>
+      <text x="215" y="110" fill="#10b981">"workspace-write"</text>
+
+      <text x="20" y="130" fill="#818cf8">model_reasoning_effort </text>
+      <text x="195" y="130" fill="#e2e8f0">= </text>
+      <text x="215" y="130" fill="#10b981">"medium"</text>
+
+      <text x="20" y="170" fill="#22d3ee">[profiles.review]</text>
+      <text x="20" y="190" fill="#818cf8">approval_policy </text>
+      <text x="140" y="190" fill="#e2e8f0">= </text>
+      <text x="160" y="190" fill="#10b981">"never"</text>
+      <text x="20" y="210" fill="#818cf8">sandbox_mode    </text>
+      <text x="140" y="210" fill="#e2e8f0">= </text>
+      <text x="160" y="210" fill="#10b981">"read-only"</text>
+
+      <text x="20" y="250" fill="#22d3ee">[profiles.local]</text>
+      <text x="20" y="270" fill="#818cf8">model          </text>
+      <text x="140" y="270" fill="#e2e8f0">= </text>
+      <text x="160" y="270" fill="#10b981">"llama-3.3-70b"</text>
+      <text x="20" y="290" fill="#818cf8">model_provider </text>
+      <text x="140" y="290" fill="#e2e8f0">= </text>
+      <text x="160" y="290" fill="#10b981">"ollama"</text>
+
+      <text x="20" y="330" fill="#a78bfa">[mcp_servers.github]</text>
+      <text x="20" y="350" fill="#818cf8">command </text>
+      <text x="90" y="350" fill="#e2e8f0">= </text>
+      <text x="110" y="350" fill="#10b981">"npx"</text>
+      <text x="20" y="370" fill="#818cf8">args    </text>
+      <text x="90" y="370" fill="#e2e8f0">= </text>
+      <text x="110" y="370" fill="#10b981">["-y","…server-github"]</text>
+      <text x="20" y="390" fill="#818cf8">env </text>
+      <text x="60" y="390" fill="#e2e8f0">= </text>
+      <text x="80" y="390" fill="#f59e0b">{ GITHUB_TOKEN = "${env:…}" }</text>
+
+      <text x="20" y="430" fill="#f59e0b">[model_providers.ollama]</text>
+      <text x="20" y="450" fill="#818cf8">name     </text>
+      <text x="100" y="450" fill="#e2e8f0">= </text>
+      <text x="120" y="450" fill="#10b981">"Ollama"</text>
+      <text x="20" y="470" fill="#818cf8">base_url </text>
+      <text x="100" y="470" fill="#e2e8f0">= </text>
+      <text x="120" y="470" fill="#10b981">"http://localhost:11434/v1"</text>
+      <text x="20" y="490" fill="#818cf8">env_key  </text>
+      <text x="100" y="490" fill="#e2e8f0">= </text>
+      <text x="120" y="490" fill="#10b981">"OLLAMA_API_KEY"</text>
+      <text x="20" y="510" fill="#818cf8">wire_api </text>
+      <text x="100" y="510" fill="#e2e8f0">= </text>
+      <text x="120" y="510" fill="#10b981">"chat"</text>
+
+      <text x="20" y="550" fill="#34d399">[projects."/home/alice/work/app"]</text>
+      <text x="20" y="570" fill="#818cf8">trust_level </text>
+      <text x="130" y="570" fill="#e2e8f0">= </text>
+      <text x="150" y="570" fill="#10b981">"trusted"</text>
+
+      <text x="20" y="620" fill="#64748b" font-style="italic">; Precedence: -c &gt; -p &gt; [projects] &gt; Defaults</text>
+      <text x="20" y="640" fill="#64748b" font-style="italic">; Projekt-Config nur in trusted repos</text>
+    </g>
+  </g>
+
+  <!-- Pfeil Schicht→Code -->
+  <g>
+    <path d="M 900 250 Q 915 250 940 250" fill="none" stroke="#6366f1" stroke-width="2"/>
+    <path d="M 900 370 Q 915 370 940 370" fill="none" stroke="#22d3ee" stroke-width="2"/>
+    <path d="M 900 490 Q 915 490 940 490" fill="none" stroke="#a78bfa" stroke-width="2"/>
+    <path d="M 900 610 Q 915 610 940 610" fill="none" stroke="#f59e0b" stroke-width="2"/>
+    <path d="M 900 730 Q 915 730 940 730" fill="none" stroke="#10b981" stroke-width="2"/>
+  </g>
+</svg>

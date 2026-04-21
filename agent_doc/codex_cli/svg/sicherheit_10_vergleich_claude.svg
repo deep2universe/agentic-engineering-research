@@ -1,0 +1,173 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Vergleich Codex CLI vs. Claude Code — Sicherheit &amp; Governance</title>
+  <desc>Side-by-side-Vergleich fünf Aspekte: Sandbox, Approval-Modell, Hook-System, Konfig-Ort und Governance. Codex links, Claude Code rechts als Tandem-Gegenüberstellung.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Vergleich: Codex CLI vs. Claude Code</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Zwei Agenten, zwei Philosophien — beide mit Enterprise-Governance, aber unterschiedlichen Durchsetzungs-Mechaniken</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 10</text>
+
+  <!-- Column headers -->
+  <g transform="translate(60,130)">
+    <rect x="0" y="0" width="640" height="70" rx="12" fill="#1e1b4b" stroke="#818cf8" stroke-width="2"/>
+    <text x="320" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#c7d2fe">Codex CLI</text>
+    <text x="320" y="54" text-anchor="middle" font-size="12" fill="#a5b4fc">OpenAI · ~/.codex · Rust</text>
+  </g>
+  <g transform="translate(720,130)">
+    <rect x="0" y="0" width="620" height="70" rx="12" fill="#3b1e0f" stroke="#f59e0b" stroke-width="2"/>
+    <text x="310" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#fbbf24">Claude Code</text>
+    <text x="310" y="54" text-anchor="middle" font-size="12" fill="#fde68a">Anthropic · ~/.claude · TypeScript</text>
+  </g>
+
+  <!-- Category label function (5 rows) -->
+  <!-- Row 1: Sandbox -->
+  <g transform="translate(60,225)">
+    <rect x="0" y="0" width="1280" height="110" rx="10" fill="#0b1220" stroke="#334155"/>
+    <rect x="0" y="0" width="160" height="110" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="80" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">Sandbox</text>
+    <!-- Icon shield -->
+    <g transform="translate(64,52)">
+      <path d="M16 0 L32 6 L32 28 Q32 42 16 50 Q0 42 0 28 L0 6 Z" fill="#334155" stroke="#94a3b8"/>
+      <path d="M8 24 L14 30 L24 18" stroke="#94a3b8" stroke-width="3" fill="none"/>
+    </g>
+
+    <!-- Codex side -->
+    <g transform="translate(180,16)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#c7d2fe">Kernel-level</text>
+      <text x="0" y="42" font-size="12" fill="#cbd5e1">macOS Seatbelt · Linux Landlock+</text>
+      <text x="0" y="58" font-size="12" fill="#cbd5e1">seccomp+bwrap · Windows AppContainer</text>
+      <text x="0" y="80" font-size="11" fill="#94a3b8">wirkt auch auf Subprozesse (find, jq, curl)</text>
+    </g>
+
+    <!-- Claude side -->
+    <g transform="translate(740,16)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#fbbf24">Pfad-Allowlist</text>
+      <text x="0" y="42" font-size="12" fill="#cbd5e1">Bind-Mounts · AppArmor optional</text>
+      <text x="0" y="58" font-size="12" fill="#cbd5e1">Docker/Podman als Container-Layer</text>
+      <text x="0" y="80" font-size="11" fill="#94a3b8">In-Process + OS-Features kombiniert</text>
+    </g>
+  </g>
+
+  <!-- Row 2: Approval-Modell -->
+  <g transform="translate(60,345)">
+    <rect x="0" y="0" width="1280" height="110" rx="10" fill="#0b1220" stroke="#334155"/>
+    <rect x="0" y="0" width="160" height="110" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="80" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">Approval</text>
+    <!-- Icon traffic light -->
+    <g transform="translate(70,52)">
+      <rect x="0" y="0" width="20" height="44" rx="6" fill="#334155"/>
+      <circle cx="10" cy="8" r="4" fill="#ef4444"/>
+      <circle cx="10" cy="22" r="4" fill="#f59e0b"/>
+      <circle cx="10" cy="36" r="4" fill="#10b981"/>
+    </g>
+
+    <g transform="translate(180,16)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#c7d2fe">4-stufige Policy</text>
+      <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#a5b4fc">
+        <text x="0" y="44">untrusted · on-request · on-failure · never</text>
+      </g>
+      <text x="0" y="66" font-size="12" fill="#cbd5e1">Convenience: --full-auto · --yolo</text>
+      <text x="0" y="86" font-size="11" fill="#94a3b8">global pro Session / Profile</text>
+    </g>
+
+    <g transform="translate(740,16)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#fbbf24">Allow/Deny pro Tool</text>
+      <text x="0" y="42" font-size="12" fill="#cbd5e1">Permission-Modes (Plan/Auto/Ask)</text>
+      <text x="0" y="62" font-size="12" fill="#cbd5e1">+ granulare allow-/deny-Listen</text>
+      <text x="0" y="86" font-size="11" fill="#94a3b8">feingranular, pro Tool-Name</text>
+    </g>
+  </g>
+
+  <!-- Row 3: Hook-System -->
+  <g transform="translate(60,465)">
+    <rect x="0" y="0" width="1280" height="110" rx="10" fill="#0b1220" stroke="#334155"/>
+    <rect x="0" y="0" width="160" height="110" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="80" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">Hooks</text>
+    <!-- Icon gear -->
+    <g transform="translate(68,52)">
+      <circle cx="12" cy="22" r="8" fill="none" stroke="#94a3b8" stroke-width="2"/>
+      <circle cx="12" cy="22" r="3" fill="#94a3b8"/>
+      <g stroke="#94a3b8" stroke-width="2">
+        <line x1="12" y1="8" x2="12" y2="14"/>
+        <line x1="12" y1="30" x2="12" y2="36"/>
+        <line x1="26" y1="22" x2="20" y2="22"/>
+        <line x1="-2" y1="22" x2="4" y2="22"/>
+      </g>
+    </g>
+
+    <g transform="translate(180,16)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#c7d2fe">Minimal: notify-Hook</text>
+      <text x="0" y="42" font-size="12" fill="#cbd5e1">Ein einzelner Hook am Turn-Ende</text>
+      <text x="0" y="62" font-size="12" fill="#cbd5e1">Payload: Session-ID, Turn-Stats, Kosten</text>
+      <text x="0" y="86" font-size="11" fill="#94a3b8">einfach, aber eingeschränkt</text>
+    </g>
+
+    <g transform="translate(740,16)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#fbbf24">17 programmierbare Events</text>
+      <text x="0" y="42" font-size="12" fill="#cbd5e1">PreToolUse · PostToolUse · UserPromptSubmit …</text>
+      <text x="0" y="62" font-size="12" fill="#cbd5e1">feingranulare Policy-Durchsetzung</text>
+      <text x="0" y="86" font-size="11" fill="#94a3b8">mächtiger, komplexer</text>
+    </g>
+  </g>
+
+  <!-- Row 4: Konfig-Ort -->
+  <g transform="translate(60,585)">
+    <rect x="0" y="0" width="1280" height="110" rx="10" fill="#0b1220" stroke="#334155"/>
+    <rect x="0" y="0" width="160" height="110" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="80" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">Konfig</text>
+    <!-- Icon file -->
+    <g transform="translate(70,48)">
+      <path d="M0 0 L14 0 L22 8 L22 36 L0 36 Z" fill="#334155" stroke="#94a3b8"/>
+      <path d="M14 0 L14 8 L22 8" fill="none" stroke="#94a3b8"/>
+    </g>
+
+    <g transform="translate(180,16)" font-family="'JetBrains Mono',monospace" font-size="11">
+      <text x="0" y="20" font-size="13" font-weight="700" font-family="system-ui" fill="#c7d2fe">TOML-basiert</text>
+      <text x="0" y="44" fill="#a5b4fc">~/.codex/config.toml</text>
+      <text x="0" y="62" fill="#a5b4fc">.codex/config.toml (Repo, bei Trusted)</text>
+      <text x="0" y="82" font-size="11" font-family="system-ui" fill="#94a3b8">Profiles, Sandbox, MCP-Server</text>
+    </g>
+
+    <g transform="translate(740,16)" font-family="'JetBrains Mono',monospace" font-size="11">
+      <text x="0" y="20" font-size="13" font-weight="700" font-family="system-ui" fill="#fbbf24">JSON-basiert</text>
+      <text x="0" y="44" fill="#fde68a">~/.claude/settings.json</text>
+      <text x="0" y="62" fill="#fde68a">.claude/settings.json (Repo)</text>
+      <text x="0" y="82" font-size="11" font-family="system-ui" fill="#94a3b8">+ local settings + user prefs</text>
+    </g>
+  </g>
+
+  <!-- Row 5: Governance -->
+  <g transform="translate(60,705)">
+    <rect x="0" y="0" width="1280" height="110" rx="10" fill="#0b1220" stroke="#334155"/>
+    <rect x="0" y="0" width="160" height="110" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="80" y="40" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">Governance</text>
+    <!-- Icon building -->
+    <g transform="translate(66,48)">
+      <rect x="0" y="4" width="28" height="32" fill="#334155" stroke="#94a3b8"/>
+      <rect x="6" y="10" width="4" height="6" fill="#94a3b8"/>
+      <rect x="14" y="10" width="4" height="6" fill="#94a3b8"/>
+      <rect x="6" y="22" width="4" height="6" fill="#94a3b8"/>
+      <rect x="14" y="22" width="4" height="6" fill="#94a3b8"/>
+    </g>
+
+    <g transform="translate(180,16)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#c7d2fe">ChatGPT Enterprise + ZDR</text>
+      <text x="0" y="42" font-size="12" fill="#cbd5e1">SSO/SAML · SCIM · Audit · SCIM</text>
+      <text x="0" y="62" font-size="12" fill="#cbd5e1">Shared Cloud-Workspaces · zentrales Billing</text>
+      <text x="0" y="86" font-size="11" fill="#94a3b8">Managed Policies Roll-out Q2/2026</text>
+    </g>
+
+    <g transform="translate(740,16)">
+      <text x="0" y="20" font-size="13" font-weight="700" fill="#fbbf24">Claude Enterprise + ZDR</text>
+      <text x="0" y="42" font-size="12" fill="#cbd5e1">SSO/SAML · SCIM · Audit-Logs</text>
+      <text x="0" y="62" font-size="12" fill="#cbd5e1">Admin-API für Policies &amp; Quotas</text>
+      <text x="0" y="86" font-size="11" fill="#94a3b8">granulare Tool-Governance</text>
+    </g>
+  </g>
+
+  <!-- Tandem footer -->
+  <g transform="translate(60,835)">
+    <text x="640" y="20" text-anchor="middle" font-size="13" fill="#94a3b8">Beide Agenten fahren Tandem — unterschiedliche Federn, gleiche Strasse: Kernel-Härte (Codex) vs. Hook-Reichtum (Claude Code).</text>
+  </g>
+</svg>

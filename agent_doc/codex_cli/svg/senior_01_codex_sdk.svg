@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex SDK - Host-Prozess steuert Codex CLI via JSONL-stdio</title>
+  <desc>Architektur des @openai/codex-sdk: Puppenspieler-Metapher. Host-Applikation startet die Codex-CLI als Child-Prozess und tauscht Turn-Events (reasoning_delta, tool_call, file_change, message_delta, turn_completed) ueber stdio aus. Zentrale API-Methoden: startThread, run, runStreamed, resumeThread, outputSchema.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arrowCyan" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrowEmerald" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Titel -->
+  <text x="40" y="54" fill="#e2e8f0" font-size="30" font-weight="700">Codex SDK - Codex programmatisch als Marionette</text>
+  <text x="40" y="82" fill="#94a3b8" font-size="16">Host-Prozess spawnt die CLI und tauscht Turn-Events via JSONL ueber stdio - Kapitel 1</text>
+  <text x="1280" y="54" fill="#6366f1" font-size="16" font-weight="600" text-anchor="end">Codex CLI / Senior 01</text>
+
+  <!-- Puppenspieler-Metapher: Host-Process links -->
+  <g>
+    <rect x="60" y="140" width="400" height="420" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <text x="260" y="175" fill="#e2e8f0" font-size="18" font-weight="700" text-anchor="middle">Host-Applikation (Node / TS)</text>
+    <text x="260" y="198" fill="#94a3b8" font-size="12" text-anchor="middle">Puppenspieler - Backend, Electron, Automation</text>
+
+    <!-- Puppenspieler-Hand Symbol -->
+    <g transform="translate(90,220)">
+      <circle cx="20" cy="20" r="18" fill="#312e81" stroke="#818cf8" stroke-width="2"/>
+      <path d="M10 22 L18 14 L26 22 L34 14" stroke="#a5b4fc" stroke-width="2" fill="none"/>
+      <text x="50" y="26" fill="#e2e8f0" font-size="14">import &#123; Codex &#125; from "@openai/codex-sdk"</text>
+    </g>
+
+    <!-- SDK API-Methoden -->
+    <g transform="translate(90,275)">
+      <rect x="0" y="0" width="340" height="36" rx="8" fill="#0b1220" stroke="#4f46e5"/>
+      <text x="14" y="23" fill="#c7d2fe" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">codex.startThread(&#123; profile, sandbox &#125;)</text>
+    </g>
+    <g transform="translate(90,318)">
+      <rect x="0" y="0" width="340" height="36" rx="8" fill="#0b1220" stroke="#4f46e5"/>
+      <text x="14" y="23" fill="#c7d2fe" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">thread.run(prompt, &#123; outputSchema &#125;)</text>
+    </g>
+    <g transform="translate(90,361)">
+      <rect x="0" y="0" width="340" height="36" rx="8" fill="#0b1220" stroke="#22d3ee"/>
+      <text x="14" y="23" fill="#a5f3fc" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">thread.runStreamed(prompt)</text>
+    </g>
+    <g transform="translate(90,404)">
+      <rect x="0" y="0" width="340" height="36" rx="8" fill="#0b1220" stroke="#4f46e5"/>
+      <text x="14" y="23" fill="#c7d2fe" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">codex.resumeThread(threadId)</text>
+    </g>
+    <g transform="translate(90,447)">
+      <rect x="0" y="0" width="340" height="36" rx="8" fill="#0b1220" stroke="#10b981"/>
+      <text x="14" y="23" fill="#6ee7b7" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">outputSchema: zodToJsonSchema(...)</text>
+    </g>
+
+    <text x="90" y="510" fill="#94a3b8" font-size="12">env-Filter: nur PATH/HOME durchreichen -</text>
+    <text x="90" y="528" fill="#94a3b8" font-size="12">verhindert Secret-Leaks in Child-Prozess</text>
+  </g>
+
+  <!-- Fäden zur Marionette (Pfeile) -->
+  <g stroke="#818cf8" stroke-width="1.5" stroke-dasharray="4 3" fill="none">
+    <path d="M460 300 Q 620 260 770 300"/>
+    <path d="M460 360 Q 620 340 770 360"/>
+    <path d="M460 420 Q 620 410 770 420"/>
+  </g>
+
+  <!-- stdio Pipe Label -->
+  <g transform="translate(580,210)">
+    <rect x="0" y="0" width="180" height="40" rx="8" fill="#312e81" stroke="#818cf8"/>
+    <text x="90" y="25" fill="#e0e7ff" font-size="13" text-anchor="middle" font-weight="600">stdin / stdout - JSONL</text>
+  </g>
+
+  <!-- Marionette: Codex CLI rechts -->
+  <g>
+    <rect x="770" y="140" width="570" height="420" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="1055" y="175" fill="#e2e8f0" font-size="18" font-weight="700" text-anchor="middle">Codex CLI (Child-Process)</text>
+    <text x="1055" y="198" fill="#94a3b8" font-size="12" text-anchor="middle">Marionette - Agent-Loop, Sandbox, Tools</text>
+
+    <!-- Event Stream -->
+    <rect x="800" y="230" width="510" height="300" rx="10" fill="#0b1220" stroke="#334155"/>
+    <text x="820" y="258" fill="#94a3b8" font-size="13" font-weight="600">Turn-Events (for await ...)</text>
+
+    <g transform="translate(820,276)">
+      <rect x="0" y="0" width="470" height="34" rx="6" fill="#111c36" stroke="#6366f1"/>
+      <circle cx="18" cy="17" r="6" fill="#818cf8"/>
+      <text x="36" y="22" fill="#c7d2fe" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">reasoning_delta - internes Denken live</text>
+    </g>
+    <g transform="translate(820,318)">
+      <rect x="0" y="0" width="470" height="34" rx="6" fill="#111c36" stroke="#f59e0b"/>
+      <circle cx="18" cy="17" r="6" fill="#f59e0b"/>
+      <text x="36" y="22" fill="#fde68a" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">tool_call - shell / apply_patch / MCP</text>
+    </g>
+    <g transform="translate(820,360)">
+      <rect x="0" y="0" width="470" height="34" rx="6" fill="#111c36" stroke="#10b981"/>
+      <circle cx="18" cy="17" r="6" fill="#10b981"/>
+      <text x="36" y="22" fill="#6ee7b7" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">file_change - Mutation auf Disk</text>
+    </g>
+    <g transform="translate(820,402)">
+      <rect x="0" y="0" width="470" height="34" rx="6" fill="#111c36" stroke="#22d3ee"/>
+      <circle cx="18" cy="17" r="6" fill="#22d3ee"/>
+      <text x="36" y="22" fill="#a5f3fc" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">message_delta - Agent-Antwort-Token</text>
+    </g>
+    <g transform="translate(820,444)">
+      <rect x="0" y="0" width="470" height="34" rx="6" fill="#111c36" stroke="#a78bfa"/>
+      <circle cx="18" cy="17" r="6" fill="#a78bfa"/>
+      <text x="36" y="22" fill="#ddd6fe" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">turn_completed - finalResponse + usage</text>
+    </g>
+
+    <text x="820" y="510" fill="#94a3b8" font-size="12">Node &gt;= 18 - CLI installiert - api key via env/config</text>
+  </g>
+
+  <!-- Unten: Use Cases & Resume -->
+  <g>
+    <rect x="60" y="600" width="640" height="260" rx="14" fill="#1e293b" stroke="#334155"/>
+    <text x="80" y="632" fill="#e2e8f0" font-size="18" font-weight="700">Use Cases - wann SDK statt CLI?</text>
+
+    <g transform="translate(80,656)">
+      <rect x="0" y="0" width="290" height="90" rx="8" fill="#0b1220" stroke="#6366f1"/>
+      <text x="14" y="24" fill="#e0e7ff" font-size="14" font-weight="600">Backend-Service</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12">HTTP-API akzeptiert Tickets,</text>
+      <text x="14" y="62" fill="#94a3b8" font-size="12">startet Codex-Thread, streamt</text>
+      <text x="14" y="78" fill="#94a3b8" font-size="12">Events an Frontend</text>
+    </g>
+    <g transform="translate(390,656)">
+      <rect x="0" y="0" width="290" height="90" rx="8" fill="#0b1220" stroke="#22d3ee"/>
+      <text x="14" y="24" fill="#a5f3fc" font-size="14" font-weight="600">Electron / Desktop</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12">Eigene UI, Host-Sandbox-Isolation,</text>
+      <text x="14" y="62" fill="#94a3b8" font-size="12">Streaming-Events in Renderer</text>
+      <text x="14" y="78" fill="#94a3b8" font-size="12">via IPC</text>
+    </g>
+
+    <g transform="translate(80,756)">
+      <rect x="0" y="0" width="600" height="84" rx="8" fill="#0b1220" stroke="#10b981"/>
+      <text x="14" y="24" fill="#6ee7b7" font-size="14" font-weight="600">Strukturierter Output</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace">thread.run(prompt, &#123; outputSchema: jsonSchema &#125;)</text>
+      <text x="14" y="66" fill="#94a3b8" font-size="12">-&gt; turn.finalResponse ist JSON (z.B. zod-validierbar)</text>
+    </g>
+  </g>
+
+  <!-- Resume Flow -->
+  <g>
+    <rect x="720" y="600" width="620" height="260" rx="14" fill="#1e293b" stroke="#334155"/>
+    <text x="740" y="632" fill="#e2e8f0" font-size="18" font-weight="700">Resume &amp; Persistenz</text>
+
+    <g transform="translate(740,656)">
+      <rect x="0" y="0" width="580" height="60" rx="8" fill="#0b1220" stroke="#a78bfa"/>
+      <text x="14" y="24" fill="#ddd6fe" font-size="13" font-weight="600">thread.id persistieren</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12">-&gt; spaeter: codex.resumeThread(id).run("weiter ab letztem Turn")</text>
+    </g>
+
+    <g transform="translate(740,726)">
+      <rect x="0" y="0" width="580" height="60" rx="8" fill="#0b1220" stroke="#f59e0b"/>
+      <text x="14" y="24" fill="#fde68a" font-size="13" font-weight="600">Session-JSONL unter ~/.codex/sessions/&lt;uuid&gt;.jsonl</text>
+      <text x="14" y="46" fill="#94a3b8" font-size="12">Audit-Trail, Metriken, Token-Usage pro Turn</text>
+    </g>
+
+    <g transform="translate(740,796)">
+      <rect x="0" y="0" width="580" height="50" rx="8" fill="#0b1220" stroke="#ef4444"/>
+      <text x="14" y="22" fill="#fecaca" font-size="13" font-weight="600">Warnung: env erbt Default - Secrets explizit filtern</text>
+      <text x="14" y="40" fill="#94a3b8" font-size="12">new Codex(&#123; env: &#123; PATH, HOME &#125; &#125;)</text>
+    </g>
+  </g>
+
+</svg>

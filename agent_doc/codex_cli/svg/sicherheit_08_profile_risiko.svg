@@ -1,0 +1,190 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Profile pro Risiko-Szenario — Ampel mit drei Karten</title>
+  <desc>Drei farbcodierte Risiko-Profile (review grün, daily gelb, yolo rot) mit Approval-Policy, Sandbox-Mode, Modell und Empfehlung. Ampel-Metapher visualisiert das Risiko.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Profile pro Risiko-Szenario — die Ampel</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">Drei Profile in config.toml decken alltägliche Nutzung ab — Wechsel per --profile</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 8</text>
+
+  <!-- Traffic light on the left -->
+  <g transform="translate(80,170)">
+    <rect x="0" y="0" width="120" height="330" rx="20" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    <circle cx="60" cy="62" r="38" fill="#052e2b" stroke="#10b981" stroke-width="3"/>
+    <circle cx="60" cy="62" r="28" fill="#10b981" opacity="0.25"/>
+    <text x="60" y="67" text-anchor="middle" font-size="14" font-weight="700" fill="#6ee7b7">review</text>
+
+    <circle cx="60" cy="162" r="38" fill="#3b1e0f" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="60" cy="162" r="28" fill="#f59e0b" opacity="0.25"/>
+    <text x="60" y="167" text-anchor="middle" font-size="14" font-weight="700" fill="#fbbf24">daily</text>
+
+    <circle cx="60" cy="262" r="38" fill="#3b0f12" stroke="#ef4444" stroke-width="3"/>
+    <circle cx="60" cy="262" r="28" fill="#ef4444" opacity="0.25"/>
+    <text x="60" y="267" text-anchor="middle" font-size="14" font-weight="700" fill="#fca5a5">yolo</text>
+
+    <rect x="52" y="310" width="16" height="28" fill="#0f172a"/>
+    <rect x="36" y="338" width="48" height="10" fill="#334155"/>
+  </g>
+
+  <!-- Profile card: review -->
+  <g transform="translate(240,170)">
+    <rect x="0" y="0" width="360" height="540" rx="14" fill="#052e2b" stroke="#10b981" stroke-width="2.5"/>
+    <rect x="0" y="0" width="360" height="68" rx="14" fill="#064e3b"/>
+    <text x="180" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#6ee7b7">Profil: review</text>
+    <text x="180" y="52" text-anchor="middle" font-size="12" fill="#a7f3d0">Safe Analyse &amp; PR-Review</text>
+
+    <!-- KV table -->
+    <g font-size="13" fill="#e2e8f0">
+      <text x="20" y="104" font-weight="700" fill="#94a3b8">approval_policy</text>
+      <text x="340" y="104" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#6ee7b7">"never"</text>
+      <line x1="20" y1="118" x2="340" y2="118" stroke="#065f46"/>
+
+      <text x="20" y="144" font-weight="700" fill="#94a3b8">sandbox_mode</text>
+      <text x="340" y="144" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#6ee7b7">"read-only"</text>
+      <line x1="20" y1="158" x2="340" y2="158" stroke="#065f46"/>
+
+      <text x="20" y="184" font-weight="700" fill="#94a3b8">model</text>
+      <text x="340" y="184" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#67e8f9">gpt-5.3-codex</text>
+      <line x1="20" y1="198" x2="340" y2="198" stroke="#065f46"/>
+
+      <text x="20" y="224" font-weight="700" fill="#94a3b8">network</text>
+      <text x="340" y="224" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#fca5a5">off</text>
+    </g>
+
+    <!-- Empfehlung -->
+    <g transform="translate(20,260)">
+      <rect x="0" y="0" width="320" height="108" rx="10" fill="#064e3b" stroke="#10b981"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#6ee7b7">Empfehlung</text>
+      <text x="14" y="48" font-size="11" fill="#d1fae5">• PR-Review &amp; Audit</text>
+      <text x="14" y="68" font-size="11" fill="#d1fae5">• Onboarding neuer Devs</text>
+      <text x="14" y="88" font-size="11" fill="#d1fae5">• Untrusted oder unbekannte Repos</text>
+    </g>
+
+    <!-- CLI -->
+    <g transform="translate(20,390)">
+      <rect x="0" y="0" width="320" height="50" rx="8" fill="#0f172a" stroke="#334155"/>
+      <text x="14" y="30" font-family="'JetBrains Mono',monospace" font-size="12" fill="#67e8f9">codex --profile review</text>
+    </g>
+
+    <!-- Icon: helmet -->
+    <g transform="translate(160,470)">
+      <circle cx="20" cy="26" r="22" fill="#065f46" stroke="#10b981"/>
+      <path d="M4 26 Q20 -6 36 26" fill="none" stroke="#10b981" stroke-width="3"/>
+      <text x="20" y="62" text-anchor="middle" font-size="11" fill="#6ee7b7">Helm</text>
+    </g>
+  </g>
+
+  <!-- Profile card: daily -->
+  <g transform="translate(620,170)">
+    <rect x="0" y="0" width="360" height="540" rx="14" fill="#3b1e0f" stroke="#f59e0b" stroke-width="2.5"/>
+    <rect x="0" y="0" width="360" height="68" rx="14" fill="#78350f"/>
+    <text x="180" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#fbbf24">Profil: daily</text>
+    <text x="180" y="52" text-anchor="middle" font-size="12" fill="#fde68a">Tägliche Arbeit in Trusted-Repos</text>
+
+    <g font-size="13" fill="#e2e8f0">
+      <text x="20" y="104" font-weight="700" fill="#94a3b8">approval_policy</text>
+      <text x="340" y="104" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#fbbf24">"on-request"</text>
+      <line x1="20" y1="118" x2="340" y2="118" stroke="#78350f"/>
+
+      <text x="20" y="144" font-weight="700" fill="#94a3b8">sandbox_mode</text>
+      <text x="340" y="144" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#fbbf24">"workspace-write"</text>
+      <line x1="20" y1="158" x2="340" y2="158" stroke="#78350f"/>
+
+      <text x="20" y="184" font-weight="700" fill="#94a3b8">model</text>
+      <text x="340" y="184" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#67e8f9">gpt-5.3-codex</text>
+      <line x1="20" y1="198" x2="340" y2="198" stroke="#78350f"/>
+
+      <text x="20" y="224" font-weight="700" fill="#94a3b8">network</text>
+      <text x="340" y="224" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#fca5a5">off (togglebar)</text>
+    </g>
+
+    <g transform="translate(20,260)">
+      <rect x="0" y="0" width="320" height="108" rx="10" fill="#78350f" stroke="#f59e0b"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#fbbf24">Empfehlung</text>
+      <text x="14" y="48" font-size="11" fill="#fef3c7">• Feature-Arbeit im eigenen Repo</text>
+      <text x="14" y="68" font-size="11" fill="#fef3c7">• Refactoring &amp; Test-Generierung</text>
+      <text x="14" y="88" font-size="11" fill="#fef3c7">• entspricht --full-auto</text>
+    </g>
+
+    <g transform="translate(20,390)">
+      <rect x="0" y="0" width="320" height="50" rx="8" fill="#0f172a" stroke="#334155"/>
+      <text x="14" y="30" font-family="'JetBrains Mono',monospace" font-size="12" fill="#fbbf24">codex --profile daily</text>
+    </g>
+
+    <!-- Icon: bike -->
+    <g transform="translate(150,470)">
+      <circle cx="12" cy="34" r="10" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <circle cx="48" cy="34" r="10" fill="none" stroke="#f59e0b" stroke-width="2.5"/>
+      <path d="M12 34 L30 14 L48 34 M30 14 L38 14" stroke="#f59e0b" stroke-width="2.5" fill="none"/>
+      <text x="30" y="62" text-anchor="middle" font-size="11" fill="#fbbf24">Fahrrad</text>
+    </g>
+  </g>
+
+  <!-- Profile card: yolo -->
+  <g transform="translate(1000,170)">
+    <rect x="0" y="0" width="360" height="540" rx="14" fill="#3b0f12" stroke="#ef4444" stroke-width="3"/>
+    <rect x="0" y="0" width="360" height="68" rx="14" fill="#7f1d1d"/>
+    <text x="180" y="30" text-anchor="middle" font-size="18" font-weight="700" fill="#fca5a5">Profil: yolo</text>
+    <text x="180" y="52" text-anchor="middle" font-size="12" fill="#fecaca">Maximum Autonomie · hohes Risiko</text>
+
+    <g font-size="13" fill="#e2e8f0">
+      <text x="20" y="104" font-weight="700" fill="#94a3b8">approval_policy</text>
+      <text x="340" y="104" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#fca5a5">"never"</text>
+      <line x1="20" y1="118" x2="340" y2="118" stroke="#7f1d1d"/>
+
+      <text x="20" y="144" font-weight="700" fill="#94a3b8">sandbox_mode</text>
+      <text x="340" y="144" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#fca5a5">"danger-full-access"</text>
+      <line x1="20" y1="158" x2="340" y2="158" stroke="#7f1d1d"/>
+
+      <text x="20" y="184" font-weight="700" fill="#94a3b8">model</text>
+      <text x="340" y="184" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#67e8f9">gpt-5.3-codex</text>
+      <line x1="20" y1="198" x2="340" y2="198" stroke="#7f1d1d"/>
+
+      <text x="20" y="224" font-weight="700" fill="#94a3b8">network</text>
+      <text x="340" y="224" text-anchor="end" font-family="'JetBrains Mono',monospace" fill="#fca5a5">ON</text>
+    </g>
+
+    <g transform="translate(20,260)">
+      <rect x="0" y="0" width="320" height="108" rx="10" fill="#450a0a" stroke="#ef4444" stroke-width="2"/>
+      <text x="14" y="24" font-size="12" font-weight="700" fill="#fecaca">NUR in VM / Container!</text>
+      <text x="14" y="48" font-size="11" fill="#fecaca">• Daten-Totalverlust möglich</text>
+      <text x="14" y="68" font-size="11" fill="#fecaca">• Kein Schutz vor Netzwerk-Exfil</text>
+      <text x="14" y="88" font-size="11" fill="#fecaca">• Hardcore-Tests &amp; Benchmarks</text>
+    </g>
+
+    <g transform="translate(20,390)">
+      <rect x="0" y="0" width="320" height="50" rx="8" fill="#0f172a" stroke="#334155"/>
+      <text x="14" y="30" font-family="'JetBrains Mono',monospace" font-size="12" fill="#fca5a5">codex --profile yolo</text>
+    </g>
+
+    <!-- Icon: climbing shoe + skull warning -->
+    <g transform="translate(140,470)">
+      <circle cx="30" cy="30" r="20" fill="#7f1d1d" stroke="#ef4444" stroke-width="2"/>
+      <path d="M20 24 Q24 18 30 22 Q36 18 40 24" fill="none" stroke="#fecaca" stroke-width="2"/>
+      <circle cx="24" cy="30" r="2" fill="#fecaca"/>
+      <circle cx="36" cy="30" r="2" fill="#fecaca"/>
+      <path d="M24 38 Q30 42 36 38" fill="none" stroke="#fecaca" stroke-width="2"/>
+      <text x="30" y="72" text-anchor="middle" font-size="11" fill="#fca5a5">Risiko</text>
+    </g>
+  </g>
+
+  <!-- Footer -->
+  <g transform="translate(60,770)">
+    <rect x="0" y="0" width="1280" height="100" rx="10" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="28" font-size="13" font-weight="700" fill="#e2e8f0">config.toml — Auszug</text>
+    <g font-family="'JetBrains Mono',monospace" font-size="11" fill="#cbd5e1">
+      <text x="20" y="52" fill="#a78bfa">[profiles.review]</text>
+      <text x="220" y="52" fill="#a78bfa">[profiles.daily]</text>
+      <text x="420" y="52" fill="#a78bfa">[profiles.yolo]</text>
+      <text x="20" y="72">approval_policy = "never"</text>
+      <text x="220" y="72">approval_policy = "on-request"</text>
+      <text x="420" y="72">approval_policy = "never"</text>
+      <text x="20" y="90">sandbox_mode = "read-only"</text>
+      <text x="220" y="90">sandbox_mode = "workspace-write"</text>
+      <text x="420" y="90">sandbox_mode = "danger-full-access"</text>
+      <text x="720" y="72" fill="#fbbf24">Wechsel: codex --profile &lt;name&gt;</text>
+      <text x="720" y="90" fill="#94a3b8">oder: codex exec --profile &lt;name&gt;</text>
+    </g>
+  </g>
+</svg>

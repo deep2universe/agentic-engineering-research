@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Modelle und Reasoning-Effort — Codex-Cockpit-Dashboard</title>
+  <desc>Dashboard aus Modell-Wähler, Reasoning-Effort-Dial, Preamble-Message-Anzeige und Phase-Parameter-Hinweis. Visualisiert Modellfamilie, Default und Legacy-Modelle sowie Effort-Trade-offs.</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">8. Modelle &amp; Reasoning — Codex-Cockpit</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="16">Modell-Wahl × Reasoning-Effort × Preamble × Phase-Parameter — vier Regler, drei Effekte: Latenz, Kosten, Autonomie.</text>
+  <text x="1340" y="60" fill="#64748b" font-size="14" text-anchor="end">Codex CLI · Kapitel 8</text>
+
+  <!-- Modell-Liste -->
+  <g transform="translate(60,140)">
+    <rect width="560" height="360" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <rect x="0" y="0" width="560" height="40" rx="12" fill="#6366f1" opacity="0.2"/>
+    <text x="20" y="26" fill="#818cf8" font-size="16" font-weight="700">Modell-Wähler</text>
+
+    <g font-family="'JetBrains Mono', monospace" font-size="13">
+      <!-- Default -->
+      <g transform="translate(20,60)">
+        <rect width="520" height="46" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+        <rect x="0" y="0" width="8" height="46" rx="8" fill="#10b981"/>
+        <text x="20" y="22" fill="#34d399" font-weight="700">gpt-5.3-codex</text>
+        <text x="250" y="22" fill="#cbd5e1" font-size="11" font-family="system-ui">Default seit 02/2026</text>
+        <text x="20" y="38" fill="#94a3b8" font-size="11" font-family="system-ui">Phase-Parameter zwingend (sonst Performance-Drops)</text>
+      </g>
+      <g transform="translate(20,114)">
+        <rect width="520" height="46" rx="8" fill="#0f172a" stroke="#22d3ee"/>
+        <rect x="0" y="0" width="8" height="46" rx="8" fill="#22d3ee"/>
+        <text x="20" y="22" fill="#22d3ee" font-weight="700">gpt-5.3-codex-spark</text>
+        <text x="250" y="22" fill="#cbd5e1" font-size="11" font-family="system-ui">&gt;1000 tok/s · Research Preview (ChatGPT Pro)</text>
+      </g>
+      <g transform="translate(20,168)">
+        <rect width="520" height="46" rx="8" fill="#0f172a" stroke="#334155"/>
+        <text x="20" y="22" fill="#cbd5e1" font-weight="700">gpt-5.2-codex</text>
+        <text x="250" y="22" fill="#94a3b8" font-size="11" font-family="system-ui">stabile Alternative</text>
+      </g>
+      <g transform="translate(20,222)">
+        <rect width="520" height="46" rx="8" fill="#0f172a" stroke="#334155"/>
+        <text x="20" y="22" fill="#cbd5e1" font-weight="700">gpt-5.1-codex-max</text>
+        <text x="250" y="22" fill="#94a3b8" font-size="11" font-family="system-ui">robust für Multi-Hour-Sessions</text>
+      </g>
+      <g transform="translate(20,276)">
+        <rect width="520" height="46" rx="8" fill="#0f172a" stroke="#334155"/>
+        <text x="20" y="22" fill="#cbd5e1" font-weight="700">gpt-5-codex · gpt-5.4</text>
+        <text x="250" y="22" fill="#94a3b8" font-size="11" font-family="system-ui">weitere Familienmitglieder</text>
+      </g>
+      <g transform="translate(20,330)">
+        <rect width="520" height="24" rx="6" fill="#1e293b" stroke="#475569"/>
+        <text x="12" y="17" fill="#94a3b8" font-size="11">Legacy: o3 · o4-mini · gpt-4.1 (Kompatibilität, nicht Default)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Reasoning-Effort-Dial -->
+  <g transform="translate(650,140)">
+    <rect width="400" height="360" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <rect x="0" y="0" width="400" height="40" rx="12" fill="#a78bfa" opacity="0.2"/>
+    <text x="20" y="26" fill="#c4b5fd" font-size="16" font-weight="700">Reasoning-Effort-Dial</text>
+
+    <!-- Dial -->
+    <g transform="translate(200,180)">
+      <circle r="100" fill="#0f172a" stroke="#334155" stroke-width="3"/>
+      <circle r="85" fill="none" stroke="#475569"/>
+      <!-- Segmente: low -->
+      <path d="M 0 0 L -85 0 A 85 85 0 0 1 -42 -73 Z" fill="#10b981" opacity="0.6"/>
+      <path d="M 0 0 L -42 -73 A 85 85 0 0 1 42 -73 Z" fill="#f59e0b" opacity="0.6"/>
+      <path d="M 0 0 L 42 -73 A 85 85 0 0 1 85 0 Z" fill="#ef4444" opacity="0.6"/>
+      <line x1="0" y1="0" x2="0" y2="-80" stroke="#e2e8f0" stroke-width="3" stroke-linecap="round"/>
+      <circle r="8" fill="#e2e8f0"/>
+      <text x="-70" y="12" fill="#34d399" font-size="12" text-anchor="middle">low</text>
+      <text x="0" y="-95" fill="#f59e0b" font-size="12" text-anchor="middle">medium</text>
+      <text x="70" y="12" fill="#fca5a5" font-size="12" text-anchor="middle">high</text>
+    </g>
+
+    <text x="200" y="310" fill="#cbd5e1" font-size="12" text-anchor="middle">Default: medium · CLI: /reasoning oder `-c model_reasoning_effort`</text>
+    <text x="200" y="334" fill="#94a3b8" font-size="11" text-anchor="middle">high = bis zu 10× mehr Tokens, aber deutlich mehr autonom gelöste Tasks</text>
+  </g>
+
+  <!-- Phase-Parameter-Hinweis -->
+  <g transform="translate(1080,140)">
+    <rect width="260" height="360" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="0" y="0" width="260" height="40" rx="12" fill="#22d3ee" opacity="0.2"/>
+    <text x="20" y="26" fill="#22d3ee" font-size="16" font-weight="700">Phase-Parameter</text>
+    <text x="20" y="66" fill="#cbd5e1" font-size="12">Responses-API-Feld</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="12">
+      <text x="20" y="94" fill="#22d3ee">phase: "plan"</text>
+      <text x="20" y="114" fill="#22d3ee">phase: "code"</text>
+      <text x="20" y="134" fill="#22d3ee">phase: "explain"</text>
+      <text x="20" y="154" fill="#22d3ee">phase: "review"</text>
+    </g>
+    <rect x="20" y="170" width="220" height="80" rx="6" fill="#0b1220" stroke="#22d3ee"/>
+    <text x="32" y="192" fill="#22d3ee" font-size="12" font-weight="700">Warum zwingend?</text>
+    <text x="32" y="212" fill="#cbd5e1" font-size="11">GPT-5.3-Codex braucht das Feld</text>
+    <text x="32" y="228" fill="#cbd5e1" font-size="11">für Phase-spezifische Weights.</text>
+    <text x="32" y="244" fill="#cbd5e1" font-size="11">Fehlt es → Performance-Drop.</text>
+    <text x="20" y="278" fill="#94a3b8" font-size="11">Codex setzt es automatisch —</text>
+    <text x="20" y="294" fill="#94a3b8" font-size="11">bei eigener Wrapper-Integration</text>
+    <text x="20" y="310" fill="#94a3b8" font-size="11">explizit mitgeben.</text>
+    <text x="20" y="342" fill="#22d3ee" font-size="11" font-family="'JetBrains Mono', monospace">experimental</text>
+  </g>
+
+  <!-- Preamble-Anzeige -->
+  <g transform="translate(60,530)">
+    <rect width="1280" height="240" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" fill="#e2e8f0" font-size="18" font-weight="700">Reasoning-Summary als Preamble — 1 Satz Ack + 1–2 Sätze Plan pro Tool-Call</text>
+    <text x="20" y="58" fill="#94a3b8" font-size="12">Sichtbar bei GPT-5.x-Familie; macht Agent-Intent für Senior-Reviews transparent.</text>
+
+    <g transform="translate(20,80)">
+      <rect width="620" height="140" rx="8" fill="#0f172a" stroke="#6366f1"/>
+      <text x="16" y="28" fill="#818cf8" font-size="12" font-weight="700" font-family="'JetBrains Mono', monospace">assistant (preamble)</text>
+      <text x="16" y="54" fill="#cbd5e1" font-size="12">"Verstanden — ich analysiere die Auth-Flows."</text>
+      <text x="16" y="78" fill="#94a3b8" font-size="12">"Ich lese jetzt `auth.rs` und `session.rs`,</text>
+      <text x="16" y="94" fill="#94a3b8" font-size="12"> prüfe Token-Lebenszyklus, und schlage</text>
+      <text x="16" y="110" fill="#94a3b8" font-size="12"> anschließend einen Patch vor."</text>
+      <text x="16" y="130" fill="#64748b" font-size="11" font-family="'JetBrains Mono', monospace">→ gefolgt vom tool_call Read(auth.rs)</text>
+    </g>
+
+    <g transform="translate(660,80)">
+      <rect width="620" height="140" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+      <text x="16" y="28" fill="#c4b5fd" font-size="12" font-weight="700">Engineering-Hinweis</text>
+      <text x="16" y="54" fill="#cbd5e1" font-size="12">Preambles sind NICHT der interne</text>
+      <text x="16" y="70" fill="#cbd5e1" font-size="12">Chain-of-Thought; sie sind eine</text>
+      <text x="16" y="86" fill="#cbd5e1" font-size="12">kompakte Nutzer-sichtbare Summary.</text>
+      <text x="16" y="110" fill="#94a3b8" font-size="11">Sie sind nützlich in:</text>
+      <text x="16" y="126" fill="#94a3b8" font-size="11">· CI-Logs · Debugging · Review-Protokollen · Onboarding neuer Teammitglieder</text>
+    </g>
+  </g>
+
+  <!-- Unten: Trade-off Tabelle -->
+  <g transform="translate(60,800)">
+    <rect width="1280" height="80" rx="10" fill="#0b1220" stroke="#334155"/>
+    <text x="20" y="30" fill="#e2e8f0" font-size="14" font-weight="700">Effort-Trade-off</text>
+    <g font-family="system-ui" font-size="12">
+      <rect x="140" y="16" width="10" height="10" fill="#10b981"/>
+      <text x="160" y="26" fill="#cbd5e1">low — &lt;2 s, günstigster Turn, für Boilerplate &amp; simple Edits</text>
+      <rect x="140" y="40" width="10" height="10" fill="#f59e0b"/>
+      <text x="160" y="50" fill="#cbd5e1">medium — Default, gute Balance (90% der Tasks)</text>
+      <rect x="140" y="64" width="10" height="10" fill="#ef4444"/>
+      <text x="160" y="74" fill="#cbd5e1">high — bis 10× Tokens, für komplexe Refactorings, Debugging, Architektur</text>
+    </g>
+  </g>
+</svg>

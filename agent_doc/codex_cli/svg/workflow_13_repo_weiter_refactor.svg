@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Workflow 13 — Repo-weiter Refactor: Rename der Public API</title>
+  <desc>Ticket-Prompt mit Goal/Constraints/DoD: Rename UserStore.findById zu getUserById, Deprecated-Alias mit Warnung, Update src/ und docs/, Tests gruen, CHANGELOG-Eintrag. Metapher: Greift-Tool fuer Massen-Umbenennung mit Sicherungsnetz.</desc>
+
+  <defs>
+    <marker id="arr_in13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#818cf8"/>
+    </marker>
+    <marker id="arr_em13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <marker id="arr_am13" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#f59e0b"/>
+    </marker>
+    <linearGradient id="bg13" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#111c34"/>
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="900" fill="url(#bg13)"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">13. Repo-weiter Refactor — Rename Public API</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">UserStore.findById -> getUserById  ·  Deprecated-Alias mit Warnung  ·  Tests gruen  ·  CHANGELOG</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 13</text>
+
+  <!-- Metapher -->
+  <g transform="translate(1080,100)">
+    <rect width="280" height="80" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+    <path d="M20,50 q24,-16 48,0 q24,16 48,0 q24,-16 48,0" stroke="#10b981" stroke-width="2" fill="none"/>
+    <line x1="20" y1="60" x2="164" y2="60" stroke="#94a3b8" stroke-width="2" stroke-dasharray="3,3"/>
+    <text x="180" y="40" font-size="13" fill="#e2e8f0" font-weight="600">Metapher</text>
+    <text x="180" y="58" font-size="12" fill="#94a3b8">Greif-Tool +</text>
+    <text x="180" y="72" font-size="12" fill="#94a3b8">Sicherungsnetz</text>
+  </g>
+
+  <!-- Ticket-Prompt -->
+  <g transform="translate(40,180)">
+    <rect width="500" height="500" rx="14" ry="14" fill="#1e293b" stroke="#818cf8" stroke-width="2"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#818cf8">Ticket-Prompt (Single Source of Truth)</text>
+    <text x="20" y="54" font-size="11" fill="#94a3b8">codex --profile daily &lt;&lt;PROMPT</text>
+
+    <!-- Goal -->
+    <rect x="20" y="68" width="460" height="80" rx="8" fill="#0f172a" stroke="#a78bfa"/>
+    <text x="32" y="88" font-size="13" font-weight="700" fill="#a78bfa"># Goal</text>
+    <text x="32" y="108" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">Rename public API method</text>
+    <text x="32" y="124" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">UserStore.findById -> getUserById</text>
+    <text x="32" y="140" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">across all usages.</text>
+
+    <!-- Constraints -->
+    <rect x="20" y="158" width="460" height="160" rx="8" fill="#0f172a" stroke="#f59e0b"/>
+    <text x="32" y="178" font-size="13" font-weight="700" fill="#f59e0b"># Constraints</text>
+    <text x="32" y="198" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- Keep deprecated alias `findById`</text>
+    <text x="32" y="214" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  -> calls getUserById</text>
+    <text x="32" y="230" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  -> logs deprecation warning</text>
+    <text x="32" y="246" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- Update all call sites in src/</text>
+    <text x="32" y="262" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- Update docs in docs/</text>
+    <text x="32" y="278" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#ef4444">- Do NOT touch tests/fixtures/</text>
+    <text x="32" y="294" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#ef4444">- Do NOT touch generated files</text>
+
+    <!-- DoD -->
+    <rect x="20" y="328" width="460" height="156" rx="8" fill="#0f172a" stroke="#10b981"/>
+    <text x="32" y="348" font-size="13" font-weight="700" fill="#10b981"># Definition of Done</text>
+    <text x="32" y="368" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- Full test suite green</text>
+    <text x="32" y="384" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- git grep -n 'findById\b' shows</text>
+    <text x="32" y="400" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  only the alias + warning</text>
+    <text x="32" y="416" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- CHANGELOG entry in `Changed`</text>
+    <text x="32" y="432" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">- /review returns no blocking</text>
+    <text x="32" y="448" font-size="12" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  issues</text>
+    <text x="32" y="472" font-size="11" fill="#94a3b8">PROMPT</text>
+  </g>
+
+  <!-- Vorher -->
+  <g transform="translate(580,180)">
+    <rect width="380" height="170" rx="14" ry="14" fill="#1e293b" stroke="#ef4444" stroke-width="1.5"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#ef4444">Vorher (src/users/store.ts)</text>
+    <rect x="20" y="46" width="340" height="110" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="64" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">class UserStore {</text>
+    <text x="30" y="80" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">  findById(id) {</text>
+    <text x="30" y="96" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">    return this.db.get(id);</text>
+    <text x="30" y="112" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  }</text>
+    <text x="30" y="128" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#a78bfa">}</text>
+    <text x="30" y="148" font-size="10" fill="#94a3b8">217 Call-Sites in src/, 18 in docs/</text>
+  </g>
+
+  <!-- Nachher -->
+  <g transform="translate(980,180)">
+    <rect width="380" height="170" rx="14" ry="14" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#10b981">Nachher</text>
+    <rect x="20" y="46" width="340" height="110" rx="6" fill="#0f172a" stroke="#334155"/>
+    <text x="30" y="64" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#22d3ee">  getUserById(id) { ... }</text>
+    <text x="30" y="80" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">  /** @deprecated v2.0 */</text>
+    <text x="30" y="96" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">  findById(id) {</text>
+    <text x="30" y="112" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#f59e0b">    log.warn("findById deprecated");</text>
+    <text x="30" y="128" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">    return this.getUserById(id);</text>
+    <text x="30" y="148" font-size="10" fill="#94a3b8">Alias bleibt 1 Major-Release</text>
+  </g>
+
+  <!-- Pipeline -->
+  <g transform="translate(580,380)">
+    <rect width="780" height="300" rx="14" ry="14" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="34" font-size="16" font-weight="700" fill="#e2e8f0">Codex Refactor-Pipeline</text>
+
+    <g transform="translate(20,54)">
+      <rect width="170" height="76" rx="10" fill="#0f172a" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#818cf8">1) Scan</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">git grep findById</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">+ AST-Suche</text>
+      <text x="14" y="72" font-size="10" fill="#94a3b8">235 Treffer</text>
+    </g>
+    <g transform="translate(206,54)">
+      <rect width="170" height="76" rx="10" fill="#0f172a" stroke="#818cf8" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#818cf8">2) Patch</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Rename in src/</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">Alias einfuegen</text>
+      <text x="14" y="72" font-size="10" fill="#94a3b8">commit: refactor</text>
+    </g>
+    <g transform="translate(392,54)">
+      <rect width="170" height="76" rx="10" fill="#0f172a" stroke="#a78bfa" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#a78bfa">3) Docs</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">docs/ Snippets</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">README, JSDoc</text>
+      <text x="14" y="72" font-size="10" fill="#94a3b8">18 Dateien</text>
+    </g>
+    <g transform="translate(578,54)">
+      <rect width="170" height="76" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#10b981">4) Test</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">pnpm test</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">Tests bleiben gruen</text>
+      <text x="14" y="72" font-size="10" fill="#94a3b8">0 Regressions</text>
+    </g>
+
+    <g transform="translate(20,150)">
+      <rect width="170" height="76" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#f59e0b">5) CHANGELOG</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">## Changed</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">+ findById alias</text>
+      <text x="14" y="72" font-size="10" fill="#94a3b8">deprecation note</text>
+    </g>
+    <g transform="translate(206,150)">
+      <rect width="170" height="76" rx="10" fill="#0f172a" stroke="#f59e0b" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#f59e0b">6) Verify-Grep</text>
+      <text x="14" y="42" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace" fill="#e2e8f0">git grep 'findById\b'</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">nur Alias-Datei</text>
+      <text x="14" y="72" font-size="10" fill="#94a3b8">DoD-Check</text>
+    </g>
+    <g transform="translate(392,150)">
+      <rect width="170" height="76" rx="10" fill="#0f172a" stroke="#10b981" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#10b981">7) /review</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">Codex Self-Review</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">no blockers</text>
+      <text x="14" y="72" font-size="10" fill="#94a3b8">Ready-for-Human</text>
+    </g>
+    <g transform="translate(578,150)">
+      <rect width="170" height="76" rx="10" fill="#0f172a" stroke="#22d3ee" stroke-width="1.5"/>
+      <text x="14" y="22" font-size="12" font-weight="700" fill="#22d3ee">8) PR</text>
+      <text x="14" y="42" font-size="11" fill="#e2e8f0">gh pr create</text>
+      <text x="14" y="58" font-size="11" fill="#e2e8f0">Migration-Guide</text>
+      <text x="14" y="72" font-size="10" fill="#94a3b8">Ticket-Link</text>
+    </g>
+
+    <!-- Pipeline-Pfeile -->
+    <path d="M190,92 L206,92" stroke="#818cf8" stroke-width="2" marker-end="url(#arr_in13)"/>
+    <path d="M376,92 L392,92" stroke="#a78bfa" stroke-width="2" marker-end="url(#arr_em13)"/>
+    <path d="M562,92 L578,92" stroke="#10b981" stroke-width="2" marker-end="url(#arr_em13)"/>
+    <path d="M190,188 L206,188" stroke="#f59e0b" stroke-width="2" marker-end="url(#arr_am13)"/>
+    <path d="M376,188 L392,188" stroke="#10b981" stroke-width="2" marker-end="url(#arr_em13)"/>
+    <path d="M562,188 L578,188" stroke="#22d3ee" stroke-width="2" marker-end="url(#arr_em13)"/>
+    <path d="M664,130 L100,150" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3,3" fill="none"/>
+
+    <text x="20" y="266" font-size="11" fill="#94a3b8">Sicherungsnetz: jeder Schritt = eigener Commit · Rollback per git revert moeglich</text>
+  </g>
+
+  <!-- Legende -->
+  <g transform="translate(60,820)">
+    <text x="0" y="14" font-size="12" font-weight="700" fill="#94a3b8">Legende</text>
+    <rect x="0" y="26" width="14" height="14" fill="#818cf8"/><text x="22" y="38" font-size="12" fill="#e2e8f0">Goal/Code</text>
+    <rect x="120" y="26" width="14" height="14" fill="#f59e0b"/><text x="142" y="38" font-size="12" fill="#e2e8f0">Constraints/Warnung</text>
+    <rect x="300" y="26" width="14" height="14" fill="#10b981"/><text x="322" y="38" font-size="12" fill="#e2e8f0">DoD/Tests</text>
+    <rect x="430" y="26" width="14" height="14" fill="#a78bfa"/><text x="452" y="38" font-size="12" fill="#e2e8f0">Docs</text>
+    <rect x="510" y="26" width="14" height="14" fill="#ef4444"/><text x="532" y="38" font-size="12" fill="#e2e8f0">No-Touch</text>
+  </g>
+</svg>

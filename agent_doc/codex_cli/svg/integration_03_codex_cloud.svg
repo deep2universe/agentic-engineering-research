@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex Cloud – chatgpt.com/codex</title>
+  <desc>Lokale Erde liefert Tasks an die Codex-Cloud-Raumstation: isolierte VM-Sandbox, lang laufende und parallele Tasks, Handoff-Befehle (cloud exec/list/logs/pull) und Lizenzierung über ChatGPT-Pläne.</desc>
+
+  <defs>
+    <marker id="arrCld" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+    <marker id="arrCldBack" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#10b981"/>
+    </marker>
+    <radialGradient id="space" cx="0.7" cy="0.3" r="0.9">
+      <stop offset="0" stop-color="#0b1224"/>
+      <stop offset="1" stop-color="#020617"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1400" height="900" fill="url(#space)"/>
+
+  <!-- Sterne -->
+  <g fill="#e2e8f0" opacity="0.6">
+    <circle cx="120" cy="180" r="1"/>
+    <circle cx="280" cy="240" r="1.5"/>
+    <circle cx="500" cy="160" r="1"/>
+    <circle cx="800" cy="220" r="1.2"/>
+    <circle cx="1200" cy="170" r="1"/>
+    <circle cx="1280" cy="320" r="1.5"/>
+    <circle cx="950" cy="110" r="1"/>
+    <circle cx="630" cy="100" r="1.2"/>
+    <circle cx="1100" cy="500" r="1"/>
+    <circle cx="370" cy="540" r="1"/>
+  </g>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Codex Cloud · chatgpt.com/codex</text>
+  <text x="40" y="84" font-size="15" fill="#94a3b8">Lokale Erde → Cloud-Raumstation: isolierte VM-Sandbox, lange Läufe, parallele Tasks, Handoff per CLI</text>
+  <text x="1360" y="56" font-size="14" fill="#64748b" text-anchor="end">Codex CLI · Kapitel 3</text>
+
+  <!-- Lokale Erde (links) -->
+  <g>
+    <circle cx="200" cy="430" r="120" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+    <path d="M120 430 q 80 -60 160 0" stroke="#22d3ee" stroke-width="2" fill="none" opacity="0.5"/>
+    <path d="M120 430 q 80 60 160 0" stroke="#22d3ee" stroke-width="2" fill="none" opacity="0.5"/>
+    <text x="200" y="430" font-size="20" font-weight="700" fill="#a5b4fc" text-anchor="middle">Lokal</text>
+    <text x="200" y="454" font-size="12" fill="#cbd5e1" text-anchor="middle">Codex CLI</text>
+    <text x="200" y="472" font-size="11" fill="#94a3b8" text-anchor="middle">~/.codex/</text>
+  </g>
+
+  <!-- Cloud-Raumstation (rechts) -->
+  <g>
+    <rect x="900" y="170" width="460" height="540" rx="20" ry="20" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+    <text x="1130" y="202" font-size="20" font-weight="700" fill="#67e8f9" text-anchor="middle">Codex-Cloud-Raumstation</text>
+    <text x="1130" y="222" font-size="12" fill="#94a3b8" text-anchor="middle">isolierte VM-Sandbox · OpenAI-Cloud</text>
+
+    <!-- Container 1 -->
+    <rect x="924" y="250" width="200" height="120" rx="10" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="1024" y="272" font-size="13" font-weight="600" fill="#67e8f9" text-anchor="middle">Container A · refactor</text>
+    <text x="940" y="294" font-size="11" fill="#94a3b8">danger-full-access (intern)</text>
+    <text x="940" y="312" font-size="11" fill="#86efac">● running · 2h 14m</text>
+    <text x="940" y="330" font-size="11" fill="#cbd5e1">payments-service Refactor</text>
+    <text x="940" y="354" font-size="10" fill="#94a3b8">Allow-List: github.com, npmjs</text>
+
+    <!-- Container 2 -->
+    <rect x="1136" y="250" width="200" height="120" rx="10" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="1236" y="272" font-size="13" font-weight="600" fill="#c4b5fd" text-anchor="middle">Container B · review</text>
+    <text x="1152" y="294" font-size="11" fill="#94a3b8">danger-full-access (intern)</text>
+    <text x="1152" y="312" font-size="11" fill="#86efac">● running · 0h 32m</text>
+    <text x="1152" y="330" font-size="11" fill="#cbd5e1">PR-Review-Agent</text>
+    <text x="1152" y="354" font-size="10" fill="#94a3b8">PR #142 · auto-comment</text>
+
+    <!-- Container 3 -->
+    <rect x="924" y="386" width="200" height="120" rx="10" fill="#0b1224" stroke="#10b981"/>
+    <text x="1024" y="408" font-size="13" font-weight="600" fill="#6ee7b7" text-anchor="middle">Container C · migrate</text>
+    <text x="940" y="430" font-size="11" fill="#94a3b8">danger-full-access (intern)</text>
+    <text x="940" y="448" font-size="11" fill="#fbbf24">◐ done · 4h 02m</text>
+    <text x="940" y="466" font-size="11" fill="#cbd5e1">DB-Schema-Migration</text>
+    <text x="940" y="490" font-size="10" fill="#94a3b8">Patch verfügbar (cloud pull)</text>
+
+    <!-- Container 4 -->
+    <rect x="1136" y="386" width="200" height="120" rx="10" fill="#0b1224" stroke="#f59e0b"/>
+    <text x="1236" y="408" font-size="13" font-weight="600" fill="#fbbf24" text-anchor="middle">Container D · benchmark</text>
+    <text x="1152" y="430" font-size="11" fill="#94a3b8">danger-full-access (intern)</text>
+    <text x="1152" y="448" font-size="11" fill="#22d3ee">○ queued</text>
+    <text x="1152" y="466" font-size="11" fill="#cbd5e1">Perf-Suite · Nightly</text>
+    <text x="1152" y="490" font-size="10" fill="#94a3b8">scheduled 02:00 UTC</text>
+
+    <!-- Eigenschaften unten -->
+    <rect x="924" y="528" width="412" height="160" rx="10" fill="#0b1224" stroke="#334155"/>
+    <text x="940" y="550" font-size="13" font-weight="600" fill="#e2e8f0">Eigenschaften der Cloud-Sandbox</text>
+    <g font-size="12" fill="#cbd5e1">
+      <text x="940" y="572">● lange Laufzeiten – mehrere Stunden möglich</text>
+      <text x="940" y="592">● parallele Tasks pro Issue / Container</text>
+      <text x="940" y="612">● fire-and-forget · Reviews triggern automatisch</text>
+      <text x="940" y="632">● intern: danger-full-access innerhalb der VM</text>
+      <text x="940" y="652">● Netzwerk auf Allow-List begrenzt (Egress)</text>
+      <text x="940" y="672">● Logs &amp; Diffs als Patch herunterladbar</text>
+    </g>
+  </g>
+
+  <!-- Funkverbindung / Pfeile -->
+  <path d="M320 410 C 520 280, 760 240, 900 280" stroke="#22d3ee" stroke-width="2.5" fill="none" marker-end="url(#arrCld)"/>
+  <path d="M900 580 C 760 620, 520 580, 320 460" stroke="#10b981" stroke-width="2.5" fill="none" marker-end="url(#arrCldBack)"/>
+
+  <!-- Funk-Wellen über Erde -->
+  <g stroke="#22d3ee" fill="none" opacity="0.4">
+    <path d="M260 340 q 30 -30 60 0"/>
+    <path d="M250 320 q 40 -40 80 0"/>
+    <path d="M240 300 q 50 -50 100 0"/>
+  </g>
+
+  <!-- Handoff-Befehle in der Mitte -->
+  <rect x="400" y="160" width="480" height="226" rx="12" ry="12" fill="#1e293b" stroke="#22d3ee"/>
+  <text x="420" y="186" font-size="16" font-weight="700" fill="#67e8f9">Handoff aus der CLI</text>
+  <text x="420" y="206" font-size="12" fill="#94a3b8">lokalen Kontext in die Cloud heben und zurückspielen</text>
+
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+    <rect x="420" y="218" width="440" height="26" rx="4" fill="#0b1224"/>
+    <text x="430" y="236" fill="#86efac">codex cloud exec --env $ENV "Refactor payments"</text>
+
+    <rect x="420" y="250" width="440" height="26" rx="4" fill="#0b1224"/>
+    <text x="430" y="268" fill="#86efac">codex cloud list</text>
+
+    <rect x="420" y="282" width="440" height="26" rx="4" fill="#0b1224"/>
+    <text x="430" y="300" fill="#86efac">codex cloud logs &lt;task-id&gt;</text>
+
+    <rect x="420" y="314" width="440" height="26" rx="4" fill="#0b1224"/>
+    <text x="430" y="332" fill="#86efac">codex cloud pull &lt;task-id&gt;   <tspan fill="#94a3b8"># Diff lokal anwenden</tspan></text>
+
+    <rect x="420" y="350" width="440" height="26" rx="4" fill="#0b1224" stroke="#475569"/>
+    <text x="430" y="368" fill="#cbd5e1">› Kontext = Repo-Snapshot + AGENTS.md + ENV-ID</text>
+  </g>
+
+  <!-- Lizenzierung unten (volle Breite, links neben Cloud) -->
+  <rect x="40" y="600" width="840" height="270" rx="12" ry="12" fill="#1e293b" stroke="#334155"/>
+  <text x="60" y="628" font-size="16" font-weight="700" fill="#e2e8f0">Lizenzierung &amp; Zugriff</text>
+  <text x="60" y="650" font-size="12" fill="#94a3b8">Plan-abhängige Limits siehe installation_und_setup.md</text>
+
+  <g font-size="13">
+    <rect x="60" y="666" width="155" height="98" rx="10" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="138" y="690" font-size="14" font-weight="700" fill="#67e8f9" text-anchor="middle">Plus</text>
+    <text x="138" y="712" font-size="11" fill="#cbd5e1" text-anchor="middle">Cloud-Tasks inkl.</text>
+    <text x="138" y="730" font-size="11" fill="#94a3b8" text-anchor="middle">Einsteiger-Limit</text>
+    <text x="138" y="752" font-size="10" fill="#94a3b8" text-anchor="middle">Einzelnutzer</text>
+
+    <rect x="225" y="666" width="155" height="98" rx="10" fill="#0b1224" stroke="#22d3ee"/>
+    <text x="303" y="690" font-size="14" font-weight="700" fill="#67e8f9" text-anchor="middle">Pro</text>
+    <text x="303" y="712" font-size="11" fill="#cbd5e1" text-anchor="middle">höhere Limits</text>
+    <text x="303" y="730" font-size="11" fill="#94a3b8" text-anchor="middle">längere Tasks</text>
+    <text x="303" y="752" font-size="10" fill="#94a3b8" text-anchor="middle">Power-User</text>
+
+    <rect x="390" y="666" width="155" height="98" rx="10" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="468" y="690" font-size="14" font-weight="700" fill="#c4b5fd" text-anchor="middle">Business</text>
+    <text x="468" y="712" font-size="11" fill="#cbd5e1" text-anchor="middle">Workspace-Quotas</text>
+    <text x="468" y="730" font-size="11" fill="#94a3b8" text-anchor="middle">Admin-Rollen</text>
+    <text x="468" y="752" font-size="10" fill="#94a3b8" text-anchor="middle">Teams</text>
+
+    <rect x="555" y="666" width="155" height="98" rx="10" fill="#0b1224" stroke="#a78bfa"/>
+    <text x="633" y="690" font-size="14" font-weight="700" fill="#c4b5fd" text-anchor="middle">Enterprise</text>
+    <text x="633" y="712" font-size="11" fill="#cbd5e1" text-anchor="middle">SSO · Audit</text>
+    <text x="633" y="730" font-size="11" fill="#94a3b8" text-anchor="middle">eigene Quotas</text>
+    <text x="633" y="752" font-size="10" fill="#94a3b8" text-anchor="middle">Großkunden</text>
+
+    <rect x="720" y="666" width="155" height="98" rx="10" fill="#0b1224" stroke="#10b981"/>
+    <text x="798" y="690" font-size="14" font-weight="700" fill="#6ee7b7" text-anchor="middle">Edu</text>
+    <text x="798" y="712" font-size="11" fill="#cbd5e1" text-anchor="middle">Schulen / Unis</text>
+    <text x="798" y="730" font-size="11" fill="#94a3b8" text-anchor="middle">vergünstigt</text>
+    <text x="798" y="752" font-size="10" fill="#94a3b8" text-anchor="middle">Studierende</text>
+  </g>
+
+  <!-- Admin-Toggle / API-Key-Hinweis -->
+  <rect x="60" y="780" width="400" height="74" rx="8" fill="#0b1224" stroke="#f59e0b"/>
+  <text x="76" y="802" font-size="13" font-weight="600" fill="#fbbf24">Admin-Toggle pro Workspace</text>
+  <text x="76" y="822" font-size="11" fill="#cbd5e1">Codex Cloud · separat ein-/ausschaltbar</text>
+  <text x="76" y="840" font-size="11" fill="#cbd5e1">Codex Local · separat ein-/ausschaltbar</text>
+
+  <rect x="475" y="780" width="400" height="74" rx="8" fill="#0b1224" stroke="#ef4444"/>
+  <text x="491" y="802" font-size="13" font-weight="600" fill="#fca5a5">API-Key-Nutzer</text>
+  <text x="491" y="822" font-size="11" fill="#cbd5e1">Cloud-Features nur über</text>
+  <text x="491" y="840" font-size="11" fill="#cbd5e1">ChatGPT-Workspace zugänglich</text>
+</svg>

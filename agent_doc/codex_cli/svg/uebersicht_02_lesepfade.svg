@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title02 desc02">
+  <title id="title02">Lesepfade durch die Codex-CLI-Dokumentation als Metro-Plan</title>
+  <desc id="desc02">Fünf farblich getrennte Metro-Linien repräsentieren persona-basierte Lesepfade: Quickstart, Team-Produktiv, CI/CD, Lebenszyklus und Senior/SDK. Jede Linie hat drei bis fünf nummerierte Stationen mit Dokumentnamen. Umstieg-Stationen zeigen gemeinsame Kern-Dokumente. Metapher: U-Bahn-/Metro-Plan.</desc>
+
+  <defs>
+    <linearGradient id="titlebar02" x1="0" x2="1" y1="0" y2="0">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Hintergrund -->
+  <rect width="1400" height="900" fill="#0f172a"/>
+  <!-- Grid -->
+  <g stroke="#1e293b" stroke-width="1" opacity="0.5">
+    <path d="M0 100 H1400 M0 200 H1400 M0 300 H1400 M0 400 H1400 M0 500 H1400 M0 600 H1400 M0 700 H1400 M0 800 H1400"/>
+    <path d="M200 0 V900 M400 0 V900 M600 0 V900 M800 0 V900 M1000 0 V900 M1200 0 V900"/>
+  </g>
+  <rect x="0" y="0" width="1400" height="6" fill="url(#titlebar02)"/>
+
+  <!-- Titel -->
+  <text x="40" y="52" font-family="system-ui, sans-serif" font-size="30" font-weight="700" fill="#e2e8f0">Lesepfade · Fünf Linien durch die Codex-CLI-Doku</text>
+  <text x="40" y="78" font-family="system-ui, sans-serif" font-size="15" fill="#94a3b8">Metro-Plan · Persona-basiert · Stationen = Dokumente · Umstieg bei geteilten Nodes</text>
+  <text x="1360" y="52" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="14" fill="#94a3b8" text-anchor="end">codex_cli / uebersicht · 02</text>
+
+  <!-- Persona-Labels links -->
+  <g font-family="system-ui, sans-serif" font-size="14" fill="#e2e8f0">
+    <g transform="translate(20 200)">
+      <rect width="240" height="66" rx="10" fill="#1e293b" stroke="#334155"/>
+      <circle cx="24" cy="24" r="9" fill="#f59e0b"/>
+      <text x="44" y="28" font-weight="700">Quickstart</text>
+      <text x="44" y="48" fill="#94a3b8" font-size="12">„Heute abend ans Laufen"</text>
+    </g>
+    <g transform="translate(20 330)">
+      <rect width="240" height="66" rx="10" fill="#1e293b" stroke="#334155"/>
+      <circle cx="24" cy="24" r="9" fill="#10b981"/>
+      <text x="44" y="28" font-weight="700">Team-Produktiv</text>
+      <text x="44" y="48" fill="#94a3b8" font-size="12">Rollout im Unternehmen</text>
+    </g>
+    <g transform="translate(20 460)">
+      <rect width="240" height="66" rx="10" fill="#1e293b" stroke="#334155"/>
+      <circle cx="24" cy="24" r="9" fill="#ef4444"/>
+      <text x="44" y="28" font-weight="700">CI/CD</text>
+      <text x="44" y="48" fill="#94a3b8" font-size="12">Pipeline-Automation</text>
+    </g>
+    <g transform="translate(20 590)">
+      <rect width="240" height="66" rx="10" fill="#1e293b" stroke="#334155"/>
+      <circle cx="24" cy="24" r="9" fill="#22d3ee"/>
+      <text x="44" y="28" font-weight="700">Lebenszyklus</text>
+      <text x="44" y="48" fill="#94a3b8" font-size="12">Idee bis Betrieb</text>
+    </g>
+    <g transform="translate(20 720)">
+      <rect width="240" height="66" rx="10" fill="#1e293b" stroke="#334155"/>
+      <circle cx="24" cy="24" r="9" fill="#a78bfa"/>
+      <text x="44" y="28" font-weight="700">Senior / SDK</text>
+      <text x="44" y="48" fill="#94a3b8" font-size="12">Eigene Tools auf Codex</text>
+    </g>
+  </g>
+
+  <!-- Zeitskala oben -->
+  <g font-family="system-ui, sans-serif" font-size="13" fill="#94a3b8">
+    <text x="340" y="130" text-anchor="middle">Station 1 · Start</text>
+    <text x="540" y="130" text-anchor="middle">Station 2</text>
+    <text x="740" y="130" text-anchor="middle">Station 3</text>
+    <text x="940" y="130" text-anchor="middle">Station 4</text>
+    <text x="1140" y="130" text-anchor="middle">Station 5 · Ziel</text>
+  </g>
+  <g stroke="#334155" stroke-width="1" stroke-dasharray="2 6">
+    <path d="M340 145 V800"/>
+    <path d="M540 145 V800"/>
+    <path d="M740 145 V800"/>
+    <path d="M940 145 V800"/>
+    <path d="M1140 145 V800"/>
+  </g>
+
+  <!-- Linie 1: Quickstart (amber) · 3 Stationen -->
+  <g>
+    <path d="M340 233 H740" fill="none" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
+    <path d="M340 233 H740" fill="none" stroke="#fde68a" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <!-- Stationen -->
+    <g>
+      <circle cx="340" cy="233" r="14" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+      <text x="340" y="237" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">1</text>
+      <text x="340" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">installation</text>
+      <text x="340" y="286" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">§§ 3–6</text>
+    </g>
+    <g>
+      <circle cx="540" cy="233" r="14" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+      <text x="540" y="237" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">2</text>
+      <text x="540" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">cheat_sheet</text>
+      <text x="540" y="286" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Flags + Shortcuts</text>
+    </g>
+    <g>
+      <circle cx="740" cy="233" r="16" fill="#0f172a" stroke="#f59e0b" stroke-width="4"/>
+      <text x="740" y="237" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">3</text>
+      <polygon points="740,211 746,221 734,221" fill="#f59e0b"/>
+      <text x="740" y="270" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">praktische_workflows</text>
+      <text x="740" y="286" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">§§ 1–4 · Endstation</text>
+    </g>
+  </g>
+
+  <!-- Linie 2: Team-Produktiv (emerald) · 5 Stationen -->
+  <g>
+    <path d="M340 363 H1140" fill="none" stroke="#10b981" stroke-width="10" stroke-linecap="round"/>
+    <path d="M340 363 H1140" fill="none" stroke="#a7f3d0" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <g>
+      <circle cx="340" cy="363" r="14" fill="#0f172a" stroke="#10b981" stroke-width="4"/>
+      <text x="340" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">1</text>
+      <text x="340" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">installation</text>
+      <text x="340" y="416" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Auth · Limits</text>
+    </g>
+    <g>
+      <circle cx="540" cy="363" r="14" fill="#0f172a" stroke="#10b981" stroke-width="4"/>
+      <text x="540" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">2</text>
+      <text x="540" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">sicherheit</text>
+      <text x="540" y="416" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Approval + Enterprise</text>
+    </g>
+    <g>
+      <circle cx="740" cy="363" r="14" fill="#0f172a" stroke="#10b981" stroke-width="4"/>
+      <text x="740" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">3</text>
+      <text x="740" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">konfiguration</text>
+      <text x="740" y="416" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Profile · MCP · Trust</text>
+    </g>
+    <g>
+      <circle cx="940" cy="363" r="14" fill="#0f172a" stroke="#10b981" stroke-width="4"/>
+      <text x="940" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">4</text>
+      <text x="940" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">integrationen</text>
+      <text x="940" y="416" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">IDE + GitHub Action</text>
+    </g>
+    <g>
+      <circle cx="1140" cy="363" r="16" fill="#0f172a" stroke="#10b981" stroke-width="4"/>
+      <text x="1140" y="367" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">5</text>
+      <polygon points="1140,341 1146,351 1134,351" fill="#10b981"/>
+      <text x="1140" y="400" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">lebenszyklus</text>
+      <text x="1140" y="416" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Review · Deployment</text>
+    </g>
+  </g>
+
+  <!-- Linie 3: CI/CD (red) · 4 Stationen -->
+  <g>
+    <path d="M340 493 H940" fill="none" stroke="#ef4444" stroke-width="10" stroke-linecap="round"/>
+    <path d="M340 493 H940" fill="none" stroke="#fecaca" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <g>
+      <circle cx="340" cy="493" r="14" fill="#0f172a" stroke="#ef4444" stroke-width="4"/>
+      <text x="340" y="497" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">1</text>
+      <text x="340" y="530" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">sicherheit § 7</text>
+      <text x="340" y="546" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">sichere CI</text>
+    </g>
+    <g>
+      <circle cx="540" cy="493" r="14" fill="#0f172a" stroke="#ef4444" stroke-width="4"/>
+      <text x="540" y="497" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">2</text>
+      <text x="540" y="530" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">integrationen § 4</text>
+      <text x="540" y="546" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">codex-action@v1</text>
+    </g>
+    <g>
+      <circle cx="740" cy="493" r="14" fill="#0f172a" stroke="#ef4444" stroke-width="4"/>
+      <text x="740" y="497" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">3</text>
+      <text x="740" y="530" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">workflows §§ 8–9</text>
+      <text x="740" y="546" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Autofix + Review</text>
+    </g>
+    <g>
+      <circle cx="940" cy="493" r="16" fill="#0f172a" stroke="#ef4444" stroke-width="4"/>
+      <text x="940" y="497" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">4</text>
+      <polygon points="940,471 946,481 934,481" fill="#ef4444"/>
+      <text x="940" y="530" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">lebenszyklus</text>
+      <text x="940" y="546" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Phase 8 · Endstation</text>
+    </g>
+  </g>
+
+  <!-- Linie 4: Lebenszyklus (cyan) · 3 Stationen -->
+  <g>
+    <path d="M340 623 H740" fill="none" stroke="#22d3ee" stroke-width="10" stroke-linecap="round"/>
+    <path d="M740 623 L 940 623" fill="none" stroke="#22d3ee" stroke-width="10" stroke-linecap="round" stroke-dasharray="14 8"/>
+    <path d="M340 623 H740" fill="none" stroke="#a5f3fc" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <g>
+      <circle cx="340" cy="623" r="14" fill="#0f172a" stroke="#22d3ee" stroke-width="4"/>
+      <text x="340" y="627" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">1</text>
+      <text x="340" y="660" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">lebenszyklus</text>
+      <text x="340" y="676" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">sequenziell 1–10</text>
+    </g>
+    <g>
+      <circle cx="540" cy="623" r="14" fill="#0f172a" stroke="#22d3ee" stroke-width="4"/>
+      <text x="540" y="627" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">2</text>
+      <text x="540" y="660" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">workflows</text>
+      <text x="540" y="676" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Rezept pro Phase</text>
+    </g>
+    <g>
+      <circle cx="740" cy="623" r="16" fill="#0f172a" stroke="#22d3ee" stroke-width="4"/>
+      <text x="740" y="627" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">3</text>
+      <polygon points="740,601 746,611 734,611" fill="#22d3ee"/>
+      <text x="740" y="660" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">End-to-End</text>
+      <text x="740" y="676" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Idee → Betrieb</text>
+    </g>
+  </g>
+
+  <!-- Linie 5: Senior / SDK (violet) · 3 Stationen -->
+  <g>
+    <path d="M340 753 H940" fill="none" stroke="#a78bfa" stroke-width="10" stroke-linecap="round"/>
+    <path d="M340 753 H940" fill="none" stroke="#ddd6fe" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+    <g>
+      <circle cx="340" cy="753" r="14" fill="#0f172a" stroke="#a78bfa" stroke-width="4"/>
+      <text x="340" y="757" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">1</text>
+      <text x="340" y="790" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">senior_guide §§ 1–3</text>
+      <text x="340" y="806" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">SDK · Sub-Agents</text>
+    </g>
+    <g>
+      <circle cx="640" cy="753" r="14" fill="#0f172a" stroke="#a78bfa" stroke-width="4"/>
+      <text x="640" y="757" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">2</text>
+      <text x="640" y="790" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">senior_guide §§ 4–5</text>
+      <text x="640" y="806" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Preambles · Observability</text>
+    </g>
+    <g>
+      <circle cx="940" cy="753" r="16" fill="#0f172a" stroke="#a78bfa" stroke-width="4"/>
+      <text x="940" y="757" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#e2e8f0">3</text>
+      <polygon points="940,731 946,741 934,741" fill="#a78bfa"/>
+      <text x="940" y="790" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">vergleich</text>
+      <text x="940" y="806" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#94a3b8">Tool-Entscheidung</text>
+    </g>
+  </g>
+
+  <!-- Umstiegstation: installation_und_setup (Linien 1+2 beide Station 1 bei x=340) -->
+  <g transform="translate(340 188)">
+    <rect x="-70" y="0" width="140" height="20" rx="10" fill="#0f172a" stroke="#818cf8"/>
+    <text x="0" y="14" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#e2e8f0">Umstieg · installation</text>
+  </g>
+  <!-- Umstiegstation: sicherheit (Linien 2+3 bei x=540 und x=340) -->
+  <g transform="translate(540 318)">
+    <rect x="-80" y="0" width="160" height="20" rx="10" fill="#0f172a" stroke="#818cf8"/>
+    <text x="0" y="14" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#e2e8f0">Umstieg · sicherheit</text>
+  </g>
+  <!-- Umstiegstation: integrationen -->
+  <g transform="translate(940 318)">
+    <rect x="-80" y="0" width="160" height="20" rx="10" fill="#0f172a" stroke="#818cf8"/>
+    <text x="0" y="14" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#e2e8f0">Umstieg · integrationen</text>
+  </g>
+
+  <!-- Legende unten -->
+  <g transform="translate(40 840)" font-family="system-ui, sans-serif" font-size="13" fill="#e2e8f0">
+    <rect x="0" y="0" width="1320" height="44" rx="10" fill="#1e293b" stroke="#334155"/>
+    <circle cx="20" cy="22" r="7" fill="#0f172a" stroke="#818cf8" stroke-width="3"/>
+    <text x="40" y="26">Station (Dokument)</text>
+    <rect x="200" y="17" width="40" height="10" rx="5" fill="#10b981"/>
+    <text x="250" y="26">Linienfarbe = Persona</text>
+    <rect x="430" y="17" width="40" height="10" rx="5" fill="#22d3ee" stroke-dasharray="6 3" stroke="#22d3ee"/>
+    <text x="480" y="26">gestrichelt = optionale Fortsetzung</text>
+    <rect x="750" y="12" width="16" height="20" rx="5" fill="#0f172a" stroke="#818cf8"/>
+    <text x="770" y="26">Umstiegstation (geteiltes Dokument)</text>
+    <polygon points="1080,18 1092,24 1080,30" fill="#f59e0b"/>
+    <text x="1100" y="26">Endstation · Lese-Ziel der Persona</text>
+  </g>
+</svg>

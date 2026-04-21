@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Custom Prompts und Skills — Baukasten-Regal</title>
+  <desc>Custom Slash-Commands in ~/.codex/prompts/*.md und Shared Skills in repo/skills/*/SKILL.md mit Implicit Invocation.</desc>
+  <defs>
+    <marker id="arr14" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#818cf8"/>
+    </marker>
+  </defs>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">Custom Prompts &amp; Skills — Baukasten-System</text>
+  <text x="60" y="92" fill="#94a3b8" font-size="16">Zwei Modul-Typen: explizite Slash-Commands per Prompt-Datei, implizite Skills per SKILL.md-Match.</text>
+  <text x="1340" y="60" fill="#6366f1" font-size="14" text-anchor="end" font-weight="600">Codex CLI · §14</text>
+
+  <!-- LINKS: Custom Prompts -->
+  <g>
+    <rect x="60" y="130" width="640" height="720" rx="16" fill="#111827" stroke="#6366f1" stroke-width="2"/>
+    <rect x="60" y="130" width="640" height="56" rx="16" fill="#6366f1" opacity="0.2"/>
+    <text x="380" y="166" fill="#818cf8" font-size="18" font-weight="700" text-anchor="middle">1 · Custom Slash-Commands · explizit</text>
+
+    <!-- Ordner -->
+    <rect x="90" y="210" width="580" height="60" rx="10" fill="#0f172a" stroke="#6366f1"/>
+    <text x="110" y="233" fill="#94a3b8" font-size="12" font-weight="600">ORDNER</text>
+    <text x="110" y="256" fill="#e2e8f0" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">~/.codex/prompts/*.md</text>
+    <text x="660" y="252" fill="#818cf8" font-size="11" text-anchor="end" font-weight="600">eine Datei = ein Command</text>
+
+    <!-- Beispiel Prompt-Datei -->
+    <rect x="90" y="290" width="580" height="240" rx="10" fill="#0f172a" stroke="#334155"/>
+    <text x="106" y="310" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">refactor.md</text>
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+      <text x="106" y="334" fill="#94a3b8">---</text>
+      <text x="106" y="352" fill="#22d3ee">description:</text>
+      <text x="210" y="352" fill="#e2e8f0">Refactor a given file for readability.</text>
+      <text x="106" y="370" fill="#94a3b8">---</text>
+      <text x="106" y="394" fill="#e2e8f0">Refactor `$FILE`:</text>
+      <text x="106" y="414" fill="#e2e8f0">- extract pure functions</text>
+      <text x="106" y="434" fill="#e2e8f0">- simplify control flow</text>
+      <text x="106" y="454" fill="#e2e8f0">- keep public API stable</text>
+      <text x="106" y="474" fill="#e2e8f0">- add tests if missing</text>
+      <text x="106" y="498" fill="#94a3b8"># Placeholder $FILE wird beim Aufruf ersetzt</text>
+    </g>
+
+    <!-- Aufruf -->
+    <rect x="90" y="550" width="580" height="80" rx="10" fill="#1e293b" stroke="#10b981" stroke-width="1.5"/>
+    <text x="110" y="574" fill="#10b981" font-size="13" font-weight="700">AUFRUF</text>
+    <text x="110" y="600" fill="#e2e8f0" font-size="15" font-family="'JetBrains Mono', ui-monospace, monospace">/refactor FILE=src/cart.ts</text>
+    <text x="110" y="620" fill="#94a3b8" font-size="11">Im TUI mit Tab-Completion verfügbar</text>
+
+    <!-- Eigenschaften -->
+    <rect x="90" y="650" width="580" height="180" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="110" y="676" fill="#94a3b8" font-size="12" font-weight="600">EIGENSCHAFTEN</text>
+    <text x="110" y="700" fill="#e2e8f0" font-size="13">· Explicit — User muss / eintippen</text>
+    <text x="110" y="722" fill="#e2e8f0" font-size="13">· Front-Matter optional (description, aliases)</text>
+    <text x="110" y="744" fill="#e2e8f0" font-size="13">· Placeholders per $VARNAME</text>
+    <text x="110" y="766" fill="#e2e8f0" font-size="13">· Persistent über alle Projekte (User-scope)</text>
+    <text x="110" y="788" fill="#94a3b8" font-size="12">Use-Case: eigene Kurzformeln, Makros, Boilerplates</text>
+    <text x="110" y="810" fill="#f59e0b" font-size="12">→ Pro Repo-Kontext: per AGENTS.md ergänzen</text>
+  </g>
+
+  <!-- RECHTS: Shared Skills -->
+  <g>
+    <rect x="720" y="130" width="620" height="720" rx="16" fill="#111827" stroke="#22d3ee" stroke-width="2"/>
+    <rect x="720" y="130" width="620" height="56" rx="16" fill="#22d3ee" opacity="0.2"/>
+    <text x="1030" y="166" fill="#22d3ee" font-size="18" font-weight="700" text-anchor="middle">2 · Shared Skills · implizit</text>
+
+    <!-- Ordner -->
+    <rect x="750" y="210" width="560" height="60" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+    <text x="770" y="233" fill="#94a3b8" font-size="12" font-weight="600">ORDNER</text>
+    <text x="770" y="256" fill="#e2e8f0" font-size="14" font-family="'JetBrains Mono', ui-monospace, monospace">&lt;repo&gt;/skills/&lt;name&gt;/SKILL.md</text>
+    <text x="1300" y="252" fill="#22d3ee" font-size="11" text-anchor="end" font-weight="600">Team-shared</text>
+
+    <!-- Beispiel SKILL.md -->
+    <rect x="750" y="290" width="560" height="260" rx="10" fill="#0f172a" stroke="#334155"/>
+    <text x="766" y="310" fill="#94a3b8" font-size="11" font-family="'JetBrains Mono', ui-monospace, monospace">skills/release/SKILL.md</text>
+    <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="12">
+      <text x="766" y="334" fill="#94a3b8">---</text>
+      <text x="766" y="352" fill="#22d3ee">name:</text>
+      <text x="824" y="352" fill="#e2e8f0">release</text>
+      <text x="766" y="370" fill="#22d3ee">description:</text>
+      <text x="870" y="370" fill="#10b981">"Bump version, tag, draft release notes,</text>
+      <text x="870" y="388" fill="#10b981"> push tag, open PR for changelog."</text>
+      <text x="766" y="406" fill="#94a3b8">---</text>
+      <text x="766" y="430" fill="#e2e8f0">## Steps</text>
+      <text x="766" y="450" fill="#e2e8f0">1. Read CHANGELOG.md</text>
+      <text x="766" y="468" fill="#e2e8f0">2. Run `npm version patch`</text>
+      <text x="766" y="486" fill="#e2e8f0">3. Generate release notes via git log</text>
+      <text x="766" y="506" fill="#e2e8f0">4. Push tag, open PR via gh</text>
+      <text x="766" y="526" fill="#94a3b8"># weitere Schritte, Flags, Gotchas …</text>
+    </g>
+
+    <!-- Implicit Invocation -->
+    <rect x="750" y="570" width="560" height="110" rx="10" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="770" y="594" fill="#a78bfa" font-size="13" font-weight="700">IMPLICIT INVOCATION</text>
+    <text x="770" y="618" fill="#e2e8f0" font-size="13">User-Prompt:</text>
+    <text x="770" y="640" fill="#e2e8f0" font-size="13" font-family="'JetBrains Mono', ui-monospace, monospace">"release a new patch version"</text>
+    <text x="770" y="666" fill="#a78bfa" font-size="12">→ Codex matched `description` des Skills und lädt ihn automatisch</text>
+
+    <!-- Eigenschaften -->
+    <rect x="750" y="700" width="560" height="130" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="770" y="724" fill="#94a3b8" font-size="12" font-weight="600">EIGENSCHAFTEN</text>
+    <text x="770" y="748" fill="#e2e8f0" font-size="13">· Implizit — Matching via `description`</text>
+    <text x="770" y="770" fill="#e2e8f0" font-size="13">· Im Repo versioniert → Team-weit konsistent</text>
+    <text x="770" y="792" fill="#e2e8f0" font-size="13">· Unterordner können Scripts und Assets enthalten</text>
+    <text x="770" y="814" fill="#f59e0b" font-size="12">→ Gute `description` ist entscheidend für Auto-Match</text>
+  </g>
+</svg>

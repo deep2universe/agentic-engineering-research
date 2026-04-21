@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Enterprise-Governance — Pyramide der Kontrollen</title>
+  <desc>Governance-Pyramide über Codex: SSO/SAML, SCIM, Audit-Logs, Model-Restriction, Data-Usage-Policy, Shared Cloud Workspaces und Managed Policies. Organigramm-Metapher für organisatorische Einbettung.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" font-size="30" font-weight="700" fill="#e2e8f0">Enterprise-Governance — die Kontroll-Pyramide</text>
+  <text x="60" y="90" font-size="16" fill="#94a3b8">ChatGPT Business/Enterprise/Edu + API-Admin-Controls steuern Codex auf Org-Ebene</text>
+  <text x="1340" y="60" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Kap. 6</text>
+
+  <!-- Pyramid layers -->
+  <g transform="translate(700,170)">
+    <!-- Layer 5 (top) Strategy -->
+    <polygon points="-90,0 90,0 70,50 -70,50" fill="#4c1d95" stroke="#a78bfa" stroke-width="2"/>
+    <text x="0" y="30" text-anchor="middle" font-size="13" font-weight="700" fill="#ddd6fe">Strategy &amp; CISO</text>
+
+    <!-- Layer 4 -->
+    <polygon points="-140,55 140,55 120,115 -120,115" fill="#5b21b6" stroke="#a78bfa" stroke-width="2"/>
+    <text x="0" y="88" text-anchor="middle" font-size="13" font-weight="700" fill="#e9d5ff">Managed Policies</text>
+    <text x="0" y="104" text-anchor="middle" font-size="10" fill="#c4b5fd">Approval-Enforcement · Model-Whitelist</text>
+
+    <!-- Layer 3 -->
+    <polygon points="-200,120 200,120 180,190 -180,190" fill="#6d28d9" stroke="#a78bfa" stroke-width="2"/>
+    <text x="0" y="150" text-anchor="middle" font-size="13" font-weight="700" fill="#ede9fe">Admin Console (OpenAI)</text>
+    <text x="0" y="170" text-anchor="middle" font-size="10" fill="#ddd6fe">SSO/SAML · SCIM · Audit-Logs · Billing</text>
+
+    <!-- Layer 2 -->
+    <polygon points="-260,195 260,195 240,265 -240,265" fill="#7c3aed" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="0" y="225" text-anchor="middle" font-size="13" font-weight="700" fill="#ede9fe">Data-Usage &amp; Model-Restriction</text>
+    <text x="0" y="245" text-anchor="middle" font-size="10" fill="#ddd6fe">kein Training (Default) · nur GPT-5.x-Codex · ZDR</text>
+
+    <!-- Layer 1 (bottom / widest) -->
+    <polygon points="-330,270 330,270 310,350 -310,350" fill="#a78bfa" stroke="#c4b5fd" stroke-width="2"/>
+    <text x="0" y="305" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Codex CLI / Cloud-Workspaces</text>
+    <text x="0" y="325" text-anchor="middle" font-size="10" fill="#1e1b4b">geteilt, zentrales Billing, MCP-Allowlists</text>
+  </g>
+
+  <!-- Side panel left: ChatGPT Business/Enterprise/Edu -->
+  <g transform="translate(60,170)">
+    <rect x="0" y="0" width="320" height="330" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="30" font-size="16" font-weight="700" fill="#c7d2fe">ChatGPT Business / Enterprise / Edu</text>
+
+    <g font-size="12" fill="#cbd5e1">
+      <circle cx="32" cy="64" r="5" fill="#a78bfa"/>
+      <text x="46" y="68" font-weight="700" fill="#e2e8f0">SSO / SAML</text>
+      <text x="46" y="84" fill="#94a3b8">Okta · Entra ID · Google</text>
+
+      <circle cx="32" cy="112" r="5" fill="#a78bfa"/>
+      <text x="46" y="116" font-weight="700" fill="#e2e8f0">SCIM User-Provisioning</text>
+      <text x="46" y="132" fill="#94a3b8">Auto-Join / Offboarding</text>
+
+      <circle cx="32" cy="160" r="5" fill="#a78bfa"/>
+      <text x="46" y="164" font-weight="700" fill="#e2e8f0">Audit-Logs</text>
+      <text x="46" y="180" fill="#94a3b8">API-Zugriffe, Modell-Nutzung</text>
+
+      <circle cx="32" cy="208" r="5" fill="#a78bfa"/>
+      <text x="46" y="212" font-weight="700" fill="#e2e8f0">Model-Restriction</text>
+      <text x="46" y="228" fill="#94a3b8">z.B. nur GPT-5.x-Codex</text>
+
+      <circle cx="32" cy="256" r="5" fill="#a78bfa"/>
+      <text x="46" y="260" font-weight="700" fill="#e2e8f0">Data-Usage-Policy</text>
+      <text x="46" y="276" fill="#94a3b8">Kein Training (Default); ZDR opt.</text>
+
+      <circle cx="32" cy="304" r="5" fill="#a78bfa"/>
+      <text x="46" y="308" font-weight="700" fill="#e2e8f0">Shared Cloud Workspaces</text>
+      <text x="46" y="320" fill="#94a3b8">zentrales Billing</text>
+    </g>
+  </g>
+
+  <!-- Side panel right: API Admin-Controls -->
+  <g transform="translate(1020,170)">
+    <rect x="0" y="0" width="320" height="330" rx="12" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="30" font-size="16" font-weight="700" fill="#fbbf24">Admin-Controls (API-Ebene)</text>
+
+    <g font-size="12" fill="#cbd5e1">
+      <circle cx="32" cy="64" r="5" fill="#f59e0b"/>
+      <text x="46" y="68" font-weight="700" fill="#e2e8f0">Usage-Limits</text>
+      <text x="46" y="84" fill="#94a3b8">pro User / Projekt</text>
+
+      <circle cx="32" cy="112" r="5" fill="#f59e0b"/>
+      <text x="46" y="116" font-weight="700" fill="#e2e8f0">Rate-Limit-Policies</text>
+      <text x="46" y="132" fill="#94a3b8">RPM / TPM / Burst</text>
+
+      <circle cx="32" cy="160" r="5" fill="#f59e0b"/>
+      <text x="46" y="164" font-weight="700" fill="#e2e8f0">MCP-Allowlist pro Org</text>
+      <text x="46" y="180" fill="#94a3b8">nur zugelassene Server</text>
+
+      <circle cx="32" cy="208" r="5" fill="#f59e0b"/>
+      <text x="46" y="212" font-weight="700" fill="#e2e8f0">Approval-Enforcement</text>
+      <text x="46" y="228" fill="#94a3b8">Managed Policies · Roll-out Q2/2026</text>
+
+      <circle cx="32" cy="256" r="5" fill="#f59e0b"/>
+      <text x="46" y="260" font-weight="700" fill="#e2e8f0">ZDR / Zero-Data-Retention</text>
+      <text x="46" y="276" fill="#94a3b8">disable_response_storage</text>
+
+      <circle cx="32" cy="304" r="5" fill="#f59e0b"/>
+      <text x="46" y="308" font-weight="700" fill="#e2e8f0">OIDC Federation</text>
+      <text x="46" y="320" fill="#94a3b8">statt static API-Keys</text>
+    </g>
+  </g>
+
+  <!-- Org chart at the bottom -->
+  <g transform="translate(100,580)">
+    <text x="0" y="0" font-size="16" font-weight="700" fill="#e2e8f0">Organigramm — von der Policy zum Developer</text>
+
+    <!-- Top org -->
+    <g transform="translate(540,30)">
+      <rect x="0" y="0" width="200" height="54" rx="10" fill="#4c1d95" stroke="#a78bfa"/>
+      <text x="100" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#ede9fe">Org-Admin</text>
+      <text x="100" y="42" text-anchor="middle" font-size="11" fill="#c4b5fd">Policies · Billing · SSO</text>
+    </g>
+
+    <!-- Middle: team admins -->
+    <g transform="translate(140,140)">
+      <rect x="0" y="0" width="200" height="54" rx="10" fill="#6d28d9" stroke="#a78bfa"/>
+      <text x="100" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#ede9fe">Team-Lead A</text>
+      <text x="100" y="42" text-anchor="middle" font-size="11" fill="#c4b5fd">MCP-Allowlist · Limits</text>
+    </g>
+    <g transform="translate(540,140)">
+      <rect x="0" y="0" width="200" height="54" rx="10" fill="#6d28d9" stroke="#a78bfa"/>
+      <text x="100" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#ede9fe">Team-Lead B</text>
+      <text x="100" y="42" text-anchor="middle" font-size="11" fill="#c4b5fd">Cost-Gate · Review-Gate</text>
+    </g>
+    <g transform="translate(940,140)">
+      <rect x="0" y="0" width="200" height="54" rx="10" fill="#6d28d9" stroke="#a78bfa"/>
+      <text x="100" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#ede9fe">Security-Officer</text>
+      <text x="100" y="42" text-anchor="middle" font-size="11" fill="#c4b5fd">Audit-Log-Review</text>
+    </g>
+
+    <!-- Bottom: devs -->
+    <g transform="translate(40,240)">
+      <rect x="0" y="0" width="160" height="54" rx="10" fill="#a78bfa" stroke="#c4b5fd"/>
+      <text x="80" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Developer 1..N</text>
+      <text x="80" y="42" text-anchor="middle" font-size="11" fill="#1e1b4b">codex CLI · Trusted Repos</text>
+    </g>
+    <g transform="translate(240,240)">
+      <rect x="0" y="0" width="160" height="54" rx="10" fill="#a78bfa" stroke="#c4b5fd"/>
+      <text x="80" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">CI-Runner</text>
+      <text x="80" y="42" text-anchor="middle" font-size="11" fill="#1e1b4b">codex-action · OIDC</text>
+    </g>
+    <g transform="translate(440,240)">
+      <rect x="0" y="0" width="160" height="54" rx="10" fill="#a78bfa" stroke="#c4b5fd"/>
+      <text x="80" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Developer 1..N</text>
+      <text x="80" y="42" text-anchor="middle" font-size="11" fill="#1e1b4b">codex exec headless</text>
+    </g>
+    <g transform="translate(640,240)">
+      <rect x="0" y="0" width="160" height="54" rx="10" fill="#a78bfa" stroke="#c4b5fd"/>
+      <text x="80" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Agent-Loop</text>
+      <text x="80" y="42" text-anchor="middle" font-size="11" fill="#1e1b4b">Cloud-Workspace</text>
+    </g>
+    <g transform="translate(840,240)">
+      <rect x="0" y="0" width="160" height="54" rx="10" fill="#a78bfa" stroke="#c4b5fd"/>
+      <text x="80" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Audit-Tool</text>
+      <text x="80" y="42" text-anchor="middle" font-size="11" fill="#1e1b4b">codex usage / logs</text>
+    </g>
+    <g transform="translate(1040,240)">
+      <rect x="0" y="0" width="160" height="54" rx="10" fill="#a78bfa" stroke="#c4b5fd"/>
+      <text x="80" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Incident-Response</text>
+      <text x="80" y="42" text-anchor="middle" font-size="11" fill="#1e1b4b">Kill-Switch / Revoke</text>
+    </g>
+
+    <!-- Lines -->
+    <g stroke="#a78bfa" stroke-width="1.5" fill="none">
+      <path d="M640 84 L640 140"/>
+      <path d="M640 84 L240 140"/>
+      <path d="M640 84 L1040 140"/>
+      <path d="M240 194 L120 240 M240 194 L320 240"/>
+      <path d="M640 194 L520 240 M640 194 L720 240"/>
+      <path d="M1040 194 L920 240 M1040 194 L1120 240"/>
+    </g>
+  </g>
+</svg>

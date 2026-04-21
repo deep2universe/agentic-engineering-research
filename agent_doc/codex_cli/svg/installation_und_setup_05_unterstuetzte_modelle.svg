@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex CLI — Modell-Fuhrpark und Wechsel-Kommandos</title>
+  <desc>Modell-Hierarchie: Default GPT-5.3-Codex, Kernreihe, Legacy und Third-Party als Werkzeugkasten. Rechts die Modellwechsel-Kommandos.</desc>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="40" y="56" font-size="30" font-weight="700" fill="#e2e8f0">Unterstützte Modelle — Fuhrpark &amp; Werkzeugkasten</text>
+  <text x="40" y="84" font-size="16" fill="#94a3b8">Default, Kernreihe, Legacy, Third-Party · Wechsel per Flag oder Slash</text>
+  <text x="1360" y="56" font-size="14" fill="#94a3b8" text-anchor="end">Kapitel 5</text>
+
+  <!-- Modell-Hierarchie -->
+  <g transform="translate(40,130)">
+    <text x="0" y="0" font-size="14" fill="#94a3b8">Modell-Hierarchie (oben: Flaggschiff → unten: alternative Fahrzeuge)</text>
+  </g>
+
+  <!-- TIER 1: Default -->
+  <g transform="translate(40,160)">
+    <rect x="0" y="0" width="900" height="96" rx="14" fill="#312e81" stroke="#a78bfa" stroke-width="2.5"/>
+    <rect x="0" y="0" width="180" height="96" rx="14" fill="#5b21b6" opacity="0.6"/>
+    <text x="90" y="34" font-size="12" font-weight="700" fill="#ddd6fe" text-anchor="middle">TIER 1</text>
+    <text x="90" y="56" font-size="14" font-weight="700" fill="#f5f3ff" text-anchor="middle">DEFAULT</text>
+    <text x="90" y="78" font-size="11" fill="#c4b5fd" text-anchor="middle">seit 02/2026</text>
+
+    <text x="200" y="32" font-size="20" font-weight="700" fill="#e2e8f0">GPT-5.3-Codex</text>
+    <text x="200" y="56" font-size="13" fill="#c4b5fd">Vereint GPT-5 + Codex-Training in einem Modell</text>
+    <text x="200" y="76" font-size="12" fill="#94a3b8">Einsatz: Default für alle Codex-Sessions · Coding + Reasoning in Balance</text>
+  </g>
+
+  <!-- TIER 2: Kernreihe -->
+  <g transform="translate(40,276)">
+    <rect x="0" y="0" width="900" height="200" rx="14" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+    <text x="16" y="28" font-size="13" font-weight="700" fill="#c7d2fe">TIER 2 · Kernreihe (GPT-5.x-Familie)</text>
+
+    <!-- 5 Karten nebeneinander -->
+    <g transform="translate(16,44)">
+      <!-- Spark -->
+      <rect x="0" y="0" width="168" height="140" rx="10" fill="#0f172a" stroke="#818cf8"/>
+      <text x="12" y="24" font-size="13" font-weight="700" fill="#e2e8f0">5.3-Codex-Spark</text>
+      <text x="12" y="46" font-size="11" fill="#818cf8">ChatGPT-Pro Preview</text>
+      <text x="12" y="66" font-size="11" fill="#94a3b8">&gt;1000 tok/s</text>
+      <text x="12" y="86" font-size="10" fill="#64748b">Einsatz:</text>
+      <text x="12" y="104" font-size="11" fill="#e2e8f0">Schnelle Iteration</text>
+      <text x="12" y="122" font-size="11" fill="#e2e8f0">kurze Scripts</text>
+
+      <!-- 5.2 -->
+      <rect x="180" y="0" width="168" height="140" rx="10" fill="#0f172a" stroke="#818cf8"/>
+      <text x="192" y="24" font-size="13" font-weight="700" fill="#e2e8f0">GPT-5.2-Codex</text>
+      <text x="192" y="46" font-size="11" fill="#818cf8">12/2025</text>
+      <text x="192" y="66" font-size="11" fill="#94a3b8">Windows + Security</text>
+      <text x="192" y="86" font-size="10" fill="#64748b">Einsatz:</text>
+      <text x="192" y="104" font-size="11" fill="#e2e8f0">Cybersecurity</text>
+      <text x="192" y="122" font-size="11" fill="#e2e8f0">Win-native Tasks</text>
+
+      <!-- 5.1-Max -->
+      <rect x="360" y="0" width="168" height="140" rx="10" fill="#0f172a" stroke="#818cf8"/>
+      <text x="372" y="24" font-size="13" font-weight="700" fill="#e2e8f0">5.1-Codex-Max</text>
+      <text x="372" y="46" font-size="11" fill="#818cf8">11/2025</text>
+      <text x="372" y="66" font-size="11" fill="#94a3b8">Context-Compaction</text>
+      <text x="372" y="86" font-size="10" fill="#64748b">Einsatz:</text>
+      <text x="372" y="104" font-size="11" fill="#e2e8f0">Long-Horizon</text>
+      <text x="372" y="122" font-size="11" fill="#e2e8f0">Monorepo-Arbeit</text>
+
+      <!-- GPT-5 -->
+      <rect x="540" y="0" width="168" height="140" rx="10" fill="#0f172a" stroke="#818cf8"/>
+      <text x="552" y="24" font-size="13" font-weight="700" fill="#e2e8f0">GPT-5 / 5.4</text>
+      <text x="552" y="46" font-size="11" fill="#818cf8">General Purpose</text>
+      <text x="552" y="66" font-size="11" fill="#94a3b8">inkl. Computer-Use</text>
+      <text x="552" y="86" font-size="10" fill="#64748b">Einsatz:</text>
+      <text x="552" y="104" font-size="11" fill="#e2e8f0">Nicht-Coding</text>
+      <text x="552" y="122" font-size="11" fill="#e2e8f0">Browser-Tasks</text>
+
+      <!-- 5-Codex Original -->
+      <rect x="720" y="0" width="148" height="140" rx="10" fill="#0f172a" stroke="#818cf8"/>
+      <text x="732" y="24" font-size="13" font-weight="700" fill="#e2e8f0">GPT-5-Codex</text>
+      <text x="732" y="46" font-size="11" fill="#818cf8">09/2025</text>
+      <text x="732" y="66" font-size="11" fill="#94a3b8">Original</text>
+      <text x="732" y="86" font-size="10" fill="#64748b">Einsatz:</text>
+      <text x="732" y="104" font-size="11" fill="#e2e8f0">Referenz-Vergleich</text>
+      <text x="732" y="122" font-size="11" fill="#e2e8f0">Benchmark-Runs</text>
+    </g>
+  </g>
+
+  <!-- TIER 3: Legacy -->
+  <g transform="translate(40,496)">
+    <rect x="0" y="0" width="440" height="160" rx="14" fill="#1e293b" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="16" y="28" font-size="13" font-weight="700" fill="#fde68a">TIER 3 · Legacy-Optionen</text>
+
+    <g transform="translate(16,44)">
+      <rect x="0" y="0" width="120" height="100" rx="10" fill="#0f172a" stroke="#fbbf24"/>
+      <text x="60" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">o3</text>
+      <text x="60" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">Deep Reasoning</text>
+      <text x="60" y="72" text-anchor="middle" font-size="10" fill="#94a3b8">math-heavy</text>
+      <text x="60" y="90" text-anchor="middle" font-size="10" fill="#fbbf24">Legacy</text>
+
+      <rect x="136" y="0" width="120" height="100" rx="10" fill="#0f172a" stroke="#fbbf24"/>
+      <text x="196" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">o4-mini</text>
+      <text x="196" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">Schnell + günstig</text>
+      <text x="196" y="72" text-anchor="middle" font-size="10" fill="#94a3b8">Routine</text>
+      <text x="196" y="90" text-anchor="middle" font-size="10" fill="#fbbf24">Legacy</text>
+
+      <rect x="272" y="0" width="136" height="100" rx="10" fill="#0f172a" stroke="#fbbf24"/>
+      <text x="340" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">gpt-4.1</text>
+      <text x="340" y="50" text-anchor="middle" font-size="10" fill="#94a3b8">Pre-GPT-5</text>
+      <text x="340" y="72" text-anchor="middle" font-size="10" fill="#94a3b8">Reproduzierbar</text>
+      <text x="340" y="90" text-anchor="middle" font-size="10" fill="#fbbf24">Legacy</text>
+    </g>
+  </g>
+
+  <!-- TIER 4: Third-Party -->
+  <g transform="translate(500,496)">
+    <rect x="0" y="0" width="440" height="160" rx="14" fill="#1e293b" stroke="#22d3ee" stroke-width="1.5"/>
+    <text x="16" y="28" font-size="13" font-weight="700" fill="#a5f3fc">TIER 4 · Third-Party via Provider-Config</text>
+
+    <g transform="translate(16,44)">
+      <rect x="0" y="0" width="100" height="100" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="50" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">Claude</text>
+      <text x="50" y="48" text-anchor="middle" font-size="10" fill="#94a3b8">Sonnet · Opus</text>
+      <text x="50" y="68" text-anchor="middle" font-size="10" fill="#94a3b8">Anthropic</text>
+      <text x="50" y="88" text-anchor="middle" font-size="10" fill="#22d3ee">wire: chat</text>
+
+      <rect x="112" y="0" width="100" height="100" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="162" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">Gemini</text>
+      <text x="162" y="48" text-anchor="middle" font-size="10" fill="#94a3b8">2.x Flash/Pro</text>
+      <text x="162" y="68" text-anchor="middle" font-size="10" fill="#94a3b8">Google</text>
+      <text x="162" y="88" text-anchor="middle" font-size="10" fill="#22d3ee">wire: chat</text>
+
+      <rect x="224" y="0" width="100" height="100" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="274" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">GPT-OSS</text>
+      <text x="274" y="48" text-anchor="middle" font-size="10" fill="#94a3b8">Ollama · LM</text>
+      <text x="274" y="68" text-anchor="middle" font-size="10" fill="#94a3b8">lokal</text>
+      <text x="274" y="88" text-anchor="middle" font-size="10" fill="#22d3ee">--oss</text>
+
+      <rect x="336" y="0" width="100" height="100" rx="10" fill="#0f172a" stroke="#22d3ee"/>
+      <text x="386" y="28" text-anchor="middle" font-size="13" font-weight="700" fill="#e2e8f0">Llama/Qwen</text>
+      <text x="386" y="48" text-anchor="middle" font-size="10" fill="#94a3b8">OpenRouter</text>
+      <text x="386" y="68" text-anchor="middle" font-size="10" fill="#94a3b8">Azure</text>
+      <text x="386" y="88" text-anchor="middle" font-size="10" fill="#22d3ee">wire: chat</text>
+    </g>
+  </g>
+
+  <!-- RECHTE SEITE: Modellwechsel-Kommandos -->
+  <g transform="translate(970,160)">
+    <rect x="0" y="0" width="400" height="496" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="400" height="40" rx="14" fill="#334155"/>
+    <text x="16" y="26" font-size="15" font-weight="700" fill="#e2e8f0">Modellwechsel — CLI &amp; Session</text>
+
+    <!-- Flag-Block -->
+    <g transform="translate(16,56)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#818cf8">Start-Flags</text>
+      <rect x="0" y="10" width="368" height="110" rx="8" fill="#0f172a" stroke="#334155"/>
+      <g transform="translate(12,30)" font-family="'JetBrains Mono', monospace" font-size="11">
+        <text y="0" fill="#e2e8f0">codex</text>
+        <text y="0" x="50" fill="#818cf8">--model</text>
+        <text y="0" x="120" fill="#34d399">gpt-5.3-codex</text>
+        <text y="22" fill="#64748b"># Langform</text>
+        <text y="46" fill="#e2e8f0">codex</text>
+        <text y="46" x="50" fill="#818cf8">-m</text>
+        <text y="46" x="85" fill="#34d399">gpt-5.3-codex</text>
+        <text y="68" fill="#64748b"># Kurzform</text>
+      </g>
+    </g>
+
+    <!-- Config-Override -->
+    <g transform="translate(16,190)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#a78bfa">Config-Override</text>
+      <rect x="0" y="10" width="368" height="70" rx="8" fill="#0f172a" stroke="#334155"/>
+      <g transform="translate(12,30)" font-family="'JetBrains Mono', monospace" font-size="11">
+        <text y="0" fill="#e2e8f0">codex</text>
+        <text y="0" x="50" fill="#a78bfa">-c</text>
+        <text y="0" x="75" fill="#34d399">model="gpt-5.3-codex"</text>
+        <text y="22" fill="#64748b"># ad-hoc-Override, auch andere keys</text>
+      </g>
+    </g>
+
+    <!-- Slash Commands -->
+    <g transform="translate(16,284)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#22d3ee">In-Session Slash-Commands</text>
+      <rect x="0" y="10" width="368" height="110" rx="8" fill="#0f172a" stroke="#334155"/>
+      <g transform="translate(12,30)" font-family="'JetBrains Mono', monospace" font-size="11">
+        <text y="0" fill="#22d3ee">/model</text>
+        <text y="0" x="80" fill="#64748b"># TUI-Dialog</text>
+        <text y="22" fill="#22d3ee">/reasoning</text>
+        <text y="22" x="120" fill="#64748b"># low / medium / high</text>
+        <text y="44" fill="#94a3b8">seit 03/2026 eigener Slash</text>
+        <text y="66" fill="#94a3b8">für Reasoning-Effort</text>
+      </g>
+    </g>
+
+    <!-- OSS-Shortcut -->
+    <g transform="translate(16,420)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#10b981">Shortcut für lokale Modelle</text>
+      <rect x="0" y="10" width="368" height="54" rx="8" fill="#0f172a" stroke="#334155"/>
+      <g transform="translate(12,30)" font-family="'JetBrains Mono', monospace" font-size="11">
+        <text y="0" fill="#10b981">codex --oss</text>
+        <text y="0" x="110" fill="#64748b">≡</text>
+        <text y="0" x="124" fill="#e2e8f0">-c model_provider="oss"</text>
+        <text y="22" fill="#64748b"># greift auf Ollama/LM Studio zu</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Fussnote: Wahl-Guide -->
+  <g transform="translate(40,700)">
+    <rect x="0" y="0" width="1320" height="160" rx="14" fill="#1e293b" stroke="#334155"/>
+    <rect x="0" y="0" width="1320" height="34" rx="14" fill="#334155"/>
+    <text x="16" y="22" font-size="14" font-weight="700" fill="#e2e8f0">Entscheidungs-Hilfe — welches Modell wann?</text>
+
+    <g transform="translate(16,52)" font-size="12">
+      <g>
+        <circle cx="8" cy="8" r="6" fill="#a78bfa"/>
+        <text x="24" y="12" fill="#e2e8f0" font-weight="700">Neu/Standard</text>
+        <text x="24" y="30" fill="#94a3b8">→ GPT-5.3-Codex (Default)</text>
+      </g>
+      <g transform="translate(240,0)">
+        <circle cx="8" cy="8" r="6" fill="#818cf8"/>
+        <text x="24" y="12" fill="#e2e8f0" font-weight="700">Monorepo / 8h-Task</text>
+        <text x="24" y="30" fill="#94a3b8">→ 5.1-Codex-Max (Compaction)</text>
+      </g>
+      <g transform="translate(490,0)">
+        <circle cx="8" cy="8" r="6" fill="#22d3ee"/>
+        <text x="24" y="12" fill="#e2e8f0" font-weight="700">Offline / Privacy</text>
+        <text x="24" y="30" fill="#94a3b8">→ --oss + Ollama/LM Studio</text>
+      </g>
+      <g transform="translate(750,0)">
+        <circle cx="8" cy="8" r="6" fill="#10b981"/>
+        <text x="24" y="12" fill="#e2e8f0" font-weight="700">Claude-Style gewünscht</text>
+        <text x="24" y="30" fill="#94a3b8">→ anthropic claude-sonnet-4.5</text>
+      </g>
+      <g transform="translate(1020,0)">
+        <circle cx="8" cy="8" r="6" fill="#fbbf24"/>
+        <text x="24" y="12" fill="#e2e8f0" font-weight="700">Reproduzierbar</text>
+        <text x="24" y="30" fill="#94a3b8">→ gpt-4.1 (Legacy-Pin)</text>
+      </g>
+    </g>
+
+    <g transform="translate(16,116)" font-size="12">
+      <g>
+        <circle cx="8" cy="8" r="6" fill="#f59e0b"/>
+        <text x="24" y="12" fill="#e2e8f0" font-weight="700">Windows-Nativ</text>
+        <text x="24" y="30" fill="#94a3b8">→ 5.2-Codex</text>
+      </g>
+      <g transform="translate(240,0)">
+        <circle cx="8" cy="8" r="6" fill="#ef4444"/>
+        <text x="24" y="12" fill="#e2e8f0" font-weight="700">Schnelle Iteration</text>
+        <text x="24" y="30" fill="#94a3b8">→ Spark (&gt;1k tok/s)</text>
+      </g>
+    </g>
+  </g>
+</svg>

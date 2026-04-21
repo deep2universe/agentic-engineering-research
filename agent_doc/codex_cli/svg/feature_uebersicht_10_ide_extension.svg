@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Codex IDE-Extension — VS Code Mockup mit Side-Panel und Cloud-Handoff</title>
+  <desc>Stilisiertes IDE-Layout: Activity-Bar, Editor, Diff-Preview, Codex-Side-Panel mit Chat, Inline-Approval, Task-Tracker mit PR-Badges und Continue-in-Cloud-Button.</desc>
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <text x="60" y="60" fill="#e2e8f0" font-size="30" font-weight="700">10. IDE-Extension — Codex im VS-Code-Workflow</text>
+  <text x="60" y="90" fill="#94a3b8" font-size="16">Chat-Panel, Inline-Approval, Task-Tracker, Diff-Preview und Cloud-Handoff — eine config.toml, zwei UIs.</text>
+  <text x="1340" y="60" fill="#64748b" font-size="14" text-anchor="end">Codex CLI · Kapitel 10</text>
+
+  <!-- IDE-Rahmen -->
+  <g transform="translate(60,140)">
+    <rect width="1280" height="620" rx="12" fill="#0b1220" stroke="#334155" stroke-width="2"/>
+
+    <!-- Titel-Leiste IDE -->
+    <rect x="0" y="0" width="1280" height="36" rx="12" fill="#1e293b"/>
+    <circle cx="20" cy="18" r="6" fill="#ef4444"/>
+    <circle cx="40" cy="18" r="6" fill="#f59e0b"/>
+    <circle cx="60" cy="18" r="6" fill="#10b981"/>
+    <text x="640" y="22" fill="#94a3b8" font-size="12" text-anchor="middle">my-service — Visual Studio Code — Codex Extension aktiv</text>
+
+    <!-- Activity-Bar -->
+    <rect x="0" y="36" width="56" height="584" fill="#1e293b"/>
+    <g transform="translate(28,80)" stroke="#94a3b8" fill="none">
+      <rect x="-12" y="-12" width="24" height="24" rx="4"/>
+    </g>
+    <g transform="translate(28,130)" fill="#94a3b8">
+      <circle r="8"/>
+    </g>
+    <g transform="translate(28,180)" stroke="#94a3b8" fill="none">
+      <path d="M-8 -8 L8 0 L-8 8 Z"/>
+    </g>
+    <g transform="translate(28,230)" fill="#6366f1">
+      <rect x="-12" y="-12" width="24" height="24" rx="6"/>
+      <text x="0" y="4" fill="#e2e8f0" font-size="12" text-anchor="middle" font-weight="700">C</text>
+    </g>
+
+    <!-- Datei-Explorer -->
+    <rect x="56" y="36" width="200" height="584" fill="#0f172a" stroke="#334155"/>
+    <text x="68" y="60" fill="#cbd5e1" font-size="12" font-weight="700">EXPLORER</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="11" fill="#cbd5e1">
+      <text x="72" y="88">▸ .github/</text>
+      <text x="72" y="108">▾ src/</text>
+      <text x="84" y="128">auth.rs</text>
+      <text x="84" y="148">session.rs</text>
+      <text x="84" y="168">lib.rs</text>
+      <text x="72" y="196">▸ tests/</text>
+      <text x="72" y="216">AGENTS.md</text>
+      <text x="72" y="236">Cargo.toml</text>
+    </g>
+
+    <!-- Editor mit Diff-Preview -->
+    <rect x="256" y="36" width="640" height="584" fill="#0f172a" stroke="#334155"/>
+    <rect x="256" y="36" width="640" height="30" fill="#1e293b"/>
+    <text x="270" y="56" fill="#cbd5e1" font-size="12" font-family="'JetBrains Mono', monospace">src/auth.rs · Codex-Diff Preview</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="11">
+      <text x="276" y="92" fill="#64748b">@@ -42,8 +42,10 @@</text>
+      <text x="276" y="112" fill="#fca5a5">- fn verify(t: &amp;Token) -&gt; bool {</text>
+      <text x="276" y="132" fill="#fca5a5">-   t.exp &gt; now()</text>
+      <text x="276" y="152" fill="#fca5a5">- }</text>
+      <text x="276" y="172" fill="#86efac">+ fn verify(t: &amp;Token, skew: Duration) -&gt; Result&lt;()&gt; {</text>
+      <text x="276" y="192" fill="#86efac">+   ensure!(t.exp &gt; now() - skew, "token expired");</text>
+      <text x="276" y="212" fill="#86efac">+   Ok(())</text>
+      <text x="276" y="232" fill="#86efac">+ }</text>
+    </g>
+
+    <!-- Inline-Approval-Banner -->
+    <rect x="276" y="260" width="600" height="70" rx="6" fill="#1e293b" stroke="#f59e0b"/>
+    <text x="290" y="284" fill="#fbbf24" font-size="12" font-weight="700">Approval erforderlich</text>
+    <text x="290" y="302" fill="#cbd5e1" font-size="11">edit_file(auth.rs) · workspace-write</text>
+    <rect x="600" y="274" width="100" height="30" rx="4" fill="#10b981"/>
+    <text x="650" y="293" fill="#052e16" font-size="12" font-weight="700" text-anchor="middle">Approve</text>
+    <rect x="716" y="274" width="100" height="30" rx="4" fill="#1e293b" stroke="#ef4444"/>
+    <text x="766" y="293" fill="#fca5a5" font-size="12" font-weight="700" text-anchor="middle">Reject</text>
+
+    <!-- Test-Output -->
+    <rect x="276" y="354" width="600" height="246" rx="6" fill="#1e293b" stroke="#334155"/>
+    <text x="288" y="378" fill="#e2e8f0" font-size="12" font-weight="700">TERMINAL · Test-Output</text>
+    <g font-family="'JetBrains Mono', monospace" font-size="11">
+      <text x="288" y="404" fill="#94a3b8">$ cargo test --package auth</text>
+      <text x="288" y="424" fill="#94a3b8">   Compiling auth v0.2.0</text>
+      <text x="288" y="444" fill="#94a3b8">    Finished test [unoptimized] in 2.34s</text>
+      <text x="288" y="464" fill="#94a3b8">     Running tests/auth_tests.rs</text>
+      <text x="288" y="484" fill="#34d399">ok test verify_accepts_fresh_token</text>
+      <text x="288" y="504" fill="#34d399">ok test verify_rejects_expired_token</text>
+      <text x="288" y="524" fill="#34d399">ok test verify_allows_skew</text>
+      <text x="288" y="548" fill="#34d399">test result: ok. 3 passed; 0 failed; 0 ignored</text>
+      <text x="288" y="578" fill="#94a3b8">$ ▊</text>
+    </g>
+
+    <!-- Codex Side-Panel -->
+    <rect x="896" y="36" width="384" height="584" fill="#1e293b" stroke="#334155"/>
+    <rect x="896" y="36" width="384" height="32" fill="#0f172a"/>
+    <rect x="902" y="42" width="20" height="20" rx="4" fill="#6366f1"/>
+    <text x="912" y="58" fill="#e2e8f0" font-size="11" text-anchor="middle" font-weight="700">C</text>
+    <text x="932" y="56" fill="#e2e8f0" font-size="13" font-weight="700">Codex</text>
+    <text x="1250" y="56" fill="#94a3b8" font-size="11" text-anchor="end" font-family="'JetBrains Mono', monospace">gpt-5.3-codex</text>
+
+    <!-- Chat-Thread -->
+    <g transform="translate(908,84)">
+      <rect width="360" height="64" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="12" y="20" fill="#94a3b8" font-size="11" font-weight="700">user</text>
+      <text x="12" y="40" fill="#cbd5e1" font-size="11">fix auth token skew bug in auth.rs</text>
+      <text x="12" y="56" fill="#64748b" font-size="10">12:04 · session #412</text>
+    </g>
+    <g transform="translate(908,160)">
+      <rect width="360" height="90" rx="6" fill="#0f172a" stroke="#6366f1"/>
+      <text x="12" y="20" fill="#818cf8" font-size="11" font-weight="700">assistant</text>
+      <text x="12" y="40" fill="#cbd5e1" font-size="11">Skew-Parameter eingeführt, 3 Tests ergänzt.</text>
+      <text x="12" y="58" fill="#cbd5e1" font-size="11">Diff-Preview links, Approve zum Commit.</text>
+      <text x="12" y="80" fill="#c4b5fd" font-size="10" font-family="'JetBrains Mono', monospace">edit_file(auth.rs) · apply_patch</text>
+    </g>
+
+    <!-- Task-Tracker mit PR-Badges -->
+    <g transform="translate(908,264)">
+      <rect width="360" height="220" rx="6" fill="#0f172a" stroke="#334155"/>
+      <text x="12" y="22" fill="#e2e8f0" font-size="12" font-weight="700">Task-Tracker</text>
+
+      <rect x="10" y="38" width="340" height="40" rx="4" fill="#1e293b"/>
+      <rect x="10" y="38" width="4" height="40" fill="#f59e0b"/>
+      <text x="22" y="54" fill="#fbbf24" font-size="11" font-weight="700">DRAFT</text>
+      <text x="22" y="70" fill="#cbd5e1" font-size="11">#412 · Auth-Refactor</text>
+      <text x="330" y="63" fill="#94a3b8" font-size="10" text-anchor="end">12m</text>
+
+      <rect x="10" y="84" width="340" height="40" rx="4" fill="#1e293b"/>
+      <rect x="10" y="84" width="4" height="40" fill="#10b981"/>
+      <text x="22" y="100" fill="#34d399" font-size="11" font-weight="700">OPEN</text>
+      <text x="22" y="116" fill="#cbd5e1" font-size="11">#411 · Rate-Limiter</text>
+      <text x="330" y="109" fill="#94a3b8" font-size="10" text-anchor="end">2h</text>
+
+      <rect x="10" y="130" width="340" height="40" rx="4" fill="#1e293b"/>
+      <rect x="10" y="130" width="4" height="40" fill="#a78bfa"/>
+      <text x="22" y="146" fill="#c4b5fd" font-size="11" font-weight="700">MERGED</text>
+      <text x="22" y="162" fill="#cbd5e1" font-size="11">#401 · OAuth-Bug</text>
+      <text x="330" y="155" fill="#94a3b8" font-size="10" text-anchor="end">Mo</text>
+
+      <rect x="10" y="176" width="340" height="40" rx="4" fill="#1e293b"/>
+      <rect x="10" y="176" width="4" height="40" fill="#ef4444"/>
+      <text x="22" y="192" fill="#fca5a5" font-size="11" font-weight="700">CLOSED</text>
+      <text x="22" y="208" fill="#cbd5e1" font-size="11">#398 · Legacy-API</text>
+      <text x="330" y="201" fill="#94a3b8" font-size="10" text-anchor="end">Fr</text>
+    </g>
+
+    <!-- Cloud-Handoff -->
+    <g transform="translate(908,500)">
+      <rect width="360" height="110" rx="8" fill="#0f172a" stroke="#22d3ee" stroke-width="2"/>
+      <text x="12" y="24" fill="#22d3ee" font-size="13" font-weight="700">Continue in Cloud</text>
+      <text x="12" y="44" fill="#cbd5e1" font-size="11">Task an Cloud-Worker delegieren,</text>
+      <text x="12" y="60" fill="#cbd5e1" font-size="11">Session-State wird mitgegeben.</text>
+      <rect x="12" y="72" width="144" height="30" rx="4" fill="#22d3ee"/>
+      <text x="84" y="91" fill="#052e16" font-size="12" font-weight="700" text-anchor="middle">→ Handoff</text>
+      <text x="168" y="91" fill="#94a3b8" font-size="11">codex cloud exec</text>
+    </g>
+  </g>
+
+  <!-- Unten: Config-Shared-Hinweis -->
+  <g transform="translate(60,780)">
+    <rect width="1280" height="90" rx="12" fill="#0b1220" stroke="#6366f1"/>
+    <text x="20" y="34" fill="#818cf8" font-size="15" font-weight="700">Shared config.toml mit der CLI</text>
+    <text x="20" y="58" fill="#cbd5e1" font-size="12">IDE-Extension und CLI lesen dieselbe `~/.codex/config.toml` — Modellwahl, Approval-Policy, MCP-Server bleiben kohärent.</text>
+    <text x="20" y="78" fill="#94a3b8" font-size="12">Task-Tracker-PR-Badges werden über die GitHub-Integration synchronisiert (siehe §12).</text>
+  </g>
+</svg>

@@ -1,0 +1,186 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
+  <title>Regelmäßige PR-Reviews via GitHub Action</title>
+  <desc>Vier-Augen-Prinzip mit Review-Stempel-Maschine: pull_request-Trigger, Codex Action read-only mit prompt-file, review.md, Auto-Comment auf PR. Daneben pr_review.md-Vorlage.</desc>
+
+  <defs>
+    <marker id="arrowP" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#22d3ee"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="900" fill="#0f172a"/>
+
+  <!-- Title -->
+  <text x="60" y="64" font-size="30" font-weight="700" fill="#e2e8f0">Regelmäßige PR-Reviews via Action</text>
+  <text x="60" y="94" font-size="16" fill="#94a3b8">Vier-Augen-Prinzip — Review-Stempel-Maschine in jedem Pull Request</text>
+  <text x="1340" y="64" font-size="14" fill="#94a3b8" text-anchor="end">Codex CLI · Workflow 09</text>
+
+  <!-- Left: Pipeline (4 stages) -->
+  <g transform="translate(60,140)">
+    <text x="0" y="0" font-size="14" font-weight="700" fill="#94a3b8">Pipeline</text>
+
+    <!-- Stage 1: PR trigger -->
+    <g transform="translate(0,20)">
+      <rect width="300" height="160" rx="12" fill="#1e293b" stroke="#22d3ee" stroke-width="2"/>
+      <circle cx="32" cy="32" r="20" fill="#155e75"/>
+      <text x="32" y="38" font-size="16" font-weight="700" fill="#a5f3fc" text-anchor="middle">1</text>
+      <text x="64" y="38" font-size="14" font-weight="700" fill="#e2e8f0">pull_request-Trigger</text>
+      <rect x="20" y="64" width="260" height="86" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="32" y="84" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">on:</text>
+      <text x="32" y="102" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  pull_request:</text>
+      <text x="32" y="120" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    types: [opened,</text>
+      <text x="32" y="136" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">           synchronize, reopened]</text>
+    </g>
+
+    <line x1="305" y1="100" x2="345" y2="100" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowP)"/>
+
+    <!-- Stage 2: codex-action -->
+    <g transform="translate(350,20)">
+      <rect width="320" height="160" rx="12" fill="#1e293b" stroke="#6366f1" stroke-width="2"/>
+      <circle cx="32" cy="32" r="20" fill="#312e81"/>
+      <text x="32" y="38" font-size="16" font-weight="700" fill="#c7d2fe" text-anchor="middle">2</text>
+      <text x="64" y="38" font-size="14" font-weight="700" fill="#e2e8f0">codex-action@v1</text>
+      <rect x="20" y="64" width="280" height="86" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="32" y="84" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">sandbox: read-only</text>
+      <text x="32" y="102" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">safety-strategy: drop-sudo</text>
+      <text x="32" y="120" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">prompt-file: .codex/prompts/</text>
+      <text x="32" y="136" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  pr_review.md</text>
+    </g>
+
+    <line x1="675" y1="100" x2="715" y2="100" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowP)"/>
+
+    <!-- Stage 3: review.md -->
+    <g transform="translate(720,20)">
+      <rect width="180" height="160" rx="12" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+      <circle cx="32" cy="32" r="20" fill="#4c1d95"/>
+      <text x="32" y="38" font-size="16" font-weight="700" fill="#ddd6fe" text-anchor="middle">3</text>
+      <text x="64" y="38" font-size="14" font-weight="700" fill="#e2e8f0">review.md</text>
+      <!-- Document icon -->
+      <g transform="translate(56,72)">
+        <rect width="68" height="80" rx="6" fill="#0b1220" stroke="#a78bfa"/>
+        <line x1="10" y1="20" x2="58" y2="20" stroke="#a78bfa"/>
+        <line x1="10" y1="34" x2="58" y2="34" stroke="#94a3b8"/>
+        <line x1="10" y1="48" x2="58" y2="48" stroke="#94a3b8"/>
+        <line x1="10" y1="62" x2="40" y2="62" stroke="#94a3b8"/>
+      </g>
+    </g>
+
+    <!-- Down arrow to stage 4 -->
+    <line x1="450" y1="190" x2="450" y2="230" stroke="#22d3ee" stroke-width="2" marker-end="url(#arrowP)"/>
+
+    <!-- Stage 4: github-script -->
+    <g transform="translate(0,240)">
+      <rect width="900" height="180" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+      <circle cx="32" cy="32" r="20" fill="#064e3b"/>
+      <text x="32" y="38" font-size="16" font-weight="700" fill="#a7f3d0" text-anchor="middle">4</text>
+      <text x="64" y="38" font-size="14" font-weight="700" fill="#e2e8f0">actions/github-script@v7 · Auto-Comment</text>
+
+      <rect x="20" y="64" width="540" height="100" rx="6" fill="#0b1220" stroke="#334155"/>
+      <text x="32" y="84" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">- uses: actions/github-script@v7</text>
+      <text x="32" y="102" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  with: { script: |</text>
+      <text x="32" y="120" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    const fs = require('fs');</text>
+      <text x="32" y="138" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">    await github.rest.issues.createComment({</text>
+      <text x="32" y="156" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">      body: fs.readFileSync('review.md','utf8') })</text>
+
+      <!-- Stempel-Metapher -->
+      <g transform="translate(600,80)">
+        <rect width="280" height="80" rx="10" fill="#0b1220" stroke="#10b981"/>
+        <!-- Stamp -->
+        <g transform="translate(20,16)">
+          <rect width="60" height="50" rx="4" fill="#064e3b" stroke="#10b981" stroke-width="2"/>
+          <text x="30" y="32" text-anchor="middle" font-size="11" font-weight="700" fill="#a7f3d0">REVIEW</text>
+          <line x1="20" y1="56" x2="40" y2="56" stroke="#10b981" stroke-width="3"/>
+        </g>
+        <text x="100" y="34" font-size="13" font-weight="700" fill="#a7f3d0">Auto-Comment auf PR</text>
+        <text x="100" y="54" font-size="11" fill="#cbd5e1">- Mensch sieht Findings sofort</text>
+        <text x="100" y="70" font-size="11" fill="#cbd5e1">- Kein Roundtrip zur CLI</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Permissions strip -->
+  <g transform="translate(60,580)">
+    <rect width="900" height="80" rx="10" fill="#0b1220" stroke="#f59e0b" stroke-width="2"/>
+    <text x="20" y="30" font-size="14" font-weight="700" fill="#fbbf24">Permissions (Least-Privilege)</text>
+    <text x="20" y="56" font-size="12" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">contents: read</text>
+    <text x="200" y="56" font-size="12" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">pull-requests: write</text>
+    <text x="430" y="56" font-size="12" fill="#94a3b8">— nur Lesen am Code, Schreiben nur am PR-Kommentar</text>
+  </g>
+
+  <!-- Bottom-left: Best practices -->
+  <g transform="translate(60,680)">
+    <rect width="900" height="160" rx="10" fill="#1e293b" stroke="#334155"/>
+    <text x="20" y="32" font-size="14" font-weight="700" fill="#e2e8f0">Vier-Augen-Prinzip in Aktion</text>
+    <g transform="translate(20,52)">
+      <circle cx="6" cy="10" r="4" fill="#6366f1"/>
+      <text x="18" y="14" font-size="12" fill="#cbd5e1">Codex prüft jeden PR systematisch — niemand wird übersehen.</text>
+    </g>
+    <g transform="translate(20,76)">
+      <circle cx="6" cy="10" r="4" fill="#22d3ee"/>
+      <text x="18" y="14" font-size="12" fill="#cbd5e1">Read-only-Sandbox: keine Code-Mutation, nur Beobachtung.</text>
+    </g>
+    <g transform="translate(20,100)">
+      <circle cx="6" cy="10" r="4" fill="#10b981"/>
+      <text x="18" y="14" font-size="12" fill="#cbd5e1">Severity-Format konsistent — Mensch kann Blocker schnell scannen.</text>
+    </g>
+    <g transform="translate(20,124)">
+      <circle cx="6" cy="10" r="4" fill="#a78bfa"/>
+      <text x="18" y="14" font-size="12" fill="#cbd5e1">Prompt liegt versioniert im Repo — Review-Standard bleibt prüfbar.</text>
+    </g>
+  </g>
+
+  <!-- Right: pr_review.md template -->
+  <g transform="translate(990,140)">
+    <rect width="350" height="700" rx="14" fill="#1e293b" stroke="#a78bfa" stroke-width="2"/>
+    <text x="20" y="36" font-size="16" font-weight="700" fill="#e2e8f0">.codex/prompts/pr_review.md</text>
+    <text x="20" y="56" font-size="11" fill="#94a3b8">Vorlage für jeden Reviewer-Lauf</text>
+
+    <rect x="20" y="76" width="310" height="600" rx="8" fill="#0b1220" stroke="#334155"/>
+    <text x="32" y="98" font-size="11" fill="#a78bfa" font-family="'JetBrains Mono', ui-monospace, monospace">You are a senior engineer doing</text>
+    <text x="32" y="114" font-size="11" fill="#a78bfa" font-family="'JetBrains Mono', ui-monospace, monospace">a pull request review.</text>
+
+    <text x="32" y="146" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">Scope: only files changed in</text>
+    <text x="32" y="162" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">this PR (git diff origin/main</text>
+    <text x="32" y="178" font-size="11" fill="#22d3ee" font-family="'JetBrains Mono', ui-monospace, monospace">...HEAD).</text>
+
+    <text x="32" y="210" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">For each finding, emit:</text>
+    <text x="32" y="226" font-size="11" fill="#fbbf24" font-family="'JetBrains Mono', ui-monospace, monospace">- **Severity**:</text>
+    <text x="32" y="242" font-size="11" fill="#fbbf24" font-family="'JetBrains Mono', ui-monospace, monospace">  info / suggestion / blocker</text>
+    <text x="32" y="258" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- **Location**: path/to/file:LINE</text>
+    <text x="32" y="274" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- **Problem**: 1 sentence</text>
+    <text x="32" y="290" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- **Suggestion**: 1-3 sentences</text>
+    <text x="32" y="306" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  or a suggested diff</text>
+
+    <text x="32" y="338" font-size="11" fill="#10b981" font-family="'JetBrains Mono', ui-monospace, monospace">Focus on:</text>
+    <text x="32" y="354" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- Correctness bugs</text>
+    <text x="32" y="370" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- Missing tests for behavior</text>
+    <text x="32" y="386" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  changes</text>
+    <text x="32" y="402" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- Security risks (injection,</text>
+    <text x="32" y="418" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">  XSS, secrets)</text>
+    <text x="32" y="434" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- Performance hot paths</text>
+    <text x="32" y="450" font-size="11" fill="#cbd5e1" font-family="'JetBrains Mono', ui-monospace, monospace">- API stability</text>
+
+    <text x="32" y="482" font-size="11" fill="#ef4444" font-family="'JetBrains Mono', ui-monospace, monospace">Be concise. No praise.</text>
+    <text x="32" y="498" font-size="11" fill="#ef4444" font-family="'JetBrains Mono', ui-monospace, monospace">Group by severity.</text>
+
+    <!-- Severity legend within template -->
+    <g transform="translate(32,524)">
+      <text x="0" y="0" font-size="12" font-weight="700" fill="#94a3b8">Severity-Skala</text>
+
+      <rect x="0" y="14" width="270" height="24" rx="4" fill="#0f172a" stroke="#334155"/>
+      <rect x="0" y="14" width="6" height="24" rx="2" fill="#94a3b8"/>
+      <text x="14" y="30" font-size="11" fill="#cbd5e1">info — Hinweis, optional</text>
+
+      <rect x="0" y="44" width="270" height="24" rx="4" fill="#0f172a" stroke="#334155"/>
+      <rect x="0" y="44" width="6" height="24" rx="2" fill="#22d3ee"/>
+      <text x="14" y="60" font-size="11" fill="#cbd5e1">suggestion — vor Merge erwägen</text>
+
+      <rect x="0" y="74" width="270" height="24" rx="4" fill="#0f172a" stroke="#334155"/>
+      <rect x="0" y="74" width="6" height="24" rx="2" fill="#ef4444"/>
+      <text x="14" y="90" font-size="11" fill="#cbd5e1">blocker — Merge stoppen</text>
+    </g>
+
+    <text x="32" y="660" font-size="10" fill="#64748b" font-style="italic">Versioniert im Repo, prüfbar wie</text>
+    <text x="32" y="672" font-size="10" fill="#64748b" font-style="italic">jede andere Konfiguration.</text>
+  </g>
+</svg>

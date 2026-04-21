@@ -6,6 +6,8 @@ Diese Sammlung dokumentiert **OpenAI Codex CLI** (`@openai/codex`, Open-Source-R
 
 ## Struktur
 
+![Hub-and-Spoke-Karte der elf Codex-CLI-Dokumente als Wissens-Ökosystem mit Kompass im Zentrum und Ring-Lesereihenfolge](svg/uebersicht_01_struktur.svg)
+
 | # | Datei | Inhalt |
 |---|---|---|
 | 1 | [installation_und_setup.md](installation_und_setup.md) | Positionierung, Historie, Installation (npm/brew/cargo), Auth (ChatGPT/API-Key/Provider), Modelle, `~/.codex/`-Layout, AGENTS.md-Precedence, Hello-World. |
@@ -21,6 +23,8 @@ Diese Sammlung dokumentiert **OpenAI Codex CLI** (`@openai/codex`, Open-Source-R
 | 11 | [_quellen.md](_quellen.md) | Gruppierte Quellenliste aller verwendeten Web-Recherchen, versioniert mit Datum. |
 
 ## Lesepfade
+
+![Metro-Plan mit fünf Persona-Linien Quickstart, Team-Produktiv, CI/CD, Lebenszyklus und Senior/SDK durch die Codex-CLI-Dokumentation](svg/uebersicht_02_lesepfade.svg)
 
 ### "Ich will Codex heute abend zum Laufen bringen"
 
@@ -55,6 +59,8 @@ Diese Sammlung dokumentiert **OpenAI Codex CLI** (`@openai/codex`, Open-Source-R
 
 ## Kurz-Zusammenfassung
 
+![Hexagon-Mindmap mit sechs Kernaussagen um einen Codex-CLI-Kern: Rust Apache-2.0, drei Säulen, zentrale Config, Integrationen, Lebenszyklus, Prompt=Programm](svg/uebersicht_03_kurz_zusammenfassung.svg)
+
 - **Codex CLI** ist OpenAIs offener Coding-Agent (Rust, Apache-2.0). Default-Modell seit 02/2026: **GPT-5.3-Codex**.
 - **Sicherheit** ruht auf drei Säulen: **Approval-Policy × Sandbox-Mode × Workspace-Trust**. Kernel-Sandboxes (Seatbelt/Landlock/AppContainer) schützen selbst bei Prompt-Injection.
 - **Konfiguration** zentral in `~/.codex/config.toml` + `AGENTS.md` + `skills/` im Repo. Profile decken Szenarien ab (daily, planning, review, ci, local).
@@ -63,6 +69,8 @@ Diese Sammlung dokumentiert **OpenAI Codex CLI** (`@openai/codex`, Open-Source-R
 - **Prinzip**: *Prompt = Programm.* Kontext-Engineering (AGENTS.md + Skills + Tests) skaliert besser als Prompt-Raffinesse.
 
 ## Forschungs-Meta
+
+![Horizontale Destille mit drei Lanes Input, Methodik und Output zeigt Primärquellen, Sub-Agents, Filterstufen und strukturierte Artefakte im agent_doc-Verzeichnis](svg/uebersicht_04_forschungs_meta.svg)
 
 - **Arbeitssprache**: Deutsch, Fachbegriffe englisch.
 - **Quellen**: `_quellen.md`, gruppiert nach Suchstring, jede Quelle mit URL, Zusammenfassung und Datum (2026-04-16).
