@@ -6,7 +6,7 @@ nav_order: 1
 
 # Agentic Engineering Research
 
-Dieses Wiki dokumentiert Prinzipien, Patterns und Best Practices fuer Agentic Engineering, Deep Researches zur COBOL-Migration mit AWS und zur GitHub Copilot CLI -- basierend auf einer agentengestuetzten Recherche von ueber **450 Quellen** (Stand: April 2026).
+Dieses Wiki dokumentiert Prinzipien, Patterns und Best Practices fuer Agentic Engineering, Deep Researches zur COBOL-Migration mit AWS, zur GitHub Copilot CLI und zur OpenAI Codex CLI -- basierend auf einer agentengestuetzten Recherche von ueber **550 Quellen** (Stand: April 2026).
 
 > **Hinweis zur Erstellung:** Saemtliche Inhalte dieses Wikis wurden vollstaendig agentengestuetzt mit **[Claude Code](https://claude.com/claude-code)** erstellt. Es handelt sich ausschliesslich um Ergebnisse einer Deep Research und ein **menschliches Review hat nicht stattgefunden**. Alle Aussagen, Empfehlungen und Quellenangaben sollten daher kritisch gegengeprueft werden, bevor sie in produktiven Kontexten verwendet werden.
 
@@ -155,6 +155,27 @@ Deep Research zur Migration von PL/I-Anwendungen nach Java mit AWS-Tooling und A
 | 06 | [Best Practices](PTJ-06-Best-Practices) | Anti-Patterns, goldene Regeln, Security |
 | 07 | [Erweiterter Loesungshorizont](PTJ-07-Loesungshorizont) | Alternativen jenseits von AWS, 7 Rs, Koexistenz |
 | -- | [Quellen](PTJ-Quellen) | Alle Recherche-Quellen |
+
+---
+
+## Codex CLI
+
+Deep Research zur OpenAI Codex CLI (`codex`): Coding Agent im Terminal mit TUI und Headless-Modus, kernel-basiertem Sandboxing, Approval-Matrix, Konfiguration ueber `~/.codex/config.toml`, MCP-Integration, IDE/CI-Anbindung und Cloud-Tasks (Stand: April 2026).
+
+| Nr. | Kapitel | Inhalt |
+|-----|---------|--------|
+| 00 | [Uebersicht](CDX-00-Uebersicht) | Struktur, Lesepfade, Kurz-Zusammenfassung, Forschungs-Meta |
+| 01 | [Installation und Setup](CDX-01-Installation-und-Setup) | Was ist Codex, Historie, Installation, Authentifizierung, Modelle, Hello World |
+| 02 | [Feature Uebersicht](CDX-02-Feature-Uebersicht) | Laufmodi, Slash-Commands, Flags, Kontext, Tools, MCP, GitHub, Notify-Hooks |
+| 03 | [Konfiguration und Anpassung](CDX-03-Konfiguration-und-Anpassung) | `~/.codex/config.toml`, Profile, Sandbox-Policies, Custom Prompts und Skills |
+| 04 | [Sicherheit und Sandboxing](CDX-04-Sicherheit-und-Sandboxing) | Approval/Sandbox-Matrix, Kernel-Sandbox, Workspace Trust, Prompt Injection, Enterprise-Governance |
+| 05 | [Integrationen IDE und CI/CD](CDX-05-Integrationen-IDE-CI-CD) | IDE-Extension, Codex Cloud, GitHub-Integration, MCP, Notify-Hooks, Plugins, Beispiel-Setups |
+| 06 | [Entwicklungs-Lebenszyklus](CDX-06-Entwicklungs-Lebenszyklus) | 10 Phasen von Idee bis Wartung, Multi-Agent-Skizze, Greenfield-Beispiel |
+| 07 | [Praktische Workflows](CDX-07-Praktische-Workflows) | 18 Workflows: Ticket-Style, TDD-Loop, Bug-Repro, Security-Review, Cloud-Multi-Hour, Lokale OSS-Modelle |
+| 08 | [Senior Developer Guide](CDX-08-Senior-Developer-Guide) | Codex SDK, Sub-Agents, Agents-SDK-Integration, Advanced Prompting, Observability, CI/CD, Anti-Patterns |
+| 09 | [Vergleich zu Alternativen](CDX-09-Vergleich-zu-Alternativen) | Positionierungs-Matrix, Sandbox-Vergleich, Benchmarks, Hybridnutzung, Migrationspfade |
+| 10 | [Cheat Sheet](CDX-10-Cheat-Sheet) | Druckreife Kurzreferenz: Install, Befehle, Flags, Slash-Commands, Tastatur, Notify-Payload, Modi |
+| -- | [Quellen](CDX-Quellen) | Alle Recherche-Quellen |
 
 ---
 

@@ -31,6 +31,7 @@ SSF_SRC="${MAIN_REPO_DIR}/agent_doc/skill_systeme_frameworks"
 CMA_SRC="${MAIN_REPO_DIR}/agent_doc/cobol-migration_aws"
 GCC_SRC="${MAIN_REPO_DIR}/agent_doc/github_copilot_cli"
 PTJ_SRC="${MAIN_REPO_DIR}/agent_doc/pl1_to_java"
+CDX_SRC="${MAIN_REPO_DIR}/agent_doc/codex_cli"
 TEMPLATES="${MAIN_REPO_DIR}/scripts/wiki-templates"
 
 # --- Pages-Verzeichnis vorbereiten ---
@@ -81,6 +82,7 @@ convert_svgs "$SZH_SRC" "szh"
 convert_svgs "$CMA_SRC" "cma"
 convert_svgs "$GCC_SRC" "gcc"
 convert_svgs "$PTJ_SRC" "ptj"
+convert_svgs "$CDX_SRC" "cdx"
 
 # ============================================================================
 # Hilfsfunktion: Front-Matter voranstellen und SVG-Refs ersetzen
@@ -441,6 +443,108 @@ _quellen.md:PTJ-Quellen:9:Quellen
 PTJ_EOF
 
 # ============================================================================
+# CDX-Dateien transformieren (Codex CLI)
+# ============================================================================
+echo ""
+echo "=== CDX-Dateien transformieren ==="
+
+# Kombinierte Form [`xxx.md`](xxx.md) -> [xxx](CDX-NN-XXX) (muss VOR Einzelpatterns laufen)
+CDX_COMBO_SED=""
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`uebersicht\\.md\`\\](uebersicht\\.md)|[uebersicht](CDX-00-Uebersicht)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`installation_und_setup\\.md\`\\](installation_und_setup\\.md)|[installation_und_setup](CDX-01-Installation-und-Setup)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`feature_uebersicht\\.md\`\\](feature_uebersicht\\.md)|[feature_uebersicht](CDX-02-Feature-Uebersicht)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`konfiguration_und_anpassung\\.md\`\\](konfiguration_und_anpassung\\.md)|[konfiguration_und_anpassung](CDX-03-Konfiguration-und-Anpassung)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`sicherheit_und_sandboxing\\.md\`\\](sicherheit_und_sandboxing\\.md)|[sicherheit_und_sandboxing](CDX-04-Sicherheit-und-Sandboxing)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`integrationen_ide_ci_cd\\.md\`\\](integrationen_ide_ci_cd\\.md)|[integrationen_ide_ci_cd](CDX-05-Integrationen-IDE-CI-CD)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`entwicklungs_lebenszyklus\\.md\`\\](entwicklungs_lebenszyklus\\.md)|[entwicklungs_lebenszyklus](CDX-06-Entwicklungs-Lebenszyklus)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`praktische_workflows\\.md\`\\](praktische_workflows\\.md)|[praktische_workflows](CDX-07-Praktische-Workflows)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`senior_developer_guide\\.md\`\\](senior_developer_guide\\.md)|[senior_developer_guide](CDX-08-Senior-Developer-Guide)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`vergleich_zu_alternativen\\.md\`\\](vergleich_zu_alternativen\\.md)|[vergleich_zu_alternativen](CDX-09-Vergleich-zu-Alternativen)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[\`cheat_sheet\\.md\`\\](cheat_sheet\\.md)|[cheat_sheet](CDX-10-Cheat-Sheet)|g"
+# Kombinierte Form ohne Backticks: [xxx.md](xxx.md) -> [xxx](CDX-NN-XXX)
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[uebersicht\\.md\\](uebersicht\\.md)|[uebersicht](CDX-00-Uebersicht)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[installation_und_setup\\.md\\](installation_und_setup\\.md)|[installation_und_setup](CDX-01-Installation-und-Setup)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[feature_uebersicht\\.md\\](feature_uebersicht\\.md)|[feature_uebersicht](CDX-02-Feature-Uebersicht)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[konfiguration_und_anpassung\\.md\\](konfiguration_und_anpassung\\.md)|[konfiguration_und_anpassung](CDX-03-Konfiguration-und-Anpassung)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[sicherheit_und_sandboxing\\.md\\](sicherheit_und_sandboxing\\.md)|[sicherheit_und_sandboxing](CDX-04-Sicherheit-und-Sandboxing)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[integrationen_ide_ci_cd\\.md\\](integrationen_ide_ci_cd\\.md)|[integrationen_ide_ci_cd](CDX-05-Integrationen-IDE-CI-CD)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[entwicklungs_lebenszyklus\\.md\\](entwicklungs_lebenszyklus\\.md)|[entwicklungs_lebenszyklus](CDX-06-Entwicklungs-Lebenszyklus)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[praktische_workflows\\.md\\](praktische_workflows\\.md)|[praktische_workflows](CDX-07-Praktische-Workflows)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[senior_developer_guide\\.md\\](senior_developer_guide\\.md)|[senior_developer_guide](CDX-08-Senior-Developer-Guide)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[vergleich_zu_alternativen\\.md\\](vergleich_zu_alternativen\\.md)|[vergleich_zu_alternativen](CDX-09-Vergleich-zu-Alternativen)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[cheat_sheet\\.md\\](cheat_sheet\\.md)|[cheat_sheet](CDX-10-Cheat-Sheet)|g"
+CDX_COMBO_SED="$CDX_COMBO_SED -e s|\\[_quellen\\.md\\](_quellen\\.md)|[_quellen](CDX-Quellen)|g"
+
+# Backtick-Referenzen -> Standard-Markdown-Links
+CDX_BTICK_SED=""
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`uebersicht\\.md\`|[uebersicht](CDX-00-Uebersicht)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`installation_und_setup\\.md\`|[installation_und_setup](CDX-01-Installation-und-Setup)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`feature_uebersicht\\.md\`|[feature_uebersicht](CDX-02-Feature-Uebersicht)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`konfiguration_und_anpassung\\.md\`|[konfiguration_und_anpassung](CDX-03-Konfiguration-und-Anpassung)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`sicherheit_und_sandboxing\\.md\`|[sicherheit_und_sandboxing](CDX-04-Sicherheit-und-Sandboxing)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`integrationen_ide_ci_cd\\.md\`|[integrationen_ide_ci_cd](CDX-05-Integrationen-IDE-CI-CD)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`entwicklungs_lebenszyklus\\.md\`|[entwicklungs_lebenszyklus](CDX-06-Entwicklungs-Lebenszyklus)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`praktische_workflows\\.md\`|[praktische_workflows](CDX-07-Praktische-Workflows)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`senior_developer_guide\\.md\`|[senior_developer_guide](CDX-08-Senior-Developer-Guide)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`vergleich_zu_alternativen\\.md\`|[vergleich_zu_alternativen](CDX-09-Vergleich-zu-Alternativen)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`cheat_sheet\\.md\`|[cheat_sheet](CDX-10-Cheat-Sheet)|g"
+CDX_BTICK_SED="$CDX_BTICK_SED -e s|\`_quellen\\.md\`|[_quellen](CDX-Quellen)|g"
+
+# Direkte Markdown-Link-Refs (mit oder ohne Backtick-Linktext)
+CDX_LINK_SED=""
+CDX_LINK_SED="$CDX_LINK_SED -e s|](uebersicht\\.md)|](CDX-00-Uebersicht)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](installation_und_setup\\.md)|](CDX-01-Installation-und-Setup)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](feature_uebersicht\\.md)|](CDX-02-Feature-Uebersicht)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](konfiguration_und_anpassung\\.md)|](CDX-03-Konfiguration-und-Anpassung)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](sicherheit_und_sandboxing\\.md)|](CDX-04-Sicherheit-und-Sandboxing)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](integrationen_ide_ci_cd\\.md)|](CDX-05-Integrationen-IDE-CI-CD)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](entwicklungs_lebenszyklus\\.md)|](CDX-06-Entwicklungs-Lebenszyklus)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](praktische_workflows\\.md)|](CDX-07-Praktische-Workflows)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](senior_developer_guide\\.md)|](CDX-08-Senior-Developer-Guide)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](vergleich_zu_alternativen\\.md)|](CDX-09-Vergleich-zu-Alternativen)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](cheat_sheet\\.md)|](CDX-10-Cheat-Sheet)|g"
+CDX_LINK_SED="$CDX_LINK_SED -e s|](_quellen\\.md)|](CDX-Quellen)|g"
+
+while IFS=: read -r src_file dest_name nav_order title; do
+    [[ -z "$src_file" ]] && continue
+
+    front_matter="---
+title: \"${title}\"
+parent: \"Codex CLI\"
+nav_order: ${nav_order}
+---"
+
+    transform_file "${CDX_SRC}/${src_file}" "${PAGES_DIR}/${dest_name}.md" "cdx" "$front_matter"
+
+    # Kombinierte [`xxx.md`](xxx.md)-Form zuerst
+    sed -i '' $CDX_COMBO_SED "${PAGES_DIR}/${dest_name}.md" 2>/dev/null || \
+    sed -i    $CDX_COMBO_SED "${PAGES_DIR}/${dest_name}.md"
+
+    # Backtick-Referenzen umschreiben
+    sed -i '' $CDX_BTICK_SED "${PAGES_DIR}/${dest_name}.md" 2>/dev/null || \
+    sed -i    $CDX_BTICK_SED "${PAGES_DIR}/${dest_name}.md"
+
+    # Direkte Markdown-Link-Refs umschreiben
+    sed -i '' $CDX_LINK_SED "${PAGES_DIR}/${dest_name}.md" 2>/dev/null || \
+    sed -i    $CDX_LINK_SED "${PAGES_DIR}/${dest_name}.md"
+
+    echo "  ${src_file} -> ${dest_name}.md"
+done <<'CDX_EOF'
+uebersicht.md:CDX-00-Uebersicht:1:Uebersicht
+installation_und_setup.md:CDX-01-Installation-und-Setup:2:01 Installation und Setup
+feature_uebersicht.md:CDX-02-Feature-Uebersicht:3:02 Feature Uebersicht
+konfiguration_und_anpassung.md:CDX-03-Konfiguration-und-Anpassung:4:03 Konfiguration und Anpassung
+sicherheit_und_sandboxing.md:CDX-04-Sicherheit-und-Sandboxing:5:04 Sicherheit und Sandboxing
+integrationen_ide_ci_cd.md:CDX-05-Integrationen-IDE-CI-CD:6:05 Integrationen IDE und CI/CD
+entwicklungs_lebenszyklus.md:CDX-06-Entwicklungs-Lebenszyklus:7:06 Entwicklungs-Lebenszyklus
+praktische_workflows.md:CDX-07-Praktische-Workflows:8:07 Praktische Workflows
+senior_developer_guide.md:CDX-08-Senior-Developer-Guide:9:08 Senior Developer Guide
+vergleich_zu_alternativen.md:CDX-09-Vergleich-zu-Alternativen:10:09 Vergleich zu Alternativen
+cheat_sheet.md:CDX-10-Cheat-Sheet:11:10 Cheat Sheet
+_quellen.md:CDX-Quellen:12:Quellen
+CDX_EOF
+
+# ============================================================================
 # Templates kopieren
 # ============================================================================
 echo ""
@@ -454,6 +558,7 @@ cp "$TEMPLATES/skill-systeme-frameworks.md"     "$PAGES_DIR/skill-systeme-framew
 cp "$TEMPLATES/cobol-migration-aws.md"          "$PAGES_DIR/cobol-migration-aws.md"
 cp "$TEMPLATES/github-copilot-cli.md"           "$PAGES_DIR/github-copilot-cli.md"
 cp "$TEMPLATES/pl1-to-java.md"                 "$PAGES_DIR/pl1-to-java.md"
+cp "$TEMPLATES/codex-cli.md"                    "$PAGES_DIR/codex-cli.md"
 cp "$TEMPLATES/workflow.svg"                    "$PAGES_IMAGES/workflow.svg"
 rsvg-convert -w 1400 "$TEMPLATES/workflow.svg" -o "$PAGES_IMAGES/workflow.png"
 echo "  index.md, _config.yml, Sektions-Seiten, workflow.svg/png kopiert"
@@ -482,7 +587,7 @@ else
     if git diff --cached --quiet; then
         echo "Keine Aenderungen — nichts zu publizieren."
     else
-        git commit -m "Sync von agent_doc/ — AEP, TUMR, SZH, SSF, CMA, GCC, PTJ ($(date +%Y-%m-%d))"
+        git commit -m "Sync von agent_doc/ — AEP, TUMR, SZH, SSF, CMA, GCC, PTJ, CDX ($(date +%Y-%m-%d))"
         git push
         echo "GitHub Pages erfolgreich aktualisiert."
     fi
