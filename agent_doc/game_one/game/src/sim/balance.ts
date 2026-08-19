@@ -36,12 +36,17 @@ export const KERN: Record<
     name: string;
   }
 > = {
+  // Der kleine Kern muss bei LEICHTEN Auftraegen wirklich ausreichen, sonst
+  // ist Routing (Akt II) oekonomisch sinnlos und das Spiel lehrt "nimm immer
+  // das groesste Modell". Deckel und Wirkung sind deshalb so gesetzt, dass
+  // zwei KOLIBRI-Aufrufe bei einem leichten Auftrag auf ein Zehntel an einen
+  // KONDOR-Aufruf herankommen — zum Achtel des Preises.
   kolibri: {
     kosten: 40,
     dauer: 1,
     kompetenz: 0.35,
-    basisDeckel: 0.8,
-    wirkung: 0.55,
+    basisDeckel: 0.86,
+    wirkung: 0.63,
     kontextLast: 0.06,
     anfaelligkeit: 0.9,
     streuung: 0.07,
@@ -51,8 +56,8 @@ export const KERN: Record<
     kosten: 160,
     dauer: 2,
     kompetenz: 0.62,
-    basisDeckel: 0.92,
-    wirkung: 0.7,
+    basisDeckel: 0.93,
+    wirkung: 0.72,
     kontextLast: 0.1,
     anfaelligkeit: 0.75,
     streuung: 0.05,
@@ -185,6 +190,25 @@ export const SPEICHER = {
   komprimieren: { kosten: 25, dauer: 1, kontextFaktor: 0.35, gueteVerlust: 0.03 },
   abrufen: { kosten: 40, dauer: 2, kontextLast: 0.1, klaerung: 0.3, deckelBonus: 0.06 },
   isolieren: { kosten: 10, dauer: 1, kontextDeckel: 0.15, unsicherheitZuschlag: 0.1 },
+  /** Prompt-Caching: einmal teuer schreiben, danach zehnmal billig lesen. */
+  puffern: { dauer: 1, schreibFaktor: 1.25, kosten: 8 },
+};
+
+/**
+ * Werkzeug-Fixkosten. Jedes passierte Werkzeug liegt danach als
+ * Definitionsblock im Kontext und wird bei jedem weiteren Kern-Aufruf
+ * mitbezahlt. Ein Multi-MCP-Setup verbraucht real zehntausende Token allein
+ * an Tool-Definitionen — hier auf Spielgroessen skaliert.
+ */
+export const WERKZEUG_DEFINITION_TOKEN = 40;
+/** Ab so vielen gesehenen Werkzeugen sinkt die Trefferquote der Werkzeugwahl. */
+export const WERKZEUG_AUSWAHL_SCHWELLE = 4;
+export const WERKZEUG_FEHLWAHL_JE_UEBERSCHUSS = 0.06;
+
+/** Prompt-Caching (siehe SPEICHER.puffern). */
+export const CACHE = {
+  /** Anteil des Kontextpreises, den zwischengespeicherter Kontext noch kostet. */
+  leseFaktor: 0.1,
 };
 export const SICHERUNG = { kosten: 3, dauer: 1 };
 export const HAND = {

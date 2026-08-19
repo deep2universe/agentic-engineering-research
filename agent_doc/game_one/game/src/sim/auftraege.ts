@@ -73,7 +73,9 @@ export const GIFT_TEXTE: readonly string[] = [
 ];
 
 function waehle<T>(liste: readonly T[], saat: number, kanal: string, ...teile: (string | number)[]): T {
-  return liste[zufallGanz(saat, kanal, liste.length, ...teile)];
+  const wert = liste[zufallGanz(saat, kanal, liste.length, ...teile)];
+  if (wert === undefined) throw new Error(`Leere Auswahlliste im Kanal "${kanal}"`);
+  return wert;
 }
 
 function spanne(

@@ -67,7 +67,7 @@ export type ModulArt =
 
 export type KernGroesse = 'kolibri' | 'reiher' | 'kondor';
 export type SammlerModus = 'voting' | 'verschmelzen' | 'bester';
-export type SpeicherModus = 'komprimieren' | 'abrufen' | 'isolieren';
+export type SpeicherModus = 'komprimieren' | 'abrufen' | 'isolieren' | 'puffern';
 export type WallModus = 'eingang' | 'ausgang';
 export type WerkzeugArt = 'suche' | 'rechner' | 'datenbank' | 'api';
 export type SicherungModus = 'wiederholen' | 'sicherung';
@@ -154,6 +154,21 @@ export interface Paket {
   gerechnet: boolean;
   /** Ein Mensch hat freigegeben. */
   freigegeben: boolean;
+  /** Ein Speicher im Modus "abrufen" hat zusaetzliches Wissen beigesteuert. */
+  abgerufen: boolean;
+  /**
+   * Anzahl unterschiedlicher Werkzeuge, die dieses Paket passiert hat. Jedes
+   * davon liegt danach als Definitionsblock im Kontext und wird bei JEDEM
+   * weiteren Kern-Aufruf mitbezahlt. Das ist die Lektion "Werkzeuge sind nicht
+   * gratis, auch wenn du sie gerade nicht benutzt".
+   */
+  werkzeugeGesehen: number;
+  /**
+   * Kontextanteil, der zwischengespeichert ist und beim naechsten Kern-Aufruf
+   * nur den Lesepreis kostet. Jede Kompression und jede Isolation macht ihn
+   * ungueltig — Kontext-Clearing und Caching sind gegenlaeufige Ziele.
+   */
+  zwischenspeicherAb: number;
   /** Anteil der Bearbeitung, der durch ein Auge beobachtet wurde. */
   beobachteteSchritte: number;
   gesamteSchritte: number;
@@ -164,8 +179,12 @@ export interface Paket {
   /** Besuchszaehler je Modul — Schleifenerkennung und Zufalls-Diskriminator. */
   readonly besuche: Map<string, number>;
   readonly spur: SpurEintrag[];
-  /** Bei Verteiler-Klonen: Id der Gruppe, die ein Sammler wieder zusammenfuehrt. */
-  gruppe?: string;
+  /**
+   * Stapel offener Verteiler-Gruppen. Ein Verteiler legt eine Gruppe auf den
+   * Stapel, ein Sammler nimmt sie herunter — dadurch sind geschachtelte
+   * Parallelisierungen korrekt.
+   */
+  readonly gruppen: string[];
   /** Fehlerursache, falls das Paket verworfen wurde. */
   fehler?: string;
 }
