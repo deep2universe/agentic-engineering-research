@@ -114,6 +114,26 @@ Debug-Schnittstelle im ausgelieferten Bündel absichtlich wegoptimiert ist. Dass
 sie dort tatsächlich fehlt, prüft `tests/einheit/auslieferung.test.ts` gegen die
 echten gebauten Dateien.
 
+### 5b. Erzählfluss, Schmiede und das ausgelieferte Bündel
+
+`tests/e2e/erzaehlung.spec.ts` ist der einzige Ort, an dem geprüft wird, was
+eine Spielerin tatsächlich sieht, wenn sie von vorn beginnt: Akttafel vor dem
+Auftrag, MONOLITHs Angebot ohne Widerrede, kalter Einstieg genau einmal je Akt,
+mitwachsende Fundstücke, Lesestand über den Levelwechsel hinweg, und beim
+Aktwechsel der Schlusssatz des alten Akts zwischen Ergebnis und nächstem
+Einstieg. Alle anderen Browsertests umgehen die Erzählkanäle bewusst.
+
+`tests/e2e/schmiede.spec.ts` fährt die evolutionäre Suche im echten Browser.
+Die tragende Zusicherung: **Was die Werkbank anzeigt, hält die Simulation.**
+Die Kennzahlen in der Auswahltabelle müssen exakt die sein, die beim
+Durchlaufen herauskommen — sonst würde das Spiel bei der Lektion des Akts
+selbst schummeln.
+
+`tests/e2e/auslieferung.spec.ts` lädt das **gebaute Bündel** über einen zweiten
+Server, ganz ohne Debug-Hilfe. Ein Bündel kann sauber bauen, jede statische
+Prüfung bestehen und beim Laden trotzdem abstürzen; das ist die einzige Stelle,
+an der so ein Fehler auffällt, bevor ihn jemand meldet.
+
 ### 6. Bedienbarkeit und Bild
 
 `tests/e2e/bedienung.spec.ts`, `tests/e2e/bild_und_leistung.spec.ts`
@@ -134,7 +154,32 @@ echten gebauten Dateien.
 
 ---
 
-## Zwei Lehren aus der Produktion
+### 7. Verträge zwischen zwei Dateien
+
+`tests/einheit/oberflaeche.test.ts` prüft Zusagen, die keine einzelne Datei
+verletzen kann, weil beide Seiten für sich richtig sind:
+
+- Jede im HUD vergebene CSS-Klasse und Kennung hat eine Regel im Stylesheet und
+  ist reines ASCII.
+- Jedes baubare Modul hat genau ein Tastenkürzel, keines doppelt, und keines
+  kollidiert mit einem Befehl der Tastaturbelegung.
+
+Der zweite Punkt hat einen Fehler aufgedeckt, den kein bestehender Test finden
+konnte: Die Palette zeigte zu jedem Modul ein Kürzel, und **nicht ein einziges**
+davon war für dieses Modul belegt — die Ziffern gehörten den Modi, `H` der
+Kameraübersicht, `T` dem Spur-Overlay, `E` dem Blättern in der Palette.
+Tastaturbelegung und Palette waren jede für sich vollständig und
+widerspruchsfrei. Der Fehler lag ausschließlich zwischen ihnen.
+
+---
+
+## Drei Lehren aus der Produktion
+
+### Ein Fehler kann zwischen zwei richtigen Dateien liegen
+
+Siehe oben. Wo zwei Seiten einander etwas versprechen — HUD und Stylesheet,
+Palette und Tastatur, Werkbank und Simulation — gehört der Vertrag selbst
+geprüft, nicht nur jede Seite für sich.
 
 ### Der Bildvergleich hat eine gefährliche Toleranz
 
