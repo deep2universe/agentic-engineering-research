@@ -592,3 +592,98 @@ canvas#leinwand:focus-visible {
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
+
+/* ------------------------------------------------------------- Schmiede --- */
+
+/*
+ * Die Werkbank ist ein Formular, kein Spielmenue. Sie ist breiter als die
+ * uebrigen Blaetter, weil sie eine Vergleichstabelle traegt — und eine
+ * Vergleichstabelle mit Umbruch vergleicht nichts mehr.
+ */
+.blatt.schmiede {
+  max-width: 78ch;
+}
+
+.blatt.schmiede h2 {
+  font-size: 0.82rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-leise);
+  margin: 22px 0 8px;
+}
+
+.blatt .schalter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.blatt button.schalt {
+  background: transparent;
+  border: 1px solid var(--rand);
+  border-radius: 999px;
+  color: var(--text-leise);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.blatt button.schalt[aria-pressed='true'] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Ziel und Bedingung sind zwei verschiedene Zusagen und sehen verschieden aus:
+   ein Ziel treibt (blau), eine Bedingung haelt (gruen). */
+.blatt button.schalt[data-marke='ziel'] {
+  border-color: var(--leit);
+  background: rgba(126, 232, 250, 0.14);
+}
+
+.blatt button.schalt[data-marke='bedingung'] {
+  border-color: var(--gut);
+  background: rgba(99, 214, 154, 0.14);
+}
+
+.blatt label.regler {
+  display: grid;
+  grid-template-columns: 11ch 1fr 4ch;
+  align-items: center;
+  gap: 12px;
+  margin: 6px 0;
+  font-size: 0.9rem;
+  color: var(--text-leise);
+}
+
+.blatt label.regler input[type='range'] {
+  accent-color: var(--leit);
+  width: 100%;
+}
+
+.blatt label.regler .zahl {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.blatt .frage.warnung {
+  color: var(--warn);
+  border-left-color: var(--warn);
+  font-style: normal;
+}
+
+/* Die Ausgangszeile ist der Bezugspunkt jeder Aussage und bleibt deshalb
+   optisch von den Funden getrennt. */
+.blatt tr.ausgang td {
+  color: var(--text-leise);
+  border-bottom: 1px solid var(--rand);
+}
+
+.blatt.schmiede table button {
+  padding: 4px 10px;
+  font-size: 0.82rem;
+}

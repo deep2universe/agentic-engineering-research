@@ -23,6 +23,8 @@ import { befehlFuer, type Befehl } from '../ui/keymap';
 import { BauZustand } from './bauzustand';
 import { Erzaehlung } from './erzaehlung';
 import { Klangregie } from './klangregie';
+import { Schmiedebank } from './schmiedebank';
+import { METRIK_NAME, hatSchmiede, schmiedeAufgabeAus } from './schmiede_aufgabe';
 import { Simulation } from '../sim/simulation';
 import { bewerte, type Bewertung } from '../sim/ziele';
 import { AKTE, ALLE_LEVEL, naechstesLevel } from '../inhalt/kampagne';
@@ -91,6 +93,8 @@ export class Spiel {
   private tafelDann: (() => void) | null = null;
   private readonly strahl = new THREE.Raycaster();
   private readonly fokusring: Fokusring;
+  /** Die Werkbank des laufenden Levels. Entsteht erst, wenn eine Schmiede steht. */
+  private bank: Schmiedebank | null = null;
 
   private constructor(renderwerk: Renderwerk, opt: SpielOptionen, start: LevelDefinition) {
     this.renderwerk = renderwerk;
@@ -144,11 +148,11 @@ export class Spiel {
 
     if (opt.reduzierteBewegung === true) this.setzeReduzierteBewegung(true);
     /*
-     * Der Fokusring haelt die Tabulatortaste im Spiel. Ohne ihn faellt der
+     * Der Fokusring hält die Tabulatortaste im Spiel. Ohne ihn fällt der
      * Fokus nach wenigen Tabs auf <body>, und wer ohne Maus arbeitet, steht
      * vor einer Leinwand, die auf nichts mehr reagiert.
      */
-    // Der Ring umfasst den ganzen Seitenkoerper, nicht nur das HUD: die
+    // Der Ring umfasst den ganzen Seitenkörper, nicht nur das HUD: die
     // Leinwand ist selbst fokussierbar (role="application") und muss in der
     // Tabfolge liegen, sonst ist der Bauplatz mit der Tastatur unerreichbar.
     this.fokusring = new Fokusring(opt.leinwand.ownerDocument.body, () => this.hud.offenerDialog());
@@ -186,6 +190,7 @@ export class Spiel {
     this.ansicht.setzeWerk(this.bau.werk());
     this.auswahl = [];
     this.leitungsStart = null;
+    this.bank = null;
     this.phase = 'briefing';
 
     const akt = AKTE.find((a) => a.nummer === level.akt);
@@ -505,9 +510,12 @@ export class Spiel {
   }
 
   private aktualisiereSchattenbaum(): void {
-    // Die Modulzahl im HUD haengt am Bau, nicht am Lauf — sie muss sich also
+    // Die Modulzahl im HUD hängt am Bau, nicht am Lauf — sie muss sich also
     // mit jedem gesetzten und jedem abgerissenen Modul mitbewegen.
     if (this.sim === null) this.hud.zeigeMetriken(this.leereMetriken(), this.level);
+    // Die Werkbank hängt an einem konkreten Werk. Wer umbaut, sucht neu —
+    // ein Ergebnis, das zu einem anderen Bau gehört, wäre schlicht falsch.
+    this.bank = null;
     const w = this.bau.werk();
     this.hud.aktualisiereSchattenbaum(
       w.module.map((m) => ({
@@ -605,7 +613,10 @@ export class Spiel {
       // Enter bestätigt den offenen Dialog — Tafel zuerst, sie liegt oben.
       if (befehl === 'setzen') {
         if (this.hud.akttafelOffen) this.tafelGeschlossen();
-        else {
+        else if (this.hud.schmiedeOffen) {
+          // Enter im Formular startet die Suche; Schließen geht über Escape.
+          this.sucheInDerSchmiede();
+        } else {
           this.hud.schliesseFundstueck();
           this.hud.schliesseBriefing();
           if (this.phase === 'briefing') this.phase = 'bauen';
@@ -707,6 +718,9 @@ export class Spiel {
         this.klang.spiele('seite_blaettern');
         break;
       }
+      case 'schmiede':
+        this.oeffneSchmiede();
+        break;
       case 'ton': {
         const stumm = !this.klang.stumm;
         this.klang.setzeStumm(stumm);
@@ -721,6 +735,7 @@ export class Spiel {
         if (this.hud.dialogOffen) {
           this.hud.schliesseHilfe();
           this.hud.schliesseFundstueck();
+          this.hud.schliesseSchmiede();
           this.hud.schliesseBriefing();
           if (this.phase === 'briefing') this.phase = 'bauen';
           break;
@@ -870,6 +885,119 @@ export class Spiel {
 
   setzeTemporalModus(m: TemporalModus): void {
     this.renderwerk.setzeTemporalModus(m);
+  }
+
+  // -------------------------------------------------------------------------
+  // Schmiede
+  // -------------------------------------------------------------------------
+
+  /**
+   * Öffnet die Werkbank der Schmiede.
+   *
+   * Sie steht nur zur Verfügung, wenn eine SCHMIEDE im Werk steht. Das ist der
+   * ganze Preis der Mechanik: ein Bauplatz. Der Suchapparat kostet keinen
+   * Token und keinen Tick — er ist Gemeinkosten, nicht Produktion.
+   */
+  oeffneSchmiede(): boolean {
+    if (!hatSchmiede(this.bau.werk())) {
+      this.hud.melde('Dafür braucht es eine SCHMIEDE im Werk.', 'fehler');
+      this.klang.spiele('ui_fehler');
+      return false;
+    }
+    if (this.phase === 'simulation') {
+      this.hud.melde('Die Schmiede sucht nur zwischen den Läufen.', 'fehler');
+      this.klang.spiele('ui_fehler');
+      return false;
+    }
+    this.bank ??= new Schmiedebank(
+      schmiedeAufgabeAus(this.level),
+      this.bau.werk(),
+      this.level.strom,
+      this.level.saat
+    );
+    this.zeichneSchmiede();
+    this.klang.spiele('notiz_beginn');
+    return true;
+  }
+
+  /** Zeichnet die Werkbank aus dem aktuellen Bankzustand neu. */
+  private zeichneSchmiede(): void {
+    const bank = this.bank;
+    if (!bank) return;
+    const aufgabe = schmiedeAufgabeAus(this.level);
+    const z = bank.zustand();
+    const lauf = bank.lauf;
+    this.hud.zeigeSchmiede({
+      hinweis: aufgabe.hinweis,
+      maxZiele: aufgabe.maxZiele,
+      ziele: aufgabe.waehlbareZiele.map((x) => ({
+        metrik: x.metrik,
+        name: `${METRIK_NAME[x.metrik] ?? x.metrik} ${x.richtung === 'klein' ? '↓' : '↑'}`,
+        aktiv: z.ziele.some((g) => g.metrik === x.metrik),
+      })),
+      bedingungen: aufgabe.waehlbareBedingungen.map((b) => ({
+        text: b.text,
+        aktiv: z.bedingungen.some((g) => g.text === b.text),
+      })),
+      population: z.population,
+      generationen: z.generationen,
+      auswertungen: bank.geschaetzteAuswertungen(),
+      budget: aufgabe.budget,
+      lauf: lauf
+        ? {
+            ausgang: lauf.ausgang,
+            auswahl: lauf.auswahl.map((x) => x.metriken),
+            warnungen: lauf.ergebnis.warnungen,
+            ausnutzung: lauf.ausnutzung,
+          }
+        : null,
+      aufZiel: (m) => {
+        if (!bank.schalteZiel(m)) {
+          this.hud.melde(`Höchstens ${aufgabe.maxZiele} Ziele. Entscheide dich.`, 'fehler');
+          this.klang.spiele('ui_fehler');
+        }
+        this.zeichneSchmiede();
+      },
+      aufBedingung: (t) => {
+        bank.schalteBedingung(t);
+        this.zeichneSchmiede();
+      },
+      aufAufwand: (p, g) => {
+        bank.setzeAufwand(p, g);
+        this.zeichneSchmiede();
+      },
+      aufSuchen: () => this.sucheInDerSchmiede(),
+      aufUebernehmen: (i) => this.uebernimmAusSchmiede(i),
+    });
+  }
+
+  private sucheInDerSchmiede(): void {
+    const bank = this.bank;
+    if (!bank) return;
+    const bereit = bank.bereit();
+    if (!bereit.ok) {
+      this.hud.melde(bereit.grund, 'fehler', 7000);
+      this.klang.spiele('ui_fehler');
+      return;
+    }
+    const lauf = bank.starte();
+    this.zeichneSchmiede();
+    this.klang.spiele(lauf.auswahl.length > 0 ? 'ziel_erreicht' : 'ui_fehler');
+    this.hud.melde(
+      `${lauf.ergebnis.auswertungen} Anlagen ausgewertet, ${lauf.auswahl.length} zur Wahl.`,
+      lauf.auswahl.length > 0 ? 'gut' : 'fehler',
+      7000
+    );
+  }
+
+  private uebernimmAusSchmiede(index: number): void {
+    const bank = this.bank;
+    const gewaehlt = bank?.lauf?.auswahl[index];
+    if (!bank || !gewaehlt) return;
+    this.ladeWerk(bank.uebernimm(gewaehlt));
+    this.hud.schliesseSchmiede();
+    this.hud.melde(`Anlage "Fund ${index + 1}" übernommen. Jetzt lauf sie einmal.`, 'gut', 7000);
+    this.klang.spiele('level_bestanden', 0.5);
   }
 
   /**

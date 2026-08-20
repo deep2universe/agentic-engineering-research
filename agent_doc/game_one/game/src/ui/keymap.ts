@@ -46,7 +46,8 @@ export type Befehl =
   | 'handbuch'
   | 'hilfe'
   | 'briefing'
-  | 'ton';
+  | 'ton'
+  | 'schmiede';
 
 export interface Bindung {
   readonly befehl: Befehl;
@@ -105,6 +106,7 @@ export const KEYMAP: readonly Bindung[] = [
   { befehl: 'hilfe', taste: '/', anzeige: '/', bereich: 'Allgemein', text: 'Tastenübersicht' },
   { befehl: 'briefing', code: 'KeyB', anzeige: 'B', bereich: 'Allgemein', text: 'Auftrag noch einmal lesen' },
   { befehl: 'ton', code: 'KeyM', anzeige: 'M', bereich: 'Allgemein', text: 'Ton an und aus' },
+  { befehl: 'schmiede', code: 'KeyX', anzeige: 'X', bereich: 'Bauen', text: 'Schmiede öffnen (braucht eine SCHMIEDE im Werk)' },
   { befehl: 'abbrechen', code: 'Escape', anzeige: '⎋', bereich: 'Allgemein', text: 'Abbrechen' },
 ];
 

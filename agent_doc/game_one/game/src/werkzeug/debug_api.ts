@@ -50,6 +50,8 @@ export interface DebugApi {
    */
   klickeFundstueck(id: string): boolean;
   erzaehlZustand(): { einstiege: number[]; aufloesungen: string[]; gelesen: string[] };
+  /** Öffnet die Werkbank der Schmiede. Falsch, wenn keine im Werk steht. */
+  oeffneSchmiede(): boolean;
   entsorge(): void;
 }
 
@@ -73,6 +75,7 @@ export function haengeDebugApiEin(spiel: Spiel): DebugApi {
       // laege sonst vor jedem ersten Level eines Akts im Weg.
       spiel.hud.schliesseAkttafel();
       spiel.hud.schliesseFundstueck();
+      spiel.hud.schliesseSchmiede();
       spiel.hud.schliesseBriefing();
       spiel.phase = 'bauen';
     },
@@ -166,6 +169,7 @@ export function haengeDebugApiEin(spiel: Spiel): DebugApi {
       spiel.hud.schliesseHilfe();
       spiel.hud.schliesseAkttafel();
       spiel.hud.schliesseFundstueck();
+      spiel.hud.schliesseSchmiede();
     },
 
     befehl: (name) => spiel.fuehreBefehlAus(name as never),
@@ -180,6 +184,8 @@ export function haengeDebugApiEin(spiel: Spiel): DebugApi {
     klickeFundstueck: (id) => spiel.klickeFundstueck(id),
 
     erzaehlZustand: () => spiel.erzaehlung.zustand(),
+
+    oeffneSchmiede: () => spiel.oeffneSchmiede(),
 
     entsorge: () => spiel.entsorge(),
   };

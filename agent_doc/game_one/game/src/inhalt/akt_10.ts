@@ -3,7 +3,7 @@
  *
  * Neue Mechanik: das Auge — ein Tracing-Abgriff, der einen Token kostet und
  * keinen einzigen Tick. Es setzt die beobachteten Schritte auf die gesamten
- * Schritte und deckt damit RUECKWAERTS alles ab, was ein Paket bis dorthin
+ * Schritte und deckt damit RÜCKWÄRTS alles ab, was ein Paket bis dorthin
  * durchlaufen hat — und nichts, was danach kommt.
  * Zentrale Lektion: Was du nicht beobachtest, kannst du nicht verantworten.
  *

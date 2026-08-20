@@ -63,6 +63,38 @@ export interface SchmiedeLauf {
   readonly auswahl: readonly Bewertet[];
 }
 
+/**
+ * Macht aus einer Pareto-Front eine ECHTE Auswahl.
+ *
+ * Zwei Dinge passieren hier, und beide sind aus der Bildkontrolle gelernt:
+ *
+ *  1. **Gleiche Anlagen fliegen raus.** Die Suche findet regelmäßig mehrere
+ *     Parametersätze, die sich in den angezeigten Kennzahlen nicht
+ *     unterscheiden. Formal sind das verschiedene Individuen; für die
+ *     Spielerin ist es sechsmal dieselbe Zeile. Eine Auswahlliste, in der vier
+ *     von sechs Einträgen identisch aussehen, ist keine Auswahl.
+ *  2. **Höchstens sechs.** Eine Front mit dreißig Einträgen ist keine
+ *     Entscheidungshilfe, sondern eine zweite Suchaufgabe.
+ */
+function waehlbar(front: readonly Bewertet[]): readonly Bewertet[] {
+  const gesehen = new Set<string>();
+  const raus: Bewertet[] = [];
+  for (const b of front) {
+    const m = b.metriken;
+    const schluessel = [
+      Math.round(m.kostenJeAuftrag),
+      m.latenzP95,
+      m.flaeche,
+      Math.round(m.guete * 100),
+    ].join('/');
+    if (gesehen.has(schluessel)) continue;
+    gesehen.add(schluessel);
+    raus.push(b);
+    if (raus.length === 6) break;
+  }
+  return raus;
+}
+
 export class Schmiedebank {
   private zieleGesetzt: EvoZiel[] = [];
   private bedingungenGesetzt: EvoBedingung[] = [];
@@ -175,9 +207,7 @@ export class Schmiedebank {
       ergebnis,
       ausgang,
       ausnutzung: erkenneAusnutzung(ergebnis.bester, ausgang),
-      // Höchstens sechs zur Auswahl. Eine Front mit dreißig Einträgen ist
-      // keine Entscheidungshilfe, sondern eine zweite Suchaufgabe.
-      auswahl: ergebnis.front.slice(0, 6),
+      auswahl: waehlbar(ergebnis.front),
     };
     this.letzterLauf = lauf;
     return lauf;

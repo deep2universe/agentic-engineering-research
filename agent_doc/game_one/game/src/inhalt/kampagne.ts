@@ -17,6 +17,7 @@ import { AKT_7 } from './akt_07';
 import { AKT_8 } from './akt_08';
 import { AKT_9 } from './akt_09';
 import { AKT_10 } from './akt_10';
+import { AKT_11 } from './akt_11';
 
 export interface Akt {
   readonly nummer: number;
@@ -115,6 +116,15 @@ export const AKTE: readonly Akt[] = [
     neu: 'Auge (Tracing)',
     lektion: 'Was du nicht beobachtest, kannst du nicht verantworten.',
     level: AKT_10,
+  },
+  {
+    nummer: 11,
+    titel: 'Die Schmiede',
+    untertitel: 'Du baust nicht die Anlage, du baust den Maßstab',
+    neu: 'Schmiede (evolutionäre Suche)',
+    lektion:
+      'Wer eine einzelne Kennzahl vorgibt, bekommt eine Anlage, die genau diese Kennzahl bedient — und sonst nichts.',
+    level: AKT_11,
   },
 ];
 

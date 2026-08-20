@@ -1,9 +1,9 @@
 /**
  * AKT XI — DIE SCHMIEDE
  *
- * Neue Mechanik: die Schmiede — die Evolutionskammer. Sie greift nicht in den
- * Auftragsfluss ein: null Token, null Ticks. Sie kostet genau eine Sache, und
- * zwar einen Bauplatz. Damit ist sie das ehrlichste Modul des Spiels: der
+ * Neue Mechanik: die Schmiede — die Evolutionskammer. Sie greift in keinen
+ * Auftrag ein: null Token, null Ticks. Sie kostet genau eine Sache, nämlich
+ * einen Bauplatz. Damit ist sie das ehrlichste Modul des Spiels: der
  * Suchapparat ist Gemeinkosten, nicht Produktion.
  *
  * Zentrale Lektion: Du baust nicht die Pipeline, du baust den Selektionsdruck.
@@ -13,25 +13,25 @@
  * Rhythmus (Kishotenketsu):
  *   XI-0 KI    — derselbe Auftragsstrom, drei sehr verschiedene gute Anlagen.
  *                Die Vorgabe ist absichtlich weit; sichtbar wird die Front.
- *   XI-1 SHO   — ein enger Kostendeckel. Er faellt nicht ueber die Kernwahl,
- *                sondern nur ueber eine unkonventionelle Kombination.
- *   XI-2 TEN   — Bruch: die Kennzahl allein laesst sich betruegen. Eine
- *                Schranke mit hoher Schwelle wirft weg, was den Schnitt
- *                druecken wuerde. Erst eine zweite Zahl macht das Werk wieder
- *                ehrlich — und die Anlage aus dem SHO-Level faellt durch.
- *   XI-3 KETSU — Synthese: Flaeche, Preis, Wartezeit, Guete und Durchsatz
- *                stehen gleichzeitig unter Druck. Die Front schrumpft auf
- *                wenige Punkte, und jeder davon ist ein bewusster Verzicht.
+ *                Keine der drei dominiert eine andere auf allen drei Achsen.
+ *   XI-1 SHO   — ein enger Kostendeckel. Er fällt nicht über die Kernwahl,
+ *                sondern nur über eine unkonventionelle Kombination: ein
+ *                Werkzeug für fünf Token hebt die Decke, die kein Kern hebt.
+ *   XI-2 TEN   — Bruch: eine einzelne Kennzahl lässt sich betrügen. Eine
+ *                Schranke mit hoher Schwelle wirft weg, was den Schnitt drücken
+ *                würde. Erst eine zweite Zahl macht das Werk wieder ehrlich —
+ *                und die Anlage aus dem SHO-Level fällt hier durch.
+ *   XI-3 KETSU — Synthese: Fläche, Preis, Wartezeit, Güte und Durchsatz stehen
+ *                gleichzeitig unter Druck. Die Front schrumpft auf wenige
+ *                Punkte, und jeder davon ist ein bewusster Verzicht.
  */
 
 import type {
   Domaene,
-  HandModus,
   KernGroesse,
   ModulParameter,
   SammlerModus,
   SpeicherModus,
-  WallModus,
   WeicheKriterium,
   Werk,
   WerkzeugArt,
@@ -63,18 +63,14 @@ const MODULE = [
 // ---------------------------------------------------------------------------
 
 /**
- * Ein Glied einer Fertigungsstrasse. Der Akt braucht viele Varianten desselben
- * Werks — deshalb ist jedes Bauteil ein Datensatz und die Verdrahtung seiner
- * Ausgaenge steht an genau einer Stelle.
+ * Ein Glied einer Fertigungsstraße. Dieser Akt lebt davon, dass viele Varianten
+ * desselben Werks nebeneinander messbar sind — deshalb ist jedes Bauteil ein
+ * Datensatz, und die Verdrahtung seiner Ausgänge steht an genau einer Stelle.
  */
 type Glied =
   | { readonly kern: KernGroesse; readonly spez?: Domaene }
   | { readonly werkzeug: WerkzeugArt }
   | { readonly speicher: SpeicherModus }
-  | { readonly wall: WallModus }
-  | { readonly hand: HandModus; readonly schwelle?: number }
-  /** Schranke, deren Durchgefallene weiterlaufen — eine Messstelle, kein Sieb. */
-  | { readonly schranke: number }
   /** Schranke, deren Durchgefallene den Fluss verlassen — das Sieb. */
   | { readonly sieb: number }
   | { readonly auge: true }
@@ -92,18 +88,6 @@ function SP(modus: SpeicherModus): Glied {
   return { speicher: modus };
 }
 
-function WA(modus: WallModus): Glied {
-  return { wall: modus };
-}
-
-function HD(modus: HandModus, schwelle?: number): Glied {
-  return schwelle === undefined ? { hand: modus } : { hand: modus, schwelle };
-}
-
-function GATE(schwelle: number): Glied {
-  return { schranke: schwelle };
-}
-
 function SIEB(schwelle: number): Glied {
   return { sieb: schwelle };
 }
@@ -119,25 +103,18 @@ function setzeGlied(b: Bau, g: Glied, id: string, x: number, z: number): string 
   }
   if ('werkzeug' in g) return b.setze('werkzeug', { werkzeugArt: g.werkzeug }, id, x, z);
   if ('speicher' in g) return b.setze('speicher', { modus: g.speicher }, id, x, z);
-  if ('wall' in g) return b.setze('wall', { modus: g.wall }, id, x, z);
-  if ('hand' in g) {
-    const p: ModulParameter =
-      g.schwelle === undefined ? { modus: g.hand } : { modus: g.hand, schwelle: g.schwelle };
-    return b.setze('hand', p, id, x, z);
-  }
-  if ('schranke' in g) return b.setze('schranke', { schwelle: g.schranke }, id, x, z);
   if ('sieb' in g) return b.setze('schranke', { schwelle: g.sieb }, id, x, z);
   if ('auge' in g) return b.setze('auge', {}, id, x, z);
   return b.setze('schmiede', { population: 12, generationen: 8 }, id, x, z);
 }
 
 /**
- * Verdrahtet die Ausgaenge eines Glieds.
+ * Verdrahtet die Ausgänge eines Glieds.
  *
  * Genau ein Ausgang bleibt bewusst offen: der Fehlerausgang eines Siebs. Was
- * dort hinausfaellt, verlaesst den Fluss und taucht als fehlender Durchsatz in
- * der Bilanz auf. Das ist die Mechanik, auf der das Anti-Muster dieses Akts
- * beruht — und der Grund, warum eine Kennzahl allein nichts beweist.
+ * dort hinausfällt, verlässt den Fluss und taucht als fehlender Durchsatz in
+ * der Bilanz auf. Auf dieser Mechanik beruht das Anti-Muster dieses Akts — und
+ * mit ihr die Einsicht, dass eine einzelne Kennzahl nichts beweist.
  */
 function verbindeGlied(b: Bau, g: Glied, id: string, nach: string): void {
   if ('kern' in g || 'speicher' in g || 'auge' in g || 'schmiede' in g) {
@@ -145,20 +122,8 @@ function verbindeGlied(b: Bau, g: Glied, id: string, nach: string): void {
     return;
   }
   if ('werkzeug' in g) {
-    b.verbinde(id, nach, 'ok');
-    b.verbinde(id, nach, 'fehler');
-    return;
-  }
-  if ('wall' in g) {
-    b.verbinde(id, nach, 'rein');
-    if (g.wall === 'eingang') b.verbinde(id, nach, 'alarm');
-    return;
-  }
-  if ('hand' in g) {
-    b.verbinde(id, nach, 'frei');
-    return;
-  }
-  if ('schranke' in g) {
+    // Ein ausgefallenes Werkzeug darf den Auftrag nicht kosten: beide Ausgänge
+    // laufen weiter, der Auftrag ist dann eben unbelegt.
     b.verbinde(id, nach, 'ok');
     b.verbinde(id, nach, 'fehler');
     return;
@@ -189,9 +154,10 @@ interface NacharbeitPlan {
 }
 
 /**
- * Die Schranke als Verteiler zweier Qualitaeten: Wer besteht, geht direkt
- * weiter; wer durchfaellt, laeuft ueber eine Nacharbeitsbahn und kommt zurueck.
- * Nichts verlaesst den Fluss — Guete wird hergestellt, nicht ausgesiebt.
+ * Die Schranke als Sortierer zweier Qualitäten statt als Sieb: Wer besteht,
+ * geht direkt weiter; wer durchfällt, läuft über eine Nacharbeitsbahn und kommt
+ * zurück in die Linie. Nichts verlässt den Fluss — Güte wird hergestellt, nicht
+ * ausgesiebt. Das ist die bauliche Antwort auf den Fitness-Betrug.
  */
 function nacharbeit(plan: NacharbeitPlan): Werk {
   const b = new Bau();
@@ -222,14 +188,14 @@ function nacharbeit(plan: NacharbeitPlan): Werk {
 
 interface SchleifePlan {
   readonly vor?: readonly Glied[];
-  /** Der Block, den eine Nacharbeit erneut durchlaeuft. Nie leer. */
+  /** Der Block, den eine Nacharbeit erneut durchläuft. Nie leer. */
   readonly block: readonly Glied[];
   readonly schwelle: number;
   readonly runden: number;
   readonly nach?: readonly Glied[];
 }
 
-/** Der Rueckweg: eine Prueferin schickt zu Schwaches noch einmal in den Block. */
+/** Der Rückweg: eine Prüferin schickt zu Schwaches noch einmal in den Block. */
 function schleife(plan: SchleifePlan): Werk {
   const b = new Bau();
   const vor = plan.vor ?? [];
@@ -263,13 +229,12 @@ interface ChorPlan {
   readonly nach?: readonly Glied[];
 }
 
-/** Verteiler → gleiche Zweige → Sammler. Latenz ist das Maximum, Preis die Summe. */
+/** Verteiler → gleiche Zweige → Sammler. Die Latenz ist das Maximum, der Preis die Summe. */
 function chor(plan: ChorPlan): Werk {
   const b = new Bau();
   const vor = plan.vor ?? [];
   const nach = plan.nach ?? [];
-  const b_ = b;
-  const q = b_.setze('quelle', {}, 'q', 0, 5);
+  const q = b.setze('quelle', {}, 'q', 0, 5);
   const vorIds = vor.map((g, i) => setzeGlied(b, g, `v${i + 1}`, 2 + i * 2, 5));
   const vx = 2 + vor.length * 2;
   const vt = b.setze('verteiler', { zweige: plan.zweige }, 'vt', vx, 5);
@@ -301,9 +266,9 @@ interface GabelPlan {
   readonly vor?: readonly Glied[];
   readonly kriterium: WeicheKriterium;
   readonly schwelle: number;
-  /** Bahn A — Kriterium nicht erfuellt. */
+  /** Bahn A — Kriterium nicht erfüllt, also die leichten Fälle. */
   readonly a: readonly Glied[];
-  /** Bahn B — Kriterium erfuellt. */
+  /** Bahn B — Kriterium erfüllt, also die schweren Fälle. */
   readonly b: readonly Glied[];
   readonly nach?: readonly Glied[];
 }
@@ -345,12 +310,12 @@ function gabel(plan: GabelPlan): Werk {
 const KOLIBRI = K('kolibri');
 const REIHER = K('reiher');
 const KONDOR = K('kondor');
-/** Fuenf Token, ein Tick — und die Decke fuer rechnerische Auftraege faellt weg. */
+/** Fünf Token, ein Tick — und die Güte-Decke für rechnerische Aufträge fällt weg. */
 const RECHENWERK = W('rechner');
+/** Dreißig Token: die Fachdatenbank belegt, was belegt werden muss. */
 const BESTAND = W('datenbank');
-/** Verdichtet den Kontext auf ein Drittel und kostet drei Punkte Guete. */
+/** Verdichtet den Kontext auf gut ein Drittel und kostet drei Punkte Güte. */
 const VERDICHTEN = SP('komprimieren');
-const ABRUF = SP('abrufen');
 
 // ---------------------------------------------------------------------------
 // Die vier Level
@@ -365,9 +330,9 @@ export const AKT_11: LevelDefinition[] = [
     titel: 'Die Front',
     untertitel: 'Eine Kiste ohne Lieferschein',
     briefing:
-      'Auf der Palette am Tor steht eine Kiste mit der Aufschrift SCHMIEDE. Darin: ein Pruefstand, der Varianten deines Werks gegeneinander laufen laesst und mitschreibt, welche was gekostet hat. Er greift in keinen Auftrag ein — null Token, null Ticks. Er kostet einen Bauplatz. Der Vertrieb hat achtundzwanzig Auftraege geschickt und dazu einen Satz, der in keinem Lastenheft steht: gut genug, bezahlbar. Mehr Vorgabe gibt es heute nicht. Bau eine Anlage, die das haelt, und dann bau zwei weitere, die es anders halten. Es gibt hier keine richtige Loesung. Es gibt eine Front, und du suchst dir einen Punkt darauf.',
+      'Auf der Palette am Tor steht eine Kiste mit der Aufschrift SCHMIEDE. Darin ein Prüfstand, der Varianten deines Werks gegeneinander laufen lässt und mitschreibt, welche was gekostet hat. Er greift in keinen Auftrag ein: null Token, null Ticks. Er kostet einen Bauplatz. Der Vertrieb hat achtundzwanzig Aufträge geschickt und dazu einen Satz, der in keinem Lastenheft steht — gut genug, bezahlbar. Mehr Vorgabe gibt es heute nicht. Bau eine Anlage, die das hält. Dann bau zwei weitere, die es anders halten, und leg alle drei nebeneinander. Es gibt hier keine richtige Lösung. Es gibt eine Front, und du suchst dir einen Punkt darauf.',
     lernziel:
-      'Fuer denselben Auftragsstrom gibt es mehrere gleich gueltige Anlagen, die sich in Kosten, Latenz und Flaeche unterscheiden.',
+      'Für denselben Auftragsstrom gibt es mehrere gleich gültige Anlagen, die sich in Kosten, Latenz und Fläche unterscheiden.',
     quelle: QUELLE,
     module: [...MODULE],
     strom: {
@@ -380,67 +345,51 @@ export const AKT_11: LevelDefinition[] = [
     budget: { dauer: 700 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Auftrag wird ausgeliefert.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.74, text: 'Mindestguete 74 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.74, text: 'Mindestgüte 74 Prozent.' },
       {
         id: 'preis',
         metrik: 'kostenJeAuftrag',
         vergleich: '<=',
         wert: 950,
-        text: 'Hoechstens 950 Token je Auftrag.',
+        text: 'Höchstens 950 Token je Auftrag.',
       },
     ],
     saat: 1101,
     vorbau: strasse([REIHER]),
-    reflexion: 'Drei Anlagen haben dieselbe Vorgabe gehalten. Nach welchem Kriterium hast du dich fuer eine davon entschieden?',
+    reflexion: 'Drei Anlagen haben dieselbe Vorgabe gehalten. Nach welchem Kriterium hast du dich für eine davon entschieden?',
     notiz:
-      'Sprachnotiz, 8. September, 07:10. Die Schmiede ist kein Produktionsmodul. Sie steht daneben und zaehlt mit. Wer sie einbaut, gibt einen Bauplatz her und bekommt dafuer ein Protokoll. Ich habe achtzehn Jahre die eine beste Anlage gesucht. Es gab sie nie. Es gab immer drei, und ich musste sagen, welche mir lieber ist. Regel: Waehle einen Punkt, nicht die Wahrheit.',
+      'Sprachnotiz, 8. September, 07:10. Die Schmiede ist kein Produktionsmodul. Sie steht daneben und zählt mit. Wer sie einbaut, gibt einen Bauplatz her und bekommt ein Protokoll dafür. Ich habe achtzehn Jahre lang die eine beste Anlage gesucht. Es gab sie nie. Es gab immer drei, und ich musste sagen, welche mir lieber ist. Regel: Wähle einen Punkt, nicht die Wahrheit.',
     referenzen: [
       {
         name: 'Die kurze Bahn',
-        ansatz: 'Ein einziger grosser Kern: kleinste Flaeche, kuerzeste Wartezeit, hoechster Preis je Auftrag.',
+        ansatz:
+          'Ein einziger großer Kern: die kleinste Fläche im Werk, dafür der höchste Preis je Auftrag und die längste Wartezeit, weil vier Ticks Bearbeitung eine Schlange erzeugen.',
         werk: strasse([KONDOR]),
       },
       {
         name: 'Die lange Kette',
-        ansatz: 'Drei kleine Aufrufe hintereinander: der guenstigste Weg, dafuer mehr Module und mehr Ticks.',
+        ansatz:
+          'Drei kleine Aufrufe hintereinander: der günstigste Weg und kaum Wartezeit, dafür dreimal so viel belegter Boden wie bei der kurzen Bahn.',
         werk: strasse([KOLIBRI, REIHER, REIHER]),
       },
       {
-        name: 'C1 chor2 kol+rei bester',
-        ansatz: 'x',
+        name: 'Der Chor am Prüfstand',
+        ansatz:
+          'Zwei parallele Zweige, Bestenauswahl, die Schmiede schreibt mit: die kürzeste Wartezeit von allen und ein mittlerer Preis, dafür mit sieben Bauplätzen die breiteste Anlage.',
         werk: chor({ zweige: 2, zweig: [KOLIBRI, REIHER], modus: 'bester', nach: [SCHMIEDE] }),
-      },
-      {
-        name: 'C2 chor2 rei+rei bester',
-        ansatz: 'x',
-        werk: chor({ zweige: 2, zweig: [REIHER, REIHER], modus: 'bester', nach: [SCHMIEDE] }),
-      },
-      {
-        name: 'C3 chor3 rei voting',
-        ansatz: 'x',
-        werk: chor({ zweige: 3, zweig: [REIHER], modus: 'voting', nach: [SCHMIEDE] }),
-      },
-      {
-        name: 'C4 chor2 kol+rei voting',
-        ansatz: 'x',
-        werk: chor({ zweige: 2, zweig: [KOLIBRI, REIHER], modus: 'voting', nach: [SCHMIEDE] }),
-      },
-      {
-        name: 'C5 chor2 rei verschmelzen',
-        ansatz: 'x',
-        werk: chor({ zweige: 2, zweig: [REIHER], modus: 'verschmelzen', nach: [SCHMIEDE] }),
       },
     ],
     antiMuster: [
       {
         name: 'Die Bestenliste von oben',
-        verlockung: 'Wenn die Vorgabe nur "gut genug" lautet, nimmt man den groessten Kern und haengt zur Sicherheit zwei weitere dran.',
+        verlockung:
+          'Wenn die Vorgabe nur "gut genug" lautet, nimmt man den größten Kern und hängt zur Sicherheit zwei weitere dahinter.',
         scheitertAn: 'kostenJeAuftrag',
         werk: strasse([KONDOR, KONDOR, KONDOR]),
       },
       {
         name: 'Der billigste Punkt',
-        verlockung: 'Bezahlbar steht im Satz vorn. Ein KOLIBRI ist zwoelfmal guenstiger als ein KONDOR.',
+        verlockung: 'Bezahlbar steht in dem Satz vorn. Ein KOLIBRI ist sechzehnmal günstiger als ein KONDOR.',
         scheitertAn: 'guete',
         werk: strasse([KOLIBRI]),
       },
@@ -456,9 +405,9 @@ export const AKT_11: LevelDefinition[] = [
     titel: 'Der enge Deckel',
     untertitel: 'Der Einkauf liest jetzt Protokolle',
     briefing:
-      'Der Einkauf hat aus dem Protokoll der Schmiede eine Zahl gemacht, und zwar die kleinste, die darin vorkam. Ab heute gilt fuer dieses Los ein Tokendeckel, unter dem keine deiner drei Anlagen von gestern bleibt. Dazu kommt eine Eigenheit des Loses: Zwei von drei Auftraegen sind rechnerisch — Stundensaetze, Abschlaege, Wirtschaftlichkeitsbetrachtungen. Ein Modell, das rechnet, kommt bei ihnen ueber sechzig Prozent Guete nicht hinaus, egal wie gross es ist. Das RECHENWERK kostet fuenf Token und hebt genau diese Decke. Die Suche nach der billigsten Anlage endet also nicht bei der Wahl des Kerns.',
+      'Der Einkauf hat aus dem Protokoll der Schmiede eine Zahl gemacht, und zwar die kleinste, die darin vorkam. Ab heute gilt für dieses Los ein Tokendeckel, unter dem keine deiner drei Anlagen von gestern bleibt. Dazu eine Eigenheit des Loses: Zwei von drei Aufträgen sind rechnerisch — Stundensätze, Abschläge, Wirtschaftlichkeitsbetrachtungen. Ein Modell, das selbst rechnet, kommt bei ihnen über sechzig Prozent Güte nicht hinaus, gleichgültig wie groß es ist. Das RECHENWERK kostet fünf Token und hebt genau diese Decke. Die Suche nach der billigsten Anlage endet also nicht bei der Wahl des Kerns.',
     lernziel:
-      'Unter einem engen Deckel gewinnt nicht der groessere Kern, sondern die Kombination, die die Guete-Decke anhebt, statt sie auszureizen.',
+      'Unter einem engen Deckel gewinnt nicht der größere Kern, sondern die Kombination, die die Güte-Decke anhebt, statt sie auszureizen.',
     quelle: QUELLE,
     module: [...MODULE],
     strom: {
@@ -469,87 +418,60 @@ export const AKT_11: LevelDefinition[] = [
       mehrdeutigkeit: [0.05, 0.3],
       anteilRechnerisch: 0.65,
     },
-    budget: { kosten: 9000, dauer: 700 },
+    budget: { kosten: 9600, dauer: 700 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Auftrag wird ausgeliefert.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.76, text: 'Mindestguete 76 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.75, text: 'Mindestgüte 75 Prozent.' },
       {
         id: 'meister',
         metrik: 'guete',
         vergleich: '>=',
-        wert: 0.82,
-        text: 'Meisterstueck: 82 Prozent Guete unter demselben Deckel.',
+        wert: 0.81,
+        text: 'Meisterstück: 81 Prozent Güte unter demselben Deckel.',
         optional: true,
       },
     ],
     saat: 1111,
     vorbau: strasse([REIHER, REIHER]),
-    reflexion: 'Fuenf Token haben hier mehr Guete gebracht als sechshundert. Welche Stellschraube in deinem Werk hat ein aehnlich schlechtes Preis-Wirkungs-Verhaeltnis?',
+    reflexion: 'Fünf Token haben hier mehr Güte gebracht als sechshundert. Welche Stellschraube in deinem Werk hat ein ähnlich schlechtes Verhältnis von Preis zu Wirkung?',
     notiz:
-      'Sprachnotiz, 14. September. Ein Kollege hat mir vorgerechnet, dass ein groesserer Kern immer hilft. Er hatte recht, bis der Deckel kam. Danach hat er zwei Wochen an der Kerngroesse gedreht und die Decke nie angefasst. Eine Suche, die nur ein Bauteil kennt, findet nur, was an diesem Bauteil liegt. Regel: Durchsuche den Raum, nicht die Achse.',
+      'Sprachnotiz, 14. September. Ein Kollege hat mir vorgerechnet, dass ein größerer Kern immer hilft. Er hatte recht, bis der Deckel kam. Danach hat er zwei Wochen an der Kerngröße gedreht und die Decke nie angefasst. Eine Suche, die nur ein Bauteil kennt, findet nur, was an diesem Bauteil liegt. Regel: Durchsuche den Raum, nicht die Achse.',
     referenzen: [
       {
         name: 'Rechenwerk vor der Kette',
-        ansatz: 'Erst rechnen lassen, dann zwei kleine Kerne: drei Module, sehr guenstig, dafuer die laengste Bahn.',
+        ansatz:
+          'Erst rechnen lassen, dann ein kleiner und ein mittlerer Kern: drei Bauplätze, kurze Wege und die höchste Güte unter dem Deckel.',
         werk: strasse([RECHENWERK, KOLIBRI, REIHER]),
       },
       {
-        name: 'G1 gabel 0.30 kolkol/kolrei',
-        ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.3, a: [KOLIBRI, KOLIBRI], b: [KOLIBRI, REIHER] }),
-      },
-      {
-        name: 'G2 gabel kolkolkol/kolrei',
-        ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.38, a: [KOLIBRI, KOLIBRI, KOLIBRI], b: [KOLIBRI, REIHER] }),
-      },
-      {
-        name: 'G4 nach rkk 0.75 rep rei',
-        ansatz: 'x',
-        werk: nacharbeit({ vor: [RECHENWERK, KOLIBRI, KOLIBRI], schwelle: 0.75, reparatur: [REIHER] }),
-      },
-      {
-        name: 'G5 nach rk 0.62 rep kol nach kol',
-        ansatz: 'x',
-        werk: nacharbeit({ vor: [RECHENWERK, KOLIBRI], schwelle: 0.62, reparatur: [KOLIBRI], nach: [KOLIBRI] }),
-      },
-      {
-        name: 'G6 chor2 kolkol bester',
-        ansatz: 'x',
-        werk: chor({ vor: [RECHENWERK], zweige: 2, zweig: [KOLIBRI, KOLIBRI], modus: 'bester' }),
-      },
-      {
-        name: 'G7 schleife kol 0.78/3',
-        ansatz: 'x',
-        werk: schleife({ vor: [RECHENWERK], block: [KOLIBRI], schwelle: 0.78, runden: 3 }),
-      },
-      {
-        name: 'G8 gabel 0.45 kolkol/reikol',
-        ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.45, a: [KOLIBRI, KOLIBRI], b: [REIHER, KOLIBRI] }),
-      },
-      {
-        name: 'G9 chor2 kol bester nach rei',
-        ansatz: 'x',
-        werk: chor({ vor: [RECHENWERK], zweige: 2, zweig: [KOLIBRI], modus: 'bester', nach: [REIHER] }),
+        name: 'Drei kleine Bahnen und eine große',
+        ansatz:
+          'Eine Weiche sortiert vor: leichte Aufträge laufen über drei KOLIBRI, schwere über KOLIBRI und REIHER — etwas billiger je Auftrag, dafür sieben Bauplätze statt drei und ein Tick mehr Wartezeit.',
+        werk: gabel({
+          vor: [RECHENWERK],
+          kriterium: 'schwierigkeit',
+          schwelle: 0.38,
+          a: [KOLIBRI, KOLIBRI, KOLIBRI],
+          b: [KOLIBRI, REIHER],
+        }),
       },
     ],
     antiMuster: [
       {
-        name: 'Der grosse Kern statt des Werkzeugs',
-        verlockung: 'Wenn die Guete nicht reicht, nimmt man den naechstgroesseren Kern. Das hat bisher immer funktioniert.',
+        name: 'Der große Kern statt des Werkzeugs',
+        verlockung: 'Wenn die Güte nicht reicht, nimmt man den nächstgrößeren Kern. Das hat bisher immer funktioniert.',
         scheitertAn: 'budget_kosten',
         werk: strasse([KONDOR, KONDOR]),
       },
       {
         name: 'Zwei REIHER ohne Rechenwerk',
-        verlockung: 'Die Kette von gestern ist erprobt und liegt bequem unter dem Deckel. Werkzeuge sind etwas fuer Belegpflicht.',
+        verlockung: 'Die Kette von gestern ist erprobt und liegt bequem unter dem Deckel. Werkzeuge sind etwas für Belegpflicht.',
         scheitertAn: 'guete',
         werk: strasse([REIHER, REIHER]),
       },
       {
         name: 'Der volle Werkzeugkasten',
-        verlockung: 'Wenn ein Werkzeug hilft, helfen drei mehr. Bestand, Rechenwerk und Recherche decken jeden Fall ab.',
+        verlockung: 'Wenn ein Werkzeug hilft, helfen drei mehr. Recherche, Bestand und Rechenwerk decken zusammen jeden Fall ab.',
         scheitertAn: 'budget_kosten',
         werk: strasse([W('suche'), BESTAND, RECHENWERK, REIHER, REIHER]),
       },
@@ -562,10 +484,10 @@ export const AKT_11: LevelDefinition[] = [
     id: 'XI-2',
     akt: 11,
     nummer: 2,
-    titel: 'Der Fitness-Betrug',
-    untertitel: 'Eine Zahl, ein Balken, ein Ampelfeld',
+    titel: 'Eine Zahl, ein Balken',
+    untertitel: 'Vereinfachte Abnahme, Fassung 4',
     briefing:
-      'Der Kunde hat die Abnahme vereinfacht. Es zaehlt nur noch die mittlere Guete der Auslieferungen. Seit gestern steht im Protokoll der Schmiede eine Anlage ganz oben, die diese Zahl muehelos haelt: eine Schranke mit sehr hoher Schwelle und dahinter ein Container. Was durchfaellt, wird nicht ausgeliefert, und was nicht ausgeliefert wird, drueckt keinen Schnitt. Nach der Kennzahl ist das die beste Anlage im Werk. Sie ist zugleich die schlechteste. Deshalb steht ab heute eine zweite Zahl im Vertrag, und das Los ist schwerer als das letzte. Eine Schranke darfst du weiter bauen — nur muss hinter ihrem Fehlerausgang etwas stehen.',
+      'Der Kunde hat die Abnahme vereinfacht. Es zählt nur noch die mittlere Güte der Auslieferungen. Seit gestern steht im Protokoll der Schmiede eine Anlage ganz oben, die diese Zahl mühelos hält: eine Schranke mit sehr hoher Schwelle und dahinter ein Container. Was durchfällt, wird nicht ausgeliefert, und was nicht ausgeliefert wird, drückt keinen Schnitt. Nach der Kennzahl ist das die beste Anlage der Halle. Sie ist zugleich die schlechteste. Deshalb steht ab heute eine zweite Zahl im Vertrag, und das Los ist schwerer als das letzte. Schranken darfst du weiterhin bauen. Hinter ihrem Fehlerausgang muss nur etwas stehen.',
     lernziel:
       'Eine Selektion optimiert genau die Kennzahl, die du ihr gibst, und niemals das, was du gemeint hast.',
     quelle: QUELLE,
@@ -578,34 +500,35 @@ export const AKT_11: LevelDefinition[] = [
       mehrdeutigkeit: [0.1, 0.4],
       anteilRechnerisch: 0.3,
     },
-    budget: { kosten: 40000, dauer: 900 },
+    budget: { kosten: 34000, dauer: 900 },
     ziele: [
       {
         id: 'liefert',
         metrik: 'durchsatz',
         vergleich: '>=',
         wert: 0.95,
-        text: 'Mindestens 95 Prozent der Auftraege werden ausgeliefert.',
+        text: 'Mindestens 95 Prozent der Aufträge werden ausgeliefert.',
       },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.82, text: 'Mindestguete 82 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.78, text: 'Mindestgüte 78 Prozent.' },
       {
         id: 'meister',
         metrik: 'kostenJeAuftrag',
         vergleich: '<=',
-        wert: 900,
-        text: 'Meisterstueck: hoechstens 900 Token je Auftrag.',
+        wert: 700,
+        text: 'Meisterstück: höchstens 700 Token je Auftrag.',
         optional: true,
       },
     ],
     saat: 1121,
     vorbau: strasse([RECHENWERK, KOLIBRI, REIHER]),
-    reflexion: 'Die betruegerische Anlage stand ganz oben, bis eine zweite Zahl danebenstand. Welche Kennzahl in deinem Projekt hat bisher keine zweite neben sich?',
+    reflexion: 'Die betrügerische Anlage stand ganz oben, bis eine zweite Zahl danebenstand. Welche Kennzahl in deinem Projekt hat bisher keine zweite neben sich?',
     notiz:
-      'Sprachnotiz, 21. September. Wir hatten 2019 eine Quote fuer geloeste Tickets. Nach vier Wochen wurden Tickets geschlossen und sofort neu aufgemacht. Niemand hat betrogen. Alle haben getan, was gemessen wurde. Eine einzelne Zahl ist keine Zielvorgabe, sondern eine Einladung. Regel: Miss immer auch das, was leiden wuerde.',
+      'Sprachnotiz, 21. September. Wir hatten 2019 eine Quote für gelöste Tickets. Nach vier Wochen wurden Tickets geschlossen und sofort neu aufgemacht. Niemand hat betrogen. Alle haben getan, was gemessen wurde. Eine einzelne Zahl ist keine Zielvorgabe, sondern eine Einladung. Regel: Miss immer auch das, was leiden würde.',
     referenzen: [
       {
-        name: 'Schranke mit Nacharbeitsbahn',
-        ansatz: 'Die Schranke sortiert nicht aus, sondern schickt die Schwachen ueber einen grossen Kern zurueck in die Linie — guenstig, dafuer breit und langsam.',
+        name: 'Die Nacharbeitsbahn',
+        ansatz:
+          'Dieselbe Schranke wie im Betrug, nur führt ihr Fehlerausgang über einen großen Kern zurück in die Linie: die höchste Güte des Levels auf vier Bauplätzen, dafür teuer und mit langer Warteschlange.',
         werk: nacharbeit({
           vor: [RECHENWERK, REIHER],
           schwelle: 0.78,
@@ -613,68 +536,30 @@ export const AKT_11: LevelDefinition[] = [
         }),
       },
       {
-        name: 'E2 rech+kon+rei',
-        ansatz: 'x',
-        werk: strasse([RECHENWERK, KONDOR, REIHER]),
-      },
-      {
-        name: 'E3 chor2 kon bester',
-        ansatz: 'x',
-        werk: chor({ vor: [RECHENWERK], zweige: 2, zweig: [KONDOR], modus: 'bester' }),
-      },
-      {
-        name: 'E4 schleife rei 0.82/2',
-        ansatz: 'x',
-        werk: schleife({ vor: [RECHENWERK], block: [REIHER], schwelle: 0.82, runden: 2 }),
-      },
-      {
-        name: 'E5 gabel reirei/kon',
-        ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.55, a: [REIHER, REIHER], b: [KONDOR] }),
-      },
-      {
-        name: 'E6 rech+rei+kon',
-        ansatz: 'x',
-        werk: strasse([RECHENWERK, REIHER, KONDOR]),
-      },
-      {
-        name: 'E7 nach 0.78 rep kon nach rei',
-        ansatz: 'x',
-        werk: nacharbeit({ vor: [RECHENWERK, REIHER], schwelle: 0.78, reparatur: [KONDOR], nach: [REIHER] }),
-      },
-      {
-        name: 'E8 schleife kon 0.9/1',
-        ansatz: 'x',
-        werk: schleife({ vor: [RECHENWERK], block: [REIHER, REIHER], schwelle: 0.86, runden: 2 }),
-      },
-      {
-        name: 'E9 rech+rei+rei+rei',
-        ansatz: 'x',
-        werk: strasse([RECHENWERK, REIHER, REIHER, REIHER]),
+        name: 'Vorher sortiert statt hinterher gesiebt',
+        ansatz:
+          'Eine Weiche trennt vor der Bearbeitung: leichte Aufträge laufen über zwei REIHER, schwere über einen KONDOR — knapp zwei Drittel des Preises und weniger als ein Drittel der Wartezeit, dafür ein Bauplatz mehr und deutlich weniger Güte.',
+        werk: gabel({
+          vor: [RECHENWERK],
+          kriterium: 'schwierigkeit',
+          schwelle: 0.55,
+          a: [REIHER, REIHER],
+          b: [KONDOR],
+        }),
       },
     ],
     antiMuster: [
       {
         name: 'Der Fitness-Betrug',
-        verlockung: 'Die Kennzahl misst den Schnitt der Auslieferungen. Wer nur die guten ausliefert, hat den besten Schnitt der Halle — ganz ohne teure Kerne.',
+        verlockung:
+          'Die Kennzahl misst den Schnitt der Auslieferungen. Wer nur die guten ausliefert, hat den besten Schnitt der Halle, und zwar ohne einen einzigen teuren Kern.',
         scheitertAn: 'durchsatz',
         werk: strasse([RECHENWERK, REIHER, REIHER, SIEB(0.85)]),
       },
       {
-        name: 'X sieb 0.88 rr',
-        verlockung: 'x',
-        scheitertAn: 'durchsatz',
-        werk: strasse([RECHENWERK, REIHER, REIHER, SIEB(0.88)]),
-      },
-      {
-        name: 'X sieb 0.9 kon',
-        verlockung: 'x',
-        scheitertAn: 'durchsatz',
-        werk: strasse([RECHENWERK, KONDOR, SIEB(0.88)]),
-      },
-      {
-        name: 'Die Pruefung hochgedreht',
-        verlockung: 'Wenn zwei Runden Nacharbeit die Guete heben, heben zwoelf sie weiter. Der Kunde bezahlt Qualitaet, nicht Sparsamkeit.',
+        name: 'Die Prüfung hochgedreht',
+        verlockung:
+          'Wenn zwei Runden Nacharbeit die Güte heben, heben zwölf sie weiter. Der Kunde bezahlt Qualität, nicht Sparsamkeit.',
         scheitertAn: 'budget_kosten',
         werk: schleife({
           vor: [RECHENWERK],
@@ -685,7 +570,7 @@ export const AKT_11: LevelDefinition[] = [
       },
       {
         name: 'Die Anlage vom Deckel-Los',
-        verlockung: 'Sie hat unter dem engsten Deckel des Jahres bestanden. Ein schwereres Los ist noch kein Grund fuer einen Umbau.',
+        verlockung: 'Sie hat unter dem engsten Deckel des Jahres bestanden. Ein schwereres Los ist noch kein Grund für einen Umbau.',
         scheitertAn: 'guete',
         werk: strasse([RECHENWERK, KOLIBRI, REIHER]),
       },
@@ -698,10 +583,10 @@ export const AKT_11: LevelDefinition[] = [
     id: 'XI-3',
     akt: 11,
     nummer: 3,
-    titel: 'Sieben Bauplaetze',
-    untertitel: 'Abnahmelauf fuer TROET',
+    titel: 'Fünf Bauplätze',
+    untertitel: 'Abnahmelauf für TROET',
     briefing:
-      'Abnahmelauf fuer das Fachverfahren TROET, und diesmal steht alles gleichzeitig im Vertrag: Preis je Vorgang, Wartezeit, Guete, Durchsatz. Dazu eine Zeile aus der Hallenordnung, die vorher niemand gelesen hat — der Bauabschnitt hat sieben Plaetze, nicht acht. Jede Anlage, die eine Achse rettet, gibt eine andere her. Das ist keine Schikane, das ist der Zustand jedes Werks, das fertig ist. Die Schmiede darf mitlaufen, aber sie belegt einen der sieben Plaetze und liefert dafuer nichts als ein Protokoll. Such dir deinen Punkt auf der Front und merk dir, was du dafuer aufgegeben hast. Morgen sitzt jemand daneben und fragt genau danach.',
+      'Abnahmelauf für das Fachverfahren TROET, und diesmal steht alles gleichzeitig im Vertrag: Preis je Vorgang, Wartezeit, Güte, Durchsatz. Dazu eine Zeile aus der Hallenordnung, die vorher niemand gelesen hat — der Bauabschnitt hat fünf Plätze, nicht acht. Jede Anlage, die eine Achse rettet, gibt eine andere her. Das ist keine Schikane, das ist der Zustand jedes Werks, das fertig ist. Die Schmiede darf mitlaufen, aber sie belegt einen der fünf Plätze und liefert dafür nichts als ein Protokoll. Such dir deinen Punkt auf der Front und merk dir, was du dafür aufgegeben hast. Morgen sitzt jemand daneben und fragt genau danach.',
     lernziel:
       'Wenn alle drei Achsen gleichzeitig unter Druck stehen, schrumpft die Front auf wenige Punkte, und jeder davon ist ein bewusster Verzicht.',
     quelle: QUELLE,
@@ -715,22 +600,22 @@ export const AKT_11: LevelDefinition[] = [
       anteilRechnerisch: 0.45,
       anteilBelegpflichtig: 0.25,
     },
-    budget: { module: 7, dauer: 900 },
+    budget: { module: 5, dauer: 900 },
     ziele: [
       {
         id: 'liefert',
         metrik: 'durchsatz',
         vergleich: '>=',
         wert: 0.95,
-        text: 'Mindestens 95 Prozent der Vorgaenge werden ausgeliefert.',
+        text: 'Mindestens 95 Prozent der Vorgänge werden ausgeliefert.',
       },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.8, text: 'Mindestguete 80 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.86, text: 'Mindestgüte 86 Prozent.' },
       {
         id: 'preis',
         metrik: 'kostenJeAuftrag',
         vergleich: '<=',
-        wert: 1200,
-        text: 'Hoechstens 1200 Token je Vorgang.',
+        wert: 1350,
+        text: 'Höchstens 1350 Token je Vorgang.',
       },
       {
         id: 'wartezeit',
@@ -743,79 +628,56 @@ export const AKT_11: LevelDefinition[] = [
         id: 'meister',
         metrik: 'kostenJeAuftrag',
         vergleich: '<=',
-        wert: 850,
-        text: 'Meisterstueck: hoechstens 850 Token je Vorgang.',
+        wert: 1000,
+        text: 'Meisterstück: höchstens 1000 Token je Vorgang.',
         optional: true,
       },
     ],
     saat: 1131,
-    vorbau: strasse([RECHENWERK, REIHER, KONDOR]),
-    reflexion: 'Du hast eine Anlage abgegeben und die anderen verworfen. Was genau haettest du bekommen, wenn du eine der verworfenen genommen haettest?',
+    vorbau: strasse([RECHENWERK, BESTAND, REIHER]),
+    reflexion: 'Du hast eine Anlage abgegeben und die anderen verworfen. Was genau hättest du bekommen, wenn du eine der verworfenen genommen hättest?',
     notiz:
-      'Sprachnotiz, 28. September, letzter Eintrag vor der Abnahme. Am Ende bleibt keine Anlage uebrig, die alles kann. Es bleibt eine, die du erklaeren kannst. Ich habe nie eine Abnahme dadurch verloren, dass ich einen Nachteil zuerst genannt habe. Regel: Der Verzicht gehoert ins Protokoll, nicht in die Fussnote.',
+      'Sprachnotiz, 28. September, letzter Eintrag vor der Abnahme. Am Ende bleibt keine Anlage übrig, die alles kann. Es bleibt eine, die du erklären kannst. Ich habe nie eine Abnahme dadurch verloren, dass ich einen Nachteil zuerst genannt habe. Regel: Der Verzicht gehört ins Protokoll, nicht in die Fußnote.',
     referenzen: [
       {
-        name: 'J10 rb+rei+rei+rei',
-        ansatz: 'x',
+        name: 'Die tiefe Bahn',
+        ansatz:
+          'Zwei Werkzeuge und drei mittlere Kerne belegen alle fünf Plätze: der günstigste Weg über die Güteschwelle und fast keine Wartezeit, dafür bleibt kein Platz für die Schmiede.',
         werk: strasse([RECHENWERK, BESTAND, REIHER, REIHER, REIHER]),
       },
       {
-        name: 'J9 rb+rei+kon',
-        ansatz: 'x',
+        name: 'Der große Kern zum Schluss',
+        ansatz:
+          'Ein REIHER legt vor, ein KONDOR zieht nach: vier Plätze und die höchste Güte des Levels, bezahlt mit dem höchsten Preis je Vorgang und einer Wartezeit knapp unter der Grenze.',
         werk: strasse([RECHENWERK, BESTAND, REIHER, KONDOR]),
-      },
-      {
-        name: 'K1 nach rbr 0.88 rep kon',
-        ansatz: 'x',
-        werk: nacharbeit({ vor: [RECHENWERK, BESTAND, REIHER], schwelle: 0.88, reparatur: [KONDOR] }),
-      },
-      {
-        name: 'K2 nach rbr 0.95 rep kon',
-        ansatz: 'x',
-        werk: nacharbeit({ vor: [RECHENWERK, BESTAND, REIHER], schwelle: 0.95, reparatur: [KONDOR] }),
-      },
-      {
-        name: 'K3 nach rbr 0.86 rep rei nach rei',
-        ansatz: 'x',
-        werk: nacharbeit({ vor: [RECHENWERK, BESTAND, REIHER], schwelle: 0.86, reparatur: [REIHER], nach: [REIHER] }),
-      },
-      {
-        name: 'K4 schleife rb reirei 0.88/1',
-        ansatz: 'x',
-        werk: schleife({ vor: [RECHENWERK, BESTAND], block: [REIHER, REIHER], schwelle: 0.88, runden: 1 }),
-      },
-      {
-        name: 'K5 rb+kol+rei+rei+rei',
-        ansatz: 'x',
-        werk: strasse([RECHENWERK, BESTAND, KOLIBRI, REIHER, REIHER, REIHER]),
-      },
-      {
-        name: 'K6 rb+kon+rei',
-        ansatz: 'x',
-        werk: strasse([RECHENWERK, BESTAND, KONDOR, REIHER]),
-      },
-      {
-        name: 'K7 schleife rb rei 0.9/2 (anti-latenz)',
-        ansatz: 'x',
-        werk: schleife({ vor: [RECHENWERK, BESTAND], block: [REIHER], schwelle: 0.9, runden: 2 }),
       },
     ],
     antiMuster: [
       {
         name: 'Der volle Bauabschnitt',
-        verlockung: 'Sieben Plaetze sind sieben Plaetze. Wer sie nicht belegt, verschenkt Guete — und die Schmiede gehoert schliesslich auch hinein.',
+        verlockung:
+          'Acht Module gehen doch irgendwie hinein. Wer Fläche nicht belegt, verschenkt Güte, und die Schmiede gehört schließlich auch dazu.',
         scheitertAn: 'budget_module',
         werk: strasse([RECHENWERK, BESTAND, REIHER, KONDOR, KONDOR, SCHMIEDE, AUGE, VERDICHTEN]),
       },
       {
         name: 'Der Chor unter Zeitdruck',
-        verlockung: 'Drei Zweige mit Bestenauswahl heben die Guete zuverlaessig. Parallel gebaut kostet das keine zusaetzliche Wartezeit.',
+        verlockung:
+          'Drei Zweige mit Bestenauswahl heben die Güte zuverlässig, und weil sie parallel laufen, kostet das keine zusätzliche Wartezeit.',
         scheitertAn: 'kostenJeAuftrag',
         werk: chor({ vor: [RECHENWERK], zweige: 3, zweig: [KONDOR], modus: 'bester' }),
       },
       {
+        name: 'Die Nacharbeit ohne Ende',
+        verlockung:
+          'Eine Prüferin mit hoher Schwelle schickt zurück, bis es stimmt. Das kostet nur Rechenzeit, und Rechenzeit steht in keinem Vertrag.',
+        scheitertAn: 'latenzP95',
+        werk: schleife({ vor: [RECHENWERK, BESTAND], block: [REIHER], schwelle: 0.9, runden: 2 }),
+      },
+      {
         name: 'Ohne Rechenwerk gespart',
-        verlockung: 'Der Preis je Vorgang ist die harte Zahl. Ein Werkzeug weniger ist ein Bauplatz weniger und ein Posten weniger auf der Rechnung.',
+        verlockung:
+          'Der Preis je Vorgang ist die harte Zahl. Ein Werkzeug weniger ist ein Bauplatz weniger und ein Posten weniger auf der Rechnung.',
         scheitertAn: 'guete',
         werk: strasse([BESTAND, KONDOR]),
       },

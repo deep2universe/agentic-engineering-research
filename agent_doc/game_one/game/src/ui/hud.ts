@@ -19,6 +19,33 @@ import { keymapNachBereich } from './keymap';
 
 export type Modus = 'auswahl' | 'bauen' | 'leitung' | 'abriss';
 
+/**
+ * Alles, was die Schmiede-Werkbank zum Zeichnen braucht — und nichts darüber
+ * hinaus. Das HUD kennt weder Genotypen noch Pareto-Fronten; es bekommt
+ * fertige Zeilen und meldet Klicks zurück.
+ */
+export interface SchmiedeAnsicht {
+  readonly hinweis: string;
+  readonly maxZiele: number;
+  readonly ziele: readonly { metrik: keyof Metriken; name: string; aktiv: boolean }[];
+  readonly bedingungen: readonly { text: string; aktiv: boolean }[];
+  readonly population: number;
+  readonly generationen: number;
+  readonly auswertungen: number;
+  readonly budget: number;
+  readonly lauf: {
+    readonly ausgang: Metriken;
+    readonly auswahl: readonly Metriken[];
+    readonly warnungen: readonly string[];
+    readonly ausnutzung: readonly string[];
+  } | null;
+  readonly aufZiel: (metrik: keyof Metriken) => void;
+  readonly aufBedingung: (text: string) => void;
+  readonly aufAufwand: (population: number, generationen: number) => void;
+  readonly aufSuchen: () => void;
+  readonly aufUebernehmen: (index: number) => void;
+}
+
 export interface HudRueckrufe {
   readonly aufModulWahl: (art: ModulArt) => void;
   readonly aufStart: () => void;
@@ -90,6 +117,7 @@ export class Hud {
   private readonly hilfeEl: HTMLElement;
   private readonly tafelEl: HTMLElement;
   private readonly notizEl: HTMLElement;
+  private readonly schmiedeEl: HTMLElement;
   readonly schattenbaum: HTMLElement;
 
   private meldungsTimer: ReturnType<typeof globalThis.setTimeout> | undefined;
@@ -141,6 +169,7 @@ export class Hud {
     // sie ist der einzige Moment, in dem das Spiel nichts von dir will.
     this.tafelEl = el('div', { class: 'schleier-voll tafel-akt', hidden: 'true' });
     this.notizEl = el('div', { class: 'schleier-voll', hidden: 'true' });
+    this.schmiedeEl = el('div', { class: 'schleier-voll', hidden: 'true' });
 
     ziel.append(
       this.wurzel,
@@ -151,7 +180,8 @@ export class Hud {
       this.ergebnisEl,
       this.hilfeEl,
       this.tafelEl,
-      this.notizEl
+      this.notizEl,
+      this.schmiedeEl
     );
     this.baueHilfe();
   }
@@ -288,7 +318,7 @@ export class Hud {
       wert(`${m.latenzP95}`),
       ampel(latenzGrenze === undefined ? '' : m.latenzP95 > latenzGrenze ? 'schlecht' : 'gut'),
     ]);
-    // Die Modulzahl steht auch im Ruhezustand: Sie zaehlt, was gebaut ist,
+    // Die Modulzahl steht auch im Ruhezustand: Sie zählt, was gebaut ist,
     // nicht was gelaufen ist.
     zeilen.push(['Module', `${m.flaeche}`, '']);
     zeilen.push(['Ausgeliefert', wert(`${m.geliefert}`), ampel(m.durchsatz >= 1 ? 'gut' : m.durchsatz > 0 ? 'warn' : '')]);
@@ -435,6 +465,160 @@ export class Hud {
     this.notizEl.hidden = true;
   }
 
+  // -------------------------------------------------------------------------
+  // Schmiede
+  // -------------------------------------------------------------------------
+
+  /**
+   * Die Werkbank der Schmiede.
+   *
+   * Aufgebaut wie ein Formular und nicht wie ein Spielmenü, und zwar mit
+   * Absicht: Hier wird nichts gespielt, hier wird ein Auftrag an eine Maschine
+   * formuliert. Was oben steht (Ziele) treibt die Suche; was in der Mitte
+   * steht (Bedingungen) darf sie nicht verletzen; was unten steht (Aufwand)
+   * kostet Auswertungen. Die Ergebnisse erscheinen als Liste zum Vergleichen —
+   * nicht als Sieger.
+   */
+  zeigeSchmiede(a: SchmiedeAnsicht): void {
+    const blatt = el('article', {
+      class: 'blatt schmiede',
+      role: 'dialog',
+      'aria-modal': 'true',
+      'aria-label': 'Schmiede',
+    });
+    blatt.append(
+      el('div', { id: 'akt-marke', text: 'Die Schmiede' }),
+      el('h1', { text: 'Selektionsdruck einrichten' }),
+      el('p', { class: 'unter', text: a.hinweis })
+    );
+
+    blatt.append(el('h2', { text: `Suchziele (höchstens ${a.maxZiele})` }));
+    const zieleFeld = el('div', { class: 'schalter' });
+    for (const z of a.ziele) {
+      zieleFeld.append(
+        this.schalter(z.name, z.aktiv, z.aktiv ? 'ziel' : '', () => a.aufZiel(z.metrik))
+      );
+    }
+    blatt.append(zieleFeld);
+
+    blatt.append(
+      el('h2', { text: 'Harte Bedingungen' }),
+      el('p', { class: 'leise', text: 'Nicht vorausgewählt. Was du hier nicht setzt, darf die Suche opfern.' })
+    );
+    const bedFeld = el('div', { class: 'schalter' });
+    for (const b of a.bedingungen) {
+      bedFeld.append(this.schalter(b.text, b.aktiv, b.aktiv ? 'bedingung' : '', () => a.aufBedingung(b.text)));
+    }
+    if (a.bedingungen.length === 0) {
+      bedFeld.append(el('span', { class: 'leise', text: 'Dieses Level stellt keine harten Bedingungen.' }));
+    }
+    blatt.append(bedFeld);
+
+    blatt.append(el('h2', { text: 'Aufwand' }));
+    blatt.append(
+      this.regler('Individuen', a.population, 6, 48, (v) => a.aufAufwand(v, a.generationen)),
+      this.regler('Generationen', a.generationen, 2, 40, (v) => a.aufAufwand(a.population, v)),
+      el('p', {
+        class: a.auswertungen > a.budget ? 'frage warnung' : 'leise',
+        text: `${a.auswertungen} Auswertungen von ${a.budget} Budget.`,
+      })
+    );
+
+    if (a.lauf) {
+      blatt.append(el('h2', { text: 'Ergebnis' }));
+      for (const w of a.lauf.warnungen) blatt.append(el('blockquote', { class: 'monolith', text: w }));
+      for (const w of a.lauf.ausnutzung) blatt.append(el('blockquote', { class: 'monolith', text: w }));
+      const t = el('table');
+      t.append(el('tr', { html: '<th>Anlage</th><th>Token/Auftrag</th><th>p95</th><th>Module</th><th>Güte</th><th></th>' }));
+      t.append(
+        el('tr', {
+          class: 'ausgang',
+          html:
+            '<td>dein Bau</td>' +
+            `<td class="zahl">${zahl(a.lauf.ausgang.kostenJeAuftrag)}</td>` +
+            `<td class="zahl">${a.lauf.ausgang.latenzP95}</td>` +
+            `<td class="zahl">${a.lauf.ausgang.flaeche}</td>` +
+            `<td class="zahl">${Math.round(a.lauf.ausgang.guete * 100)} %</td><td></td>`,
+        })
+      );
+      a.lauf.auswahl.forEach((k, i) => {
+        const zeile = el('tr');
+        zeile.innerHTML =
+          `<td>Fund ${i + 1}</td>` +
+          `<td class="zahl">${zahl(k.kostenJeAuftrag)}</td>` +
+          `<td class="zahl">${k.latenzP95}</td>` +
+          `<td class="zahl">${k.flaeche}</td>` +
+          `<td class="zahl">${Math.round(k.guete * 100)} %</td>`;
+        const zelle = el('td');
+        const knopf = el('button', { type: 'button', class: 'leise', text: 'übernehmen' });
+        knopf.addEventListener('click', () => a.aufUebernehmen(i));
+        zelle.append(knopf);
+        zeile.append(zelle);
+        t.append(zeile);
+      });
+      blatt.append(t);
+      if (a.lauf.auswahl.length === 0) {
+        blatt.append(
+          el('p', { class: 'frage', text: 'Keine zulässige Anlage gefunden. Lockere eine Bedingung oder gib der Suche mehr Aufwand.' })
+        );
+      }
+    }
+
+    const suchen = el('button', { type: 'button', text: a.lauf ? 'Neu suchen' : 'Suche starten' });
+    suchen.addEventListener('click', () => a.aufSuchen());
+    const zu = el('button', { type: 'button', class: 'leise', text: 'Schließen' });
+    zu.addEventListener('click', () => this.schliesseSchmiede());
+    blatt.append(el('footer', {}, [zu, suchen]));
+
+    // Nach einem Suchlauf soll die Ergebnistabelle im Blick sein, nicht der
+    // Kopf des Formulars — sonst scrollt man nach jedem Lauf von Hand.
+    zeigeBlatt(this.schmiedeEl, blatt, a.lauf ? suchen : (zieleFeld.querySelector('button') ?? suchen));
+  }
+
+  schliesseSchmiede(): void {
+    this.schmiedeEl.hidden = true;
+  }
+
+  get schmiedeOffen(): boolean {
+    return !this.schmiedeEl.hidden;
+  }
+
+  private schalter(text: string, aktiv: boolean, marke: string, aufKlick: () => void): HTMLButtonElement {
+    const b = el('button', {
+      type: 'button',
+      class: 'schalt',
+      'aria-pressed': aktiv ? 'true' : 'false',
+      ...(marke ? { 'data-marke': marke } : {}),
+      text,
+    });
+    b.addEventListener('click', aufKlick);
+    return b;
+  }
+
+  private regler(
+    name: string,
+    wert: number,
+    min: number,
+    max: number,
+    aufWert: (v: number) => void
+  ): HTMLElement {
+    const zeile = el('label', { class: 'regler' });
+    const eingabe = el('input', {
+      type: 'range',
+      min: String(min),
+      max: String(max),
+      value: String(wert),
+      'aria-label': name,
+    });
+    const anzeige = el('span', { class: 'zahl', text: String(wert) });
+    eingabe.addEventListener('input', () => {
+      anzeige.textContent = eingabe.value;
+    });
+    eingabe.addEventListener('change', () => aufWert(Number(eingabe.value)));
+    zeile.append(el('span', { text: name }), eingabe, anzeige);
+    return zeile;
+  }
+
   zeigeBriefing(level: LevelDefinition, aktTitel: string, monolith: Metriken | null): void {
     const blatt = el('article', { class: 'blatt', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Auftrag' });
     blatt.append(
@@ -577,7 +761,7 @@ export class Hud {
    * hier mitziehen — sonst hält der Fokusring den falschen Dialog fest.
    */
   offenerDialog(): HTMLElement | null {
-    for (const el of [this.tafelEl, this.notizEl, this.hilfeEl, this.ergebnisEl, this.briefingEl]) {
+    for (const el of [this.tafelEl, this.notizEl, this.schmiedeEl, this.hilfeEl, this.ergebnisEl, this.briefingEl]) {
       if (!el.hidden) return el;
     }
     return null;
@@ -589,7 +773,8 @@ export class Hud {
       !this.ergebnisEl.hidden ||
       !this.hilfeEl.hidden ||
       !this.tafelEl.hidden ||
-      !this.notizEl.hidden
+      !this.notizEl.hidden ||
+      !this.schmiedeEl.hidden
     );
   }
 
