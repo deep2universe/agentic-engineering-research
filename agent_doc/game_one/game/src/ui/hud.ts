@@ -164,7 +164,7 @@ export class Hud {
     this.erlaubt = BAUBAR.filter((a) => level.module.includes(a));
     if (!this.erlaubt.includes(this.gewaehlt)) this.gewaehlt = this.erlaubt[0] ?? 'kern';
     this.kopf.replaceChildren(
-      el('div', { id: 'akt-marke', text: `Akt ${level.akt} · ${aktTitel}` }),
+      el('div', { id: 'akt-marke', text: `Akt ${roemisch(level.akt)} · ${aktTitel}` }),
       el('h2', { text: `${level.id} — ${level.titel}` }),
       el('div', { class: 'leise', text: level.untertitel })
     );
@@ -231,7 +231,18 @@ export class Hud {
     if (b.latenz !== undefined) budgets.push(`p95 ≤ ${b.latenz} Ticks`);
     if (b.module !== undefined) budgets.push(`Module ≤ ${b.module}`);
     if (budgets.length) {
-      this.zieleListe.append(el('li', { class: 'leise', text: `Budget: ${budgets.join(' · ')}` }));
+      /*
+       * Jedes Budget als eigenes, nicht umbrechendes Stück.
+       *
+       * Als eine Zeichenkette gesetzt, zerbrach "Token ≤ 5.200" im schmalen
+       * Panel in drei Zeilen — "Token", "≤", "5.200" — und sah aus wie ein
+       * Darstellungsfehler. Deutsche Panels brauchen Umbruchreserve; ein
+       * Vergleichsoperator allein in einer Zeile ist keine.
+       */
+      const li = el('li', { class: 'leise budget' });
+      li.append(el('span', { class: 'marke', text: 'Budget' }));
+      for (const b of budgets) li.append(el('span', { class: 'posten', text: b }));
+      this.zieleListe.append(li);
     }
   }
 
@@ -240,21 +251,47 @@ export class Hud {
     const kostenGrenze = level?.budget.kosten;
     const latenzGrenze = level?.budget.latenz;
 
-    zeilen.push(['Güte', `${Math.round(m.guete * 100)} %`, m.guete >= 0.7 ? 'gut' : m.guete >= 0.5 ? 'warn' : 'schlecht']);
+    /*
+     * Vor dem ersten Lauf gibt es keine Zahlen, nur einen Gedankenstrich.
+     *
+     * Der erste Entwurf zeigte hier "Güte 0 %" in Rot und "Token je Auftrag ∞".
+     * Beides ist rechnerisch richtig und als Rückmeldung falsch: Es ist nichts
+     * schiefgegangen, es ist nur noch nichts passiert. Rot bedeutet in diesem
+     * HUD "du hast ein Problem", und diese Bedeutung darf nicht verschleißen.
+     */
+    const ruht = m.geliefert === 0 && m.verworfen === 0 && m.kosten === 0;
+    const wert = (text: string): string => (ruht ? '—' : text);
+    const ampel = (a: 'gut' | 'warn' | 'schlecht' | ''): 'gut' | 'warn' | 'schlecht' | '' => (ruht ? '' : a);
+
+    zeilen.push([
+      'Güte',
+      wert(`${Math.round(m.guete * 100)} %`),
+      ampel(m.guete >= 0.7 ? 'gut' : m.guete >= 0.5 ? 'warn' : 'schlecht'),
+    ]);
     zeilen.push([
       'Token',
-      zahl(m.kosten),
-      kostenGrenze === undefined ? '' : m.kosten > kostenGrenze ? 'schlecht' : m.kosten > kostenGrenze * 0.85 ? 'warn' : 'gut',
+      wert(zahl(m.kosten)),
+      ampel(
+        kostenGrenze === undefined
+          ? ''
+          : m.kosten > kostenGrenze
+            ? 'schlecht'
+            : m.kosten > kostenGrenze * 0.85
+              ? 'warn'
+              : 'gut'
+      ),
     ]);
-    zeilen.push(['davon in Euro', `${tokenZuEuro(m.kosten).toFixed(2)} €`, '']);
-    zeilen.push(['Token je Auftrag', zahl(m.kostenJeAuftrag), '']);
+    zeilen.push(['davon in Euro', wert(`${tokenZuEuro(m.kosten).toFixed(2)} €`), '']);
+    zeilen.push(['Token je Auftrag', wert(zahl(m.kostenJeAuftrag)), '']);
     zeilen.push([
       'Latenz p95',
-      `${m.latenzP95}`,
-      latenzGrenze === undefined ? '' : m.latenzP95 > latenzGrenze ? 'schlecht' : 'gut',
+      wert(`${m.latenzP95}`),
+      ampel(latenzGrenze === undefined ? '' : m.latenzP95 > latenzGrenze ? 'schlecht' : 'gut'),
     ]);
+    // Die Modulzahl steht auch im Ruhezustand: Sie zaehlt, was gebaut ist,
+    // nicht was gelaufen ist.
     zeilen.push(['Module', `${m.flaeche}`, '']);
-    zeilen.push(['Ausgeliefert', `${m.geliefert}`, m.durchsatz >= 1 ? 'gut' : m.durchsatz > 0 ? 'warn' : '']);
+    zeilen.push(['Ausgeliefert', wert(`${m.geliefert}`), ampel(m.durchsatz >= 1 ? 'gut' : m.durchsatz > 0 ? 'warn' : '')]);
     if (m.verworfen > 0) zeilen.push(['Verworfen', `${m.verworfen}`, 'warn']);
     if (m.lecks > 0) zeilen.push(['Lecks', `${m.lecks}`, 'schlecht']);
 
@@ -401,7 +438,7 @@ export class Hud {
   zeigeBriefing(level: LevelDefinition, aktTitel: string, monolith: Metriken | null): void {
     const blatt = el('article', { class: 'blatt', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Auftrag' });
     blatt.append(
-      el('div', { id: 'akt-marke', text: `Akt ${level.akt} · ${aktTitel}` }),
+      el('div', { id: 'akt-marke', text: `Akt ${roemisch(level.akt)} · ${aktTitel}` }),
       el('h1', { text: level.titel }),
       el('p', { class: 'unter', text: level.untertitel })
     );
@@ -530,6 +567,20 @@ export class Hud {
 
   schliesseHilfe(): void {
     this.hilfeEl.hidden = true;
+  }
+
+  /**
+   * Der oberste offene modale Dialog, sonst `null`.
+   *
+   * Die Reihenfolge folgt der Stapelung: Die Akttafel liegt über allem, danach
+   * das Fundstück, dann Hilfe, Ergebnis und Auftrag. Wer sie umsortiert, muss
+   * hier mitziehen — sonst hält der Fokusring den falschen Dialog fest.
+   */
+  offenerDialog(): HTMLElement | null {
+    for (const el of [this.tafelEl, this.notizEl, this.hilfeEl, this.ergebnisEl, this.briefingEl]) {
+      if (!el.hidden) return el;
+    }
+    return null;
   }
 
   get dialogOffen(): boolean {

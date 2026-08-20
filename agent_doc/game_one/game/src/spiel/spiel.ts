@@ -18,6 +18,7 @@ import { Halle } from '../welt/halle';
 import { WerkAnsicht } from '../welt/werk_ansicht';
 import { uPuls, uZeit } from '../welt/aussehen';
 import { Hud, type Modus } from '../ui/hud';
+import { Fokusring } from '../ui/fokusring';
 import { befehlFuer, type Befehl } from '../ui/keymap';
 import { BauZustand } from './bauzustand';
 import { Erzaehlung } from './erzaehlung';
@@ -89,6 +90,7 @@ export class Spiel {
   /** Was nach dem Schließen der Akttafel passieren soll. */
   private tafelDann: (() => void) | null = null;
   private readonly strahl = new THREE.Raycaster();
+  private readonly fokusring: Fokusring;
 
   private constructor(renderwerk: Renderwerk, opt: SpielOptionen, start: LevelDefinition) {
     this.renderwerk = renderwerk;
@@ -141,6 +143,15 @@ export class Spiel {
     });
 
     if (opt.reduzierteBewegung === true) this.setzeReduzierteBewegung(true);
+    /*
+     * Der Fokusring haelt die Tabulatortaste im Spiel. Ohne ihn faellt der
+     * Fokus nach wenigen Tabs auf <body>, und wer ohne Maus arbeitet, steht
+     * vor einer Leinwand, die auf nichts mehr reagiert.
+     */
+    // Der Ring umfasst den ganzen Seitenkoerper, nicht nur das HUD: die
+    // Leinwand ist selbst fokussierbar (role="application") und muss in der
+    // Tabfolge liegen, sonst ist der Bauplatz mit der Tastatur unerreichbar.
+    this.fokusring = new Fokusring(opt.leinwand.ownerDocument.body, () => this.hud.offenerDialog());
     this.bindeTastatur();
     this.bindeGroesse(opt.leinwand);
     this.bindeKlangstart();
@@ -876,6 +887,7 @@ export class Spiel {
     this.schleifeAn = false;
     for (const f of this.abbau.splice(0)) f();
     this.zeiger.entsorge();
+    this.fokusring.entsorge();
     this.klang.entsorge();
     this.hud.entsorge();
     this.ansicht.entsorge();

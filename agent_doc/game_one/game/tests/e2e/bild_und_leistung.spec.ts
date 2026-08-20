@@ -52,7 +52,21 @@ test.describe('Bildvergleich', () => {
     });
     await stelleBildRuhig(page);
     await page.evaluate(() => window.__spiel!.frameSchritt(3));
-    await expect(page).toHaveScreenshot('oberflaeche.png', { fullPage: false });
+    /*
+     * Deutlich strenger als die 3D-Blicke — und aus gutem Grund.
+     *
+     * Mit der allgemeinen Toleranz (maxDiffPixelRatio 0,004) ging eine
+     * Textänderung stillschweigend durch: "Akt 1" wurde zu "Akt I", die
+     * Budgetzeile wurde neu gesetzt, die Kennzahlen bekamen einen
+     * Ruhezustand — und der Bildvergleich blieb grün, weil ein paar hundert
+     * Pixel unter der Schwelle liegen. Ein HUD besteht aber fast nur aus
+     * solchen paar hundert Pixeln. Für Schrift gilt deshalb: fast keine
+     * Toleranz, gerade genug für die Kantenglättung.
+     */
+    await expect(page).toHaveScreenshot('oberflaeche.png', {
+      fullPage: false,
+      maxDiffPixelRatio: 0.0002,
+    });
   });
 });
 

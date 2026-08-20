@@ -571,3 +571,24 @@ canvas#leinwand:focus-visible {
     -webkit-backdrop-filter: none;
   }
 }
+
+/*
+ * Budgetzeile: Marke und Posten als eigene, nicht umbrechende Stuecke.
+ * Als eine Zeichenkette zerbrach "Token <= 5.200" im schmalen Panel in drei
+ * Zeilen und sah aus wie ein Darstellungsfehler.
+ */
+#ziele li.budget {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: baseline;
+}
+
+#ziele li.budget .marke::after {
+  content: ':';
+}
+
+#ziele li.budget .posten {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
