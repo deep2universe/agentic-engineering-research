@@ -494,44 +494,44 @@ export const AKT_11: LevelDefinition[] = [
         werk: strasse([RECHENWERK, KOLIBRI, REIHER]),
       },
       {
-        name: 'D2 gabel kolkol/kolrei',
+        name: 'G1 gabel 0.30 kolkol/kolrei',
         ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.38, a: [KOLIBRI, KOLIBRI], b: [KOLIBRI, REIHER] }),
+        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.3, a: [KOLIBRI, KOLIBRI], b: [KOLIBRI, REIHER] }),
       },
       {
-        name: 'D3 gabel kol/rei',
+        name: 'G2 gabel kolkolkol/kolrei',
         ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.38, a: [KOLIBRI], b: [REIHER] }),
+        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.38, a: [KOLIBRI, KOLIBRI, KOLIBRI], b: [KOLIBRI, REIHER] }),
       },
       {
-        name: 'D4 chor2 kol voting + kol',
+        name: 'G4 nach rkk 0.75 rep rei',
         ansatz: 'x',
-        werk: chor({ vor: [RECHENWERK], zweige: 2, zweig: [KOLIBRI], modus: 'voting', nach: [KOLIBRI] }),
+        werk: nacharbeit({ vor: [RECHENWERK, KOLIBRI, KOLIBRI], schwelle: 0.75, reparatur: [REIHER] }),
       },
       {
-        name: 'D5 rech+kol+kol+rei',
+        name: 'G5 nach rk 0.62 rep kol nach kol',
         ansatz: 'x',
-        werk: strasse([RECHENWERK, KOLIBRI, KOLIBRI, REIHER]),
+        werk: nacharbeit({ vor: [RECHENWERK, KOLIBRI], schwelle: 0.62, reparatur: [KOLIBRI], nach: [KOLIBRI] }),
       },
       {
-        name: 'D6 nacharbeit kol/rei',
+        name: 'G6 chor2 kolkol bester',
         ansatz: 'x',
-        werk: nacharbeit({ vor: [RECHENWERK, KOLIBRI], schwelle: 0.7, reparatur: [REIHER] }),
+        werk: chor({ vor: [RECHENWERK], zweige: 2, zweig: [KOLIBRI, KOLIBRI], modus: 'bester' }),
       },
       {
-        name: 'D7 rech+rei',
+        name: 'G7 schleife kol 0.78/3',
         ansatz: 'x',
-        werk: strasse([RECHENWERK, REIHER]),
+        werk: schleife({ vor: [RECHENWERK], block: [KOLIBRI], schwelle: 0.78, runden: 3 }),
       },
       {
-        name: 'D8 rech+rei+kol',
+        name: 'G8 gabel 0.45 kolkol/reikol',
         ansatz: 'x',
-        werk: strasse([RECHENWERK, REIHER, KOLIBRI]),
+        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.45, a: [KOLIBRI, KOLIBRI], b: [REIHER, KOLIBRI] }),
       },
       {
-        name: 'D9 gabel kolkol/rei',
+        name: 'G9 chor2 kol bester nach rei',
         ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.38, a: [KOLIBRI, KOLIBRI], b: [REIHER] }),
+        werk: chor({ vor: [RECHENWERK], zweige: 2, zweig: [KOLIBRI], modus: 'bester', nach: [REIHER] }),
       },
     ],
     antiMuster: [
@@ -755,49 +755,49 @@ export const AKT_11: LevelDefinition[] = [
       'Sprachnotiz, 28. September, letzter Eintrag vor der Abnahme. Am Ende bleibt keine Anlage uebrig, die alles kann. Es bleibt eine, die du erklaeren kannst. Ich habe nie eine Abnahme dadurch verloren, dass ich einen Nachteil zuerst genannt habe. Regel: Der Verzicht gehoert ins Protokoll, nicht in die Fussnote.',
     referenzen: [
       {
-        name: 'F1 rb+rei+rei',
-        ansatz: 'x',
-        werk: strasse([RECHENWERK, BESTAND, REIHER, REIHER]),
-      },
-      {
-        name: 'F2 rb+kon',
-        ansatz: 'x',
-        werk: strasse([RECHENWERK, BESTAND, KONDOR]),
-      },
-      {
-        name: 'F3 gabel rei/kon',
-        ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK, BESTAND], kriterium: 'schwierigkeit', schwelle: 0.5, a: [REIHER], b: [KONDOR] }),
-      },
-      {
-        name: 'F4 gabel reirei/kon',
-        ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK, BESTAND], kriterium: 'schwierigkeit', schwelle: 0.5, a: [REIHER, REIHER], b: [KONDOR] }),
-      },
-      {
-        name: 'F5 rb+rei+rei+rei',
+        name: 'J10 rb+rei+rei+rei',
         ansatz: 'x',
         werk: strasse([RECHENWERK, BESTAND, REIHER, REIHER, REIHER]),
       },
       {
-        name: 'F6 chor2 rei bester +rei',
-        ansatz: 'x',
-        werk: chor({ vor: [RECHENWERK, BESTAND], zweige: 2, zweig: [REIHER], modus: 'bester', nach: [REIHER] }),
-      },
-      {
-        name: 'F7 rb+kol+rei+rei',
-        ansatz: 'x',
-        werk: strasse([RECHENWERK, BESTAND, KOLIBRI, REIHER, REIHER]),
-      },
-      {
-        name: 'F8 gabel reirei/konrei',
-        ansatz: 'x',
-        werk: gabel({ vor: [RECHENWERK, BESTAND], kriterium: 'schwierigkeit', schwelle: 0.55, a: [REIHER, REIHER], b: [KONDOR] }),
-      },
-      {
-        name: 'F9 rb+rei+kon',
+        name: 'J9 rb+rei+kon',
         ansatz: 'x',
         werk: strasse([RECHENWERK, BESTAND, REIHER, KONDOR]),
+      },
+      {
+        name: 'K1 nach rbr 0.88 rep kon',
+        ansatz: 'x',
+        werk: nacharbeit({ vor: [RECHENWERK, BESTAND, REIHER], schwelle: 0.88, reparatur: [KONDOR] }),
+      },
+      {
+        name: 'K2 nach rbr 0.95 rep kon',
+        ansatz: 'x',
+        werk: nacharbeit({ vor: [RECHENWERK, BESTAND, REIHER], schwelle: 0.95, reparatur: [KONDOR] }),
+      },
+      {
+        name: 'K3 nach rbr 0.86 rep rei nach rei',
+        ansatz: 'x',
+        werk: nacharbeit({ vor: [RECHENWERK, BESTAND, REIHER], schwelle: 0.86, reparatur: [REIHER], nach: [REIHER] }),
+      },
+      {
+        name: 'K4 schleife rb reirei 0.88/1',
+        ansatz: 'x',
+        werk: schleife({ vor: [RECHENWERK, BESTAND], block: [REIHER, REIHER], schwelle: 0.88, runden: 1 }),
+      },
+      {
+        name: 'K5 rb+kol+rei+rei+rei',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, BESTAND, KOLIBRI, REIHER, REIHER, REIHER]),
+      },
+      {
+        name: 'K6 rb+kon+rei',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, BESTAND, KONDOR, REIHER]),
+      },
+      {
+        name: 'K7 schleife rb rei 0.9/2 (anti-latenz)',
+        ansatz: 'x',
+        werk: schleife({ vor: [RECHENWERK, BESTAND], block: [REIHER], schwelle: 0.9, runden: 2 }),
       },
     ],
     antiMuster: [

@@ -399,7 +399,7 @@ export const AKT_10: LevelDefinition[] = [
     titel: 'Der Andrang in der Nacharbeit',
     untertitel: 'Los 4: Altbestand TROET, Jahrgang 1998',
     briefing:
-      'Das Landesamt hat Los vier freigegeben: Altbestand aus dem Fachverfahren TROET, in Teilen älter als deine Ausbildung. Die Vorgänge sind erheblich schwerer als alles, was Halle 3 diese Woche gesehen hat; die Güteanforderung wurde dafür gesenkt, die Prüfliste nicht. Der Tokendeckel ist zugleich enger geworden. Deine Anlage vom Montag steht noch genau so da und liefert weiter — nur schickt das Tor jetzt nicht mehr jeden dreissigsten in die Nacharbeit, sondern jeden fünften. Rauhut hat Zeile sieben aufgeschlagen und wartet. Ein Auge sieht immer nur den Weg, auf dem es steht.',
+      'Das Landesamt hat Los vier freigegeben: Altbestand aus dem Fachverfahren TROET, in Teilen älter als deine Ausbildung. Die Vorgänge sind erheblich schwerer als alles, was Halle 3 diese Woche gesehen hat; die Güteanforderung wurde dafür gesenkt, die Prüfliste nicht. Der Tokendeckel ist zugleich enger geworden. Deine Anlage vom Montag steht noch genau so da und liefert weiter — nur schickt das Tor jetzt nicht mehr jeden dreißigsten in die Nacharbeit, sondern jeden fünften. Rauhut hat Zeile sieben aufgeschlagen und wartet. Ein Auge sieht immer nur den Weg, auf dem es steht.',
     lernziel:
       'Eine Beobachtungslücke auf einem seltenen Zweig bleibt genau so lange unsichtbar, bis dieser Zweig nicht mehr selten ist.',
     quelle: QUELLE,
@@ -427,7 +427,7 @@ export const AKT_10: LevelDefinition[] = [
         metrik: 'guete',
         vergleich: '>=',
         wert: 0.75,
-        text: 'Meisterstück: 75 Prozent Güte, ohne den Tokendeckel zu reissen.',
+        text: 'Meisterstück: 75 Prozent Güte, ohne den Tokendeckel zu reißen.',
         optional: true,
       },
     ],
@@ -509,7 +509,7 @@ export const AKT_10: LevelDefinition[] = [
     titel: 'Die Aktenlage',
     untertitel: 'Abnahme, Freitag, Ringordner offen',
     briefing:
-      'Letzter Tag der Prüfung. Das Landesamt schickt dreissig Vorgänge, von denen fast jeder zweite ohne Beleg aus einem Fachdienst nicht zu lösen ist. Der Fachdienst ist eine Fremdschnittstelle: er antwortet fast immer, und fast immer ist nicht immer. Für jeden Vorgang, der deshalb eine Ersatzbahn nimmt, will Zeile sieben dieselbe Spur sehen wie für alle anderen. Der Tokendeckel steht, das Fundament ist knapp, und jedes Auge kostet dich einen Token und einen Platz. Rauhut hat den Ringordner aufgeschlagen liegen lassen und ist Kaffee holen gegangen.',
+      'Letzter Tag der Prüfung. Das Landesamt schickt dreißig Vorgänge, von denen fast jeder zweite ohne Beleg aus einem Fachdienst nicht zu lösen ist. Der Fachdienst ist eine Fremdschnittstelle: er antwortet fast immer, und fast immer ist nicht immer. Für jeden Vorgang, der deshalb eine Ersatzbahn nimmt, will Zeile sieben dieselbe Spur sehen wie für alle anderen. Der Tokendeckel steht, das Fundament ist knapp, und jedes Auge kostet dich einen Token und einen Platz. Rauhut hat den Ringordner aufgeschlagen liegen lassen und ist Kaffee holen gegangen.',
     lernziel:
       'Nachvollziehbarkeit ist eine Eigenschaft aller Pfade eines Werks, nicht nur des Pfades, den du dir beim Bauen vorgestellt hast.',
     quelle: QUELLE,
@@ -607,7 +607,7 @@ export const AKT_10: LevelDefinition[] = [
       },
       {
         name: 'Ohne Fachdienst, dafür KONDOR',
-        verlockung: 'Ein großer Kern weiß genug. Wer kein Werkzeug anschliesst, hat auch keine Ersatzbahn zu beobachten.',
+        verlockung: 'Ein großer Kern weiß genug. Wer kein Werkzeug anschließt, hat auch keine Ersatzbahn zu beobachten.',
         scheitertAn: 'guete',
         werk: strasse([KONDOR, AUGE]),
       },
