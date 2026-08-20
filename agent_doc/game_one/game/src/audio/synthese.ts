@@ -50,7 +50,7 @@ export const UI_GRUND_HZ = 587.33;
 // Tonvorrat: Skalen, Stufen, Akkorde
 // ---------------------------------------------------------------------------
 
-/** Dorisch: groß Sekunde, klein Terz, groß Sexte — Grundstimmung des Spiels. */
+/** Dorisch: grosse Sekunde, kleine Terz, grosse Sexte — Grundstimmung des Spiels. */
 export const DORISCH: readonly number[] = [0, 2, 3, 5, 7, 9, 10];
 
 /** Aeolisch (natürlich Moll): wie Dorisch, aber kleine Sexte — kühler. */

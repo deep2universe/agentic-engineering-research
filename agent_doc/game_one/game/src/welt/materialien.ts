@@ -93,8 +93,19 @@ export const PAKET_FARB_ATTRIBUT = 'paketFarbe';
 interface MasterEinstellung {
   /** Saat des Textursatzes — je Art eine eigene, damit sich nichts wiederholt. */
   readonly saat: number;
-  /** Wie oft sich die Kachel über die Standard-UV wiederholt. */
-  readonly kachel: number;
+  /**
+   * Wiederholungen je UV-Einheit.
+   *
+   * Fuer die Master-Materialien ist die UV-Einheit EIN METER: die Weltgeometrie
+   * (Boden, Wand, Verkleidung) legt ihre UVs in Metern an, `holeMaterial()`
+   * skaliert sie dann auf die physikalische Kachelgröße des Materials.
+   * `kachelung = 0.5` heißt also "die Kachel ist zwei Meter breit".
+   *
+   * `modulMaterial()` weicht bewusst davon ab: Modulgehäuse tragen normierte
+   * UVs von 0 bis 1, weil das Leuchtband bei v ≈ 0.5 sitzen muss. Dort zählt
+   * der Wert als Wiederholungen je Gehäuseseite.
+   */
+  readonly kachelung: number;
   /** Faktor auf den Rauheitskanal — feinjustiert den Glanz je Einsatzort. */
   readonly rauheit: number;
   /** Faktor auf den Metallkanal. */
@@ -107,20 +118,31 @@ interface MasterEinstellung {
   readonly tonung: number;
 }
 
+/**
+ * Die zehn Master. `kachelung` ist der Kehrwert der physikalischen
+ * Kachelgröße — die Kommentare nennen sie in Metern, damit beim Nachjustieren
+ * niemand raten muss.
+ */
 const MASTER: Record<MaterialArt, MasterEinstellung> = {
-  // Wände und Stützen der Halle — große Flächen, also kräftig gekachelt.
-  beton: { saat: 0x1957_01, kachel: 6, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 1.0, tonung: 0xffffff },
-  ziegel: { saat: 0x1957_02, kachel: 4, rauheit: 1.0, metall: 1, normale: 1.15, verdeckung: 1.0, tonung: 0xf2eee8 },
-  bodengitter: { saat: 0x1957_03, kachel: 8, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 1.0, tonung: 0xffffff },
-  // Technik.
-  stahl_gebuerstet: { saat: 0x1957_04, kachel: 2, rauheit: 1.0, metall: 1, normale: 0.85, verdeckung: 0.7, tonung: 0xe8eef5 },
-  stahl_lackiert: { saat: 0x1957_05, kachel: 2, rauheit: 1.0, metall: 1, normale: 0.9, verdeckung: 0.8, tonung: 0xffffff },
-  messing: { saat: 0x1957_06, kachel: 1, rauheit: 1.0, metall: 1, normale: 0.7, verdeckung: 0.7, tonung: 0xffffff },
-  glas: { saat: 0x1957_07, kachel: 1, rauheit: 1.0, metall: 1, normale: 0.5, verdeckung: 0.4, tonung: 0xffffff },
-  gummi: { saat: 0x1957_08, kachel: 3, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 1.0, tonung: 0xffffff },
-  leiterplatte: { saat: 0x1957_09, kachel: 1, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 0.9, tonung: 0xffffff },
-  emaille: { saat: 0x1957_0a, kachel: 1, rauheit: 1.0, metall: 1, normale: 0.8, verdeckung: 0.6, tonung: 0xffffff },
+  // Hallenhülle: große Flächen, Kachel in Bauteilgröße.
+  beton: { saat: 0x1957_01, kachelung: 0.5, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 1.0, tonung: 0xffffff }, // 2,0 m Schaltafel
+  ziegel: { saat: 0x1957_02, kachelung: 1.0, rauheit: 1.0, metall: 1, normale: 1.15, verdeckung: 1.0, tonung: 0xf2eee8 }, // 1,0 m: 4 Steine x 12 Schichten
+  bodengitter: { saat: 0x1957_03, kachelung: 2.0, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 1.0, tonung: 0xffffff }, // 0,5 m: 14 Tragstäbe
+  // Technik und Beschlag.
+  stahl_gebuerstet: { saat: 0x1957_04, kachelung: 2.0, rauheit: 1.0, metall: 1, normale: 0.85, verdeckung: 0.7, tonung: 0xe8eef5 }, // 0,5 m Blechtafel
+  stahl_lackiert: { saat: 0x1957_05, kachelung: 1.6, rauheit: 1.0, metall: 1, normale: 0.9, verdeckung: 0.8, tonung: 0xffffff }, // 0,63 m Gehäuseblech
+  messing: { saat: 0x1957_06, kachelung: 3.2, rauheit: 1.0, metall: 1, normale: 0.7, verdeckung: 0.7, tonung: 0xffffff }, // 0,31 m Schild
+  glas: { saat: 0x1957_07, kachelung: 1.0, rauheit: 1.0, metall: 1, normale: 0.5, verdeckung: 0.4, tonung: 0xffffff }, // 1,0 m Scheibe
+  gummi: { saat: 0x1957_08, kachelung: 4.0, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 1.0, tonung: 0xffffff }, // 0,25 m Noppenmatte
+  leiterplatte: { saat: 0x1957_09, kachelung: 5.5, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 0.9, tonung: 0xffffff }, // 0,18 m: 18 Zellen à 1 cm
+  emaille: { saat: 0x1957_0a, kachelung: 2.5, rauheit: 1.0, metall: 1, normale: 0.8, verdeckung: 0.6, tonung: 0xffffff }, // 0,4 m Emailletafel
 };
+
+/**
+ * Kachelung des Gehäuseblechs auf einem Modulgehäuse. Modulgehäuse tragen
+ * normierte UVs, hier zählt der Wert deshalb je Gehäuseseite.
+ */
+const MODUL_KACHELUNG = 1.7;
 
 const masterCache = new Map<MaterialArt, THREE.MeshStandardNodeMaterial>();
 
@@ -136,7 +158,7 @@ function bestueckeAusTexturen(
   const satz = erzeugeTexturSatz(art, e.saat, TEXTURGROESSE);
   // Die Kachelung steckt im Node-Graphen, nicht in `texture.repeat`: so bleibt
   // die Texturinstanz teilbar, falls ein zweites Material sie mitbenutzt.
-  const uvK = uv().mul(e.kachel);
+  const uvK = uv().mul(e.kachelung);
 
   material.colorNode = texture(satz.albedo, uvK).rgb.mul(color(e.tonung));
   material.normalNode = normalMap(texture(satz.normal, uvK), vec2(e.normale, e.normale));
@@ -174,7 +196,7 @@ export function holeMaterial(art: MaterialArt): THREE.MeshStandardNodeMaterial {
   const satz = erzeugeTexturSatz(art, e.saat, TEXTURGROESSE);
   if (satz.emission !== undefined) {
     // Die Leuchtdioden der Leiterplatte — dezent, sonst blüht die Platine.
-    material.emissiveNode = texture(satz.emission, uv().mul(e.kachel)).rgb.mul(EMISSIV_HOCH);
+    material.emissiveNode = texture(satz.emission, uv().mul(e.kachelung)).rgb.mul(EMISSIV_HOCH);
   }
 
   masterCache.set(art, material);
@@ -204,14 +226,17 @@ export function modulMaterial(art: ModulArt): THREE.MeshStandardNodeMaterial {
   if (vorhanden !== undefined) return vorhanden;
 
   const leitwert = KATALOG[art].farbe;
-  const e = MASTER.stahl_lackiert;
+  const e: MasterEinstellung = { ...MASTER.stahl_lackiert, kachelung: MODUL_KACHELUNG };
   const material = new THREE.MeshStandardNodeMaterial();
   material.name = 'modul_' + art;
   bestueckeAusTexturen(material, 'stahl_lackiert', e);
 
   // Das Gehäuse bleibt dunkel; der Farbleitwert kommt nur als Hauch dazu,
   // damit sich zwölf Modularten im Halbdunkel unterscheiden lassen.
-  const albedo = texture(erzeugeTexturSatz('stahl_lackiert', e.saat, TEXTURGROESSE).albedo, uv().mul(e.kachel)).rgb;
+  const albedo = texture(
+    erzeugeTexturSatz('stahl_lackiert', e.saat, TEXTURGROESSE).albedo,
+    uv().mul(e.kachelung)
+  ).rgb;
   material.colorNode = mix(albedo, albedo.mul(color(leitwert)), 0.45);
 
   // Leuchtband quer über die Blende. Es allein trägt die Farbkennung —

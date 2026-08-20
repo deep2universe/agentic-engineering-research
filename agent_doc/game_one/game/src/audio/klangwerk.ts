@@ -300,6 +300,7 @@ export class Klangwerk {
 
   // -- Scheduler ----------------------------------------------------------
   private takt: ReturnType<typeof setInterval> | null = null;
+  private pausenTakt: ReturnType<typeof setTimeout> | null = null;
   private naechsteNotenzeit = 0;
   private schrittIndex = 0;
 
@@ -376,6 +377,7 @@ export class Klangwerk {
   /** Trennt alle Knoten, löscht alle Timer, gibt den Kontext frei. */
   entsorge(): void {
     this.haltTakt();
+    this.haltPausenTakt();
     const jetzt = this.kontext?.currentTime ?? 0;
 
     for (const liste of [this.stimmenListe, this.sterbend, this.musikStimmen]) {
@@ -407,7 +409,13 @@ export class Klangwerk {
     this.pausiert = false;
   }
 
-  /** Blendet in 0,2 s aus und hält den Scheduler an. */
+  /**
+   * Blendet in 0,2 s aus und haelt den Scheduler an.
+   *
+   * Der Kontext wird erst 0,3 s spaeter angehalten — waehrend einer Pause
+   * schreitet `currentTime` nicht fort, ein sofortiges `suspend()` wuerde die
+   * Ausblendrampe also mittendrin einfrieren und man hoerte einen Schnitt.
+   */
   pausiere(): void {
     if (!this.aktiv || this.pausiert) return;
     const ctx = this.kontext;
@@ -416,7 +424,12 @@ export class Klangwerk {
     const jetzt = ctx.currentTime;
     rampe(this.master.gain, jetzt, this.master.gain.value, 0, 0.2);
     this.haltTakt();
-    if (this.istEchtzeit(ctx)) void ctx.suspend().catch(() => undefined);
+    if (this.istEchtzeit(ctx)) {
+      this.pausenTakt = setTimeout(() => {
+        this.pausenTakt = null;
+        if (this.pausiert) void ctx.suspend().catch(() => undefined);
+      }, 300);
+    }
   }
 
   /** Nimmt den Betrieb wieder auf. */
@@ -425,6 +438,7 @@ export class Klangwerk {
     const ctx = this.kontext;
     if (!ctx || !this.master) return;
     this.pausiert = false;
+    this.haltPausenTakt();
     if (this.istEchtzeit(ctx)) void ctx.resume().catch(() => undefined);
     const jetzt = ctx.currentTime;
     rampe(this.master.gain, jetzt, this.master.gain.value, MASTER_PEGEL, 0.4);
@@ -847,6 +861,13 @@ export class Klangwerk {
     }
   }
 
+  private haltPausenTakt(): void {
+    if (this.pausenTakt !== null) {
+      clearTimeout(this.pausenTakt);
+      this.pausenTakt = null;
+    }
+  }
+
   /**
    * Plant alle Ereignisse, die innerhalb des Lookahead-Fensters liegen.
    * Jedes bekommt seine absolute Zeit mit; nichts wird "jetzt" gestartet.
@@ -1001,7 +1022,7 @@ export class Klangwerk {
       ziel: kopf,
       knoten,
       quellen: [],
-      ende: zeit + 0.4,
+      ende: zeit + 0.02,
       nummer: this.ereignisZaehler++,
     };
     this.baueKlang(klang, bau);
@@ -1404,15 +1425,18 @@ export class Klangwerk {
           const hz = midiZuHz(skalenTon(TONIKA_MIDI + 12, DORISCH, stufen[i] ?? 0));
           const osz = this.osz(bau, i < 2 ? 'sine' : 'triangle', hz * cent(i % 2 === 0 ? -4 : 4));
           const g = this.gain(bau, 0);
+          // Die Stimmen setzen gestaffelt ein (60 ms Abstand), enden aber
+          // gemeinsam — der Akkord baut sich auf und loest sich als Ganzes.
           const start = bau.zeit + i * 0.06;
+          const schluss = bau.zeit + 2.4;
           setze(g.gain, start, 0);
           g.gain.linearRampToValueAtTime(0.24 - i * 0.03, start + 0.4);
-          g.gain.linearRampToValueAtTime(0, start + 2.4);
+          g.gain.linearRampToValueAtTime(0, schluss);
           osz.connect(g);
           g.connect(bau.ziel);
           osz.start(start);
-          osz.stop(start + 2.45);
-          bau.ende = Math.max(bau.ende, start + 2.45);
+          osz.stop(schluss + 0.02);
+          bau.ende = Math.max(bau.ende, schluss);
         }
         break;
       }
@@ -1420,8 +1444,8 @@ export class Klangwerk {
       case 'level_gescheitert':
         // D2 und Es2 zusammen: eine kleine Sekunde ganz unten, 4,4 Hz
         // Schwebung. Nicht laut, nur endgültig.
-        this.ton(bau, 'sine', 73.42, 0.4, 0.7, 0.02);
-        this.ton(bau, 'sine', 77.78, 0.4, 0.6, 0.02);
+        this.ton(bau, 'sine', 73.42, 0.36, 0.7, 0.02);
+        this.ton(bau, 'sine', 77.78, 0.36, 0.6, 0.02);
         this.impuls(bau, 'lowpass', 600, 180, 0.7, 0.3, 0.2);
         break;
 

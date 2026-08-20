@@ -9,7 +9,11 @@
     "vorschau": "vite preview",
     "pruefe": "tsc --noEmit",
     "test": "vitest run",
-    "spike": "node spike/spike_lauf.mjs"
+    "spike": "node spike/spike_lauf.mjs",
+    "e2e": "playwright test",
+    "bauen": "vite build",
+    "schau": "node werkzeuge/schau.mjs",
+    "umlaute": "node werkzeuge/umlaute.mjs"
   },
   "keywords": [],
   "author": "",
