@@ -72,6 +72,73 @@ describe('Akt I — Modellgröße ist eine ökonomische Entscheidung', () => {
     expect(fuenfmal.kosten).toBeGreaterThan(einmal.kosten * 3);
   });
 
+  it('DOMINIERT eine Kette mittlerer Kerne den großen bei leichter Last auf allen drei Achsen', () => {
+    /*
+     * Die schärfste Fassung der Lektion — und sie wurde nicht entworfen,
+     * sondern gemessen und dann festgeschrieben.
+     *
+     * Bei leichten bis mittleren Aufträgen ist zweimal REIHER dem einen
+     * KONDOR nicht bloß ebenbürtig, sondern in Güte UND Kosten UND Latenz
+     * überlegen. Der große Kern ist dort also keine teure Alternative,
+     * sondern schlicht eine Falle.
+     *
+     * Das ist die didaktisch wertvollste Eigenschaft des ganzen Balancings,
+     * weil sie im Fach genauso gilt: Zwei Durchgänge mit einem mittleren
+     * Modell schlagen einen Durchgang mit dem größten — bis die Aufgabe hart
+     * genug wird. Der nächste Test hält die andere Hälfte fest.
+     */
+    const leicht = strom({ schwierigkeit: [0.1, 0.45] });
+    const zweiMittel = lauf(
+      reihe([
+        { art: 'kern', param: { groesse: 'reiher' } },
+        { art: 'kern', param: { groesse: 'reiher' } },
+      ] as never),
+      leicht
+    );
+    const einGross = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]), leicht);
+
+    expect(zweiMittel.guete).toBeGreaterThan(einGross.guete);
+    expect(zweiMittel.kostenJeAuftrag).toBeLessThan(einGross.kostenJeAuftrag);
+    expect(zweiMittel.latenzP95).toBeLessThan(einGross.latenzP95);
+  });
+
+  it('KEHRT SICH das Verhältnis bei schweren Aufträgen um', () => {
+    // Ohne diese Umkehr wäre der große Kern reine Dekoration und die
+    // Preisleiter eine Behauptung. Mit ihr ist die Kernwahl eine echte
+    // Entscheidung — sie hängt an der Schwierigkeit der Last, nicht am Geld.
+    const schwer = strom({ schwierigkeit: [0.75, 0.98] });
+    const zweiMittel = lauf(
+      reihe([
+        { art: 'kern', param: { groesse: 'reiher' } },
+        { art: 'kern', param: { groesse: 'reiher' } },
+      ] as never),
+      schwer
+    );
+    const einGross = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]), schwer);
+
+    expect(einGross.guete).toBeGreaterThan(zweiMittel.guete + 0.2);
+  });
+
+  it('SÄTTIGT ein einzelner großer Kern einen schnellen Auftragsstrom', () => {
+    /*
+     * Der große Kern braucht vier Ticks je Auftrag, der Strom liefert alle
+     * zwei. Die Warteschlange wächst damit unbegrenzt, und die Latenz misst
+     * am Ende die Länge des Staus statt die Architektur.
+     *
+     * Das ist bewusst so geblieben, obwohl es die Latenzachse in Akt I fast
+     * binär macht: Es IST die Erfahrung, um die es geht. Ein einzelner
+     * Arbeiter skaliert nicht mit dem Eingang — und genau deshalb gibt es ab
+     * Akt V den VERTEILER. Wer diese Zahl entschärft, nimmt Akt V seinen
+     * Anlass.
+     */
+    const schnell = strom({ anzahl: 40, takt: 2 });
+    const gross = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]), schnell);
+    const mittel = lauf(reihe([{ art: 'kern', param: { groesse: 'reiher' } }]), schnell);
+
+    expect(mittel.latenzP95).toBeLessThan(10);
+    expect(gross.latenzP95).toBeGreaterThan(40);
+  });
+
   it('hebt Spezialisierung die Decke bei passender Domäne und senkt sie sonst', () => {
     const nurRecht = strom({ domaenen: ['recht'], schwierigkeit: [0.6, 0.7] });
     const neutral = lauf(reihe([{ art: 'kern', param: { groesse: 'reiher', spezialisierung: 'keine' } }]), nurRecht);

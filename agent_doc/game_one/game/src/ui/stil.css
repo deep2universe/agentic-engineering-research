@@ -425,6 +425,16 @@ canvas#leinwand:focus-visible {
   font-variant-numeric: tabular-nums;
 }
 
+/*
+ * Zahl und Einheit gehoeren zusammen. Ohne diese Regel bricht "100 %" im
+ * Ergebnisblatt in zwei Zeilen — die Zahl oben, das Prozentzeichen darunter.
+ * Das sieht nach Fehler aus und ist in einer Ergebnistabelle besonders teuer,
+ * weil genau dort jemand nachrechnet.
+ */
+.blatt table td:not(:first-child) {
+  white-space: nowrap;
+}
+
 .blatt kbd {
   background: rgba(255, 255, 255, 0.09);
   border: 1px solid var(--rand);

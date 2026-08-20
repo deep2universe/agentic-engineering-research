@@ -1,11 +1,11 @@
 {
-  "levelId": "VIII-3",
+  "levelId": "XII-3",
   "modus": "webgl2",
   "bilder": [
     {
       "name": "01_akttafel",
       "beschreibung": "Kalter Einstieg in den Akt",
-      "mittel": 9.5,
+      "mittel": 9.49,
       "max": 239,
       "hellAnteil": 0.024
     },
@@ -26,51 +26,51 @@
     {
       "name": "02_leeres_werk",
       "beschreibung": "Leeres Fundament, Auftragseingang und Auslieferung",
-      "mittel": 28.83,
+      "mittel": 29.05,
       "max": 239,
-      "hellAnteil": 0.451
+      "hellAnteil": 0.457
     },
     {
       "name": "03_gebautes_werk",
       "beschreibung": "Referenzloesung steht",
-      "mittel": 29.83,
+      "mittel": 30.11,
       "max": 239,
-      "hellAnteil": 0.523
+      "hellAnteil": 0.525
     },
     {
       "name": "04_nahaufnahme",
       "beschreibung": "Nahaufnahme der Pipeline",
-      "mittel": 37.45,
+      "mittel": 37.37,
       "max": 239,
-      "hellAnteil": 0.744
+      "hellAnteil": 0.74
     },
     {
       "name": "05_simulation",
       "beschreibung": "Auftraege fliessen durch das Werk",
-      "mittel": 31.4,
+      "mittel": 31.53,
       "max": 239,
-      "hellAnteil": 0.617
+      "hellAnteil": 0.619
     },
     {
       "name": "06_auswertung",
       "beschreibung": "Auswertung nach dem Lauf",
-      "mittel": 14.99,
+      "mittel": 15.55,
       "max": 239,
-      "hellAnteil": 0.329
+      "hellAnteil": 0.353
     },
     {
       "name": "07_ohne_hud",
       "beschreibung": "Nur die Halle, ohne Oberflaeche",
-      "mittel": 37.87,
-      "max": 203,
-      "hellAnteil": 0.641
+      "mittel": 37.51,
+      "max": 204,
+      "hellAnteil": 0.63
     },
     {
       "name": "08_flach",
       "beschreibung": "Flacher Blickwinkel",
-      "mittel": 39.39,
-      "max": 191,
-      "hellAnteil": 0.681
+      "mittel": 38.84,
+      "max": 187,
+      "hellAnteil": 0.661
     }
   ],
   "meldungen": [
