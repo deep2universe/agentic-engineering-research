@@ -33,11 +33,7 @@ export type Befehl =
   | 'sim_einzeltick'
   | 'sim_schneller'
   | 'sim_langsamer'
-  | 'sim_stopp'
-  | 'sprung_verstoss'
-  | 'ansicht_spur'
   | 'ansicht_gitter'
-  | 'inspektor'
   | 'rueckgaengig'
   | 'wiederholen'
   | 'handbuch'
@@ -63,17 +59,17 @@ export interface Bindung {
 
 export const KEYMAP: readonly Bindung[] = [
   /*
-   * Die Ziffern gehoeren den MODULEN, nicht den Modi.
+   * Die Ziffern gehören den MODULEN, nicht den Modi.
    *
-   * Vorher standen hier die vier Modi auf 1 bis 4 — waehrend die Palette
+   * Vorher standen hier die vier Modi auf 1 bis 4 — während die Palette
    * daneben jedem Modul eine Ziffer als Tastenkuerzel anzeigte. Jede einzelne
    * davon war anderweitig belegt: die Palette hat eine Bedienung versprochen,
-   * die es nicht gab. Die Modulkuerzel stehen im Katalog und sind ueber die
-   * ganze Kampagne stabil; sie werden in `spiel.ts` aufgeloest und tauchen
+   * die es nicht gab. Die Modulkuerzel stehen im Katalog und sind über die
+   * ganze Kampagne stabil; sie werden in `spiel.ts` aufgelöst und tauchen
    * deshalb hier nicht einzeln auf.
    *
    * Zwei Modi bleiben: Leitung und Abriss. Bauen ergibt sich daraus, dass man
-   * ein Modul waehlt, und Auswahl ist der Zustand, in den Escape zurueckfuehrt.
+   * ein Modul wählt, und Auswahl ist der Zustand, in den Escape zurückführt.
    */
   { befehl: 'modus_leitung', code: 'KeyL', anzeige: 'L', bereich: 'Modi', text: 'Leitung legen' },
   { befehl: 'modus_abriss', code: 'KeyR', anzeige: 'R', bereich: 'Modi', text: 'Abriss (Rückbau)' },
@@ -96,16 +92,28 @@ export const KEYMAP: readonly Bindung[] = [
   { befehl: 'gierung_rechts', code: 'Period', anzeige: '.', bereich: 'Kamera', text: 'Drehen in 45-Grad-Rasten' },
   { befehl: 'fokus', code: 'KeyF', anzeige: 'F', bereich: 'Kamera', text: 'Auf Auswahl fokussieren' },
   { befehl: 'uebersicht', code: 'KeyO', anzeige: 'O', bereich: 'Kamera', text: 'Ganze Halle' },
+  // Ohne Befehlstaste: Cmd +/− gehören dem Browser und bleiben unangetastet.
+  { befehl: 'zoom_ein', code: 'Equal', anzeige: '+', bereich: 'Kamera', text: 'Näher heran' },
+  { befehl: 'zoom_aus', code: 'Minus', anzeige: '−', bereich: 'Kamera', text: 'Weiter weg' },
 
   { befehl: 'sim_start', code: 'Space', anzeige: 'Leer', bereich: 'Simulation', text: 'Start und Pause' },
   { befehl: 'sim_einzeltick', code: 'KeyN', anzeige: 'N', bereich: 'Simulation', text: 'Einzelner Tick' },
   { befehl: 'sim_langsamer', code: 'Comma', umschalt: true, anzeige: '⇧,', bereich: 'Simulation', text: 'Langsamer' },
   { befehl: 'sim_schneller', code: 'Period', umschalt: true, anzeige: '⇧.', bereich: 'Simulation', text: 'Schneller' },
-  { befehl: 'sprung_verstoss', code: 'KeyF', umschalt: true, anzeige: '⇧F', bereich: 'Simulation', text: 'Zum ersten Regelverstoß' },
 
-  { befehl: 'ansicht_spur', code: 'KeyP', anzeige: 'P', bereich: 'Ansicht', text: 'Spur-Overlay' },
   { befehl: 'ansicht_gitter', code: 'KeyG', anzeige: 'G', bereich: 'Ansicht', text: 'Gitter' },
-  { befehl: 'inspektor', code: 'KeyI', anzeige: 'I', bereich: 'Ansicht', text: 'Inspektor' },
+
+  /*
+   * Hier standen einmal drei weitere Bindungen: ⇧F "Zum ersten Regelverstoß",
+   * P "Spur-Overlay" und I "Inspektor". Alle drei waren gebunden, standen im
+   * Hilfe-Overlay — und hatten keine Zeile Code hinter sich. Wer sie drückte,
+   * bekam nichts, und schloss daraus, die Tastatur des Spiels sei kaputt.
+   *
+   * Sie sind entfernt, nicht auskommentiert: Eine Taste in der Hilfe ist ein
+   * Versprechen. Wer eine dieser Funktionen bauen will, baut zuerst die
+   * Funktion und trägt die Bindung danach ein. `fuehreBefehlAus` erzwingt das
+   * inzwischen über eine Vollständigkeitsprüfung.
+   */
 
   { befehl: 'rueckgaengig', taste: 'z', befehlstaste: true, anzeige: '⌘Z', bereich: 'Allgemein', text: 'Rückgängig' },
   { befehl: 'wiederholen', taste: 'z', befehlstaste: true, umschalt: true, anzeige: '⇧⌘Z', bereich: 'Allgemein', text: 'Wiederholen' },

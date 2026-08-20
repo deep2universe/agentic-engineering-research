@@ -7,6 +7,7 @@
  * angefordert; im Testbetrieb läuft keine eigene Bildschleife.
  */
 
+import * as THREE from 'three/webgpu';
 import type { Spiel } from '../spiel/spiel';
 import type { ModulArt, ModulParameter, Werk } from '../sim/typen';
 import { bewerte } from '../sim/ziele';
@@ -15,6 +16,14 @@ import { ALLE_LEVEL } from '../inhalt/kampagne';
 export interface DebugApi {
   readonly version: string;
   bereit(): boolean;
+  /**
+   * Zahl der gezeichneten Bilder seit dem Start.
+   *
+   * Der Zähler beantwortet die Frage, die hier lange offen war: läuft die
+   * Bildschleife noch? Renderer-Zähler taugen dafür nicht — die werden je
+   * Bild zurückgesetzt und sehen im Stillstand genauso aus wie im Lauf.
+   */
+  bilder(): number;
   levelListe(): string[];
   ladeLevel(id: string, saat?: number): void;
   aktuellesLevel(): { id: string; titel: string; akt: number; module: ModulArt[] };
@@ -35,6 +44,29 @@ export interface DebugApi {
   frameSchritt(n?: number): void;
   rendererInfo(): { backend: string; drawCalls: number; dreiecke: number; geometrien: number; texturen: number };
   kameraZustand(): { ziel: [number, number]; abstand: number; gierung: number; neigung: number };
+  /**
+   * Bildschirmpunkt eines Gitterfelds, in CSS-Pixeln relativ zur Leinwand.
+   *
+   * Existiert für Bedienungstests: die dürfen ausschließlich echte Maus- und
+   * Tastaturereignisse verschicken, brauchen dafür aber Pixelkoordinaten. Die
+   * Umrechnung hier zu machen ist ehrlicher, als im Test eine zweite Projektion
+   * nachzubauen, die von der echten abweichen kann.
+   */
+  feldZuBildschirm(x: number, z: number): { x: number; y: number; imBild: boolean };
+  /**
+   * Inventar des Szenengraphen. Gebaut für den Fall "die Leinwand ist schwarz,
+   * der Renderer meldet aber Draw Calls" — dann liegt der Fehler zwischen
+   * Szene und Bild, und nur ein Blick in beide zeigt, wo.
+   */
+  szenenBefund(): {
+    netze: number;
+    sichtbar: number;
+    dreieckeInSzene: number;
+    imBildAusschnitt: number;
+    lichter: Array<{ art: string; intensitaet: number; sichtbar: boolean }>;
+    kamera: { pos: [number, number, number]; near: number; far: number; blick: [number, number, number] };
+    groesste: Array<{ name: string; art: string; dreiecke: number; sichtbar: boolean; imBild: boolean }>;
+  };
   setzeKamera(zielX: number, zielZ: number, abstand: number, gierung: number, neigung: number): void;
   setzeTemporalModus(m: 'prod' | 'aus' | 'konvergiert'): void;
   setzeReduzierteBewegung(b: boolean): void;
@@ -66,6 +98,8 @@ export function haengeDebugApiEin(spiel: Spiel): DebugApi {
     version: '1',
 
     bereit: () => true,
+
+    bilder: () => spiel.bildZaehler,
 
     levelListe: () => ALLE_LEVEL.map((l) => l.id),
 
@@ -148,6 +182,85 @@ export function haengeDebugApiEin(spiel: Spiel): DebugApi {
     rendererInfo: () => ({ backend: spiel.renderwerk.backend, ...spiel.renderwerk.zaehler() }),
 
     kameraZustand: () => spiel.kamera.zustand(),
+
+    feldZuBildschirm: (x, z) => {
+      const kamera = spiel.renderwerk.kamera;
+      kamera.updateMatrixWorld();
+      const welt = spiel.halle.feldZuWelt(x, z);
+      const p = welt.clone().project(kamera);
+      const leinwand = spiel.renderwerk.renderer.domElement;
+      const b = leinwand.clientWidth;
+      const h = leinwand.clientHeight;
+      return {
+        x: (p.x * 0.5 + 0.5) * b,
+        y: (-p.y * 0.5 + 0.5) * h,
+        imBild: p.x >= -1 && p.x <= 1 && p.y >= -1 && p.y <= 1 && p.z >= -1 && p.z <= 1,
+      };
+    },
+
+    szenenBefund: () => {
+      const szene = spiel.renderwerk.szene;
+      const kamera = spiel.renderwerk.kamera;
+      kamera.updateMatrixWorld();
+      const frustum = new THREE.Frustum().setFromProjectionMatrix(
+        new THREE.Matrix4().multiplyMatrices(kamera.projectionMatrix, kamera.matrixWorldInverse)
+      );
+
+      let netze = 0;
+      let sichtbar = 0;
+      let dreieckeInSzene = 0;
+      let imBildAusschnitt = 0;
+      const lichter: Array<{ art: string; intensitaet: number; sichtbar: boolean }> = [];
+      const alle: Array<{ name: string; art: string; dreiecke: number; sichtbar: boolean; imBild: boolean }> = [];
+
+      szene.traverse((o) => {
+        const l = o as THREE.Light;
+        if (l.isLight) lichter.push({ art: o.type, intensitaet: l.intensity, sichtbar: o.visible });
+
+        const m = o as THREE.Mesh & { isInstancedMesh?: boolean; count?: number };
+        if (!m.isMesh) return;
+        netze += 1;
+
+        // "sichtbar" heißt: dieses Objekt UND jeder Vorfahr sind sichtbar.
+        let kette = true;
+        for (let a: THREE.Object3D | null = o; a; a = a.parent) if (!a.visible) kette = false;
+        if (kette) sichtbar += 1;
+
+        const geo = m.geometry;
+        const anzahl = geo.index ? geo.index.count : (geo.attributes['position']?.count ?? 0);
+        const faktor = m.isInstancedMesh ? (m.count ?? 1) : 1;
+        const dreiecke = Math.round((anzahl / 3) * faktor);
+        if (kette) dreieckeInSzene += dreiecke;
+
+        if (!geo.boundingSphere) geo.computeBoundingSphere();
+        const kugel = geo.boundingSphere?.clone();
+        let imBild = false;
+        if (kugel) {
+          kugel.applyMatrix4(o.matrixWorld);
+          imBild = frustum.intersectsSphere(kugel);
+        }
+        if (kette && imBild) imBildAusschnitt += dreiecke;
+        alle.push({ name: o.name || '(ohne Namen)', art: o.type, dreiecke, sichtbar: kette, imBild });
+      });
+
+      alle.sort((a, b) => b.dreiecke - a.dreiecke);
+      const blick = new THREE.Vector3();
+      kamera.getWorldDirection(blick);
+      return {
+        netze,
+        sichtbar,
+        dreieckeInSzene,
+        imBildAusschnitt,
+        lichter,
+        kamera: {
+          pos: kamera.position.toArray() as [number, number, number],
+          near: kamera.near,
+          far: kamera.far,
+          blick: blick.toArray() as [number, number, number],
+        },
+        groesste: alle.slice(0, 12),
+      };
+    },
 
     setzeKamera: (zielX, zielZ, abstand, gierung, neigung) => {
       const v = new (spiel.renderwerk.kamera.position.constructor as new (

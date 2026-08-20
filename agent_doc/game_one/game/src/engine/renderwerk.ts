@@ -117,7 +117,20 @@ export class Renderwerk {
     renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio ?? 1, preset.pixelDeckel));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.AgXToneMapping;
-    renderer.toneMappingExposure = 0.72;
+    /*
+     * Belichtung 0,95 statt 0,72.
+     *
+     * Die Halle ist mit Absicht dunkel — sie ist eine kalt übernommene
+     * Werkhalle im März, kein Ausstellungsraum. Bei 0,72 kippte das aber von
+     * "stimmungsvoll dunkel" nach "nicht lesbar": Die Baustelle lag als
+     * braungraue Fläche da, auf der sich Module kaum vom Boden abhoben.
+     *
+     * 0,95 hält den Charakter und macht das Spielfeld lesbar. Höher gehen
+     * geht nicht ohne Not: Die Fenster sind die Lichtquelle der Halle, und ab
+     * etwa 1,1 faengt der Bloom sie ein und schiebt einen Schleier über das
+     * ganze Bild.
+     */
+    renderer.toneMappingExposure = 0.95;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.info.autoReset = false;

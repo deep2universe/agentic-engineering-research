@@ -27,6 +27,7 @@ import {
   PAKET_FARB_ATTRIBUT,
 } from './aussehen';
 import type { Halle } from './halle';
+import { entsorgeNamensschilder, erzeugeNamensschild } from './namensschild';
 
 const MAX_PAKETE = 512;
 
@@ -34,6 +35,7 @@ interface ModulKnoten {
   readonly modul: Modul;
   readonly gruppe: THREE.Group;
   readonly koerper: THREE.Mesh;
+  readonly schild: THREE.Sprite;
   huelle: THREE.Mesh | null;
 }
 
@@ -114,8 +116,38 @@ export class WerkAnsicht {
       gruppe.add(aufsatz);
     }
 
+    /*
+     * Das Namensschild über dem Modul.
+     *
+     * Ohne Beschriftung war das Spielfeld eine Ansammlung dunkler Kloetze:
+     * Welcher davon der Auftragseingang ist und welcher die Auslieferung, liess
+     * sich nicht ablesen — und damit auch nicht, wozwischen ein Kern gehört.
+     * Das Schild beantwortet die Frage, ohne dass jemand erst die Farbtabelle
+     * im Handbuch lernen muss.
+     */
+    // Die Höhe kommt aus der Geometrie selbst und nicht aus einer Tabelle:
+    // Wer eine Modulform ändert, soll das Schild nicht nachpflegen müssen.
+    koerper.geometry.computeBoundingBox();
+    const oberkante = koerper.geometry.boundingBox?.max.y ?? 1;
+    const schild = erzeugeNamensschild(KATALOG[m.art].name, KATALOG[m.art].farbe, oberkante + 0.55);
+    /*
+     * Dauerhaft beschriftet werden nur die ORTSFESTEN Marken.
+     *
+     * Der erste Entwurf beschriftete jedes Modul dauerhaft. In einem Werk mit
+     * einem Dutzend Modulen überlagerten sich die Schilder zu einem Stapel und
+     * verdeckten genau das, was sie erklären sollten — schlechter als gar
+     * keine Beschriftung.
+     *
+     * Auftragseingang und Auslieferung bleiben stehen, weil das Briefing sich
+     * auf sie bezieht ("setz einen Kern DAZWISCHEN") und weil sie nicht selbst
+     * gesetzt wurden. Alles andere hat die Spielerin selbst gebaut und kennt
+     * es; dessen Schild erscheint beim Zeigen oder Auswählen.
+     */
+    schild.visible = m.art === 'quelle' || m.art === 'senke';
+    gruppe.add(schild);
+
     this.wurzel.add(gruppe);
-    this.module.set(m.id, { modul: m, gruppe, koerper, huelle: null });
+    this.module.set(m.id, { modul: m, gruppe, koerper, schild, huelle: null });
   }
 
   private fuegeLeitungHinzu(werk: Werk, l: Leitung): void {
@@ -123,7 +155,15 @@ export class WerkAnsicht {
     const nach = werk.module.find((m) => m.id === l.nach);
     if (!von || !nach) return;
     const punkte = this.leitungsPfad(von, nach, l.vonPort);
-    const geo = leitungsForm(punkte, 0.05);
+    /*
+     * Radius 0,085 statt 0,05.
+     *
+     * Das Gitter misst eine Einheit je Feld, die Kamera steht rund 27 Einheiten
+     * entfernt. Ein Strang von 0,05 ist dabei duenner als ein Bildpunkt — die
+     * Leitung war als Haarlinie zu sehen, wenn überhaupt. 0,085 bleibt ein
+     * Kabel und keine Rohrleitung, ist aber auf Spielabstand eindeutig da.
+     */
+    const geo = leitungsForm(punkte, 0.085);
     const mesh = new THREE.Mesh(geo, this.leitungsAktiv.material);
     mesh.castShadow = false;
     mesh.receiveShadow = true;
@@ -286,6 +326,9 @@ export class WerkAnsicht {
   setzeHervorhebung(ids: readonly string[], art: 'auswahl' | 'zeiger' | 'fehler'): void {
     for (const [id, k] of this.module) {
       const soll = ids.includes(id);
+      // Wer auf ein Modul zeigt, bekommt seinen Namen — ortsfeste Marken
+      // behalten ihren ohnehin.
+      k.schild.visible = soll || k.modul.art === 'quelle' || k.modul.art === 'senke';
       if (soll && !k.huelle) {
         const h = new THREE.Mesh(k.koerper.geometry, hervorhebung(art));
         h.scale.setScalar(1.14);
@@ -317,6 +360,6 @@ export class WerkAnsicht {
     for (const g of this.hilfsgeometrie.splice(0)) g.dispose();
     this.pakete.dispose();
     this.wurzel.clear();
-    void KATALOG;
+    entsorgeNamensschilder();
   }
 }

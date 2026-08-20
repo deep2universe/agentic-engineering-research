@@ -15,7 +15,7 @@ import { tokenZuEuro } from '../sim/balance';
 import type { Bewertung } from '../sim/ziele';
 import { zielFormel } from '../sim/ziele';
 import type { LevelDefinition } from '../inhalt/level_typen';
-import { keymapNachBereich } from './keymap';
+import { keymapNachBereich, KEYMAP, type Befehl } from './keymap';
 
 export type Modus = 'auswahl' | 'bauen' | 'leitung' | 'abriss';
 
@@ -334,20 +334,47 @@ export class Hud {
     }
   }
 
+  /**
+   * Beschriftet die Kontextleiste — mit Tasten, die es wirklich gibt.
+   *
+   * Hier stand vorher fest verdrahteter Text, und der war falsch: Im Baumodus
+   * warb die Leiste mit „Q / E — Modul wählen", obwohl Q und E nirgends
+   * gebunden sind, und im Auswahlmodus mit „2 Bauen, 3 Leitung", obwohl 2 eine
+   * Modulziffer ist und die Leitung auf L liegt. Genau diese Tasten probiert
+   * jemand als Erstes aus — und schließt aus dem Ausbleiben jeder Wirkung, das
+   * Spiel sei kaputt.
+   *
+   * Die Beschriftungen kommen deshalb jetzt aus `KEYMAP` und dem Katalog. Wer
+   * eine Bindung ändert, ändert die Leiste mit; auseinanderlaufen können sie
+   * nicht mehr.
+   */
   setzeKontext(modus: Modus, zusatz: string[] = []): void {
+    const taste = (befehl: Befehl): string =>
+      KEYMAP.find((b) => b.befehl === befehl)?.anzeige ?? '—';
+    // Die Ziffern der in DIESEM Level freigegebenen Module, nicht alle.
+    const modulTasten = this.erlaubt.map((a) => KATALOG[a].taste).join(' ');
+
     const eintraege: [string, string][] = [];
     switch (modus) {
       case 'bauen':
-        eintraege.push(['Klick', 'Setzen'], ['Q / E', 'Modul wählen'], ['⎋', 'Abbrechen']);
+        eintraege.push(['Klick', 'Setzen']);
+        if (modulTasten) eintraege.push([modulTasten, 'Modul wählen']);
+        eintraege.push([taste('modus_leitung'), 'Leitung legen'], [taste('abbrechen'), 'Abbrechen']);
         break;
       case 'leitung':
-        eintraege.push(['Klick', 'Ausgang, dann Eingang'], ['⎋', 'Abbrechen']);
+        eintraege.push(['Klick', 'Ausgang, dann Eingang'], [taste('abbrechen'), 'Abbrechen']);
         break;
       case 'abriss':
-        eintraege.push(['Klick', 'Modul entfernen'], ['⎋', 'Zurück zur Auswahl']);
+        eintraege.push(['Klick', 'Modul entfernen'], [taste('abbrechen'), 'Zurück zur Auswahl']);
         break;
       default:
-        eintraege.push(['Klick', 'Auswählen'], ['2', 'Bauen'], ['3', 'Leitung'], ['Leer', 'Simulation']);
+        eintraege.push(['Klick', 'Auswählen']);
+        if (modulTasten) eintraege.push([modulTasten, 'Bauen']);
+        eintraege.push(
+          [taste('modus_leitung'), 'Leitung'],
+          [taste('modus_abriss'), 'Abriss'],
+          [taste('sim_start'), 'Simulation']
+        );
     }
     this.kontextEl.replaceChildren();
     for (const [taste, text] of eintraege) {
