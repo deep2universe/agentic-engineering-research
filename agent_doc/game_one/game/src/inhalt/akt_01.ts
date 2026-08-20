@@ -1,14 +1,14 @@
 /**
  * AKT I — DIE KETTE
  *
- * Neue Mechanik: der Modell-Kern in drei Groessen.
- * Zentrale Lektion: Modellgroesse ist eine oekonomische Entscheidung, keine
- * Qualitaetsentscheidung.
+ * Neue Mechanik: der Modell-Kern in drei Größen.
+ * Zentrale Lektion: Modellgröße ist eine ökonomische Entscheidung, keine
+ * Qualitätsentscheidung.
  *
  * Rhythmus (Kishotenketsu):
  *   I-0 KI    — ein Kern, ein Auftragsstrom, nichts sonst.
  *   I-1 SHO   — derselbe Aufbau unter einem Kostendeckel.
- *   I-2 TEN   — die Auftraege werden schwer; die billige Loesung bricht.
+ *   I-2 TEN   — die Aufträge werden schwer; die billige Lösung bricht.
  *   I-3 KETSU — gemischte Last unter hartem Deckel: Kette und Spezialisierung.
  */
 
@@ -26,9 +26,9 @@ export const AKT_1: LevelDefinition[] = [
     titel: 'Der erste Auftrag',
     untertitel: 'Kaltstart in Halle 3',
     briefing:
-      'Du hast den Schluessel zu Halle 3 bekommen, ein Namensschild und eine Liste. Auf der Liste stehen vierundzwanzig Auftraege, die seit Freitag warten. Ilva Brandt hat gekuendigt, und was sie hinterlassen hat, ist ein Fundament, ein Auftragseingang und eine Auslieferung — dazwischen: nichts. Setz einen Modell-Kern dazwischen und verbinde ihn. Mehr ist heute nicht zu tun.',
+      'Du hast den Schlüssel zu Halle 3 bekommen, ein Namensschild und eine Liste. Auf der Liste stehen vierundzwanzig Aufträge, die seit Freitag warten. Ilva Brandt hat gekündigt, und was sie hinterlassen hat, ist ein Fundament, ein Auftragseingang und eine Auslieferung — dazwischen: nichts. Setz einen Modell-Kern dazwischen und verbinde ihn. Mehr ist heute nicht zu tun.',
     lernziel:
-      'Ein Auftrag laeuft durch genau die Module, die du verdrahtest — und durch keine anderen.',
+      'Ein Auftrag läuft durch genau die Module, die du verdrahtest — und durch keine anderen.',
     quelle: QUELLE,
     module: ['kern'],
     strom: {
@@ -41,22 +41,22 @@ export const AKT_1: LevelDefinition[] = [
     budget: { dauer: 400 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Auftrag wird ausgeliefert.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.45, text: 'Die Auslieferungen halten die Mindestguete.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.45, text: 'Die Auslieferungen halten die Mindestgüte.' },
     ],
     saat: 101,
     vorbau: leeresFundament(),
-    reflexion: 'Was passiert mit einem Auftrag, fuer den du keinen Weg gebaut hast?',
+    reflexion: 'Was passiert mit einem Auftrag, für den du keinen Weg gebaut hast?',
     notiz:
-      'Sprachnotiz, 14. Maerz, 06:52. Die Halle ist kalt, der Kaffee ist alt, und du bist neu. Fang klein an. Ein Kern reicht. Regel: Baue erst den Weg, dann die Meinung.',
+      'Sprachnotiz, 14. März, 06:52. Die Halle ist kalt, der Kaffee ist alt, und du bist neu. Fang klein an. Ein Kern reicht. Regel: Baue erst den Weg, dann die Meinung.',
     referenzen: [
       {
         name: 'Ein KOLIBRI',
-        ansatz: 'Der kleinste Kern reicht fuer leichte Auftraege vollstaendig aus.',
+        ansatz: 'Der kleinste Kern reicht für leichte Aufträge vollständig aus.',
         werk: reihe([{ art: 'kern', param: { groesse: 'kolibri' } }]),
       },
       {
         name: 'Ein REIHER',
-        ansatz: 'Der mittlere Kern liefert mehr Guete zum vierfachen Preis.',
+        ansatz: 'Der mittlere Kern liefert mehr Güte zum vierfachen Preis.',
         werk: reihe([{ art: 'kern', param: { groesse: 'reiher' } }]),
       },
     ],
@@ -86,9 +86,9 @@ export const AKT_1: LevelDefinition[] = [
     titel: 'Die Preisleiter',
     untertitel: 'Der Einkauf hat angerufen',
     briefing:
-      'Der Einkauf hat die Abrechnung des letzten Quartals gesehen und stellt seither Fragen, die alle mit "warum" beginnen. Ab heute gilt fuer Halle 3 ein Tokendeckel. Dieselben Auftraege wie gestern, dieselbe Mindestguete — nur eben nicht mehr zu jedem Preis. Die drei Kerngroessen unterscheiden sich um den Faktor vier und sechzehn. Sie unterscheiden sich in der Guete deutlich weniger.',
+      'Der Einkauf hat die Abrechnung des letzten Quartals gesehen und stellt seither Fragen, die alle mit "warum" beginnen. Ab heute gilt für Halle 3 ein Tokendeckel. Dieselben Aufträge wie gestern, dieselbe Mindestgüte — nur eben nicht mehr zu jedem Preis. Die drei Kerngrößen unterscheiden sich um den Faktor vier und sechzehn. Sie unterscheiden sich in der Güte deutlich weniger.',
     lernziel:
-      'Der groesste Kern ist bei leichten Auftraegen der teuerste Weg zum selben Ergebnis.',
+      'Der größte Kern ist bei leichten Aufträgen der teuerste Weg zum selben Ergebnis.',
     quelle: QUELLE,
     module: ['kern'],
     strom: {
@@ -101,26 +101,26 @@ export const AKT_1: LevelDefinition[] = [
     budget: { kosten: 5200, dauer: 400 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Auftrag wird ausgeliefert.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.6, text: 'Mindestguete 60 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.6, text: 'Mindestgüte 60 Prozent.' },
       {
         id: 'meister',
         metrik: 'guete',
         vergleich: '>=',
         wert: 0.76,
-        text: 'Meisterstueck: 76 Prozent Guete, ohne den Deckel zu reissen.',
+        text: 'Meisterstück: 76 Prozent Güte, ohne den Deckel zu reißen.',
         optional: true,
       },
     ],
     saat: 111,
     vorbau: leeresFundament(),
     reflexion:
-      'Du hast eine Guete erreicht, die reicht. Wie viel haette der naechstgroessere Kern zusaetzlich gekostet — und wofuer?',
+      'Du hast eine Güte erreicht, die reicht. Wie viel hätte der nächstgrößere Kern zusätzlich gekostet — und wofür?',
     notiz:
-      'Sprachnotiz, 15. Maerz. Der Einkauf ist nicht dein Gegner, er ist dein Lektorat. Regel: Nimm den kleinsten Kern, der die Aufgabe traegt, und keinen Millimeter mehr.',
+      'Sprachnotiz, 15. März. Der Einkauf ist nicht dein Gegner, er ist dein Lektorat. Regel: Nimm den kleinsten Kern, der die Aufgabe trägt, und keinen Millimeter mehr.',
     referenzen: [
       {
         name: 'Zwei KOLIBRI in Reihe',
-        ansatz: 'Zwei billige Aufrufe schlagen einen teuren — die Kette macht die Guete.',
+        ansatz: 'Zwei billige Aufrufe schlagen einen teuren — die Kette macht die Güte.',
         werk: reihe([
           { art: 'kern', param: { groesse: 'kolibri' } },
           { art: 'kern', param: { groesse: 'kolibri' } },
@@ -134,8 +134,8 @@ export const AKT_1: LevelDefinition[] = [
     ],
     antiMuster: [
       {
-        name: 'KONDOR fuer alles',
-        verlockung: 'Das groesste Modell kann am meisten. Warum sollte man sparen?',
+        name: 'KONDOR für alles',
+        verlockung: 'Das größte Modell kann am meisten. Warum sollte man sparen?',
         scheitertAn: 'budget_kosten',
         werk: reihe([{ art: 'kern', param: { groesse: 'kondor' } }]),
       },
@@ -151,9 +151,9 @@ export const AKT_1: LevelDefinition[] = [
     titel: 'Der schwere Fall',
     untertitel: 'Vergabeunterlagen, 340 Seiten',
     briefing:
-      'Das Landesamt fuer Verwaltungsvereinfachung schickt Vergabeunterlagen. Die Auftraege von gestern waren Fingeruebungen; diese hier sind es nicht. Dein sparsames Werk laeuft weiter — es liefert nur nichts Brauchbares mehr. Ein Kern hat eine Kompetenzgrenze, und oberhalb davon hilft kein zweiter und kein dritter Aufruf.',
+      'Das Landesamt für Verwaltungsvereinfachung schickt Vergabeunterlagen. Die Aufträge von gestern waren Fingerübungen; diese hier sind es nicht. Dein sparsames Werk läuft weiter — es liefert nur nichts Brauchbares mehr. Ein Kern hat eine Kompetenzgrenze, und oberhalb davon hilft kein zweiter und kein dritter Aufruf.',
     lernziel:
-      'Oberhalb der Kompetenzgrenze eines Kerns kauft mehr Wiederholung keine Guete — nur mehr Kosten.',
+      'Oberhalb der Kompetenzgrenze eines Kerns kauft mehr Wiederholung keine Güte — nur mehr Kosten.',
     quelle: QUELLE,
     module: ['kern'],
     strom: {
@@ -166,13 +166,13 @@ export const AKT_1: LevelDefinition[] = [
     budget: { kosten: 38000, dauer: 500 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Auftrag wird ausgeliefert.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.68, text: 'Mindestguete 68 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.68, text: 'Mindestgüte 68 Prozent.' },
       {
         id: 'meister',
         metrik: 'kostenJeAuftrag',
         vergleich: '<=',
         wert: 900,
-        text: 'Meisterstueck: hoechstens 900 Token je Auftrag.',
+        text: 'Meisterstück: höchstens 900 Token je Auftrag.',
         optional: true,
       },
     ],
@@ -181,11 +181,11 @@ export const AKT_1: LevelDefinition[] = [
     reflexion:
       'Der KOLIBRI hat es dreimal versucht und ist dreimal an derselben Grenze gescheitert. Was genau hat der KONDOR, was er nicht hat?',
     notiz:
-      'Sprachnotiz, 19. Maerz. Ich habe drei Wochen gebraucht, um zu akzeptieren, dass man Kompetenz nicht durch Wiederholung ersetzt. Regel: Wenn dreimal dasselbe herauskommt, war der Fehler in der Wahl, nicht in der Anzahl.',
+      'Sprachnotiz, 19. März. Ich habe drei Wochen gebraucht, um zu akzeptieren, dass man Kompetenz nicht durch Wiederholung ersetzt. Regel: Wenn dreimal dasselbe herauskommt, war der Fehler in der Wahl, nicht in der Anzahl.',
     referenzen: [
       {
         name: 'KONDOR mit Nachbearbeitung',
-        ansatz: 'Ein grosser Kern hebt die Decke, ein zweiter schoepft sie aus.',
+        ansatz: 'Ein großer Kern hebt die Decke, ein zweiter schoepft sie aus.',
         werk: reihe([
           { art: 'kern', param: { groesse: 'kondor' } },
           { art: 'kern', param: { groesse: 'kondor' } },
@@ -193,7 +193,7 @@ export const AKT_1: LevelDefinition[] = [
       },
       {
         name: 'KONDOR, dann REIHER',
-        ansatz: 'Der grosse Kern legt vor, der mittlere raeumt nach — billiger, etwas schwaecher.',
+        ansatz: 'Der große Kern legt vor, der mittlere räumt nach — billiger, etwas schwaecher.',
         werk: reihe([
           { art: 'kern', param: { groesse: 'kondor' } },
           { art: 'kern', param: { groesse: 'reiher' } },
@@ -230,9 +230,9 @@ export const AKT_1: LevelDefinition[] = [
     titel: 'Gemischte Last',
     untertitel: 'Montag, 09:00, Jour fixe',
     briefing:
-      'Im Jour fixe wurde beschlossen, dass Halle 3 "beide Kundengruppen bedient". Das heisst: leichte Textauftraege aus dem Vertrieb und schwere Rechtsauftraege vom Landesamt kommen ueber denselben Eingang. Der Deckel bleibt. Du hast noch keinen Router — aber du hast Spezialisierung, und du hast die Kette.',
+      'Im Jour fixe wurde beschlossen, dass Halle 3 "beide Kundengruppen bedient". Das heißt: leichte Textaufträge aus dem Vertrieb und schwere Rechtsaufträge vom Landesamt kommen über denselben Eingang. Der Deckel bleibt. Du hast noch keinen Router — aber du hast Spezialisierung, und du hast die Kette.',
     lernziel:
-      'Ein auf die Domaene spezialisierter Kern hebt seine Decke; auf der falschen Domaene senkt er sie.',
+      'Ein auf die Domäne spezialisierter Kern hebt seine Decke; auf der falschen Domäne senkt er sie.',
     quelle: QUELLE,
     module: ['kern'],
     strom: {
@@ -245,22 +245,22 @@ export const AKT_1: LevelDefinition[] = [
     budget: { kosten: 30000, dauer: 500 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Auftrag wird ausgeliefert.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.735, text: 'Mindestguete 73,5 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.735, text: 'Mindestgüte 73,5 Prozent.' },
       {
         id: 'meister',
         metrik: 'kostenJeAuftrag',
         vergleich: '<=',
         wert: 780,
-        text: 'Meisterstueck: hoechstens 780 Token je Auftrag.',
+        text: 'Meisterstück: höchstens 780 Token je Auftrag.',
         optional: true,
       },
     ],
     saat: 131,
     vorbau: leeresFundament(),
     reflexion:
-      'Dein Werk behandelt einen 200-Euro-Textauftrag genauso wie eine Vergabepruefung. Was muesstest du bauen koennen, um das zu aendern?',
+      'Dein Werk behandelt einen 200-Euro-Textauftrag genauso wie eine Vergabeprüfung. Was müsstest du bauen können, um das zu ändern?',
     notiz:
-      'Sprachnotiz, 24. Maerz. Sie nennen es "beide Kundengruppen bedienen". Ich nenne es einen Eingang fuer zwei Werke. Regel: Wenn ein Werk zwei Dinge gleich gut macht, macht es wahrscheinlich beide mittelmaessig.',
+      'Sprachnotiz, 24. März. Im Protokoll steht "beide Kundengruppen bedienen". Ich nenne es einen Eingang für zwei Werke. Regel: Wenn ein Werk zwei Dinge gleich gut macht, macht es wahrscheinlich beide mittelmäßig.',
     referenzen: [
       {
         name: 'Spezialisierte Kette',
@@ -272,17 +272,17 @@ export const AKT_1: LevelDefinition[] = [
       },
       {
         name: 'Ein spezialisierter KONDOR',
-        ansatz: 'Nur ein Modul, dafuer das teuerste — minimale Flaeche, maximale Kosten je Auftrag.',
+        ansatz: 'Nur ein Modul, dafür das teuerste — minimale Fläche, maximale Kosten je Auftrag.',
         werk: reihe([{ art: 'kern', param: { groesse: 'kondor', spezialisierung: 'recht' } }]),
       },
     ],
     antiMuster: [
       {
-        // Baugleich mit der ersten Referenzloesung — nur auf die falsche
-        // Domaene spezialisiert. Damit isoliert dieses Anti-Muster exakt eine
+        // Baugleich mit der ersten Referenzlösung — nur auf die falsche
+        // Domäne spezialisiert. Damit isoliert dieses Anti-Muster exakt eine
         // Variable, und der Spieler sieht, was Spezialisierung wirklich tut.
         name: 'Falsch spezialisiert',
-        verlockung: 'Spezialisierung ist gut. Auf welche Domaene, ist doch Nebensache.',
+        verlockung: 'Spezialisierung ist gut. Auf welche Domäne, ist doch Nebensache.',
         scheitertAn: 'guete',
         werk: reihe([
           { art: 'kern', param: { groesse: 'kondor', spezialisierung: 'finanz' } },
@@ -291,7 +291,7 @@ export const AKT_1: LevelDefinition[] = [
       },
       {
         name: 'Fuenf KONDOR in Reihe',
-        verlockung: 'Mehr grosse Kerne muessen mehr Guete bringen.',
+        verlockung: 'Mehr große Kerne müssen mehr Güte bringen.',
         scheitertAn: 'budget_kosten',
         werk: reihe([
           { art: 'kern', param: { groesse: 'kondor' } },

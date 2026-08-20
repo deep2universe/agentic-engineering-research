@@ -1,12 +1,12 @@
 /**
- * Das HUD. Vollstaendig im DOM — kein Text im WebGL-Canvas.
+ * Das HUD. Vollständig im DOM — kein Text im WebGL-Canvas.
  *
- * Es zeigt nur, was gerade eine Entscheidung stuetzt: die Ziele mit ihrem
+ * Es zeigt nur, was gerade eine Entscheidung stützt: die Ziele mit ihrem
  * Ist-Wert, die drei Wettbewerbsachsen, und eine Kontextleiste mit genau den
  * Aktionen, die im aktuellen Modus gelten. Es gibt keinen Gesamtscore, keine
- * Sterne und keine Waehrung — die Metriken werden niemals zu einer Zahl
- * verrechnet, weil das die Pareto-Front und damit das ganze Spiel zerstoeren
- * wuerde.
+ * Sterne und keine Währung — die Metriken werden niemals zu einer Zahl
+ * verrechnet, weil das die Pareto-Front und damit das ganze Spiel zerstören
+ * würde.
  */
 
 import type { Metriken, ModulArt } from '../sim/typen';
@@ -89,7 +89,7 @@ export class Hud {
 
     this.startKnopf = el('button', { type: 'button', text: 'Simulation starten' });
     this.startKnopf.addEventListener('click', () => this.rueckrufe.aufStart());
-    const zurueck = el('button', { type: 'button', text: 'Zuruecksetzen' });
+    const zurueck = el('button', { type: 'button', text: 'Zurücksetzen' });
     zurueck.addEventListener('click', () => this.rueckrufe.aufZuruecksetzen());
     this.tempoEl = el('div', { id: 'tempo', role: 'group', 'aria-label': 'Geschwindigkeit' });
     for (const t of TEMPI) {
@@ -199,7 +199,7 @@ export class Hud {
     const kostenGrenze = level?.budget.kosten;
     const latenzGrenze = level?.budget.latenz;
 
-    zeilen.push(['Guete', `${Math.round(m.guete * 100)} %`, m.guete >= 0.7 ? 'gut' : m.guete >= 0.5 ? 'warn' : 'schlecht']);
+    zeilen.push(['Güte', `${Math.round(m.guete * 100)} %`, m.guete >= 0.7 ? 'gut' : m.guete >= 0.5 ? 'warn' : 'schlecht']);
     zeilen.push([
       'Token',
       zahl(m.kosten),
@@ -230,16 +230,16 @@ export class Hud {
     const eintraege: [string, string][] = [];
     switch (modus) {
       case 'bauen':
-        eintraege.push(['Klick', 'Setzen'], ['Q / E', 'Modul waehlen'], ['⎋', 'Abbrechen']);
+        eintraege.push(['Klick', 'Setzen'], ['Q / E', 'Modul wählen'], ['⎋', 'Abbrechen']);
         break;
       case 'leitung':
         eintraege.push(['Klick', 'Ausgang, dann Eingang'], ['⎋', 'Abbrechen']);
         break;
       case 'abriss':
-        eintraege.push(['Klick', 'Modul entfernen'], ['⎋', 'Zurueck zur Auswahl']);
+        eintraege.push(['Klick', 'Modul entfernen'], ['⎋', 'Zurück zur Auswahl']);
         break;
       default:
-        eintraege.push(['Klick', 'Auswaehlen'], ['2', 'Bauen'], ['3', 'Leitung'], ['Leer', 'Simulation']);
+        eintraege.push(['Klick', 'Auswählen'], ['2', 'Bauen'], ['3', 'Leitung'], ['Leer', 'Simulation']);
     }
     this.kontextEl.replaceChildren();
     for (const [taste, text] of eintraege) {
@@ -288,7 +288,7 @@ export class Hud {
         el('p', { class: 'leise', text: 'MONOLITH hat denselben Auftrag bereits bearbeitet:' }),
         el('table', {
           html:
-            '<tr><th>Guete</th><th>Token</th><th>p95</th><th>Nachvollziehbarkeit</th></tr>' +
+            '<tr><th>Güte</th><th>Token</th><th>p95</th><th>Nachvollziehbarkeit</th></tr>' +
             `<tr><td class="zahl">${Math.round(monolith.guete * 100)} %</td>` +
             `<td class="zahl">${zahl(monolith.kosten)}</td>` +
             `<td class="zahl">${monolith.latenzP95}</td>` +
@@ -312,7 +312,7 @@ export class Hud {
     const geschafft = bewertung.bestanden;
     const blatt = el('article', { class: 'blatt', role: 'dialog', 'aria-modal': 'true' });
     blatt.append(
-      el('h1', { text: geschafft ? 'Auftrag erfuellt' : 'Auftrag nicht erfuellt' }),
+      el('h1', { text: geschafft ? 'Auftrag erfüllt' : 'Auftrag nicht erfüllt' }),
       el('p', { class: 'unter', text: `${level.id} — ${level.titel}` })
     );
 
@@ -348,7 +348,7 @@ export class Hud {
 
     const nochmal = el('button', { type: 'button', class: 'leise', text: 'Noch einmal bauen' });
     nochmal.addEventListener('click', () => this.rueckrufe.aufNochmal());
-    const weiter = el('button', { type: 'button', text: geschafft ? 'Weiter' : 'Zurueck ins Werk' });
+    const weiter = el('button', { type: 'button', text: geschafft ? 'Weiter' : 'Zurück ins Werk' });
     weiter.addEventListener('click', () => this.rueckrufe.aufWeiter());
     blatt.append(el('footer', {}, [nochmal, weiter]));
 
@@ -363,7 +363,7 @@ export class Hud {
 
   private baueHilfe(): void {
     const blatt = el('article', { class: 'blatt', role: 'dialog', 'aria-modal': 'true' });
-    blatt.append(el('h1', { text: 'Tastenuebersicht' }), el('p', { class: 'unter', text: 'Jede Aktion ist auch ohne Maus erreichbar.' }));
+    blatt.append(el('h1', { text: 'Tastenübersicht' }), el('p', { class: 'unter', text: 'Jede Aktion ist auch ohne Maus erreichbar.' }));
     for (const [bereich, bindungen] of keymapNachBereich()) {
       blatt.append(el('h2', { text: bereich }));
       const t = el('table');
@@ -372,7 +372,7 @@ export class Hud {
       }
       blatt.append(t);
     }
-    const zu = el('button', { type: 'button', text: 'Schliessen' });
+    const zu = el('button', { type: 'button', text: 'Schließen' });
     zu.addEventListener('click', () => this.schliesseHilfe());
     blatt.append(el('footer', {}, [zu]));
     this.hilfeEl.replaceChildren(blatt);
@@ -392,7 +392,7 @@ export class Hud {
   }
 
   /**
-   * Screenreader-Schattenbaum des Graphen. Die wirksamste Einzelmassnahme fuer
+   * Screenreader-Schattenbaum des Graphen. Die wirksamste Einzelmaßnahme für
    * die Bedienbarkeit eines Canvas-Spiels.
    */
   aktualisiereSchattenbaum(eintraege: readonly { id: string; text: string }[]): void {

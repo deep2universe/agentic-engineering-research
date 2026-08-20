@@ -1,10 +1,10 @@
 /**
- * Einstiegspunkt. Haelt sich bewusst kurz: alles Fachliche liegt in `spiel/`.
+ * Einstiegspunkt. Hält sich bewusst kurz: alles Fachliche liegt in `spiel/`.
  *
- * Die Debug-Schnittstelle wird ausschliesslich unter `__TEST__` eingehaengt.
- * Ein Test prueft gegen das echte Produktionsbundle, dass die Zeichenkette
- * `__spiel` darin nicht vorkommt — sonst koennte man im ausgelieferten Spiel
- * Metriken manipulieren und die Lernwirkung waere dahin.
+ * Die Debug-Schnittstelle wird ausschließlich unter `__TEST__` eingehängt.
+ * Ein Test prüft gegen das echte Produktionsbundle, dass die Zeichenkette
+ * `__spiel` darin nicht vorkommt — sonst könnte man im ausgelieferten Spiel
+ * Metriken manipulieren und die Lernwirkung wäre dahin.
  */
 
 import './ui/stil.css';
@@ -14,7 +14,7 @@ async function starte(): Promise<void> {
   const leinwand = document.getElementById('leinwand');
   const oberflaeche = document.getElementById('oberflaeche');
   if (!(leinwand instanceof HTMLCanvasElement) || !oberflaeche) {
-    throw new Error('Die Seite ist unvollstaendig: Leinwand oder Oberflaeche fehlen.');
+    throw new Error('Die Seite ist unvollständig: Leinwand oder Oberfläche fehlen.');
   }
 
   const params = new URLSearchParams(location.search);
@@ -41,7 +41,7 @@ async function starte(): Promise<void> {
     haengeDebugApiEin(spiel);
   }
 
-  // Bewegungsreduktion live nachfuehren.
+  // Bewegungsreduktion live nachführen.
   globalThis
     .matchMedia?.('(prefers-reduced-motion: reduce)')
     .addEventListener('change', (e) => spiel.setzeReduzierteBewegung(e.matches));

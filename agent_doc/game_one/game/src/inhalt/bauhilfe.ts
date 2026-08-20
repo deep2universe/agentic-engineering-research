@@ -1,5 +1,5 @@
 /**
- * Baukasten fuer Werke. Wird von Level-Referenzloesungen, Anti-Mustern,
+ * Baukasten für Werke. Wird von Level-Referenzlösungen, Anti-Mustern,
  * Tests und der Evolutionskammer benutzt.
  *
  * Rein und ohne Seiteneffekte: er erzeugt nur Datenstrukturen.
@@ -10,8 +10,8 @@ import type { Leitung, Modul, ModulArt, ModulParameter, Werk } from '../sim/type
 /**
  * Das Baufundament ist 16 Felder breit und 10 tief (siehe
  * `welt/halle.ts#STANDARD_MASSE`). Automatisch gesetzte Module laufen deshalb
- * auf der Mittelspur mit zwei Feldern Abstand — so bleibt Platz fuer die
- * Leitungsfuehrung, und ein Werk steht im Bild statt am Rand.
+ * auf der Mittelspur mit zwei Feldern Abstand — so bleibt Platz für die
+ * Leitungsführung, und ein Werk steht im Bild statt am Rand.
  */
 export const MITTELSPUR = 5;
 export const ERSTE_SPALTE = 1;
@@ -24,7 +24,7 @@ export class Bau {
   private spalte = ERSTE_SPALTE;
   private zeile = MITTELSPUR;
 
-  /** Legt ein Modul an und liefert seine Id zurueck. */
+  /** Legt ein Modul an und liefert seine Id zurück. */
   setze(art: ModulArt, param: ModulParameter = {}, id?: string, x?: number, z?: number): string {
     const praefix = art.slice(0, 1);
     const n = (this.zaehler.get(praefix) ?? 0) + 1;
@@ -39,7 +39,7 @@ export class Bau {
     return echteId;
   }
 
-  /** Setzt die Schreibposition fuer die naechsten Module (Zweige uebereinander). */
+  /** Setzt die Schreibposition für die nächsten Module (Zweige übereinander). */
   bei(x: number, z: number): this {
     this.spalte = x;
     this.zeile = z;
@@ -51,7 +51,7 @@ export class Bau {
     return this;
   }
 
-  /** Verkettet Module ueber ihre Standardports. */
+  /** Verkettet Module über ihre Standardports. */
   kette(...ids: string[]): this {
     for (let i = 0; i + 1 < ids.length; i++) this.verbinde(ids[i]!, ids[i + 1]!);
     return this;
@@ -62,7 +62,7 @@ export class Bau {
   }
 }
 
-/** Quelle → Module in Reihe → Senke. Der haeufigste Aufbau. */
+/** Quelle → Module in Reihe → Senke. Der häufigste Aufbau. */
 export function reihe(glieder: readonly { art: ModulArt; param?: ModulParameter }[]): Werk {
   const b = new Bau();
   const q = b.setze('quelle', {}, 'q');
@@ -83,7 +83,7 @@ export function leeresFundament(): Werk {
   };
 }
 
-/** Der Antagonist: ein einzelner grosser Kern, dreimal hintereinander. */
+/** Der Antagonist: ein einzelner großer Kern, dreimal hintereinander. */
 export function monolith(stufen = 3): Werk {
   return reihe(Array.from({ length: stufen }, () => ({ art: 'kern' as const, param: { groesse: 'kondor' as const } })));
 }

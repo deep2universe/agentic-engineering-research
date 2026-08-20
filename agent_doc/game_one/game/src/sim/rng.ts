@@ -1,10 +1,10 @@
 /**
- * Deterministischer Zufall fuer SCHWARMWERK.
+ * Deterministischer Zufall für SCHWARMWERK.
  *
  * Entwurfsentscheidung: Es gibt KEINEN sequentiellen Zufallsstrom. Jeder
- * Zufallswert wird aus einem Hash ueber (Saat, Kanal, Index...) abgeleitet.
- * Dadurch ist das Ergebnis vollstaendig unabhaengig von der Auswertungs-
- * reihenfolge der Simulation — eine Voraussetzung dafuer, dass die Simulation
+ * Zufallswert wird aus einem Hash über (Saat, Kanal, Index...) abgeleitet.
+ * Dadurch ist das Ergebnis vollständig unabhängig von der Auswertungs-
+ * reihenfolge der Simulation — eine Voraussetzung dafür, dass die Simulation
  * parallelisierbar bleibt und Golden-Master-Tests niemals flackern.
  *
  * Math.random() und Date.now() sind im gesamten sim/-Verzeichnis verboten;
@@ -20,7 +20,7 @@ function mische(x: number): number {
   return h >>> 0;
 }
 
-/** FNV-1a ueber eine Zeichenkette — stabil ueber alle Laufzeiten hinweg. */
+/** FNV-1a über eine Zeichenkette — stabil über alle Laufzeiten hinweg. */
 export function hashText(text: string): number {
   let h = 0x811c9dc5;
   for (let i = 0; i < text.length; i++) {
@@ -34,7 +34,7 @@ export function hashText(text: string): number {
  * Liefert eine reproduzierbare Gleitkommazahl in [0, 1).
  *
  * @param saat  Laufsaat des Simulationslaufs.
- * @param kanal Fachlicher Kanal, z. B. "kern.streuung" — trennt unabhaengige
+ * @param kanal Fachlicher Kanal, z. B. "kern.streuung" — trennt unabhängige
  *              Zufallsquellen sauber voneinander.
  * @param teile Beliebig viele Diskriminatoren (Auftrags-Id, Knoten-Id, Besuch).
  */
@@ -59,7 +59,7 @@ export function zufallGanz(
   return Math.min(obergrenze - 1, Math.floor(zufall(saat, kanal, ...teile) * obergrenze));
 }
 
-/** Reproduzierbarer Muenzwurf mit Wahrscheinlichkeit `p` fuer `true`. */
+/** Reproduzierbarer Muenzwurf mit Wahrscheinlichkeit `p` für `true`. */
 export function zufallJa(
   saat: number,
   kanal: string,
@@ -70,8 +70,8 @@ export function zufallJa(
 }
 
 /**
- * Naeherungsweise normalverteilter Wert (Irwin–Hall, n = 4), Mittelwert 0,
- * Standardabweichung ~1. Wird fuer Guete-Streuung von Modell-Kernen benutzt.
+ * Näherungsweise normalverteilter Wert (Irwin–Hall, n = 4), Mittelwert 0,
+ * Standardabweichung ~1. Wird für Güte-Streuung von Modell-Kernen benutzt.
  */
 export function zufallNormal(
   saat: number,
@@ -83,7 +83,7 @@ export function zufallNormal(
   return (summe - 2) * 1.732;
 }
 
-/** Sequentieller Generator — ausschliesslich fuer Werkzeuge/Generatoren ausserhalb der Simulation. */
+/** Sequentieller Generator — ausschließlich für Werkzeuge/Generatoren außerhalb der Simulation. */
 export function erzeugeStrom(saat: number): () => number {
   let zustand = saat >>> 0;
   return () => {

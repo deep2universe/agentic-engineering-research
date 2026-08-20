@@ -1,6 +1,6 @@
 /**
- * Balance-Bericht ueber die gesamte Kampagne.
- * Aufruf: npx vitest run tests/loesbarkeit/bericht.test.ts
+ * Balance-Bericht über die gesamte Kampagne.
+ * Aufruf: npx vitest run tests/lösbarkeit/bericht.test.ts
  */
 import { it } from 'vitest';
 import { AKTE } from '../../src/inhalt/kampagne';

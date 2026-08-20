@@ -1,8 +1,8 @@
 /**
- * Pruefungen der prozeduralen Texturbibliothek.
+ * Prüfungen der prozeduralen Texturbibliothek.
  *
  * Alle Tests laufen in Node ohne WebGL. `THREE.DataTexture` ist ohne
- * GPU-Kontext konstruierbar; geprueft werden die erzeugten Bytes, nicht das
+ * GPU-Kontext konstruierbar; geprüft werden die erzeugten Bytes, nicht das
  * Hochladen auf die Grafikkarte.
  */
 
@@ -10,18 +10,18 @@ import { afterAll, describe, expect, it, vi } from 'vitest';
 
 /**
  * `tests/einheit/setup.ts` macht `Math.random` zu einem Fehler. `three` braucht
- * es aber unvermeidbar: `generateUUID()` in `three.core.js` wuerfelt bei JEDEM
- * `new Texture()`, `new Material()` und `new Object3D()`. Die Falle laesst sich
+ * es aber unvermeidbar: `generateUUID()` in `three.core.js` würfelt bei JEDEM
+ * `new Texture()`, `new Material()` und `new Object3D()`. Die Falle lässt sich
  * hier also nicht scharf lassen, ohne die gesamte Renderschicht untestbar zu
  * machen.
  *
- * Statt die Falle einfach zu oeffnen, wird sie durch einen DETERMINISTISCHEN
+ * Statt die Falle einfach zu öffnen, wird sie durch einen DETERMINISTISCHEN
  * Strom ersetzt: `three` bekommt seine UUIDs, der Testlauf bleibt aber
- * reproduzierbar. Zusaetzlich zaehlen wir die Aufrufe und weisen unten nach,
- * dass `erzeugeTexturSatz` genau so oft wuerfelt, wie `three` Objekte anlegt —
+ * reproduzierbar. Zusätzlich zählen wir die Aufrufe und weisen unten nach,
+ * dass `erzeugeTexturSatz` genau so oft würfelt, wie `three` Objekte anlegt —
  * also kein einziges Mal selbst. Ein Quelltextscan sichert das doppelt ab.
  *
- * `vi.hoisted` wird vom Vitest-Transform ueber die Importe gezogen und greift
+ * `vi.hoisted` wird vom Vitest-Transform über die Importe gezogen und greift
  * damit schon vor der Auswertung von `three/webgpu`.
  */
 const wuerfel = vi.hoisted(() => {
@@ -107,7 +107,7 @@ function zeilenAbstand(d: Uint8Array, groesse: number, y1: number, y2: number): 
   return summe / (groesse * 3);
 }
 
-/** Der Cache haelt alle zehn Arten gleichzeitig, der Aufruf ist also billig. */
+/** Der Cache hält alle zehn Arten gleichzeitig, der Aufruf ist also billig. */
 function hole(art: MaterialArt): TexturSatz {
   return erzeugeTexturSatz(art, SAAT, G);
 }
@@ -145,7 +145,7 @@ describe('Rauschfunktionen', () => {
   const basis = kanalSaat(99, 'rauschen.probe');
 
   it('Gradientenrauschen ist auf dyadischen Stellen bitgenau periodisch', () => {
-    // Bei Zweierbruechen bleibt der Nachkommaanteil beim Verschieben um die
+    // Bei Zweierbrüchen bleibt der Nachkommaanteil beim Verschieben um die
     // ganzzahlige Periode exakt erhalten — hier muss die Gleichheit bitgenau
     // sein. Genau dieser Fall tritt beim Abtasten der Kachel auf, denn
     // `u = x / groesse` ist immer ein Zweierbruch.
@@ -184,11 +184,11 @@ describe('Rauschfunktionen', () => {
     }
     expect(min).toBeGreaterThan(-1.05);
     expect(max).toBeLessThan(1.05);
-    // Ein Rauschen, das nie stark ausschlaegt, waere unbrauchbar.
+    // Ein Rauschen, das nie stark ausschlägt, wäre unbrauchbar.
     expect(max - min).toBeGreaterThan(1.0);
   });
 
-  it('fBm ist ueber die Kachelgrenze hinweg stetig fortsetzbar', () => {
+  it('fBm ist über die Kachelgrenze hinweg stetig fortsetzbar', () => {
     for (let i = 0; i < 100; i++) {
       const v = i / 100;
       expect(fbm(0, v, 4, 4, 5, 0.5, basis)).toBe(fbm(1, v, 4, 4, 5, 0.5, basis));
@@ -242,10 +242,10 @@ describe('Determinismus', () => {
     entsorgeAlleTexturen();
   });
 
-  it('wuerfelt nie selbst — jeder Math.random-Aufruf stammt aus three', () => {
+  it('würfelt nie selbst — jeder Math.random-Aufruf stammt aus three', () => {
     entsorgeAlleTexturen();
 
-    // `three` wuerfelt beim Anlegen einer DataTexture eine feste Anzahl Male
+    // `three` würfelt beim Anlegen einer DataTexture eine feste Anzahl Male
     // (UUID der Textur und ihrer Source). Wir messen sie, statt sie zu raten.
     const vorProbe = wuerfel.stand();
     const probe = new THREE.DataTexture(new Uint8Array(4), 1, 1);
@@ -256,7 +256,7 @@ describe('Determinismus', () => {
     const vorher = wuerfel.stand();
     const ohneEmission = erzeugeTexturSatz('messing', 5, G);
     expect(ohneEmission.emission).toBeUndefined();
-    // Genau drei Texturen — Albedo, Normale, ORM. Kein Wurf darueber hinaus.
+    // Genau drei Texturen — Albedo, Normale, ORM. Kein Wurf darüber hinaus.
     expect(wuerfel.stand() - vorher).toBe(3 * jeTextur);
 
     const zwischen = wuerfel.stand();
@@ -264,19 +264,19 @@ describe('Determinismus', () => {
     expect(mitEmission.emission).toBeDefined();
     expect(wuerfel.stand() - zwischen).toBe(4 * jeTextur);
 
-    // Der Cache wuerfelt gar nicht.
+    // Der Cache würfelt gar nicht.
     const nochmal = wuerfel.stand();
     erzeugeTexturSatz('messing', 5, G);
     expect(wuerfel.stand() - nochmal).toBe(0);
     entsorgeAlleTexturen();
   });
 
-  it('enthaelt im Quelltext keinen Aufruf von Math.random oder Date.now', async () => {
+  it('enthält im Quelltext keinen Aufruf von Math.random oder Date.now', async () => {
     const quelle = await readFile(new URL('../../src/welt/texturen.ts', import.meta.url), 'utf8');
     expect(quelle).not.toMatch(/Math\s*\.\s*random\s*\(/);
     expect(quelle).not.toMatch(/Date\s*\.\s*now\s*\(/);
     expect(quelle).not.toMatch(/performance\s*\.\s*now\s*\(/);
-    // Transzendente Funktionen sind plattformabhaengig gerundet und deshalb
+    // Transzendente Funktionen sind plattformabhängig gerundet und deshalb
     // in einem bitdeterministischen Generator verboten.
     expect(quelle).not.toMatch(/Math\s*\.\s*(sin|cos|tan|pow|exp|log|atan2)\s*\(/);
   });
@@ -296,7 +296,7 @@ describe('Kachelbarkeit', () => {
     'eb',
   ];
 
-  it('das Materialfeld ist an den Kachelraendern exakt gleich', () => {
+  it('das Materialfeld ist an den Kachelrändern exakt gleich', () => {
     for (const art of MATERIAL_ARTEN) {
       for (let i = 0; i < 16; i++) {
         const t = i / 16 + 0.013;
@@ -317,10 +317,10 @@ describe('Kachelbarkeit', () => {
       for (const karte of ['albedo', 'normal'] as const) {
         const d = bytes(hole(art)[karte]);
 
-        // Ein Texelschritt ueber die Naht darf nicht auffaelliger sein als
+        // Ein Texelschritt über die Naht darf nicht auffälliger sein als
         // der Texelschritt unmittelbar daneben. Ein Vergleich gegen die
-        // Kachelmitte waere falsch: Muster wie das Gitterrost legen ihre
-        // Staebe absichtlich genau auf die Naht.
+        // Kachelmitte wäre falsch: Muster wie das Gitterrost legen ihre
+        // Stäbe absichtlich genau auf die Naht.
         const naht = spaltenAbstand(d, G, G - 1, 0);
         const daneben = Math.max(spaltenAbstand(d, G, 0, 1), spaltenAbstand(d, G, G - 2, G - 1));
         expect(naht, `${art}/${karte}: senkrechte Naht`).toBeLessThanOrEqual(daneben * 2 + 2);
@@ -334,7 +334,7 @@ describe('Kachelbarkeit', () => {
 });
 
 describe('Normal-Map', () => {
-  it('bildet eine ebene Flaeche exakt auf (128, 128, 255) ab', () => {
+  it('bildet eine ebene Fläche exakt auf (128, 128, 255) ab', () => {
     const groesse = 32;
     const eben = new Float32Array(groesse * groesse).fill(0.37);
     const n = normaleAusHoehe(eben, groesse, 24);
@@ -385,7 +385,7 @@ describe('Normal-Map', () => {
     }
   });
 
-  it('ist nicht flach — jede Art traegt sichtbares Relief', () => {
+  it('ist nicht flach — jede Art trägt sichtbares Relief', () => {
     for (const art of MATERIAL_ARTEN) {
       if (art === 'glas') continue; // Floatglas ist absichtlich fast eben.
       const d = bytes(hole(art).normal);
@@ -410,14 +410,14 @@ describe('Wertebereiche', () => {
         for (let i = 0; i < d.length; i++) {
           const w = d[i] ?? Number.NaN;
           if (!Number.isInteger(w) || w < 0 || w > 255) {
-            throw new Error(`${art}/${karte.name}: ungueltiges Byte ${w} an ${i}`);
+            throw new Error(`${art}/${karte.name}: ungültiges Byte ${w} an ${i}`);
           }
         }
       }
     }
   });
 
-  it('das Materialfeld liefert ausschliesslich endliche Werte in [0, 1]', () => {
+  it('das Materialfeld liefert ausschließlich endliche Werte in [0, 1]', () => {
     for (const art of MATERIAL_ARTEN) {
       for (let i = 0; i < 64; i++) {
         const o = abtasteOberflaeche(art, SAAT, (i * 7) % 64 / 64, (i * 13) % 64 / 64);
@@ -478,7 +478,7 @@ describe('Texturparameter', () => {
       for (let i = kanal; i < d.length; i += 4) s += d[i] ?? 0;
       return s / (d.length / 4);
     };
-    // Gruen ist der Metallgrad: Dielektrika nahe 0, Metalle nahe 255.
+    // Grün ist der Metallgrad: Dielektrika nahe 0, Metalle nahe 255.
     expect(mittel('beton', 1)).toBeLessThan(10);
     expect(mittel('ziegel', 1)).toBeLessThan(10);
     expect(mittel('gummi', 1)).toBeLessThan(10);
@@ -487,7 +487,7 @@ describe('Texturparameter', () => {
     expect(mittel('messing', 1)).toBeGreaterThan(200);
     // Rot ist die Rauheit: Beton ist rau, Glas ist glatt.
     expect(mittel('beton', 0)).toBeGreaterThan(mittel('glas', 0) + 60);
-    // Blau ist die Verdeckung: das Gitterrost hat Loecher, Glas nicht.
+    // Blau ist die Verdeckung: das Gitterrost hat Löcher, Glas nicht.
     expect(mittel('glas', 2)).toBeGreaterThan(mittel('bodengitter', 2) + 60);
   });
 
@@ -510,7 +510,7 @@ describe('Texturparameter', () => {
       if ((d[i] ?? 0) + (d[i + 1] ?? 0) + (d[i + 2] ?? 0) > 24) leuchtend++;
     }
     const anteil = leuchtend / (d.length / 4);
-    // Ein paar Leuchtdioden, aber keine leuchtende Flaeche.
+    // Ein paar Leuchtdioden, aber keine leuchtende Fläche.
     expect(anteil).toBeGreaterThan(0.0002);
     expect(anteil).toBeLessThan(0.05);
   });
@@ -526,7 +526,7 @@ describe('Cache', () => {
     expect(texturenBestand()).toBe(1);
   });
 
-  it('unterscheidet nach Art, Saat und Groesse', () => {
+  it('unterscheidet nach Art, Saat und Größe', () => {
     entsorgeAlleTexturen();
     const a = erzeugeTexturSatz('emaille', 7, 256);
     expect(erzeugeTexturSatz('emaille', 8, 256)).not.toBe(a);
@@ -558,7 +558,7 @@ describe('Cache', () => {
     entsorgeAlleTexturen();
   });
 
-  it('haelt hoechstens HOECHSTZAHL_SAETZE Saetze und verdraengt den aeltesten', () => {
+  it('hält höchstens HOECHSTZAHL_SAETZE Sätze und verdrängt den ältesten', () => {
     entsorgeAlleTexturen();
     const erster = erzeugeTexturSatz('glas', 1000, G);
     for (let i = 1; i <= HOECHSTZAHL_SAETZE; i++) erzeugeTexturSatz('glas', 1000 + i, G);

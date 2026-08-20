@@ -1,7 +1,7 @@
 /**
  * Modul-Katalog: Ports, Standardparameter, Beschreibungen.
  *
- * Der Katalog ist die einzige Quelle der Wahrheit darueber, welche Anschluesse
+ * Der Katalog ist die einzige Quelle der Wahrheit darüber, welche Anschlüsse
  * ein Modul hat. Sowohl die Simulation als auch der 3D-Editor und die
  * Graph-Validierung lesen von hier — damit kann der Editor keine Leitung
  * erlauben, die die Simulation nicht kennt.
@@ -12,7 +12,7 @@ import type { ModulArt, ModulParameter, Modul } from './typen';
 export interface PortDefinition {
   readonly id: string;
   readonly name: string;
-  /** Kurzerklaerung fuer den Tooltip. */
+  /** Kurzerklärung für den Tooltip. */
   readonly hinweis: string;
 }
 
@@ -20,21 +20,21 @@ export interface ModulDefinition {
   readonly art: ModulArt;
   readonly name: string;
   readonly kurz: string;
-  /** Ein Satz, der das Pattern erklaert. */
+  /** Ein Satz, der das Pattern erklärt. */
   readonly lehrsatz: string;
   /** Verweis in die Forschungsablage. */
   readonly quelle: string;
   readonly eingaenge: readonly PortDefinition[];
-  /** Statische Ausgaenge. Dynamische (Verteiler) werden berechnet. */
+  /** Statische Ausgänge. Dynamische (Verteiler) werden berechnet. */
   readonly ausgaenge: readonly PortDefinition[];
   readonly standard: ModulParameter;
-  /** Farbleitwert fuer die 3D-Darstellung (Hex). */
+  /** Farbleitwert für die 3D-Darstellung (Hex). */
   readonly farbe: number;
   /** Tastenkuerzel in der Bauleiste. */
   readonly taste: string;
 }
 
-const EIN: PortDefinition = { id: 'ein', name: 'Eingang', hinweis: 'Auftraege treten hier ein.' };
+const EIN: PortDefinition = { id: 'ein', name: 'Eingang', hinweis: 'Aufträge treten hier ein.' };
 
 export const KATALOG: Record<ModulArt, ModulDefinition> = {
   quelle: {
@@ -44,7 +44,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     lehrsatz: 'Jede Orchestrierung beginnt mit einem echten Auftrag, nicht mit einer Technologie.',
     quelle: '01_grundlagen.md',
     eingaenge: [],
-    ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Eingehende Auftraege.' }],
+    ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Eingehende Aufträge.' }],
     standard: {},
     farbe: 0x8fd6ff,
     taste: '',
@@ -66,7 +66,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     name: 'MODELL-KERN',
     kurz: 'Kern',
     lehrsatz:
-      'Ein Modell ist ein Werkzeug mit Preisschild. Die Kunst ist, das kleinste zu waehlen, das reicht.',
+      'Ein Modell ist ein Werkzeug mit Preisschild. Die Kunst ist, das kleinste zu wählen, das reicht.',
     quelle: '03_workflow_patterns.md',
     eingaenge: [EIN],
     ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Bearbeitetes Paket.' }],
@@ -79,12 +79,12 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     name: 'WEICHE',
     kurz: 'Router',
     lehrsatz:
-      'Routing spart Geld, weil die meisten Auftraege leicht sind — und kostet Qualitaet, wenn es irrt.',
+      'Routing spart Geld, weil die meisten Aufträge leicht sind — und kostet Qualität, wenn es irrt.',
     quelle: '03_workflow_patterns.md#pattern-2-routing',
     eingaenge: [EIN],
     ausgaenge: [
-      { id: 'a', name: 'Bahn A', hinweis: 'Kriterium NICHT erfuellt (z. B. leichte Faelle).' },
-      { id: 'b', name: 'Bahn B', hinweis: 'Kriterium erfuellt (z. B. schwere Faelle).' },
+      { id: 'a', name: 'Bahn A', hinweis: 'Kriterium NICHT erfüllt (z. B. leichte Fälle).' },
+      { id: 'b', name: 'Bahn B', hinweis: 'Kriterium erfüllt (z. B. schwere Fälle).' },
     ],
     standard: { kriterium: 'schwierigkeit', schwelle: 0.45, spezialisierung: 'technik' },
     farbe: 0xc792ea,
@@ -95,12 +95,12 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     name: 'SCHRANKE',
     kurz: 'Gate',
     lehrsatz:
-      'Ein Gate ist die billigste Qualitaetssicherung der Welt: es kostet fast nichts und spart alles danach.',
+      'Ein Gate ist die billigste Qualitätssicherung der Welt: es kostet fast nichts und spart alles danach.',
     quelle: '03_workflow_patterns.md#pattern-1-prompt-chaining',
     eingaenge: [EIN],
     ausgaenge: [
-      { id: 'ok', name: 'Bestanden', hinweis: 'Guete ueber der Schwelle.' },
-      { id: 'fehler', name: 'Durchgefallen', hinweis: 'Guete unter der Schwelle.' },
+      { id: 'ok', name: 'Bestanden', hinweis: 'Güte über der Schwelle.' },
+      { id: 'fehler', name: 'Durchgefallen', hinweis: 'Güte unter der Schwelle.' },
     ],
     standard: { schwelle: 0.6 },
     farbe: 0x7ee8fa,
@@ -129,25 +129,25 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     name: 'SAMMLER',
     kurz: 'Aggregator',
     lehrsatz:
-      'Wie du zusammenfuehrst, entscheidet, wozu die Parallelitaet gut war: Mehrheit, Bestenauswahl oder Verschmelzung.',
+      'Wie du zusammenführst, entscheidet, wozu die Parallelitaet gut war: Mehrheit, Bestenauswahl oder Verschmelzung.',
     quelle: '05_multi_agent_patterns.md',
     eingaenge: [EIN],
-    ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Zusammengefuehrtes Ergebnis.' }],
+    ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Zusammengeführtes Ergebnis.' }],
     standard: { modus: 'voting' },
     farbe: 0x64d8a3,
     taste: '5',
   },
   pruefer: {
     art: 'pruefer',
-    name: 'PRUEFERIN',
+    name: 'PRÜFERIN',
     kurz: 'Evaluator',
     lehrsatz:
-      'Eine Rueckkopplung hebt die Guete — bis die Kosten schneller steigen als die Qualitaet.',
+      'Eine Rückkopplung hebt die Güte — bis die Kosten schneller steigen als die Qualität.',
     quelle: '03_workflow_patterns.md#pattern-5-evaluator-optimizer',
     eingaenge: [EIN],
     ausgaenge: [
       { id: 'frei', name: 'Freigabe', hinweis: 'Gut genug. Weiter.' },
-      { id: 'zurueck', name: 'Nacharbeit', hinweis: 'Zurueck in die Ueberarbeitung.' },
+      { id: 'zurueck', name: 'Nacharbeit', hinweis: 'Zurück in die Überarbeitung.' },
     ],
     standard: { schwelle: 0.75, runden: 2 },
     farbe: 0xff8fa3,
@@ -158,7 +158,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     name: 'WERKZEUG',
     kurz: 'Tool',
     lehrsatz:
-      'Ein Modell, das rechnen soll, ist ein Missverstaendnis. Gib ihm ein Werkzeug — und einen Plan fuer dessen Ausfall.',
+      'Ein Modell, das rechnen soll, ist ein Missverständnis. Gib ihm ein Werkzeug — und einen Plan für dessen Ausfall.',
     quelle: '06_tool_use_context_engineering.md',
     eingaenge: [EIN],
     ausgaenge: [
@@ -177,7 +177,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
       'Kontext ist kein Vorrat, sondern ein Budget. Komprimieren, abrufen oder isolieren — aber niemals ignorieren.',
     quelle: '06_tool_use_context_engineering.md#context-engineering',
     eingaenge: [EIN],
-    ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Paket mit veraendertem Kontext.' }],
+    ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Paket mit verändertem Kontext.' }],
     standard: { modus: 'komprimieren' },
     farbe: 0xa0a8ff,
     taste: '8',
@@ -187,11 +187,11 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     name: 'WALL',
     kurz: 'Guardrail',
     lehrsatz:
-      'Kein einzelner Filter haelt alles. Nur gestaffelte Verteidigung kommt nahe an vollstaendig heran.',
+      'Kein einzelner Filter hält alles. Nur gestaffelte Verteidigung kommt nahe an vollständig heran.',
     quelle: '08_safety_security_guardrails.md',
     eingaenge: [EIN],
     ausgaenge: [
-      { id: 'rein', name: 'Sauber', hinweis: 'Unauffaellig. Weiter.' },
+      { id: 'rein', name: 'Sauber', hinweis: 'Unauffällig. Weiter.' },
       { id: 'alarm', name: 'Alarm', hinweis: 'Verdacht. In die Quarantaene.' },
     ],
     standard: { modus: 'eingang' },
@@ -203,11 +203,11 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     name: 'SICHERUNG',
     kurz: 'Resilienz',
     lehrsatz:
-      'Wiederholen heilt Zufallsfehler. Gegen dauerhafte Ausfaelle hilft nur, rechtzeitig aufzugeben.',
+      'Wiederholen heilt Zufallsfehler. Gegen dauerhafte Ausfälle hilft nur, rechtzeitig aufzugeben.',
     quelle: '07_resilience_error_handling.md',
     eingaenge: [EIN],
     ausgaenge: [
-      { id: 'zurueck', name: 'Erneut', hinweis: 'Zurueck zum fehlgeschlagenen Schritt.' },
+      { id: 'zurueck', name: 'Erneut', hinweis: 'Zurück zum fehlgeschlagenen Schritt.' },
       { id: 'notausgang', name: 'Notausgang', hinweis: 'Aufgeben und degradiert weiterarbeiten.' },
     ],
     standard: { modus: 'wiederholen', versuche: 2 },
@@ -238,7 +238,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
       'Was du nicht beobachtest, kannst du nicht verantworten. Und was du nicht verantworten kannst, kauft kein Landesamt.',
     quelle: '10_observability_evaluation.md',
     eingaenge: [EIN],
-    ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Unveraendert — aber jetzt belegt.' }],
+    ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Unverändert — aber jetzt belegt.' }],
     standard: {},
     farbe: 0xb8f2e6,
     taste: 'T',
@@ -248,7 +248,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     name: 'SCHMIEDE',
     kurz: 'Evolution',
     lehrsatz:
-      'Wenn du den Suchraum nicht ueberblickst, lass ihn absuchen. Selektion ist billiger als Genie.',
+      'Wenn du den Suchraum nicht überblickst, lass ihn absuchen. Selektion ist billiger als Genie.',
     quelle: '11_frameworks_implementierung.md',
     eingaenge: [EIN],
     ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Optimierte Konfiguration.' }],
@@ -258,7 +258,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
   },
 };
 
-/** Ausgangsports eines konkreten Moduls (Verteiler haengt von `zweige` ab). */
+/** Ausgangsports eines konkreten Moduls (Verteiler hängt von `zweige` ab). */
 export function ausgaengeVon(modul: Modul): readonly PortDefinition[] {
   const def = KATALOG[modul.art];
   if (modul.art === 'verteiler') {

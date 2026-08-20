@@ -1,10 +1,10 @@
 /**
  * Der Bauzustand: das Werk, das die Spielerin gerade baut, samt Historie.
  *
- * Rueckgaengig/Wiederholen ist als Command-Pattern umgesetzt, nicht als
+ * Rückgängig/Wiederholen ist als Command-Pattern umgesetzt, nicht als
  * Schnappschuss-Kette. Der Grund ist nicht Speicher, sondern Klarheit: eine
- * Aktion, die sich nicht sauber umkehren laesst, faellt beim Schreiben auf —
- * und ein Test kann `Undo(Redo(x)) === x` auf Pruefsummen-Ebene erzwingen.
+ * Aktion, die sich nicht sauber umkehren lässt, fällt beim Schreiben auf —
+ * und ein Test kann `Undo(Redo(x)) === x` auf Prüfsummen-Ebene erzwingen.
  */
 
 import type { Leitung, Modul, ModulArt, ModulParameter, Werk } from '../sim/typen';
@@ -34,7 +34,7 @@ export class BauZustand {
   private zaehler = 0;
   private readonly getan: Aktion[] = [];
   private readonly rueckgaengig: Aktion[] = [];
-  /** Module aus dem Level-Vorbau lassen sich nicht loeschen. */
+  /** Module aus dem Level-Vorbau lassen sich nicht löschen. */
   private readonly fest = new Set<string>();
 
   constructor(vorbau?: Werk, festeIds: readonly string[] = []) {
@@ -79,7 +79,7 @@ export class BauZustand {
     return this.fest.has(id);
   }
 
-  /** Anzahl baubarer Module (Quelle und Senke zaehlen nicht als Flaeche). */
+  /** Anzahl baubarer Module (Quelle und Senke zählen nicht als Fläche). */
   flaeche(): number {
     return this.module.filter((m) => m.art !== 'quelle' && m.art !== 'senke').length;
   }
@@ -107,7 +107,7 @@ export class BauZustand {
   }
 
   // -------------------------------------------------------------------------
-  // Schreiben — jede Aenderung laeuft ueber eine Aktion
+  // Schreiben — jede Änderung läuft über eine Aktion
   // -------------------------------------------------------------------------
 
   private fuehreAus(a: Aktion): void {
@@ -196,7 +196,7 @@ export class BauZustand {
     return true;
   }
 
-  /** Aendert Parameter eines Moduls (Kerngroesse, Schwelle, Modus …). */
+  /** Ändert Parameter eines Moduls (Kerngröße, Schwelle, Modus …). */
   stelleEin(id: string, param: ModulParameter): boolean {
     const m = this.modul(id);
     if (!m) return false;
@@ -250,7 +250,7 @@ export class BauZustand {
     return true;
   }
 
-  /** Setzt auf den Vorbau zurueck. Nicht umkehrbar — die Historie wird geleert. */
+  /** Setzt auf den Vorbau zurück. Nicht umkehrbar — die Historie wird geleert. */
   leere(vorbau?: Werk): void {
     this.module = vorbau ? vorbau.module.map((m) => ({ ...m, param: { ...m.param } })) : [];
     this.leitungen = vorbau ? vorbau.leitungen.map((l) => ({ ...l })) : [];
@@ -259,7 +259,7 @@ export class BauZustand {
     this.zaehler = this.module.length;
   }
 
-  /** Uebernimmt ein vollstaendiges Werk (Blaupause, Referenzloesung, Testaufbau). */
+  /** Übernimmt ein vollständiges Werk (Blaupause, Referenzlösung, Testaufbau). */
   ladeWerk(werk: Werk): void {
     this.module = werk.module.map((m) => ({ ...m, param: { ...m.param } }));
     this.leitungen = werk.leitungen.map((l) => ({ ...l }));

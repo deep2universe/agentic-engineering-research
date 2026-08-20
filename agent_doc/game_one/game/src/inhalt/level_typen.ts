@@ -2,24 +2,24 @@
  * Levelmodell der Kampagne.
  *
  * Ein Level ist nicht nur eine Aufgabe, sondern ein didaktischer Vertrag: Es
- * bringt seine eigenen Beweise mit. `referenzen` belegen, dass es loesbar ist
+ * bringt seine eigenen Beweise mit. `referenzen` belegen, dass es lösbar ist
  * (und auf mehr als eine Art), `antiMuster` belegen, dass die naheliegenden
- * falschen Loesungen tatsaechlich scheitern — und zwar an der Stelle, an der
- * die Lektion sitzt. `tests/loesbarkeit/` prueft beides fuer jedes Level.
+ * falschen Lösungen tatsächlich scheitern — und zwar an der Stelle, an der
+ * die Lektion sitzt. `tests/loesbarkeit/` prüft beides für jedes Level.
  */
 
 import type { Level, Metriken, Werk } from '../sim/typen';
 
-/** Eine benannte, lauffaehige Loesung eines Levels. */
+/** Eine benannte, lauffaehige Lösung eines Levels. */
 export interface Referenz {
   readonly name: string;
-  /** Was diese Loesung architektonisch anders macht als die andere. */
+  /** Was diese Lösung architektonisch anders macht als die andere. */
   readonly ansatz: string;
   readonly werk: Werk;
 }
 
 /**
- * Eine plausible, aber falsche Loesung — die Falle, in die man tappt, wenn man
+ * Eine plausible, aber falsche Lösung — die Falle, in die man tappt, wenn man
  * die Lektion des Levels nicht verstanden hat.
  */
 export interface AntiMuster {
@@ -36,7 +36,7 @@ export interface LevelDefinition extends Level {
   readonly referenzen: readonly Referenz[];
   readonly antiMuster: readonly AntiMuster[];
   /**
-   * Benchmark des Antagonisten: ein einzelner grosser Kern ohne Router, ohne
+   * Benchmark des Antagonisten: ein einzelner großer Kern ohne Router, ohne
    * Werkzeug, ohne Wall, ohne Auge. Wird vor dem Bauen angezeigt.
    */
   readonly monolith?: Werk;
@@ -51,8 +51,8 @@ export function levelrolle(nummer: number): Levelrolle {
 }
 
 export const ROLLEN_ERKLAERUNG: Record<Levelrolle, string> = {
-  ki: 'Einfuehrung — das neue Modul isoliert, ohne Stoerfaktoren.',
+  ki: 'Einführung — das neue Modul isoliert, ohne Störfaktoren.',
   sho: 'Verbindung — das neue Modul trifft auf eine bekannte Mechanik.',
-  ten: 'Bruch — die Schwaeche des Moduls macht die bisherige Loesung ungueltig.',
+  ten: 'Bruch — die Schwaeche des Moduls macht die bisherige Lösung ungültig.',
   ketsu: 'Synthese — alles zusammen, unter hartem Budget.',
 };

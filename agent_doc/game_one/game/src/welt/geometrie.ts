@@ -1,28 +1,28 @@
 /**
- * Prozedurale Geometrie fuer SCHWARMWERK.
+ * Prozedurale Geometrie für SCHWARMWERK.
  *
  * Jede sichtbare Form des Spiels entsteht hier aus Code — es gibt keine
- * externen Modelldateien. Gebaut wird ausschliesslich aus den Primitiven von
+ * externen Modelldateien. Gebaut wird ausschließlich aus den Primitiven von
  * three.js (`BoxGeometry`, `CylinderGeometry`, `LatheGeometry`,
- * `ExtrudeGeometry`, `TubeGeometry`, `TorusGeometry`), zusammengefuehrt mit
- * `mergeGeometries`. Keine Boolean-Bibliothek, keine zusaetzliche
- * Abhaengigkeit.
+ * `ExtrudeGeometry`, `TubeGeometry`, `TorusGeometry`), zusammengeführt mit
+ * `mergeGeometries`. Keine Boolean-Bibliothek, keine zusätzliche
+ * Abhängigkeit.
  *
  * Zwei Entwurfsregeln durchziehen die Datei:
  *
  * 1. SILHOUETTE VOR FARBE. Jede der fuenfzehn Modularten muss aus der
  *    Vogelperspektive allein an ihrem Umriss erkennbar sein. Farbe ist eine
  *    Zugabe, kein Unterscheidungsmerkmal (Barrierefreiheit — rund acht Prozent
- *    der maennlichen Spieler sehen Rot und Gruen nicht zuverlaessig
+ *    der maennlichen Spieler sehen Rot und Gruen nicht zuverlässig
  *    auseinander).
  *
  * 2. DETERMINISMUS. Alle Streuung stammt aus `erzeugeStrom(saat)` aus
  *    `src/sim/rng.ts`. `Math.random` kommt in dieser Datei nicht vor; ein Test
- *    prueft das per Quelltext-Scan.
+ *    prüft das per Quelltext-Scan.
  *
- * Koordinatenkonvention fuer Module und Fundstuecke: Fussabdruck genau eine
+ * Koordinatenkonvention für Module und Fundstücke: Fußabdruck genau eine
  * Gittereinheit, also -0.5 .. +0.5 in X und Z. Der Ursprung liegt in der Mitte
- * der Grundflaeche, die Unterkante auf y = 0. Damit kann der Aufbau ein Modul
+ * der Grundfläche, die Unterkante auf y = 0. Damit kann der Aufbau ein Modul
  * ohne weitere Rechnung auf ein Gitterfeld setzen.
  */
 
@@ -38,25 +38,25 @@ import type { ModulArt } from '../sim/typen';
 /** Sicherheitsabstand zum Feldrand, damit Nachbarmodule sich nie beruehren. */
 const RAND = 0.49;
 
-/** Leere, aber vollstaendig gueltige Geometrie (position/normal/uv, kein Dreieck). */
+/** Leere, aber vollständig gültige Geometrie (position/normal/uv, kein Dreieck). */
 function leereGeometrie(): THREE.BufferGeometry {
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(0), 3));
   g.setAttribute('normal', new THREE.BufferAttribute(new Float32Array(0), 3));
   g.setAttribute('uv', new THREE.BufferAttribute(new Float32Array(0), 2));
-  // Von Hand gesetzt: `computeBoundingSphere` erzeugt fuer null Punkte NaN.
+  // Von Hand gesetzt: `computeBoundingSphere` erzeugt für null Punkte NaN.
   g.boundingSphere = new THREE.Sphere(new THREE.Vector3(0, 0, 0), 0);
   return g;
 }
 
 /**
- * Fuehrt Teilgeometrien zu EINER Geometrie zusammen.
+ * Führt Teilgeometrien zu EINER Geometrie zusammen.
  *
  * Entscheidung: alles wird vorher auf nicht-indiziert gebracht.
- * `ExtrudeGeometry` liefert grundsaetzlich keinen Index, alle anderen
+ * `ExtrudeGeometry` liefert grundsätzlich keinen Index, alle anderen
  * Primitive liefern einen — `mergeGeometries` verweigert den Mischbetrieb.
- * Ein einheitlicher Pfad ist zuverlaessiger als Sonderfaelle, und bei
- * hoechstens 1200 Dreiecken je Modul ist der zusaetzliche Speicher belanglos.
+ * Ein einheitlicher Pfad ist zuverlässiger als Sonderfälle, und bei
+ * höchstens 1200 Dreiecken je Modul ist der zusätzliche Speicher belanglos.
  */
 function vereine(teile: readonly THREE.BufferGeometry[]): THREE.BufferGeometry {
   if (teile.length === 0) return leereGeometrie();
@@ -96,7 +96,7 @@ function kasten(
   return g;
 }
 
-/** Quader, `y` ist die UNTERKANTE. Bequem fuer alles, was auf dem Boden steht. */
+/** Quader, `y` ist die UNTERKANTE. Bequem für alles, was auf dem Boden steht. */
 function block(b: number, h: number, t: number, x: number, y: number, z: number): THREE.BufferGeometry {
   return kasten(b, h, t, x, y + h / 2, z);
 }
@@ -150,7 +150,7 @@ function ring(
   return g;
 }
 
-/** Rotationskoerper aus einem Profil `[radius, hoehe]`. */
+/** Rotationskörper aus einem Profil `[radius, hoehe]`. */
 function profil(
   punkte: readonly (readonly [number, number])[],
   seiten: number,
@@ -188,7 +188,7 @@ function schildPlatte(
   return g;
 }
 
-/** Ganzzahl aus einem Strom, beide Grenzen einschliesslich. */
+/** Ganzzahl aus einem Strom, beide Grenzen einschließlich. */
 function ganz(w: () => number, von: number, bis: number): number {
   return von + Math.floor(w() * (bis - von + 1 - 1e-9));
 }
@@ -220,11 +220,11 @@ function nieten(
 }
 
 /**
- * Letzte Instanz vor der Rueckgabe: haelt den Fussabdruck ein, setzt die
- * Unterkante exakt auf y = 0 und deckelt die Hoehe. Die Formen sind so
+ * Letzte Instanz vor der Rückgabe: hält den Fußabdruck ein, setzt die
+ * Unterkante exakt auf y = 0 und deckelt die Höhe. Die Formen sind so
  * entworfen, dass hier normalerweise nichts mehr zu tun ist — die Funktion ist
  * das Sicherheitsnetz, das den Gitteraufbau vor einem verrutschten Anbau
- * schuetzt.
+ * schützt.
  */
 function passeEin(g: THREE.BufferGeometry, maxHoehe = 1.8): THREE.BufferGeometry {
   g.computeBoundingBox();
@@ -249,7 +249,7 @@ function passeEin(g: THREE.BufferGeometry, maxHoehe = 1.8): THREE.BufferGeometry
 // Die fuenfzehn Modularten
 // ---------------------------------------------------------------------------
 
-/** quelle — offene Schuette: weiter Trichtermund ueber einer Stuetzbuehne. */
+/** quelle — offene Schuette: weiter Trichtermund über einer Stützbuehne. */
 function bauQuelle(w: () => number): THREE.BufferGeometry[] {
   const t: THREE.BufferGeometry[] = [];
   t.push(block(0.9, 0.05, 0.9, 0, 0, 0));
@@ -288,7 +288,7 @@ function bauSenke(w: () => number): THREE.BufferGeometry[] {
   for (let i = 0; i < 4; i++) {
     t.push(block(0.76, 0.045, 0.06, 0, 0.66 + i * 0.065, -0.2));
   }
-  // Rampe, die zum Kunden hinausfuehrt.
+  // Rampe, die zum Kunden hinausführt.
   const neigung = spanne(w, 0.16, 0.22);
   t.push(kasten(0.66, 0.05, 0.58, 0, 0.12, 0.16, -neigung, 0, 0));
   t.push(kasten(0.05, 0.11, 0.58, -0.33, 0.15, 0.16, -neigung, 0, 0));
@@ -298,7 +298,7 @@ function bauSenke(w: () => number): THREE.BufferGeometry[] {
   return t;
 }
 
-/** kern — massiver Turm mit Kuehlrippen; der Aufsatz erzaehlt die Groesse. */
+/** kern — massiver Turm mit Kühlrippen; der Aufsatz erzählt die Größe. */
 function bauKern(w: () => number): THREE.BufferGeometry[] {
   const t: THREE.BufferGeometry[] = [];
   t.push(block(0.88, 0.08, 0.88, 0, 0, 0));
@@ -319,10 +319,10 @@ function bauKern(w: () => number): THREE.BufferGeometry[] {
 }
 
 /**
- * Aufsatz fuer die drei Kerngroessen. Der Ursprung liegt auf der Montageflaeche
+ * Aufsatz für die drei Kerngrößen. Der Ursprung liegt auf der Montagefläche
  * (y = 0), damit der Aufbau ihn ohne Rechnung auf die Kopfplatte des Turms
- * setzen kann. Kolibri traegt eine flache Haube, Reiher zwei Ringe, Kondor
- * einen dreifach gestuften Aufbau mit Mast — die Bauhoehe erzaehlt den Preis.
+ * setzen kann. Kolibri trägt eine flache Haube, Reiher zwei Ringe, Kondor
+ * einen dreifach gestuften Aufbau mit Mast — die Bauhöhe erzählt den Preis.
  */
 export function kernAufsatz(groesse: 'kolibri' | 'reiher' | 'kondor'): THREE.BufferGeometry {
   const t: THREE.BufferGeometry[] = [];
@@ -407,7 +407,7 @@ function bauSchranke(w: () => number): THREE.BufferGeometry[] {
   const neigung = spanne(w, -0.34, -0.24);
   const cos = Math.cos(neigung);
   const sin = Math.sin(neigung);
-  // Baum quer ueber das Feld, das kurze Ende traegt das Gegengewicht.
+  // Baum quer über das Feld, das kurze Ende trägt das Gegengewicht.
   t.push(kasten(0.8, 0.055, 0.09, 0.06, 0.79, 0, 0, 0, neigung));
   for (let i = 0; i < 4; i++) {
     const d = -0.3 + i * 0.2;
@@ -420,7 +420,7 @@ function bauSchranke(w: () => number): THREE.BufferGeometry[] {
   return t;
 }
 
-/** verteiler — Verteilerkamm: ein Sammelrohr, vier Auslaesse nach unten. */
+/** verteiler — Verteilerkamm: ein Sammelrohr, vier Auslässe nach unten. */
 function bauVerteiler(w: () => number): THREE.BufferGeometry[] {
   const t: THREE.BufferGeometry[] = [];
   t.push(block(0.92, 0.06, 0.8, 0, 0, 0));
@@ -440,7 +440,7 @@ function bauVerteiler(w: () => number): THREE.BufferGeometry[] {
   return t;
 }
 
-/** sammler — Trichter, der nach unten in eine Sammeltrommel zusammenlaeuft. */
+/** sammler — Trichter, der nach unten in eine Sammeltrommel zusammenläuft. */
 function bauSammler(w: () => number): THREE.BufferGeometry[] {
   const t: THREE.BufferGeometry[] = [];
   t.push(block(0.9, 0.05, 0.9, 0, 0, 0));
@@ -474,7 +474,7 @@ function bauSammler(w: () => number): THREE.BufferGeometry[] {
   return t;
 }
 
-/** pruefer — Balkenwaage mit zwei Schalen und Skalenbogen. */
+/** prüfer — Balkenwaage mit zwei Schalen und Skalenbogen. */
 function bauPruefer(w: () => number): THREE.BufferGeometry[] {
   const t: THREE.BufferGeometry[] = [];
   t.push(profil(
@@ -645,7 +645,7 @@ function bauHand(w: () => number): THREE.BufferGeometry[] {
   return t;
 }
 
-/** auge — Kamerakopf auf Schwenkarm ueber einem Mast. */
+/** auge — Kamerakopf auf Schwenkarm über einem Mast. */
 function bauAuge(w: () => number): THREE.BufferGeometry[] {
   const t: THREE.BufferGeometry[] = [];
   t.push(profil(
@@ -705,8 +705,8 @@ function bauSchmiede(w: () => number): THREE.BufferGeometry[] {
 }
 
 /**
- * Silhouette eines Moduls. Fussabdruck genau 1x1 Gittereinheit (also -0.5..+0.5
- * in X und Z), Ursprung in der Mitte der Grundflaeche (y = 0 unten), Hoehe 0.5
+ * Silhouette eines Moduls. Fußabdruck genau 1x1 Gittereinheit (also -0.5..+0.5
+ * in X und Z), Ursprung in der Mitte der Grundfläche (y = 0 unten), Höhe 0.5
  * bis 1.8. Jede Modulart ist aus der Vogelperspektive an ihrer SILHOUETTE
  * erkennbar, nicht nur an der Farbe.
  */
@@ -768,13 +768,13 @@ export function modulGeometrie(art: ModulArt, saat: number): THREE.BufferGeometr
 // ---------------------------------------------------------------------------
 
 /**
- * Kleine Anbauten fuer Detailreichtum (Kuehlrippen, Kabelkanaele, Schilder,
+ * Kleine Anbauten für Detailreichtum (Kühlrippen, Kabelkanaele, Schilder,
  * Nieten).
  *
  * Die Teile liegen auf einer Platte in der XY-Ebene, mittig um den Ursprung,
  * und wachsen nach +Z. Der Aufrufer dreht und setzt das Ergebnis auf die
- * Flaeche, die er beleben will. `dichte` ist die Anzahl Teile je
- * Quadrateinheit; hoechstens 240 Teile werden erzeugt, damit ein
+ * Fläche, die er beleben will. `dichte` ist die Anzahl Teile je
+ * Quadrateinheit; höchstens 240 Teile werden erzeugt, damit ein
  * Aufrufversehen nie das Dreiecksbudget sprengt.
  */
 export function greeble(saat: number, dichte: number, flaeche: THREE.Vector2): THREE.BufferGeometry {
@@ -790,7 +790,7 @@ export function greeble(saat: number, dichte: number, flaeche: THREE.Vector2): T
     const x = spanne(w, -bx / 2, bx / 2);
     const y = spanne(w, -by / 2, by / 2);
     if (art === 0) {
-      // Kuehlrippe: schmal, hoch, flach herausstehend.
+      // Kühlrippe: schmal, hoch, flach herausstehend.
       const h = Math.min(by * 0.5, spanne(w, by * 0.15, by * 0.45));
       const d = spanne(w, 0.02, 0.06);
       teile.push(kasten(spanne(w, 0.015, 0.035), h, d, x, y, d / 2));
@@ -885,7 +885,7 @@ export function leitungsGeometrie(
     }
   }
   pos.needsUpdate = true;
-  // Die Verjuengung hat die Mantelneigung veraendert — Normalen neu bilden.
+  // Die Verjuengung hat die Mantelneigung verändert — Normalen neu bilden.
   g.computeVertexNormals();
   g.computeBoundingSphere();
   return g;
@@ -900,11 +900,11 @@ export interface Halle {
   readonly waende: THREE.BufferGeometry;
   readonly traeger: THREE.BufferGeometry; // Stahlfachwerk unter der Decke
   readonly decke: THREE.BufferGeometry;
-  readonly fenster: THREE.BufferGeometry; // hohe Sprossenfenster fuer Lichtschaechte
+  readonly fenster: THREE.BufferGeometry; // hohe Sprossenfenster für Lichtschaechte
   readonly gelaender: THREE.BufferGeometry;
 }
 
-/** Ein hohes Sprossenfenster: Rahmen, Kaempfer, Pfosten, Glasflaeche. */
+/** Ein hohes Sprossenfenster: Rahmen, Kaempfer, Pfosten, Glasfläche. */
 function sprossenFenster(
   breite: number,
   hoehe: number,
@@ -929,13 +929,13 @@ function sprossenFenster(
   for (let i = 1; i <= kaempfer; i++) {
     t.push(kasten(breite, 0.05, 0.1, x, yUnten + (i * hoehe) / (kaempfer + 1), z));
   }
-  // Glasflaeche als eigenes Blatt — das Material bekommt sie spaeter getrennt.
+  // Glasfläche als eigenes Blatt — das Material bekommt sie später getrennt.
   t.push(kasten(breite - 0.04, hoehe - 0.04, 0.02, x, yMitte, z));
   return t;
 }
 
 /**
- * Eine Wand in Ortskoordinaten: laeuft entlang X, Dicke in Z, Aussenseite nach
+ * Eine Wand in Ortskoordinaten: läuft entlang X, Dicke in Z, Aussenseite nach
  * -Z, Unterkante auf y = 0. Der Aufrufer dreht sie an ihren Platz.
  */
 function wandRoh(
@@ -965,14 +965,14 @@ function wandRoh(
     wand.push(kasten(pfeiler, sturz - bruestung, dicke, x, (bruestung + sturz) / 2, 0));
     // Lisene auf der Aussenseite — gibt der Fassade ihren Rhythmus.
     wand.push(kasten(pfeiler * 0.8, hoehe - 0.4, 0.3, x, (hoehe - 0.4) / 2 + 0.2, -dicke / 2 - 0.15));
-    // Kragstein fuer die alte Kranbahn.
+    // Kragstein für die alte Kranbahn.
     wand.push(kasten(0.5, 0.3, 0.7, x, sturz + 0.6, dicke / 2 + 0.3));
   }
   for (let i = 0; i < achsen; i++) {
     const x = -laenge / 2 + (i + 0.5) * teilung;
     fenster.push(...sprossenFenster(oeffnung, sturz - bruestung, x, bruestung, 0));
   }
-  // Ziegelbaender im unteren Bereich, leicht vorstehend.
+  // Ziegelbänder im unteren Bereich, leicht vorstehend.
   const baender = 4;
   for (let i = 0; i < baender; i++) {
     const y = 0.35 + i * 0.42 + spanne(w, -0.03, 0.03);
@@ -1003,7 +1003,7 @@ function binder(spannweite: number, yUnten: number, hoehe: number): THREE.Buffer
   return t;
 }
 
-/** Backsteinhalle von 1957: Fachwerktraeger, Sprossenfenster, Betonboden mit Fugenraster. */
+/** Backsteinhalle von 1957: Fachwerkträger, Sprossenfenster, Betonboden mit Fugenraster. */
 export function hallenGeometrie(breite: number, tiefe: number, hoehe: number, saat: number): Halle {
   const w = erzeugeStrom(saat ^ 0x1957_0003);
   const b = Math.max(8, breite);
@@ -1025,14 +1025,14 @@ export function hallenGeometrie(breite: number, tiefe: number, hoehe: number, sa
     const z = -ti / 2 + (i * ti) / Math.max(1, nz);
     bodenTeile.push(kasten(b, 0.02, 0.05, 0, 0, z));
   }
-  // Entwaesserungsrinne laengs durch die Halle.
+  // Entwaesserungsrinne längs durch die Halle.
   bodenTeile.push(kasten(0.34, 0.06, ti - 2, 0, -0.02, 0));
   for (let i = 0; i < 6; i++) {
     bodenTeile.push(kasten(0.34, 0.03, 0.06, 0, 0.015, -ti / 2 + 1.5 + (i * (ti - 3)) / 5));
   }
   const boden = vereine(bodenTeile);
 
-  // --- Waende und Fenster ------------------------------------------------
+  // --- Wände und Fenster ------------------------------------------------
   const wandTeile: THREE.BufferGeometry[] = [];
   const fensterTeile: THREE.BufferGeometry[] = [];
   const seiten: readonly (readonly [number, number, number, number])[] = [
@@ -1062,7 +1062,7 @@ export function hallenGeometrie(breite: number, tiefe: number, hoehe: number, sa
   const waende = vereine(wandTeile);
   const fenster = vereine(fensterTeile);
 
-  // --- Traeger -----------------------------------------------------------
+  // --- Träger -----------------------------------------------------------
   const traegerTeile: THREE.BufferGeometry[] = [];
   const binderZahl = Math.max(3, Math.min(14, Math.round(ti / 5)));
   const binderHoehe = Math.min(1.6, h * 0.14);
@@ -1073,12 +1073,12 @@ export function hallenGeometrie(breite: number, tiefe: number, hoehe: number, sa
       g.translate(0, 0, z);
       traegerTeile.push(g);
     }
-    // Stuetzen an beiden Wandseiten.
+    // Stützen an beiden Wandseiten.
     for (const sx of [-1, 1] as const) {
       traegerTeile.push(kasten(0.3, untergurt - 2.2, 0.3, sx * (b / 2 - 0.2), (untergurt + 2.2) / 2, z));
     }
   }
-  // Pfetten laengs.
+  // Pfetten längs.
   const pfetten = 7;
   for (let i = 0; i < pfetten; i++) {
     const x = -b / 2 + ((i + 0.5) * b) / pfetten;
@@ -1111,7 +1111,7 @@ export function hallenGeometrie(breite: number, tiefe: number, hoehe: number, sa
   }
   const decke = vereine(deckeTeile);
 
-  // --- Gelaender ---------------------------------------------------------
+  // --- Geländer ---------------------------------------------------------
   const gelaenderTeile: THREE.BufferGeometry[] = [];
   const galerie = 3.4;
   for (const sx of [-1, 1] as const) {
@@ -1125,7 +1125,7 @@ export function hallenGeometrie(breite: number, tiefe: number, hoehe: number, sa
       gelaenderTeile.push(kasten(0.06, 1.1, 0.06, x, galerie + 0.55, z));
     }
   }
-  // Zwei Treppenlaeufe mit Handlauf an der Nordwand.
+  // Zwei Treppenläufe mit Handlauf an der Nordwand.
   for (const sx of [-1, 1] as const) {
     const x = sx * (b / 2 - 1.6);
     const z0 = -ti / 2 + 2;
@@ -1146,8 +1146,8 @@ export function hallenGeometrie(breite: number, tiefe: number, hoehe: number, sa
 // ---------------------------------------------------------------------------
 
 /**
- * Das Fundament, auf dem gebaut wird: erhoehte Platte mit Gitterrelief und
- * Randprofil. Die Bauflaeche liegt auf y = 0, damit Module ohne Versatz
+ * Das Fundament, auf dem gebaut wird: erhöhte Platte mit Gitterrelief und
+ * Randprofil. Die Baufläche liegt auf y = 0, damit Module ohne Versatz
  * daraufstehen; die Platte selbst reicht nach unten.
  */
 export function fundamentGeometrie(felderX: number, felderZ: number): THREE.BufferGeometry {
@@ -1184,10 +1184,10 @@ export function fundamentGeometrie(felderX: number, felderZ: number): THREE.Buff
 }
 
 // ---------------------------------------------------------------------------
-// Fundstuecke der Umgebungserzaehlung
+// Fundstücke der Umgebungserzählung
 // ---------------------------------------------------------------------------
 
-/** Kleine Fundstuecke der Umgebungserzaehlung. */
+/** Kleine Fundstücke der Umgebungserzählung. */
 export type FundstueckArt = 'becher' | 'aktenstapel' | 'rollwagen' | 'schild' | 'kabelrolle' | 'stuhl';
 
 export function fundstueckGeometrie(art: FundstueckArt, saat: number): THREE.BufferGeometry {

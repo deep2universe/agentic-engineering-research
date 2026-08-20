@@ -4,9 +4,9 @@
  * Ablauf eines Levels (Produktions-Bibel 5.1):
  *   Briefing → Bauen → Simulationslauf → Diagnose → Iteration → Auswertung
  *
- * Die Simulation laeuft mit festem Zeitschritt; das Bild interpoliert nur.
- * Damit ist der Ablauf unabhaengig von der Bildrate und jederzeit exakt
- * wiederholbar — die Voraussetzung fuer Zeit-Debugger, Wiedergabe und
+ * Die Simulation läuft mit festem Zeitschritt; das Bild interpoliert nur.
+ * Damit ist der Ablauf unabhängig von der Bildrate und jederzeit exakt
+ * wiederholbar — die Voraussetzung für Zeit-Debugger, Wiedergabe und
  * Bildvergleichstests.
  */
 
@@ -36,7 +36,7 @@ export interface SpielOptionen {
   readonly hudZiel: HTMLElement;
   readonly guete?: Bildguete;
   readonly erzwingeWebGL?: boolean;
-  /** Im Testbetrieb laeuft KEINE eigene Bildschleife — Bilder kommen per Aufruf. */
+  /** Im Testbetrieb läuft KEINE eigene Bildschleife — Bilder kommen per Aufruf. */
   readonly ohneSchleife?: boolean;
   /** Diagnose: ohne Post-Processing rendern. */
   readonly ohnePost?: boolean;
@@ -83,7 +83,7 @@ export class Spiel {
 
     renderwerk.szene.add(this.halle.wurzel, this.ansicht.wurzel);
     renderwerk.szene.background = new THREE.Color(0x080b11);
-    renderwerk.szene.fog = new THREE.FogExp2(0x0d1219, 0.014);
+    renderwerk.szene.fog = new THREE.FogExp2(0x0e141c, 0.021);
 
     this.hud = new Hud(opt.hudZiel, {
       aufModulWahl: (a) => {
@@ -131,7 +131,7 @@ export class Spiel {
       ...(opt.ohnePost !== undefined ? { ohnePost: opt.ohnePost } : {}),
     });
     const start = ALLE_LEVEL[0];
-    if (!start) throw new Error('Die Kampagne enthaelt kein einziges Level.');
+    if (!start) throw new Error('Die Kampagne enthält kein einziges Level.');
     const spiel = new Spiel(renderwerk, opt, start);
     if (opt.ohneSchleife !== true) spiel.starteSchleife();
     return spiel;
@@ -212,7 +212,7 @@ export class Spiel {
     this.laeuft = true;
     this.tickRest = 0;
     this.hud.setzeStartText('Pause');
-    this.hud.melde(`${this.level.strom.anzahl} Auftraege laufen ein.`);
+    this.hud.melde(`${this.level.strom.anzahl} Aufträge laufen ein.`);
     this.ansicht.setzeHervorhebung([], 'auswahl');
   }
 
@@ -238,7 +238,7 @@ export class Spiel {
     this.aktualisiereSchattenbaum();
   }
 
-  /** Fuehrt genau einen Simulationsschritt aus. Auch fuer Tests und Einzeltick. */
+  /** Führt genau einen Simulationsschritt aus. Auch für Tests und Einzeltick. */
   simulationsTick(anzahl = 1): void {
     if (!this.sim) return;
     for (let i = 0; i < anzahl && !this.sim.fertig; i++) this.sim.tick();
@@ -275,7 +275,7 @@ export class Spiel {
       return null;
     }
     if (!this.halle.imFundament(x, z)) {
-      this.hud.melde('Ausserhalb des Fundaments.', 'fehler');
+      this.hud.melde('Außerhalb des Fundaments.', 'fehler');
       return null;
     }
     const e = this.bau.setze(art, x, z, param);
@@ -324,7 +324,7 @@ export class Spiel {
           this.leitungsStart = { modulId: getroffen.id, port: frei[0]! };
           this.ansicht.setzeHervorhebung([getroffen.id], 'zeiger');
           this.hud.setzeKontext('leitung', [
-            `Ausgang "${frei[0]}" gewaehlt${frei.length > 1 ? ` (${frei.length} frei)` : ''}`,
+            `Ausgang "${frei[0]}" gewählt${frei.length > 1 ? ` (${frei.length} frei)` : ''}`,
           ]);
         } else {
           this.verbinde(this.leitungsStart.modulId, this.leitungsStart.port, getroffen.id);
@@ -347,7 +347,7 @@ export class Spiel {
         id: m.id,
         text: `${KATALOG[m.art].name}, Feld ${String.fromCharCode(65 + m.x)}${m.z + 1}, ${
           this.bau.freieAusgaenge(m.id).length
-        } Ausgaenge frei`,
+        } Ausgänge frei`,
       }))
     );
   }
@@ -371,7 +371,7 @@ export class Spiel {
 
   private aufZeigerBewegt(z: ZeigerZustand): void {
     if (z.gedrueckt && z.wahl) {
-      // Orbit ausschliesslich mit Wahltaste — Strg ist auf macOS belegt.
+      // Orbit ausschließlich mit Wahltaste — Strg ist auf macOS belegt.
       this.kamera.drehe(1, 0);
       return;
     }
@@ -389,7 +389,7 @@ export class Spiel {
     const ab = (e: KeyboardEvent): void => {
       const ziel = e.target as HTMLElement | null;
       if (ziel && (ziel.tagName === 'INPUT' || ziel.tagName === 'TEXTAREA')) return;
-      if (e.code === 'Tab') return; // Tab gehoert dem DOM-Fokus.
+      if (e.code === 'Tab') return; // Tab gehört dem DOM-Fokus.
       this.gedrueckt.add(e.code);
       const befehl = befehlFuer(e);
       if (befehl === null) return;
@@ -487,7 +487,7 @@ export class Spiel {
         if (this.bau.macheRueckgaengig()) {
           this.ansicht.setzeWerk(this.bau.werk());
           this.aktualisiereSchattenbaum();
-          this.hud.melde('Rueckgaengig.');
+          this.hud.melde('Rückgängig.');
         }
         break;
       case 'wiederholen':
@@ -563,9 +563,9 @@ export class Spiel {
     this.kamera.schwenkeStetig(x, z, dt, this.gedrueckt.has('ShiftLeft') || this.gedrueckt.has('ShiftRight'));
     this.kamera.aktualisiere(dt);
 
-    // Decke und Fachwerk ausblenden, sobald die Kamera darueber steht — sonst
-    // schaut man durch das eigene Dach und die Traeger zerschneiden das Bild.
-    this.halle.dach.visible = this.renderwerk.kamera.position.y < this.halle.masse.hoehe * 0.94;
+    // Decke und Fachwerk ausblenden, sobald die Kamera darüber steht — sonst
+    // schaut man durch das eigene Dach und die Träger zerschneiden das Bild.
+    this.halle.decke.visible = this.renderwerk.kamera.position.y < this.halle.masse.hoehe * 0.94;
 
     if (this.sim && this.laeuft) {
       this.tickRest += dt * 1000 * this.tempo;
@@ -594,7 +594,7 @@ export class Spiel {
     this.renderwerk.setzeTemporalModus(m);
   }
 
-  /** Laedt eine fertige Blaupause — fuer Tests, Referenzloesungen und Import. */
+  /** Laedt eine fertige Blaupause — für Tests, Referenzlösungen und Import. */
   ladeWerk(werk: Werk): void {
     this.bau.ladeWerk(werk);
     this.ansicht.setzeWerk(this.bau.werk());

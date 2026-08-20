@@ -2,14 +2,14 @@
  * Prozedurale Umgebungsbeleuchtung (Image-Based Lighting).
  *
  * Ohne Environment-Map sehen metallische Materialien falsch aus: ein Metall
- * bezieht seine Farbe fast vollstaendig aus der Umgebung, und wenn es keine
- * gibt, bleibt nur der Glanzpunkt der Lichtquellen uebrig. Genau daran ist die
+ * bezieht seine Farbe fast vollständig aus der Umgebung, und wenn es keine
+ * gibt, bleibt nur der Glanzpunkt der Lichtquellen übrig. Genau daran ist die
  * erste Fassung der Halle gescheitert — lackierter Stahl wurde knallrot, weil
  * ihn nur eine warme Arbeitsleuchte traf.
  *
  * Statt eine HDRI-Datei zu laden (externe Assets sind im Projekt ausgeschlossen)
  * wird hier eine kleine Szene gebaut, die die Halle grob nachbildet — dunkle
- * Waende, ein heller Streifen fuer die Sprossenfenster, ein kuehler Himmel —
+ * Wände, ein heller Streifen für die Sprossenfenster, ein kühler Himmel —
  * und daraus per `PMREMGenerator` eine vorgefilterte Umgebungstextur erzeugt.
  * Das ist derselbe Ansatz wie three.js' RoomEnvironment, nur auf die
  * Farbstimmung dieses Spiels abgestimmt.
@@ -45,17 +45,17 @@ function baueModellszene(): THREE.Scene {
 
   // Boden: dunkler, leicht warmer Beton.
   s.add(flaeche(60, 60, 0x1a1d22, 1.0, 0, -8, 0, 0, -Math.PI / 2));
-  // Decke: sehr dunkel, damit von oben kein Grau einfaellt.
+  // Decke: sehr dunkel, damit von oben kein Grau einfällt.
   s.add(flaeche(60, 60, 0x0a0d12, 1.0, 0, 14, 0, 0, Math.PI / 2));
 
-  // Vier Waende in kuehlem Ziegelton.
+  // Vier Wände in kühlem Ziegelton.
   s.add(flaeche(60, 24, 0x232830, 1.0, 0, 3, -22, 0));
   s.add(flaeche(60, 24, 0x232830, 1.0, 0, 3, 22, Math.PI));
   s.add(flaeche(44, 24, 0x1e232a, 1.0, -26, 3, 0, Math.PI / 2));
   s.add(flaeche(44, 24, 0x1e232a, 1.0, 26, 3, 0, -Math.PI / 2));
 
-  // Sprossenfenster: die eigentliche Lichtquelle der Umgebung. Kuehles
-  // Tageslicht in schmalen, hohen Streifen — das gibt Metallen laengliche
+  // Sprossenfenster: die eigentliche Lichtquelle der Umgebung. Kühles
+  // Tageslicht in schmalen, hohen Streifen — das gibt Metallen längliche
   // Reflexe und damit sofort einen glaubhaften Industriecharakter.
   for (let i = 0; i < 5; i++) {
     const x = -22 + i * 11;
@@ -68,8 +68,8 @@ function baueModellszene(): THREE.Scene {
     s.add(flaeche(5, 5, 0xffd9a0, 2.2, x, 13.4, 0, 0, Math.PI / 2));
   }
 
-  // Ein schwacher Himmelsanteil oben, damit nach oben zeigende Flaechen nicht
-  // vollstaendig absaufen.
+  // Ein schwacher Himmelsanteil oben, damit nach oben zeigende Flächen nicht
+  // vollständig absaufen.
   s.add(flaeche(60, 60, 0x2f4763, 0.55, 0, 13.6, 0, 0, Math.PI / 2));
 
   return s;

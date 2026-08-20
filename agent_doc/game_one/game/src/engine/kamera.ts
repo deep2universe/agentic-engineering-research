@@ -1,5 +1,5 @@
 /**
- * Kamerafuehrung: RTS-Orbit-Hybrid mit bodenverankertem Drehpunkt.
+ * Kameraführung: RTS-Orbit-Hybrid mit bodenverankertem Drehpunkt.
  *
  * Warum nicht `OrbitControls`/`MapControls`: deren Standardbelegung
  * `{LEFT: PAN, MIDDLE: DOLLY, RIGHT: ROTATE}` macht Orbit und Dolly auf einem
@@ -7,7 +7,7 @@
  * Taste, dem Trackpad und der Tastatur aus.
  *
  * Der Drehpunkt liegt IMMER auf der Bodenebene y=0. Dadurch bleibt das
- * Fundament stets im Bild, und Zoom heisst "naeher an die Stelle, auf die du
+ * Fundament stets im Bild, und Zoom heißt "näher an die Stelle, auf die du
  * zeigst" statt "weiter in irgendeine Richtung".
  */
 
@@ -21,7 +21,7 @@ export interface KameraGrenzen {
   readonly maxAbstand: number;
   readonly minNeigung: number;
   readonly maxNeigung: number;
-  /** Halbe Kantenlaenge des Bereichs, in dem sich der Drehpunkt bewegen darf. */
+  /** Halbe Kantenlänge des Bereichs, in dem sich der Drehpunkt bewegen darf. */
   readonly reichweite: number;
 }
 
@@ -45,7 +45,7 @@ export class Kamerafuehrung {
   private neigung = 52 * GRAD;
   private neigungSoll = 52 * GRAD;
 
-  /** Zeitpunkt der letzten manuellen Neigungsaenderung, in Sekunden. */
+  /** Zeitpunkt der letzten manuellen Neigungsänderung, in Sekunden. */
   private letzteNeigungManuell = -99;
   private uhr = 0;
   private reduziert = false;
@@ -65,12 +65,12 @@ export class Kamerafuehrung {
   // Eingaben
   // -------------------------------------------------------------------------
 
-  /** Zwei-Finger-Schwenk ueber die Bodenebene. */
+  /** Zwei-Finger-Schwenk über die Bodenebene. */
   schwenke(dx: number, dy: number): void {
     const massstab = this.abstandSoll * 0.0016;
     const cos = Math.cos(this.gierungSoll);
     const sin = Math.sin(this.gierungSoll);
-    // Bildschirm-Rechts und Bildschirm-Vorwaerts in Weltkoordinaten.
+    // Bildschirm-Rechts und Bildschirm-Vorwärts in Weltkoordinaten.
     this.zielSoll.x += (dx * cos - dy * sin) * massstab;
     this.zielSoll.z += (dx * sin + dy * cos) * massstab;
     this.klemmeZiel();
@@ -104,7 +104,7 @@ export class Kamerafuehrung {
     }
   }
 
-  /** Orbit — ausschliesslich mit gedrueckter Wahltaste. */
+  /** Orbit — ausschließlich mit gedrückter Wahltaste. */
   drehe(dx: number, dy: number): void {
     this.gierungSoll -= dx * 0.005;
     this.neigungSoll = Math.min(
@@ -127,7 +127,7 @@ export class Kamerafuehrung {
     else this.schwenke(g.dx, g.dy);
   }
 
-  /** Rueckt das Ziel auf einen Weltpunkt und faehrt den Abstand passend nach. */
+  /** Rückt das Ziel auf einen Weltpunkt und faehrt den Abstand passend nach. */
   fokussiere(punkt: THREE.Vector3, abstand?: number): void {
     this.zielSoll.set(punkt.x, 0, punkt.z);
     if (abstand !== undefined) {
@@ -141,13 +141,13 @@ export class Kamerafuehrung {
   uebersicht(): void {
     this.zielSoll.set(0, 0, 0);
     // Fester Wert statt Anteil an der Obergrenze: das Fundament soll das Bild
-    // fuellen, nicht darin verschwinden.
+    // füllen, nicht darin verschwinden.
     this.abstandSoll = 27;
     this.letzteNeigungManuell = -99;
     this.koppleNeigung();
   }
 
-  /** Setzt den Zustand sofort und ohne Nachlauf — fuer reproduzierbare Bilder. */
+  /** Setzt den Zustand sofort und ohne Nachlauf — für reproduzierbare Bilder. */
   setzeSofort(ziel: THREE.Vector3, abstand: number, gierungGrad: number, neigungGrad: number): void {
     this.zielSoll.set(ziel.x, 0, ziel.z);
     this.ziel.copy(this.zielSoll);
@@ -180,7 +180,7 @@ export class Kamerafuehrung {
       this.gierung = this.gierungSoll;
       this.neigung = this.neigungSoll;
     } else {
-      // Kritisch gedaempfte Annaeherung, framerate-unabhaengig (auch bei 120 Hz).
+      // Kritisch gedämpfte Annäherung, framerate-unabhängig (auch bei 120 Hz).
       const t = 1 - Math.pow(0.0022, Math.min(dt, 0.1));
       this.wendeAn(t);
     }

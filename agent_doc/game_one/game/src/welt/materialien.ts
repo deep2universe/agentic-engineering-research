@@ -1,30 +1,30 @@
 /**
- * Materialbibliothek fuer SCHWARMWERK.
+ * Materialbibliothek für SCHWARMWERK.
  *
  * Es gibt genau zehn Master-Materialien — eines je `MaterialArt` — und
- * daneben eine Handvoll Sondermaterialien fuer Module, Energieleitungen,
- * Pakete und die Bauvorschau. Alle Modulvarianten entstehen ueber
- * Instanz-Attribute und Uniforms, NIEMALS ueber zusaetzliche Texturen: ein
+ * daneben eine Handvoll Sondermaterialien für Module, Energieleitungen,
+ * Pakete und die Bauvorschau. Alle Modulvarianten entstehen über
+ * Instanz-Attribute und Uniforms, NIEMALS über zusätzliche Texturen: ein
  * Satz aus Albedo, Normale und ORM kostet bei 512er Kanten rund 4 MiB, bei
  * 1024er rund 16 MiB. Zehn Master bleiben damit im Budget, "ein Material je
- * Modultyp" waere es nicht.
+ * Modultyp" wäre es nicht.
  *
  * ## TSL, nicht GLSL
  * Der Renderer ist `THREE.WebGPURenderer` aus `three/webgpu` (mit WebGL2 als
  * Fallback-Backend derselben Klasse). Auf diesem Pfad sind `onBeforeCompile`,
- * GLSL-`ShaderMaterial`, `wgslFn` und `glslFn` nicht lauffaehig. Jeder Effekt
+ * GLSL-`ShaderMaterial`, `wgslFn` und `glslFn` nicht lauffähig. Jeder Effekt
  * hier ist deshalb ein Node-Graph aus `three/tsl`.
  *
  * ## Emissive-Band
  * `emissiveNode` bleibt in JEDEM Material im Band 0.05 bis 0.35. Der
- * Post-Graph faehrt Bloom mit Staerke 0.8–1.6 und AgX-Tonemapping bei
- * Exposure 1.0–1.2; hoehere Werte brennen das Bild aus. Das ist im
+ * Post-Graph fährt Bloom mit Stärke 0.8–1.6 und AgX-Tonemapping bei
+ * Exposure 1.0–1.2; höhere Werte brennen das Bild aus. Das ist im
  * Renderer-Spike vom 19.08.2026 belegt (Stufe 5 mit `emissive * 1.2` war
- * vollstaendig ueberstrahlt). `EMISSIV_TIEF` und `EMISSIV_HOCH` halten die
+ * vollständig überstrahlt). `EMISSIV_TIEF` und `EMISSIV_HOCH` halten die
  * Grenze an einer Stelle fest.
  *
  * ## Zeit
- * Kein Material liest `time`. Alles Animierte haengt an Uniforms, die der
+ * Kein Material liest `time`. Alles Animierte hängt an Uniforms, die der
  * Renderer je Bild setzt — nur so sind die Bilder der Visual-Regression
  * reproduzierbar (Rendermodus `TEST_OFF` friert die Uniforms schlicht ein).
  */
@@ -45,7 +45,6 @@ import {
   uniform,
   uv,
   vec2,
-  vec3,
 } from 'three/tsl';
 
 import type { ModulArt } from '../sim/typen';
@@ -56,12 +55,29 @@ import { erzeugeTexturSatz, entsorgeAlleTexturen, type MaterialArt } from './tex
 // Konstanten
 // ---------------------------------------------------------------------------
 
-/** Untergrenze des im Spike belegten Emissive-Bandes. */
+/**
+ * Untergrenze des im Spike belegten Emissive-Bandes. Sie gilt für das
+ * LEUCHTENDE MERKMAL (Band, Puls, Paketkern) — ein aktives Leuchtelement
+ * darunter ist im Nebel der Halle nicht mehr zu erkennen.
+ */
 export const EMISSIV_TIEF = 0.05;
-/** Obergrenze des im Spike belegten Emissive-Bandes. Darueber brennt Bloom aus. */
+
+/** Obergrenze des Bandes. Darüber brennt Bloom das Bild aus (Spike, Stufe 5). */
 export const EMISSIV_HOCH = 0.35;
 
-/** Kantenlaenge aller Master-Texturen. */
+/**
+ * Ruhewert für große, gerade NICHT arbeitende Flächen.
+ *
+ * Bewusst unterhalb von `EMISSIV_TIEF`: linear 0.05 über ein ganzes Gehäuse
+ * gelegt ergibt nach AgX bei Exposure 1.1 bereits rund 25 % Anzeigehelligkeit —
+ * die Module leuchten dann wie lackiertes Plastik statt wie dunkler Stahl mit
+ * einer Leuchtblende. Das Band 0.05–0.35 begrenzt das Merkmal, nicht den
+ * Untergrund. Nachgewiesen an einer Testszene mit AgX, Exposure 1.1 und
+ * Bloom 1.2.
+ */
+export const EMISSIV_RUHE = 0.012;
+
+/** Kantenlänge aller Master-Texturen. */
 const TEXTURGROESSE = 512;
 
 /**
@@ -75,24 +91,24 @@ export const PAKET_FARB_ATTRIBUT = 'paketFarbe';
 // ---------------------------------------------------------------------------
 
 interface MasterEinstellung {
-  /** Saat des Texturs&auml;tzes — je Art eine eigene, damit sich nichts wiederholt. */
+  /** Saat des Textursatzes — je Art eine eigene, damit sich nichts wiederholt. */
   readonly saat: number;
-  /** Wie oft sich die Kachel ueber die Standard-UV wiederholt. */
+  /** Wie oft sich die Kachel über die Standard-UV wiederholt. */
   readonly kachel: number;
   /** Faktor auf den Rauheitskanal — feinjustiert den Glanz je Einsatzort. */
   readonly rauheit: number;
   /** Faktor auf den Metallkanal. */
   readonly metall: number;
-  /** Staerke der Normal-Map. */
+  /** Stärke der Normal-Map. */
   readonly normale: number;
   /** Wie stark die gebackene Verdeckung ins indirekte Licht eingreift. */
   readonly verdeckung: number;
-  /** Multiplikative Toenung der Albedo (Art Direction der Halle). */
+  /** Multiplikative Tönung der Albedo (Art Direction der Halle). */
   readonly tonung: number;
 }
 
 const MASTER: Record<MaterialArt, MasterEinstellung> = {
-  // Waende und Stuetzen der Halle — grosse Flaechen, also kraeftig gekachelt.
+  // Wände und Stützen der Halle — große Flächen, also kräftig gekachelt.
   beton: { saat: 0x1957_01, kachel: 6, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 1.0, tonung: 0xffffff },
   ziegel: { saat: 0x1957_02, kachel: 4, rauheit: 1.0, metall: 1, normale: 1.15, verdeckung: 1.0, tonung: 0xf2eee8 },
   bodengitter: { saat: 0x1957_03, kachel: 8, rauheit: 1.0, metall: 1, normale: 1.0, verdeckung: 1.0, tonung: 0xffffff },
@@ -110,7 +126,7 @@ const masterCache = new Map<MaterialArt, THREE.MeshStandardNodeMaterial>();
 
 /**
  * Baut den gemeinsamen Teil eines Master-Materials: Albedo, Normale und die
- * drei aus dem gepackten ORM gezogenen Kanaele.
+ * drei aus dem gepackten ORM gezogenen Kanäle.
  */
 function bestueckeAusTexturen(
   material: THREE.MeshStandardNodeMaterial,
@@ -133,7 +149,7 @@ function bestueckeAusTexturen(
 
 /**
  * Liefert eines der zehn Master-Materialien. Das Ergebnis ist gecacht — es
- * gibt je Art genau eine Instanz und genau einen Texturs&auml;tz.
+ * gibt je Art genau eine Instanz und genau einen Textursatz.
  */
 export function holeMaterial(art: MaterialArt): THREE.MeshStandardNodeMaterial {
   const vorhanden = masterCache.get(art);
@@ -141,7 +157,7 @@ export function holeMaterial(art: MaterialArt): THREE.MeshStandardNodeMaterial {
 
   const e = MASTER[art];
   // Glas braucht Transmission. `MeshPhysicalNodeMaterial` erweitert
-  // `MeshStandardNodeMaterial`, der zugesagte Rueckgabetyp bleibt also gueltig.
+  // `MeshStandardNodeMaterial`, der zugesagte Rückgabetyp bleibt also gültig.
   const material: THREE.MeshStandardNodeMaterial =
     art === 'glas' ? new THREE.MeshPhysicalNodeMaterial() : new THREE.MeshStandardNodeMaterial();
   material.name = 'master_' + art;
@@ -157,8 +173,8 @@ export function holeMaterial(art: MaterialArt): THREE.MeshStandardNodeMaterial {
 
   const satz = erzeugeTexturSatz(art, e.saat, TEXTURGROESSE);
   if (satz.emission !== undefined) {
-    // Die Leuchtdioden der Leiterplatte — dezent, sonst blueht die Platine.
-    material.emissiveNode = texture(satz.emission, uv().mul(e.kachel)).rgb.mul(EMISSIV_HOCH * 0.8);
+    // Die Leuchtdioden der Leiterplatte — dezent, sonst blüht die Platine.
+    material.emissiveNode = texture(satz.emission, uv().mul(e.kachel)).rgb.mul(EMISSIV_HOCH);
   }
 
   masterCache.set(art, material);
@@ -166,22 +182,22 @@ export function holeMaterial(art: MaterialArt): THREE.MeshStandardNodeMaterial {
 }
 
 // ---------------------------------------------------------------------------
-// Modulgehaeuse
+// Modulgehäuse
 // ---------------------------------------------------------------------------
 
-/** Fresnel-Rand: 0 in der Flaechenmitte, 1 an der Silhouette. */
-function randLeuchten(): ReturnType<typeof float> {
+/** Fresnel-Rand: 0 in der Flächenmitte, 1 an der Silhouette. */
+function randLeuchten() {
   return normalView.dot(positionViewDirection).abs().oneMinus().pow(3);
 }
 
 const modulCache = new Map<ModulArt, THREE.MeshStandardNodeMaterial>();
 
 /**
- * Das Material eines Modulgehaeuses: lackierter Stahl mit einem
+ * Das Material eines Modulgehäuses: lackierter Stahl mit einem
  * Leuchtstreifen und einem Fresnel-Rand im Farbleitwert des Moduls.
  *
- * Der Streifen sitzt bei `uv().y ≈ 0.5`; die Gehaeusegeometrie legt ihre
- * Frontplatte so aus, dass das Band dort ueber die Blende laeuft.
+ * Der Streifen sitzt bei `uv().y ≈ 0.5`; die Gehäusegeometrie legt ihre
+ * Frontplatte so aus, dass das Band dort über die Blende läuft.
  */
 export function modulMaterial(art: ModulArt): THREE.MeshStandardNodeMaterial {
   const vorhanden = modulCache.get(art);
@@ -193,15 +209,19 @@ export function modulMaterial(art: ModulArt): THREE.MeshStandardNodeMaterial {
   material.name = 'modul_' + art;
   bestueckeAusTexturen(material, 'stahl_lackiert', e);
 
-  // Das Gehaeuse bleibt dunkel; der Farbleitwert kommt nur als Hauch dazu,
-  // damit sich zwoelf Modularten im Halbdunkel unterscheiden lassen.
+  // Das Gehäuse bleibt dunkel; der Farbleitwert kommt nur als Hauch dazu,
+  // damit sich zwölf Modularten im Halbdunkel unterscheiden lassen.
   const albedo = texture(erzeugeTexturSatz('stahl_lackiert', e.saat, TEXTURGROESSE).albedo, uv().mul(e.kachel)).rgb;
   material.colorNode = mix(albedo, albedo.mul(color(leitwert)), 0.45);
 
-  // Leuchtband quer ueber die Blende.
+  // Leuchtband quer über die Blende. Es allein trägt die Farbkennung —
+  // das Gehäuse bleibt dunkler Stahl.
   const band = smoothstep(0.455, 0.478, uv().y).sub(smoothstep(0.522, 0.545, uv().y)).saturate();
   material.emissiveNode = color(leitwert).mul(
-    band.mul(0.17).add(randLeuchten().mul(0.13)).add(EMISSIV_TIEF).clamp(0, EMISSIV_HOCH)
+    band.mul(EMISSIV_HOCH - EMISSIV_RUHE)
+      .add(randLeuchten().mul(0.09))
+      .add(EMISSIV_RUHE)
+      .clamp(0, EMISSIV_HOCH)
   );
 
   modulCache.set(art, material);
@@ -215,18 +235,18 @@ export function modulMaterial(art: ModulArt): THREE.MeshStandardNodeMaterial {
 export interface LeitungsMaterial {
   readonly material: THREE.MeshStandardNodeMaterial;
   /**
-   * Laufender Versatz des Energiemusters. Der Renderer erhoeht ihn je Bild um
-   * `geschwindigkeit * dt`; nur der Nachkommaanteil zaehlt.
+   * Laufender Versatz des Energiemusters. Der Renderer erhöht ihn je Bild um
+   * `geschwindigkeit * dt`; nur der Nachkommaanteil zählt.
    */
   readonly fluss: { value: number };
-  /** 0 = Leitung liegt tot, 1 = es fliesst ein Auftrag. Weich ueberblenden. */
+  /** 0 = Leitung liegt tot, 1 = es fließt ein Auftrag. Weich überblenden. */
   readonly aktiv: { value: number };
 }
 
 /**
- * Energieleitung mit fliessendem Muster.
+ * Energieleitung mit fließendem Muster.
  *
- * Die Leitung ist ein `TubeGeometry`; `uv().x` laeuft entlang der Roehre. Das
+ * Die Leitung ist ein `TubeGeometry`; `uv().x` läuft entlang der Röhre. Das
  * Muster ist eine schmale Pulswelle, die per Uniform verschoben wird — kein
  * `time`, damit die Visual-Regression reproduzierbar bleibt.
  */
@@ -246,16 +266,23 @@ export function leitungsMaterial(): LeitungsMaterial {
   material.roughnessNode = texture(satz.orm, uvMantel).r.mul(0.85).clamp(0.15, 1);
   material.metalnessNode = float(0.12);
 
-  // Sechs Pulse je Leitungslaenge, um `fluss` verschoben.
+  // Sechs Pulse je Leitungslänge, um `fluss` verschoben.
+  //
+  // WICHTIG: `smoothstep` wird nur mit AUFSTEIGENDEN Kanten aufgerufen und bei
+  // Bedarf per `oneMinus()` gedreht. Ein Aufruf mit `kante0 > kante1` ist in
+  // GLSL undefiniert; auf dem WebGL2-Fallback-Backend (ANGLE/SwiftShader) fiel
+  // das Muster dabei komplett aus — im Browsertest nachgestellt.
   const wandern = fract(uv().x.mul(6).sub(fluss));
-  const puls = smoothstep(0.11, 0.0, wandern.sub(0.5).abs());
+  const abstand = wandern.sub(0.5).abs();
+  const puls = smoothstep(0.0, 0.11, abstand).oneMinus();
   // Ein schwacher Nachlauf gibt dem Puls Richtung.
-  const schweif = smoothstep(0.34, 0.0, wandern.sub(0.5).abs()).mul(0.35);
+  const schweif = smoothstep(0.0, 0.34, abstand).oneMinus().mul(0.35);
 
+  // Tote Leitung glimmt nur; unter Last läuft der Puls durch das ganze Band.
   material.emissiveNode = color(0x66e0ff).mul(
-    float(EMISSIV_TIEF)
-      .add(aktiv.mul(0.035))
-      .add(puls.add(schweif).mul(aktiv).mul(0.22))
+    float(EMISSIV_RUHE)
+      .add(aktiv.mul(0.022))
+      .add(puls.add(schweif).mul(aktiv).mul(0.24))
       .clamp(0, EMISSIV_HOCH)
   );
 
@@ -269,11 +296,11 @@ export function leitungsMaterial(): LeitungsMaterial {
 let paketZwischenspeicher: THREE.MeshStandardNodeMaterial | null = null;
 
 /**
- * Leuchtendes Auftragspaket fuer eine `InstancedMesh`.
+ * Leuchtendes Auftragspaket für eine `InstancedMesh`.
  *
  * Die Geometrie muss ein `THREE.InstancedBufferAttribute` namens
- * `PAKET_FARB_ATTRIBUT` mit drei Komponenten (linearer RGB) tragen. Ueber das
- * Attribut faerbt der Renderer Domaene, Alarmzustand und Guete ein, ohne je
+ * `PAKET_FARB_ATTRIBUT` mit drei Komponenten (linearer RGB) tragen. Über das
+ * Attribut färbt der Renderer Domäne, Alarmzustand und Güte ein, ohne je
  * ein zweites Material zu bauen.
  */
 export function paketMaterial(): THREE.MeshStandardNodeMaterial {
@@ -282,16 +309,16 @@ export function paketMaterial(): THREE.MeshStandardNodeMaterial {
   const material = new THREE.MeshStandardNodeMaterial();
   material.name = 'paket';
 
-  const farbe = attribute(PAKET_FARB_ATTRIBUT, 'vec3');
+  const farbe = attribute<'vec3'>(PAKET_FARB_ATTRIBUT, 'vec3');
   const rand = randLeuchten();
 
-  // Der Koerper ist dunkel; was man sieht, ist fast nur das Eigenleuchten.
+  // Der Körper ist dunkel; was man sieht, ist fast nur das Eigenleuchten.
   material.colorNode = farbe.mul(0.16);
   material.roughnessNode = float(0.22);
   material.metalnessNode = float(0);
-  // Kern gleichmaessig, Silhouette heller — das laesst das Paket schweben.
+  // Kern gleichmäßig, Silhouette heller — das lässt das Paket schweben.
   material.emissiveNode = farbe.mul(
-    float(0.11).add(rand.mul(0.21)).clamp(EMISSIV_TIEF, EMISSIV_HOCH)
+    float(0.10).add(rand.mul(0.22)).clamp(EMISSIV_TIEF, EMISSIV_HOCH)
   );
 
   paketZwischenspeicher = material;
@@ -308,7 +335,7 @@ const geistCache = new Map<boolean, THREE.MeshStandardNodeMaterial>();
  * Halbtransparente Vorschau beim Platzieren eines Moduls: Fresnel-Rand,
  * waagerechte Scanlinien und ein leichtes Grundleuchten.
  *
- * @param gueltig `true` = Platz ist frei (Cyan), `false` = belegt (Rot).
+ * @param gültig `true` = Platz ist frei (Cyan), `false` = belegt (Rot).
  */
 export function geistMaterial(gueltig: boolean): THREE.MeshStandardNodeMaterial {
   const vorhanden = geistCache.get(gueltig);
@@ -322,7 +349,7 @@ export function geistMaterial(gueltig: boolean): THREE.MeshStandardNodeMaterial 
   material.side = THREE.DoubleSide;
 
   const rand = randLeuchten();
-  // Scanlinien in Weltkoordinaten: sie stehen still, waehrend das Modul
+  // Scanlinien in Weltkoordinaten: sie stehen still, während das Modul
   // einrastet — das liest sich als Projektion, nicht als Bemalung.
   const scan = positionWorld.y.mul(46).sin().mul(0.5).add(0.5);
   const linien = mix(float(0.30), float(1.0), scan);
@@ -331,7 +358,7 @@ export function geistMaterial(gueltig: boolean): THREE.MeshStandardNodeMaterial 
   material.roughnessNode = float(0.4);
   material.metalnessNode = float(0);
   material.emissiveNode = color(grundfarbe).mul(
-    float(0.07).add(rand.mul(0.17)).add(scan.mul(0.07)).clamp(EMISSIV_TIEF, EMISSIV_HOCH)
+    float(EMISSIV_RUHE).add(rand.mul(0.20)).add(scan.mul(0.07)).clamp(0, EMISSIV_HOCH)
   );
   material.opacityNode = rand.mul(0.5).add(linien.mul(0.17)).add(0.08).clamp(0, 0.85);
 
@@ -340,11 +367,11 @@ export function geistMaterial(gueltig: boolean): THREE.MeshStandardNodeMaterial 
 }
 
 // ---------------------------------------------------------------------------
-// Aufraeumen
+// Aufräumen
 // ---------------------------------------------------------------------------
 
 /**
- * Entsorgt alle Materialien und die von ihnen gehaltenen Texturs&auml;tze.
+ * Entsorgt alle Materialien und die von ihnen gehaltenen Textursätze.
  *
  * Die Master-Materialien sind die einzigen Nutzer des Texturcaches; sie
  * gemeinsam freizugeben ist deshalb der einzige leckfreie Weg. Nach dem Aufruf

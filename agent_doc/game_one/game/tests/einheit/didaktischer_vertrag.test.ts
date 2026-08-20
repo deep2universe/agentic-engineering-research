@@ -1,13 +1,13 @@
 /**
  * DER DIDAKTISCHE VERTRAG.
  *
- * Dies ist die wichtigste Testdatei des Projekts. Sie prueft nicht, ob der Code
- * laeuft — sie prueft, ob das Spiel die Wahrheit sagt.
+ * Dies ist die wichtigste Testdatei des Projekts. Sie prüft nicht, ob der Code
+ * läuft — sie prüft, ob das Spiel die Wahrheit sagt.
  *
  * Jede Lektion, die SCHWARMWERK behauptet zu vermitteln, ist hier als
- * ausfuehrbare Aussage hinterlegt. Faellt eine dieser Aussagen um, dann lehrt
+ * ausführbare Aussage hinterlegt. Fällt eine dieser Aussagen um, dann lehrt
  * das Spiel etwas Falsches — und das ist schlimmer, als gar nichts zu lehren:
- * Lernende uebertragen mit hoher Konfidenz in ein Kundenprojekt, was sie hier
+ * Lernende übertragen mit hoher Konfidenz in ein Kundenprojekt, was sie hier
  * geuebt haben.
  *
  * Jeder Test nennt seinen Akt und seine Quelle in der Forschungsablage.
@@ -36,15 +36,15 @@ function lauf(werk: Werk, s: AuftragsStrom = strom(), saat = SAAT) {
 }
 
 // ===========================================================================
-describe('Akt I — Modellgroesse ist eine oekonomische Entscheidung', () => {
+describe('Akt I — Modellgröße ist eine ökonomische Entscheidung', () => {
   // Quelle: 03_workflow_patterns.md
-  it('kostet der grosse Kern das 16-fache des kleinen', () => {
+  it('kostet der große Kern das 16-fache des kleinen', () => {
     const klein = lauf(reihe([{ art: 'kern', param: { groesse: 'kolibri' } }]));
     const gross = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]));
     expect(gross.kosten / klein.kosten).toBeCloseTo(16, 0);
   });
 
-  it('holt eine kurze Kette kleiner Kerne den grossen bei LEICHTEN Auftraegen fast ein', () => {
+  it('holt eine kurze Kette kleiner Kerne den großen bei LEICHTEN Aufträgen fast ein', () => {
     const leicht = strom({ schwierigkeit: [0.05, 0.3] });
     const zweiKlein = lauf(
       reihe([
@@ -54,13 +54,13 @@ describe('Akt I — Modellgroesse ist eine oekonomische Entscheidung', () => {
       leicht
     );
     const einGross = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]), leicht);
-    // Das ist die oekonomische Kernaussage von Akt I und die Voraussetzung
-    // dafuer, dass Routing in Akt II ueberhaupt Sinn ergibt.
+    // Das ist die ökonomische Kernaussage von Akt I und die Voraussetzung
+    // dafür, dass Routing in Akt II überhaupt Sinn ergibt.
     expect(einGross.guete - zweiKlein.guete).toBeLessThan(0.1);
     expect(zweiKlein.kosten).toBeLessThan(einGross.kosten * 0.2);
   });
 
-  it('scheitert der kleine Kern an SCHWEREN Auftraegen unabhaengig vom Budget', () => {
+  it('scheitert der kleine Kern an SCHWEREN Aufträgen unabhängig vom Budget', () => {
     const schwer = strom({ schwierigkeit: [0.8, 0.95] });
     const einmal = lauf(reihe([{ art: 'kern', param: { groesse: 'kolibri' } }]), schwer);
     const fuenfmal = lauf(
@@ -72,7 +72,7 @@ describe('Akt I — Modellgroesse ist eine oekonomische Entscheidung', () => {
     expect(fuenfmal.kosten).toBeGreaterThan(einmal.kosten * 3);
   });
 
-  it('hebt Spezialisierung die Decke bei passender Domaene und senkt sie sonst', () => {
+  it('hebt Spezialisierung die Decke bei passender Domäne und senkt sie sonst', () => {
     const nurRecht = strom({ domaenen: ['recht'], schwierigkeit: [0.6, 0.7] });
     const neutral = lauf(reihe([{ art: 'kern', param: { groesse: 'reiher', spezialisierung: 'keine' } }]), nurRecht);
     const passend = lauf(reihe([{ art: 'kern', param: { groesse: 'reiher', spezialisierung: 'recht' } }]), nurRecht);
@@ -85,7 +85,7 @@ describe('Akt I — Modellgroesse ist eine oekonomische Entscheidung', () => {
 // ===========================================================================
 describe('Akt II — Klassifizieren, bevor man bezahlt', () => {
   // Quelle: 03_workflow_patterns.md#pattern-2-routing
-  /** Weiche: leichte Auftraege → KOLIBRI, schwere → KONDOR. */
+  /** Weiche: leichte Aufträge → KOLIBRI, schwere → KONDOR. */
   function mitRouter(): Werk {
     const b = new Bau();
     const q = b.setze('quelle', {}, 'q');
@@ -97,19 +97,19 @@ describe('Akt II — Klassifizieren, bevor man bezahlt', () => {
     return b.fertig();
   }
 
-  it('senkt Routing die Kosten deutlich gegenueber "immer gross"', () => {
+  it('senkt Routing die Kosten deutlich gegenüber "immer groß"', () => {
     const immerGross = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]));
     const geroutet = lauf(mitRouter());
     expect(geroutet.kosten).toBeLessThan(immerGross.kosten * 0.7);
   });
 
-  it('haelt Routing die Guete nahe am Niveau von "immer gross"', () => {
+  it('hält Routing die Güte nahe am Niveau von "immer groß"', () => {
     const immerGross = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]));
     const geroutet = lauf(mitRouter());
     expect(geroutet.guete).toBeGreaterThan(immerGross.guete - 0.2);
   });
 
-  it('verschlechtert Mehrdeutigkeit die Routing-Qualitaet — Router irren sich', () => {
+  it('verschlechtert Mehrdeutigkeit die Routing-Qualität — Router irren sich', () => {
     const klar = lauf(mitRouter(), strom({ mehrdeutigkeit: [0, 0.05] }));
     const unklar = lauf(mitRouter(), strom({ mehrdeutigkeit: [0.8, 1.0] }));
     expect(unklar.guete).toBeLessThan(klar.guete);
@@ -117,16 +117,16 @@ describe('Akt II — Klassifizieren, bevor man bezahlt', () => {
 });
 
 // ===========================================================================
-describe('Akt III — Ein deterministisches Werkzeug schlaegt jedes Modell', () => {
+describe('Akt III — Ein deterministisches Werkzeug schlägt jedes Modell', () => {
   // Quelle: 06_tool_use_context_engineering.md
   const rechnen = strom({ anteilRechnerisch: 1, schwierigkeit: [0.4, 0.7], domaenen: ['finanz'] });
 
-  it('deckelt ein rechnerischer Auftrag ohne Rechenwerk die Guete', () => {
+  it('deckelt ein rechnerischer Auftrag ohne Rechenwerk die Güte', () => {
     const ohne = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]), rechnen);
     expect(ohne.guete).toBeLessThanOrEqual(0.62);
   });
 
-  it('schlaegt ein 5-Token-Rechenwerk mit mittlerem Kern den groessten Kern allein', () => {
+  it('schlägt ein 5-Token-Rechenwerk mit mittlerem Kern den größten Kern allein', () => {
     const b = new Bau();
     const q = b.setze('quelle', {}, 'q');
     const r = b.setze('werkzeug', { werkzeugArt: 'rechner' }, 'r');
@@ -135,12 +135,12 @@ describe('Akt III — Ein deterministisches Werkzeug schlaegt jedes Modell', () 
     b.verbinde(q, r).verbinde(r, k, 'ok').verbinde(k, s).verbinde(r, s, 'fehler');
     const mit = lauf(b.fertig(), rechnen);
     const ohneGross = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]), rechnen);
-    // Haerteste Einzellektion des Spiels: Determinismus schlaegt Groesse.
+    // Haerteste Einzellektion des Spiels: Determinismus schlägt Größe.
     expect(mit.guete).toBeGreaterThan(ohneGross.guete);
     expect(mit.kosten).toBeLessThan(ohneGross.kosten * 0.5);
   });
 
-  it('deckelt ein belegpflichtiger Auftrag ohne Recherche die Guete', () => {
+  it('deckelt ein belegpflichtiger Auftrag ohne Recherche die Güte', () => {
     const beleg = strom({ anteilBelegpflichtig: 1, schwierigkeit: [0.3, 0.6] });
     const ohne = lauf(reihe([{ art: 'kern', param: { groesse: 'kondor' } }]), beleg);
     expect(ohne.guete).toBeLessThanOrEqual(0.57);
@@ -159,7 +159,7 @@ describe('Akt III — Ein deterministisches Werkzeug schlaegt jedes Modell', () 
     const ohneWerkzeug = reihe([{ art: 'kern', param: { groesse: 'reiher' } }]);
     const a = lauf(ohneWerkzeug);
     const bMetriken = lauf(einWerkzeug.fertig());
-    // Das Werkzeug selbst kostet 5 Token — der Aufschlag auf den Kern ist groesser.
+    // Das Werkzeug selbst kostet 5 Token — der Aufschlag auf den Kern ist größer.
     expect(bMetriken.kosten - a.kosten).toBeGreaterThan(40 * 20);
   });
 });
@@ -184,7 +184,7 @@ describe('Akt IV — Retry ist kein Plan, ein Circuit Breaker ist einer', () => 
     return b.fertig();
   }
 
-  it('rettet eine Wiederholung Auftraege, die sonst verloren gingen', () => {
+  it('rettet eine Wiederholung Aufträge, die sonst verloren gingen', () => {
     const b = new Bau();
     const q = b.setze('quelle', {}, 'q');
     const w = b.setze('werkzeug', { werkzeugArt: 'api' }, 'w');
@@ -193,13 +193,13 @@ describe('Akt IV — Retry ist kein Plan, ein Circuit Breaker ist einer', () => 
     b.verbinde(q, w).verbinde(w, k, 'ok').verbinde(k, s);
     const ohne = lauf(b.fertig());
     const mit = lauf(mitSicherung('wiederholen', 3));
-    // Ein Fremddienst mit 18 % Ausfallrate reisst ohne Sicherung Loecher.
+    // Ein Fremddienst mit 18 % Ausfallrate reißt ohne Sicherung Loecher.
     expect(ohne.durchsatz).toBeLessThan(0.95);
     expect(mit.durchsatz).toBeGreaterThan(ohne.durchsatz);
   });
 
-  it('begrenzt der Circuit Breaker die Kosten bei dauerhaftem Ausfall staerker als blindes Wiederholen', () => {
-    // Ein Fremddienst, der praktisch immer faellt: viele Werkzeuge im Kontext.
+  it('begrenzt der Circuit Breaker die Kosten bei dauerhaftem Ausfall stärker als blindes Wiederholen', () => {
+    // Ein Fremddienst, der praktisch immer fällt: viele Werkzeuge im Kontext.
     const dauerhaft = strom({ anzahl: 30 });
     const wiederholen = lauf(mitSicherung('wiederholen', 8), dauerhaft);
     const breaker = lauf(mitSicherung('sicherung', 2), dauerhaft);
@@ -228,20 +228,20 @@ describe('Akt V — Parallelisierung deckelt Latenz, aber nicht Kosten', () => {
 
   const langsam = strom({ anzahl: 24, takt: 3, schwierigkeit: [0.4, 0.6] });
 
-  it('kostet Parallelisierung ungefaehr so viel wie die Summe der Zweige', () => {
+  it('kostet Parallelisierung ungefähr so viel wie die Summe der Zweige', () => {
     const einer = lauf(reihe([{ art: 'kern', param: { groesse: 'reiher' } }]), langsam);
     const drei = lauf(parallel('bester', 3), langsam);
     expect(drei.kosten).toBeGreaterThan(einer.kosten * 2.5);
   });
 
-  it('erhoeht Parallelisierung die Latenz NICHT proportional zu den Zweigen', () => {
+  it('erhöht Parallelisierung die Latenz NICHT proportional zu den Zweigen', () => {
     const einer = lauf(reihe([{ art: 'kern', param: { groesse: 'reiher' } }]), langsam);
     const drei = lauf(parallel('bester', 3), langsam);
     // Drei Zweige gleichzeitig — nicht drei Kerne hintereinander.
     expect(drei.latenzP95).toBeLessThan(einer.latenzP95 * 2.5);
   });
 
-  it('liefert "bester" die hoechste Guete, "voting" die stabilste', () => {
+  it('liefert "bester" die höchste Güte, "voting" die stabilste', () => {
     const bester = lauf(parallel('bester', 3), langsam);
     const voting = lauf(parallel('voting', 3), langsam);
     expect(bester.guete).toBeGreaterThanOrEqual(voting.guete);
@@ -263,13 +263,13 @@ describe('Akt VI — Der Evaluator irrt sich auch', () => {
 
   const mittel = strom({ anzahl: 30, schwierigkeit: [0.3, 0.6] });
 
-  it('hebt eine sinnvolle Rueckkopplung die Guete', () => {
+  it('hebt eine sinnvolle Rückkopplung die Güte', () => {
     const ohne = lauf(reihe([{ art: 'kern', param: { groesse: 'reiher' } }]), mittel);
     const mit = lauf(mitPruefer(0.72, 2), mittel);
     expect(mit.guete).toBeGreaterThan(ohne.guete);
   });
 
-  it('laesst eine ueberhoehte Schwelle die Kosten explodieren, ohne die Guete zu retten', () => {
+  it('lässt eine überhöhte Schwelle die Kosten explodieren, ohne die Güte zu retten', () => {
     const vernuenftig = lauf(mitPruefer(0.72, 2), mittel);
     const gierig = lauf(mitPruefer(0.99, 8), mittel);
     expect(gierig.kosten).toBeGreaterThan(vernuenftig.kosten * 1.8);
@@ -277,7 +277,7 @@ describe('Akt VI — Der Evaluator irrt sich auch', () => {
     expect(gierig.guete - vernuenftig.guete).toBeLessThan(0.12);
   });
 
-  it('kostet jede Pruefrunde Latenz', () => {
+  it('kostet jede Prüfrunde Latenz', () => {
     const wenig = lauf(mitPruefer(0.72, 1), mittel);
     const viel = lauf(mitPruefer(0.9, 6), mittel);
     expect(viel.latenzP95).toBeGreaterThan(wenig.latenzP95);
@@ -300,10 +300,10 @@ describe('Akt VII — Kontext ist ein Budget, kein Vorrat', () => {
 
   const schwer = strom({ anzahl: 20, schwierigkeit: [0.5, 0.7] });
 
-  it('steigen die Kosten einer Kette ueberproportional zur Laenge', () => {
+  it('steigen die Kosten einer Kette überproportional zur Länge', () => {
     const zwei = lauf(langeKette(2, false), schwer);
     const acht = lauf(langeKette(8, false), schwer);
-    // Vierfache Laenge, aber deutlich mehr als vierfache Kosten.
+    // Vierfache Länge, aber deutlich mehr als vierfache Kosten.
     expect(acht.kosten).toBeGreaterThan(zwei.kosten * 5);
   });
 
@@ -322,7 +322,7 @@ describe('Akt VII — Kontext ist ein Budget, kein Vorrat', () => {
     expect(mit.guete).toBeGreaterThan(ohne.guete);
   });
 
-  it('senkt Zwischenspeichern die Kosten — und Verdichtung macht ihn ungueltig', () => {
+  it('senkt Zwischenspeichern die Kosten — und Verdichtung macht ihn ungültig', () => {
     const ohne = lauf(langeKette(6, false), schwer);
     const gepuffert = lauf(
       reihe([
@@ -347,7 +347,7 @@ describe('Akt VIII — Defense in Depth ist rechnerisch belegbar', () => {
 
   /**
    * Waelle ohne Quarantaenepfad: der Alarm-Ausgang bleibt unverdrahtet, ein
-   * Alarm bedeutet also "blockiert". So misst der Test ausschliesslich die
+   * Alarm bedeutet also "blockiert". So misst der Test ausschließlich die
    * Wirkung der Filter und nicht die eines nachgeschalteten Menschen.
    */
   function mitWaellen(eingang: boolean, ausgang: boolean): Werk {
@@ -376,13 +376,13 @@ describe('Akt VIII — Defense in Depth ist rechnerisch belegbar', () => {
     expect(m.sicherheit).toBeLessThan(0.6);
   });
 
-  it('laesst ein Eingangsfilter allein ein Restrisiko', () => {
+  it('lässt ein Eingangsfilter allein ein Restrisiko', () => {
     const m = lauf(mitWaellen(true, false), giftig);
     expect(m.sicherheit).toBeGreaterThan(0.85);
     expect(m.sicherheit).toBeLessThan(1);
   });
 
-  it('laesst auch ein Ausgangsfilter allein ein Restrisiko', () => {
+  it('lässt auch ein Ausgangsfilter allein ein Restrisiko', () => {
     const m = lauf(mitWaellen(false, true), giftig);
     expect(m.sicherheit).toBeLessThan(1);
   });
@@ -394,18 +394,18 @@ describe('Akt VIII — Defense in Depth ist rechnerisch belegbar', () => {
     expect(Math.abs(nurEingang.sicherheit - nurAusgang.sicherheit)).toBeLessThan(0.06);
     // … aber der Ausgangsfilter bezahlt erst die ganze Bearbeitung und wirft
     // sie dann weg. Frueh filtern ist billiger. Das ist der eigentliche Grund,
-    // warum Eingangspruefung zuerst kommt.
+    // warum Eingangsprüfung zuerst kommt.
     expect(nurEingang.kostenJeAuftrag).toBeLessThan(nurAusgang.kostenJeAuftrag);
   });
 
-  it('kommt erst die Kombination beider Filter nahe an vollstaendig heran', () => {
+  it('kommt erst die Kombination beider Filter nahe an vollständig heran', () => {
     const beide = lauf(mitWaellen(true, true), giftig);
     const nurEingang = lauf(mitWaellen(true, false), giftig);
     expect(beide.sicherheit).toBeGreaterThan(nurEingang.sicherheit);
     expect(beide.sicherheit).toBeGreaterThan(0.98);
   });
 
-  it('macht ein Werkzeugergebnis eine bereits entschaerfte Einschleusung wieder gefaehrlich', () => {
+  it('macht ein Werkzeugergebnis eine bereits entschaerfte Einschleusung wieder gefährlich', () => {
     // Eingangsfilter, danach eine Recherche, die Fremdinhalt hereinholt.
     const b = new Bau();
     const q = b.setze('quelle', {}, 'q');
@@ -420,7 +420,7 @@ describe('Akt VIII — Defense in Depth ist rechnerisch belegbar', () => {
 });
 
 // ===========================================================================
-describe('Akt V/VIII — Redundanz schlaegt Einschleusung, Verschmelzung nicht', () => {
+describe('Akt V/VIII — Redundanz schlägt Einschleusung, Verschmelzung nicht', () => {
   const giftig = strom({ anzahl: 120, anteilGiftig: 1, schwierigkeit: [0.3, 0.5] });
 
   function aggregiert(modus: 'voting' | 'verschmelzen'): Werk {
@@ -466,12 +466,12 @@ describe('Akt IX — Menschen sind teuer in Latenz, billig in Haftung', () => {
     return b.fertig();
   }
 
-  it('faellt Konformitaet ohne menschliche Freigabe durch', () => {
+  it('fällt Konformität ohne menschliche Freigabe durch', () => {
     const m = lauf(reihe([{ art: 'kern', param: { groesse: 'reiher' } }]), vertraulich);
     expect(m.konformitaet).toBe(0);
   });
 
-  it('erreicht gezielte Freigabe volle Konformitaet', () => {
+  it('erreicht gezielte Freigabe volle Konformität', () => {
     const m = lauf(mitHand('bei_vertraulich'), vertraulich);
     expect(m.konformitaet).toBe(1);
   });
@@ -484,7 +484,7 @@ describe('Akt IX — Menschen sind teuer in Latenz, billig in Haftung', () => {
     expect(immer.kosten).toBeCloseTo(gezielt.kosten, -1);
   });
 
-  it('spart konfidenzbasierte Eskalation Latenz gegenueber "immer"', () => {
+  it('spart konfidenzbasierte Eskalation Latenz gegenüber "immer"', () => {
     const immer = lauf(mitHand('immer'), vertraulich);
     const konfidenz = lauf(mitHand('bei_unsicherheit', 0.45), vertraulich);
     expect(konfidenz.latenzP95).toBeLessThan(immer.latenzP95);
@@ -499,7 +499,7 @@ describe('Akt X — Was du nicht beobachtest, kannst du nicht verantworten', () 
     expect(m.nachvollziehbarkeit).toBe(0);
   });
 
-  it('macht ein Auge am Ende der Kette den Lauf vollstaendig nachvollziehbar', () => {
+  it('macht ein Auge am Ende der Kette den Lauf vollständig nachvollziehbar', () => {
     const m = lauf(
       reihe([
         { art: 'kern', param: { groesse: 'reiher' } },
@@ -541,7 +541,7 @@ describe('Querschnitt — Fail Fast und der MONOLITH', () => {
     expect(mitGate.kosten).toBeLessThan(ohne.kosten);
   });
 
-  it('gewinnt MONOLITH bei leichten Auftraegen an Guete und verliert an allem anderen', () => {
+  it('gewinnt MONOLITH bei leichten Aufträgen an Güte und verliert an allem anderen', () => {
     const gemischt = strom({ anzahl: 40, anteilGiftig: 0.3, anteilRechnerisch: 0.3 });
     const monolith = lauf(
       reihe([

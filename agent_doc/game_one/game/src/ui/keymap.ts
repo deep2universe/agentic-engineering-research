@@ -2,13 +2,13 @@
  * Die Tastaturbelegung — eine einzige Tabelle, aus der sich Bindung,
  * Hilfe-Overlay und Kontextleiste speisen.
  *
- * Trennung nach Zweck: Bewegung und Werkzeuge haengen an `event.code`
- * (layoutunabhaengig, W bleibt W), Systembefehle an `event.key` (folgt der
+ * Trennung nach Zweck: Bewegung und Werkzeuge hängen an `event.code`
+ * (layoutunabhängig, W bleibt W), Systembefehle an `event.key` (folgt der
  * Beschriftung). Auf QWERTZ liegt `code 'KeyZ'` dort, wo QWERTY "Y" hat — ein
- * code-basiertes Rueckgaengig waere falsch beschriftet.
+ * code-basiertes Rückgängig wäre falsch beschriftet.
  *
  * Reserviert und niemals belegt: Cmd+W/T/Q/N/R/L/M/D/Tab/Space, Cmd +/−/0,
- * Ctrl+Cmd+F, Cmd+Opt+I sowie Tab und Shift+Tab (die gehoeren dem DOM-Fokus).
+ * Ctrl+Cmd+F, Cmd+Opt+I sowie Tab und Shift+Tab (die gehören dem DOM-Fokus).
  */
 
 export type Befehl =
@@ -49,7 +49,7 @@ export type Befehl =
 
 export interface Bindung {
   readonly befehl: Befehl;
-  /** `event.code`, layoutunabhaengig. */
+  /** `event.code`, layoutunabhängig. */
   readonly code?: string;
   /** `event.key`, folgt der Tastenbeschriftung. */
   readonly taste?: string;
@@ -69,18 +69,18 @@ export const KEYMAP: readonly Bindung[] = [
   { befehl: 'modus_abriss', code: 'Digit4', anzeige: '4', bereich: 'Modi', text: 'Abriss' },
 
   { befehl: 'palette_zurueck', code: 'KeyQ', anzeige: 'Q', bereich: 'Bauen', text: 'Vorheriges Modul' },
-  { befehl: 'palette_vor', code: 'KeyE', anzeige: 'E', bereich: 'Bauen', text: 'Naechstes Modul' },
+  { befehl: 'palette_vor', code: 'KeyE', anzeige: 'E', bereich: 'Bauen', text: 'Nächstes Modul' },
   { befehl: 'setzen', code: 'Enter', anzeige: '⏎', bereich: 'Bauen', text: 'Setzen' },
   { befehl: 'verbinden', code: 'KeyV', anzeige: 'V', bereich: 'Bauen', text: 'Markierte Module verbinden' },
-  { befehl: 'loeschen', code: 'Backspace', anzeige: '⌫', bereich: 'Bauen', text: 'Auswahl loeschen' },
-  { befehl: 'loeschen', code: 'Delete', anzeige: 'Entf', bereich: 'Bauen', text: 'Auswahl loeschen' },
+  { befehl: 'loeschen', code: 'Backspace', anzeige: '⌫', bereich: 'Bauen', text: 'Auswahl löschen' },
+  { befehl: 'loeschen', code: 'Delete', anzeige: 'Entf', bereich: 'Bauen', text: 'Auswahl löschen' },
 
-  { befehl: 'kamera_vor', code: 'KeyW', anzeige: 'W', bereich: 'Kamera', text: 'Schwenk vorwaerts' },
+  { befehl: 'kamera_vor', code: 'KeyW', anzeige: 'W', bereich: 'Kamera', text: 'Schwenk vorwärts' },
   { befehl: 'kamera_links', code: 'KeyA', anzeige: 'A', bereich: 'Kamera', text: 'Schwenk links' },
-  { befehl: 'kamera_zurueck', code: 'KeyS', anzeige: 'S', bereich: 'Kamera', text: 'Schwenk zurueck' },
+  { befehl: 'kamera_zurueck', code: 'KeyS', anzeige: 'S', bereich: 'Kamera', text: 'Schwenk zurück' },
   { befehl: 'kamera_rechts', code: 'KeyD', anzeige: 'D', bereich: 'Kamera', text: 'Schwenk rechts' },
-  { befehl: 'kamera_vor', code: 'ArrowUp', anzeige: '↑', bereich: 'Kamera', text: 'Schwenk vorwaerts' },
-  { befehl: 'kamera_zurueck', code: 'ArrowDown', anzeige: '↓', bereich: 'Kamera', text: 'Schwenk zurueck' },
+  { befehl: 'kamera_vor', code: 'ArrowUp', anzeige: '↑', bereich: 'Kamera', text: 'Schwenk vorwärts' },
+  { befehl: 'kamera_zurueck', code: 'ArrowDown', anzeige: '↓', bereich: 'Kamera', text: 'Schwenk zurück' },
   { befehl: 'kamera_links', code: 'ArrowLeft', anzeige: '←', bereich: 'Kamera', text: 'Schwenk links' },
   { befehl: 'kamera_rechts', code: 'ArrowRight', anzeige: '→', bereich: 'Kamera', text: 'Schwenk rechts' },
   { befehl: 'gierung_links', code: 'Comma', anzeige: ',', bereich: 'Kamera', text: 'Drehen in 45-Grad-Rasten' },
@@ -92,16 +92,16 @@ export const KEYMAP: readonly Bindung[] = [
   { befehl: 'sim_einzeltick', code: 'KeyN', anzeige: 'N', bereich: 'Simulation', text: 'Einzelner Tick' },
   { befehl: 'sim_langsamer', code: 'Comma', umschalt: true, anzeige: '⇧,', bereich: 'Simulation', text: 'Langsamer' },
   { befehl: 'sim_schneller', code: 'Period', umschalt: true, anzeige: '⇧.', bereich: 'Simulation', text: 'Schneller' },
-  { befehl: 'sprung_verstoss', code: 'KeyF', umschalt: true, anzeige: '⇧F', bereich: 'Simulation', text: 'Zum ersten Regelverstoss' },
+  { befehl: 'sprung_verstoss', code: 'KeyF', umschalt: true, anzeige: '⇧F', bereich: 'Simulation', text: 'Zum ersten Regelverstoß' },
 
   { befehl: 'ansicht_spur', code: 'KeyT', anzeige: 'T', bereich: 'Ansicht', text: 'Spur-Overlay' },
   { befehl: 'ansicht_gitter', code: 'KeyG', anzeige: 'G', bereich: 'Ansicht', text: 'Gitter' },
   { befehl: 'inspektor', code: 'KeyI', anzeige: 'I', bereich: 'Ansicht', text: 'Inspektor' },
 
-  { befehl: 'rueckgaengig', taste: 'z', befehlstaste: true, anzeige: '⌘Z', bereich: 'Allgemein', text: 'Rueckgaengig' },
+  { befehl: 'rueckgaengig', taste: 'z', befehlstaste: true, anzeige: '⌘Z', bereich: 'Allgemein', text: 'Rückgängig' },
   { befehl: 'wiederholen', taste: 'z', befehlstaste: true, umschalt: true, anzeige: '⇧⌘Z', bereich: 'Allgemein', text: 'Wiederholen' },
   { befehl: 'handbuch', taste: '?', anzeige: '?', bereich: 'Allgemein', text: 'Betriebshandbuch' },
-  { befehl: 'hilfe', taste: '/', anzeige: '/', bereich: 'Allgemein', text: 'Tastenuebersicht' },
+  { befehl: 'hilfe', taste: '/', anzeige: '/', bereich: 'Allgemein', text: 'Tastenübersicht' },
   { befehl: 'briefing', code: 'KeyB', anzeige: 'B', bereich: 'Allgemein', text: 'Auftrag noch einmal lesen' },
   { befehl: 'abbrechen', code: 'Escape', anzeige: '⎋', bereich: 'Allgemein', text: 'Abbrechen' },
 ];
@@ -119,7 +119,7 @@ export function befehlFuer(e: KeyboardEvent): Befehl | null {
   return null;
 }
 
-/** Gruppierte Uebersicht fuer das Hilfe-Overlay. */
+/** Gruppierte Übersicht für das Hilfe-Overlay. */
 export function keymapNachBereich(): Map<Bindung['bereich'], Bindung[]> {
   const m = new Map<Bindung['bereich'], Bindung[]>();
   for (const b of KEYMAP) {

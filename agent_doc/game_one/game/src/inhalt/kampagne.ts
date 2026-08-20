@@ -1,8 +1,8 @@
 /**
  * Die Kampagne: zwoelf Akte zu je vier Leveln.
  *
- * Pro Akt genau EINE neue Modulart. Freischaltung des naechsten Akts nach drei
- * von vier Leveln — ein einzelnes zu schweres Pflichtlevel ist die haeufigste
+ * Pro Akt genau EINE neue Modulart. Freischaltung des nächsten Akts nach drei
+ * von vier Leveln — ein einzelnes zu schweres Pflichtlevel ist die häufigste
  * Abbruchursache in Spielen dieser Art.
  */
 
@@ -20,16 +20,16 @@ export interface Akt {
   readonly level: readonly LevelDefinition[];
 }
 
-/** Wie viele Level eines Akts bestanden sein muessen, um weiterzukommen. */
+/** Wie viele Level eines Akts bestanden sein müssen, um weiterzukommen. */
 export const NOETIG_JE_AKT = 3;
 
 export const AKTE: readonly Akt[] = [
   {
     nummer: 1,
     titel: 'Die Kette',
-    untertitel: 'Halle 3, kalt uebernommen',
+    untertitel: 'Halle 3, kalt übernommen',
     neu: 'Modell-Kern (KOLIBRI, REIHER, KONDOR)',
-    lektion: 'Modellgroesse ist eine oekonomische Entscheidung, keine Qualitaetsentscheidung.',
+    lektion: 'Modellgröße ist eine ökonomische Entscheidung, keine Qualitätsentscheidung.',
     level: AKT_1,
   },
 ];

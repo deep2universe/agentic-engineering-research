@@ -1,18 +1,18 @@
 /**
  * Balance-Konstanten der SCHWARMWERK-Simulation.
  *
- * Alle Zahlen sind an realen Groessenordnungen des Agentic Engineering
+ * Alle Zahlen sind an realen Größenordnungen des Agentic Engineering
  * orientiert (Stand 2026) und in `agent_doc/game_one/konzept/simulations_modell.md`
- * begruendet. Sie sind bewusst an EINER Stelle gebuendelt: Balance ist eine
+ * begründet. Sie sind bewusst an EINER Stelle gebuendelt: Balance ist eine
  * Design-Entscheidung, kein verstreuter Magic Number.
  *
  * Leitprinzip: Jede Zahl muss eine echte Lektion tragen. Wenn eine Konstante
- * kein Trade-off erzeugt, gehoert sie nicht ins Spiel.
+ * kein Trade-off erzeugt, gehört sie nicht ins Spiel.
  */
 
 import type { KernGroesse, WerkzeugArt } from './typen';
 
-/** Kern-Kennwerte. Kostenverhaeltnis 1 : 4 : 16 spiegelt reale Modell-Preisstufen. */
+/** Kern-Kennwerte. Kostenverhältnis 1 : 4 : 16 spiegelt reale Modell-Preisstufen. */
 export const KERN: Record<
   KernGroesse,
   {
@@ -22,23 +22,23 @@ export const KERN: Record<
     dauer: number;
     /** Bis zu welcher Auftragsschwierigkeit der Kern souveraen ist. */
     kompetenz: number;
-    /** Obergrenze der erreichbaren Guete, selbst bei trivialen Auftraegen. */
+    /** Obergrenze der erreichbaren Güte, selbst bei trivialen Aufträgen. */
     basisDeckel: number;
-    /** Anteil der Luecke zur Decke, den ein Aufruf schliesst. */
+    /** Anteil der Luecke zur Decke, den ein Aufruf schließt. */
     wirkung: number;
-    /** Kontextlast, die ein Aufruf hinterlaesst. */
+    /** Kontextlast, die ein Aufruf hinterlässt. */
     kontextLast: number;
-    /** Anfaelligkeit fuer eingeschleuste Anweisungen (1 = voellig naiv). */
+    /** Anfälligkeit für eingeschleuste Anweisungen (1 = voellig naiv). */
     anfaelligkeit: number;
-    /** Streuung der Ergebnisguete. */
+    /** Streuung der Ergebnisgüte. */
     streuung: number;
     /** Anzeigename im Spiel. */
     name: string;
   }
 > = {
-  // Der kleine Kern muss bei LEICHTEN Auftraegen wirklich ausreichen, sonst
-  // ist Routing (Akt II) oekonomisch sinnlos und das Spiel lehrt "nimm immer
-  // das groesste Modell". Deckel und Wirkung sind deshalb so gesetzt, dass
+  // Der kleine Kern muss bei LEICHTEN Aufträgen wirklich ausreichen, sonst
+  // ist Routing (Akt II) ökonomisch sinnlos und das Spiel lehrt "nimm immer
+  // das größte Modell". Deckel und Wirkung sind deshalb so gesetzt, dass
   // zwei KOLIBRI-Aufrufe bei einem leichten Auftrag auf ein Zehntel an einen
   // KONDOR-Aufruf herankommen — zum Achtel des Preises.
   kolibri: {
@@ -76,14 +76,14 @@ export const KERN: Record<
   },
 };
 
-/** Wie stark die Kompetenzluecke die Guete-Decke druckt. */
+/** Wie stark die Kompetenzluecke die Güte-Decke druckt. */
 export const KOMPETENZ_STEILHEIT = 1.6;
 
 /**
  * Spezialisierung ist eine Wette, keine Verbesserung. Der Malus ist bewusst
- * groesser als der Bonus: Auf einem gemischten Auftragsstrom ist blinde
+ * größer als der Bonus: Auf einem gemischten Auftragsstrom ist blinde
  * Spezialisierung im Erwartungswert NEGATIV. Genau das macht den Router aus
- * Akt II nicht nur zu einem Kostenwerkzeug, sondern zu einem Qualitaetswerkzeug
+ * Akt II nicht nur zu einem Kostenwerkzeug, sondern zu einem Qualitätswerkzeug
  * — erst wer vorher klassifiziert, darf sich spezialisieren.
  */
 export const SPEZIALISIERUNG_BONUS = 0.09;
@@ -91,7 +91,7 @@ export const SPEZIALISIERUNG_MALUS = 0.14;
 
 /**
  * Context Rot. Unterhalb von KONTEXT_SCHWELLE gibt es keinen Verlust, danach
- * faellt die Wirkung eines Aufrufs stark ab. Das ist die zentrale Lektion des
+ * fällt die Wirkung eines Aufrufs stark ab. Das ist die zentrale Lektion des
  * Context Engineering: Kontext ist kein Vorrat, sondern ein Budget.
  */
 export const KONTEXT_SCHWELLE = 0.45;
@@ -106,13 +106,13 @@ export const HALLUZINATION_SCHADEN = 0.28;
 
 /**
  * Kontext wird bei jedem Aufruf mitbezahlt. Bei voller Kontextlast kostet ein
- * Aufruf das Dreifache. Deshalb sind lange Ketten ueberproportional teuer.
+ * Aufruf das Dreifache. Deshalb sind lange Ketten überproportional teuer.
  */
 export const KONTEXT_KOSTEN_FAKTOR = 2.0;
 
-/** Auftraege mit Belegpflicht bleiben ohne Werkzeug unter dieser Guete-Decke. */
+/** Aufträge mit Belegpflicht bleiben ohne Werkzeug unter dieser Güte-Decke. */
 export const DECKEL_OHNE_BELEG = 0.55;
-/** Rechnerische Auftraege ohne deterministisches Werkzeug. */
+/** Rechnerische Aufträge ohne deterministisches Werkzeug. */
 export const DECKEL_OHNE_RECHNER = 0.6;
 
 export const WERKZEUG: Record<
@@ -135,7 +135,7 @@ export const WERKZEUG: Record<
     kontextLast: 0.14,
     klaerung: 0.6,
     name: 'RECHERCHE',
-    beschreibung: 'Retrieval ueber den Wissensbestand. Belegt Aussagen.',
+    beschreibung: 'Retrieval über den Wissensbestand. Belegt Aussagen.',
   },
   datenbank: {
     kosten: 30,
@@ -144,7 +144,7 @@ export const WERKZEUG: Record<
     kontextLast: 0.08,
     klaerung: 0.45,
     name: 'BESTAND',
-    beschreibung: 'Fachdatenbank des Kunden. Schnell, eng, verlaesslich.',
+    beschreibung: 'Fachdatenbank des Kunden. Schnell, eng, verlässlich.',
   },
   rechner: {
     kosten: 5,
@@ -153,7 +153,7 @@ export const WERKZEUG: Record<
     kontextLast: 0.03,
     klaerung: 0.35,
     name: 'RECHENWERK',
-    beschreibung: 'Deterministische Berechnung. Schlaegt jedes Modell bei Zahlen.',
+    beschreibung: 'Deterministische Berechnung. Schlägt jedes Modell bei Zahlen.',
   },
   api: {
     kosten: 20,
@@ -162,17 +162,17 @@ export const WERKZEUG: Record<
     kontextLast: 0.06,
     klaerung: 0.3,
     name: 'FREMDDIENST',
-    beschreibung: 'Externe Schnittstelle. Faellt regelmaessig aus.',
+    beschreibung: 'Externe Schnittstelle. Fällt regelmäßig aus.',
   },
 };
 
-/** Guardrails. Keiner allein genuegt — Defense in Depth ist Pflicht. */
+/** Guardrails. Keiner allein genügt — Defense in Depth ist Pflicht. */
 export const WALL = {
   /** Wahrscheinlichkeit, dass ein Eingangsfilter die Einschleusung neutralisiert. */
   eingangWirkung: 0.92,
   /** Wahrscheinlichkeit, dass ein Ausgangsfilter ein kompromittiertes Paket faengt. */
   ausgangWirkung: 0.85,
-  /** Falsch-Positiv-Rate: der Filter verwirft harmlose Auftraege. */
+  /** Falsch-Positiv-Rate: der Filter verwirft harmlose Aufträge. */
   fehlalarm: 0.03,
   kosten: 12,
   dauer: 1,
@@ -204,7 +204,7 @@ export const SPEICHER = {
  * Werkzeug-Fixkosten. Jedes passierte Werkzeug liegt danach als
  * Definitionsblock im Kontext und wird bei jedem weiteren Kern-Aufruf
  * mitbezahlt. Ein Multi-MCP-Setup verbraucht real zehntausende Token allein
- * an Tool-Definitionen — hier auf Spielgroessen skaliert.
+ * an Tool-Definitionen — hier auf Spielgrößen skaliert.
  */
 export const WERKZEUG_DEFINITION_TOKEN = 40;
 /** Ab so vielen gesehenen Werkzeugen sinkt die Trefferquote der Werkzeugwahl. */
@@ -221,9 +221,9 @@ export const HAND = {
   /** Menschen sind langsam. Genau das ist die Lektion. */
   dauer: 24,
   kosten: 0,
-  /** Menschen uebersehen selten, aber nicht nie. */
+  /** Menschen übersehen selten, aber nicht nie. */
   fehlerrate: 0.02,
-  /** Ein Mensch bessert die Guete nach. */
+  /** Ein Mensch bessert die Güte nach. */
   gueteBonus: 0.06,
 };
 export const AUGE = { kosten: 1, dauer: 0 };
@@ -243,7 +243,7 @@ export const GRENZEN = {
   maxKosten: 5_000_000,
 };
 
-/** Umrechnung Token → Euro fuer die HUD-Anzeige (Mischpreis, gerundet). */
+/** Umrechnung Token → Euro für die HUD-Anzeige (Mischpreis, gerundet). */
 export const EURO_JE_MILLION_TOKEN = 6.0;
 
 export function tokenZuEuro(token: number): number {

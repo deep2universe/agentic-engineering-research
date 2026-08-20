@@ -26,7 +26,7 @@ const QUELLE_AUSWAHL = '06_tool_use_context_engineering.md#pattern-4-tool-select
 // ---------------------------------------------------------------------------
 
 /**
- * Ein Glied einer Fertigungsstrasse: entweder ein Werkzeug oder ein Kern.
+ * Ein Glied einer Fertigungsstraße: entweder ein Werkzeug oder ein Kern.
  * Werkzeuge haben zwei Ausgänge; in diesem Akt gibt es noch keine Sicherung,
  * also führt der 'fehler'-Ausgang immer auf dasselbe nächste Glied wie 'ok'.
  * Ohne diese Verdrahtung gingen die ausgefallenen Aufträge verloren.
@@ -268,7 +268,7 @@ export const AKT_3: LevelDefinition[] = [
     titel: 'Der Werkzeugkasten',
     untertitel: 'Vier Schnittstellen auf einem Kostenblatt',
     briefing:
-      'Der Eingang mischt jetzt beides: belegpflichtige Vermerke und rechnerische Vorgänge. Der naheliegende Zug ist, alle vier Schnittstellen hintereinander an die Strasse zu hängen — zusammen kosten sie hundertfünfzehn Token, das klingt harmlos. Es ist nicht harmlos. Jedes Werkzeug, das ein Auftrag passiert hat, liegt danach als Definitionsblock in seinem Kontext und wird bei jedem weiteren Kernaufruf erneut bezahlt: vierzig Token je Werkzeug, je Aufruf. Deine Lösung aus Anlage 7 kennt kein Rechenwerk und reicht hier nicht mehr.',
+      'Der Eingang mischt jetzt beides: belegpflichtige Vermerke und rechnerische Vorgänge. Der naheliegende Zug ist, alle vier Schnittstellen hintereinander an die Straße zu hängen — zusammen kosten sie hundertfünfzehn Token, das klingt harmlos. Es ist nicht harmlos. Jedes Werkzeug, das ein Auftrag passiert hat, liegt danach als Definitionsblock in seinem Kontext und wird bei jedem weiteren Kernaufruf erneut bezahlt: vierzig Token je Werkzeug, je Aufruf. Deine Lösung aus Anlage 7 kennt kein Rechenwerk und reicht hier nicht mehr.',
     lernziel:
       'Jedes angeschlossene Werkzeug verteuert jeden späteren Kernaufruf, auch wenn es gerade nicht benutzt wird.',
     quelle: QUELLE_AUSWAHL,

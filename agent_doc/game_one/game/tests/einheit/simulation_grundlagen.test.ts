@@ -26,7 +26,7 @@ const STROM: AuftragsStrom = {
 };
 
 describe('Simulationskern', () => {
-  it('liefert alle Auftraege durch eine gerade Kette aus', () => {
+  it('liefert alle Aufträge durch eine gerade Kette aus', () => {
     const e = simuliere({ werk: kette('reiher'), strom: STROM, saat: 42 });
     expect(e.metriken.geliefert).toBe(12);
     expect(e.metriken.durchsatz).toBe(1);
@@ -40,7 +40,7 @@ describe('Simulationskern', () => {
     expect(a.metriken).toEqual(b.metriken);
   });
 
-  it('haengt nicht von der Reihenfolge ab, in der Module angelegt wurden', () => {
+  it('hängt nicht von der Reihenfolge ab, in der Module angelegt wurden', () => {
     const w = kette('reiher');
     const gedreht: Werk = {
       module: [...w.module].reverse(),
@@ -64,23 +64,23 @@ describe('Simulationskern', () => {
     const gross = simuliere({ werk: kette('kondor'), strom: STROM, saat: 3 }).metriken;
     expect(mittel.kosten / klein.kosten).toBeCloseTo(4, 1);
     expect(gross.kosten / klein.kosten).toBeCloseTo(16, 1);
-    // Und: mehr Geld kauft mehr Guete — aber nicht unbegrenzt.
+    // Und: mehr Geld kauft mehr Güte — aber nicht unbegrenzt.
     expect(gross.guete).toBeGreaterThan(mittel.guete);
     expect(mittel.guete).toBeGreaterThan(klein.guete);
   });
 
-  it('deckelt die Guete eines kleinen Kerns bei schweren Auftraegen', () => {
+  it('deckelt die Güte eines kleinen Kerns bei schweren Aufträgen', () => {
     const schwer: AuftragsStrom = { ...STROM, schwierigkeit: [0.85, 0.95] };
     const klein = simuliere({ werk: kette('kolibri'), strom: schwer, saat: 5 }).metriken;
     const gross = simuliere({ werk: kette('kondor'), strom: schwer, saat: 5 }).metriken;
-    // Der kleine Kern kommt an der Kompetenzgrenze nicht ueber ein Drittel.
+    // Der kleine Kern kommt an der Kompetenzgrenze nicht über ein Drittel.
     expect(klein.guete).toBeLessThan(0.35);
-    // Der grosse schafft deutlich mehr — aber mit EINEM Aufruf eben nicht alles.
+    // Der große schafft deutlich mehr — aber mit EINEM Aufruf eben nicht alles.
     expect(gross.guete).toBeGreaterThan(0.6);
     expect(gross.guete).toBeLessThan(0.8);
   });
 
-  it('belohnt eine Kette gegenueber einem einzelnen Aufruf — das ist Prompt Chaining', () => {
+  it('belohnt eine Kette gegenüber einem einzelnen Aufruf — das ist Prompt Chaining', () => {
     const schwer: AuftragsStrom = { ...STROM, schwierigkeit: [0.85, 0.95] };
     const zweiStufen: Werk = {
       module: [
@@ -99,7 +99,7 @@ describe('Simulationskern', () => {
     const zwei = simuliere({ werk: zweiStufen, strom: schwer, saat: 5 }).metriken;
     expect(zwei.guete).toBeGreaterThan(eins.guete);
     // Aber der zweite Aufruf kostet mehr als das Doppelte — wegen des Kontexts,
-    // den er mitbezahlen muss. Genau das ist die oekonomische Lektion.
+    // den er mitbezahlen muss. Genau das ist die ökonomische Lektion.
     expect(zwei.kosten).toBeGreaterThan(eins.kosten * 2);
   });
 
@@ -125,7 +125,7 @@ describe('Simulationskern', () => {
     expect(befunde.map((b) => b.code)).toContain('keine_senke');
   });
 
-  it('zaehlt die Ticks und terminiert', () => {
+  it('zählt die Ticks und terminiert', () => {
     const sim = new Simulation({ werk: kette('kolibri'), strom: STROM, saat: 11 });
     let n = 0;
     while (!sim.fertig && n < 500) {

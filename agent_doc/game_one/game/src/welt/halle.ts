@@ -1,10 +1,10 @@
 /**
- * Die Halle: Backsteinbau von 1957, nachtraeglich mit Technik gefuellt.
+ * Die Halle: Backsteinbau von 1957, nachträglich mit Technik gefüllt.
  *
- * Gestaltungsleitsatz: kalt in der Flaeche, warm nur dort, wo Technik arbeitet.
+ * Gestaltungsleitsatz: kalt in der Fläche, warm nur dort, wo Technik arbeitet.
  * Das Auge soll ohne Anleitung zum Fundament in der Mitte gezogen werden —
- * deshalb faellt das Licht schraeg von den Sprossenfenstern auf die Bauflaeche
- * und laesst die Waende im Halbdunkel.
+ * deshalb fällt das Licht schraeg von den Sprossenfenstern auf die Baufläche
+ * und lässt die Wände im Halbdunkel.
  *
  * Alles hier ist prozedural und deterministisch: dieselbe Saat ergibt dieselbe
  * Halle, bis auf das letzte Nietenblech.
@@ -27,8 +27,10 @@ export const STANDARD_MASSE: HallenMasse = { felderX: 16, felderZ: 10, hoehe: 11
 export class Halle {
   readonly wurzel = new THREE.Group();
   readonly fundament = new THREE.Group();
-  /** Decke und Fachwerk. Werden ausgeblendet, sobald die Kamera darueber steht. */
-  readonly dach = new THREE.Group();
+  /** Nur die geschlossene Decke. Sie wird ausgeblendet, sobald die Kamera darüber steht. */
+  readonly decke = new THREE.Group();
+  /** Das Fachwerk bleibt immer sichtbar — es trägt den Industriecharakter. */
+  readonly fachwerk = new THREE.Group();
   readonly masse: HallenMasse;
   readonly sonne: THREE.DirectionalLight;
 
@@ -37,7 +39,7 @@ export class Halle {
   constructor(masse: Partial<HallenMasse> = {}) {
     this.masse = { ...STANDARD_MASSE, ...masse };
     this.wurzel.name = 'halle';
-    this.sonne = new THREE.DirectionalLight(PALETTE.licht, 1.25);
+    this.sonne = new THREE.DirectionalLight(PALETTE.licht, 2.6);
     this.baue();
   }
 
@@ -47,7 +49,7 @@ export class Halle {
     return new THREE.Vector3(x - (felderX - 1) / 2, 0.16, z - (felderZ - 1) / 2);
   }
 
-  /** Gitterfeld unter einem Weltpunkt. Kann ausserhalb des Fundaments liegen. */
+  /** Gitterfeld unter einem Weltpunkt. Kann außerhalb des Fundaments liegen. */
   weltZuFeld(p: THREE.Vector3): { x: number; z: number } {
     const { felderX, felderZ } = this.masse;
     return {
@@ -83,7 +85,7 @@ export class Halle {
     this.merke(platte.geometry);
     this.fundament.add(platte);
 
-    // Gitterrelief: eine Ebene knapp ueber der Platte mit leuchtenden Fugen.
+    // Gitterrelief: eine Ebene knapp über der Platte mit leuchtenden Fugen.
     const raster = new THREE.Mesh(new THREE.PlaneGeometry(felderX, felderZ, 1, 1), fundamentMaterial());
     raster.rotation.x = -Math.PI / 2;
     raster.position.y = 0.161;
@@ -113,7 +115,7 @@ export class Halle {
     }
     this.wurzel.add(this.fundament);
 
-    // --- Waende -----------------------------------------------------------
+    // --- Wände -----------------------------------------------------------
     const ziegel = flaechenMaterial('ziegel');
     const wandTeile: THREE.BufferGeometry[] = [];
     const wandHoehe = hoehe;
@@ -127,7 +129,7 @@ export class Halle {
       g.translate(x, wandHoehe / 2, z);
       wandTeile.push(g);
     }
-    // Lisenen als Vertikalgliederung — sie geben der Wand Massstab.
+    // Lisenen als Vertikalgliederung — sie geben der Wand Maßstab.
     for (let i = 0; i <= 8; i++) {
       const x = -breite / 2 + (breite * i) / 8;
       for (const z of [-tiefe / 2, tiefe / 2]) {
@@ -136,8 +138,8 @@ export class Halle {
         wandTeile.push(g);
       }
     }
-    // Sprossen der Fenster gehoeren in die Wandgeometrie und muessen deshalb
-    // VOR dem Zusammenfuehren eingesammelt werden.
+    // Sprossen der Fenster gehören in die Wandgeometrie und müssen deshalb
+    // VOR dem Zusammenführen eingesammelt werden.
     const breiteFenster = 6;
     for (let i = 0; i < breiteFenster; i++) {
       const fx = -breite / 2 + (breite * (i + 0.5)) / breiteFenster;
@@ -156,10 +158,10 @@ export class Halle {
     this.wurzel.add(waende);
 
     // --- Sprossenfenster --------------------------------------------------
-    // Sie sind der Grund, warum das Licht schraeg einfaellt. Als leuchtende
-    // Flaechen ohne Geometriekosten.
+    // Sie sind der Grund, warum das Licht schraeg einfällt. Als leuchtende
+    // Flächen ohne Geometriekosten.
     const fensterMat = new THREE.MeshBasicNodeMaterial();
-    fensterMat.color = new THREE.Color(0x8fb6e8);
+    fensterMat.color = new THREE.Color(0x93b4dd).multiplyScalar(1.5);
     fensterMat.toneMapped = false;
     const fensterTeile: THREE.BufferGeometry[] = [];
     for (let i = 0; i < 6; i++) {
@@ -196,7 +198,7 @@ export class Halle {
         traegerTeile.push(d);
       }
     }
-    // Laengspfetten
+    // Längspfetten
     for (let i = 0; i < 5; i++) {
       const x = -breite / 2 + (breite * (i + 0.5)) / 5;
       const p = new THREE.BoxGeometry(0.16, 0.16, tiefe - 1);
@@ -206,31 +208,48 @@ export class Halle {
     const traeger = new THREE.Mesh(mergeAlle(traegerTeile), flaechenMaterial('stahl'));
     traeger.castShadow = true;
     this.merke(traeger.geometry);
-    this.dach.add(traeger);
+    this.fachwerk.add(traeger);
+    this.wurzel.add(this.fachwerk);
 
     // --- Decke ------------------------------------------------------------
     const decke = new THREE.Mesh(new THREE.PlaneGeometry(breite, tiefe), flaechenMaterial('beton'));
     decke.rotation.x = Math.PI / 2;
     decke.position.y = wandHoehe;
     this.merke(decke.geometry);
-    this.dach.add(decke);
-    this.wurzel.add(this.dach);
+    this.decke.add(decke);
+    this.wurzel.add(this.decke);
 
     // --- Streugut: Kisten und Rollwagen am Rand ---------------------------
     const streuMat = flaechenMaterial('stahl');
     const streuTeile: THREE.BufferGeometry[] = [];
-    for (let i = 0; i < 26; i++) {
+    for (let i = 0; i < 14; i++) {
       const amRand = r() < 0.5;
+      // Immer am Rand und immer auf dem Boden — Kisten, die in der Halle
+      // stehen, keine schwebenden Würfel.
       const x = amRand
-        ? (r() < 0.5 ? -1 : 1) * (felderX / 2 + 1.5 + r() * 4)
-        : (r() - 0.5) * breite * 0.8;
-      const z = amRand ? (r() - 0.5) * tiefe * 0.8 : (r() < 0.5 ? -1 : 1) * (felderZ / 2 + 1.5 + r() * 4);
-      const b = 0.5 + r() * 0.9;
-      const h = 0.4 + r() * 1.1;
-      const g = new THREE.BoxGeometry(b, h, b * (0.7 + r() * 0.6));
-      g.rotateY(r() * Math.PI);
-      g.translate(x, h / 2, z);
-      streuTeile.push(g);
+        ? (r() < 0.5 ? -1 : 1) * (felderX / 2 + 2.5 + r() * 5)
+        : (r() - 0.5) * breite * 0.7;
+      const z = amRand ? (r() - 0.5) * tiefe * 0.7 : (r() < 0.5 ? -1 : 1) * (felderZ / 2 + 2.5 + r() * 5);
+      const b = 0.9 + r() * 1.4;
+      const h = 0.7 + r() * 1.5;
+      const t = b * (0.7 + r() * 0.6);
+      const drehung = r() * Math.PI;
+      const kiste = new THREE.BoxGeometry(b, h, t);
+      kiste.rotateY(drehung);
+      kiste.translate(x, h / 2, z);
+      streuTeile.push(kiste);
+      // Deckelkante und zwei Spannbänder: aus der Entfernung reicht das, um
+      // eine Kiste als Kiste zu lesen statt als Würfel.
+      const deckel = new THREE.BoxGeometry(b * 1.06, 0.07, t * 1.06);
+      deckel.rotateY(drehung);
+      deckel.translate(x, h, z);
+      streuTeile.push(deckel);
+      for (const versatz of [-0.28, 0.28]) {
+        const band = new THREE.BoxGeometry(0.06, h * 0.98, t * 1.04);
+        band.rotateY(drehung);
+        band.translate(x + Math.cos(drehung) * b * versatz, h / 2, z - Math.sin(drehung) * b * versatz);
+        streuTeile.push(band);
+      }
     }
     const streu = new THREE.Mesh(mergeAlle(streuTeile), streuMat);
     streu.castShadow = true;
@@ -242,8 +261,8 @@ export class Halle {
     this.baueLicht(breite, tiefe, wandHoehe);
 
     // --- Nebel ------------------------------------------------------------
-    // Exponentieller Nebel gibt der Halle Tiefe und laesst die Waende
-    // zurueckweichen, ohne einen volumetrischen Pass zu kosten.
+    // Exponentieller Nebel gibt der Halle Tiefe und lässt die Wände
+    // zurückweichen, ohne einen volumetrischen Pass zu kosten.
     void PALETTE.nebel;
   }
 
@@ -252,10 +271,10 @@ export class Halle {
    *
    * Wichtig: three.js rechnet seit r155 physikalisch. Punktlichter werden in
    * Candela angegeben und fallen quadratisch ab — Werte im Bereich 50 brennen
-   * eine Halle dieser Groesse vollstaendig aus. Die hier gesetzten Werte sind
-   * gemessen, nicht geschaetzt: das Werkzeug `werkzeuge/schau.mjs` meldet die
+   * eine Halle dieser Größe vollständig aus. Die hier gesetzten Werte sind
+   * gemessen, nicht geschätzt: das Werkzeug `werkzeuge/schau.mjs` meldet die
    * mittlere Bildhelligkeit, und die Halle soll im Ruhezustand bei etwa 20–40
-   * von 255 liegen, damit die leuchtenden Module ueberhaupt Kontrast haben.
+   * von 255 liegen, damit die leuchtenden Module überhaupt Kontrast haben.
    */
   private baueLicht(breite: number, tiefe: number, hoehe: number): void {
     // Hauptlicht: schraeg durch die Sprossenfenster auf das Fundament.
@@ -277,13 +296,20 @@ export class Halle {
     s.shadow.normalBias = 0.035;
     this.wurzel.add(s, s.target);
 
-    // Himmels-/Bodenlicht: fuellt die Schatten, ohne sie zu toeten.
-    this.wurzel.add(new THREE.HemisphereLight(0x3d5a80, 0x090c11, 0.28));
+    // Gegenlicht von hinten links. Es beleuchtet nichts nennenswert, sondern
+    // zeichnet Kanten nach — der billigste Weg, Silhouetten lesbar zu machen.
+    const gegen = new THREE.DirectionalLight(0x6f9bd4, 1.1);
+    gegen.position.set(-breite * 0.5, hoehe * 0.7, tiefe * 0.55);
+    gegen.target.position.set(0, 0, 0);
+    this.wurzel.add(gegen, gegen.target);
 
-    // Warme Arbeitsleuchten ueber dem Fundament — sie markieren den Ort, an dem
+    // Himmels-/Bodenlicht: füllt die Schatten, ohne sie zu toeten.
+    this.wurzel.add(new THREE.HemisphereLight(0x466a99, 0x0b0f15, 0.55));
+
+    // Warme Arbeitsleuchten über dem Fundament — sie markieren den Ort, an dem
     // gearbeitet wird, und geben dem kalten Raum einen Gegenpol.
     for (const x of [-this.masse.felderX * 0.3, this.masse.felderX * 0.3]) {
-      const l = new THREE.PointLight(PALETTE.lichtWarm, 7.5, 22, 2);
+      const l = new THREE.PointLight(PALETTE.lichtWarm, 26, 24, 2);
       l.position.set(x, hoehe * 0.52, 0);
       this.wurzel.add(l);
       const lampe = new THREE.Mesh(
@@ -306,11 +332,11 @@ export class Halle {
   }
 }
 
-/** Fuehrt Geometrien zusammen und gibt die Teile frei. */
+/** Führt Geometrien zusammen und gibt die Teile frei. */
 function mergeAlle(teile: THREE.BufferGeometry[]): THREE.BufferGeometry {
   if (teile.length === 1) return teile[0]!;
   const zusammen = new THREE.BufferGeometry();
-  // Manuelles Zusammenfuehren ohne Zusatzabhaengigkeit: alle Teile haben
+  // Manuelles Zusammenführen ohne Zusatzabhängigkeit: alle Teile haben
   // position/normal/uv und keine Indizes nach toNonIndexed().
   const pos: number[] = [];
   const nor: number[] = [];

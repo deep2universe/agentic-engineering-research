@@ -1,5 +1,5 @@
 /**
- * Balance-Bericht fuer einen Levelsatz.
+ * Balance-Bericht für einen Levelsatz.
  *
  * Kein Test, sondern ein Messwerkzeug: Budgets werden aus diesen Zahlen
  * abgeleitet und niemals geraten. Jeder Akt ruft es in seiner eigenen
@@ -33,8 +33,8 @@ function zeile(name: string, m: Metriken, ok: boolean | null): string {
 }
 
 /**
- * Legende: ✓ bei Referenzen heisst "besteht", ✓ bei Anti-Mustern heisst
- * "faellt korrekt durch". ✗ ist jeweils das Gegenteil und muss behoben werden.
+ * Legende: ✓ bei Referenzen heißt "besteht", ✓ bei Anti-Mustern heißt
+ * "fällt korrekt durch". ✗ ist jeweils das Gegenteil und muss behoben werden.
  */
 export function druckeBericht(titel: string, level: readonly LevelDefinition[]): void {
   const zeilen: string[] = ['', '='.repeat(152), titel, '='.repeat(152)];

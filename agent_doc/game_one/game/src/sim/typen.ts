@@ -1,7 +1,7 @@
 /**
- * Domaenenmodell der SCHWARMWERK-Simulation.
+ * Domänenmodell der SCHWARMWERK-Simulation.
  *
- * Die Simulation bildet eine Agent-Orchestrierung als Fabrik ab: Auftraege
+ * Die Simulation bildet eine Agent-Orchestrierung als Fabrik ab: Aufträge
  * fliessen als Pakete durch einen gerichteten Graphen aus Modulen. Jedes Modul
  * entspricht einem realen Pattern aus dem Agentic Engineering (siehe
  * `agent_doc/01_agentic-engineering-patterns/`). Die Zahlen in
@@ -10,15 +10,15 @@
  */
 
 // ---------------------------------------------------------------------------
-// Auftraege
+// Aufträge
 // ---------------------------------------------------------------------------
 
-/** Fachdomaene eines Auftrags — Kerne koennen sich darauf spezialisieren. */
+/** Fachdomäne eines Auftrags — Kerne können sich darauf spezialisieren. */
 export type Domaene =
-  | 'recht'      // Vergabe, Vertraege, oeffentliches Recht
+  | 'recht'      // Vergabe, Verträge, öffentliches Recht
   | 'technik'    // Code, Infrastruktur, Migration
   | 'finanz'     // Abrechnung, Kalkulation, Zahlen
-  | 'text'       // Redaktion, Kommunikation, Uebersetzung
+  | 'text'       // Redaktion, Kommunikation, Übersetzung
   | 'analyse';   // Auswertung, Recherche, Diagnose
 
 export const ALLE_DOMAENEN: readonly Domaene[] = ['recht', 'technik', 'finanz', 'text', 'analyse'];
@@ -30,17 +30,17 @@ export interface Auftrag {
   readonly domaene: Domaene;
   /** 0 = trivial, 1 = an der Grenze des Machbaren. */
   readonly schwierigkeit: number;
-  /** Mehrdeutigkeit des Auftrags: erhoeht Fehlrouting und Unsicherheit. */
+  /** Mehrdeutigkeit des Auftrags: erhöht Fehlrouting und Unsicherheit. */
   readonly mehrdeutigkeit: number;
-  /** Auftrag enthaelt personenbezogene oder eingestufte Daten. */
+  /** Auftrag enthält personenbezogene oder eingestufte Daten. */
   readonly vertraulich: boolean;
-  /** Auftrag verlangt belegbare Fakten (ohne Werkzeug nicht loesbar). */
+  /** Auftrag verlangt belegbare Fakten (ohne Werkzeug nicht lösbar). */
   readonly belegpflichtig: boolean;
-  /** Auftrag ist rechnerisch (deterministisches Werkzeug schlaegt jedes Modell). */
+  /** Auftrag ist rechnerisch (deterministisches Werkzeug schlägt jedes Modell). */
   readonly rechnerisch: boolean;
   /** Eingeschleuste Anweisung (indirekte Prompt Injection), 0 = harmlos. */
   readonly giftigkeit: number;
-  /** Anzeigename fuer HUD und Trace. */
+  /** Anzeigename für HUD und Trace. */
   readonly titel: string;
 }
 
@@ -56,7 +56,7 @@ export type ModulArt =
   | 'schranke'    // Gate: deterministische Validierung
   | 'verteiler'   // Fan-out: Parallelisierung
   | 'sammler'     // Aggregation: Voting / Verschmelzen / Bester
-  | 'pruefer'     // Evaluator-Optimizer mit Rueckkopplung
+  | 'pruefer'     // Evaluator-Optimizer mit Rückkopplung
   | 'werkzeug'    // Tool Use / MCP
   | 'speicher'    // Context Engineering: Komprimieren / Abrufen / Isolieren
   | 'wall'        // Guardrail: Eingangs- und Ausgangsfilter
@@ -74,17 +74,17 @@ export type SicherungModus = 'wiederholen' | 'sicherung';
 export type HandModus = 'immer' | 'bei_unsicherheit' | 'bei_vertraulich';
 export type WeicheKriterium = 'schwierigkeit' | 'domaene' | 'vertraulichkeit' | 'unsicherheit';
 
-/** Konfigurierbare Parameter eines Moduls. Nicht jedes Feld gilt fuer jede Art. */
+/** Konfigurierbare Parameter eines Moduls. Nicht jedes Feld gilt für jede Art. */
 export interface ModulParameter {
   groesse?: KernGroesse;
-  /** Spezialisierung eines Kerns auf eine Domaene — hebt die Guete-Decke. */
+  /** Spezialisierung eines Kerns auf eine Domäne — hebt die Güte-Decke. */
   spezialisierung?: Domaene | 'keine';
   modus?: SammlerModus | SpeicherModus | WallModus | SicherungModus | HandModus;
   werkzeugArt?: WerkzeugArt;
   kriterium?: WeicheKriterium;
-  /** Schwellwert fuer Schranke, Pruefer, Weiche und Hand (0..1). */
+  /** Schwellwert für Schranke, Prüfer, Weiche und Hand (0..1). */
   schwelle?: number;
-  /** Maximale Rueckkopplungsrunden eines Pruefers. */
+  /** Maximale Rückkopplungsrunden eines Prüfers. */
   runden?: number;
   /** Anzahl paralleler Zweige eines Verteilers. */
   zweige?: number;
@@ -105,7 +105,7 @@ export interface Modul {
   readonly param: ModulParameter;
 }
 
-/** Verbindung zwischen zwei Modulen. Ports trennen die Ausgaenge einer Weiche. */
+/** Verbindung zwischen zwei Modulen. Ports trennen die Ausgänge einer Weiche. */
 export interface Leitung {
   readonly id: string;
   readonly von: string;
@@ -133,16 +133,16 @@ export interface SpurEintrag {
   readonly kosten: number;
 }
 
-/** Ein Auftrag waehrend der Bearbeitung. Alle Felder sind veraenderlich. */
+/** Ein Auftrag während der Bearbeitung. Alle Felder sind veränderlich. */
 export interface Paket {
   readonly auftrag: Auftrag;
-  /** Eindeutig auch fuer Klone aus einem Verteiler ("a3#2"). */
+  /** Eindeutig auch für Klone aus einem Verteiler ("a3#2"). */
   readonly id: string;
-  /** Loesungsguete 0..1. */
+  /** Lösungsgüte 0..1. */
   guete: number;
   /** Kontextlast 0..1 — Treiber des Context Rot. */
   kontext: number;
-  /** Unsicherheit 0..1 — steigt bei Mehrdeutigkeit, faellt durch Belege. */
+  /** Unsicherheit 0..1 — steigt bei Mehrdeutigkeit, fällt durch Belege. */
   unsicherheit: number;
   /** Eingeschleuste Anweisung hat gegriffen. */
   kompromittiert: boolean;
@@ -150,11 +150,11 @@ export interface Paket {
   entgiftet: boolean;
   /** Aussage ist durch ein Werkzeug belegt. */
   belegt: boolean;
-  /** Rechnerischer Anteil wurde deterministisch geloest. */
+  /** Rechnerischer Anteil wurde deterministisch gelöst. */
   gerechnet: boolean;
   /** Ein Mensch hat freigegeben. */
   freigegeben: boolean;
-  /** Ein Speicher im Modus "abrufen" hat zusaetzliches Wissen beigesteuert. */
+  /** Ein Speicher im Modus "abrufen" hat zusätzliches Wissen beigesteuert. */
   abgerufen: boolean;
   /**
    * Anzahl unterschiedlicher Werkzeuge, die dieses Paket passiert hat. Jedes
@@ -164,9 +164,9 @@ export interface Paket {
    */
   werkzeugeGesehen: number;
   /**
-   * Kontextanteil, der zwischengespeichert ist und beim naechsten Kern-Aufruf
+   * Kontextanteil, der zwischengespeichert ist und beim nächsten Kern-Aufruf
    * nur den Lesepreis kostet. Jede Kompression und jede Isolation macht ihn
-   * ungueltig — Kontext-Clearing und Caching sind gegenlaeufige Ziele.
+   * ungültig — Kontext-Clearing und Caching sind gegenläufige Ziele.
    */
   zwischenspeicherAb: number;
   /** Anteil der Bearbeitung, der durch ein Auge beobachtet wurde. */
@@ -176,7 +176,7 @@ export interface Paket {
   kosten: number;
   /** Verstrichene Ticks seit Eintritt. */
   alter: number;
-  /** Besuchszaehler je Modul — Schleifenerkennung und Zufalls-Diskriminator. */
+  /** Besuchszähler je Modul — Schleifenerkennung und Zufalls-Diskriminator. */
   readonly besuche: Map<string, number>;
   readonly spur: SpurEintrag[];
   /**
@@ -194,9 +194,9 @@ export interface Paket {
 // ---------------------------------------------------------------------------
 
 export interface Metriken {
-  /** Anteil ausgelieferter Auftraege (0..1). */
+  /** Anteil ausgelieferter Aufträge (0..1). */
   readonly durchsatz: number;
-  /** Mittlere Guete der ausgelieferten Auftraege (0..1). */
+  /** Mittlere Güte der ausgelieferten Aufträge (0..1). */
   readonly guete: number;
   /** Gesamtkosten in Token. */
   readonly kosten: number;
@@ -208,21 +208,21 @@ export interface Metriken {
   readonly latenzP95: number;
   /** Anteil abgewehrter Angriffe (1 = kein Leck). */
   readonly sicherheit: number;
-  /** Anteil vollstaendig nachvollziehbarer Auftraege. */
+  /** Anteil vollständig nachvollziehbarer Aufträge. */
   readonly nachvollziehbarkeit: number;
-  /** Anteil vertraulicher Auftraege mit menschlicher Freigabe. */
+  /** Anteil vertraulicher Aufträge mit menschlicher Freigabe. */
   readonly konformitaet: number;
-  /** Belegquote bei belegpflichtigen Auftraegen. */
+  /** Belegquote bei belegpflichtigen Aufträgen. */
   readonly belegquote: number;
   /** Gesamtdauer des Laufs in Ticks. */
   readonly dauer: number;
-  /** Anzahl Module (Zachlike-Metrik "Flaeche"). */
+  /** Anzahl Module (Zachlike-Metrik "Fläche"). */
   readonly flaeche: number;
-  /** Anzahl gelieferter Auftraege. */
+  /** Anzahl gelieferter Aufträge. */
   readonly geliefert: number;
-  /** Anzahl verworfener Auftraege. */
+  /** Anzahl verworfener Aufträge. */
   readonly verworfen: number;
-  /** Anzahl Auftraege, die kompromittiert ausgeliefert wurden. */
+  /** Anzahl Aufträge, die kompromittiert ausgeliefert wurden. */
   readonly lecks: number;
 }
 
@@ -230,13 +230,13 @@ export interface LaufErgebnis {
   readonly metriken: Metriken;
   readonly pakete: readonly Paket[];
   readonly ereignisse: readonly SimEreignis[];
-  /** Deterministische Pruefsumme ueber den Endzustand (Golden-Master-Tests). */
+  /** Deterministische Prüfsumme über den Endzustand (Golden-Master-Tests). */
   readonly pruefsumme: string;
   readonly abgebrochen: boolean;
   readonly abbruchGrund?: string;
 }
 
-/** Ereignisse fuer die 3D-Darstellung und fuer Trace-Ansichten. */
+/** Ereignisse für die 3D-Darstellung und für Trace-Ansichten. */
 export interface SimEreignis {
   readonly tick: number;
   readonly art:
@@ -283,15 +283,15 @@ export interface Ziel {
   readonly metrik: keyof Metriken;
   readonly vergleich: Vergleich;
   readonly wert: number;
-  /** Klartext fuer das HUD, in Du-Form. */
+  /** Klartext für das HUD, in Du-Form. */
   readonly text: string;
-  /** Meisterstueck — nicht notwendig zum Bestehen, aber sichtbar. */
+  /** Meisterstück — nicht notwendig zum Bestehen, aber sichtbar. */
   readonly optional?: boolean;
 }
 
 export interface AuftragsStrom {
   readonly anzahl: number;
-  /** Ticks zwischen zwei Auftraegen. */
+  /** Ticks zwischen zwei Aufträgen. */
   readonly takt: number;
   readonly domaenen: readonly Domaene[];
   readonly schwierigkeit: readonly [number, number];

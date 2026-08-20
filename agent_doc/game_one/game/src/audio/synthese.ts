@@ -2,19 +2,19 @@
  * SCHWARMWERK — Synthese-Bausteine.
  *
  * Hier stehen die reinen Rechenkerne der Klangwelt: Rauschen, Hall-Impuls-
- * antworten, gezupfte Metallsaiten (Karplus-Strong), Huellkurven-Helfer und
+ * antworten, gezupfte Metallsaiten (Karplus-Strong), Hüllkurven-Helfer und
  * der Tonvorrat. Alles, was ohne AudioContext berechnet werden kann, wird
  * hier als reine Funktion auf `Float32Array` berechnet — dadurch ist die
- * Klangwelt in Node testbar, ohne dass ein Browser laeuft.
+ * Klangwelt in Node testbar, ohne dass ein Browser läuft.
  *
  * Musikalische Grundlage des Spiels: **D-Dorisch**, Tonika D3 = 146,83 Hz.
- * Dorisch ist die Molltonart mit grosser Sexte — nachdenklich, aber nicht
+ * Dorisch ist die Molltonart mit großer Sexte — nachdenklich, aber nicht
  * traurig. Genau die Haltung, die eine stille Werkhalle um drei Uhr nachts
- * haben soll. Wird es gefaehrlich, kippt die Musik nach **D-Aeolisch**
- * (kleine Sexte statt grosser) und wird damit hoerbar kuehler, ohne die
+ * haben soll. Wird es gefährlich, kippt die Musik nach **D-Aeolisch**
+ * (kleine Sexte statt großer) und wird damit hörbar kühler, ohne die
  * Tonika zu verlassen.
  *
- * Determinismus: NIEMALS `Math.random()`. Alles Zufaellige kommt aus
+ * Determinismus: NIEMALS `Math.random()`. Alles Zufällige kommt aus
  * `erzeugeStrom(saat)` in `src/sim/rng.ts`.
  */
 
@@ -25,10 +25,17 @@ import { erzeugeStrom } from '../sim/rng';
 // ---------------------------------------------------------------------------
 
 /**
- * Ersatz fuer die Null bei `exponentialRampToValueAtTime` — die Web-Audio-API
+ * Ersatz für die Null bei `exponentialRampToValueAtTime` — die Web-Audio-API
  * verbietet dort exakt 0 (der Wert wird logarithmisch interpoliert).
  */
 export const EPS = 0.0001;
+
+/**
+ * Ein Block Abtastwerte. Der explizite Puffertyp ist noetig, weil
+ * `AudioBuffer.copyToChannel` kein `SharedArrayBuffer`-gestütztes Feld
+ * annimmt — `Float32Array` allein wäre zu weit gefasst.
+ */
+export type Abtastfeld = Float32Array<ArrayBuffer>;
 
 /** Kammerton, Bezugspunkt der MIDI-Umrechnung: A4 = MIDI 69. */
 export const A4_HZ = 440;
@@ -43,13 +50,13 @@ export const UI_GRUND_HZ = 587.33;
 // Tonvorrat: Skalen, Stufen, Akkorde
 // ---------------------------------------------------------------------------
 
-/** Dorisch: gross Sekunde, klein Terz, gross Sexte — Grundstimmung des Spiels. */
+/** Dorisch: groß Sekunde, klein Terz, groß Sexte — Grundstimmung des Spiels. */
 export const DORISCH: readonly number[] = [0, 2, 3, 5, 7, 9, 10];
 
-/** Aeolisch (natuerlich Moll): wie Dorisch, aber kleine Sexte — kuehler. */
+/** Aeolisch (natürlich Moll): wie Dorisch, aber kleine Sexte — kühler. */
 export const AEOLISCH: readonly number[] = [0, 2, 3, 5, 7, 8, 10];
 
-/** Phrygisch: kleine Sekunde — nur fuer Alarmzustaende, sehr sparsam. */
+/** Phrygisch: kleine Sekunde — nur für Alarmzustände, sehr sparsam. */
 export const PHRYGISCH: readonly number[] = [0, 1, 3, 5, 7, 8, 10];
 
 export type Skala = readonly number[];
@@ -72,7 +79,7 @@ export function hzZuMidi(hz: number): number {
 }
 
 /**
- * Halbtonabstand einer Skalenstufe ueber alle Oktaven hinweg.
+ * Halbtonabstand einer Skalenstufe über alle Oktaven hinweg.
  * Stufe 7 ist die Oktave (12), Stufe -1 die Septime darunter (-2 bei Dorisch).
  */
 export function stufeZuHalbton(skala: Skala, stufe: number): number {
@@ -82,7 +89,7 @@ export function stufeZuHalbton(skala: Skala, stufe: number): number {
   return (skala[rest] ?? 0) + 12 * oktave;
 }
 
-/** Skalenstufe als MIDI-Note ueber einer Grundnote. */
+/** Skalenstufe als MIDI-Note über einer Grundnote. */
 export function skalenTon(grundMidi: number, skala: Skala, stufe: number): number {
   return grundMidi + stufeZuHalbton(skala, stufe);
 }
@@ -90,7 +97,7 @@ export function skalenTon(grundMidi: number, skala: Skala, stufe: number): numbe
 /**
  * Quartenschichtung statt Terzschichtung: Stufen 0/3/6 der Skala.
  * Auf D-Dorisch ergibt das D–G–C — offen, schwebend, ohne Dur/Moll-Aussage.
- * Genau deshalb traegt der Akkord stundenlang, ohne sich festzulegen.
+ * Genau deshalb trägt der Akkord stundenlang, ohne sich festzulegen.
  */
 export function quartAkkord(grundMidi: number, skala: Skala, stufe: number): number[] {
   return [0, 3, 6].map((versatz) => skalenTon(grundMidi, skala, stufe + versatz));
@@ -108,7 +115,7 @@ export const AKKORDE: Readonly<Record<string, readonly number[]>> = {
   atem: [1, 4, 7],
   /** Weite: G–C–F, Subdominantfarbe ohne Terz. */
   weite: [3, 6, 9],
-  /** Absenkung: C–F–B, zurueck ins Dunkle. */
+  /** Absenkung: C–F–B, zurück ins Dunkle. */
   senke: [6, 9, 12],
   /** Spannung: Sekundcluster D–E–G, wird nur bei Gefahr eingeblendet. */
   spannung: [0, 1, 3],
@@ -134,16 +141,16 @@ export function cent(anzahl: number): number {
 // ---------------------------------------------------------------------------
 
 /**
- * Deterministisches weisses Rauschen in [-1, 1).
+ * Deterministisches weißes Rauschen in [-1, 1).
  *
  * Erwartungswert 0, Standardabweichung 1/sqrt(3) ≈ 0,577. Jeder Kanal
  * bekommt einen eigenen Strom und ist damit vom Nachbarkanal dekorreliert —
- * das ist die Voraussetzung fuer einen breiten, nicht in der Mitte klebenden
+ * das ist die Voraussetzung für einen breiten, nicht in der Mitte klebenden
  * Hall.
  */
-export function rauschDaten(anzahl: number, saat: number, kanaele = 1): Float32Array[] {
+export function rauschDaten(anzahl: number, saat: number, kanaele = 1): Abtastfeld[] {
   const laenge = Math.max(1, Math.floor(anzahl));
-  const felder: Float32Array[] = [];
+  const felder: Abtastfeld[] = [];
   for (let k = 0; k < Math.max(1, kanaele); k++) {
     const strom = erzeugeStrom((saat + k * 0x9e37_79b1) >>> 0);
     const feld = new Float32Array(laenge);
@@ -179,13 +186,13 @@ export interface HallVorgabe {
   readonly sekunden: number;
   /** Tiefpass-Eckfrequenz zu Beginn des Ausklangs. */
   readonly tiefpassStartHz: number;
-  /** Tiefpass-Eckfrequenz am Ende — Hoehen verschwinden zuerst, wie im echten Raum. */
+  /** Tiefpass-Eckfrequenz am Ende — Höhen verschwinden zuerst, wie im echten Raum. */
   readonly tiefpassEndeHz: number;
   /** Saat des Rauschens. */
   readonly saat: number;
 }
 
-/** Kurzer Raum: Betonkabine neben der Halle. Fuer UI- und Bedienklaenge. */
+/** Kurzer Raum: Betonkabine neben der Halle. Für UI- und Bedienklänge. */
 export const HALL_KURZ: HallVorgabe = {
   sekunden: 0.8,
   tiefpassStartHz: 9000,
@@ -193,7 +200,7 @@ export const HALL_KURZ: HallVorgabe = {
   saat: 0x5c48_11a3,
 };
 
-/** Langer Raum: Halle 3, 1957, Backstein und Stahltraeger. Fuer alles Grosse. */
+/** Langer Raum: Halle 3, 1957, Backstein und Stahlträger. Für alles Große. */
 export const HALL_LANG: HallVorgabe = {
   sekunden: 3.5,
   tiefpassStartHz: 6400,
@@ -207,17 +214,17 @@ export const HALL_LANG: HallVorgabe = {
  *
  * Der Tiefpass ist ein Ein-Pol-Filter, dessen Eckfrequenz exponentiell von
  * `tiefpassStartHz` nach `tiefpassEndeHz` wandert. Dadurch verliert der
- * Nachhall zuerst die Hoehen — die Halle schluckt Glanz, wie feuchter
+ * Nachhall zuerst die Höhen — die Halle schluckt Glanz, wie feuchter
  * Backstein es tut.
  *
- * Es gibt bewusst KEIN Pre-Delay in den Daten: die Energiehuellkurve muss
- * monoton fallen (das prueft ein Test). Das Pre-Delay sitzt im Graphen als
+ * Es gibt bewusst KEIN Pre-Delay in den Daten: die Energiehüllkurve muss
+ * monoton fallen (das prüft ein Test). Das Pre-Delay sitzt im Graphen als
  * eigener `DelayNode` vor dem Convolver.
  */
-export function impulsantwortDaten(abtastrate: number, vorgabe: HallVorgabe): Float32Array[] {
+export function impulsantwortDaten(abtastrate: number, vorgabe: HallVorgabe): Abtastfeld[] {
   const laenge = Math.max(1, Math.round(abtastrate * vorgabe.sekunden));
   const roh = rauschDaten(laenge, vorgabe.saat, 2);
-  const kanaele: Float32Array[] = [];
+  const kanaele: Abtastfeld[] = [];
   let spitze = 1e-9;
 
   for (let k = 0; k < 2; k++) {
@@ -236,7 +243,7 @@ export function impulsantwortDaten(abtastrate: number, vorgabe: HallVorgabe): Fl
         Math.pow(vorgabe.tiefpassEndeHz / vorgabe.tiefpassStartHz, fortschritt);
       const alpha = 1 - Math.exp((-2 * Math.PI * eck) / abtastrate);
       letzter += alpha * ((quelle[i] ?? 0) - letzter);
-      // Moorer-Huellkurve a(t) = 10^(-3t/T): genau -60 dB nach T Sekunden.
+      // Moorer-Hüllkurve a(t) = 10^(-3t/T): genau -60 dB nach T Sekunden.
       const huelle = Math.pow(10, -3 * fortschritt);
       const wert = letzter * huelle;
       ziel[i] = wert;
@@ -255,7 +262,7 @@ export function impulsantwortDaten(abtastrate: number, vorgabe: HallVorgabe): Fl
   return kanaele;
 }
 
-/** Impulsantwort als `AudioBuffer` fuer einen `ConvolverNode`. */
+/** Impulsantwort als `AudioBuffer` für einen `ConvolverNode`. */
 export function impulsantwort(kontext: BaseAudioContext, vorgabe: HallVorgabe): AudioBuffer {
   const kanaele = impulsantwortDaten(kontext.sampleRate, vorgabe);
   const laenge = kanaele[0]?.length ?? 1;
@@ -268,7 +275,7 @@ export function impulsantwort(kontext: BaseAudioContext, vorgabe: HallVorgabe): 
 }
 
 /**
- * Energiehuellkurve eines Signals in Bloecken — Pruefwerkzeug fuer Tests und
+ * Energiehüllkurve eines Signals in Bloecken — Prüfwerkzeug für Tests und
  * Abstimmung. Liefert die Summe der Quadrate je Block.
  */
 export function energieHuelle(daten: Float32Array, blockLaenge: number): number[] {
@@ -289,52 +296,59 @@ export function energieHuelle(daten: Float32Array, blockLaenge: number): number[
 // ---------------------------------------------------------------------------
 
 export interface SaitenVorgabe {
-  /** Gewuenschte Grundfrequenz in Hertz. */
+  /** Gewünschte Grundfrequenz in Hertz. */
   readonly frequenzHz: number;
-  /** Laenge des gerenderten Puffers in Sekunden. */
+  /** Länge des gerenderten Puffers in Sekunden. */
   readonly sekunden: number;
   /**
-   * Daempfung je Umlauf, 0..1. 0,999 klingt lange nach (Stahltraeger),
-   * 0,985 ist ein kurzer, trockener Anschlag (Schraubenschluessel auf Blech).
+   * Dämpfung je Umlauf, 0..1. 0,999 klingt lange nach (Stahlträger),
+   * 0,985 ist ein kurzer, trockener Anschlag (Schraubenschlüssel auf Blech).
    */
   readonly daempfung: number;
   /**
-   * Anteil des aktuellen Abtastwertes im Rueckkopplungs-Tiefpass.
-   * 0,5 ist der klassische Mittelwert; groessere Werte klingen metallischer,
-   * weil die Hoehen langsamer sterben.
+   * Anteil des aktuellen Abtastwertes im Rückkopplungs-Tiefpass.
+   * 0,5 ist der klassische Mittelwert; größere Werte klingen metallischer,
+   * weil die Höhen langsamer sterben.
    */
   readonly glaettung?: number;
   readonly saat: number;
 }
 
 /**
- * Karplus-Strong: eine mit Rauschen gefuellte Verzoegerungsleitung, die sich
- * ueber einen Tiefpass selbst zurueckspeist. Das Ergebnis klingt wie eine
- * angeschlagene Metallsaite — der Grundklang aller Bauklaenge im Spiel.
+ * Karplus-Strong: eine mit Rauschen gefüllte Verzögerungsleitung, die sich
+ * über einen Tiefpass selbst zurückspeist. Das Ergebnis klingt wie eine
+ * angeschlagene Metallsaite — der Grundklang aller Bauklänge im Spiel.
  *
- * Die Leitungslaenge N ergibt die Grundfrequenz `rate / (N + 0,5)`; das
+ * Die Leitungslänge N ergibt die Grundfrequenz `rate / (N + 0,5)`; das
  * halbe Sample stammt aus der Gruppenlaufzeit des Mittelwertfilters. N wird
- * darum aus `rate/f - 0,5` gerundet, damit die Tonhoehe stimmt.
+ * darum aus `rate/f - 0,5` gerundet, damit die Tonhöhe stimmt.
  *
- * Bewusst als Puffer vorgerechnet und nicht als `DelayNode`-Rueckkopplung:
- * ein `DelayNode` hat 128 Frames Mindestverzoegerung, Grundtoene ueber
- * ~375 Hz waeren damit unerreichbar.
+ * Bewusst als Puffer vorgerechnet und nicht als `DelayNode`-Rückkopplung:
+ * ein `DelayNode` hat 128 Frames Mindestverzögerung, Grundtoene über
+ * ~375 Hz wären damit unerreichbar.
  */
-export function karplusStrongDaten(abtastrate: number, vorgabe: SaitenVorgabe): Float32Array {
+export function karplusStrongDaten(abtastrate: number, vorgabe: SaitenVorgabe): Abtastfeld {
   const glaettung = Math.min(0.95, Math.max(0.05, vorgabe.glaettung ?? 0.5));
   const laenge = Math.max(1, Math.round(abtastrate * vorgabe.sekunden));
   const n = Math.max(2, Math.round(abtastrate / Math.max(1, vorgabe.frequenzHz) - 0.5));
 
-  // Anregung: ein Rauschstoss von genau einer Leitungslaenge.
+  // Anregung: ein Rauschstoss von genau einer Leitungslänge.
   const anregung = rauschDaten(n, vorgabe.saat, 1)[0] ?? new Float32Array(n);
   const leitung = new Float32Array(n);
   // Sanfte Vorglaettung der Anregung nimmt das Kratzen aus dem Anschlag.
   let vorher = 0;
+  let mittel = 0;
   for (let i = 0; i < n; i++) {
     const wert = 0.6 * (anregung[i] ?? 0) + 0.4 * vorher;
     leitung[i] = wert;
+    mittel += wert;
     vorher = anregung[i] ?? 0;
   }
+  // Gleichanteil abziehen. Ohne diesen Schritt hält die Verzögerungsleitung
+  // einen konstanten Versatz fest — die Saite hängt dann dauerhaft schief,
+  // und jede Messung der Grundfrequenz über Nulldurchgänge geht fehl.
+  mittel /= n;
+  for (let i = 0; i < n; i++) leitung[i] = (leitung[i] ?? 0) - mittel;
 
   const ausgabe = new Float32Array(laenge);
   let zeiger = 0;
@@ -350,7 +364,7 @@ export function karplusStrongDaten(abtastrate: number, vorgabe: SaitenVorgabe): 
   return ausgabe;
 }
 
-/** Tatsaechliche Grundfrequenz, die `karplusStrongDaten` erzeugt. */
+/** Tatsächliche Grundfrequenz, die `karplusStrongDaten` erzeugt. */
 export function saitenGrundfrequenz(abtastrate: number, frequenzHz: number): number {
   const n = Math.max(2, Math.round(abtastrate / Math.max(1, frequenzHz) - 0.5));
   return abtastrate / (n + 0.5);
@@ -368,8 +382,37 @@ export function karplusStrongPuffer(
 }
 
 /**
- * Zaehlt Nulldurchgaenge und schaetzt daraus die Grundfrequenz.
- * Pruefwerkzeug: `2 * f * T` Nulldurchgaenge in T Sekunden.
+ * Kaskade aus einpoligen Tiefpaessen — ein Werkzeug, kein Klangbaustein.
+ *
+ * Gebraucht wird sie dort, wo ein Signal außerhalb des Audio-Graphen
+ * gefiltert werden muss: bei der Anregung der Saite und in den Tests, die
+ * die Grundfrequenz über Nulldurchgänge messen. Ohne Tiefpass zählt man
+ * dort die Obertoene mit und misst Unsinn.
+ */
+export function tiefpassKette(
+  daten: Float32Array,
+  abtastrate: number,
+  eckHz: number,
+  pole = 1
+): Abtastfeld {
+  const alpha = 1 - Math.exp((-2 * Math.PI * Math.max(1, eckHz)) / abtastrate);
+  let quelle: Float32Array = daten;
+  let ziel = new Float32Array(daten.length);
+  for (let p = 0; p < Math.max(1, pole); p++) {
+    ziel = new Float32Array(quelle.length);
+    let letzter = 0;
+    for (let i = 0; i < quelle.length; i++) {
+      letzter += alpha * ((quelle[i] ?? 0) - letzter);
+      ziel[i] = letzter;
+    }
+    quelle = ziel;
+  }
+  return ziel;
+}
+
+/**
+ * Zählt Nulldurchgänge und schätzt daraus die Grundfrequenz.
+ * Prüfwerkzeug: `2 * f * T` Nulldurchgänge in T Sekunden.
  */
 export function nulldurchgaenge(daten: Float32Array, ab = 0, bis = daten.length): number {
   let anzahl = 0;
@@ -383,13 +426,13 @@ export function nulldurchgaenge(daten: Float32Array, ab = 0, bis = daten.length)
 }
 
 // ---------------------------------------------------------------------------
-// Huellkurven-Helfer
+// Hüllkurven-Helfer
 // ---------------------------------------------------------------------------
 
 /**
- * Setzt einen Parameter hart und raeumt vorher alles Geplante ab.
+ * Setzt einen Parameter hart und räumt vorher alles Geplante ab.
  * Projektregel: VOR jeder Neuplanung `cancelScheduledValues` + `setValueAtTime`,
- * sonst mischen sich alte und neue Rampen zu unhoerbarem Unsinn.
+ * sonst mischen sich alte und neue Rampen zu unhörbarem Unsinn.
  */
 export function setze(param: AudioParam, zeit: number, wert: number): void {
   param.cancelScheduledValues(zeit);
@@ -398,7 +441,7 @@ export function setze(param: AudioParam, zeit: number, wert: number): void {
 
 /**
  * Lineare Rampe mit definiertem Start — nie `linearRampToValueAtTime` ohne
- * vorheriges `setValueAtTime`, sonst haengt der Startwert vom Zufall der
+ * vorheriges `setValueAtTime`, sonst hängt der Startwert vom Zufall der
  * bisherigen Automation ab.
  */
 export function rampe(
@@ -425,8 +468,8 @@ export interface AnschlagVorgabe {
 }
 
 /**
- * Perkussiver Anschlag: 0 → Spitze → Boden, ausschliesslich mit linearen
- * Rampen. Liefert den Zeitpunkt zurueck, an dem die Huellkurve am Boden ist.
+ * Perkussiver Anschlag: 0 → Spitze → Boden, ausschließlich mit linearen
+ * Rampen. Liefert den Zeitpunkt zurück, an dem die Hüllkurve am Boden ist.
  */
 export function anschlag(param: AudioParam, zeit: number, vorgabe: AnschlagVorgabe): number {
   const boden = vorgabe.boden ?? 0;
@@ -449,7 +492,7 @@ export interface HuellVorgabe {
   readonly ausklang: number;
 }
 
-/** Vollstaendige ADSR-Huellkurve, rein linear. Liefert das Ende zurueck. */
+/** Vollständige ADSR-Hüllkurve, rein linear. Liefert das Ende zurück. */
 export function adsr(param: AudioParam, zeit: number, vorgabe: HuellVorgabe): number {
   const anstieg = Math.max(0.001, vorgabe.anstieg);
   const verfall = Math.max(0.001, vorgabe.verfall);
@@ -468,7 +511,7 @@ export function adsr(param: AudioParam, zeit: number, vorgabe: HuellVorgabe): nu
  * Weiches Nachfahren eines Zielwertes mit ABSCHLUSS.
  *
  * `setTargetAtTime` erreicht sein Ziel nie exakt; ohne Abschluss laufen
- * unhoerbare Layer ewig knapp ueber null weiter und kosten CPU. Darum setzt
+ * unhörbare Layer ewig knapp über null weiter und kosten CPU. Darum setzt
  * diese Funktion nach 5·tau (99,3 % erreicht) den Zielwert hart.
  */
 export function weichesZiel(
@@ -487,7 +530,7 @@ export function weichesZiel(
   return abschluss;
 }
 
-/** Nutzerlautstaerke ist nichtlinear: der Regler fuehlt sich damit gleichmaessig an. */
+/** Nutzerlautstärke ist nichtlinear: der Regler fühlt sich damit gleichmäßig an. */
 export function reglerZuPegel(regler: number): number {
   return Math.pow(Math.min(1, Math.max(0, regler)), 2.5);
 }

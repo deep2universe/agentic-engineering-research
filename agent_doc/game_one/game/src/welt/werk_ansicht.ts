@@ -1,12 +1,12 @@
 /**
  * Die Werkansicht: macht den Orchestrierungs-Graphen sichtbar.
  *
- * Sie liest ausschliesslich aus der Simulation und schreibt nie zurueck. Ihre
+ * Sie liest ausschließlich aus der Simulation und schreibt nie zurück. Ihre
  * einzige Aufgabe ist, den Fluss LESBAR zu machen — man soll einen Fehler
- * SEHEN, nicht aus Zahlen erschliessen muessen. Deshalb:
+ * SEHEN, nicht aus Zahlen erschließen müssen. Deshalb:
  *  - jedes Modul hat eine eigene Silhouette, nicht nur eine Farbe
- *  - Leitungen leuchten nur, wenn tatsaechlich etwas durch sie fliesst
- *  - Pakete tragen ihre Guete als Farbe und ihre Kompromittierung als Form
+ *  - Leitungen leuchten nur, wenn tatsächlich etwas durch sie fliesst
+ *  - Pakete tragen ihre Güte als Farbe und ihre Kompromittierung als Form
  *  - ein wartendes Paket sitzt sichtbar VOR dem Modul, ein bearbeitetes darin
  */
 
@@ -122,7 +122,7 @@ export class WerkAnsicht {
 
   /**
    * Orthogonaler Kabelweg mit abgerundeten Ecken. Bewusst kein A*: bei
-   * Modulzahlen unter fuenfzig liest sich eine saubere Dreisegment-Fuehrung
+   * Modulzahlen unter fuenfzig liest sich eine saubere Dreisegment-Führung
    * besser als ein optimal kurzer, aber zappeliger Weg.
    */
   private leitungsPfad(von: Modul, nach: Modul, vonPort: string): THREE.Vector3[] {
@@ -130,7 +130,7 @@ export class WerkAnsicht {
     const b = this.halle.feldZuWelt(nach.x, nach.z);
     const hoehe = 0.42;
     // Der Ausgangsport verschiebt den Austrittspunkt seitlich, damit mehrere
-    // Ausgaenge eines Moduls unterscheidbar bleiben.
+    // Ausgänge eines Moduls unterscheidbar bleiben.
     const ports = ausgaengeVon(von).map((p) => p.id);
     const idx = Math.max(0, ports.indexOf(vonPort));
     const versatz = ports.length > 1 ? (idx - (ports.length - 1) / 2) * 0.26 : 0;
@@ -156,7 +156,7 @@ export class WerkAnsicht {
   // -------------------------------------------------------------------------
 
   /**
-   * Uebernimmt einen Simulationszustand. `alpha` interpoliert zwischen dem
+   * Übernimmt einen Simulationszustand. `alpha` interpoliert zwischen dem
    * vorherigen und diesem Tick, damit die Bewegung bei jeder Bildrate flüssig
    * bleibt und trotzdem an die Simulationszeit gebunden ist.
    */
@@ -166,7 +166,7 @@ export class WerkAnsicht {
     const lage = new THREE.Vector3();
     const neueLage = new Map<string, THREE.Vector3>();
 
-    // Leitungsaktivitaet abklingen lassen; sie wird gleich neu angeregt.
+    // Leitungsaktivität abklingen lassen; sie wird gleich neu angeregt.
     for (const [, l] of this.leitungen) l.aktivitaet *= 0.9;
 
     let n = 0;
@@ -196,8 +196,8 @@ export class WerkAnsicht {
       matrix.scale(new THREE.Vector3(groesse, groesse, groesse));
       this.pakete.setMatrixAt(n, matrix);
 
-      // Farbe traegt die Guete: rot → bernstein → gruen. Kompromittiert ist
-      // immer rot und zusaetzlich groesser (Form UND Farbe, nie nur Farbe).
+      // Farbe trägt die Güte: rot → bernstein → gruen. Kompromittiert ist
+      // immer rot und zusätzlich größer (Form UND Farbe, nie nur Farbe).
       if (p.kompromittiert) farbe.setHex(0xff4d4d);
       else farbe.setHSL(0.02 + p.guete * 0.32, 0.85, 0.5);
       this.paketFarben.setXYZ(n, farbe.r, farbe.g, farbe.b);
@@ -209,7 +209,7 @@ export class WerkAnsicht {
     this.paketFarben.needsUpdate = true;
     this.vorigeLage = neueLage;
 
-    // Der Leitungs-Uniform ist global; er zeigt an, ob ueberhaupt etwas laeuft.
+    // Der Leitungs-Uniform ist global; er zeigt an, ob überhaupt etwas läuft.
     let hoechste = 0;
     for (const [, l] of this.leitungen) hoechste = Math.max(hoechste, l.aktivitaet);
     this.leitungsAktiv.aktiv.value = hoechste;
@@ -231,7 +231,7 @@ export class WerkAnsicht {
     if (beste && bestAbstand < 9) beste.aktivitaet = 1;
   }
 
-  /** Setzt die Ansicht auf den Ruhezustand zurueck. */
+  /** Setzt die Ansicht auf den Ruhezustand zurück. */
   ruhe(): void {
     this.pakete.count = 0;
     this.pakete.instanceMatrix.needsUpdate = true;
@@ -241,7 +241,7 @@ export class WerkAnsicht {
   }
 
   // -------------------------------------------------------------------------
-  // Bau-Rueckmeldung
+  // Bau-Rückmeldung
   // -------------------------------------------------------------------------
 
   /** Zeigt die Vorschau des zu setzenden Moduls. `null` blendet sie aus. */
@@ -283,7 +283,7 @@ export class WerkAnsicht {
     }
   }
 
-  /** Weltposition eines Moduls — fuer Kamerafokus und Beschriftungen. */
+  /** Weltposition eines Moduls — für Kamerafokus und Beschriftungen. */
   modulPosition(id: string): THREE.Vector3 | null {
     return this.module.get(id)?.gruppe.position.clone() ?? null;
   }

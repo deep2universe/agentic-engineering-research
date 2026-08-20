@@ -1,25 +1,25 @@
 /**
  * Die Simulations-Engine von SCHWARMWERK.
  *
- * Ein Lauf ist eine diskrete Tick-Simulation: Auftraege treten als Pakete in
+ * Ein Lauf ist eine diskrete Tick-Simulation: Aufträge treten als Pakete in
  * den Graphen ein, werden von Modulen bearbeitet und verlassen ihn an einer
  * Senke. Jedes Modul bildet ein reales Pattern des Agentic Engineering ab; die
- * Zahlen dahinter stehen in `balance.ts` und sind an realen Groessenordnungen
+ * Zahlen dahinter stehen in `balance.ts` und sind an realen Größenordnungen
  * orientiert.
  *
  * Drei Eigenschaften sind nicht verhandelbar und werden von der Testsuite
  * erzwungen:
  *
  *  1. **Determinismus.** Kein `Math.random`, kein `Date.now`, keine
- *     transzendenten Funktionen, keine Iteration ueber `Map`/`Set`. Zufall
- *     kommt ausschliesslich aus dem hashbasierten RNG und ist damit
- *     reihenfolgeunabhaengig.
+ *     transzendenten Funktionen, keine Iteration über `Map`/`Set`. Zufall
+ *     kommt ausschließlich aus dem hashbasierten RNG und ist damit
+ *     reihenfolgeunabhängig.
  *  2. **Reinheit.** Kein Import aus `three`, kein DOM, kein Timer. Die
- *     Simulation laeuft identisch in Node und im Browser — das wird per
- *     Kreuzcheck der Zustands-Pruefsumme verifiziert.
- *  3. **Beobachtbarkeit.** Jeder Zustandsuebergang erzeugt ein `SimEreignis`.
- *     Der Renderer liest ausschliesslich diese Ereignisse und schreibt nie
- *     zurueck.
+ *     Simulation läuft identisch in Node und im Browser — das wird per
+ *     Kreuzcheck der Zustands-Prüfsumme verifiziert.
+ *  3. **Beobachtbarkeit.** Jeder Zustandsübergang erzeugt ein `SimEreignis`.
+ *     Der Renderer liest ausschließlich diese Ereignisse und schreibt nie
+ *     zurück.
  */
 
 import {
@@ -80,7 +80,7 @@ import type {
 
 const SKALA = 1_000_000;
 
-/** Quantisiert auf 1e-6. Nach JEDER Schreiboperation auf Guete/Kontext/Unsicherheit. */
+/** Quantisiert auf 1e-6. Nach JEDER Schreiboperation auf Güte/Kontext/Unsicherheit. */
 function q(x: number): number {
   return Math.round(x * SKALA) / SKALA;
 }
@@ -120,16 +120,16 @@ interface ModulZustand {
   belegung: Belegung | null;
   /** Sammler: Puffer je Gruppe. */
   readonly puffer: Map<string, Paket[]>;
-  /** Sammler: fertig verschmolzene Pakete mit Faelligkeit. */
+  /** Sammler: fertig verschmolzene Pakete mit Fälligkeit. */
   readonly ausgabe: Belegung[];
   /** Sicherung: beobachtete Fehler im laufenden Betrieb (Circuit Breaker). */
   fehlerZaehler: number;
   offen: boolean;
-  /** Statistik fuer das HUD. */
+  /** Statistik für das HUD. */
   durchlauf: number;
 }
 
-/** Was die 3D-Ansicht ueber ein Paket wissen muss — mehr nicht. */
+/** Was die 3D-Ansicht über ein Paket wissen muss — mehr nicht. */
 export interface PaketAnsicht {
   readonly id: string;
   readonly auftragId: string;
@@ -155,7 +155,7 @@ export interface SimOptionen {
 // Simulation
 // ---------------------------------------------------------------------------
 
-/** Wie viele Fixpunkt-Durchlaeufe ein Tick maximal macht (Module mit Dauer 0). */
+/** Wie viele Fixpunkt-Durchläufe ein Tick maximal macht (Module mit Dauer 0). */
 const PASSES = 96;
 
 export class Simulation {
@@ -201,7 +201,7 @@ export class Simulation {
     return this.t;
   }
 
-  /** Sind alle Auftraege durch und nichts mehr im Fluss? */
+  /** Sind alle Aufträge durch und nichts mehr im Fluss? */
   get fertig(): boolean {
     if (this.abgebrochen) return true;
     if (this.naechsterAuftrag < this.auftraege.length) return false;
@@ -228,7 +228,7 @@ export class Simulation {
     this.t++;
 
     if (this.t > GRENZEN.maxTicks) {
-      this.brichAb('zeit_ueberschritten');
+      this.brichAb('zeit_überschritten');
       return;
     }
 
@@ -243,7 +243,7 @@ export class Simulation {
       if (!veraendert) break;
     }
 
-    // Alterung: alles, was noch im Werk ist, wartet eine Zeiteinheit laenger.
+    // Alterung: alles, was noch im Werk ist, wartet eine Zeiteinheit länger.
     for (const z of this.zustaende) {
       for (const p of z.warteschlange) p.alter++;
       if (z.belegung) z.belegung.paket.alter++;
@@ -254,14 +254,14 @@ export class Simulation {
     if (this.gesamtKosten > GRENZEN.maxKosten) this.brichAb('kostenexplosion');
   }
 
-  /** Laesst die Simulation bis zum Ende laufen und liefert das Ergebnis. */
+  /** Lässt die Simulation bis zum Ende laufen und liefert das Ergebnis. */
   laufeDurch(maxTicks = GRENZEN.maxTicks): LaufErgebnis {
     let n = 0;
     while (!this.fertig && n < maxTicks) {
       this.tick();
       n++;
     }
-    if (!this.fertig && !this.abgebrochen) this.brichAb('zeit_ueberschritten');
+    if (!this.fertig && !this.abgebrochen) this.brichAb('zeit_überschritten');
     return this.ergebnis();
   }
 
@@ -352,7 +352,7 @@ export class Simulation {
     this.melde('verworfen', paket.id, modulId, grund);
   }
 
-  /** Ein Paket verlaesst den Fluss: alle offenen Gruppen verlieren ein Mitglied. */
+  /** Ein Paket verlässt den Fluss: alle offenen Gruppen verlieren ein Mitglied. */
   private loeseGruppe(paket: Paket): void {
     for (const g of paket.gruppen) {
       const n = this.gruppeLebend.get(g);
@@ -398,7 +398,7 @@ export class Simulation {
   }
 
   // -------------------------------------------------------------------------
-  // Modul-Ausfuehrung
+  // Modul-Ausführung
   // -------------------------------------------------------------------------
 
   /** Gibt fertige Belegungen frei und leitet sie weiter. */
@@ -424,7 +424,7 @@ export class Simulation {
     return veraendert;
   }
 
-  /** Nimmt das naechste Paket aus der Warteschlange und bearbeitet es. */
+  /** Nimmt das nächste Paket aus der Warteschlange und bearbeitet es. */
   private starte(z: ModulZustand): boolean {
     if (z.belegung || z.warteschlange.length === 0) return false;
     const paket = z.warteschlange.shift()!;
@@ -432,13 +432,13 @@ export class Simulation {
 
     const besuch = (paket.besuche.get(modul.id) ?? 0) + 1;
     paket.besuche.set(modul.id, besuch);
-    // Ein- und Ausgang sind keine Bearbeitungsschritte — sie zaehlen nicht in
+    // Ein- und Ausgang sind keine Bearbeitungsschritte — sie zählen nicht in
     // die Nachvollziehbarkeit, sonst kann kein Werk je 100 Prozent erreichen.
     if (modul.art !== 'quelle' && modul.art !== 'senke') paket.gesamteSchritte++;
     z.durchlauf++;
 
     if (besuch > GRENZEN.maxBesuche) {
-      this.melde('schleife', paket.id, modul.id, `${besuch} Durchlaeufe`);
+      this.melde('schleife', paket.id, modul.id, `${besuch} Durchläufe`);
       this.verwirf(paket, modul.id, 'endlosschleife');
       return true;
     }
@@ -454,7 +454,7 @@ export class Simulation {
     this.spur(paket, modul, 'ausgeliefert');
     this.geliefert.push(paket);
     this.loeseGruppe(paket);
-    this.melde('auslieferung', paket.id, modul.id, `Guete ${paket.guete.toFixed(2)}`);
+    this.melde('auslieferung', paket.id, modul.id, `Güte ${paket.guete.toFixed(2)}`);
   }
 
   // -------------------------------------------------------------------------
@@ -510,7 +510,7 @@ export class Simulation {
     const k = KERN[groesse];
     const a = p.auftrag;
 
-    // Guete-Decke: was dieser Kern bei diesem Auftrag ueberhaupt erreichen kann.
+    // Güte-Decke: was dieser Kern bei diesem Auftrag überhaupt erreichen kann.
     let deckel = k.basisDeckel - KURVE_KOMPETENZ(Math.max(0, a.schwierigkeit - k.kompetenz));
     const spez = m.param.spezialisierung;
     if (spez && spez !== 'keine') {
@@ -521,7 +521,7 @@ export class Simulation {
     if (p.abgerufen) deckel += SPEICHER.abrufen.deckelBonus;
     deckel = klemme(deckel);
 
-    // Context Rot: ab 45 % Fuellstand wird jeder Aufruf wirkungsloser.
+    // Context Rot: ab 45 % Füllstand wird jeder Aufruf wirkungsloser.
     const ueber = (p.kontext - KONTEXT_SCHWELLE) / (1 - KONTEXT_SCHWELLE);
     const rot = p.kontext <= KONTEXT_SCHWELLE ? 0 : KONTEXT_ROT_MAX * KURVE_KONTEXT_ROT(klemme(ueber));
 
@@ -549,7 +549,7 @@ export class Simulation {
 
     p.kontext = q(Math.min(1, p.kontext + k.kontextLast));
 
-    // Ein ueberforderter Kern wird unsicherer, ein souveraener sicherer.
+    // Ein überforderter Kern wird unsicherer, ein souveraener sicherer.
     const delta = a.schwierigkeit > k.kompetenz ? 0.12 : -0.08;
     p.unsicherheit = q(klemme(p.unsicherheit + delta + a.mehrdeutigkeit * 0.06));
 
@@ -585,7 +585,7 @@ export class Simulation {
         break;
       case 'schwierigkeit':
       default: {
-        // Der Router schaetzt die Schwierigkeit — und irrt sich umso mehr,
+        // Der Router schätzt die Schwierigkeit — und irrt sich umso mehr,
         // je mehrdeutiger der Auftrag ist.
         const rauschen =
           zufallNormal(this.saat, 'weiche.schaetzung', p.id, m.id, besuch) *
@@ -664,15 +664,15 @@ export class Simulation {
    * Die drei Aggregationsarten unterscheiden sich fachlich fundamental:
    *
    *  - `voting` nimmt den Median und entscheidet Kompromittierung per Mehrheit.
-   *    Redundanz schlaegt Einschleusung — die wichtigste Lektion von Akt V.
-   *  - `bester` nimmt das beste Ergebnis, uebernimmt aber auch dessen Makel.
+   *    Redundanz schlägt Einschleusung — die wichtigste Lektion von Akt V.
+   *  - `bester` nimmt das beste Ergebnis, übernimmt aber auch dessen Makel.
    *  - `verschmelzen` addiert Abdeckung, erbt jedoch JEDEN Makel aus JEDEM
-   *    Zweig und traegt die Kontextlast aller Zweige zusammen.
+   *    Zweig und trägt die Kontextlast aller Zweige zusammen.
    */
   private verschmelze(teile: readonly Paket[], modus: SammlerModus): Paket {
     const basis = teile[0]!;
     const ergebnis = this.klone(basis, '');
-    // Die Stamm-Id ohne Klon-Suffix stellt die Identitaet des Auftrags wieder her.
+    // Die Stamm-Id ohne Klon-Suffix stellt die Identität des Auftrags wieder her.
     const stamm = basis.id.replace(/#\d+$/, '');
     const n = teile.length;
     const gueten = teile.map((t) => t.guete).sort((a, b) => a - b);
@@ -742,7 +742,7 @@ export class Simulation {
     return zusammen;
   }
 
-  // --- Prueferin (Evaluator-Optimizer) ------------------------------------
+  // --- Prüferin (Evaluator-Optimizer) ------------------------------------
 
   private pruefer(m: Modul, p: Paket, besuch: number): { port: string; dauer: number } {
     const gepuffert = Math.min(p.zwischenspeicherAb, p.kontext);
@@ -757,7 +757,7 @@ export class Simulation {
       p.guete + zufallNormal(this.saat, 'pruefer.rauschen', p.id, m.id, besuch) * PRUEFER.rauschen;
 
     if (geschaetzt < schwelle && besuch <= runden) {
-      this.spur(p, m, `Nacharbeit angeordnet (Runde ${besuch}, geschaetzt ${geschaetzt.toFixed(2)})`);
+      this.spur(p, m, `Nacharbeit angeordnet (Runde ${besuch}, geschätzt ${geschaetzt.toFixed(2)})`);
       return { port: 'zurueck', dauer: PRUEFER.dauer };
     }
     this.spur(p, m, besuch > runden ? 'Runden aufgebraucht, freigegeben' : 'freigegeben');
@@ -804,7 +804,7 @@ export class Simulation {
         this.berechne(p, s.kosten);
         p.kontext = q(p.kontext * s.kontextFaktor);
         p.guete = q(klemme(p.guete - s.gueteVerlust));
-        p.zwischenspeicherAb = 0; // Kompression macht jeden Cache ungueltig.
+        p.zwischenspeicherAb = 0; // Kompression macht jeden Cache ungültig.
         this.spur(p, m, 'Kontext verdichtet');
         return { port: 'aus', dauer: s.dauer };
       }
@@ -851,13 +851,13 @@ export class Simulation {
           this.melde('alarm', p.id, m.id, 'Einschleusung abgefangen');
           return { port: 'alarm', dauer: WALL.dauer };
         }
-        this.spur(p, m, 'unauffaellig (Filter hat nichts gefunden)');
+        this.spur(p, m, 'unauffällig (Filter hat nichts gefunden)');
         return { port: 'rein', dauer: WALL.dauer };
       }
     } else {
       if (p.kompromittiert) {
         if (zufallJa(this.saat, 'wall.ausgang', WALL.ausgangWirkung, p.id, m.id, besuch)) {
-          this.spur(p, m, 'kompromittiertes Ergebnis zurueckgehalten');
+          this.spur(p, m, 'kompromittiertes Ergebnis zurückgehalten');
           this.melde('alarm', p.id, m.id, 'Ausgang blockiert');
           return { port: 'alarm', dauer: WALL.dauer };
         }
@@ -866,7 +866,7 @@ export class Simulation {
       }
     }
 
-    // Fehlalarm auf harmlosen Auftraegen — der Preis jeder Filterung.
+    // Fehlalarm auf harmlosen Aufträgen — der Preis jeder Filterung.
     if (zufallJa(this.saat, 'wall.fehlalarm', WALL.fehlalarm, p.id, m.id, besuch)) {
       this.spur(p, m, 'Fehlalarm');
       return { port: 'alarm', dauer: WALL.dauer };
@@ -889,7 +889,7 @@ export class Simulation {
       if (z.fehlerZaehler > versuche) {
         if (!z.offen) {
           z.offen = true;
-          this.melde('alarm', p.id, m.id, 'Sicherung ausgeloest');
+          this.melde('alarm', p.id, m.id, 'Sicherung ausgelöst');
         }
         this.spur(p, m, 'Sicherung offen — degradiert weiter');
         return { port: 'notausgang', dauer: SICHERUNG.dauer };
@@ -951,10 +951,10 @@ export class Simulation {
   // -------------------------------------------------------------------------
 
   /**
-   * Lesbarer Momentanzustand fuer die Darstellung. Die 3D-Ansicht liest
-   * ausschliesslich hier und schreibt niemals zurueck — das ist die Trennlinie,
+   * Lesbarer Momentanzustand für die Darstellung. Die 3D-Ansicht liest
+   * ausschließlich hier und schreibt niemals zurück — das ist die Trennlinie,
    * ohne die Golden-Master-Tests, Zeit-Debugger und Wiedergabe nicht
-   * funktionieren wuerden.
+   * funktionieren würden.
    */
   momentaufnahme(): PaketAnsicht[] {
     const liste: PaketAnsicht[] = [];
@@ -1037,7 +1037,7 @@ export class Simulation {
   }
 
   /**
-   * Kanonische Pruefsumme des Laufzustands. Grundlage der Golden-Master-Tests
+   * Kanonische Prüfsumme des Laufzustands. Grundlage der Golden-Master-Tests
    * und des Node-gegen-Browser-Kreuzchecks.
    */
   zustandsHash(): string {
@@ -1074,5 +1074,5 @@ export function simuliere(opt: SimOptionen): LaufErgebnis {
   return new Simulation(opt).laufeDurch();
 }
 
-/** Pruefsumme des Werks — nuetzlich fuer Blaupausen-Vergleiche. */
+/** Prüfsumme des Werks — nützlich für Blaupausen-Vergleiche. */
 export { kanonisch };

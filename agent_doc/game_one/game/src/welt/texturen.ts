@@ -1,16 +1,16 @@
 /**
- * Prozedurale Texturen fuer SCHWARMWERK — Halle 3 der KONTUR Digital GmbH.
+ * Prozedurale Texturen für SCHWARMWERK — Halle 3 der KONTUR Digital GmbH.
  *
- * Dieses Modul erzeugt die gesamte Oberflaechenqualitaet des Spiels rein
+ * Dieses Modul erzeugt die gesamte Oberflächenqualität des Spiels rein
  * arithmetisch. Es gibt KEINE externen Assets, kein Canvas2D, keinen
  * GPU-Kontext. Alles, was hier entsteht, ist ein `Uint8Array`, das in eine
- * `THREE.DataTexture` gelegt wird — damit laeuft der Generator identisch im
- * Browser und in Node (vitest), und die Ergebnisse sind byteweise pruefbar.
+ * `THREE.DataTexture` gelegt wird — damit läuft der Generator identisch im
+ * Browser und in Node (vitest), und die Ergebnisse sind byteweise prüfbar.
  *
  * ## Determinismus
- * Es wird ausschliesslich der hashbasierte Zufall aus `src/sim/rng.ts`
- * verwendet. Kohaerentes Rauschen braucht aber Millionen von Gitterabfragen;
- * `zufall(saat, kanal, ix, iy)` wuerde bei jedem Aufruf den Kanalnamen neu
+ * Es wird ausschließlich der hashbasierte Zufall aus `src/sim/rng.ts`
+ * verwendet. Kohärentes Rauschen braucht aber Millionen von Gitterabfragen;
+ * `zufall(saat, kanal, ix, iy)` würde bei jedem Aufruf den Kanalnamen neu
  * hashen. Deshalb wird der Kanalanteil einmal pro Rauschschicht in
  * `kanalSaat()` vorberechnet und danach mit `gitterZahl()` genau so
  * weiterverrechnet, wie `zufall()` es tut. Das Ergebnis ist bitgleich mit
@@ -18,13 +18,13 @@
  *
  * Es werden nur `Math.floor`, `Math.round`, `Math.abs`, `Math.min`,
  * `Math.max`, `Math.imul` und `Math.sqrt` benutzt. Alle davon sind nach
- * IEEE-754 exakt bzw. korrekt gerundet und damit ueber alle Laufzeiten hinweg
+ * IEEE-754 exakt bzw. korrekt gerundet und damit über alle Laufzeiten hinweg
  * identisch. Transzendente Funktionen (`sin`, `cos`, `pow`, `exp`) kommen
  * bewusst NICHT vor.
  *
  * ## Kachelbarkeit
  * Jede Rauschschicht arbeitet auf einem Gitter mit ganzzahliger Periode und
- * schlaegt die Gitterindizes modulo dieser Periode um. Dadurch gilt exakt
+ * schlägt die Gitterindizes modulo dieser Periode um. Dadurch gilt exakt
  * `feld(0, v) === feld(1, v)` und `feld(u, 0) === feld(u, 1)`. Es wird nirgends
  * gespiegelt.
  */
@@ -33,7 +33,7 @@ import * as THREE from 'three/webgpu';
 import { hashText } from '../sim/rng';
 
 // ---------------------------------------------------------------------------
-// Oeffentliche Typen
+// Öffentliche Typen
 // ---------------------------------------------------------------------------
 
 export type MaterialArt =
@@ -48,7 +48,7 @@ export type MaterialArt =
   | 'ziegel'
   | 'emaille';
 
-/** Alle Materialarten in fester Reihenfolge — fuer Tests und Vorwaermen. */
+/** Alle Materialarten in fester Reihenfolge — für Tests und Vorwärmen. */
 export const MATERIAL_ARTEN: readonly MaterialArt[] = [
   'beton',
   'stahl_gebuerstet',
@@ -67,7 +67,7 @@ export type TexturGroesse = 256 | 512 | 1024;
 export interface TexturSatz {
   readonly albedo: THREE.DataTexture;
   readonly normal: THREE.DataTexture;
-  /** Rot = Rauheit, Gruen = Metallgrad, Blau = Umgebungsverdeckung (ORM-artig gepackt). */
+  /** Rot = Rauheit, Grün = Metallgrad, Blau = Umgebungsverdeckung (ORM-artig gepackt). */
   readonly orm: THREE.DataTexture;
   readonly emission?: THREE.DataTexture;
   entsorge(): void;
@@ -75,7 +75,7 @@ export interface TexturSatz {
 
 /**
  * Der Zustand eines einzelnen Texels, bevor er in Bytes zerlegt wird.
- * Bewusst veraenderlich: pro Textur wird genau ein Objekt wiederverwendet,
+ * Bewusst veränderlich: pro Textur wird genau ein Objekt wiederverwendet,
  * damit im Pixelloop nichts alloziert wird.
  */
 export interface Oberflaeche {
@@ -83,7 +83,7 @@ export interface Oberflaeche {
   r: number;
   g: number;
   b: number;
-  /** Hoehenfeld 0..1 — Grundlage fuer Normale und Verdeckung. */
+  /** Höhenfeld 0..1 — Grundlage für Normale und Verdeckung. */
   hoehe: number;
   /** Rauheit 0..1. */
   rauheit: number;
@@ -156,12 +156,12 @@ function glatteStufe(k0: number, k1: number, x: number): number {
   return t * t * (3 - 2 * t);
 }
 
-/** Quintische Ueberblendung nach Perlin — stetige zweite Ableitung, keine Gitterartefakte. */
+/** Quintische Überblendung nach Perlin — stetige zweite Ableitung, keine Gitterartefakte. */
 function glatt(t: number): number {
   return t * t * t * (t * (t * 6 - 15) + 10);
 }
 
-/** Positiver Modulo fuer Gitterindizes. */
+/** Positiver Modulo für Gitterindizes. */
 function umschlag(v: number, periode: number): number {
   const m = v % periode;
   return m < 0 ? m + periode : m;
@@ -174,7 +174,7 @@ function umschlag(v: number, periode: number): number {
 const W = 0.7071067811865476;
 
 /**
- * Acht Gradientenrichtungen auf dem Einheitskreis (Achteck). Alle Eintraege
+ * Acht Gradientenrichtungen auf dem Einheitskreis (Achteck). Alle Einträge
  * sind exakt darstellbare Doubles, damit das Rauschen bitstabil bleibt.
  */
 const GRADIENTEN: readonly number[] = [
@@ -220,7 +220,7 @@ export function gradientRauschen(
 }
 
 /**
- * Fraktales Rauschen (fBm) ueber (u, v) in [0, 1). Die Periode verdoppelt sich
+ * Fraktales Rauschen (fBm) über (u, v) in [0, 1). Die Periode verdoppelt sich
  * je Oktave, bleibt also ganzzahlig — die Kachel bleibt nahtlos.
  * Ergebnis praktisch in [-1, 1].
  */
@@ -249,7 +249,7 @@ export function fbm(
 }
 
 /**
- * Gratrauschen (ridged fBm) — liefert schmale, helle Grate. Ideal fuer Kratzer,
+ * Gratrauschen (ridged fBm) — liefert schmale, helle Grate. Ideal für Kratzer,
  * Risse und Schleifspuren. Ergebnis in [0, 1].
  */
 export function gratRauschen(
@@ -278,9 +278,9 @@ export function gratRauschen(
 }
 
 export interface WorleyErgebnis {
-  /** Abstand zum naechsten Merkmalspunkt, in Zellbreiten. */
+  /** Abstand zum nächsten Merkmalspunkt, in Zellbreiten. */
   f1: number;
-  /** Abstand zum zweitnaechsten Merkmalspunkt. */
+  /** Abstand zum zweitnächsten Merkmalspunkt. */
   f2: number;
   /** Kennwert der Gewinnerzelle in [0, 1) — erlaubt Variation je Zelle. */
   zelle: number;
@@ -336,7 +336,7 @@ export function worley(
   return worleyPuffer;
 }
 
-/** Abstand eines Punktes zu einer Strecke — fuer die Leiterbahnen. */
+/** Abstand eines Punktes zu einer Strecke — für die Leiterbahnen. */
 function abstandStrecke(
   px: number,
   py: number,
@@ -361,19 +361,19 @@ function abstandStrecke(
 // ---------------------------------------------------------------------------
 
 interface Feld {
-  /** Wertet die Oberflaeche an (u, v) in [0, 1) aus. */
+  /** Wertet die Oberfläche an (u, v) in [0, 1) aus. */
   readonly abtaste: (u: number, v: number, ziel: Oberflaeche) => void;
   /**
-   * Reliefhoehe in Texeln (bezogen auf 512), die `hoehe = 1` fuer die
-   * NORMAL-Map bedeutet. Der Wert ist bewusst groesser als die physikalische
-   * Hoehe: eine Normal-Map soll die Mikrostruktur sichtbar machen, die bei
-   * massstabsgetreuer Hoehe unter einem Texel verschwinden wuerde.
+   * Reliefhöhe in Texeln (bezogen auf 512), die `hoehe = 1` für die
+   * NORMAL-Map bedeutet. Der Wert ist bewusst größer als die physikalische
+   * Höhe: eine Normal-Map soll die Mikrostruktur sichtbar machen, die bei
+   * maßstabsgetreuer Höhe unter einem Texel verschwinden würde.
    */
   readonly relief: number;
   /**
-   * Reliefhoehe in Texeln fuer die Verdeckungsrechnung. Hier zaehlt die
-   * tatsaechliche Makrogeometrie (Fugen, Loecher, Noppen) — mit dem
-   * ueberhoehten Normalenrelief wuerde jede Kachel zulaufen.
+   * Reliefhöhe in Texeln für die Verdeckungsrechnung. Hier zählt die
+   * tatsächliche Makrogeometrie (Fugen, Löcher, Noppen) — mit dem
+   * überhöhten Normalenrelief würde jede Kachel zulaufen.
    */
   readonly aoRelief: number;
   readonly hatEmission: boolean;
@@ -381,7 +381,7 @@ interface Feld {
 
 type FeldBauer = (saat: number) => Feld;
 
-/** Erzeugt die Basis-Ableitung fuer einen benannten Kanal eines Materials. */
+/** Erzeugt die Basis-Ableitung für einen benannten Kanal eines Materials. */
 function kanaele(saat: number, art: MaterialArt): (kanal: string) => number {
   return (kanal: string) => kanalSaat(saat, art + '.' + kanal);
 }
@@ -406,18 +406,18 @@ const baueBeton: FeldBauer = (saat) => {
       const gross = fbm(u, v, 3, 3, 4, 0.5, bGross);
       const mittel = fbm(u, v, 11, 11, 4, 0.5, bMittel);
       const fein = fbm(u, v, 61, 61, 3, 0.55, bFein);
-      // Sandkorn: nur im Hoehenfeld, damit die Normal-Map die Zementhaut zeigt.
+      // Sandkorn: nur im Höhenfeld, damit die Normal-Map die Zementhaut zeigt.
       const korn = fbm(u, v, 157, 157, 2, 0.5, bKorn);
 
-      // Zuschlagkoerner: helle Kiesel, die knapp unter der Schalhaut liegen.
+      // Zuschlagkörner: helle Kiesel, die knapp unter der Schalhaut liegen.
       const zu = worley(u, v, 23, 23, bZuschlag);
       const kies = glatteStufe(0.34, 0.12, zu.f1) * glatteStufe(0.35, 0.55, zu.zelle);
 
-      // Luftporen: kleine, dunkle Krater. Nur etwa jede zweite Zelle traegt eine.
+      // Luftporen: kleine, dunkle Krater. Nur etwa jede zweite Zelle trägt eine.
       const po = worley(u, v, 83, 83, bPoren);
       const pore = glatteStufe(0.20, 0.04, po.f1) * glatteStufe(0.58, 0.72, po.zelle);
 
-      // Wasserschlieren laufen senkrecht: schnelle Variation in u, traege in v.
+      // Wasserschlieren laufen senkrecht: schnelle Variation in u, träge in v.
       const schliere = glatteStufe(0.10, 0.62, fbm(u, v, 47, 3, 3, 0.5, bSchlieren));
 
       let h = 0.365 + gross * 0.055 + mittel * 0.028 + fein * 0.016;
@@ -443,7 +443,7 @@ const baueBeton: FeldBauer = (saat) => {
   };
 };
 
-// --- Gebuerstetes Edelstahlblech -------------------------------------------
+// --- Gebürstetes Edelstahlblech -------------------------------------------
 
 const baueStahlGebuerstet: FeldBauer = (saat) => {
   const k = kanaele(saat, 'stahl_gebuerstet');
@@ -457,12 +457,12 @@ const baueStahlGebuerstet: FeldBauer = (saat) => {
     aoRelief: 1.6,
     hatEmission: false,
     abtaste(u, v, z) {
-      // Schleifrichtung laeuft entlang u: traege in u, sehr schnell in v.
+      // Schleifrichtung läuft entlang u: träge in u, sehr schnell in v.
       const buerste = fbm(u, v, 5, 128, 3, 0.55, bBuerste);
       const fein = gradientRauschen(u * 3, v * 384, 3, 384, bFein);
       const wolke = fbm(u, v, 4, 4, 4, 0.5, bWolke);
 
-      // Handschmier und Oelfilm in unregelmaessigen Flecken.
+      // Handschmier und Ölfilm in unregelmäßigen Flecken.
       const oelZelle = worley(u, v, 5, 5, bOel);
       const oel = glatteStufe(0.44, 0.10, oelZelle.f1) * glatteStufe(0.58, 0.82, oelZelle.zelle);
 
@@ -482,7 +482,7 @@ const baueStahlGebuerstet: FeldBauer = (saat) => {
   };
 };
 
-// --- Lackiertes Stahlgehaeuse ----------------------------------------------
+// --- Lackiertes Stahlgehäuse ----------------------------------------------
 
 const baueStahlLackiert: FeldBauer = (saat) => {
   const k = kanaele(saat, 'stahl_lackiert');
@@ -506,7 +506,7 @@ const baueStahlLackiert: FeldBauer = (saat) => {
       const kern = glatteStufe(0.20, 0.07, ab.f1) * auswahl;
       const saum = glatteStufe(0.30, 0.17, ab.f1) * auswahl - kern;
 
-      // Dunkler, kuehler Industrielack (RAL-7016-nah).
+      // Dunkler, kühler Industrielack (RAL-7016-nah).
       const tonung = 1 + staub * 0.10 + haut * 0.04;
       let r = 0.102 * tonung;
       let g = 0.118 * tonung;
@@ -543,7 +543,7 @@ const baueStahlLackiert: FeldBauer = (saat) => {
   };
 };
 
-// --- Messing (Schilder, Beschlaege) ----------------------------------------
+// --- Messing (Schilder, Beschläge) ----------------------------------------
 
 const baueMessing: FeldBauer = (saat) => {
   const k = kanaele(saat, 'messing');
@@ -570,11 +570,11 @@ const baueMessing: FeldBauer = (saat) => {
       let g = 0.418 * glanz;
       let b = 0.238 * glanz;
 
-      // Anlauffarben: dunkler, matter, ins Braungruene.
+      // Anlauffarben: dunkler, matter, ins Braungrüne.
       r = mischen(r, 0.268, patina * 0.55);
       g = mischen(g, 0.232, patina * 0.55);
       b = mischen(b, 0.158, patina * 0.55);
-      // Gruenspan sitzt nur in wenigen Vertiefungen.
+      // Grünspan sitzt nur in wenigen Vertiefungen.
       r = mischen(r, 0.196, span);
       g = mischen(g, 0.254, span);
       b = mischen(b, 0.176, span);
@@ -615,7 +615,7 @@ const baueGlas: FeldBauer = (saat) => {
       const st = worley(u, v, 97, 97, bStaub);
       const staub = glatteStufe(0.10, 0.02, st.f1) * glatteStufe(0.90, 0.96, st.zelle);
 
-      // Leichter Gruenstich durch den Eisenanteil im Glas.
+      // Leichter Grünstich durch den Eisenanteil im Glas.
       const grund = 0.885 - schmier * 0.06;
       z.r = grund * 0.965;
       z.g = grund;
@@ -632,7 +632,7 @@ const baueGlas: FeldBauer = (saat) => {
   };
 };
 
-// --- Gummi (Daempfer, Kabelmaentel, Trittstufen) ---------------------------
+// --- Gummi (Dämpfer, Kabelmäntel, Trittstufen) ---------------------------
 
 const baueGummi: FeldBauer = (saat) => {
   const k = kanaele(saat, 'gummi');
@@ -669,7 +669,7 @@ const baueGummi: FeldBauer = (saat) => {
 
 // --- Leiterplatte ----------------------------------------------------------
 
-/** Zellen je Kachelkante fuer das Leiterbahnnetz. */
+/** Zellen je Kachelkante für das Leiterbahnnetz. */
 const PLATINE_ZELLEN = 18;
 
 const baueLeiterplatte: FeldBauer = (saat) => {
@@ -713,8 +713,8 @@ const baueLeiterplatte: FeldBauer = (saat) => {
       const jx = 0.32 + gitterZahl(bKnoten, wx, wy) * 0.36;
       const jy = 0.32 + gitterZahl(mischeEin(bKnoten, 1), wx, wy) * 0.36;
 
-      // Eine Kante gehoert beiden Nachbarzellen: derselbe Hash, also perfekt
-      // verbundene Bahnen ueber die Kachelgrenze hinweg.
+      // Eine Kante gehört beiden Nachbarzellen: derselbe Hash, also perfekt
+      // verbundene Bahnen über die Kachelgrenze hinweg.
       const aktivR = gitterZahl(bAktivX, wx, wy) < 0.60;
       const aktivL = gitterZahl(bAktivX, wxL, wy) < 0.60;
       const aktivO = gitterZahl(bAktivY, wx, wy) < 0.60;
@@ -724,7 +724,7 @@ const baueLeiterplatte: FeldBauer = (saat) => {
       const xO = 0.22 + gitterZahl(bKanteY, wx, wy) * 0.56;
       const xU = 0.22 + gitterZahl(bKanteY, wx, wyU) * 0.56;
 
-      // Manhattan-Fuehrung: erst quer, dann laengs zum Kantenmittelpunkt.
+      // Manhattan-Führung: erst quer, dann längs zum Kantenmittelpunkt.
       let d = 9;
       if (aktivR) {
         d = Math.min(d, abstandStrecke(lx, ly, jx, jy, jx, yR));
@@ -745,7 +745,7 @@ const baueLeiterplatte: FeldBauer = (saat) => {
       const bahn = glatteStufe(breite + 0.012, breite, d);
       const angeschlossen = aktivR || aktivL || aktivO || aktivUn;
 
-      // Loetauge mit Bohrung am Knotenpunkt.
+      // Lötauge mit Bohrung am Knotenpunkt.
       const dKnoten = Math.sqrt((lx - jx) * (lx - jx) + (ly - jy) * (ly - jy));
       const hatPad = angeschlossen && gitterZahl(bPad, wx, wy) < 0.27;
       const padRing = hatPad ? glatteStufe(0.155, 0.140, dKnoten) : 0;
@@ -761,7 +761,7 @@ const baueLeiterplatte: FeldBauer = (saat) => {
 
       const lack = fbm(u, v, 29, 29, 3, 0.5, bLack);
 
-      // Loetstopplack: dunkles Tannengruen.
+      // Lötstopplack: dunkles Tannengrün.
       let r = 0.050 + lack * 0.012;
       let g = 0.135 + lack * 0.022;
       let b = 0.108 + lack * 0.016;
@@ -774,7 +774,7 @@ const baueLeiterplatte: FeldBauer = (saat) => {
       b = mischen(b, b + 0.050, bahn);
       rau = mischen(rau, 0.33, bahn);
 
-      // Loetauge: chemisch vergoldet.
+      // Lötauge: chemisch vergoldet.
       r = mischen(r, 0.640, pad);
       g = mischen(g, 0.515, pad);
       b = mischen(b, 0.252, pad);
@@ -788,7 +788,7 @@ const baueLeiterplatte: FeldBauer = (saat) => {
       rau = mischen(rau, 0.80, bohrung);
       met = mischen(met, 0.0, bohrung);
 
-      // Gehaeuse der Leuchtdiode.
+      // Gehäuse der Leuchtdiode.
       const lr = ledFarbe[0] ?? 1;
       const lg = ledFarbe[1] ?? 1;
       const lb = ledFarbe[2] ?? 1;
@@ -822,8 +822,8 @@ const baueBodengitter: FeldBauer = (saat) => {
   const bRost = k('rost');
   const bSchmutz = k('schmutz');
 
-  const tragZellen = 14; // Tragstaebe laengs v
-  const fuellZellen = 7; // Fuellstaebe laengs u, doppelter Abstand
+  const tragZellen = 14; // Tragstäbe längs v
+  const fuellZellen = 7; // Füllstäbe längs u, doppelter Abstand
   const kerbZellen = 28; // Kerbung der Tragstaboberkante
 
   return {
@@ -831,7 +831,7 @@ const baueBodengitter: FeldBauer = (saat) => {
     aoRelief: 26,
     hatEmission: false,
     abtaste(u, v, z) {
-      // Abstand zur naechsten Zellgrenze, auf der die Staebe sitzen.
+      // Abstand zur nächsten Zellgrenze, auf der die Stäbe sitzen.
       const fu = u * tragZellen - Math.floor(u * tragZellen);
       const fv = v * fuellZellen - Math.floor(v * fuellZellen);
       const du = Math.min(fu, 1 - fu);
@@ -842,7 +842,7 @@ const baueBodengitter: FeldBauer = (saat) => {
       const trag = glatteStufe(tragBreite, tragBreite - 0.026, du);
       const fuell = glatteStufe(fuellBreite, fuellBreite - 0.014, dv);
 
-      // Gekerbte Oberkante der Tragstaebe (Rutschsicherung).
+      // Gekerbte Oberkante der Tragstäbe (Rutschsicherung).
       const fk = v * kerbZellen - Math.floor(v * kerbZellen);
       const kerbe = glatteStufe(0.34, 0.44, Math.min(fk, 1 - fk));
       const tragHoehe = trag * (0.80 + kerbe * 0.20);
@@ -855,7 +855,7 @@ const baueBodengitter: FeldBauer = (saat) => {
       const rost = glatteStufe(0.50, 0.16, ro.f1) * glatteStufe(0.72, 0.88, ro.zelle) * material;
       const schmutz = glatteStufe(-0.1, 0.6, fbm(u, v, 9, 9, 4, 0.5, bSchmutz));
 
-      // Feuerverzinkter Stahl: kuehl, fleckig, mit sichtbaren Zinkblumen.
+      // Feuerverzinkter Stahl: kühl, fleckig, mit sichtbaren Zinkblumen.
       const grund = 0.415 + zink * 0.075 - schmutz * 0.07;
       let r = grund * 0.985;
       let g = grund;
@@ -913,7 +913,7 @@ const baueZiegel: FeldBauer = (saat) => {
       const yy = v * ZIEGEL_REIHEN;
       const ry = Math.floor(yy);
       const fy = yy - ry;
-      // Laeuferverband: jede zweite Reihe um einen halben Stein versetzt.
+      // Läuferverband: jede zweite Reihe um einen halben Stein versetzt.
       const versatz = (umschlag(ry, 2) === 1) ? 0.5 : 0;
       const xx = u * ZIEGEL_SPALTEN + versatz;
       const rx = Math.floor(xx);
@@ -961,19 +961,19 @@ const baueZiegel: FeldBauer = (saat) => {
       g *= steinTon;
       b *= steinTon;
 
-      // Moertel: kaltes, helles Grau mit Korn.
+      // Mörtel: kaltes, helles Grau mit Korn.
       const mo = 0.196 + moertelKorn * 0.036;
       r = mischen(r, mo * 0.98, fuge);
       g = mischen(g, mo, fuge);
       b = mischen(b, mo * 1.05, fuge);
 
-      // Russ aus 68 Jahren Halle.
+      // Ruß aus 68 Jahren Halle.
       const dunkel = 1 - russ * 0.50;
       r *= dunkel;
       g *= dunkel;
       b *= dunkel;
 
-      // Salzausblueh: matter, heller Schleier.
+      // Salzausblüh: matter, heller Schleier.
       r = mischen(r, r + 0.105, ausblueh);
       g = mischen(g, g + 0.110, ausblueh);
       b = mischen(b, b + 0.118, ausblueh);
@@ -1100,21 +1100,21 @@ export function abtasteOberflaeche(
 }
 
 // ---------------------------------------------------------------------------
-// Hoehenfeld -> Normale und Verdeckung
+// Höhenfeld -> Normale und Verdeckung
 // ---------------------------------------------------------------------------
 
-/** Liest ein Hoehenfeld mit Umschlag an den Kachelraendern. */
+/** Liest ein Höhenfeld mit Umschlag an den Kachelrändern. */
 function hoeheAn(hoehe: Float32Array, groesse: number, x: number, y: number): number {
   const maske = groesse - 1;
   return hoehe[((y & maske) * groesse + (x & maske))] ?? 0;
 }
 
 /**
- * Normal-Map aus dem Hoehenfeld per Sobel-3x3.
+ * Normal-Map aus dem Höhenfeld per Sobel-3x3.
  *
  * `n = normalize(vec3(-gx, -gy, 1))`, Ausgabe `n * 0.5 + 0.5`. Eine flache
  * Stelle liefert damit exakt (128, 128, 255): `Math.round(127.5) === 128`.
- * Weil `nz` immer positiv ist, ist der Blaukanal ueberall >= 128.
+ * Weil `nz` immer positiv ist, ist der Blaukanal überall >= 128.
  */
 export function normaleAusHoehe(
   hoehe: Float32Array,
@@ -1149,13 +1149,13 @@ export function normaleAusHoehe(
   return daten;
 }
 
-/** Acht Abtastrichtungen fuer den Horizont-Sweep (Achteck). */
+/** Acht Abtastrichtungen für den Horizont-Sweep (Achteck). */
 const SWEEP_X: readonly number[] = [1, W, 0, -W, -1, -W, 0, W];
 const SWEEP_Y: readonly number[] = [0, W, 1, W, 0, -W, -1, -W];
 
 /**
  * Umgebungsverdeckung per Line-Sweep-Horizon (Produktions-Bibel 3.2).
- * Fuer acht Richtungen wird der maximale Horizontwinkel gesucht;
+ * Für acht Richtungen wird der maximale Horizontwinkel gesucht;
  * `ao = 1 - mittel(sin(horizont))`.
  */
 export function berechneVerdeckung(
@@ -1227,9 +1227,9 @@ function baueTextur(
 // ---------------------------------------------------------------------------
 
 /**
- * Obergrenze fuer gleichzeitig lebende Texturs&auml;tze. Das Spiel kennt zehn
- * Master-Materialien; die Reserve faengt Sonderfaelle ab. Wird sie
- * ueberschritten, faellt der am laengsten unbenutzte Satz heraus und wird
+ * Obergrenze für gleichzeitig lebende Textursätze. Das Spiel kennt zehn
+ * Master-Materialien; die Reserve fängt Sonderfälle ab. Wird sie
+ * überschritten, fällt der am längsten unbenutzte Satz heraus und wird
  * entsorgt.
  */
 export const HOECHSTZAHL_SAETZE = 12;
@@ -1240,14 +1240,14 @@ function schluessel(art: MaterialArt, saat: number, groesse: number): string {
   return art + '|' + (saat >>> 0) + '|' + groesse;
 }
 
-/** Anzahl der aktuell im Cache gehaltenen Texturs&auml;tze (Diagnose, Tests). */
+/** Anzahl der aktuell im Cache gehaltenen Textursätze (Diagnose, Tests). */
 export function texturenBestand(): number {
   return cache.size;
 }
 
 /**
- * Erzeugt einen vollstaendigen Texturs&auml;tz (Albedo, Normale, gepacktes ORM
- * und optional Emission) fuer eine Materialart.
+ * Erzeugt einen vollständigen Textursatz (Albedo, Normale, gepacktes ORM
+ * und optional Emission) für eine Materialart.
  *
  * Gleiche Parameter liefern dieselbe Instanz aus dem Cache; ein Neuaufbau nach
  * `entsorgeAlleTexturen()` ist byteweise identisch.
@@ -1371,7 +1371,7 @@ export function erzeugeTexturSatz(
   return satz;
 }
 
-/** Entsorgt alle gecachten Texturs&auml;tze und leert den Cache. */
+/** Entsorgt alle gecachten Textursätze und leert den Cache. */
 export function entsorgeAlleTexturen(): void {
   const alle = Array.from(cache.values());
   cache.clear();

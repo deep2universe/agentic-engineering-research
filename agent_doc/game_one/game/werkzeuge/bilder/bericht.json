@@ -5,58 +5,58 @@
     {
       "name": "01_briefing",
       "beschreibung": "Briefing beim Betreten des Levels",
-      "mittel": 13.36,
+      "mittel": 16.5,
       "max": 239,
-      "hellAnteil": 0.273
+      "hellAnteil": 0.411
     },
     {
       "name": "02_leeres_werk",
       "beschreibung": "Leeres Fundament, Auftragseingang und Auslieferung",
-      "mittel": 11.03,
+      "mittel": 35.41,
       "max": 239,
-      "hellAnteil": 0.231
+      "hellAnteil": 0.632
     },
     {
       "name": "03_gebautes_werk",
       "beschreibung": "Referenzloesung steht",
-      "mittel": 11.04,
+      "mittel": 35.22,
       "max": 239,
-      "hellAnteil": 0.229
+      "hellAnteil": 0.622
     },
     {
       "name": "04_nahaufnahme",
       "beschreibung": "Nahaufnahme der Pipeline",
-      "mittel": 20.87,
+      "mittel": 48.05,
       "max": 239,
-      "hellAnteil": 0.473
+      "hellAnteil": 0.74
     },
     {
       "name": "05_simulation",
       "beschreibung": "Auftraege fliessen durch das Werk",
-      "mittel": 11.32,
+      "mittel": 35.57,
       "max": 239,
-      "hellAnteil": 0.233
+      "hellAnteil": 0.637
     },
     {
       "name": "06_auswertung",
       "beschreibung": "Auswertung nach dem Lauf",
-      "mittel": 11.35,
+      "mittel": 14.56,
       "max": 239,
-      "hellAnteil": 0.225
+      "hellAnteil": 0.362
     },
     {
       "name": "07_ohne_hud",
       "beschreibung": "Nur die Halle, ohne Oberflaeche",
-      "mittel": 10.86,
-      "max": 239,
-      "hellAnteil": 0.235
+      "mittel": 43.41,
+      "max": 210,
+      "hellAnteil": 0.717
     },
     {
       "name": "08_flach",
       "beschreibung": "Flacher Blickwinkel",
-      "mittel": 14.23,
-      "max": 106,
-      "hellAnteil": 0.322
+      "mittel": 42.99,
+      "max": 215,
+      "hellAnteil": 0.749
     }
   ],
   "meldungen": [

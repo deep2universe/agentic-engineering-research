@@ -2,13 +2,13 @@
  * Die einzige Stelle im Spiel, die rohe `wheel`- und `pointer`-Ereignisse sieht.
  *
  * Hintergrund: Auf einem MacBook sind Trackpad-Pinch und ein physisch
- * gedruecktes Strg am `wheel`-Ereignis NICHT unterscheidbar — beide setzen
- * `ctrlKey = true`. Die einzige robuste Loesung ist ein Schattenzustand ueber
- * keydown/keyup auf `window`, der bei `blur` zuruecksetzt (sonst haengt er nach
+ * gedrücktes Strg am `wheel`-Ereignis NICHT unterscheidbar — beide setzen
+ * `ctrlKey = true`. Die einzige robuste Lösung ist ein Schattenzustand über
+ * keydown/keyup auf `window`, der bei `blur` zurücksetzt (sonst hängt er nach
  * Cmd+Tab). three.js macht es intern genauso.
  *
- * Ausserdem gilt: Rechtsklick und mittlere Maustaste werden NIRGENDS
- * vorausgesetzt. macOS uebersetzt Strg+Klick systemseitig in einen Rechtsklick,
+ * Außerdem gilt: Rechtsklick und mittlere Maustaste werden NIRGENDS
+ * vorausgesetzt. macOS übersetzt Strg+Klick systemseitig in einen Rechtsklick,
  * deshalb ist der Orbit-Modifikator die Wahltaste (Alt/Option), niemals Strg.
  */
 
@@ -81,7 +81,7 @@ export class Zeigerquelle {
       this.aktualisiereAusEvent(e);
       const dx = normalisiere(e.deltaX, e.deltaMode);
       const dy = normalisiere(e.deltaY, e.deltaMode);
-      // Pinch: ctrlKey gesetzt, aber Strg NICHT physisch gedrueckt.
+      // Pinch: ctrlKey gesetzt, aber Strg NICHT physisch gedrückt.
       const art: GestenArt = e.ctrlKey && !this.strgPhysisch ? 'pinch' : e.shiftKey ? 'rad' : 'schwenk';
       opt.aufGeste({ art, dx, dy, ndcX: this.zustand.ndcX, ndcY: this.zustand.ndcY });
     };
@@ -158,7 +158,7 @@ export class Zeigerquelle {
     );
   }
 
-  /** Wurde seit dem letzten Bild bewegt? Setzt das Flag zurueck. */
+  /** Wurde seit dem letzten Bild bewegt? Setzt das Flag zurück. */
   bewegungAbholen(): boolean {
     const b = this.bewegungOffen;
     this.bewegungOffen = false;
@@ -167,7 +167,7 @@ export class Zeigerquelle {
 
   private aktualisiereAusEvent(e: MouseEvent | WheelEvent | PointerEvent): void {
     // NDC immer aus getBoundingClientRect, nie aus innerWidth: die Leinwand
-    // fuellt nicht zwangslaeufig das Fenster.
+    // füllt nicht zwangsläufig das Fenster.
     const r = this.opt.leinwand.getBoundingClientRect();
     const x = e.clientX - r.left;
     const y = e.clientY - r.top;

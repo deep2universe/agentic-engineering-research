@@ -1,9 +1,9 @@
 /**
- * Wiederverwendbare Beweis-Maschinerie fuer Level-Saetze.
+ * Wiederverwendbare Beweis-Maschinerie für Level-Sätze.
  *
  * Jeder Akt bringt eine eigene Testdatei mit, die diese Funktion mit seinen
- * vier Leveln aufruft. Dadurch ist jeder Akt unabhaengig beweisbar und mehrere
- * Akte koennen parallel entstehen, ohne sich in die Quere zu kommen.
+ * vier Leveln aufruft. Dadurch ist jeder Akt unabhängig beweisbar und mehrere
+ * Akte können parallel entstehen, ohne sich in die Quere zu kommen.
  */
 
 import { describe, expect, it } from 'vitest';
@@ -36,7 +36,7 @@ export function scheitertRichtig(level: LevelDefinition, am: AntiMuster, m: Metr
   }
 }
 
-/** Dominiert `a` die Loesung `b` auf allen drei Wettbewerbsachsen? */
+/** Dominiert `a` die Lösung `b` auf allen drei Wettbewerbsachsen? */
 export function dominiert(a: Metriken, b: Metriken): boolean {
   const nieSchlechter =
     a.kostenJeAuftrag <= b.kostenJeAuftrag && a.latenzP95 <= b.latenzP95 && a.flaeche <= b.flaeche;
@@ -46,11 +46,11 @@ export function dominiert(a: Metriken, b: Metriken): boolean {
 }
 
 /**
- * Vollstaendiger Beweissatz fuer einen Akt. Erzeugt die vitest-Suiten.
+ * Vollständiger Beweißatz für einen Akt. Erzeugt die vitest-Suiten.
  *
  * @param aktName      Anzeigename, z. B. "Akt II — Die Weiche"
  * @param level        Die vier Level des Akts
- * @param vorgaenger   Referenzloesung des Vorgaengerlevels, die das TEN-Level
+ * @param vorgänger   Referenzlösung des Vorgängerlevels, die das TEN-Level
  *                     nachweislich brechen muss (Produktions-Bibel 5.3).
  */
 export function pruefeAkt(
@@ -65,8 +65,8 @@ export function pruefeAkt(
       expect(new Set(level.map((l) => l.akt)).size).toBe(1);
     });
 
-    it('fuehrt genau eine neue Modulart ein', () => {
-      // Ueber den Akt hinweg darf die Modulliste nur wachsen, nie schrumpfen.
+    it('führt genau eine neue Modulart ein', () => {
+      // Über den Akt hinweg darf die Modulliste nur wachsen, nie schrumpfen.
       for (let i = 1; i < level.length; i++) {
         const vorher = new Set(level[i - 1]!.module);
         for (const m of vorher) {
@@ -76,20 +76,20 @@ export function pruefeAkt(
     });
 
     if (vorgaenger) {
-      it('bricht im TEN-Level die Loesung des Vorgaengerlevels', () => {
+      it('bricht im TEN-Level die Lösung des Vorgängerlevels', () => {
         const ten = level[2]!;
         const m = messe(ten, vorgaenger.werk);
         const b = bewerte(ten.ziele, ten.budget, m);
         expect(
           b.bestanden,
-          `${ten.id}: "${vorgaenger.name}" aus dem Vorgaengerlevel besteht noch immer — ` +
-            `dann bricht dieses Level nichts und ist ueberfluessig.`
+          `${ten.id}: "${vorgaenger.name}" aus dem Vorgängerlevel besteht noch immer — ` +
+            `dann bricht dieses Level nichts und ist überflüssig.`
         ).toBe(false);
       });
     }
 
     describe.each(level.map((l) => [l.id, l] as const))('%s', (_id, l) => {
-      it('ist strukturell gueltig aufgebaut', () => {
+      it('ist strukturell gültig aufgebaut', () => {
         expect(l.referenzen.length).toBeGreaterThanOrEqual(1);
         for (const r of l.referenzen) {
           const befunde = pruefeWerk(r.werk);
@@ -101,7 +101,7 @@ export function pruefeAkt(
         }
       });
 
-      it('wird von jeder Referenzloesung bestanden', () => {
+      it('wird von jeder Referenzlösung bestanden', () => {
         for (const r of l.referenzen) {
           const m = messe(l, r.werk);
           const b = bewerte(l.ziele, l.budget, m);
@@ -112,7 +112,7 @@ export function pruefeAkt(
         }
       });
 
-      it('laeuft mit jeder Referenzloesung ohne Abbruch durch', () => {
+      it('läuft mit jeder Referenzlösung ohne Abbruch durch', () => {
         for (const r of l.referenzen) {
           const e = simuliere({ werk: r.werk, strom: l.strom, saat: l.saat });
           expect(e.abgebrochen, `${r.name}: ${e.abbruchGrund}`).toBe(false);
@@ -127,21 +127,21 @@ export function pruefeAkt(
         expect(bewerte(l.ziele, l.budget, m).bestanden).toBe(false);
       });
 
-      it('laesst jedes Anti-Muster genau an der vorgesehenen Stelle scheitern', () => {
+      it('lässt jedes Anti-Muster genau an der vorgesehenen Stelle scheitern', () => {
         expect(l.antiMuster.length, `${l.id} braucht mindestens ein Anti-Muster`).toBeGreaterThanOrEqual(1);
         for (const a of l.antiMuster) {
           const m = messe(l, a.werk);
           expect(bewerte(l.ziele, l.budget, m).bestanden, `${a.name} besteht wider Erwarten`).toBe(false);
           expect(
             scheitertRichtig(l, a, m),
-            `${a.name} sollte an "${a.scheitertAn}" scheitern. Ist: Guete ${m.guete.toFixed(3)}, ` +
+            `${a.name} sollte an "${a.scheitertAn}" scheitern. Ist: Güte ${m.guete.toFixed(3)}, ` +
               `Token ${Math.round(m.kosten)}, p95 ${m.latenzP95}, Module ${m.flaeche}, Durchsatz ${m.durchsatz.toFixed(2)}, ` +
               `Sicherheit ${m.sicherheit.toFixed(2)}, Nachvollziehbarkeit ${m.nachvollziehbarkeit.toFixed(2)}`
           ).toBe(true);
         }
       });
 
-      it('bietet ab Akt II zwei Loesungswege, von denen keiner den anderen dominiert', () => {
+      it('bietet ab Akt II zwei Lösungswege, von denen keiner den anderen dominiert', () => {
         if (l.akt < 2) return;
         expect(l.referenzen.length, `${l.id} braucht zwei Referenzen`).toBeGreaterThanOrEqual(2);
         const messungen = l.referenzen.map((r) => ({ name: r.name, m: messe(l, r.werk) }));
@@ -162,7 +162,7 @@ export function pruefeAkt(
         ).toBe(true);
       });
 
-      it('haelt die Textbudgets und die Form der Pflichttexte ein', () => {
+      it('hält die Textbudgets und die Form der Pflichttexte ein', () => {
         expect(l.briefing.length, `${l.id} Briefing`).toBeLessThanOrEqual(900);
         expect(l.briefing.length).toBeGreaterThan(120);
         expect(l.reflexion.length, `${l.id} Reflexion`).toBeLessThanOrEqual(220);

@@ -1,7 +1,7 @@
 /**
  * Auswertung von Levelzielen und Budgets.
  *
- * Getrennt von `simulation.ts`, weil die Simulation nichts ueber Level wissen
+ * Getrennt von `simulation.ts`, weil die Simulation nichts über Level wissen
  * muss — sie liefert Metriken, und hier wird entschieden, ob das reicht.
  */
 
@@ -11,9 +11,9 @@ export interface ZielStand {
   readonly ziel: Ziel;
   readonly erfuellt: boolean;
   readonly istWert: number;
-  /** 0..1 fuer den Fortschrittsbalken im HUD. */
+  /** 0..1 für den Fortschrittsbalken im HUD. */
   readonly fortschritt: number;
-  /** Formatierter Ist-Wert fuer die Anzeige. */
+  /** Formatierter Ist-Wert für die Anzeige. */
   readonly anzeige: string;
 }
 
@@ -67,13 +67,13 @@ export function pruefeBudget(budget: Budget, m: Metriken): string[] {
     );
   }
   if (budget.latenz !== undefined && m.latenzP95 > budget.latenz) {
-    verstoesse.push(`Latenzdeckel gerissen: p95 liegt bei ${m.latenzP95} statt hoechstens ${budget.latenz} Ticks.`);
+    verstoesse.push(`Latenzdeckel gerissen: p95 liegt bei ${m.latenzP95} statt höchstens ${budget.latenz} Ticks.`);
   }
   if (budget.module !== undefined && m.flaeche > budget.module) {
-    verstoesse.push(`Zu viele Module: ${m.flaeche} statt hoechstens ${budget.module}.`);
+    verstoesse.push(`Zu viele Module: ${m.flaeche} statt höchstens ${budget.module}.`);
   }
   if (budget.dauer !== undefined && m.dauer > budget.dauer) {
-    verstoesse.push(`Der Lauf dauert zu lange: ${m.dauer} statt hoechstens ${budget.dauer} Ticks.`);
+    verstoesse.push(`Der Lauf dauert zu lange: ${m.dauer} statt höchstens ${budget.dauer} Ticks.`);
   }
   return verstoesse;
 }
@@ -90,19 +90,19 @@ export function bewerte(ziele: readonly Ziel[], budget: Budget, m: Metriken): Be
   };
 }
 
-/** Kurzformel eines Ziels fuer das HUD: "Guete ≥ 75 %". */
+/** Kurzformel eines Ziels für das HUD: "Güte ≥ 75 %". */
 export function zielFormel(z: Ziel): string {
   const zeichen = z.vergleich === '>=' ? '≥' : z.vergleich === '<=' ? '≤' : '=';
   const name: Partial<Record<keyof Metriken, string>> = {
     durchsatz: 'Durchsatz',
-    guete: 'Guete',
+    guete: 'Güte',
     kosten: 'Kosten',
     kostenJeAuftrag: 'Kosten/Auftrag',
     latenzP50: 'Latenz p50',
     latenzP95: 'Latenz p95',
     sicherheit: 'Sicherheit',
     nachvollziehbarkeit: 'Nachvollziehbarkeit',
-    konformitaet: 'Konformitaet',
+    konformitaet: 'Konformität',
     belegquote: 'Belegquote',
     flaeche: 'Module',
     lecks: 'Lecks',

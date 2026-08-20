@@ -1,10 +1,10 @@
 /**
- * Test-Schnittstelle. Wird ausschliesslich unter `__TEST__` eingehaengt.
+ * Test-Schnittstelle. Wird ausschließlich unter `__TEST__` eingehängt.
  *
  * Sie erlaubt einem Playwright-Test, das Spiel wie eine Spielerin zu bedienen —
- * Module setzen, verdrahten, simulieren — und anschliessend gegen den ZUSTAND
- * zu pruefen statt gegen Pixel. Bilder werden ueber `frameSchritt` einzeln
- * angefordert; im Testbetrieb laeuft keine eigene Bildschleife.
+ * Module setzen, verdrahten, simulieren — und anschließend gegen den ZUSTAND
+ * zu prüfen statt gegen Pixel. Bilder werden über `frameSchritt` einzeln
+ * angefordert; im Testbetrieb läuft keine eigene Bildschleife.
  */
 
 import type { Spiel } from '../spiel/spiel';

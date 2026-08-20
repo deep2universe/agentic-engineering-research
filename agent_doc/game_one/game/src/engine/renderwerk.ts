@@ -1,23 +1,23 @@
 /**
- * Das Renderwerk: Renderer, Post-Processing-Graph und Bildguetestufen.
+ * Das Renderwerk: Renderer, Post-Processing-Graph und Bildgütestufen.
  *
  * Grundsatzentscheidung (per Spike verifiziert, siehe
  * `agent_doc/game_one/belege/renderer_spike_ergebnis.md`): `WebGPURenderer`
  * aus `three/webgpu` mit TSL und `RenderPipeline`. WebGL2 ist kein zweiter
  * Renderer, sondern das Fallback-Backend derselben Klasse. Der gesamte
- * Effektkatalog — MRT-Emissive-Bloom, GTAO ueber einen Normal-Pre-Pass, SMAA —
- * laeuft auf beiden Backends identisch und ist headless mit SwiftShader
+ * Effektkatalog — MRT-Emissive-Bloom, GTAO über einen Normal-Pre-Pass, SMAA —
+ * läuft auf beiden Backends identisch und ist headless mit SwiftShader
  * nachweislich lauffaehig.
  *
  * Drei Temporalmodi, weil temporale Effekte und pixelstabile Visual Regression
- * einander ausschliessen:
+ * einander ausschließen:
  *   'prod'        — alles an, so sieht es die Spielerin
  *   'aus'         — keine temporale Akkumulation; Grundlage aller Baselines
  *   'konvergiert' — temporal an, aber erst nach Warmlauf bei fixer Kamera
  */
 
 import * as THREE from 'three/webgpu';
-import { pass, mrt, normalView, velocity, packNormalToRGB, uniform } from 'three/tsl';
+import { pass, mrt, normalView, velocity, packNormalToRGB, uniform, screenUV, float, mix, color } from 'three/tsl';
 import { bloom } from 'three/addons/tsl/display/BloomNode.js';
 import { ao } from 'three/addons/tsl/display/GTAONode.js';
 import { smaa } from 'three/addons/tsl/display/SMAANode.js';
@@ -28,13 +28,13 @@ export type TemporalModus = 'prod' | 'aus' | 'konvergiert';
 
 export interface RenderwerkOptionen {
   readonly leinwand: HTMLCanvasElement;
-  /** Diagnose: Post-Processing vollstaendig ueberspringen. */
+  /** Diagnose: Post-Processing vollständig überspringen. */
   readonly ohnePost?: boolean;
   readonly guete?: Bildguete;
   readonly temporal?: TemporalModus;
-  /** Erzwingt das WebGL2-Backend (Testlaeufe, Fehlersuche). */
+  /** Erzwingt das WebGL2-Backend (Testläufe, Fehlersuche). */
   readonly erzwingeWebGL?: boolean;
-  /** Bewegungsreduktion: kein Pulsieren, kein Ueberschwingen. */
+  /** Bewegungsreduktion: kein Pulsieren, kein Überschwingen. */
   readonly reduzierteBewegung?: boolean;
 }
 
@@ -52,8 +52,8 @@ interface GuetePreset {
 
 /**
  * Emissive-Werte liegen im Spiel STRENG im Band 0.05–0.35. Der Spike hat
- * gezeigt: mit AgX-Tonemapping und diesen Bloom-Staerken brennt alles darueber
- * das Bild vollstaendig aus.
+ * gezeigt: mit AgX-Tonemapping und diesen Bloom-Stärken brennt alles darüber
+ * das Bild vollständig aus.
  */
 const PRESETS: Record<Bildguete, GuetePreset> = {
   hoch: { pixelDeckel: 2, aoAufloesung: 0.5, bloomStaerke: 0.85, bloomRadius: 0.6, bloomSchwelle: 0.62, schattenGroesse: 2048, ao: true, smaa: true },
@@ -76,9 +76,9 @@ export class Renderwerk {
   private readonly entsorger: Array<() => void> = [];
   private konvergenzFrames = 0;
 
-  /** Uniform fuer alle zeitabhaengigen Shader. Wird bewusst NICHT aus `time` gespeist. */
+  /** Uniform für alle zeitabhängigen Shader. Wird bewusst NICHT aus `time` gespeist. */
   readonly zeit = uniform(0);
-  /** Globale Intensitaet der Energieanimation (0 bei reduzierter Bewegung). */
+  /** Globale Intensität der Energieanimation (0 bei reduzierter Bewegung). */
   readonly puls = uniform(1);
 
   private constructor(renderer: THREE.WebGPURenderer, opt: RenderwerkOptionen) {
@@ -102,20 +102,20 @@ export class Renderwerk {
     const preset = PRESETS[opt.guete ?? 'hoch'];
     const renderer = new THREE.WebGPURenderer({
       canvas: opt.leinwand,
-      antialias: false, // Der Post-Stack laeuft immer; FB-MSAA hilft dem Offscreen-Ziel nicht.
+      antialias: false, // Der Post-Stack läuft immer; FB-MSAA hilft dem Offscreen-Ziel nicht.
       alpha: false,
       stencil: false,
       powerPreference: 'high-performance',
       // Zwischenziele des Post-Stacks in Halbgleitkomma. Ohne das rechnet der
       // Graph in 8 Bit je Kanal, was auf dem WebGL2-Fallback zu vertauschten
-      // Farbkanaelen fuehrt — im Bild ein durchgehend roter Stich.
+      // Farbkanaelen führt — im Bild ein durchgehend roter Stich.
       outputBufferType: THREE.HalfFloatType,
       forceWebGL: opt.erzwingeWebGL === true,
     });
     renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio ?? 1, preset.pixelDeckel));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.AgXToneMapping;
-    renderer.toneMappingExposure = 0.88;
+    renderer.toneMappingExposure = 1.02;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.info.autoReset = false;
@@ -130,7 +130,7 @@ export class Renderwerk {
     // echt" und "wirkt wie ein Prototyp".
     const umgebung = erzeugeUmgebung(renderer);
     werk.szene.environment = umgebung.textur;
-    werk.szene.environmentIntensity = 0.55;
+    werk.szene.environmentIntensity = 0.9;
     werk.beiEntsorgung(() => umgebung.entsorge());
 
     werk.baueGraph();
@@ -152,21 +152,21 @@ export class Renderwerk {
     const temporalAn = this.temporal !== 'aus';
 
     /*
-     * Warum KEIN MRT-Emissive-Kanal fuer den Bloom:
+     * Warum KEIN MRT-Emissive-Kanal für den Bloom:
      *
-     * Der naheliegende Weg waere `setMRT(mrt({ output, emissive }))` und ein
-     * Bloom nur auf dem Emissive-Kanal. Das ist die selektivere Loesung — und
+     * Der naheliegende Weg wäre `setMRT(mrt({ output, emissive }))` und ein
+     * Bloom nur auf dem Emissive-Kanal. Das ist die selektivere Lösung — und
      * sie hat sich in der Messung als unbrauchbar erwiesen: auf dem
-     * WebGL2-Fallback-Backend legte sie einen roten Schleier ueber die gesamte
-     * Szene, weil Flaechen ohne eigenen Emissive-Knoten den zweiten Anhang
-     * nicht vollstaendig beschreiben. Der Vergleich mit und ohne Post-Stack
+     * WebGL2-Fallback-Backend legte sie einen roten Schleier über die gesamte
+     * Szene, weil Flächen ohne eigenen Emissive-Knoten den zweiten Anhang
+     * nicht vollständig beschreiben. Der Vergleich mit und ohne Post-Stack
      * (`?post=0`) hat das eindeutig belegt.
      *
-     * Der Ersatz ist der klassische Weg: Bloom ueber das fertige Bild mit einer
+     * Der Ersatz ist der klassische Weg: Bloom über das fertige Bild mit einer
      * Helligkeitsschwelle. Weil im ganzen Spiel nur leuchtende Elemente
-     * ueberhaupt oberhalb der Schwelle liegen (die Halle ist bewusst dunkel
+     * überhaupt oberhalb der Schwelle liegen (die Halle ist bewusst dunkel
      * gehalten), ist die Auswahl in der Praxis genauso selektiv — nur ohne
-     * Abhaengigkeit vom MRT-Verhalten des Backends.
+     * Abhängigkeit vom MRT-Verhalten des Backends.
      */
     const szenenPass = pass(this.szene, this.kamera);
     const farbe = szenenPass.getTextureNode('output');
@@ -184,8 +184,8 @@ export class Renderwerk {
       const a = aoPass as unknown as { resolutionScale: number; useTemporalFiltering?: boolean };
       a.resolutionScale = preset.aoAufloesung;
       if ('useTemporalFiltering' in a) a.useTemporalFiltering = temporalAn;
-      // NUR der Rotkanal traegt die Verdeckung. Multipliziert man mit der
-      // ganzen Textur, loescht man Gruen und Blau des Bildes vollstaendig aus —
+      // NUR der Rotkanal trägt die Verdeckung. Multipliziert man mit der
+      // ganzen Textur, löscht man Gruen und Blau des Bildes vollständig aus —
       // das Ergebnis ist ein reines Rotbild. Genau dieser Fehler hat hier
       // stundenlang wie ein Bloom-Problem ausgesehen.
       bild = (bild as THREE.TextureNode).mul(aoPass.getTextureNode().r);
@@ -194,6 +194,20 @@ export class Renderwerk {
     bild = (bild as { add: (x: unknown) => unknown }).add(
       bloom(farbe, preset.bloomStaerke, preset.bloomRadius, preset.bloomSchwelle)
     );
+
+    /*
+     * Vignette und Farbstimmung als letzter Schritt vor der Kantenglaettung.
+     * Beides ist billig und trägt mehr zum Eindruck bei als jeder weitere
+     * teure Effekt: die Vignette führt den Blick zur Bildmitte, und die
+     * leichte Kühlung trennt Halle und Technik farblich.
+     */
+    const rand = screenUV.sub(0.5).length().mul(1.35);
+    const vignette = float(1).sub(rand.mul(rand).mul(0.55)).clamp(0, 1);
+    // Farbstimmung als konstanter Ton, nicht als Bildmischung: das hält den
+    // Knotentyp eindeutig und kostet nichts.
+    const stimmung = mix(color(0x9fb6d6), color(0xffffff), float(0.82));
+    bild = (bild as { mul: (x: unknown) => unknown }).mul(vignette);
+    bild = (bild as { mul: (x: unknown) => unknown }).mul(stimmung);
 
     if (preset.smaa) bild = smaa(bild as never);
 
@@ -238,12 +252,12 @@ export class Renderwerk {
     const h = Math.max(1, Math.floor(hoehe));
     this.kamera.aspect = b / h;
     this.kamera.updateProjectionMatrix();
-    // RenderPipeline hat kein setSize — die Groesse kommt aus dem Drawing Buffer.
+    // RenderPipeline hat kein setSize — die Größe kommt aus dem Drawing Buffer.
     this.renderer.setSize(b, h, false);
   }
 
   /**
-   * Zeichnet ein Bild. `sekunden` ist die vergangene Zeit fuer Shader-Uniforms;
+   * Zeichnet ein Bild. `sekunden` ist die vergangene Zeit für Shader-Uniforms;
    * im Testmodus setzt der Aufrufer sie auf einen festen Wert, damit Bilder
    * reproduzierbar sind.
    */
@@ -255,7 +269,7 @@ export class Renderwerk {
     this.konvergenzFrames++;
   }
 
-  /** Warmlauf fuer den Modus 'konvergiert': feste Kamera, N Bilder. */
+  /** Warmlauf für den Modus 'konvergiert': feste Kamera, N Bilder. */
   konvergiere(bilder = 24, sekunden = 0): void {
     for (let i = 0; i < bilder; i++) this.zeichne(sekunden);
   }
@@ -270,7 +284,7 @@ export class Renderwerk {
     };
   }
 
-  /** Registriert eine Aufraeumfunktion, die `entsorge()` mit ausfuehrt. */
+  /** Registriert eine Aufräumfunktion, die `entsorge()` mit ausführt. */
   beiEntsorgung(f: () => void): void {
     this.entsorger.push(f);
   }
@@ -281,7 +295,7 @@ export class Renderwerk {
       try {
         f();
       } catch {
-        // Aufraeumen darf niemals den Abbau blockieren.
+        // Aufräumen darf niemals den Abbau blockieren.
       }
     }
     this.pipeline?.dispose();

@@ -1,19 +1,19 @@
 /**
  * LOESBARKEITS-BEWEISE.
  *
- * Fuer jedes Level der Kampagne wird per Code bewiesen:
+ * Für jedes Level der Kampagne wird per Code bewiesen:
  *
- *  1. Jede Referenzloesung besteht alle Pflichtziele und alle Budgets.
+ *  1. Jede Referenzlösung besteht alle Pflichtziele und alle Budgets.
  *  2. Das leere Fundament liefert nichts aus.
  *  3. Jedes Anti-Muster ist lauffaehig, scheitert aber GENAU an der
  *     vorgesehenen Stelle — nicht irgendwo.
- *  4. Ab Akt II gibt es mindestens zwei strukturell verschiedene Loesungen,
+ *  4. Ab Akt II gibt es mindestens zwei strukturell verschiedene Lösungen,
  *     von denen keine die andere auf allen drei Wettbewerbsachsen dominiert.
  *     Autonomie ist damit eine verifizierte Eigenschaft, keine Behauptung.
- *  5. Jedes Level ist strukturell gueltig und laeuft ohne Abbruch.
+ *  5. Jedes Level ist strukturell gültig und läuft ohne Abbruch.
  *
- * Ohne diese Beweise koennte ein Level existieren, das die eigene Lektion
- * widerlegt — und niemand wuerde es merken.
+ * Ohne diese Beweise könnte ein Level existieren, das die eigene Lektion
+ * widerlegt — und niemand würde es merken.
  */
 
 import { describe, expect, it } from 'vitest';
@@ -48,7 +48,7 @@ function scheitertRichtig(level: LevelDefinition, am: AntiMuster, m: Metriken): 
   }
 }
 
-/** Dominiert a die Loesung b auf allen drei Wettbewerbsachsen? */
+/** Dominiert a die Lösung b auf allen drei Wettbewerbsachsen? */
 function dominiert(a: Metriken, b: Metriken): boolean {
   const besserOderGleich =
     a.kostenJeAuftrag <= b.kostenJeAuftrag && a.latenzP95 <= b.latenzP95 && a.flaeche <= b.flaeche;
@@ -70,15 +70,15 @@ describe('Kampagnenstruktur', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('laesst drei von vier Leveln zum Weiterkommen genuegen', () => {
+  it('lässt drei von vier Leveln zum Weiterkommen genügen', () => {
     expect(NOETIG_JE_AKT).toBe(3);
     for (const akt of AKTE) expect(akt.level.length).toBeGreaterThanOrEqual(NOETIG_JE_AKT);
   });
 
-  it('formuliert fuer jedes Level ein Lernziel in genau einem Satz', () => {
+  it('formuliert für jedes Level ein Lernziel in genau einem Satz', () => {
     for (const l of ALLE_LEVEL) {
       expect(l.lernziel.length, l.id).toBeGreaterThan(20);
-      // Genau ein Satz: hoechstens ein Satzendezeichen, und zwar am Ende.
+      // Genau ein Satz: höchstens ein Satzendezeichen, und zwar am Ende.
       const punkte = l.lernziel.match(/[.!?]/g) ?? [];
       expect(punkte.length, `${l.id}: "${l.lernziel}"`).toBeLessThanOrEqual(1);
     }
@@ -97,7 +97,7 @@ describe('Kampagnenstruktur', () => {
 });
 
 describe.each(ALLE_LEVEL.map((l) => [l.id, l] as const))('Level %s', (_id, level) => {
-  it('ist strukturell gueltig aufgebaut', () => {
+  it('ist strukturell gültig aufgebaut', () => {
     expect(level.referenzen.length).toBeGreaterThanOrEqual(1);
     for (const r of level.referenzen) {
       const befunde = pruefeWerk(r.werk);
@@ -109,7 +109,7 @@ describe.each(ALLE_LEVEL.map((l) => [l.id, l] as const))('Level %s', (_id, level
     }
   });
 
-  it('wird von jeder Referenzloesung bestanden', () => {
+  it('wird von jeder Referenzlösung bestanden', () => {
     for (const r of level.referenzen) {
       const m = fahre(level, r.werk);
       const b = bewerte(level.ziele, level.budget, m);
@@ -121,7 +121,7 @@ describe.each(ALLE_LEVEL.map((l) => [l.id, l] as const))('Level %s', (_id, level
     }
   });
 
-  it('laeuft mit jeder Referenzloesung ohne Abbruch durch', () => {
+  it('läuft mit jeder Referenzlösung ohne Abbruch durch', () => {
     for (const r of level.referenzen) {
       const e = simuliere({ werk: r.werk, strom: level.strom, saat: level.saat });
       expect(e.abgebrochen, `${r.name}: ${e.abbruchGrund}`).toBe(false);
@@ -136,19 +136,19 @@ describe.each(ALLE_LEVEL.map((l) => [l.id, l] as const))('Level %s', (_id, level
     expect(bewerte(level.ziele, level.budget, m).bestanden).toBe(false);
   });
 
-  it('laesst jedes Anti-Muster genau an der vorgesehenen Stelle scheitern', () => {
+  it('lässt jedes Anti-Muster genau an der vorgesehenen Stelle scheitern', () => {
     for (const a of level.antiMuster) {
       const m = fahre(level, a.werk);
       expect(bewerte(level.ziele, level.budget, m).bestanden, `${a.name} besteht wider Erwarten`).toBe(false);
       expect(
         scheitertRichtig(level, a, m),
         `${a.name} sollte an "${a.scheitertAn}" scheitern, tut es aber nicht ` +
-          `(Guete ${m.guete.toFixed(2)}, Kosten ${Math.round(m.kosten)}, p95 ${m.latenzP95}, Durchsatz ${m.durchsatz.toFixed(2)})`
+          `(Güte ${m.guete.toFixed(2)}, Kosten ${Math.round(m.kosten)}, p95 ${m.latenzP95}, Durchsatz ${m.durchsatz.toFixed(2)})`
       ).toBe(true);
     }
   });
 
-  it('bietet ab Akt II mindestens zwei nicht-dominierte Loesungswege', () => {
+  it('bietet ab Akt II mindestens zwei nicht-dominierte Lösungswege', () => {
     if (level.akt < 2) return;
     expect(level.referenzen.length, `${level.id} braucht zwei Referenzen`).toBeGreaterThanOrEqual(2);
     const messungen = level.referenzen.map((r) => ({ name: r.name, m: fahre(level, r.werk) }));

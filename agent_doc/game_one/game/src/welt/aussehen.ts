@@ -4,14 +4,14 @@
  *
  * Zweck der Indirektion: Die vollprozeduralen Generatoren (`texturen.ts`,
  * `materialien.ts`, `geometrie.ts`) entstehen parallel. Bis sie stehen, liefert
- * dieser Adapter eigene, bewusst schlichte, aber vollstaendige Umsetzungen.
- * Beim Zusammenfuehren aendert sich ausschliesslich diese Datei — die Halle,
+ * dieser Adapter eigene, bewusst schlichte, aber vollständige Umsetzungen.
+ * Beim Zusammenführen ändert sich ausschließlich diese Datei — die Halle,
  * die Werkansicht und die Tests bleiben unberuehrt.
  *
  * Zwei Regeln, die aus dem Renderer-Spike stammen und hier durchgesetzt werden:
- *  1. Emissive-Werte liegen STRENG im Band 0.05–0.35. Darueber brennt AgX plus
+ *  1. Emissive-Werte liegen STRENG im Band 0.05–0.35. Darüber brennt AgX plus
  *     Bloom das Bild aus.
- *  2. Zeitabhaengige Shader lesen ein von aussen gesetztes Uniform, niemals
+ *  2. Zeitabhängige Shader lesen ein von aussen gesetztes Uniform, niemals
  *     `time` — sonst sind Bilder nicht reproduzierbar.
  */
 
@@ -50,9 +50,9 @@ export const uPuls = uniform(1);
 // ---------------------------------------------------------------------------
 
 /**
- * Grundpalette der Halle. Kalt in der Flaeche, warm nur dort, wo Technik
+ * Grundpalette der Halle. Kalt in der Fläche, warm nur dort, wo Technik
  * arbeitet. Die Modulfarben kommen aus dem Katalog und folgen der
- * Okabe-Ito-Logik: jede Bedeutung ist zusaetzlich an der Silhouette erkennbar,
+ * Okabe-Ito-Logik: jede Bedeutung ist zusätzlich an der Silhouette erkennbar,
  * niemals nur an der Farbe.
  */
 export const PALETTE = {
@@ -64,7 +64,7 @@ export const PALETTE = {
   stahl: 0x555f6b,
   stahlDunkel: 0x2f3640,
   messing: 0xb08d57,
-  fundament: 0x1a1f26,
+  fundament: 0x141920,
   gitter: 0x39424e,
   licht: 0xdfe9ff,
   lichtWarm: 0xffd9a0,
@@ -85,7 +85,7 @@ function merke(schluessel: string, bauen: () => THREE.MeshStandardNodeMaterial):
 }
 
 /**
- * Fresnel-Randaufhellung — laesst Kanten im Gegenlicht lesbar werden.
+ * Fresnel-Randaufhellung — lässt Kanten im Gegenlicht lesbar werden.
  * Bewusst eine gewoehnliche Funktion und kein TSL-`Fn`: sie wird nur beim
  * Materialbau aufgerufen, nicht je Bildpunkt, und bleibt so typsicher.
  */
@@ -126,7 +126,7 @@ export function flaechenMaterial(art: 'beton' | 'stahl' | 'ziegel' | 'fundament'
         m.metalness = 0.55;
         break;
     }
-    // Sehr dezente Hoehenschattierung: unten dunkler, oben heller. Ersetzt eine
+    // Sehr dezente Höhenschattierung: unten dunkler, oben heller. Ersetzt eine
     // Ambient-Occlusion-Textur und kostet nichts.
     m.colorNode = mix(
       color(m.color).mul(0.62),
@@ -142,11 +142,11 @@ export function fundamentMaterial(): THREE.MeshStandardNodeMaterial {
   return merke('fundament:raster', () => {
     const m = new THREE.MeshStandardNodeMaterial();
     m.color = new THREE.Color(PALETTE.fundament);
-    m.roughness = 0.55;
-    m.metalness = 0.4;
-    const gitterUv = uv().mul(1).fract().sub(0.5).abs();
-    const linie = smoothstep(float(0.5), float(0.47), gitterUv.x.max(gitterUv.y));
-    m.emissiveNode = color(0x2b5f7a).mul(linie).mul(0.09);
+    m.roughness = 0.72;
+    m.metalness = 0.1;
+    const gitterUv = uv().fract().sub(0.5).abs();
+    const linie = smoothstep(float(0.5), float(0.455), gitterUv.x.max(gitterUv.y));
+    m.emissiveNode = color(0x2b5f7a).mul(linie).mul(0.22);
     return m;
   });
 }
@@ -160,17 +160,20 @@ export function modulMaterial(art: ModulArt): THREE.MeshStandardNodeMaterial {
     m.color = koerper;
     m.roughness = 0.44;
     m.metalness = 0.45;
-    // Signaturkante: ein schmales Leuchtband knapp ueber der Grundflaeche plus
+    // Signaturkante: ein schmales Leuchtband knapp über der Grundfläche plus
     // Fresnel-Rand. Beides bleibt weit unter der Ausbrenngrenze.
     const band = smoothstep(float(0.1), float(0.14), positionLocal.y)
       .sub(smoothstep(float(0.17), float(0.21), positionLocal.y))
       .clamp(0, 1);
-    m.emissiveNode = color(leit).mul(band.mul(0.26).add(fresnel(0.1)));
+        // Das Leuchtband muss über der Bloom-Schwelle liegen, sonst glueht nichts.
+    // Es ist eine schmale Linie — ein hoher Wert brennt hier nichts aus, sondern
+    // erzeugt genau den Neonstrich, der ein Modul als "in Betrieb" lesbar macht.
+    m.emissiveNode = color(leit).mul(band.mul(1.9).add(fresnel(0.16)));
     return m;
   });
 }
 
-/** Auswahl- und Hover-Hervorhebung als eigenstaendiges Huellmaterial. */
+/** Auswahl- und Hover-Hervorhebung als eigenständiges Hüllmaterial. */
 export function hervorhebung(art: 'auswahl' | 'zeiger' | 'fehler'): THREE.MeshBasicNodeMaterial {
   const schluessel = `hervor:${art}`;
   const vorhanden = materialCache.get(schluessel) as unknown as THREE.MeshBasicNodeMaterial | undefined;
@@ -201,10 +204,10 @@ export function leitungsMaterial(): {
     mat.roughness = 0.38;
     mat.metalness = 0.55;
     // Laufendes Band entlang der V-Koordinate. `uPuls` schaltet es bei
-    // Bewegungsreduktion vollstaendig ab.
+    // Bewegungsreduktion vollständig ab.
     const lauf = uv().y.mul(6).sub(uZeit.mul(1.4).mul(uPuls)).fract();
     const welle = smoothstep(float(0.0), float(0.12), lauf).mul(smoothstep(float(0.34), float(0.22), lauf));
-    mat.emissiveNode = color(0x66e0ff).mul(welle.mul(0.3).add(0.035)).mul(aktiv.mul(0.85).add(0.15));
+    mat.emissiveNode = color(0x66e0ff).mul(welle.mul(1.6).add(0.05)).mul(aktiv.mul(0.85).add(0.22));
     return mat;
   });
   return { material: m, aktiv };
@@ -217,7 +220,7 @@ export function paketMaterial(): THREE.MeshStandardNodeMaterial {
     m.color = new THREE.Color(0x0d1016);
     m.roughness = 0.2;
     m.metalness = 0.1;
-    const puls = uZeit.mul(3.1).sin().mul(0.5).add(0.5).mul(uPuls).mul(0.08).add(0.22);
+    const puls = uZeit.mul(3.1).sin().mul(0.5).add(0.5).mul(uPuls).mul(0.35).add(1.25);
     m.emissiveNode = vec3(1, 1, 1).mul(puls);
     return m;
   });
@@ -254,7 +257,7 @@ const formCache = new Map<string, THREE.BufferGeometry>();
 function vereinige(teile: THREE.BufferGeometry[]): THREE.BufferGeometry {
   const g = BGU.mergeGeometries(teile, false);
   for (const t of teile) t.dispose();
-  if (!g) throw new Error('Geometrien liessen sich nicht zusammenfuehren');
+  if (!g) throw new Error('Geometrien liessen sich nicht zusammenführen');
   g.computeBoundingSphere();
   g.computeBoundingBox();
   return g;
@@ -273,8 +276,8 @@ function zylinder(r: number, h: number, seiten = 12, x = 0, y = 0, z = 0): THREE
 }
 
 /**
- * Silhouette eines Moduls. Fussabdruck genau 1x1, Ursprung mittig auf der
- * Grundflaeche. Jede Art muss aus der Vogelperspektive an ihrer FORM erkennbar
+ * Silhouette eines Moduls. Fußabdruck genau 1x1, Ursprung mittig auf der
+ * Grundfläche. Jede Art muss aus der Vogelperspektive an ihrer FORM erkennbar
  * sein — Farbe allein ist kein Unterscheidungsmerkmal (WCAG 1.4.1).
  */
 export function modulForm(art: ModulArt, saat = 1): THREE.BufferGeometry {
@@ -288,7 +291,7 @@ export function modulForm(art: ModulArt, saat = 1): THREE.BufferGeometry {
 
   switch (art) {
     case 'quelle': {
-      // Offener Trichter auf Stuetzen.
+      // Offener Trichter auf Stützen.
       const t = new THREE.CylinderGeometry(0.44, 0.16, 0.5, 12, 1, true);
       t.translate(0, 0.12 + 0.25, 0);
       teile.push(t, zylinder(0.06, 0.28, 8, 0, 0.12), kasten(0.7, 0.06, 0.7, 0, 0.62));
@@ -304,7 +307,7 @@ export function modulForm(art: ModulArt, saat = 1): THREE.BufferGeometry {
       break;
     }
     case 'kern': {
-      // Massiver Turm mit Kuehlrippen.
+      // Massiver Turm mit Kühlrippen.
       teile.push(kasten(0.62, 0.78, 0.62, 0, 0.12));
       for (let i = 0; i < 6; i++) teile.push(kasten(0.74, 0.035, 0.08, 0, 0.2 + i * 0.11, 0.3));
       teile.push(zylinder(0.1, 0.16, 8, 0, 0.9));
@@ -329,13 +332,13 @@ export function modulForm(art: ModulArt, saat = 1): THREE.BufferGeometry {
       break;
     }
     case 'verteiler': {
-      // Verteilerkamm mit vier Auslaessen.
+      // Verteilerkamm mit vier Auslässen.
       teile.push(kasten(0.8, 0.2, 0.2, 0, 0.12, -0.22));
       for (let i = 0; i < 4; i++) teile.push(kasten(0.1, 0.14, 0.42, -0.3 + i * 0.2, 0.12, 0.16));
       break;
     }
     case 'sammler': {
-      // Trichter, der nach unten zusammenlaeuft.
+      // Trichter, der nach unten zusammenläuft.
       const t = new THREE.CylinderGeometry(0.42, 0.12, 0.46, 10, 1, true);
       t.translate(0, 0.12 + 0.23, 0);
       teile.push(t, zylinder(0.13, 0.2, 8, 0, 0.12), kasten(0.86, 0.05, 0.12, 0, 0.56, 0));
@@ -419,7 +422,7 @@ export function modulForm(art: ModulArt, saat = 1): THREE.BufferGeometry {
   return g;
 }
 
-/** Aufsatz, der die drei Kerngroessen ohne Beschriftung unterscheidbar macht. */
+/** Aufsatz, der die drei Kerngrößen ohne Beschriftung unterscheidbar macht. */
 export function kernAufsatz(groesse: 'kolibri' | 'reiher' | 'kondor'): THREE.BufferGeometry {
   const schluessel = `kernaufsatz:${groesse}`;
   const vorhanden = formCache.get(schluessel);
@@ -446,12 +449,12 @@ export function entsorgeFormen(): void {
   formCache.clear();
 }
 
-/** Alles freigeben — wird von der Speicher-Soak-Pruefung erwartet. */
+/** Alles freigeben — wird von der Speicher-Soak-Prüfung erwartet. */
 export function entsorgeAussehen(): void {
   entsorgeMaterialien();
   entsorgeFormen();
 }
 
-// Ungenutzte Importe bewusst referenzieren, damit TSL-Helfer verfuegbar bleiben,
-// sobald die vollprozeduralen Generatoren eingehaengt werden.
+// Ungenutzte Importe bewusst referenzieren, damit TSL-Helfer verfügbar bleiben,
+// sobald die vollprozeduralen Generatoren eingehängt werden.
 void vec4;

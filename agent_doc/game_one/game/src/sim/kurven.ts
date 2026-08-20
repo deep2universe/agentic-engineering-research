@@ -1,10 +1,10 @@
 /**
- * ERZEUGTE DATEI — nicht von Hand aendern.
- * Quelle: werkzeuge/kurven_generieren.mjs · Stuetzstellen: 1024 · Festkomma: 1000000
+ * ERZEUGTE DATEI — nicht von Hand ändern.
+ * Quelle: werkzeuge/kurven_generieren.mjs · Stützstellen: 1024 · Festkomma: 1000000
  *
  * Alle nichtlinearen Kurven der Simulation als Integer-Tabellen. Zur Laufzeit
- * wird ausschliesslich linear interpoliert — nur +, -, *, / und Math.floor.
- * Damit ist jede Auswertung bitgleich reproduzierbar, unabhaengig von
+ * wird ausschließlich linear interpoliert — nur +, -, *, / und Math.floor.
+ * Damit ist jede Auswertung bitgleich reproduzierbar, unabhängig von
  * Plattform und V8-Version.
  */
 
@@ -24,7 +24,7 @@ function lies(tabelle: readonly number[], x: number): number {
 }
 
 /**
- * Wie stark eine Kompetenzluecke die Guete-Decke druckt. Eingang: max(0, schwierigkeit - kompetenz)
+ * Wie stark eine Kompetenzluecke die Güte-Decke druckt. Eingang: max(0, schwierigkeit - kompetenz)
  * skaliert auf [0,1] (also geteilt durch 1). Ausgang: Deckelabzug. Form x^1.6 mal Steilheit 1.6,
  * geklemmt auf 1 — ein Kern kann eine Aufgabe komplett verfehlen, aber nicht mehr als komplett.
  */
@@ -173,8 +173,8 @@ export function KURVE_KONTEXT_ROT(x: number): number {
 }
 
 /**
- * Saettigungskurve fuer die Halluzinationswahrscheinlichkeit. Eingang: roher Risikoterm,
- * Ausgang: Wahrscheinlichkeit. Verhindert, dass Risiken linear ueber 1 hinauswachsen.
+ * Saettigungskurve für die Halluzinationswahrscheinlichkeit. Eingang: roher Risikoterm,
+ * Ausgang: Wahrscheinlichkeit. Verhindert, dass Risiken linear über 1 hinauswachsen.
  */
 const T_KURVE_HALLUZINATION : readonly number[] = [
   0, 2148, 4292, 6431, 8565, 10695, 12820, 14941, 17057, 19169, 21276, 23378, 25476, 27570, 29659, 31743,
@@ -247,8 +247,8 @@ export function KURVE_HALLUZINATION(x: number): number {
 }
 
 /**
- * Abnehmender Grenzertrag fuer Aggregations- und Wiederholungsgewinne.
- * Eingang: normierte Anzahl (n-1)/8, Ausgang: Ertragsfaktor. Form 1-(1-x)^2 gedaempft.
+ * Abnehmender Grenzertrag für Aggregations- und Wiederholungsgewinne.
+ * Eingang: normierte Anzahl (n-1)/8, Ausgang: Ertragsfaktor. Form 1-(1-x)^2 gedämpft.
  */
 const T_KURVE_ERTRAG : readonly number[] = [
   0, 2149, 4296, 6440, 8582, 10721, 12858, 14992, 17124, 19253, 21379, 23503, 25625, 27744, 29861, 31975,

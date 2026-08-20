@@ -2,7 +2,7 @@
  * Vertrag der prozeduralen Geometrie.
  *
  * Die Tests laufen in Node ohne GPU. Geometrie-Konstruktion in three.js
- * funktioniert dort vollstaendig — gerendert wird hier nichts.
+ * funktioniert dort vollständig — gerendert wird hier nichts.
  */
 
 import { describe, expect, it, vi } from 'vitest';
@@ -13,12 +13,12 @@ import { readFileSync } from 'node:fs';
 // Object3D und jeder BufferGeometry eine Kennung. Ohne Ersatz liesse sich
 // three in dieser Suite nicht einmal importieren.
 //
-// Statt den echten Zufall zurueckzuholen, setzen wir einen DETERMINISTISCHEN
-// Strom ein. Damit bleibt die Schutzwirkung erhalten: wuerde die Geometrie
+// Statt den echten Zufall zurückzuholen, setzen wir einen DETERMINISTISCHEN
+// Strom ein. Damit bleibt die Schutzwirkung erhalten: würde die Geometrie
 // heimlich Math.random benutzen, liefen die Aufrufe im Strom weiter und zwei
 // Aufrufe mit gleicher Saat lieferten verschiedene Ergebnisse — genau das
-// faengt der Determinismus-Test unten. Zusaetzlich prueft ein Quelltext-Scan,
-// dass `Math.random` im Modul ueberhaupt nicht vorkommt.
+// faengt der Determinismus-Test unten. Zusätzlich prüft ein Quelltext-Scan,
+// dass `Math.random` im Modul überhaupt nicht vorkommt.
 vi.hoisted(() => {
   let zustand = 0x9e37_79b9;
   Math.random = (): number => {
@@ -43,7 +43,7 @@ import {
 } from '../../src/welt/geometrie';
 
 // ---------------------------------------------------------------------------
-// Pruefmittel
+// Prüfmittel
 // ---------------------------------------------------------------------------
 
 const ALLE_ARTEN: readonly ModulArt[] = [
@@ -95,7 +95,7 @@ function kasten(g: THREE.BufferGeometry): THREE.Box3 {
   return b;
 }
 
-/** position/normal/uv vorhanden, kein NaN, alle Normalen auf Laenge 1. */
+/** position/normal/uv vorhanden, kein NaN, alle Normalen auf Länge 1. */
 function pruefeAttribute(g: THREE.BufferGeometry, name: string): void {
   for (const attribut of ['position', 'normal', 'uv'] as const) {
     expect(g.getAttribute(attribut), `${name}: Attribut ${attribut} fehlt`).toBeDefined();
@@ -129,7 +129,7 @@ function pruefeAttribute(g: THREE.BufferGeometry, name: string): void {
   expect(schlechteNormale, `${name}: nicht normierte Normalen`).toBe(0);
 }
 
-/** Fussabdruck, Bodenhaftung und Bauhoehe. */
+/** Fußabdruck, Bodenhaftung und Bauhöhe. */
 function pruefeFussabdruck(
   g: THREE.BufferGeometry,
   name: string,
@@ -159,18 +159,18 @@ describe('modulGeometrie', () => {
   });
 
   it.each(ALLE_ARTEN)('%s reagiert auf die Saat', (art) => {
-    // Jede Modulart traegt saatabhaengige Details (Nietenkranz, Neigungen,
-    // Rippenzahl). Wuerde eine Art die Saat ignorieren, waere die Halle
-    // steril — und ein spaeterer Umbau koennte die Determinismus-Pruefung
+    // Jede Modulart trägt saatabhängige Details (Nietenkranz, Neigungen,
+    // Rippenzahl). Würde eine Art die Saat ignorieren, wäre die Halle
+    // steril — und ein späterer Umbau könnte die Determinismus-Prüfung
     // oben unbemerkt trivial machen.
     const a = modulGeometrie(art, 11);
     const b = modulGeometrie(art, 12);
     expect(positionsBytes(a).equals(positionsBytes(b)), `${art}: Saat wirkungslos`).toBe(false);
   });
 
-  it.each(ALLE_ARTEN)('%s haelt Fussabdruck, Bodenhaftung und Bauhoehe ein', (art) => {
-    // Der Fussabdruck ist genau ein Gitterfeld (-0.5..+0.5, Toleranz 0.02),
-    // die Unterkante liegt auf dem Fundament, die Bauhoehe bleibt im Band, in
+  it.each(ALLE_ARTEN)('%s hält Fußabdruck, Bodenhaftung und Bauhöhe ein', (art) => {
+    // Der Fußabdruck ist genau ein Gitterfeld (-0.5..+0.5, Toleranz 0.02),
+    // die Unterkante liegt auf dem Fundament, die Bauhöhe bleibt im Band, in
     // dem die Kamera alle Module gleichzeitig lesbar zeigt.
     pruefeFussabdruck(modulGeometrie(art, 7), art, 0.4, 1.9);
   });
@@ -194,13 +194,13 @@ describe('modulGeometrie', () => {
   });
 
   it('unterscheidet die fuenfzehn Arten an der Silhouette, nicht an der Farbe', () => {
-    // Begruendung des Kriteriums: Farbenblindheit macht den Farbleitwert aus
+    // Begründung des Kriteriums: Farbenblindheit macht den Farbleitwert aus
     // `src/sim/katalog.ts` als alleiniges Erkennungsmerkmal unbrauchbar. Ein
     // Modul muss deshalb schon an seinem Umriss erkennbar sein. Der Umriss
-    // laesst sich im Test nicht bildlich pruefen, wohl aber sein Fingerabdruck:
-    // die auf zwei Stellen gerundeten Kantenlaengen der Bounding Box (Breite,
-    // Hoehe, Tiefe) zusammen mit der Dreieckszahl, die die Gliederung der Form
-    // widerspiegelt. Sind alle fuenfzehn Fingerabdruecke paarweise
+    // lässt sich im Test nicht bildlich prüfen, wohl aber sein Fingerabdruck:
+    // die auf zwei Stellen gerundeten Kantenlängen der Bounding Box (Breite,
+    // Höhe, Tiefe) zusammen mit der Dreieckszahl, die die Gliederung der Form
+    // widerspiegelt. Sind alle fuenfzehn Fingerabdrücke paarweise
     // verschieden, unterscheiden sich die Formen nachweislich in ihrer
     // Grundgestalt — nicht nur in der Farbe.
     const kennwerte = new Map<string, ModulArt>();
@@ -223,8 +223,8 @@ describe('modulGeometrie', () => {
   it('unterscheidet die Arten auch allein an den Umrissmassen', () => {
     // Schaerfere Fassung: schon die reinen Kantenmasse der Bounding Box (ohne
     // Dreieckszahl) trennen mindestens zwoelf der fuenfzehn Arten. Der Rest
-    // teilt sich zwar ein Huellmass, unterscheidet sich aber in der
-    // Binnengliederung — dafuer steht die Dreieckszahl im Test darueber.
+    // teilt sich zwar ein Hüllmass, unterscheidet sich aber in der
+    // Binnengliederung — dafür steht die Dreieckszahl im Test darüber.
     const masse = new Set<string>();
     for (const art of ALLE_ARTEN) {
       const b = kasten(modulGeometrie(art, 42));
@@ -239,11 +239,11 @@ describe('modulGeometrie', () => {
     expect(masse.size).toBeGreaterThanOrEqual(12);
   });
 
-  it('enthaelt kein Math.random im Quelltext', () => {
+  it('enthält kein Math.random im Quelltext', () => {
     // Der Laufzeitschutz aus `setup.ts` ist in dieser Suite durch einen
-    // deterministischen Strom ersetzt (siehe Kopf der Datei) — deshalb prueft
-    // hier zusaetzlich der Quelltext-Scan. Kommentare werden vorher entfernt,
-    // sonst schlaegt die Erklaerung des Verbots selbst an.
+    // deterministischen Strom ersetzt (siehe Kopf der Datei) — deshalb prüft
+    // hier zusätzlich der Quelltext-Scan. Kommentare werden vorher entfernt,
+    // sonst schlägt die Erklärung des Verbots selbst an.
     const quelle = readFileSync(new URL('../../src/welt/geometrie.ts', import.meta.url), 'utf8')
       .replace(/\/\*[\s\S]*?\*\//g, '')
       .replace(/\/\/.*$/gm, '');
@@ -267,19 +267,19 @@ describe('kernAufsatz', () => {
     expect(dreiecke(a)).toBeLessThanOrEqual(BUDGET_MODUL);
   });
 
-  it('bleibt im Fussabdruck des Kerns', () => {
+  it('bleibt im Fußabdruck des Kerns', () => {
     for (const groesse of GROESSEN) {
       const b = kasten(kernAufsatz(groesse));
       expect(Math.max(Math.abs(b.min.x), Math.abs(b.max.x))).toBeLessThanOrEqual(0.5);
       expect(Math.max(Math.abs(b.min.z), Math.abs(b.max.z))).toBeLessThanOrEqual(0.5);
-      // Der Aufsatz sitzt auf der Montageflaeche, waechst also ab y = 0.
+      // Der Aufsatz sitzt auf der Montagefläche, wächst also ab y = 0.
       expect(b.min.y).toBeGreaterThanOrEqual(-0.02);
     }
   });
 
-  it('erzaehlt die Kerngroesse ueber die Bauhoehe', () => {
-    // Die drei Groessen muessen ohne Beschriftung unterscheidbar sein: der
-    // Kondor baut hoeher als der Reiher, der Reiher hoeher als der Kolibri.
+  it('erzählt die Kerngröße über die Bauhöhe', () => {
+    // Die drei Größen müssen ohne Beschriftung unterscheidbar sein: der
+    // Kondor baut höher als der Reiher, der Reiher höher als der Kolibri.
     const hoehen = GROESSEN.map((g) => {
       const b = kasten(kernAufsatz(g));
       return b.max.y - b.min.y;
@@ -287,17 +287,17 @@ describe('kernAufsatz', () => {
     const [kolibri, reiher, kondor] = hoehen as [number, number, number];
     expect(reiher).toBeGreaterThan(kolibri + 0.1);
     expect(kondor).toBeGreaterThan(reiher + 0.1);
-    // Turm (rund 1.0) plus Aufsatz bleibt unter der Bauhoehengrenze 1.8.
+    // Turm (rund 1.0) plus Aufsatz bleibt unter der Bauhöhengrenze 1.8.
     const turm = kasten(modulGeometrie('kern', 1));
     expect(turm.max.y + kondor).toBeLessThanOrEqual(1.8);
   });
 });
 
 // ---------------------------------------------------------------------------
-// Fundstuecke
+// Fundstücke
 // ---------------------------------------------------------------------------
 
-describe('fundstueckGeometrie', () => {
+describe('fundstückGeometrie', () => {
   it.each(ALLE_FUNDSTUECKE)('%s ist bei gleicher Saat byteweise identisch', (art) => {
     const a = fundstueckGeometrie(art, 4711);
     const b = fundstueckGeometrie(art, 4711);
@@ -310,11 +310,11 @@ describe('fundstueckGeometrie', () => {
     expect(positionsBytes(a).equals(positionsBytes(b)), `${art}: Saat wirkungslos`).toBe(false);
   });
 
-  it.each(ALLE_FUNDSTUECKE)('%s haelt Fussabdruck und Bodenhaftung ein', (art) => {
-    // Abweichung vom Modulmass mit Absicht: Fundstuecke sind Requisiten, keine
-    // Maschinen. Ein Kaffeebecher, der die Mindestbauhoehe eines Moduls von
-    // 0.4 Gittereinheiten erfuellte, waere ein Eimer. Geprueft wird deshalb
-    // dieselbe Fussabdruck- und Bodenregel, aber ein Hoehenband, das von der
+  it.each(ALLE_FUNDSTUECKE)('%s hält Fußabdruck und Bodenhaftung ein', (art) => {
+    // Abweichung vom Modulmass mit Absicht: Fundstücke sind Requisiten, keine
+    // Maschinen. Ein Kaffeebecher, der die Mindestbauhöhe eines Moduls von
+    // 0.4 Gittereinheiten erfüllte, wäre ein Eimer. Geprüft wird deshalb
+    // dieselbe Fußabdruck- und Bodenregel, aber ein Höhenband, das von der
     // Tasse bis zum Rollwagen reicht.
     pruefeFussabdruck(fundstueckGeometrie(art, 9), art, 0.04, 0.9);
   });
@@ -329,7 +329,7 @@ describe('fundstueckGeometrie', () => {
     pruefeAttribute(fundstueckGeometrie(art, 6), art);
   });
 
-  it('unterscheidet die sechs Fundstuecke an der Silhouette', () => {
+  it('unterscheidet die sechs Fundstücke an der Silhouette', () => {
     const kennwerte = new Set<string>();
     for (const art of ALLE_FUNDSTUECKE) {
       const g = fundstueckGeometrie(art, 42);
@@ -358,7 +358,7 @@ describe('hallenGeometrie', () => {
     return TEILE.reduce((summe, teil) => summe + dreiecke(halle[teil]), 0);
   }
 
-  it('liefert alle sechs Teile, gefuellt und sauber', () => {
+  it('liefert alle sechs Teile, gefüllt und sauber', () => {
     const halle = hallenGeometrie(60, 44, 12, 1957);
     for (const teil of TEILE) {
       const g = halle[teil];
@@ -368,7 +368,7 @@ describe('hallenGeometrie', () => {
     }
   });
 
-  it('haelt das Gesamtbudget der Halle ein', () => {
+  it('hält das Gesamtbudget der Halle ein', () => {
     for (const [b, t, h] of [
       [40, 30, 10],
       [60, 44, 12],
@@ -387,13 +387,13 @@ describe('hallenGeometrie', () => {
     }
   });
 
-  it('umschliesst den Bauraum: Boden unten, Decke oben, Waende aussen', () => {
+  it('umschließt den Bauraum: Boden unten, Decke oben, Wände aussen', () => {
     const halle = hallenGeometrie(60, 44, 12, 1957);
     const boden = kasten(halle.boden);
     const decke = kasten(halle.decke);
     const waende = kasten(halle.waende);
     // Die Fugenstege und die Entwaesserungsrinne stehen wenige Millimeter
-    // ueber die Betonoberflaeche — mehr darf der Boden nicht auftragen.
+    // über die Betonoberfläche — mehr darf der Boden nicht auftragen.
     expect(boden.max.y).toBeGreaterThan(0);
     expect(boden.max.y).toBeLessThanOrEqual(0.05);
     expect(decke.min.y).toBeGreaterThan(10);
@@ -416,7 +416,7 @@ describe('hallenGeometrie', () => {
 // ---------------------------------------------------------------------------
 
 describe('fundamentGeometrie', () => {
-  it('traegt das Gitter und liegt unter der Bauflaeche', () => {
+  it('trägt das Gitter und liegt unter der Baufläche', () => {
     const felderX = 12;
     const felderZ = 9;
     const g = fundamentGeometrie(felderX, felderZ);
@@ -427,10 +427,10 @@ describe('fundamentGeometrie', () => {
     expect(b.max.z - b.min.z).toBeGreaterThan(felderZ);
     expect(dreiecke(g)).toBeGreaterThan(0);
 
-    // Entscheidend ist nicht die Huelle, sondern die BAUFLAECHE: ueber dem
-    // Feldraster darf nichts hoeher als das flache Gitterrelief aufragen,
-    // sonst stuende ein Modul auf einem Bolzen. Der Randbereich ausserhalb
-    // des Rasters darf dagegen als Kerb ueberstehen — er rahmt das Werk.
+    // Entscheidend ist nicht die Hülle, sondern die BAUFLAECHE: über dem
+    // Feldraster darf nichts höher als das flache Gitterrelief aufragen,
+    // sonst stuende ein Modul auf einem Bolzen. Der Randbereich außerhalb
+    // des Rasters darf dagegen als Kerb überstehen — er rahmt das Werk.
     const pos = g.getAttribute('position');
     let hoechstesInDerFlaeche = -Infinity;
     let hoechstesAmRand = -Infinity;
@@ -460,7 +460,7 @@ describe('fundamentGeometrie', () => {
 // ---------------------------------------------------------------------------
 
 describe('greeble', () => {
-  it('ist deterministisch und bleibt auf seiner Flaeche', () => {
+  it('ist deterministisch und bleibt auf seiner Fläche', () => {
     const flaeche = new THREE.Vector2(1.2, 0.8);
     const a = greeble(77, 30, flaeche);
     const b = greeble(77, 30, flaeche);
@@ -471,11 +471,11 @@ describe('greeble', () => {
     expect(k.max.x).toBeLessThanOrEqual(flaeche.x / 2 + 0.2);
     expect(k.min.y).toBeGreaterThanOrEqual(-flaeche.y / 2 - 0.3);
     expect(k.max.y).toBeLessThanOrEqual(flaeche.y / 2 + 0.3);
-    // Die Anbauten wachsen nach +Z, damit sie auf eine Flaeche gesetzt werden koennen.
+    // Die Anbauten wachsen nach +Z, damit sie auf eine Fläche gesetzt werden können.
     expect(k.min.z).toBeGreaterThanOrEqual(-0.01);
   });
 
-  it('waechst mit der Dichte und wird bei Dichte 0 leer', () => {
+  it('wächst mit der Dichte und wird bei Dichte 0 leer', () => {
     const flaeche = new THREE.Vector2(1, 1);
     expect(dreiecke(greeble(1, 40, flaeche))).toBeGreaterThan(dreiecke(greeble(1, 5, flaeche)));
     const leer = greeble(1, 0, flaeche);
@@ -543,10 +543,10 @@ describe('leitungsGeometrie', () => {
     expect(letzter).toBeLessThan(mittlerer * 0.8);
   });
 
-  it('vertraegt entartete Eingaben', () => {
+  it('verträgt entartete Eingaben', () => {
     expect(dreiecke(leitungsGeometrie([], 0.05))).toBe(0);
     expect(dreiecke(leitungsGeometrie([new THREE.Vector3(0, 0, 0)], 0.05))).toBe(0);
-    // Doppelte Stuetzpunkte wuerden im Frenet-Rahmen NaN erzeugen.
+    // Doppelte Stützpunkte würden im Frenet-Rahmen NaN erzeugen.
     const doppelt = leitungsGeometrie(
       [
         new THREE.Vector3(0, 0, 0),
