@@ -8,32 +8,33 @@ function mess(werk: Werk, strom: AuftragsStrom, saat: number) {
   return simuliere({ werk, strom, saat }).metriken;
 }
 
-const RASTER: Record<string, { anzahl: number[]; gift: number[] }> = {
-  'VIII-0': { anzahl: [14, 16, 18, 20, 22, 24, 26], gift: [0.3, 0.4, 0.5, 0.6] },
-  'VIII-1': { anzahl: [20, 24, 28, 30, 32, 36], gift: [0.3, 0.4, 0.5] },
-  'VIII-2': { anzahl: [40, 44, 48, 52, 56], gift: [0.5, 0.6, 0.7, 0.85] },
-  'VIII-3': { anzahl: [28, 32, 36, 40], gift: [0.3, 0.4, 0.5, 0.6] },
-};
+const BEREICHE: readonly (readonly [number, number])[] = [
+  [0.15, 0.85],
+  [0.2, 0.8],
+  [0.1, 0.9],
+  [0.25, 0.75],
+  [0.2, 0.9],
+  [0.15, 0.75],
+  [0.3, 0.85],
+  [0.12, 0.8],
+];
 
-it('scan lecks', () => {
-  const zeilen: string[] = [];
-  for (const l of AKT_8) {
-    const r = RASTER[l.id]!;
-    zeilen.push(`\n### ${l.id}  saat ${l.saat}`);
-    for (const anzahl of r.anzahl) {
-      for (const g of r.gift) {
-        const strom: AuftragsStrom = { ...l.strom, anzahl, anteilGiftig: g };
-        const teile: string[] = [];
-        for (const x of l.referenzen) {
-          const m = mess(x.werk, strom, l.saat);
-          teile.push(`R:${x.name.slice(0, 10)} L${m.lecks} D${m.durchsatz.toFixed(2)} G${m.guete.toFixed(2)} T${Math.round(m.kosten)}`);
-        }
-        for (const a of l.antiMuster) {
-          const m = mess(a.werk, strom, l.saat);
-          teile.push(`A:${a.name.slice(0, 10)} L${m.lecks} D${m.durchsatz.toFixed(2)} G${m.guete.toFixed(2)} T${Math.round(m.kosten)}`);
-        }
-        zeilen.push(`n${String(anzahl).padStart(3)} g${g.toFixed(2)}\n     ` + teile.join('\n     '));
+it('scan VIII-1 schwierigkeit', () => {
+  const l = AKT_8[1]!;
+  const zeilen: string[] = ['### VIII-1 Schwierigkeitsbereiche'];
+  for (const bereich of BEREICHE) {
+    for (const anzahl of [24, 28, 30, 32]) {
+      const strom: AuftragsStrom = { ...l.strom, anzahl, anteilGiftig: 0.35, schwierigkeit: bereich };
+      const teile: string[] = [];
+      for (const x of l.referenzen) {
+        const m = mess(x.werk, strom, l.saat);
+        teile.push(`${x.name.slice(0, 8)} L${m.lecks} G${m.guete.toFixed(2)} T${Math.round(m.kosten)} p95 ${m.latenzP95}`);
       }
+      for (const a of l.antiMuster) {
+        const m = mess(a.werk, strom, l.saat);
+        teile.push(`${a.name.slice(0, 8)} L${m.lecks} G${m.guete.toFixed(2)} T${Math.round(m.kosten)}`);
+      }
+      zeilen.push(`[${bereich[0]},${bereich[1]}] n${anzahl}  ` + teile.join(' | '));
     }
   }
   // eslint-disable-next-line no-console

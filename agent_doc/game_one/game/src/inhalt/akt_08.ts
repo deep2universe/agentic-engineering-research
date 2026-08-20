@@ -572,3 +572,4 @@ export const AKT_8: LevelDefinition[] = [
     monolith: monolith(3),
   },
 ];
+
