@@ -489,3 +489,85 @@ canvas#leinwand:focus-visible {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ------------------------------------------------------- Erzaehlkanaele --- */
+
+/*
+ * Die Akttafel ist der einzige Bildschirm, der nichts von der Spielerin will.
+ * Deshalb ist sie dunkler als jeder andere Dialog, hat keinen Rahmen und keine
+ * Tabelle. Fliesstext bekommt hier mehr Zeilenhoehe und eine schmalere Spalte
+ * als im HUD — 66 Zeichen sind die Grenze, ab der das Auge die naechste Zeile
+ * nicht mehr sicher findet.
+ */
+.tafel-akt {
+  background: rgba(3, 4, 7, 0.94);
+}
+
+.blatt.akttafel {
+  background: transparent;
+  border: none;
+  max-width: 66ch;
+  padding: 0 8px;
+}
+
+.blatt.akttafel h1 {
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin: 6px 0 2px;
+}
+
+.blatt.akttafel .unter {
+  font-size: 1rem;
+  margin-bottom: 26px;
+}
+
+.blatt.akttafel .fliess,
+.blatt.fundstueck .fliess {
+  line-height: 1.72;
+  font-size: 1.02rem;
+  color: #d8e2ee;
+}
+
+.blatt.akttafel.schluss .fliess {
+  font-size: 1.24rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.blatt.akttafel footer {
+  justify-content: flex-start;
+  margin-top: 30px;
+}
+
+/*
+ * MONOLITH spricht in eigener Type: schmaler Balken, kein Anfuehrungszeichen,
+ * kein Sprechername. Wer bis Akt IX kommt, erkennt ihn an der Satzmelodie —
+ * und merkt genau deshalb, wenn sie ab Akt IX in ein Sie kippt.
+ */
+.blatt blockquote.monolith {
+  border-left: 3px solid rgba(255, 107, 107, 0.55);
+  margin: 20px 0;
+  padding: 10px 0 10px 16px;
+  color: #e4c9c9;
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.blatt .frage {
+  color: var(--text-leise);
+  font-style: italic;
+  margin: 0 0 8px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(146, 168, 196, 0.28);
+}
+
+.blatt.fundstueck #akt-marke {
+  color: var(--warn);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schleier-voll {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}

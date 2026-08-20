@@ -72,9 +72,34 @@ try {
   });
   console.log('Backend:', info.backend, '| Draw Calls:', info.drawCalls, '| Dreiecke:', info.dreiecke);
 
-  await schuss('01_briefing', 'Briefing beim Betreten des Levels');
+  await schuss('01_akttafel', 'Kalter Einstieg in den Akt');
 
-  // Briefing schliessen, Level laden.
+  // Tafel wegklicken — danach steht der Auftrag.
+  await page.evaluate(() => {
+    window.__spiel.befehl('abbrechen');
+    window.__spiel.frameSchritt(2);
+  });
+  await schuss('01b_briefing', 'Auftrag mit MONOLITHs Angebot');
+
+  // Ein Fundstueck oeffnen. Der Klick geht ueber den echten Auswahlstrahl.
+  const fund = await page.evaluate(() => {
+    window.__spiel.befehl('abbrechen');
+    window.__spiel.setzeKamera(0, 0, 30, -35, 40);
+    window.__spiel.frameSchritt(2);
+    const ids = window.__spiel.fundstuecke();
+    const getroffen = ids.filter((id) => {
+      const ok = window.__spiel.klickeFundstueck(id);
+      if (ok) window.__spiel.befehl('abbrechen');
+      return ok;
+    });
+    if (getroffen[0]) window.__spiel.klickeFundstueck(getroffen[0]);
+    window.__spiel.frameSchritt(2);
+    return { ids, getroffen };
+  });
+  console.log(`Fundstuecke in der Halle: ${fund.ids.length}, davon im Bild getroffen: ${fund.getroffen.length}`);
+  await schuss('01c_fundstueck', 'Ein Fundstueck, ueber den Auswahlstrahl geoeffnet');
+
+  // Level laden — das raeumt alle Erzaehldialoge weg.
   await page.evaluate((id) => {
     window.__spiel.ladeLevel(id);
     window.__spiel.frameSchritt(3);

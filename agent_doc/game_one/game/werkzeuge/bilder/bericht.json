@@ -1,62 +1,76 @@
 {
-  "levelId": "I-2",
+  "levelId": "I-1",
   "modus": "webgl2",
   "bilder": [
     {
-      "name": "01_briefing",
-      "beschreibung": "Briefing beim Betreten des Levels",
-      "mittel": 16.32,
+      "name": "01_akttafel",
+      "beschreibung": "Kalter Einstieg in den Akt",
+      "mittel": 9.5,
       "max": 239,
-      "hellAnteil": 0.36
+      "hellAnteil": 0.024
+    },
+    {
+      "name": "01b_briefing",
+      "beschreibung": "Auftrag mit MONOLITHs Angebot",
+      "mittel": 17.29,
+      "max": 239,
+      "hellAnteil": 0.393
+    },
+    {
+      "name": "01c_fundstueck",
+      "beschreibung": "Ein Fundstueck, ueber den Auswahlstrahl geoeffnet",
+      "mittel": 14.6,
+      "max": 239,
+      "hellAnteil": 0.346
     },
     {
       "name": "02_leeres_werk",
       "beschreibung": "Leeres Fundament, Auftragseingang und Auslieferung",
-      "mittel": 32.2,
+      "mittel": 29.35,
       "max": 239,
-      "hellAnteil": 0.628
+      "hellAnteil": 0.449
     },
     {
       "name": "03_gebautes_werk",
       "beschreibung": "Referenzloesung steht",
-      "mittel": 31.89,
+      "mittel": 30.22,
       "max": 239,
-      "hellAnteil": 0.626
+      "hellAnteil": 0.513
     },
     {
       "name": "04_nahaufnahme",
       "beschreibung": "Nahaufnahme der Pipeline",
-      "mittel": 40.26,
+      "mittel": 40.23,
       "max": 239,
-      "hellAnteil": 0.778
+      "hellAnteil": 0.776
     },
     {
       "name": "05_simulation",
       "beschreibung": "Auftraege fliessen durch das Werk",
-      "mittel": 32.09,
+      "mittel": 31.99,
       "max": 239,
-      "hellAnteil": 0.628
+      "hellAnteil": 0.625
     },
     {
       "name": "06_auswertung",
       "beschreibung": "Auswertung nach dem Lauf",
-      "mittel": 14.39,
+      "mittel": 14.33,
       "max": 239,
-      "hellAnteil": 0.306
+      "hellAnteil": 0.309
     },
     {
       "name": "07_ohne_hud",
       "beschreibung": "Nur die Halle, ohne Oberflaeche",
-      "mittel": 39.26,
+      "mittel": 39.11,
       "max": 203,
-      "hellAnteil": 0.67
+      "hellAnteil": 0.666
     },
     {
       "name": "08_flach",
       "beschreibung": "Flacher Blickwinkel",
-      "mittel": 42.78,
+      "mittel": 42.42,
       "max": 143,
-      "hellAnteil": 0.751
+      "hellAnteil": 0.743
     }
   ],
   "meldungen": [

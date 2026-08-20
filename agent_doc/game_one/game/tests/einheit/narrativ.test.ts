@@ -59,7 +59,7 @@ function alleStellen(): Stelle[] {
       { quelle: `akt${a.akt}.titel`, text: a.titel, akt: a.akt },
       { quelle: `akt${a.akt}.untertitel`, text: a.untertitel, akt: a.akt },
       { quelle: `akt${a.akt}.einstieg`, text: a.einstieg, akt: a.akt },
-      { quelle: `akt${a.akt}.schlussbark`, text: a.schlussbark, akt: a.akt },
+      { quelle: `akt${a.akt}.schlusssatz`, text: a.schlusssatz, akt: a.akt },
       { quelle: `akt${a.akt}.monolith`, text: a.monolith, akt: a.akt },
       { quelle: `akt${a.akt}.lehre`, text: a.lehre, akt: a.akt }
     );
@@ -276,7 +276,7 @@ describe('Akt-Texte — Zeichenbudgets und Vollständigkeit', () => {
 
   it('hält den Schlusssatz unter 160 Zeichen und das Angebot unter 220', () => {
     for (const a of AKT_TEXTE) {
-      expect(a.schlussbark.length, `Akt ${a.akt} Schlusssatz`).toBeLessThanOrEqual(160);
+      expect(a.schlusssatz.length, `Akt ${a.akt} Schlusssatz`).toBeLessThanOrEqual(160);
       expect(a.monolith.length, `Akt ${a.akt} MONOLITH`).toBeLessThanOrEqual(220);
     }
   });

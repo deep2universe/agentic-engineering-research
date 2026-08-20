@@ -27,6 +27,8 @@ export interface HudRueckrufe {
   readonly aufBriefingSchliessen: () => void;
   readonly aufWeiter: () => void;
   readonly aufNochmal: () => void;
+  /** Die Akttafel wurde weggeklickt — danach folgt der Auftrag. */
+  readonly aufTafelSchliessen: () => void;
 }
 
 const TEMPI = [1, 4, 12, 60] as const;
@@ -46,9 +48,30 @@ function el<K extends keyof HTMLElementTagNameMap>(
   return e;
 }
 
+/**
+ * Zeigt ein Dialogblatt und setzt den Fokus, OHNE ans Ende zu springen.
+ *
+ * Ein schlichtes `focus()` scrollt das fokussierte Element ins Bild — bei
+ * einem langen Auftrag landet man damit auf dem Knopf ganz unten und liest
+ * den Text von der Mitte an. Genau dieser Fehler kostet den ersten Eindruck.
+ */
+function zeigeBlatt(schleier: HTMLElement, blatt: HTMLElement, fokus: HTMLElement): void {
+  schleier.replaceChildren(blatt);
+  schleier.hidden = false;
+  blatt.scrollTop = 0;
+  fokus.focus({ preventScroll: true });
+}
+
 function zahl(n: number): string {
   if (!Number.isFinite(n)) return '∞';
   return Math.round(n).toLocaleString('de-DE');
+}
+
+const ROEMISCH = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'] as const;
+
+/** Akte werden römisch gezählt — im Titel, in den Leveln und auf der Tafel. */
+function roemisch(n: number): string {
+  return ROEMISCH[n] ?? String(n);
 }
 
 export class Hud {
@@ -65,11 +88,15 @@ export class Hud {
   private readonly briefingEl: HTMLElement;
   private readonly ergebnisEl: HTMLElement;
   private readonly hilfeEl: HTMLElement;
+  private readonly tafelEl: HTMLElement;
+  private readonly notizEl: HTMLElement;
   readonly schattenbaum: HTMLElement;
 
   private meldungsTimer: ReturnType<typeof globalThis.setTimeout> | undefined;
   private gewaehlt: ModulArt = 'kern';
   private erlaubt: readonly ModulArt[] = BAUBAR;
+  private monolithSatz = '';
+  private offeneFragen: readonly string[] = [];
 
   constructor(
     private readonly ziel: HTMLElement,
@@ -110,8 +137,22 @@ export class Hud {
     this.briefingEl = el('div', { class: 'schleier-voll', hidden: 'true' });
     this.ergebnisEl = el('div', { class: 'schleier-voll', hidden: 'true' });
     this.hilfeEl = el('div', { class: 'schleier-voll', hidden: 'true' });
+    // Die Akttafel liegt VOR dem Auftrag und deckt die Halle vollständig ab —
+    // sie ist der einzige Moment, in dem das Spiel nichts von dir will.
+    this.tafelEl = el('div', { class: 'schleier-voll tafel-akt', hidden: 'true' });
+    this.notizEl = el('div', { class: 'schleier-voll', hidden: 'true' });
 
-    ziel.append(this.wurzel, this.meldungEl, this.lebendig, this.schattenbaum, this.briefingEl, this.ergebnisEl, this.hilfeEl);
+    ziel.append(
+      this.wurzel,
+      this.meldungEl,
+      this.lebendig,
+      this.schattenbaum,
+      this.briefingEl,
+      this.ergebnisEl,
+      this.hilfeEl,
+      this.tafelEl,
+      this.notizEl
+    );
     this.baueHilfe();
   }
 
@@ -273,6 +314,90 @@ export class Hud {
   // Dialoge
   // -------------------------------------------------------------------------
 
+  /**
+   * Die Akttafel: kalter Einstieg oder Schlusssatz, ganzflächig, ohne HUD.
+   *
+   * Bewusst arm an Bedienelementen — ein Knopf, sonst nichts. Ein Einstieg,
+   * neben dem Kennzahlen stehen, ist kein Einstieg mehr, sondern ein
+   * Ladebildschirm mit Fließtext.
+   */
+  zeigeAkttafel(
+    art: 'einstieg' | 'schluss',
+    akt: number,
+    titel: string,
+    untertitel: string,
+    text: string,
+    knopf: string,
+    nachsatz?: { frage: string; antwort: string }[]
+  ): void {
+    const blatt = el('article', {
+      class: `blatt akttafel ${art}`,
+      role: 'dialog',
+      'aria-modal': 'true',
+      'aria-label': `Akt ${akt}`,
+    });
+    blatt.append(
+      el('div', { id: 'akt-marke', text: `Akt ${roemisch(akt)}` }),
+      el('h1', { text: titel }),
+      el('p', { class: 'unter', text: untertitel })
+    );
+    for (const absatz of text.split('\n')) blatt.append(el('p', { class: 'fliess', text: absatz }));
+    for (const n of nachsatz ?? []) {
+      blatt.append(
+        el('div', { class: 'notiz' }, [
+          el('p', { class: 'leise', text: n.frage }),
+          el('p', { text: n.antwort }),
+        ])
+      );
+    }
+    const weiter = el('button', { type: 'button', text: knopf });
+    weiter.addEventListener('click', () => this.rueckrufe.aufTafelSchliessen());
+    blatt.append(el('footer', {}, [weiter]));
+    zeigeBlatt(this.tafelEl, blatt, weiter);
+  }
+
+  schliesseAkttafel(): void {
+    this.tafelEl.hidden = true;
+  }
+
+  get akttafelOffen(): boolean {
+    return !this.tafelEl.hidden;
+  }
+
+  /**
+   * Ein Fundstück. Titel, Text — und darunter das Vorher und das Nachher.
+   *
+   * Diese beiden Zeilen sind der ganze Trick: ein Gegenstand erzählt nur,
+   * wenn es einen Moment vor ihm und einen nach ihm gibt. Ohne sie wäre die
+   * Halle voller Requisiten statt voller Geschichte.
+   */
+  zeigeFundstueck(f: {
+    titel: string;
+    text: string;
+    vorher: string;
+    nachher: string;
+  }, stand: { gelesen: number; gesamt: number }): void {
+    const blatt = el('article', { class: 'blatt fundstueck', role: 'dialog', 'aria-modal': 'true' });
+    blatt.append(
+      el('div', { id: 'akt-marke', text: 'Gefunden in Halle 3' }),
+      el('h1', { text: f.titel }),
+      el('p', { class: 'fliess', text: f.text }),
+      el('div', { class: 'notiz' }, [
+        el('p', { class: 'leise', text: `Davor — ${f.vorher}` }),
+        el('p', { class: 'leise', text: `Danach — ${f.nachher}` }),
+      ]),
+      el('p', { class: 'leise', text: `${stand.gelesen} von ${stand.gesamt} Fundstücken angesehen. Sie zählen für nichts.` })
+    );
+    const zu = el('button', { type: 'button', text: 'Zurück an die Arbeit' });
+    zu.addEventListener('click', () => this.schliesseFundstueck());
+    blatt.append(el('footer', {}, [zu]));
+    zeigeBlatt(this.notizEl, blatt, zu);
+  }
+
+  schliesseFundstueck(): void {
+    this.notizEl.hidden = true;
+  }
+
   zeigeBriefing(level: LevelDefinition, aktTitel: string, monolith: Metriken | null): void {
     const blatt = el('article', { class: 'blatt', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Auftrag' });
     blatt.append(
@@ -296,16 +421,34 @@ export class Hud {
         })
       );
     }
+    /*
+     * MONOLITHs Angebot steht direkt bei seinen Zahlen — und zwar ohne
+     * Widerrede des Spiels. Es ist bequem, es ist plausibel, und es ist
+     * falsch. Würde hier eine Warnung danebenstehen, wäre die Versuchung
+     * keine mehr, und der Antagonist verkäme zum Schild "Bitte nicht
+     * anfassen".
+     */
+    if (this.monolithSatz) {
+      blatt.append(el('blockquote', { class: 'monolith', text: this.monolithSatz }));
+    }
+    if (this.offeneFragen.length) {
+      blatt.append(el('p', { class: 'leise', text: 'Was noch offen ist:' }));
+      for (const f of this.offeneFragen) blatt.append(el('p', { class: 'frage', text: f }));
+    }
     const weiter = el('button', { type: 'button', text: 'An die Arbeit' });
     weiter.addEventListener('click', () => this.rueckrufe.aufBriefingSchliessen());
     blatt.append(el('footer', {}, [weiter]));
-    this.briefingEl.replaceChildren(blatt);
-    this.briefingEl.hidden = false;
-    weiter.focus();
+    zeigeBlatt(this.briefingEl, blatt, weiter);
   }
 
   schliesseBriefing(): void {
     this.briefingEl.hidden = true;
+  }
+
+  /** Erzähltexte für den nächsten Auftrag. Muss vor `zeigeBriefing` stehen. */
+  setzeErzaehltexte(monolith: string, fragen: readonly string[]): void {
+    this.monolithSatz = monolith;
+    this.offeneFragen = fragen;
   }
 
   zeigeErgebnis(level: LevelDefinition, bewertung: Bewertung, m: Metriken): void {
@@ -352,9 +495,7 @@ export class Hud {
     weiter.addEventListener('click', () => this.rueckrufe.aufWeiter());
     blatt.append(el('footer', {}, [nochmal, weiter]));
 
-    this.ergebnisEl.replaceChildren(blatt);
-    this.ergebnisEl.hidden = false;
-    weiter.focus();
+    zeigeBlatt(this.ergebnisEl, blatt, weiter);
   }
 
   schliesseErgebnis(): void {
@@ -380,7 +521,11 @@ export class Hud {
 
   schalteHilfe(): void {
     this.hilfeEl.hidden = !this.hilfeEl.hidden;
-    if (!this.hilfeEl.hidden) this.hilfeEl.querySelector('button')?.focus();
+    if (!this.hilfeEl.hidden) {
+      const blatt = this.hilfeEl.querySelector('.blatt');
+      if (blatt) blatt.scrollTop = 0;
+      this.hilfeEl.querySelector('button')?.focus({ preventScroll: true });
+    }
   }
 
   schliesseHilfe(): void {
@@ -388,7 +533,13 @@ export class Hud {
   }
 
   get dialogOffen(): boolean {
-    return !this.briefingEl.hidden || !this.ergebnisEl.hidden || !this.hilfeEl.hidden;
+    return (
+      !this.briefingEl.hidden ||
+      !this.ergebnisEl.hidden ||
+      !this.hilfeEl.hidden ||
+      !this.tafelEl.hidden ||
+      !this.notizEl.hidden
+    );
   }
 
   /**

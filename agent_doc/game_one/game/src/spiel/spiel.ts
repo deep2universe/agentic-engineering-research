@@ -20,6 +20,7 @@ import { uPuls, uZeit } from '../welt/aussehen';
 import { Hud, type Modus } from '../ui/hud';
 import { befehlFuer, type Befehl } from '../ui/keymap';
 import { BauZustand } from './bauzustand';
+import { Erzaehlung } from './erzaehlung';
 import { Klangregie } from './klangregie';
 import { Simulation } from '../sim/simulation';
 import { bewerte, type Bewertung } from '../sim/ziele';
@@ -56,6 +57,7 @@ export class Spiel {
   readonly kamera: Kamerafuehrung;
   readonly hud: Hud;
   readonly klang: Klangregie;
+  readonly erzaehlung = new Erzaehlung();
   bau: BauZustand;
 
   level: LevelDefinition;
@@ -84,6 +86,9 @@ export class Spiel {
   private readonly klangErlaubt: boolean;
   private letzteMetriken: Metriken | null = null;
   private readonly blickHilfe = new THREE.Vector3();
+  /** Was nach dem Schließen der Akttafel passieren soll. */
+  private tafelDann: (() => void) | null = null;
+  private readonly strahl = new THREE.Raycaster();
 
   private constructor(renderwerk: Renderwerk, opt: SpielOptionen, start: LevelDefinition) {
     this.renderwerk = renderwerk;
@@ -118,6 +123,7 @@ export class Spiel {
         this.klang.spiele('seite_blaettern');
       },
       aufWeiter: () => this.weiter(),
+      aufTafelSchliessen: () => this.tafelGeschlossen(),
       aufNochmal: () => {
         this.hud.schliesseErgebnis();
         this.phase = 'bauen';
@@ -178,22 +184,99 @@ export class Spiel {
     this.monolithWerte = level.monolith
       ? new Simulation({ werk: level.monolith, strom: this.level.strom, saat: this.level.saat }).laufeDurch().metriken
       : null;
-    this.hud.zeigeBriefing(this.level, akt?.titel ?? '', this.monolithWerte);
+
+    // Die Halle bekommt die Fundstücke des Akts. Sie wachsen mit: was in Akt
+    // III dazukommt, liegt in Akt VII immer noch da.
+    const at = this.erzaehlung.text(level.akt);
+    this.halle.setzeFundstuecke(this.erzaehlung.fundstuecke(level.akt));
+    this.hud.setzeErzaehltexte(
+      at.monolith,
+      this.erzaehlung.offeneFragen(level.akt).map((r) => r.frage)
+    );
+
     this.hud.zeigeMetriken(this.leereMetriken(), this.level);
     this.hud.setzeStartText('Simulation starten');
     this.kamera.uebersicht();
     this.aktualisiereSchattenbaum();
+
+    /*
+     * Reihenfolge: erst die Akttafel, dann der Auftrag.
+     *
+     * Der kalte Einstieg läuft genau einmal je Akt. Wer ein Level wiederholt,
+     * bekommt sofort den Auftrag — sonst liest man denselben Absatz beim
+     * dritten Versuch zum dritten Mal, und Atmosphäre wird zur Wartezeit.
+     */
+    const auftritt = this.erzaehlung.betritt(level.akt);
+    if (auftritt.einstieg) {
+      this.tafelDann = () => this.zeigeAuftrag();
+      this.hud.zeigeAkttafel(
+        'einstieg',
+        level.akt,
+        auftritt.einstieg.titel,
+        auftritt.einstieg.untertitel,
+        auftritt.einstieg.einstieg,
+        'Halle betreten',
+        auftritt.aufloesungen.map((r) => ({ frage: r.frage, antwort: r.antwort }))
+      );
+      this.klang.spiele('notiz_beginn');
+    } else {
+      this.zeigeAuftrag();
+    }
+  }
+
+  private zeigeAuftrag(): void {
+    const akt = AKTE.find((a) => a.nummer === this.level.akt);
+    this.hud.zeigeBriefing(this.level, akt?.titel ?? '', this.monolithWerte);
+  }
+
+  /** Die Akttafel wurde geschlossen — weiter mit dem, was danach dran war. */
+  private tafelGeschlossen(): void {
+    this.hud.schliesseAkttafel();
+    const dann = this.tafelDann;
+    this.tafelDann = null;
+    this.klang.spiele('seite_blaettern');
+    if (dann) dann();
+    else {
+      this.phase = 'bauen';
+      this.hud.setzeKontext(this.modus);
+    }
   }
 
   private weiter(): void {
     this.hud.schliesseErgebnis();
     if (this.letzteBewertung?.bestanden === true) {
       const naechstes = naechstesLevel(this.level.id);
+      const alterAkt = this.level.akt;
       if (naechstes) {
+        /*
+         * Aktwechsel: erst der Schlusssatz des alten Akts, dann das nächste
+         * Level. Der Satz steht allein auf der Tafel und trägt keine
+         * Bewertung — er ist der Nachhall, nicht die Auswertung. Die stand
+         * gerade eben im Ergebnisblatt.
+         */
+        if (naechstes.akt !== alterAkt) {
+          const alt = this.erzaehlung.text(alterAkt);
+          this.tafelDann = () => this.ladeLevel(naechstes.id);
+          this.hud.zeigeAkttafel(
+            'schluss',
+            alterAkt,
+            alt.titel,
+            alt.lehre,
+            alt.schlusssatz,
+            'Weiter'
+          );
+          this.klang.spiele('ziel_erreicht');
+          return;
+        }
         this.ladeLevel(naechstes.id);
         return;
       }
-      this.hud.melde('Das war das letzte Level der Kampagne.', 'gut', 8000);
+      // Ende der Kampagne: der letzte Schlusssatz bleibt stehen.
+      const letzter = this.erzaehlung.text(alterAkt);
+      this.tafelDann = null;
+      this.hud.zeigeAkttafel('schluss', alterAkt, letzter.titel, letzter.lehre, letzter.schlusssatz, 'Halle verlassen');
+      this.klang.spiele('level_bestanden');
+      return;
     }
     this.phase = 'bauen';
     this.beendeSimulation();
@@ -422,11 +505,36 @@ export class Spiel {
 
   private aufZeigerAb(z: ZeigerZustand): void {
     if (this.hud.dialogOffen) return;
+    // Fundstücke liegen außerhalb des Fundaments und werden zuerst geprüft.
+    // Sie können nichts verdecken, was man bebauen kann.
+    if (this.oeffneFundstueck(z.ndcX, z.ndcY)) return;
     const punkt = this.kamera.bodenPunkt(z.ndcX, z.ndcY);
     if (!punkt) return;
     const feld = this.halle.weltZuFeld(punkt);
     if (!this.halle.imFundament(feld.x, feld.z)) return;
     this.klickAufFeld(feld.x, feld.z);
+  }
+
+  /**
+   * Prüft, ob unter dem Zeiger ein lesbares Fundstück liegt, und öffnet es.
+   *
+   * Der Strahl trifft nur die Gruppe der Fundstücke, nicht die ganze Szene —
+   * eine Halle mit einigen tausend Dreiecken pro Bild zu durchsuchen wäre für
+   * einen Klick auf einen Kaffeebecher deutlich zu teuer.
+   */
+  private oeffneFundstueck(ndcX: number, ndcY: number): boolean {
+    const ziele = this.halle.lesbareFundstuecke;
+    if (ziele.length === 0) return false;
+    this.strahl.setFromCamera(new THREE.Vector2(ndcX, ndcY), this.renderwerk.kamera);
+    const treffer = this.strahl.intersectObjects(ziele as THREE.Object3D[], false);
+    const id = treffer[0]?.object.userData['fundstueck'];
+    if (typeof id !== 'string') return false;
+    const f = this.erzaehlung.fundstueck(id);
+    if (!f) return false;
+    this.erzaehlung.markiereGelesen(id);
+    this.hud.zeigeFundstueck(f, this.erzaehlung.leseStand(this.level.akt));
+    this.klang.spiele('notiz_beginn');
+    return true;
   }
 
   private aufZeigerBewegt(z: ZeigerZustand): void {
@@ -469,7 +577,15 @@ export class Spiel {
 
   fuehreBefehlAus(befehl: Befehl): void {
     if (this.hud.dialogOffen && befehl !== 'abbrechen' && befehl !== 'hilfe') {
-      if (befehl === 'setzen') this.hud.schliesseBriefing();
+      // Enter bestätigt den offenen Dialog — Tafel zuerst, sie liegt oben.
+      if (befehl === 'setzen') {
+        if (this.hud.akttafelOffen) this.tafelGeschlossen();
+        else {
+          this.hud.schliesseFundstueck();
+          this.hud.schliesseBriefing();
+          if (this.phase === 'briefing') this.phase = 'bauen';
+        }
+      }
       return;
     }
     switch (befehl) {
@@ -573,8 +689,13 @@ export class Spiel {
         break;
       }
       case 'abbrechen':
+        if (this.hud.akttafelOffen) {
+          this.tafelGeschlossen();
+          break;
+        }
         if (this.hud.dialogOffen) {
           this.hud.schliesseHilfe();
+          this.hud.schliesseFundstueck();
           this.hud.schliesseBriefing();
           if (this.phase === 'briefing') this.phase = 'bauen';
           break;
@@ -724,6 +845,24 @@ export class Spiel {
 
   setzeTemporalModus(m: TemporalModus): void {
     this.renderwerk.setzeTemporalModus(m);
+  }
+
+  /**
+   * Klickt ein Fundstück über den echten Zeigerweg an.
+   *
+   * Das Stück wird auf die Bildebene projiziert und dann ganz normal
+   * angestrahlt. Damit prüft der Test dieselbe Kette wie ein Mausklick — bis
+   * hin zu der Frage, ob das Stück überhaupt zu sehen ist.
+   */
+  klickeFundstueck(id: string): boolean {
+    const ziel = this.halle.lesbareFundstuecke.find((o) => o.userData['fundstueck'] === id);
+    if (!ziel) return false;
+    const p = new THREE.Vector3();
+    ziel.getWorldPosition(p);
+    p.y += 0.05;
+    p.project(this.renderwerk.kamera);
+    if (p.x < -1 || p.x > 1 || p.y < -1 || p.y > 1 || p.z > 1) return false;
+    return this.oeffneFundstueck(p.x, p.y);
   }
 
   /** Laedt eine fertige Blaupause — für Tests, Referenzlösungen und Import. */

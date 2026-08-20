@@ -40,6 +40,16 @@ export interface DebugApi {
   setzeReduzierteBewegung(b: boolean): void;
   versteckeHud(b: boolean): void;
   befehl(name: string): void;
+  /** Kennungen der lesbaren Fundstücke, die gerade in der Halle liegen. */
+  fundstuecke(): string[];
+  /**
+   * Klickt ein Fundstück an — über den ECHTEN Zeigerweg, nicht über eine
+   * Abkürzung. Der Test soll beweisen, dass der Auswahlstrahl trifft, nicht
+   * dass sich ein Dialog öffnen lässt. Liefert `false`, wenn das Stück gerade
+   * hinter der Kamera oder außerhalb des Bildes liegt.
+   */
+  klickeFundstueck(id: string): boolean;
+  erzaehlZustand(): { einstiege: number[]; aufloesungen: string[]; gelesen: string[] };
   entsorge(): void;
 }
 
@@ -59,6 +69,10 @@ export function haengeDebugApiEin(spiel: Spiel): DebugApi {
 
     ladeLevel: (id, saat) => {
       spiel.ladeLevel(id, saat);
+      // Erzaehlung wegraeumen: Tests bauen, sie lesen nicht. Die Akttafel
+      // laege sonst vor jedem ersten Level eines Akts im Weg.
+      spiel.hud.schliesseAkttafel();
+      spiel.hud.schliesseFundstueck();
       spiel.hud.schliesseBriefing();
       spiel.phase = 'bauen';
     },
@@ -150,9 +164,22 @@ export function haengeDebugApiEin(spiel: Spiel): DebugApi {
       spiel.hud.schliesseBriefing();
       spiel.hud.schliesseErgebnis();
       spiel.hud.schliesseHilfe();
+      spiel.hud.schliesseAkttafel();
+      spiel.hud.schliesseFundstueck();
     },
 
     befehl: (name) => spiel.fuehreBefehlAus(name as never),
+
+    // Netz und Kiste tragen dieselbe Kennung — der Test will jede genau einmal.
+    fundstuecke: () => [
+      ...new Set(
+        spiel.halle.lesbareFundstuecke.map((o) => String(o.userData['fundstueck'])).filter((s) => s !== 'undefined')
+      ),
+    ],
+
+    klickeFundstueck: (id) => spiel.klickeFundstueck(id),
+
+    erzaehlZustand: () => spiel.erzaehlung.zustand(),
 
     entsorge: () => spiel.entsorge(),
   };

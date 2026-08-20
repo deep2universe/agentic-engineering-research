@@ -17,7 +17,7 @@
  */
 
 import * as THREE from 'three/webgpu';
-import { erzeugeStrom } from '../sim/rng';
+import { erzeugeStrom, hashText } from '../sim/rng';
 import { flaechenMaterial, fundamentForm, fundamentMaterial, hallenTeile, PALETTE } from './aussehen';
 import { fundstueckGeometrie, type FundstueckArt } from './geometrie';
 
@@ -44,6 +44,9 @@ export const PODESTHOEHE = 0.34;
 /** Höhe, auf der die Module stehen: Podest plus Gitterrelief. */
 export const BAUHOEHE = PODESTHOEHE + 0.014;
 
+/** Höhe der Transportkiste, auf der ein lesbares Fundstück steht. */
+const KISTENHOEHE = 0.46;
+
 export class Halle {
   readonly wurzel = new THREE.Group();
   readonly fundament = new THREE.Group();
@@ -51,10 +54,16 @@ export class Halle {
   readonly decke = new THREE.Group();
   /** Das Fachwerk bleibt immer sichtbar — es trägt den Industriecharakter. */
   readonly fachwerk = new THREE.Group();
+  /** Die lesbaren Fundstücke des aktuellen Akts samt ihrer Bodenmarken. */
+  readonly fundstuecke = new THREE.Group();
   readonly masse: HallenMasse;
   readonly sonne: THREE.DirectionalLight;
 
   private readonly entsorgbar: Array<{ dispose(): void }> = [];
+  private readonly lesbar: THREE.Object3D[] = [];
+  private markeGeo: THREE.BufferGeometry | undefined;
+  private markeMat: THREE.Material | undefined;
+  private kisteGeo: THREE.BufferGeometry | undefined;
 
   constructor(masse: Partial<HallenMasse> = {}) {
     this.masse = { ...STANDARD_MASSE, ...masse };
@@ -169,6 +178,7 @@ export class Halle {
     this.wurzel.add(this.fundament);
 
     this.streueFundstuecke(breite, tiefe, saat);
+    this.wurzel.add(this.fundstuecke);
     this.baueLicht(breite, tiefe, hoehe);
   }
 
@@ -207,9 +217,124 @@ export class Halle {
   }
 
   /**
-   * Verteilt Fundstücke am Rand der Halle. Sie stehen immer AUF dem Boden und
-   * immer außerhalb des Fundaments: schwebende Kisten sehen sofort nach
-   * Prototyp aus, und etwas mitten im Bauraum wäre schlicht im Weg.
+   * Setzt die BENANNTEN Fundstücke — die lesbaren, die eine Geschichte tragen.
+   *
+   * Sie liegen näher am Fundament als die stumme Kulisse und bekommen eine
+   * schwach leuchtende Bodenmarke. Diese Marke ist die einzige Zusage des
+   * Spiels an die Spielerin: *hier steht etwas, das sich anzusehen lohnt.*
+   * Ohne sie wären lesbare Gegenstände von Requisiten nicht zu unterscheiden,
+   * und ein Erzählkanal, den niemand findet, ist keiner.
+   *
+   * Drei Dinge sind hier aus der Bildkontrolle gelernt und nicht verhandelbar:
+   *
+   *  1. **Die Plätze werden gleichmäßig verteilt, nicht gewürfelt.** Der erste
+   *     Entwurf hat die Winkel aus der Kennung gehasht — und prompt lagen zwei
+   *     Stücke ineinander. Bei zwei Dutzend Stücken auf einem Ring ist eine
+   *     Kollision nicht unwahrscheinlich, sondern sicher.
+   *  2. **Sie stehen auf einer Kiste.** Ein Emaillebecher ist acht Zentimeter
+   *     hoch. Aus der Bauperspektive ist das exakt ein dunkler Fleck auf
+   *     grauem Beton. Auf Hüfthöhe fängt er Licht und wirft einen Schatten.
+   *  3. **Die Reihenfolge ist stabil sortiert.** Sonst wandert ein Fundstück
+   *     quer durch die Halle, sobald im Akt davor eines dazukommt.
+   */
+  setzeFundstuecke(stuecke: readonly { id: string; art: FundstueckArt }[]): void {
+    this.leereFundstuecke();
+    const material = flaechenMaterial('messing');
+    const holz = flaechenMaterial('stahl');
+    const { felderX, felderZ } = this.masse;
+    const sortiert = [...stuecke].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+    const n = Math.max(1, sortiert.length);
+
+    for (let i = 0; i < sortiert.length; i++) {
+      const s = sortiert[i]!;
+      const h = hashText(s.id);
+      // Gleichmäßig auf dem Ring, mit halbem Feld Versatz je zweitem Stück,
+      // damit die Reihe nicht wie eine Perlenkette wirkt.
+      const winkel = (i / n) * Math.PI * 2 + (i % 2) * 0.16;
+      const weite = 1 + ((h >>> 16) & 0x3f) / 0x3f * 0.16;
+      const x = Math.cos(winkel) * (felderX / 2 + 2.4) * weite;
+      const z = Math.sin(winkel) * (felderZ / 2 + 2.4) * weite;
+      const dreh = winkel + 2.2 + ((h & 0xff) / 0xff) * 0.7;
+
+      const kiste = new THREE.Mesh(this.kistenForm(), holz);
+      kiste.position.set(x, KISTENHOEHE / 2, z);
+      kiste.rotation.y = dreh * 0.5;
+      kiste.castShadow = true;
+      kiste.receiveShadow = true;
+      this.fundstuecke.add(kiste);
+
+      const g = fundstueckGeometrie(s.art, h & 0x7fffffff);
+      const netz = new THREE.Mesh(g, material);
+      netz.position.set(x, KISTENHOEHE, z);
+      netz.rotation.y = dreh;
+      netz.scale.setScalar(1.5);
+      netz.castShadow = true;
+      netz.receiveShadow = true;
+      netz.userData['fundstueck'] = s.id;
+      netz.userData['eigeneForm'] = true;
+      this.fundstuecke.add(netz);
+      // Der Strahl trifft die KISTE mit; sie ist das größere Ziel und trägt
+      // dieselbe Kennung. Auf einen Kaffeebecher genau zu zielen wäre eine
+      // Geschicklichkeitsprüfung, und die gehört nicht in dieses Spiel.
+      kiste.userData['fundstueck'] = s.id;
+      this.lesbar.push(netz, kiste);
+
+      const marke = new THREE.Mesh(this.markenForm(), this.markenMaterial());
+      marke.position.set(x, 0.006, z);
+      marke.rotation.x = -Math.PI / 2;
+      this.fundstuecke.add(marke);
+    }
+  }
+
+  /** Die Transportkiste unter einem Fundstück. Eine Form für alle. */
+  private kistenForm(): THREE.BufferGeometry {
+    this.kisteGeo ??= new THREE.BoxGeometry(0.54, KISTENHOEHE, 0.54);
+    return this.kisteGeo;
+  }
+
+  /** Alle lesbaren Fundstücke — Ziel für den Auswahlstrahl. */
+  get lesbareFundstuecke(): readonly THREE.Object3D[] {
+    return this.lesbar;
+  }
+
+  /**
+   * Gibt die Formen der lesbaren Fundstücke frei — und NUR die.
+   *
+   * Bodenmarke und Kiste sind für ALLE Stücke dieselbe Geometrie. Würde man
+   * sie hier mit freigeben, wäre nach dem ersten Aktwechsel keine Kiste mehr
+   * da und die Konsole voll. Deshalb trägt geteilte Geometrie eine Marke.
+   */
+  private leereFundstuecke(): void {
+    for (const kind of this.fundstuecke.children) {
+      if (kind instanceof THREE.Mesh && kind.userData['eigeneForm'] === true) kind.geometry.dispose();
+    }
+    this.fundstuecke.clear();
+    this.lesbar.length = 0;
+  }
+
+  /** Der flache Ring unter einem lesbaren Fundstück. Einmal gebaut, oft benutzt. */
+  private markenForm(): THREE.BufferGeometry {
+    this.markeGeo ??= new THREE.RingGeometry(0.46, 0.55, 32);
+    return this.markeGeo;
+  }
+
+  private markenMaterial(): THREE.Material {
+    if (!this.markeMat) {
+      const m = new THREE.MeshBasicNodeMaterial();
+      m.color = new THREE.Color(PALETTE.messing);
+      m.transparent = true;
+      m.opacity = 0.34;
+      m.depthWrite = false;
+      this.markeMat = m;
+      this.merke(m);
+    }
+    return this.markeMat;
+  }
+
+  /**
+   * Verteilt die stumme Kulisse am Rand der Halle. Sie steht immer AUF dem
+   * Boden und immer außerhalb des Fundaments: schwebende Kisten sehen sofort
+   * nach Prototyp aus, und etwas mitten im Bauraum wäre schlicht im Weg.
    */
   private streueFundstuecke(breite: number, tiefe: number, saat: number): void {
     const r = erzeugeStrom(saat ^ 0x5c4a7711);
@@ -295,11 +420,18 @@ export class Halle {
   }
 
   entsorge(): void {
+    this.leereFundstuecke();
+    this.markeGeo?.dispose();
+    this.kisteGeo?.dispose();
+    this.markeGeo = undefined;
+    this.kisteGeo = undefined;
+    this.markeMat = undefined;
     for (const x of this.entsorgbar.splice(0)) x.dispose();
     this.wurzel.clear();
     this.fundament.clear();
     this.decke.clear();
     this.fachwerk.clear();
+    this.fundstuecke.clear();
   }
 }
 
