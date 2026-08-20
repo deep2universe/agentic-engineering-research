@@ -15,7 +15,7 @@
 
 import { describe, expect, it } from 'vitest';
 import { simuliere } from '../../src/sim/simulation';
-import { Bau, reihe } from '../hilfe/bauen';
+import { Bau, reihe } from '../../src/inhalt/bauhilfe';
 import type { AuftragsStrom, Werk } from '../../src/sim/typen';
 
 const SAAT = 20260819;

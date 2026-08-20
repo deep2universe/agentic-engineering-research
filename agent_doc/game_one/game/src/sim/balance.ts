@@ -79,9 +79,15 @@ export const KERN: Record<
 /** Wie stark die Kompetenzluecke die Guete-Decke druckt. */
 export const KOMPETENZ_STEILHEIT = 1.6;
 
-/** Spezialisierung: Bonus bei passender Domaene, Malus bei unpassender. */
+/**
+ * Spezialisierung ist eine Wette, keine Verbesserung. Der Malus ist bewusst
+ * groesser als der Bonus: Auf einem gemischten Auftragsstrom ist blinde
+ * Spezialisierung im Erwartungswert NEGATIV. Genau das macht den Router aus
+ * Akt II nicht nur zu einem Kostenwerkzeug, sondern zu einem Qualitaetswerkzeug
+ * — erst wer vorher klassifiziert, darf sich spezialisieren.
+ */
 export const SPEZIALISIERUNG_BONUS = 0.09;
-export const SPEZIALISIERUNG_MALUS = 0.05;
+export const SPEZIALISIERUNG_MALUS = 0.14;
 
 /**
  * Context Rot. Unterhalb von KONTEXT_SCHWELLE gibt es keinen Verlust, danach

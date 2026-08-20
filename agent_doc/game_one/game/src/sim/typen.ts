@@ -271,14 +271,21 @@ export interface Budget {
   readonly dauer?: number;
 }
 
+export type Vergleich = '>=' | '<=' | '==';
+
+/**
+ * Ein Bestehenskriterium. Bewusst DEKLARATIV statt als Funktion: dadurch ist
+ * ein Level serialisierbar, im Test vergleichbar, und das HUD kann seinen Text
+ * und seinen Fortschrittsbalken selbst herleiten.
+ */
 export interface Ziel {
   readonly id: string;
+  readonly metrik: keyof Metriken;
+  readonly vergleich: Vergleich;
+  readonly wert: number;
+  /** Klartext fuer das HUD, in Du-Form. */
   readonly text: string;
-  /** Wird gegen die Metriken geprueft. Muss rein und deterministisch sein. */
-  readonly pruefe: (m: Metriken) => boolean;
-  /** Fortschritt 0..1 fuer die HUD-Anzeige. */
-  readonly fortschritt: (m: Metriken) => number;
-  /** Optionales Ziel ("Meisterstueck") — nicht notwendig zum Bestehen. */
+  /** Meisterstueck — nicht notwendig zum Bestehen, aber sichtbar. */
   readonly optional?: boolean;
 }
 
