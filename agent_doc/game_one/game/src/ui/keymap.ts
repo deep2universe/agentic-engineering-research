@@ -13,11 +13,8 @@
 
 export type Befehl =
   | 'modus_auswahl'
-  | 'modus_bauen'
   | 'modus_leitung'
   | 'modus_abriss'
-  | 'palette_zurueck'
-  | 'palette_vor'
   | 'setzen'
   | 'abbrechen'
   | 'loeschen'
@@ -65,13 +62,23 @@ export interface Bindung {
 }
 
 export const KEYMAP: readonly Bindung[] = [
-  { befehl: 'modus_auswahl', code: 'Digit1', anzeige: '1', bereich: 'Modi', text: 'Auswahl' },
-  { befehl: 'modus_bauen', code: 'Digit2', anzeige: '2', bereich: 'Modi', text: 'Bauen' },
-  { befehl: 'modus_leitung', code: 'Digit3', anzeige: '3', bereich: 'Modi', text: 'Leitung legen' },
-  { befehl: 'modus_abriss', code: 'Digit4', anzeige: '4', bereich: 'Modi', text: 'Abriss' },
+  /*
+   * Die Ziffern gehoeren den MODULEN, nicht den Modi.
+   *
+   * Vorher standen hier die vier Modi auf 1 bis 4 — waehrend die Palette
+   * daneben jedem Modul eine Ziffer als Tastenkuerzel anzeigte. Jede einzelne
+   * davon war anderweitig belegt: die Palette hat eine Bedienung versprochen,
+   * die es nicht gab. Die Modulkuerzel stehen im Katalog und sind ueber die
+   * ganze Kampagne stabil; sie werden in `spiel.ts` aufgeloest und tauchen
+   * deshalb hier nicht einzeln auf.
+   *
+   * Zwei Modi bleiben: Leitung und Abriss. Bauen ergibt sich daraus, dass man
+   * ein Modul waehlt, und Auswahl ist der Zustand, in den Escape zurueckfuehrt.
+   */
+  { befehl: 'modus_leitung', code: 'KeyL', anzeige: 'L', bereich: 'Modi', text: 'Leitung legen' },
+  { befehl: 'modus_abriss', code: 'KeyR', anzeige: 'R', bereich: 'Modi', text: 'Abriss (Rückbau)' },
+  { befehl: 'modus_auswahl', code: 'KeyC', anzeige: 'C', bereich: 'Modi', text: 'Auswahl (Module ansehen)' },
 
-  { befehl: 'palette_zurueck', code: 'KeyQ', anzeige: 'Q', bereich: 'Bauen', text: 'Vorheriges Modul' },
-  { befehl: 'palette_vor', code: 'KeyE', anzeige: 'E', bereich: 'Bauen', text: 'Nächstes Modul' },
   { befehl: 'setzen', code: 'Enter', anzeige: '⏎', bereich: 'Bauen', text: 'Setzen' },
   { befehl: 'verbinden', code: 'KeyV', anzeige: 'V', bereich: 'Bauen', text: 'Markierte Module verbinden' },
   { befehl: 'loeschen', code: 'Backspace', anzeige: '⌫', bereich: 'Bauen', text: 'Auswahl löschen' },
@@ -88,7 +95,7 @@ export const KEYMAP: readonly Bindung[] = [
   { befehl: 'gierung_links', code: 'Comma', anzeige: ',', bereich: 'Kamera', text: 'Drehen in 45-Grad-Rasten' },
   { befehl: 'gierung_rechts', code: 'Period', anzeige: '.', bereich: 'Kamera', text: 'Drehen in 45-Grad-Rasten' },
   { befehl: 'fokus', code: 'KeyF', anzeige: 'F', bereich: 'Kamera', text: 'Auf Auswahl fokussieren' },
-  { befehl: 'uebersicht', code: 'KeyH', anzeige: 'H', bereich: 'Kamera', text: 'Ganze Halle' },
+  { befehl: 'uebersicht', code: 'KeyO', anzeige: 'O', bereich: 'Kamera', text: 'Ganze Halle' },
 
   { befehl: 'sim_start', code: 'Space', anzeige: 'Leer', bereich: 'Simulation', text: 'Start und Pause' },
   { befehl: 'sim_einzeltick', code: 'KeyN', anzeige: 'N', bereich: 'Simulation', text: 'Einzelner Tick' },
@@ -96,7 +103,7 @@ export const KEYMAP: readonly Bindung[] = [
   { befehl: 'sim_schneller', code: 'Period', umschalt: true, anzeige: '⇧.', bereich: 'Simulation', text: 'Schneller' },
   { befehl: 'sprung_verstoss', code: 'KeyF', umschalt: true, anzeige: '⇧F', bereich: 'Simulation', text: 'Zum ersten Regelverstoß' },
 
-  { befehl: 'ansicht_spur', code: 'KeyT', anzeige: 'T', bereich: 'Ansicht', text: 'Spur-Overlay' },
+  { befehl: 'ansicht_spur', code: 'KeyP', anzeige: 'P', bereich: 'Ansicht', text: 'Spur-Overlay' },
   { befehl: 'ansicht_gitter', code: 'KeyG', anzeige: 'G', bereich: 'Ansicht', text: 'Gitter' },
   { befehl: 'inspektor', code: 'KeyI', anzeige: 'I', bereich: 'Ansicht', text: 'Inspektor' },
 

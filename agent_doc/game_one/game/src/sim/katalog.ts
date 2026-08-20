@@ -228,7 +228,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     ],
     standard: { modus: 'bei_unsicherheit', schwelle: 0.4 },
     farbe: 0xffd6a5,
-    taste: 'H',
+    taste: 'J',
   },
   auge: {
     art: 'auge',
@@ -241,7 +241,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Unverändert — aber jetzt belegt.' }],
     standard: {},
     farbe: 0xb8f2e6,
-    taste: 'T',
+    taste: 'U',
   },
   schmiede: {
     art: 'schmiede',
@@ -254,7 +254,7 @@ export const KATALOG: Record<ModulArt, ModulDefinition> = {
     ausgaenge: [{ id: 'aus', name: 'Ausgang', hinweis: 'Optimierte Konfiguration.' }],
     standard: { population: 12, generationen: 8 },
     farbe: 0xf7b2ff,
-    taste: 'E',
+    taste: 'K',
   },
 };
 

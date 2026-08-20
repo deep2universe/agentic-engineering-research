@@ -1,11 +1,11 @@
 {
-  "levelId": "XII-3",
+  "levelId": "V-3",
   "modus": "webgl2",
   "bilder": [
     {
       "name": "01_akttafel",
       "beschreibung": "Kalter Einstieg in den Akt",
-      "mittel": 9.49,
+      "mittel": 9.5,
       "max": 239,
       "hellAnteil": 0.024
     },
@@ -19,58 +19,58 @@
     {
       "name": "01c_fundstueck",
       "beschreibung": "Ein Fundstueck, ueber den Auswahlstrahl geoeffnet",
-      "mittel": 14.59,
+      "mittel": 14.6,
       "max": 239,
-      "hellAnteil": 0.345
+      "hellAnteil": 0.346
     },
     {
       "name": "02_leeres_werk",
       "beschreibung": "Leeres Fundament, Auftragseingang und Auslieferung",
-      "mittel": 29.05,
+      "mittel": 29.17,
       "max": 239,
-      "hellAnteil": 0.457
+      "hellAnteil": 0.451
     },
     {
       "name": "03_gebautes_werk",
       "beschreibung": "Referenzloesung steht",
-      "mittel": 30.11,
+      "mittel": 29.65,
       "max": 239,
-      "hellAnteil": 0.525
+      "hellAnteil": 0.518
     },
     {
       "name": "04_nahaufnahme",
       "beschreibung": "Nahaufnahme der Pipeline",
-      "mittel": 37.37,
+      "mittel": 37.21,
       "max": 239,
-      "hellAnteil": 0.74
+      "hellAnteil": 0.741
     },
     {
       "name": "05_simulation",
       "beschreibung": "Auftraege fliessen durch das Werk",
-      "mittel": 31.53,
+      "mittel": 30.8,
       "max": 239,
-      "hellAnteil": 0.619
+      "hellAnteil": 0.608
     },
     {
       "name": "06_auswertung",
       "beschreibung": "Auswertung nach dem Lauf",
-      "mittel": 15.55,
+      "mittel": 14.36,
       "max": 239,
-      "hellAnteil": 0.353
+      "hellAnteil": 0.309
     },
     {
       "name": "07_ohne_hud",
       "beschreibung": "Nur die Halle, ohne Oberflaeche",
-      "mittel": 37.51,
+      "mittel": 37.57,
       "max": 204,
-      "hellAnteil": 0.63
+      "hellAnteil": 0.641
     },
     {
       "name": "08_flach",
       "beschreibung": "Flacher Blickwinkel",
       "mittel": 38.84,
-      "max": 187,
-      "hellAnteil": 0.661
+      "max": 194,
+      "hellAnteil": 0.681
     }
   ],
   "meldungen": [

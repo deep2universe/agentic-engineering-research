@@ -25,7 +25,9 @@ test.describe('Tastaturbedienung', () => {
     await page.locator('#leinwand').focus();
 
     // Modul wählen, Bauen-Modus, Modul setzen, verdrahten — alles per Taste.
-    await page.keyboard.press('Digit2');
+    // "1" ist das Kürzel des MODELL-KERNs; es ist über die ganze Kampagne
+    // dasselbe und waehlt zugleich den Bauen-Modus an.
+    await page.keyboard.press('Digit1');
     const gesetzt = await page.evaluate(() => {
       const g = window.__spiel!;
       // Der Zeiger liegt im Testbetrieb auf Feld 0/0; gesetzt wird über die

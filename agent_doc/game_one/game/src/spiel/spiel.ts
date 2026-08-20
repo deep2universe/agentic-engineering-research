@@ -592,6 +592,12 @@ export class Spiel {
       if (ziel && (ziel.tagName === 'INPUT' || ziel.tagName === 'TEXTAREA')) return;
       if (e.code === 'Tab') return; // Tab gehört dem DOM-Fokus.
       this.gedrueckt.add(e.code);
+      // Modulkuerzel zuerst: Sie sind die haeufigste Taste im Spiel, und sie
+      // gelten nur, solange kein Dialog offen ist.
+      if (!e.metaKey && !e.ctrlKey && !e.altKey && !this.hud.dialogOffen && this.waehleModulPerTaste(e.key)) {
+        e.preventDefault();
+        return;
+      }
       const befehl = befehlFuer(e);
       if (befehl === null) return;
       e.preventDefault();
@@ -606,6 +612,37 @@ export class Spiel {
       () => globalThis.removeEventListener('keydown', ab),
       () => globalThis.removeEventListener('keyup', auf)
     );
+  }
+
+  /**
+   * Wählt das Modul, dessen Kürzel gedrückt wurde.
+   *
+   * Die Kürzel stehen im Katalog und sind über die ganze Kampagne stabil: Der
+   * MODELL-KERN liegt in Akt I auf der 1 und in Akt XII immer noch. Das ist der
+   * Grund, warum sie NICHT aus der Position in der Palette abgeleitet werden —
+   * eine Taste, die je nach Level etwas anderes tut, ist keine Abkürzung.
+   *
+   * Ein Kürzel für ein Modul, das dieses Level nicht freigibt, sagt das auch.
+   * Stillschweigend nichts zu tun wäre die schlechtere Antwort: Die Palette
+   * zeigt das Modul nicht, also ist die naheliegende Vermutung „meine Tastatur
+   * spinnt" und nicht „das gibt es hier noch nicht".
+   */
+  private waehleModulPerTaste(taste: string): boolean {
+    const gesucht = taste.toUpperCase();
+    for (const art of BAUBAR) {
+      if (KATALOG[art].taste !== gesucht) continue;
+      if (!this.level.module.includes(art)) {
+        this.hud.melde(`${KATALOG[art].name} ist in diesem Auftrag nicht freigegeben.`, 'fehler');
+        this.klang.spiele('ui_fehler');
+        return true;
+      }
+      this.gewaehltesModul = art;
+      this.hud.setzeModulWahl(art);
+      this.setzeModus('bauen');
+      this.klang.spiele('ui_waehlen');
+      return true;
+    }
+    return false;
   }
 
   fuehreBefehlAus(befehl: Befehl): void {
@@ -628,27 +665,12 @@ export class Spiel {
       case 'modus_auswahl':
         this.setzeModus('auswahl');
         break;
-      case 'modus_bauen':
-        this.setzeModus('bauen');
-        break;
       case 'modus_leitung':
         this.setzeModus('leitung');
         break;
       case 'modus_abriss':
         this.setzeModus('abriss');
         break;
-      case 'palette_vor':
-      case 'palette_zurueck': {
-        const liste = this.hud.erlaubteModule();
-        if (liste.length === 0) break;
-        const i = liste.indexOf(this.gewaehltesModul);
-        const n = befehl === 'palette_vor' ? 1 : -1;
-        const naechste = liste[(i + n + liste.length) % liste.length]!;
-        this.gewaehltesModul = naechste;
-        this.hud.setzeModulWahl(naechste);
-        this.setzeModus('bauen');
-        break;
-      }
       case 'setzen':
         this.klickAufFeld(this.zeigerFeld.x, this.zeigerFeld.z);
         break;

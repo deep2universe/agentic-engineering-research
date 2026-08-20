@@ -49,16 +49,17 @@ nichts nach, benutzt nur Systemschriften und hat keinen Server-Anteil.
 
 | Taste | Wirkung |
 |---|---|
-| `1` `2` `3` `4` | Auswahl · Bauen · Leitung legen · Abriss |
-| `Q` `E` | Modul in der Palette wechseln |
+| `1` … `9` `0` `J` `U` `K` | Modul wählen — das Kürzel steht in der Palette und gilt in jedem Akt |
+| `L` `R` `C` | Leitung legen · Abriss (Rückbau) · Auswahl |
 | `W A S D`, Pfeile | Kamera schwenken |
 | `,` `.` | in 45-Grad-Rasten drehen |
-| `F` `H` | auf Auswahl fokussieren · ganze Halle |
+| `F` `O` | auf Auswahl fokussieren · ganze Halle |
 | `Leertaste` | Simulation starten und anhalten |
 | `N` | ein einzelner Tick |
 | `⇧,` `⇧.` | langsamer · schneller |
 | `⌘Z` `⇧⌘Z` | rückgängig · wiederholen |
 | `M` | Ton an und aus |
+| `X` | Schmiede öffnen (ab Akt XI) |
 | `B` | den Auftrag noch einmal lesen |
 | `/` `?` | Tastenübersicht · Betriebshandbuch |
 
