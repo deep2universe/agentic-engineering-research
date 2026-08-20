@@ -77,6 +77,20 @@ export const EMISSIV_HOCH = 0.35;
  */
 export const EMISSIV_RUHE = 0.012;
 
+/**
+ * Ruhewert einer gelegten, aber stillstehenden LEITUNG.
+ *
+ * Bewusst über `EMISSIV_RUHE` und dennoch unter `EMISSIV_TIEF`: Eine Leitung
+ * ist kein großes Gehaeuse, sondern ein duenner Strang von 8,5 cm Radius. Die
+ * Begründung für den niedrigen Flächenwert — ein ganzes Gehaeuse leuchtet
+ * sonst wie Plastik — trägt hier nicht, weil die Fläche winzig ist.
+ *
+ * Der Wert entscheidet über die wichtigste Auskunft der Bauphase: Steht meine
+ * Kette? Bei 0,012 war die Antwort auf einem gewoehnlichen Bildschirm nicht
+ * ablesbar.
+ */
+export const LEITUNG_RUHE = 0.095;
+
 /** Kantenlänge aller Master-Texturen. */
 const TEXTURGROESSE = 512;
 
@@ -237,11 +251,26 @@ export function modulMaterial(art: ModulArt): THREE.MeshStandardNodeMaterial {
     erzeugeTexturSatz('stahl_lackiert', e.saat, TEXTURGROESSE).albedo,
     uv().mul(e.kachelung)
   ).rgb;
-  material.colorNode = mix(albedo, albedo.mul(color(leitwert)), 0.45);
+  /*
+   * Der Farbleitwert trägt jetzt deutlicher (0,72 statt 0,45).
+   *
+   * Die alte Mischung liess das Gehaeuse fast reinen dunklen Stahl bleiben. In
+   * einer bewusst dunkel gehaltenen Halle waren damit Auftragseingang, Kern und
+   * Auslieferung auf Spielabstand nicht auseinanderzuhalten — das Spielfeld war
+   * eine Ansammlung gleich aussehender dunkler Kloetze. Die Farbe ist hier kein
+   * Schmuck, sondern die schnellste Auskunft darüber, was wo steht.
+   */
+  material.colorNode = mix(albedo, albedo.mul(color(leitwert)), 0.72);
 
-  // Leuchtband quer über die Blende. Es allein trägt die Farbkennung —
-  // das Gehäuse bleibt dunkler Stahl.
-  const band = smoothstep(0.455, 0.478, uv().y).sub(smoothstep(0.522, 0.545, uv().y)).saturate();
+  /*
+   * Leuchtband quer über die Blende — deutlich breiter als zuvor.
+   *
+   * Es lag bei uv.y 0,455–0,545, also auf neun Prozent der Höhe. Auf
+   * Spielabstand sind das ein bis zwei Bildpunkte: Die einzige Stelle, die die
+   * Farbkennung wirklich trug, war faktisch unsichtbar. Jetzt über ein Viertel
+   * der Blende.
+   */
+  const band = smoothstep(0.375, 0.405, uv().y).sub(smoothstep(0.595, 0.625, uv().y)).saturate();
   material.emissiveNode = color(leitwert).mul(
     band.mul(EMISSIV_HOCH - EMISSIV_RUHE)
       .add(randLeuchten().mul(0.09))
@@ -303,10 +332,22 @@ export function leitungsMaterial(): LeitungsMaterial {
   // Ein schwacher Nachlauf gibt dem Puls Richtung.
   const schweif = smoothstep(0.0, 0.34, abstand).oneMinus().mul(0.35);
 
-  // Tote Leitung glimmt nur; unter Last läuft der Puls durch das ganze Band.
+  /*
+   * Eine gelegte Leitung MUSS als Leitung zu sehen sein — auch im Stillstand.
+   *
+   * Vorher lag die Ruhehelligkeit bei `EMISSIV_RUHE` (0,012). Das ist im
+   * Halbdunkel der Halle praktisch schwarz: Wer eine Leitung gelegt hatte, sah
+   * einen dunklen Strich auf dunklem Beton und konnte nicht erkennen, ob die
+   * Verbindung überhaupt zustande gekommen war. Der Bauzustand — die
+   * wichtigste Auskunft vor dem Start — war damit unlesbar.
+   *
+   * `LEITUNG_RUHE` ist deshalb rund achtmal so hell. Es bleibt weit unter
+   * `EMISSIV_HOCH`, überstrahlt also nichts und faengt keinen Bloom; es reicht
+   * genau dafür, den Verlauf der Kette nachzuzeichnen.
+   */
   material.emissiveNode = color(0x66e0ff).mul(
-    float(EMISSIV_RUHE)
-      .add(aktiv.mul(0.022))
+    float(LEITUNG_RUHE)
+      .add(aktiv.mul(0.03))
       .add(puls.add(schweif).mul(aktiv).mul(0.24))
       .clamp(0, EMISSIV_HOCH)
   );

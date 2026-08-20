@@ -81,6 +81,10 @@ export class Spiel {
   private spielzeit = 0;
   private letzteZeit = 0;
   private schleifeAn = false;
+  /** Das Baugitter lässt sich ausblenden, um die Halle unverstellt zu sehen. */
+  private gitterSichtbar = true;
+  /** Gezeichnete Bilder seit dem Start — belegt, dass die Schleife läuft. */
+  bildZaehler = 0;
   private readonly zeiger: Zeigerquelle;
   private readonly abbau: Array<() => void> = [];
   private monolithWerte: Metriken | null = null;
@@ -484,22 +488,28 @@ export class Spiel {
         break;
       case 'leitung':
         if (!getroffen) return;
-        if (!this.leitungsStart) {
-          const frei = this.bau.freieAusgaenge(getroffen.id);
-          if (frei.length === 0) {
-            this.hud.melde('Dieses Modul hat keinen freien Ausgang.', 'fehler');
-            return;
-          }
-          this.leitungsStart = { modulId: getroffen.id, port: frei[0]! };
-          this.ansicht.setzeHervorhebung([getroffen.id], 'zeiger');
-          this.hud.setzeKontext('leitung', [
-            `Ausgang "${frei[0]}" gewählt${frei.length > 1 ? ` (${frei.length} frei)` : ''}`,
-          ]);
-        } else {
-          this.verbinde(this.leitungsStart.modulId, this.leitungsStart.port, getroffen.id);
+        if (!this.leitungsStart) this.beginneLeitung(getroffen.id);
+        else {
+          const zielId = getroffen.id;
+          const verbunden = this.verbinde(this.leitungsStart.modulId, this.leitungsStart.port, zielId);
           this.leitungsStart = null;
           this.ansicht.setzeHervorhebung([], 'zeiger');
           this.hud.setzeKontext('leitung');
+          /*
+           * Die Kette läuft am Zielmodul WEITER.
+           *
+           * Vorher endete hier jede Leitung, und der nächste Klick fing eine
+           * neue an — beim angeklickten Modul. Wer die Kette Eingang → Kern →
+           * Auslieferung bauen wollte, klickte also Eingang, Kern, Auslieferung
+           * und bekam beim dritten Klick "Dieses Modul hat keinen freien
+           * Ausgang", weil eine Auslieferung nur empfaengt. Die Kette blieb
+           * offen, das Level unbestehbar — und der einzige Ausweg war, den Kern
+           * ein zweites Mal anzuklicken. Das stand nirgends.
+           *
+           * Jetzt gilt das Naheliegende: Wo eine Leitung ankommt, geht die
+           * nächste weiter, solange das Modul noch einen freien Ausgang hat.
+           */
+          if (verbunden) this.beginneLeitung(zielId, true);
         }
         break;
       default:
@@ -507,6 +517,35 @@ export class Spiel {
         this.ansicht.setzeHervorhebung(this.auswahl, 'auswahl');
         if (getroffen) this.hud.melde(KATALOG[getroffen.art].lehrsatz, 'info', 6000);
     }
+  }
+
+  /**
+   * Beginnt eine Leitung an einem Modul.
+   *
+   * `stillBeiEnde` unterscheidet die beiden Fälle: Klickt jemand von sich aus
+   * ein Modul ohne freien Ausgang an, ist das ein Irrtum und gehört gemeldet.
+   * Läuft dagegen eine Kette auf eine Auslieferung zu, ist das Ende der Kette
+   * der Normalfall und keine Fehlbedienung — eine Fehlermeldung wäre hier
+   * schlicht falsch.
+   */
+  private beginneLeitung(modulId: string, stillBeiEnde = false): void {
+    const frei = this.bau.freieAusgaenge(modulId);
+    if (frei.length === 0) {
+      if (!stillBeiEnde) {
+        const modul = this.bau.modul(modulId);
+        const name = modul ? KATALOG[modul.art].name : 'Dieses Modul';
+        this.hud.melde(`${name} nimmt nur entgegen und gibt nichts weiter.`, 'fehler');
+        this.klang.spiele('ui_fehler');
+      } else {
+        this.hud.setzeKontext('leitung', ['Kette geschlossen.']);
+      }
+      return;
+    }
+    this.leitungsStart = { modulId, port: frei[0]! };
+    this.ansicht.setzeHervorhebung([modulId], 'zeiger');
+    this.hud.setzeKontext('leitung', [
+      `Ausgang „${frei[0]}" gewählt${frei.length > 1 ? ` (${frei.length} frei)` : ''} — jetzt das Zielmodul anklicken`,
+    ]);
   }
 
   private aktualisiereSchattenbaum(): void {
@@ -592,7 +631,7 @@ export class Spiel {
       if (ziel && (ziel.tagName === 'INPUT' || ziel.tagName === 'TEXTAREA')) return;
       if (e.code === 'Tab') return; // Tab gehört dem DOM-Fokus.
       this.gedrueckt.add(e.code);
-      // Modulkuerzel zuerst: Sie sind die haeufigste Taste im Spiel, und sie
+      // Modulkuerzel zuerst: Sie sind die häufigste Taste im Spiel, und sie
       // gelten nur, solange kein Dialog offen ist.
       if (!e.metaKey && !e.ctrlKey && !e.altKey && !this.hud.dialogOffen && this.waehleModulPerTaste(e.key)) {
         e.preventDefault();
@@ -700,6 +739,31 @@ export class Spiel {
       case 'uebersicht':
         this.kamera.uebersicht();
         break;
+      /*
+       * Die vier Schwenkbefehle sind hier absichtlich leer.
+       *
+       * Ein Schwenk ist kein Ereignis, sondern ein Zustand: solange die Taste
+       * liegt, faehrt die Kamera. Das erledigt `bild()` über `gedrueckt`, weil
+       * nur dort die vergangene Zeit bekannt ist. Sie stehen trotzdem in der
+       * Liste, damit der Fall unten (`niemals`) vollständig bleibt und ein
+       * neuer Befehl nicht stillschweigend ins Leere laufen kann.
+       */
+      case 'kamera_vor':
+      case 'kamera_zurueck':
+      case 'kamera_links':
+      case 'kamera_rechts':
+        break;
+      case 'zoom_ein':
+        this.kamera.zoome(-140);
+        break;
+      case 'zoom_aus':
+        this.kamera.zoome(140);
+        break;
+      case 'ansicht_gitter':
+        this.gitterSichtbar = !this.gitterSichtbar;
+        this.halle.fundament.visible = this.gitterSichtbar;
+        this.hud.melde(this.gitterSichtbar ? 'Gitter an.' : 'Gitter aus.');
+        break;
       case 'sim_start':
         this.starteOderPausiere();
         break;
@@ -770,8 +834,22 @@ export class Spiel {
           this.phase = 'bauen';
         } else this.setzeModus('auswahl');
         break;
-      default:
-        break;
+      default: {
+        /*
+         * Vollständigkeitsprüfung des Übersetzers.
+         *
+         * Vorher stand hier ein stilles `default: break`. Darunter haben sich
+         * elf Befehle angesammelt, die eine Taste hatten, im Hilfe-Overlay
+         * standen — und nichts taten. Wer G drückte, bekam kein Gitter und
+         * keine Fehlermeldung, sondern gar nichts, und schloss daraus zu Recht,
+         * die Tastatur sei kaputt.
+         *
+         * Mit dieser Zuweisung ist das keine Frage der Sorgfalt mehr: Ein
+         * Befehl ohne Zweig ist ab sofort ein Übersetzungsfehler.
+         */
+        const niemals: never = befehl;
+        throw new Error(`Unbehandelter Befehl: ${String(niemals)}`);
+      }
     }
   }
 
@@ -829,6 +907,7 @@ export class Spiel {
 
   /** Ein Bild. Im Testbetrieb ruft der Test das direkt auf. */
   bild(dt: number): void {
+    this.bildZaehler += 1;
     this.spielzeit += dt;
     uZeit.value = this.spielzeit;
 

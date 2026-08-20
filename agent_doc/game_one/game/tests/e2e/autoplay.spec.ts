@@ -13,19 +13,27 @@
  */
 
 import { expect, test } from '@playwright/test';
-import { oeffne, pruefeNichtSchwarz, pruefeSauberkeit, spieleReferenz } from './hilfe';
+import { betreteHalle, oeffne, pruefeNichtSchwarz, pruefeSauberkeit, spieleReferenz } from './hilfe';
 import { ALLE_LEVEL } from '../../src/inhalt/kampagne';
 import { simuliere } from '../../src/sim/simulation';
 import { bewerte } from '../../src/sim/ziele';
 
 test.describe('Autoplay der Kampagne', () => {
   test('startet, rendert und stellt die Debug-Schnittstelle bereit', async ({ page }) => {
-    const s = await oeffne(page);
-    const info = await page.evaluate(() => {
-      window.__spiel!.frameSchritt(3);
-      return window.__spiel!.rendererInfo();
-    });
+    const s = await oeffne(page, '&schleife=1');
+    const info = await page.evaluate(() => window.__spiel!.rendererInfo());
     expect(['webgl2', 'webgpu']).toContain(info.backend);
+
+    /*
+     * Erst in die Halle, dann auf das Bild schauen.
+     *
+     * Hinter der Akttafel liegt die Halle bewusst abgedunkelt — das ist der
+     * kalte Einstieg und kein Fehler. Eine Sichtbarkeitsprüfung an dieser
+     * Stelle misst also die Absicht und nicht die Funktion. Was geprüft
+     * gehört, ist das SPIELFELD: Genau das war über längere Zeit schwarz,
+     * ohne dass ein Test es gemeldet hätte.
+     */
+    await betreteHalle(page);
     await pruefeNichtSchwarz(page);
     await pruefeSauberkeit(s);
   });
