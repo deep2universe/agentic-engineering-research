@@ -494,9 +494,44 @@ export const AKT_11: LevelDefinition[] = [
         werk: strasse([RECHENWERK, KOLIBRI, REIHER]),
       },
       {
-        name: 'Rechenwerk vor einem REIHER',
-        ansatz: 'Dasselbe Prinzip mit nur zwei Modulen: kuerzeste Bahn, kleinste Flaeche, etwas hoeherer Preis je Auftrag.',
+        name: 'D2 gabel kolkol/kolrei',
+        ansatz: 'x',
+        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.38, a: [KOLIBRI, KOLIBRI], b: [KOLIBRI, REIHER] }),
+      },
+      {
+        name: 'D3 gabel kol/rei',
+        ansatz: 'x',
+        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.38, a: [KOLIBRI], b: [REIHER] }),
+      },
+      {
+        name: 'D4 chor2 kol voting + kol',
+        ansatz: 'x',
+        werk: chor({ vor: [RECHENWERK], zweige: 2, zweig: [KOLIBRI], modus: 'voting', nach: [KOLIBRI] }),
+      },
+      {
+        name: 'D5 rech+kol+kol+rei',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, KOLIBRI, KOLIBRI, REIHER]),
+      },
+      {
+        name: 'D6 nacharbeit kol/rei',
+        ansatz: 'x',
+        werk: nacharbeit({ vor: [RECHENWERK, KOLIBRI], schwelle: 0.7, reparatur: [REIHER] }),
+      },
+      {
+        name: 'D7 rech+rei',
+        ansatz: 'x',
         werk: strasse([RECHENWERK, REIHER]),
+      },
+      {
+        name: 'D8 rech+rei+kol',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, REIHER, KOLIBRI]),
+      },
+      {
+        name: 'D9 gabel kolkol/rei',
+        ansatz: 'x',
+        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.38, a: [KOLIBRI, KOLIBRI], b: [REIHER] }),
       },
     ],
     antiMuster: [
@@ -578,9 +613,44 @@ export const AKT_11: LevelDefinition[] = [
         }),
       },
       {
-        name: 'Ein KONDOR mit Rechenwerk',
-        ansatz: 'Kein Sortieren, sondern gleich genug Kompetenz: zwei Module, kuerzeste Bahn, hoechster Preis je Auftrag.',
-        werk: strasse([RECHENWERK, KONDOR]),
+        name: 'E2 rech+kon+rei',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, KONDOR, REIHER]),
+      },
+      {
+        name: 'E3 chor2 kon bester',
+        ansatz: 'x',
+        werk: chor({ vor: [RECHENWERK], zweige: 2, zweig: [KONDOR], modus: 'bester' }),
+      },
+      {
+        name: 'E4 schleife rei 0.82/2',
+        ansatz: 'x',
+        werk: schleife({ vor: [RECHENWERK], block: [REIHER], schwelle: 0.82, runden: 2 }),
+      },
+      {
+        name: 'E5 gabel reirei/kon',
+        ansatz: 'x',
+        werk: gabel({ vor: [RECHENWERK], kriterium: 'schwierigkeit', schwelle: 0.55, a: [REIHER, REIHER], b: [KONDOR] }),
+      },
+      {
+        name: 'E6 rech+rei+kon',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, REIHER, KONDOR]),
+      },
+      {
+        name: 'E7 nach 0.78 rep kon nach rei',
+        ansatz: 'x',
+        werk: nacharbeit({ vor: [RECHENWERK, REIHER], schwelle: 0.78, reparatur: [KONDOR], nach: [REIHER] }),
+      },
+      {
+        name: 'E8 schleife kon 0.9/1',
+        ansatz: 'x',
+        werk: schleife({ vor: [RECHENWERK], block: [REIHER, REIHER], schwelle: 0.86, runden: 2 }),
+      },
+      {
+        name: 'E9 rech+rei+rei+rei',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, REIHER, REIHER, REIHER]),
       },
     ],
     antiMuster: [
@@ -588,7 +658,19 @@ export const AKT_11: LevelDefinition[] = [
         name: 'Der Fitness-Betrug',
         verlockung: 'Die Kennzahl misst den Schnitt der Auslieferungen. Wer nur die guten ausliefert, hat den besten Schnitt der Halle — ganz ohne teure Kerne.',
         scheitertAn: 'durchsatz',
-        werk: strasse([RECHENWERK, REIHER, SIEB(0.9)]),
+        werk: strasse([RECHENWERK, REIHER, REIHER, SIEB(0.85)]),
+      },
+      {
+        name: 'X sieb 0.88 rr',
+        verlockung: 'x',
+        scheitertAn: 'durchsatz',
+        werk: strasse([RECHENWERK, REIHER, REIHER, SIEB(0.88)]),
+      },
+      {
+        name: 'X sieb 0.9 kon',
+        verlockung: 'x',
+        scheitertAn: 'durchsatz',
+        werk: strasse([RECHENWERK, KONDOR, SIEB(0.88)]),
       },
       {
         name: 'Die Pruefung hochgedreht',
@@ -628,7 +710,7 @@ export const AKT_11: LevelDefinition[] = [
       anzahl: 32,
       takt: 3,
       domaenen: ['finanz', 'recht', 'technik'],
-      schwierigkeit: [0.3, 0.8],
+      schwierigkeit: [0.25, 0.7],
       mehrdeutigkeit: [0.1, 0.4],
       anteilRechnerisch: 0.45,
       anteilBelegpflichtig: 0.25,
@@ -673,21 +755,49 @@ export const AKT_11: LevelDefinition[] = [
       'Sprachnotiz, 28. September, letzter Eintrag vor der Abnahme. Am Ende bleibt keine Anlage uebrig, die alles kann. Es bleibt eine, die du erklaeren kannst. Ich habe nie eine Abnahme dadurch verloren, dass ich einen Nachteil zuerst genannt habe. Regel: Der Verzicht gehoert ins Protokoll, nicht in die Fussnote.',
     referenzen: [
       {
-        name: 'Sortiert und schmal',
-        ansatz: 'Eine Weiche schickt leichte Vorgaenge auf einen kleinen Kern und schwere auf einen grossen — guenstig, dafuer fast der ganze Bauabschnitt belegt.',
-        werk: gabel({
-          vor: [RECHENWERK],
-          kriterium: 'schwierigkeit',
-          schwelle: 0.5,
-          a: [REIHER],
-          b: [KONDOR],
-          nach: [BESTAND],
-        }),
+        name: 'F1 rb+rei+rei',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, BESTAND, REIHER, REIHER]),
       },
       {
-        name: 'Die kurze Linie',
-        ansatz: 'Kein Sortieren: Rechenwerk, Bestand und ein grosser Kern in Reihe — drei Bauplaetze und die kuerzeste Wartezeit, dafuer der hoechste Preis.',
+        name: 'F2 rb+kon',
+        ansatz: 'x',
         werk: strasse([RECHENWERK, BESTAND, KONDOR]),
+      },
+      {
+        name: 'F3 gabel rei/kon',
+        ansatz: 'x',
+        werk: gabel({ vor: [RECHENWERK, BESTAND], kriterium: 'schwierigkeit', schwelle: 0.5, a: [REIHER], b: [KONDOR] }),
+      },
+      {
+        name: 'F4 gabel reirei/kon',
+        ansatz: 'x',
+        werk: gabel({ vor: [RECHENWERK, BESTAND], kriterium: 'schwierigkeit', schwelle: 0.5, a: [REIHER, REIHER], b: [KONDOR] }),
+      },
+      {
+        name: 'F5 rb+rei+rei+rei',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, BESTAND, REIHER, REIHER, REIHER]),
+      },
+      {
+        name: 'F6 chor2 rei bester +rei',
+        ansatz: 'x',
+        werk: chor({ vor: [RECHENWERK, BESTAND], zweige: 2, zweig: [REIHER], modus: 'bester', nach: [REIHER] }),
+      },
+      {
+        name: 'F7 rb+kol+rei+rei',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, BESTAND, KOLIBRI, REIHER, REIHER]),
+      },
+      {
+        name: 'F8 gabel reirei/konrei',
+        ansatz: 'x',
+        werk: gabel({ vor: [RECHENWERK, BESTAND], kriterium: 'schwierigkeit', schwelle: 0.55, a: [REIHER, REIHER], b: [KONDOR] }),
+      },
+      {
+        name: 'F9 rb+rei+kon',
+        ansatz: 'x',
+        werk: strasse([RECHENWERK, BESTAND, REIHER, KONDOR]),
       },
     ],
     antiMuster: [

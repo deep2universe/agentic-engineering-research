@@ -63,7 +63,10 @@ export class Halle {
   private readonly lesbar: THREE.Object3D[] = [];
   private markeGeo: THREE.BufferGeometry | undefined;
   private markeMat: THREE.Material | undefined;
+  private markeMatGelesen: THREE.Material | undefined;
   private kisteGeo: THREE.BufferGeometry | undefined;
+  /** Bodenmarke je Fundstück — damit sie beim Lesen verblassen kann. */
+  private readonly marken = new Map<string, THREE.Mesh>();
 
   constructor(masse: Partial<HallenMasse> = {}) {
     this.masse = { ...STANDARD_MASSE, ...masse };
@@ -279,11 +282,25 @@ export class Halle {
       kiste.userData['fundstueck'] = s.id;
       this.lesbar.push(netz, kiste);
 
-      const marke = new THREE.Mesh(this.markenForm(), this.markenMaterial());
+      const marke = new THREE.Mesh(this.markenForm(), this.markenMaterial(false));
       marke.position.set(x, 0.006, z);
       marke.rotation.x = -Math.PI / 2;
       this.fundstuecke.add(marke);
+      this.marken.set(s.id, marke);
     }
+  }
+
+  /**
+   * Lässt die Marke eines gelesenen Fundstücks verblassen.
+   *
+   * Ab Akt VIII liegen zwei Dutzend Stücke in der Halle. Blieben alle Marken
+   * gleich hell, wäre der Rand ein Lichterteppich, und der Hinweis „hier steht
+   * etwas Neues" ginge in der Menge unter. Verblassen statt Verschwinden: Wer
+   * ein Stück noch einmal lesen will, findet es wieder.
+   */
+  markiereGelesen(id: string): void {
+    const marke = this.marken.get(id);
+    if (marke) marke.material = this.markenMaterial(true);
   }
 
   /** Die Transportkiste unter einem Fundstück. Eine Form für alle. */
@@ -310,6 +327,7 @@ export class Halle {
     }
     this.fundstuecke.clear();
     this.lesbar.length = 0;
+    this.marken.clear();
   }
 
   /** Der flache Ring unter einem lesbaren Fundstück. Einmal gebaut, oft benutzt. */
@@ -318,16 +336,21 @@ export class Halle {
     return this.markeGeo;
   }
 
-  private markenMaterial(): THREE.Material {
-    if (!this.markeMat) {
+  private markenMaterial(gelesen: boolean): THREE.Material {
+    const bauen = (deckkraft: number): THREE.Material => {
       const m = new THREE.MeshBasicNodeMaterial();
       m.color = new THREE.Color(PALETTE.messing);
       m.transparent = true;
-      m.opacity = 0.34;
+      m.opacity = deckkraft;
       m.depthWrite = false;
-      this.markeMat = m;
       this.merke(m);
+      return m;
+    };
+    if (gelesen) {
+      this.markeMatGelesen ??= bauen(0.1);
+      return this.markeMatGelesen;
     }
+    this.markeMat ??= bauen(0.34);
     return this.markeMat;
   }
 
@@ -426,6 +449,7 @@ export class Halle {
     this.markeGeo = undefined;
     this.kisteGeo = undefined;
     this.markeMat = undefined;
+    this.markeMatGelesen = undefined;
     for (const x of this.entsorgbar.splice(0)) x.dispose();
     this.wurzel.clear();
     this.fundament.clear();

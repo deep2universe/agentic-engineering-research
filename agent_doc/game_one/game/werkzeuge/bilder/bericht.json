@@ -1,5 +1,5 @@
 {
-  "levelId": "I-1",
+  "levelId": "VIII-3",
   "modus": "webgl2",
   "bilder": [
     {
@@ -12,65 +12,65 @@
     {
       "name": "01b_briefing",
       "beschreibung": "Auftrag mit MONOLITHs Angebot",
-      "mittel": 17.29,
+      "mittel": 17.28,
       "max": 239,
-      "hellAnteil": 0.393
+      "hellAnteil": 0.392
     },
     {
       "name": "01c_fundstueck",
       "beschreibung": "Ein Fundstueck, ueber den Auswahlstrahl geoeffnet",
-      "mittel": 14.6,
+      "mittel": 14.59,
       "max": 239,
-      "hellAnteil": 0.346
+      "hellAnteil": 0.345
     },
     {
       "name": "02_leeres_werk",
       "beschreibung": "Leeres Fundament, Auftragseingang und Auslieferung",
-      "mittel": 29.35,
+      "mittel": 28.83,
       "max": 239,
-      "hellAnteil": 0.449
+      "hellAnteil": 0.451
     },
     {
       "name": "03_gebautes_werk",
       "beschreibung": "Referenzloesung steht",
-      "mittel": 30.22,
+      "mittel": 29.83,
       "max": 239,
-      "hellAnteil": 0.513
+      "hellAnteil": 0.523
     },
     {
       "name": "04_nahaufnahme",
       "beschreibung": "Nahaufnahme der Pipeline",
-      "mittel": 40.23,
+      "mittel": 37.45,
       "max": 239,
-      "hellAnteil": 0.776
+      "hellAnteil": 0.744
     },
     {
       "name": "05_simulation",
       "beschreibung": "Auftraege fliessen durch das Werk",
-      "mittel": 31.99,
+      "mittel": 31.4,
       "max": 239,
-      "hellAnteil": 0.625
+      "hellAnteil": 0.617
     },
     {
       "name": "06_auswertung",
       "beschreibung": "Auswertung nach dem Lauf",
-      "mittel": 14.33,
+      "mittel": 14.99,
       "max": 239,
-      "hellAnteil": 0.309
+      "hellAnteil": 0.329
     },
     {
       "name": "07_ohne_hud",
       "beschreibung": "Nur die Halle, ohne Oberflaeche",
-      "mittel": 39.11,
+      "mittel": 37.87,
       "max": 203,
-      "hellAnteil": 0.666
+      "hellAnteil": 0.641
     },
     {
       "name": "08_flach",
       "beschreibung": "Flacher Blickwinkel",
-      "mittel": 42.42,
-      "max": 143,
-      "hellAnteil": 0.743
+      "mittel": 39.39,
+      "max": 191,
+      "hellAnteil": 0.681
     }
   ],
   "meldungen": [

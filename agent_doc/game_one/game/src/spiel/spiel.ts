@@ -199,7 +199,9 @@ export class Spiel {
     // Die Halle bekommt die Fundstücke des Akts. Sie wachsen mit: was in Akt
     // III dazukommt, liegt in Akt VII immer noch da.
     const at = this.erzaehlung.text(level.akt);
-    this.halle.setzeFundstuecke(this.erzaehlung.fundstuecke(level.akt));
+    const stuecke = this.erzaehlung.fundstuecke(level.akt);
+    this.halle.setzeFundstuecke(stuecke);
+    for (const f of stuecke) if (this.erzaehlung.istGelesen(f.id)) this.halle.markiereGelesen(f.id);
     this.hud.setzeErzaehltexte(
       at.monolith,
       this.erzaehlung.offeneFragen(level.akt).map((r) => r.frage)
@@ -293,9 +295,17 @@ export class Spiel {
     this.beendeSimulation();
   }
 
+  /**
+   * Kennzahlen im Ruhezustand: nichts ist gelaufen, aber etwas ist gebaut.
+   *
+   * Der erste Entwurf hat hier ein LEERES Werk simuliert. Ergebnis: Über einem
+   * fertig verdrahteten Werk aus neun Modulen stand "Module 0". Das ist die
+   * einzige Zahl, die auch ohne Lauf einen Wert hat — sie zählt, was auf dem
+   * Fundament steht, nicht was durchgelaufen ist.
+   */
   private leereMetriken(): Metriken {
     return new Simulation({
-      werk: { module: [], leitungen: [] },
+      werk: this.bau.werk(),
       strom: { ...this.level.strom, anzahl: 0 },
       saat: this.level.saat,
     })
@@ -495,6 +505,9 @@ export class Spiel {
   }
 
   private aktualisiereSchattenbaum(): void {
+    // Die Modulzahl im HUD haengt am Bau, nicht am Lauf — sie muss sich also
+    // mit jedem gesetzten und jedem abgerissenen Modul mitbewegen.
+    if (this.sim === null) this.hud.zeigeMetriken(this.leereMetriken(), this.level);
     const w = this.bau.werk();
     this.hud.aktualisiereSchattenbaum(
       w.module.map((m) => ({
@@ -543,6 +556,7 @@ export class Spiel {
     const f = this.erzaehlung.fundstueck(id);
     if (!f) return false;
     this.erzaehlung.markiereGelesen(id);
+    this.halle.markiereGelesen(id);
     this.hud.zeigeFundstueck(f, this.erzaehlung.leseStand(this.level.akt));
     this.klang.spiele('notiz_beginn');
     return true;
