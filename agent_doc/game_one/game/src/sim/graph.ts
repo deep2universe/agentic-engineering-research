@@ -1,0 +1,378 @@
+/**
+ * Graph-Werkzeuge: Indizierung, Validierung, kanonische Serialisierung.
+ *
+ * Determinismus-Regel: Es wird NIEMALS über `Map`/`Set`/`Object.keys`
+ * iteriert. Jede Iteration läuft über ein explizit sortiertes Index-Array
+ * mit Tie-Break auf der Id. Der Editor darf Module in beliebiger Reihenfolge
+ * anlegen — das Simulationsergebnis darf davon nicht abhängen.
+ */
+
+import type { Leitung, Modul, ModulArt, Werk } from './typen';
+import { KATALOG, ausgaengeVon } from './katalog';
+import { hashText } from './rng';
+
+export interface GraphIndex {
+  /** Module in kanonischer Reihenfolge (nach Id sortiert). */
+  readonly module: readonly Modul[];
+  /** Leitungen in kanonischer Reihenfolge. */
+  readonly leitungen: readonly Leitung[];
+  /** Modul-Id → Modul. */
+  readonly nachId: ReadonlyMap<string, Modul>;
+  /** Modul-Id → Position im `module`-Array. */
+  readonly rang: ReadonlyMap<string, number>;
+  /** "modulId port" → Leitung (genau eine, per Validierung erzwungen). */
+  readonly ausgang: ReadonlyMap<string, Leitung>;
+  /** Modul-Id → eingehende Leitungen, kanonisch sortiert. */
+  readonly eingaenge: ReadonlyMap<string, readonly Leitung[]>;
+  readonly quellen: readonly Modul[];
+  readonly senken: readonly Modul[];
+}
+
+export function portSchluessel(modulId: string, port: string): string {
+  return modulId + ' ' + port;
+}
+
+/** Kanonische Sortierung: Module nach Id, Leitungen nach (von, vonPort, nach, nachPort). */
+export function indiziere(werk: Werk): GraphIndex {
+  const module = [...werk.module].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+  const leitungen = [...werk.leitungen].sort((a, b) => {
+    const s = (l: Leitung) => `${l.von} ${l.vonPort} ${l.nach} ${l.nachPort}`;
+    const sa = s(a);
+    const sb = s(b);
+    return sa < sb ? -1 : sa > sb ? 1 : 0;
+  });
+
+  const nachId = new Map<string, Modul>();
+  const rang = new Map<string, number>();
+  module.forEach((m, i) => {
+    nachId.set(m.id, m);
+    rang.set(m.id, i);
+  });
+
+  const ausgang = new Map<string, Leitung>();
+  const eingaenge = new Map<string, Leitung[]>();
+  for (const l of leitungen) {
+    ausgang.set(portSchluessel(l.von, l.vonPort), l);
+    const liste = eingaenge.get(l.nach);
+    if (liste) liste.push(l);
+    else eingaenge.set(l.nach, [l]);
+  }
+
+  return {
+    module,
+    leitungen,
+    nachId,
+    rang,
+    ausgang,
+    eingaenge,
+    quellen: module.filter((m) => m.art === 'quelle'),
+    senken: module.filter((m) => m.art === 'senke'),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Validierung
+// ---------------------------------------------------------------------------
+
+export type BefundStufe = 'fehler' | 'warnung';
+
+export interface Befund {
+  readonly stufe: BefundStufe;
+  readonly code: string;
+  readonly text: string;
+  readonly modulId?: string;
+  readonly leitungId?: string;
+}
+
+/**
+ * Prüft ein Werk auf strukturelle Gültigkeit.
+ *
+ * `fehler` verhindern den Simulationsstart; `warnung` sind Hinweise, die im
+ * HUD erscheinen, aber bewusst ignoriert werden dürfen — ein Werk ohne
+ * Guardrail ist baubar, es fällt nur im Sicherheits-Gate durch. Genau darin
+ * besteht die Lektion.
+ */
+export function pruefeWerk(werk: Werk): Befund[] {
+  const befunde: Befund[] = [];
+  const idx = indiziere(werk);
+
+  // -- Eindeutigkeit -------------------------------------------------------
+  const gesehen = new Set<string>();
+  for (const m of idx.module) {
+    if (gesehen.has(m.id)) {
+      befunde.push({ stufe: 'fehler', code: 'doppelte_id', text: `Modul-Id "${m.id}" ist doppelt vergeben.`, modulId: m.id });
+    }
+    gesehen.add(m.id);
+  }
+
+  // -- Belegung von Feldern ------------------------------------------------
+  const felder = new Map<string, string>();
+  for (const m of idx.module) {
+    const f = `${m.x}|${m.z}`;
+    const anderer = felder.get(f);
+    if (anderer) {
+      befunde.push({
+        stufe: 'fehler',
+        code: 'feld_belegt',
+        text: `Feld ${m.x}/${m.z} ist doppelt belegt (${anderer} und ${m.id}).`,
+        modulId: m.id,
+      });
+    } else felder.set(f, m.id);
+  }
+
+  // -- Quelle und Senke ----------------------------------------------------
+  if (idx.quellen.length === 0) {
+    befunde.push({ stufe: 'fehler', code: 'keine_quelle', text: 'Das Werk hat keinen Auftragseingang.' });
+  }
+  if (idx.senken.length === 0) {
+    befunde.push({ stufe: 'fehler', code: 'keine_senke', text: 'Das Werk hat keine Auslieferung.' });
+  }
+
+  // -- Leitungen -----------------------------------------------------------
+  const ausgangBelegt = new Map<string, string>();
+  for (const l of idx.leitungen) {
+    const von = idx.nachId.get(l.von);
+    const nach = idx.nachId.get(l.nach);
+    if (!von) {
+      befunde.push({ stufe: 'fehler', code: 'leitung_quelle_fehlt', text: `Leitung ${l.id} beginnt an einem unbekannten Modul.`, leitungId: l.id });
+      continue;
+    }
+    if (!nach) {
+      befunde.push({ stufe: 'fehler', code: 'leitung_ziel_fehlt', text: `Leitung ${l.id} endet an einem unbekannten Modul.`, leitungId: l.id });
+      continue;
+    }
+    const gueltigeAus = ausgaengeVon(von).map((p) => p.id);
+    if (!gueltigeAus.includes(l.vonPort)) {
+      befunde.push({
+        stufe: 'fehler',
+        code: 'unbekannter_ausgang',
+        text: `${von.id} hat keinen Ausgang "${l.vonPort}".`,
+        leitungId: l.id,
+        modulId: von.id,
+      });
+    }
+    const gueltigeEin = KATALOG[nach.art].eingaenge.map((p) => p.id);
+    if (!gueltigeEin.includes(l.nachPort)) {
+      befunde.push({
+        stufe: 'fehler',
+        code: 'unbekannter_eingang',
+        text: `${nach.id} hat keinen Eingang "${l.nachPort}".`,
+        leitungId: l.id,
+        modulId: nach.id,
+      });
+    }
+    const schl = portSchluessel(l.von, l.vonPort);
+    const belegt = ausgangBelegt.get(schl);
+    if (belegt) {
+      befunde.push({
+        stufe: 'fehler',
+        code: 'ausgang_doppelt',
+        text: `Ausgang ${l.von}.${l.vonPort} ist doppelt verdrahtet. Nutze einen Verteiler, wenn du aufteilen willst.`,
+        leitungId: l.id,
+        modulId: l.von,
+      });
+    } else ausgangBelegt.set(schl, l.id);
+    if (l.von === l.nach) {
+      befunde.push({ stufe: 'fehler', code: 'eigenschleife', text: `${l.von} ist mit sich selbst verbunden.`, leitungId: l.id });
+    }
+  }
+
+  // -- Erreichbarkeit ------------------------------------------------------
+  const erreichbar = vorwaertsErreichbar(idx, idx.quellen.map((q) => q.id));
+  const liefernd = rueckwaertsErreichbar(idx, idx.senken.map((s) => s.id));
+  for (const m of idx.module) {
+    if (m.art === 'quelle') continue;
+    if (!erreichbar.has(m.id)) {
+      befunde.push({ stufe: 'warnung', code: 'unerreichbar', text: `${m.id} bekommt nie einen Auftrag.`, modulId: m.id });
+    } else if (!liefernd.has(m.id) && m.art !== 'senke') {
+      befunde.push({ stufe: 'warnung', code: 'sackgasse', text: `Von ${m.id} führt kein Weg zur Auslieferung.`, modulId: m.id });
+    }
+  }
+
+  // -- Zyklen --------------------------------------------------------------
+  for (const zyklus of findeZyklen(idx)) {
+    const hatBremse = zyklus.some((id) => {
+      const m = idx.nachId.get(id);
+      return m?.art === 'sicherung' || m?.art === 'pruefer';
+    });
+    if (!hatBremse) {
+      befunde.push({
+        stufe: 'fehler',
+        code: 'zyklus_ohne_bremse',
+        text: `Kreis ${zyklus.join(' → ')} hat keine Abbruchbedingung. Setze eine Sicherung oder eine Prüferin hinein.`,
+        modulId: zyklus[0]!,
+      });
+    }
+  }
+
+  // -- Sammler ohne Verteiler ----------------------------------------------
+  for (const m of idx.module) {
+    if (m.art !== 'sammler') continue;
+    const speist = rueckwaertsErreichbar(idx, [m.id]);
+    const hatVerteiler = [...speist].some((id) => idx.nachId.get(id)?.art === 'verteiler');
+    if (!hatVerteiler) {
+      befunde.push({
+        stufe: 'warnung',
+        code: 'sammler_ohne_verteiler',
+        text: `${m.id} sammelt, aber niemand teilt vorher auf. Ohne Verteiler ist ein Sammler wirkungslos.`,
+        modulId: m.id,
+      });
+    }
+  }
+
+  return befunde;
+}
+
+export function hatFehler(befunde: readonly Befund[]): boolean {
+  return befunde.some((b) => b.stufe === 'fehler');
+}
+
+// ---------------------------------------------------------------------------
+// Traversierung
+// ---------------------------------------------------------------------------
+
+/** Alle von `start` aus vorwärts erreichbaren Modul-Ids (inklusive Start). */
+export function vorwaertsErreichbar(idx: GraphIndex, start: readonly string[]): Set<string> {
+  const gesehen = new Set<string>(start);
+  const rand = [...start].sort();
+  while (rand.length) {
+    const id = rand.shift()!;
+    const m = idx.nachId.get(id);
+    if (!m) continue;
+    for (const port of ausgaengeVon(m)) {
+      const l = idx.ausgang.get(portSchluessel(id, port.id));
+      if (l && !gesehen.has(l.nach)) {
+        gesehen.add(l.nach);
+        rand.push(l.nach);
+      }
+    }
+  }
+  return gesehen;
+}
+
+/** Alle Module, von denen aus `ziel` erreichbar ist (inklusive Ziel). */
+export function rueckwaertsErreichbar(idx: GraphIndex, ziel: readonly string[]): Set<string> {
+  const gesehen = new Set<string>(ziel);
+  const rand = [...ziel].sort();
+  while (rand.length) {
+    const id = rand.shift()!;
+    for (const l of idx.eingaenge.get(id) ?? []) {
+      if (!gesehen.has(l.von)) {
+        gesehen.add(l.von);
+        rand.push(l.von);
+      }
+    }
+  }
+  return gesehen;
+}
+
+/** Findet elementare Zyklen (Tarjan-artige DFS, kanonisch geordnet). */
+export function findeZyklen(idx: GraphIndex): string[][] {
+  const zyklen: string[][] = [];
+  const zustand = new Map<string, 0 | 1 | 2>();
+  const pfad: string[] = [];
+
+  function besuche(id: string): void {
+    zustand.set(id, 1);
+    pfad.push(id);
+    const m = idx.nachId.get(id);
+    if (m) {
+      for (const port of ausgaengeVon(m)) {
+        const l = idx.ausgang.get(portSchluessel(id, port.id));
+        if (!l) continue;
+        const z = zustand.get(l.nach) ?? 0;
+        if (z === 1) {
+          const start = pfad.indexOf(l.nach);
+          if (start >= 0) zyklen.push(pfad.slice(start));
+        } else if (z === 0) besuche(l.nach);
+      }
+    }
+    pfad.pop();
+    zustand.set(id, 2);
+  }
+
+  for (const m of idx.module) if ((zustand.get(m.id) ?? 0) === 0) besuche(m.id);
+  return zyklen;
+}
+
+/**
+ * Lethal-Trifecta-Praedikat (Produktions-Bibel 7.5).
+ *
+ * Liegen auf EINEM Pfad gleichzeitig (a) vertrauliche Daten, (b) ein Modul,
+ * das nicht vertrauenswürdigen Fremdinhalt hereinholt, und (c) eine Senke
+ * ohne vorgeschalteten Ausgangsfilter — dann ist der Graph strukturell
+ * unsicher. Das ist eine Graph-Invariante, kein Prozentregler.
+ */
+export function lethaleTrifecta(werk: Werk, vertraulicheQuelle: boolean): boolean {
+  if (!vertraulicheQuelle) return false;
+  const idx = indiziere(werk);
+  const fremdinhalt = idx.module.filter(
+    (m) => m.art === 'werkzeug' && (m.param.werkzeugArt === 'suche' || m.param.werkzeugArt === 'api')
+  );
+  if (fremdinhalt.length === 0) return false;
+
+  for (const w of fremdinhalt) {
+    // Erreicht dieses Werkzeug eine Senke, ohne unterwegs eine Ausgangs-Wall zu passieren?
+    const gesehen = new Set<string>([w.id]);
+    const rand = [w.id];
+    while (rand.length) {
+      const id = rand.shift()!;
+      const m = idx.nachId.get(id);
+      if (!m) continue;
+      if (m.art === 'senke') return true;
+      if (m.id !== w.id && m.art === 'wall' && m.param.modus === 'ausgang') continue; // Pfad ist gesichert
+      for (const port of ausgaengeVon(m)) {
+        const l = idx.ausgang.get(portSchluessel(id, port.id));
+        if (l && !gesehen.has(l.nach)) {
+          gesehen.add(l.nach);
+          rand.push(l.nach);
+        }
+      }
+    }
+  }
+  return false;
+}
+
+/** Zählt Module einer Art. */
+export function zaehle(werk: Werk, art: ModulArt): number {
+  return werk.module.filter((m) => m.art === art).length;
+}
+
+// ---------------------------------------------------------------------------
+// Kanonische Serialisierung
+// ---------------------------------------------------------------------------
+
+/** Stabile Textform eines Werks — Grundlage jeder Prüfsumme. */
+export function kanonisch(werk: Werk): string {
+  const idx = indiziere(werk);
+  const m = idx.module.map((x) => {
+    const p = x.param;
+    const felder = [
+      p.groesse ?? '',
+      p.spezialisierung ?? '',
+      p.modus ?? '',
+      p.werkzeugArt ?? '',
+      p.kriterium ?? '',
+      p.schwelle ?? '',
+      p.runden ?? '',
+      p.zweige ?? '',
+      p.versuche ?? '',
+      p.population ?? '',
+      p.generationen ?? '',
+    ].join(',');
+    return `${x.id}:${x.art}@${x.x},${x.z}[${felder}]`;
+  });
+  const l = idx.leitungen.map((x) => `${x.von}.${x.vonPort}>${x.nach}.${x.nachPort}`);
+  return m.join(';') + '|' + l.join(';');
+}
+
+/** 64-Bit-Prüfsumme (zwei verkettete FNV-1a-32) als Hexstring. */
+export function pruefsumme(text: string): string {
+  const a = hashText(text);
+  const b = hashText(text + '' + a.toString(16));
+  return a.toString(16).padStart(8, '0') + b.toString(16).padStart(8, '0');
+}
+
+export function werkPruefsumme(werk: Werk): string {
+  return pruefsumme(kanonisch(werk));
+}

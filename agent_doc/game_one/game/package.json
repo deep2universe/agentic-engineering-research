@@ -1,0 +1,37 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "vorschau": "vite preview",
+    "pruefe": "tsc --noEmit",
+    "test": "vitest run",
+    "spike": "node spike/spike_lauf.mjs",
+    "e2e": "playwright test",
+    "bauen": "vite build",
+    "schau": "node werkzeuge/schau.mjs",
+    "umlaute": "node werkzeuge/umlaute.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.62.1",
+    "@types/pngjs": "^6.0.5",
+    "@types/three": "^0.185.4",
+    "fast-check": "^4.9.0",
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "vitest": "^4.1.11"
+  },
+  "type": "module"
+}

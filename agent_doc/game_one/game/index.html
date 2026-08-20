@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <!-- Zeichen der Halle: drei Module an einer Leitung, eines abgezweigt.
+         Als Daten-URI eingebettet — das Projekt laedt grundsaetzlich nichts nach. -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2212%22%20fill%3D%22%230b1017%22%2F%3E%3Cpath%20d%3D%22M14%2040%20H50%22%20stroke%3D%22%237ee8fa%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%20opacity%3D%22.55%22%2F%3E%3Ccircle%20cx%3D%2214%22%20cy%3D%2240%22%20r%3D%226%22%20fill%3D%22%237ee8fa%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2240%22%20r%3D%227%22%20fill%3D%22%23ffb347%22%2F%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2240%22%20r%3D%226%22%20fill%3D%22%239dffb0%22%2F%3E%3Cpath%20d%3D%22M32%2033%20V18%22%20stroke%3D%22%23c792ea%22%20stroke-width%3D%223%22%20stroke-linecap%3D%22round%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2216%22%20r%3D%225%22%20fill%3D%22%23c792ea%22%2F%3E%3C%2Fsvg%3E" />
+    <title>SCHWARMWERK — Ein Werk in zwölf Akten</title>
+    <meta
+      name="description"
+      content="Ein Lernspiel über Agentic Engineering und Orchestrierung. Du baust Agent-Pipelines in einer Industriehalle und lernst dabei, was Modellwahl, Routing, Werkzeuge, Kontext, Guardrails und menschliche Freigabe wirklich kosten."
+    />
+  </head>
+  <body>
+    <canvas id="leinwand" tabindex="0" role="application" aria-label="Halle 3 — Bauflächen und Module" aria-describedby="kontext"></canvas>
+    <div id="oberflaeche"></div>
+    <noscript>
+      <p style="padding: 2rem; color: #e8eef6">
+        SCHWARMWERK braucht JavaScript und einen Browser mit WebGL2 oder WebGPU.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

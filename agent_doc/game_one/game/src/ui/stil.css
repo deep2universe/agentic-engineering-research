@@ -1,0 +1,699 @@
+/**
+ * Oberflaeche von SCHWARMWERK.
+ *
+ * Grundsaetze:
+ *  - Aller Text lebt im DOM, niemals im WebGL-Canvas. Das ist die wirksamste
+ *    Einzelmassnahme fuer Screenreader und fuer scharfe Schrift auf Retina.
+ *  - Nur Systemschriften. Damit entfaellt jedes CDN und jedes Lizenzrisiko.
+ *  - Zahlen immer mit `tabular-nums`, sonst springt das HUD bei jedem Tick.
+ *  - Panels haben 35 Prozent Textreserve: deutsche Komposita sind lang.
+ */
+
+:root {
+  --grund: #080b11;
+  --schleier: rgba(10, 12, 16, 0.72);
+  --rand: rgba(146, 168, 196, 0.22);
+  --text: #e8eef6;
+  --text-leise: #9aa8bb;
+  --gut: #63d69a;
+  --warn: #ffb347;
+  --schlecht: #ff6b6b;
+  --leit: #7ee8fa;
+  --fokus: #ffd479;
+  --ui-skala: 1;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overscroll-behavior: none;
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  background: var(--grund);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  font-size: calc(var(--ui-skala) * 16px);
+  line-height: 1.45;
+}
+
+canvas#leinwand {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  outline: none;
+  cursor: crosshair;
+}
+
+canvas#leinwand:focus-visible {
+  outline: 2px solid var(--fokus);
+  outline-offset: -2px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fokus);
+  outline-offset: 2px;
+}
+
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  gap: 14px;
+  padding: 14px;
+}
+
+#hud > * {
+  pointer-events: auto;
+}
+
+.tafel {
+  background: var(--schleier);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.tafel h2 {
+  margin: 0 0 2px;
+  font-size: 0.95rem;
+  font-weight: 620;
+  letter-spacing: 0.01em;
+}
+
+.tafel .leise {
+  color: var(--text-leise);
+  font-size: 0.78rem;
+}
+
+/* ---------------------------------------------------------------- Kopf ---- */
+
+#kopf {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: 30ch;
+}
+
+#akt-marke {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--leit);
+}
+
+#ziele {
+  grid-column: 1;
+  grid-row: 1 / 2;
+  align-self: start;
+  margin-top: 96px;
+  max-width: 34ch;
+  list-style: none;
+  padding: 12px 14px;
+  margin-bottom: 0;
+}
+
+#ziele li {
+  display: grid;
+  grid-template-columns: 1.3em 1fr auto;
+  align-items: baseline;
+  gap: 6px;
+  padding: 3px 0;
+  font-size: 0.85rem;
+}
+
+#ziele li .haken {
+  font-variant-numeric: tabular-nums;
+}
+
+#ziele li[data-erfuellt='true'] .haken {
+  color: var(--gut);
+}
+
+#ziele li[data-erfuellt='false'] .haken {
+  color: var(--text-leise);
+}
+
+#ziele li[data-kuer='true'] {
+  color: var(--warn);
+  opacity: 0.9;
+}
+
+#ziele li .ist {
+  font-variant-numeric: tabular-nums;
+  color: var(--text-leise);
+}
+
+/* ------------------------------------------------------------- Metriken --- */
+
+#metriken {
+  grid-column: 3;
+  grid-row: 1;
+  min-width: 22ch;
+}
+
+#metriken dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 12px;
+  font-size: 0.85rem;
+}
+
+#metriken dt {
+  color: var(--text-leise);
+}
+
+#metriken dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+#metriken dd[data-zustand='gut'] {
+  color: var(--gut);
+}
+
+#metriken dd[data-zustand='warn'] {
+  color: var(--warn);
+}
+
+#metriken dd[data-zustand='schlecht'] {
+  color: var(--schlecht);
+}
+
+/* -------------------------------------------------------------- Palette --- */
+
+#palette {
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 62vh;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+#palette button {
+  display: grid;
+  grid-template-columns: 1.6em 1fr;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.83rem;
+  padding: 5px 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+#palette button:hover {
+  background: rgba(126, 232, 250, 0.09);
+}
+
+#palette button[aria-pressed='true'] {
+  border-color: var(--leit);
+  background: rgba(126, 232, 250, 0.14);
+}
+
+#palette .kuerzel {
+  color: var(--text-leise);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+}
+
+#palette .punkt {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: baseline;
+}
+
+/* ---------------------------------------------------------- Kontextleiste - */
+
+#kontext {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  justify-self: center;
+  display: flex;
+  gap: 18px;
+  font-size: 0.82rem;
+  color: var(--text-leise);
+  padding: 7px 16px;
+}
+
+#kontext kbd {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--rand);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-right: 5px;
+  font: inherit;
+  font-size: 0.78rem;
+  color: var(--text);
+}
+
+/* ------------------------------------------------------------ Steuerung --- */
+
+#steuerung {
+  grid-column: 3;
+  grid-row: 2;
+  align-self: end;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 17ch;
+}
+
+#steuerung button {
+  background: rgba(126, 232, 250, 0.12);
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+#steuerung button:hover:not(:disabled) {
+  background: rgba(126, 232, 250, 0.2);
+}
+
+#steuerung button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+#tempo {
+  display: flex;
+  gap: 4px;
+}
+
+#tempo button {
+  flex: 1;
+  padding: 5px 0;
+  font-size: 0.78rem;
+  font-variant-numeric: tabular-nums;
+}
+
+#tempo button[aria-pressed='true'] {
+  border-color: var(--leit);
+  background: rgba(126, 232, 250, 0.24);
+}
+
+/* --------------------------------------------------------------- Dialog --- */
+
+.schleier-voll {
+  position: fixed;
+  inset: 0;
+  background: rgba(4, 6, 10, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  padding: 5vh 4vw;
+  z-index: 20;
+}
+
+.schleier-voll[hidden] {
+  display: none;
+}
+
+.blatt {
+  background: #0e131b;
+  border: 1px solid var(--rand);
+  border-radius: 14px;
+  max-width: 62ch;
+  width: 100%;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 28px 32px;
+}
+
+.blatt h1 {
+  margin: 0 0 4px;
+  font-size: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+.blatt .unter {
+  color: var(--text-leise);
+  margin: 0 0 18px;
+  font-size: 0.9rem;
+}
+
+.blatt p {
+  margin: 0 0 14px;
+}
+
+.blatt .notiz {
+  border-left: 3px solid var(--warn);
+  padding: 8px 0 8px 14px;
+  color: #e6d7bd;
+  font-style: italic;
+  margin: 18px 0;
+}
+
+.blatt .lernziel {
+  border-left: 3px solid var(--leit);
+  padding: 8px 0 8px 14px;
+  color: #cfeaf3;
+  margin: 18px 0;
+}
+
+.blatt footer {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 22px;
+}
+
+.blatt button {
+  background: rgba(126, 232, 250, 0.16);
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  color: var(--text);
+  font: inherit;
+  font-weight: 600;
+  padding: 9px 18px;
+  cursor: pointer;
+}
+
+.blatt button.leise {
+  background: transparent;
+  color: var(--text-leise);
+}
+
+.blatt table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+  margin: 10px 0 18px;
+}
+
+.blatt th,
+.blatt td {
+  text-align: left;
+  padding: 5px 8px;
+  border-bottom: 1px solid rgba(146, 168, 196, 0.14);
+}
+
+.blatt td.zahl {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/*
+ * Zahl und Einheit gehoeren zusammen. Ohne diese Regel bricht "100 %" im
+ * Ergebnisblatt in zwei Zeilen — die Zahl oben, das Prozentzeichen darunter.
+ * Das sieht nach Fehler aus und ist in einer Ergebnistabelle besonders teuer,
+ * weil genau dort jemand nachrechnet.
+ */
+.blatt table td:not(:first-child) {
+  white-space: nowrap;
+}
+
+.blatt kbd {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid var(--rand);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+/* ----------------------------------------------------------- Meldungen ---- */
+
+#meldung {
+  position: fixed;
+  left: 50%;
+  bottom: 76px;
+  transform: translateX(-50%);
+  background: var(--schleier);
+  border: 1px solid var(--rand);
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 0.86rem;
+  max-width: 60ch;
+  z-index: 15;
+  pointer-events: none;
+}
+
+#meldung[hidden] {
+  display: none;
+}
+
+#meldung[data-art='fehler'] {
+  border-color: var(--schlecht);
+  color: #ffd9d9;
+}
+
+#meldung[data-art='gut'] {
+  border-color: var(--gut);
+}
+
+/* Nur fuer Screenreader. `clip-path` statt `display:none`, damit der Inhalt
+   vorgelesen wird. */
+.nur-vorlesen {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+#schattenbaum {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ------------------------------------------------------- Erzaehlkanaele --- */
+
+/*
+ * Die Akttafel ist der einzige Bildschirm, der nichts von der Spielerin will.
+ * Deshalb ist sie dunkler als jeder andere Dialog, hat keinen Rahmen und keine
+ * Tabelle. Fliesstext bekommt hier mehr Zeilenhoehe und eine schmalere Spalte
+ * als im HUD — 66 Zeichen sind die Grenze, ab der das Auge die naechste Zeile
+ * nicht mehr sicher findet.
+ */
+.tafel-akt {
+  background: rgba(3, 4, 7, 0.94);
+}
+
+.blatt.akttafel {
+  background: transparent;
+  border: none;
+  max-width: 66ch;
+  padding: 0 8px;
+}
+
+.blatt.akttafel h1 {
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin: 6px 0 2px;
+}
+
+.blatt.akttafel .unter {
+  font-size: 1rem;
+  margin-bottom: 26px;
+}
+
+.blatt.akttafel .fliess,
+.blatt.fundstueck .fliess {
+  line-height: 1.72;
+  font-size: 1.02rem;
+  color: #d8e2ee;
+}
+
+.blatt.akttafel.schluss .fliess {
+  font-size: 1.24rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.blatt.akttafel footer {
+  justify-content: flex-start;
+  margin-top: 30px;
+}
+
+/*
+ * MONOLITH spricht in eigener Type: schmaler Balken, kein Anfuehrungszeichen,
+ * kein Sprechername. Wer bis Akt IX kommt, erkennt ihn an der Satzmelodie —
+ * und merkt genau deshalb, wenn sie ab Akt IX in ein Sie kippt.
+ */
+.blatt blockquote.monolith {
+  border-left: 3px solid rgba(255, 107, 107, 0.55);
+  margin: 20px 0;
+  padding: 10px 0 10px 16px;
+  color: #e4c9c9;
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.blatt .frage {
+  color: var(--text-leise);
+  font-style: italic;
+  margin: 0 0 8px;
+  padding-left: 14px;
+  border-left: 2px solid rgba(146, 168, 196, 0.28);
+}
+
+.blatt.fundstueck #akt-marke {
+  color: var(--warn);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .schleier-voll {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+/*
+ * Budgetzeile: Marke und Posten als eigene, nicht umbrechende Stuecke.
+ * Als eine Zeichenkette zerbrach "Token <= 5.200" im schmalen Panel in drei
+ * Zeilen und sah aus wie ein Darstellungsfehler.
+ */
+#ziele li.budget {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+  align-items: baseline;
+}
+
+#ziele li.budget .marke::after {
+  content: ':';
+}
+
+#ziele li.budget .posten {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ------------------------------------------------------------- Schmiede --- */
+
+/*
+ * Die Werkbank ist ein Formular, kein Spielmenue. Sie ist breiter als die
+ * uebrigen Blaetter, weil sie eine Vergleichstabelle traegt — und eine
+ * Vergleichstabelle mit Umbruch vergleicht nichts mehr.
+ */
+.blatt.schmiede {
+  max-width: 78ch;
+}
+
+.blatt.schmiede h2 {
+  font-size: 0.82rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text-leise);
+  margin: 22px 0 8px;
+}
+
+.blatt .schalter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.blatt button.schalt {
+  background: transparent;
+  border: 1px solid var(--rand);
+  border-radius: 999px;
+  color: var(--text-leise);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 6px 14px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.blatt button.schalt[aria-pressed='true'] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Ziel und Bedingung sind zwei verschiedene Zusagen und sehen verschieden aus:
+   ein Ziel treibt (blau), eine Bedingung haelt (gruen). */
+.blatt button.schalt[data-marke='ziel'] {
+  border-color: var(--leit);
+  background: rgba(126, 232, 250, 0.14);
+}
+
+.blatt button.schalt[data-marke='bedingung'] {
+  border-color: var(--gut);
+  background: rgba(99, 214, 154, 0.14);
+}
+
+.blatt label.regler {
+  display: grid;
+  grid-template-columns: 11ch 1fr 4ch;
+  align-items: center;
+  gap: 12px;
+  margin: 6px 0;
+  font-size: 0.9rem;
+  color: var(--text-leise);
+}
+
+.blatt label.regler input[type='range'] {
+  accent-color: var(--leit);
+  width: 100%;
+}
+
+.blatt label.regler .zahl {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--text);
+}
+
+.blatt .frage.warnung {
+  color: var(--warn);
+  border-left-color: var(--warn);
+  font-style: normal;
+}
+
+/* Die Ausgangszeile ist der Bezugspunkt jeder Aussage und bleibt deshalb
+   optisch von den Funden getrennt. */
+.blatt tr.ausgang td {
+  color: var(--text-leise);
+  border-bottom: 1px solid var(--rand);
+}
+
+.blatt.schmiede table button {
+  padding: 4px 10px;
+  font-size: 0.82rem;
+}
