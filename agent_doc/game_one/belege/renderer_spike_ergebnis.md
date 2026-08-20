@@ -57,3 +57,31 @@ ein rotes Bild sieht nach "Beleuchtung" aus. Erst die Kanalmittelwerte und der
 A/B-Vergleich gegen einen abschaltbaren Post-Stack haben es in einem Schritt
 gezeigt. Beides ist seither fest eingebaut: `?post=0` als Diagnoseschalter und
 die Kanalanalyse in `werkzeuge/schau.mjs`.
+
+---
+
+## Verworfen: volumetrische Lichtschaechte
+
+`GodraysNode` wurde eingebaut, gemessen und wieder entfernt.
+
+Die Erwartung war der klassische Effekt: sichtbare Lichtbahnen aus den
+Sprossenfenstern, Staub in der Luft, mehr Tiefe. Gemessen kam etwas anderes
+heraus — die mittlere Bildhelligkeit sprang von 30 auf 78, und der Anteil
+heller Bildpunkte ging auf 100 Prozent. Im Bild war kein einziger Strahl zu
+sehen, sondern ein gleichmaessiger grauer Schleier ueber der gesamten Halle.
+
+Ursache: `godrays` marschiert durch die Schattenkarte des Hauptlichts. Deren
+Kamera umspannt die ganze Halle, und aus der Bauperspektive gibt es entlang
+der meisten Sehstrahlen kaum Verdeckungswechsel. Ohne diesen Wechsel entsteht
+kein Strahl, sondern nur ein Gleichanteil. Zusaetzliche Dichteregelung haette
+den Effekt lediglich schwaecher, nicht richtiger gemacht.
+
+**Entscheidung: gestrichen.** Die Atmosphaere kommt stattdessen aus dem, was
+ohnehin schon traegt: die Lichtflecken, die das gerichtete Licht durch die
+Fenstergeometrie auf den Boden zeichnet, der exponentielle Nebel und das
+Gegenlicht, das die Silhouetten nachzieht. Ein schlecht sitzender Effekt ist
+schlechter als kein Effekt — er kostet Rechenzeit UND Kontrast.
+
+Der Anschluss `Renderwerk.setzeHauptlicht()` bleibt bestehen; ein spaeterer
+Anlauf braucht dann eine eigene, enger gefasste Schattenkamera nur fuer die
+Strahlen.

@@ -123,7 +123,7 @@ export const FUNDSTUECKE: readonly Fundstueck[] = [
     akt: 3,
     art: 'schild',
     titel: 'Bildschirmausdruck TROET, Maske 04',
-    text: 'BUCHUNGSKREIS 0410. SATZART 04. FELDLAENGE 12. BETRAG 1.104,60. PRUEFZIFFER OK. Am Ende der Spalte steht: SATZART 04 — ENDE. Kein weiteres Wort, keine Begründung, keine Anrede, und in der ganzen Maske kein Adjektiv.',
+    text: 'BUCHUNGSKREIS 0410. SATZART 04. FELD 12 STELLEN. BETRAG 1.104,60. KONTROLLE OK. Am Ende der Spalte steht: SATZART 04 — ENDE. Kein weiteres Wort, keine Begründung, keine Anrede, und in der ganzen Maske kein einziges Adjektiv.',
     vorher: 'Das Verfahren läuft seit 1998 und hat nie eine Schnittstelle nach außen bekommen.',
     nachher: 'Die Zahl unten rechts stimmt bis heute in jedem Fall, und niemand weiß mehr, wer die Regeln geschrieben hat.',
   },

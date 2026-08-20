@@ -1,18 +1,25 @@
 /**
  * Die Halle: Backsteinbau von 1957, nachträglich mit Technik gefüllt.
  *
- * Gestaltungsleitsatz: kalt in der Fläche, warm nur dort, wo Technik arbeitet.
- * Das Auge soll ohne Anleitung zum Fundament in der Mitte gezogen werden —
- * deshalb fällt das Licht schraeg von den Sprossenfenstern auf die Baufläche
- * und lässt die Wände im Halbdunkel.
+ * Diese Datei stellt die Bühne auf und beleuchtet sie. Die Formen kommen
+ * vollständig aus `geometrie.ts`, die Oberflächen aus `materialien.ts` — hier
+ * steht nur, WO etwas steht und WIE es beleuchtet wird.
  *
- * Alles hier ist prozedural und deterministisch: dieselbe Saat ergibt dieselbe
- * Halle, bis auf das letzte Nietenblech.
+ * Gestaltungsleitsatz: kalt in der Fläche, warm nur dort, wo Technik arbeitet.
+ * Das Auge soll ohne Anleitung zum Fundament in der Mitte gezogen werden.
+ *
+ * Zur Lichtsetzung: three.js rechnet seit r155 physikalisch. Punktlichter
+ * stehen in Candela und fallen quadratisch ab — Werte um 50 brennen eine Halle
+ * dieser Größe vollständig aus. Die Zahlen hier sind gemessen, nicht geschätzt:
+ * `werkzeuge/schau.mjs` meldet die mittlere Bildhelligkeit, und die Halle soll
+ * im Ruhezustand bei etwa 30 bis 45 von 255 liegen. Darunter verschwindet die
+ * Architektur, darüber verlieren die leuchtenden Module ihren Kontrast.
  */
 
 import * as THREE from 'three/webgpu';
-import { flaechenMaterial, fundamentMaterial, PALETTE } from './aussehen';
 import { erzeugeStrom } from '../sim/rng';
+import { flaechenMaterial, fundamentForm, fundamentMaterial, hallenTeile, PALETTE } from './aussehen';
+import { fundstueckGeometrie, type FundstueckArt } from './geometrie';
 
 export interface HallenMasse {
   /** Felder des Baufundaments in X und Z. */
@@ -23,6 +30,19 @@ export interface HallenMasse {
 }
 
 export const STANDARD_MASSE: HallenMasse = { felderX: 16, felderZ: 10, hoehe: 11, saat: 1957 };
+
+/**
+ * Höhe des Baufundaments über dem Hallenboden.
+ *
+ * Es MUSS erhöht stehen. Auf Bodenniveau ist die Baufläche vom Hallenboden
+ * nicht zu unterscheiden — und schlimmer: die Gitterstege der Platte und das
+ * Fugenraster des Bodens liegen dann auf derselben Höhe und flimmern
+ * gegeneinander. Das Podest löst beides auf einmal.
+ */
+export const PODESTHOEHE = 0.34;
+
+/** Höhe, auf der die Module stehen: Podest plus Gitterrelief. */
+export const BAUHOEHE = PODESTHOEHE + 0.014;
 
 export class Halle {
   readonly wurzel = new THREE.Group();
@@ -39,14 +59,14 @@ export class Halle {
   constructor(masse: Partial<HallenMasse> = {}) {
     this.masse = { ...STANDARD_MASSE, ...masse };
     this.wurzel.name = 'halle';
-    this.sonne = new THREE.DirectionalLight(PALETTE.licht, 2.6);
+    this.sonne = new THREE.DirectionalLight(PALETTE.licht, 1.45);
     this.baue();
   }
 
   /** Weltkoordinate der Mitte des Gitterfelds (x, z). */
   feldZuWelt(x: number, z: number): THREE.Vector3 {
     const { felderX, felderZ } = this.masse;
-    return new THREE.Vector3(x - (felderX - 1) / 2, 0.16, z - (felderZ - 1) / 2);
+    return new THREE.Vector3(x - (felderX - 1) / 2, BAUHOEHE, z - (felderZ - 1) / 2);
   }
 
   /** Gitterfeld unter einem Weltpunkt. Kann außerhalb des Fundaments liegen. */
@@ -66,218 +86,160 @@ export class Halle {
 
   private baue(): void {
     const { felderX, felderZ, hoehe, saat } = this.masse;
-    const r = erzeugeStrom(saat);
-    const breite = felderX + 14;
-    const tiefe = felderZ + 14;
+    const breite = felderX + 15;
+    const tiefe = felderZ + 15;
 
-    // --- Boden ------------------------------------------------------------
-    const boden = new THREE.Mesh(new THREE.PlaneGeometry(breite * 1.6, tiefe * 1.6), flaechenMaterial('beton'));
-    boden.rotation.x = -Math.PI / 2;
+    const teile = hallenTeile(breite, tiefe, hoehe, saat);
+
+    const boden = new THREE.Mesh(teile.boden, flaechenMaterial('beton'));
     boden.receiveShadow = true;
-    this.merke(boden.geometry);
+    this.merke(teile.boden);
     this.wurzel.add(boden);
 
-    // --- Baufundament -----------------------------------------------------
-    const platte = new THREE.Mesh(new THREE.BoxGeometry(felderX + 0.6, 0.32, felderZ + 0.6), flaechenMaterial('fundament'));
-    platte.position.y = 0;
-    platte.receiveShadow = true;
-    platte.castShadow = true;
-    this.merke(platte.geometry);
-    this.fundament.add(platte);
-
-    // Gitterrelief: eine Ebene knapp über der Platte mit leuchtenden Fugen.
-    const raster = new THREE.Mesh(new THREE.PlaneGeometry(felderX, felderZ, 1, 1), fundamentMaterial());
-    raster.rotation.x = -Math.PI / 2;
-    raster.position.y = 0.161;
-    const uvAttr = raster.geometry.attributes['uv'] as THREE.BufferAttribute;
-    for (let i = 0; i < uvAttr.count; i++) {
-      uvAttr.setXY(i, uvAttr.getX(i) * felderX, uvAttr.getY(i) * felderZ);
-    }
-    uvAttr.needsUpdate = true;
-    this.merke(raster.geometry);
-    this.fundament.add(raster);
-
-    // Randprofil aus Stahl.
-    const profil = flaechenMaterial('stahl');
-    for (const [dx, dz, bx, bz] of [
-      [0, -(felderZ + 0.6) / 2, felderX + 1.0, 0.4],
-      [0, (felderZ + 0.6) / 2, felderX + 1.0, 0.4],
-      [-(felderX + 0.6) / 2, 0, 0.4, felderZ + 1.0],
-      [(felderX + 0.6) / 2, 0, 0.4, felderZ + 1.0],
-    ] as const) {
-      const g = new THREE.BoxGeometry(bx, 0.42, bz);
-      const m = new THREE.Mesh(g, profil);
-      m.position.set(dx, 0.05, dz);
-      m.castShadow = true;
-      m.receiveShadow = true;
-      this.merke(g);
-      this.fundament.add(m);
-    }
-    this.wurzel.add(this.fundament);
-
-    // --- Wände -----------------------------------------------------------
-    const ziegel = flaechenMaterial('ziegel');
-    const wandTeile: THREE.BufferGeometry[] = [];
-    const wandHoehe = hoehe;
-    for (const [x, z, bx, bz] of [
-      [0, -tiefe / 2, breite, 0.8],
-      [0, tiefe / 2, breite, 0.8],
-      [-breite / 2, 0, 0.8, tiefe],
-      [breite / 2, 0, 0.8, tiefe],
-    ] as const) {
-      const g = new THREE.BoxGeometry(bx, wandHoehe, bz);
-      g.translate(x, wandHoehe / 2, z);
-      wandTeile.push(g);
-    }
-    // Lisenen als Vertikalgliederung — sie geben der Wand Maßstab.
-    for (let i = 0; i <= 8; i++) {
-      const x = -breite / 2 + (breite * i) / 8;
-      for (const z of [-tiefe / 2, tiefe / 2]) {
-        const g = new THREE.BoxGeometry(0.5, wandHoehe, 0.3);
-        g.translate(x, wandHoehe / 2, z + (z < 0 ? 0.45 : -0.45));
-        wandTeile.push(g);
-      }
-    }
-    // Sprossen der Fenster gehören in die Wandgeometrie und müssen deshalb
-    // VOR dem Zusammenführen eingesammelt werden.
-    const breiteFenster = 6;
-    for (let i = 0; i < breiteFenster; i++) {
-      const fx = -breite / 2 + (breite * (i + 0.5)) / breiteFenster;
-      for (const fz of [-tiefe / 2 + 0.45, tiefe / 2 - 0.45]) {
-        for (let sp = 1; sp < 4; sp++) {
-          const g = new THREE.BoxGeometry(2.3, 0.07, 0.12);
-          g.translate(fx, wandHoehe * 0.62 - 2.2 + (4.4 * sp) / 4, fz);
-          wandTeile.push(g);
-        }
-      }
-    }
-    const waende = new THREE.Mesh(mergeAlle(wandTeile), ziegel);
+    const waende = new THREE.Mesh(teile.waende, flaechenMaterial('ziegel'));
     waende.receiveShadow = true;
     waende.castShadow = true;
-    this.merke(waende.geometry);
+    this.merke(teile.waende);
     this.wurzel.add(waende);
 
-    // --- Sprossenfenster --------------------------------------------------
-    // Sie sind der Grund, warum das Licht schraeg einfällt. Als leuchtende
-    // Flächen ohne Geometriekosten.
-    const fensterMat = new THREE.MeshBasicNodeMaterial();
-    fensterMat.color = new THREE.Color(0x93b4dd).multiplyScalar(1.5);
-    fensterMat.toneMapped = false;
-    const fensterTeile: THREE.BufferGeometry[] = [];
-    for (let i = 0; i < 6; i++) {
-      const x = -breite / 2 + (breite * (i + 0.5)) / 6;
-      for (const z of [-tiefe / 2 + 0.45, tiefe / 2 - 0.45]) {
-        const g = new THREE.PlaneGeometry(2.2, 4.4);
-        g.rotateY(z < 0 ? 0 : Math.PI);
-        g.translate(x, wandHoehe * 0.62, z);
-        fensterTeile.push(g);
-      }
-    }
-    const fenster = new THREE.Mesh(mergeAlle(fensterTeile), fensterMat);
-    this.merke(fenster.geometry);
-    this.merke(fensterMat);
+    // Die Fenster sind die Lichtquelle der Halle. Sie leuchten selbst und
+    // liefern der Umgebungsbeleuchtung ihre länglichen Reflexe.
+    const fensterMaterial = new THREE.MeshStandardNodeMaterial();
+    fensterMaterial.color = new THREE.Color(0x2c3a4e);
+    fensterMaterial.roughness = 0.22;
+    fensterMaterial.metalness = 0;
+    fensterMaterial.emissive = new THREE.Color(0x9fc0ea);
+    fensterMaterial.emissiveIntensity = 0.85;
+    const fenster = new THREE.Mesh(teile.fenster, fensterMaterial);
+    this.merke(teile.fenster);
+    this.merke(fensterMaterial);
     this.wurzel.add(fenster);
 
-    // --- Stahlfachwerk unter der Decke ------------------------------------
-    const traegerTeile: THREE.BufferGeometry[] = [];
-    const binder = 7;
-    for (let i = 0; i < binder; i++) {
-      const z = -tiefe / 2 + (tiefe * (i + 0.5)) / binder;
-      // Untergurt, Obergurt, Diagonalen.
-      const unten = new THREE.BoxGeometry(breite - 1.2, 0.22, 0.22);
-      unten.translate(0, wandHoehe - 1.6, z);
-      const oben = new THREE.BoxGeometry(breite - 1.2, 0.22, 0.22);
-      oben.translate(0, wandHoehe - 0.5, z);
-      traegerTeile.push(unten, oben);
-      const felder = 10;
-      for (let f = 0; f < felder; f++) {
-        const x0 = -(breite - 1.2) / 2 + ((breite - 1.2) * f) / felder;
-        const d = new THREE.BoxGeometry(0.14, 1.45, 0.14);
-        d.rotateZ(f % 2 === 0 ? 0.6 : -0.6);
-        d.translate(x0 + (breite - 1.2) / (felder * 2), wandHoehe - 1.05, z);
-        traegerTeile.push(d);
-      }
-    }
-    // Längspfetten
-    for (let i = 0; i < 5; i++) {
-      const x = -breite / 2 + (breite * (i + 0.5)) / 5;
-      const p = new THREE.BoxGeometry(0.16, 0.16, tiefe - 1);
-      p.translate(x, wandHoehe - 0.4, 0);
-      traegerTeile.push(p);
-    }
-    const traeger = new THREE.Mesh(mergeAlle(traegerTeile), flaechenMaterial('stahl'));
+    const traeger = new THREE.Mesh(teile.traeger, flaechenMaterial('stahl'));
     traeger.castShadow = true;
-    this.merke(traeger.geometry);
+    this.merke(teile.traeger);
     this.fachwerk.add(traeger);
     this.wurzel.add(this.fachwerk);
 
-    // --- Decke ------------------------------------------------------------
-    const decke = new THREE.Mesh(new THREE.PlaneGeometry(breite, tiefe), flaechenMaterial('beton'));
-    decke.rotation.x = Math.PI / 2;
-    decke.position.y = wandHoehe;
-    this.merke(decke.geometry);
-    this.decke.add(decke);
+    const gelaender = new THREE.Mesh(teile.gelaender, flaechenMaterial('stahlBlank'));
+    gelaender.castShadow = true;
+    this.merke(teile.gelaender);
+    this.wurzel.add(gelaender);
+
+    const deckenNetz = new THREE.Mesh(teile.decke, flaechenMaterial('beton'));
+    this.merke(teile.decke);
+    this.decke.add(deckenNetz);
     this.wurzel.add(this.decke);
 
-    // --- Streugut: Kisten und Rollwagen am Rand ---------------------------
-    const streuMat = flaechenMaterial('stahl');
-    const streuTeile: THREE.BufferGeometry[] = [];
-    for (let i = 0; i < 14; i++) {
-      const amRand = r() < 0.5;
-      // Immer am Rand und immer auf dem Boden — Kisten, die in der Halle
-      // stehen, keine schwebenden Würfel.
-      const x = amRand
-        ? (r() < 0.5 ? -1 : 1) * (felderX / 2 + 2.5 + r() * 5)
-        : (r() - 0.5) * breite * 0.7;
-      const z = amRand ? (r() - 0.5) * tiefe * 0.7 : (r() < 0.5 ? -1 : 1) * (felderZ / 2 + 2.5 + r() * 5);
-      const b = 0.9 + r() * 1.4;
-      const h = 0.7 + r() * 1.5;
-      const t = b * (0.7 + r() * 0.6);
-      const drehung = r() * Math.PI;
-      const kiste = new THREE.BoxGeometry(b, h, t);
-      kiste.rotateY(drehung);
-      kiste.translate(x, h / 2, z);
-      streuTeile.push(kiste);
-      // Deckelkante und zwei Spannbänder: aus der Entfernung reicht das, um
-      // eine Kiste als Kiste zu lesen statt als Würfel.
-      const deckel = new THREE.BoxGeometry(b * 1.06, 0.07, t * 1.06);
-      deckel.rotateY(drehung);
-      deckel.translate(x, h, z);
-      streuTeile.push(deckel);
-      for (const versatz of [-0.28, 0.28]) {
-        const band = new THREE.BoxGeometry(0.06, h * 0.98, t * 1.04);
-        band.rotateY(drehung);
-        band.translate(x + Math.cos(drehung) * b * versatz, h / 2, z - Math.sin(drehung) * b * versatz);
-        streuTeile.push(band);
-      }
+    // Ruhiges, dunkles Podest. Die Gittertextur war hier falsch: sie erzeugt
+    // Hunderte feiner Stege und liest sich aus der Bauperspektive als Rauschen.
+    // Das Feldraster zeichnen wir stattdessen explizit — es ist Spielinformation
+    // und darf nicht mit Materialstruktur konkurrieren.
+    const platte = new THREE.Mesh(fundamentForm(felderX, felderZ), flaechenMaterial('beton'));
+    platte.receiveShadow = true;
+    platte.castShadow = true;
+    this.fundament.add(platte);
+
+    // Lichtkante rundum. Sie kostet vier schmale Quader und beantwortet die
+    // wichtigste Frage der ersten Sekunde: wo darf ich bauen?
+    const kantenMaterial = new THREE.MeshStandardNodeMaterial();
+    kantenMaterial.color = new THREE.Color(0x0d1319);
+    kantenMaterial.roughness = 0.5;
+    kantenMaterial.metalness = 0.2;
+    kantenMaterial.emissive = new THREE.Color(0x3f9fc4);
+    kantenMaterial.emissiveIntensity = 1.15;
+    this.merke(kantenMaterial);
+    const kb = felderX + 0.72;
+    const kt = felderZ + 0.72;
+    for (const [bx, bz, x, z] of [
+      [kb, 0.06, 0, -kt / 2],
+      [kb, 0.06, 0, kt / 2],
+      [0.06, kt, -kb / 2, 0],
+      [0.06, kt, kb / 2, 0],
+    ] as const) {
+      const g = new THREE.BoxGeometry(bx, 0.045, bz);
+      const netz = new THREE.Mesh(g, kantenMaterial);
+      netz.position.set(x, -0.02, z);
+      this.merke(g);
+      this.fundament.add(netz);
     }
-    const streu = new THREE.Mesh(mergeAlle(streuTeile), streuMat);
-    streu.castShadow = true;
-    streu.receiveShadow = true;
-    this.merke(streu.geometry);
-    this.wurzel.add(streu);
 
-    // --- Licht ------------------------------------------------------------
-    this.baueLicht(breite, tiefe, wandHoehe);
+    this.fundament.add(this.baueFeldraster(felderX, felderZ));
+    this.fundament.position.y = PODESTHOEHE;
+    this.wurzel.add(this.fundament);
 
-    // --- Nebel ------------------------------------------------------------
-    // Exponentieller Nebel gibt der Halle Tiefe und lässt die Wände
-    // zurückweichen, ohne einen volumetrischen Pass zu kosten.
-    void PALETTE.nebel;
+    this.streueFundstuecke(breite, tiefe, saat);
+    this.baueLicht(breite, tiefe, hoehe);
   }
 
   /**
-   * Lichtsetzung.
+   * Das Feldraster: für jede Feldgrenze eine schmale, schwach leuchtende Linie.
    *
-   * Wichtig: three.js rechnet seit r155 physikalisch. Punktlichter werden in
-   * Candela angegeben und fallen quadratisch ab — Werte im Bereich 50 brennen
-   * eine Halle dieser Größe vollständig aus. Die hier gesetzten Werte sind
-   * gemessen, nicht geschätzt: das Werkzeug `werkzeuge/schau.mjs` meldet die
-   * mittlere Bildhelligkeit, und die Halle soll im Ruhezustand bei etwa 20–40
-   * von 255 liegen, damit die leuchtenden Module überhaupt Kontrast haben.
+   * Es ist Spielinformation, keine Verzierung — man muss auf einen Blick sehen,
+   * wo ein Modul hinpasst. Deshalb wird es als eigene Geometrie gezeichnet und
+   * nicht der Materialstruktur überlassen.
    */
+  private baueFeldraster(felderX: number, felderZ: number): THREE.Mesh {
+    const teile: THREE.BufferGeometry[] = [];
+    const staerke = 0.035;
+    for (let i = 0; i <= felderX; i++) {
+      const g = new THREE.BoxGeometry(staerke, 0.01, felderZ);
+      g.translate(i - felderX / 2, 0.012, 0);
+      teile.push(g);
+    }
+    for (let i = 0; i <= felderZ; i++) {
+      const g = new THREE.BoxGeometry(felderX, 0.01, staerke);
+      g.translate(0, 0.012, i - felderZ / 2);
+      teile.push(g);
+    }
+    const zusammen = vereineTeile(teile);
+    const material = new THREE.MeshStandardNodeMaterial();
+    material.color = new THREE.Color(0x121820);
+    material.roughness = 0.6;
+    material.metalness = 0.1;
+    material.emissive = new THREE.Color(0x2f6f8c);
+    material.emissiveIntensity = 0.5;
+    this.merke(zusammen);
+    this.merke(material);
+    const netz = new THREE.Mesh(zusammen, material);
+    netz.receiveShadow = true;
+    return netz;
+  }
+
+  /**
+   * Verteilt Fundstücke am Rand der Halle. Sie stehen immer AUF dem Boden und
+   * immer außerhalb des Fundaments: schwebende Kisten sehen sofort nach
+   * Prototyp aus, und etwas mitten im Bauraum wäre schlicht im Weg.
+   */
+  private streueFundstuecke(breite: number, tiefe: number, saat: number): void {
+    const r = erzeugeStrom(saat ^ 0x5c4a7711);
+    const arten: readonly FundstueckArt[] = ['becher', 'aktenstapel', 'rollwagen', 'schild', 'kabelrolle', 'stuhl'];
+    const material = flaechenMaterial('stahl');
+    const { felderX, felderZ } = this.masse;
+
+    for (let i = 0; i < 22; i++) {
+      const art = arten[Math.min(arten.length - 1, Math.floor(r() * arten.length))]!;
+      const laengsseite = r() < 0.55;
+      const x = laengsseite
+        ? (r() - 0.5) * breite * 0.78
+        : (r() < 0.5 ? -1 : 1) * (felderX / 2 + 2 + r() * Math.max(1, breite / 2 - felderX / 2 - 3));
+      const z = laengsseite
+        ? (r() < 0.5 ? -1 : 1) * (felderZ / 2 + 2 + r() * Math.max(1, tiefe / 2 - felderZ / 2 - 3))
+        : (r() - 0.5) * tiefe * 0.78;
+
+      const g = fundstueckGeometrie(art, Math.floor(r() * 100000));
+      const netz = new THREE.Mesh(g, material);
+      netz.position.set(x, 0, z);
+      netz.rotation.y = r() * Math.PI * 2;
+      netz.castShadow = true;
+      netz.receiveShadow = true;
+      this.merke(g);
+      this.wurzel.add(netz);
+    }
+  }
+
   private baueLicht(breite: number, tiefe: number, hoehe: number): void {
-    // Hauptlicht: schraeg durch die Sprossenfenster auf das Fundament.
+    // Hauptlicht: schräg durch die Sprossenfenster auf das Fundament.
     const s = this.sonne;
     s.position.set(breite * 0.42, hoehe * 1.5, -tiefe * 0.36);
     s.target.position.set(0, 0, 0);
@@ -296,29 +258,35 @@ export class Halle {
     s.shadow.normalBias = 0.035;
     this.wurzel.add(s, s.target);
 
-    // Gegenlicht von hinten links. Es beleuchtet nichts nennenswert, sondern
-    // zeichnet Kanten nach — der billigste Weg, Silhouetten lesbar zu machen.
-    const gegen = new THREE.DirectionalLight(0x6f9bd4, 1.1);
+    // Gegenlicht von hinten links. Es beleuchtet kaum, sondern zeichnet Kanten
+    // nach — der billigste Weg, Silhouetten lesbar zu machen.
+    const gegen = new THREE.DirectionalLight(0x6f9bd4, 0.7);
     gegen.position.set(-breite * 0.5, hoehe * 0.7, tiefe * 0.55);
     gegen.target.position.set(0, 0, 0);
     this.wurzel.add(gegen, gegen.target);
 
-    // Himmels-/Bodenlicht: füllt die Schatten, ohne sie zu toeten.
-    this.wurzel.add(new THREE.HemisphereLight(0x466a99, 0x0b0f15, 0.55));
+    // Himmels-/Bodenlicht: füllt die Schatten, ohne sie zu töten.
+    this.wurzel.add(new THREE.HemisphereLight(0x35506f, 0x090c11, 0.22));
 
-    // Warme Arbeitsleuchten über dem Fundament — sie markieren den Ort, an dem
+    // Warme Arbeitsleuchten über dem Fundament. Sie markieren den Ort, an dem
     // gearbeitet wird, und geben dem kalten Raum einen Gegenpol.
-    for (const x of [-this.masse.felderX * 0.3, this.masse.felderX * 0.3]) {
-      const l = new THREE.PointLight(PALETTE.lichtWarm, 26, 24, 2);
+    const schirm = flaechenMaterial('stahlBlank');
+    for (const x of [-this.masse.felderX * 0.28, this.masse.felderX * 0.28]) {
+      const l = new THREE.PointLight(PALETTE.lichtWarm, 34, 20, 2);
       l.position.set(x, hoehe * 0.52, 0);
       this.wurzel.add(l);
-      const lampe = new THREE.Mesh(
-        new THREE.CylinderGeometry(0.5, 0.66, 0.34, 12, 1, true),
-        flaechenMaterial('stahl')
-      );
-      lampe.position.set(x, hoehe * 0.52 + 0.2, 0);
-      this.merke(lampe.geometry);
+
+      const schirmG = new THREE.CylinderGeometry(0.5, 0.72, 0.36, 14, 1, true);
+      const lampe = new THREE.Mesh(schirmG, schirm);
+      lampe.position.set(x, hoehe * 0.52 + 0.22, 0);
+      this.merke(schirmG);
       this.wurzel.add(lampe);
+
+      const kabelG = new THREE.CylinderGeometry(0.03, 0.03, hoehe * 0.44, 6);
+      const kabel = new THREE.Mesh(kabelG, schirm);
+      kabel.position.set(x, hoehe * 0.52 + 0.22 + (hoehe * 0.44) / 2, 0);
+      this.merke(kabelG);
+      this.wurzel.add(kabel);
     }
   }
 
@@ -329,15 +297,14 @@ export class Halle {
   entsorge(): void {
     for (const x of this.entsorgbar.splice(0)) x.dispose();
     this.wurzel.clear();
+    this.fundament.clear();
+    this.decke.clear();
+    this.fachwerk.clear();
   }
 }
 
-/** Führt Geometrien zusammen und gibt die Teile frei. */
-function mergeAlle(teile: THREE.BufferGeometry[]): THREE.BufferGeometry {
-  if (teile.length === 1) return teile[0]!;
-  const zusammen = new THREE.BufferGeometry();
-  // Manuelles Zusammenführen ohne Zusatzabhängigkeit: alle Teile haben
-  // position/normal/uv und keine Indizes nach toNonIndexed().
+/** Führt Geometrien zusammen und gibt die Einzelteile frei. */
+function vereineTeile(teile: THREE.BufferGeometry[]): THREE.BufferGeometry {
   const pos: number[] = [];
   const nor: number[] = [];
   const uvs: number[] = [];
@@ -356,9 +323,10 @@ function mergeAlle(teile: THREE.BufferGeometry[]): THREE.BufferGeometry {
     if (nicht !== t) nicht.dispose();
     t.dispose();
   }
-  zusammen.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
-  zusammen.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
-  zusammen.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
-  zusammen.computeBoundingSphere();
-  return zusammen;
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  g.setAttribute('normal', new THREE.Float32BufferAttribute(nor, 3));
+  g.setAttribute('uv', new THREE.Float32BufferAttribute(uvs, 2));
+  g.computeBoundingSphere();
+  return g;
 }

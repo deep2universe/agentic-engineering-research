@@ -4,18 +4,22 @@ import { simuliere } from '../../src/sim/simulation';
 import { bewerte } from '../../src/sim/ziele';
 import { Bau } from '../../src/inhalt/bauhilfe';
 import { AKT_6 } from '../../src/inhalt/akt_06';
-import type { AuftragsStrom, KernGroesse, SammlerModus, Werk } from '../../src/sim/typen';
+import type { KernGroesse, SammlerModus, Werk, WerkzeugArt } from '../../src/sim/typen';
 
 // --- Kopie des Baukastens aus akt_06.ts (identische Ids und Felder) --------
 
 type Glied =
-  | { readonly k: KernGroesse; readonly spez?: 'recht' | 'analyse' | 'text' | 'finanz' | 'technik' }
+  | { readonly k: KernGroesse }
+  | { readonly w: WerkzeugArt }
   | { readonly pruef: number; readonly runden: number; readonly zurueck: number }
   | { readonly tor: number; readonly reparatur: readonly Glied[] }
   | { readonly faecher: readonly KernGroesse[]; readonly modus: SammlerModus };
 
 function K(k: KernGroesse): Glied {
   return { k };
+}
+function W(w: WerkzeugArt): Glied {
+  return { w };
 }
 function P(pruef: number, runden: number, zurueck = 1): Glied {
   return { pruef, runden, zurueck };
@@ -39,7 +43,8 @@ function lege(b: Bau, f: Feld, glieder: readonly Glied[], z: number, ziel: strin
   const ids = glieder.map((g, i) => {
     const x = f.next();
     const id = `${praefix}${i}`;
-    if ('k' in g) return b.setze('kern', g.spez ? { groesse: g.k, spezialisierung: g.spez } : { groesse: g.k }, id, x, z);
+    if ('k' in g) return b.setze('kern', { groesse: g.k }, id, x, z);
+    if ('w' in g) return b.setze('werkzeug', { werkzeugArt: g.w }, id, x, z);
     if ('pruef' in g) return b.setze('pruefer', { schwelle: g.pruef, runden: g.runden }, id, x, z);
     if ('tor' in g) return b.setze('schranke', { schwelle: g.tor }, id, x, z);
     return b.setze('verteiler', { zweige: g.faecher.length }, id, x, z);
@@ -50,6 +55,9 @@ function lege(b: Bau, f: Feld, glieder: readonly Glied[], z: number, ziel: strin
     const nach = folge[i + 1]!;
     if ('k' in g) {
       b.verbinde(von, nach, 'aus');
+    } else if ('w' in g) {
+      b.verbinde(von, nach, 'ok');
+      b.verbinde(von, nach, 'fehler');
     } else if ('pruef' in g) {
       b.verbinde(von, nach, 'frei');
       b.verbinde(von, ids[i - g.zurueck]!, 'zurueck', 'ein');
@@ -112,72 +120,14 @@ function zeig(nr: number, name: string, werk: Werk): void {
 }
 
 it('sweep', () => {
-  // eslint-disable-next-line no-console
-  console.log('\n--- VI-0 ---');
-  for (const sw of [0.8, 0.85, 0.9]) {
-    for (const r of [2, 3, 4]) {
-      zeig(0, `r + P(${sw},${r})`, strasse([K('reiher'), P(sw, r)]));
+  for (const we of [0.4, 0.45]) {
+    for (const sw of [0.7, 0.75, 0.8]) {
+      zeig(3, `we${we} | fa(oo,best) P(${sw},2) | r TOR(0.7)[K]`, verzweigt([W('rechner')], we, [FAECHER(['kolibri', 'kolibri'], 'bester'), P(sw, 2)], [K('reiher'), TOR(0.7, [K('kondor')])]));
+      zeig(3, `we${we} | fa(oo,vers) P(${sw},2) | r TOR(0.7)[K]`, verzweigt([W('rechner')], we, [FAECHER(['kolibri', 'kolibri'], 'verschmelzen'), P(sw, 2)], [K('reiher'), TOR(0.7, [K('kondor')])]));
+      zeig(3, `we${we} | fa(ooo,best) P(${sw},2) | r TOR(0.7)[K]`, verzweigt([W('rechner')], we, [FAECHER(['kolibri', 'kolibri', 'kolibri'], 'bester'), P(sw, 2)], [K('reiher'), TOR(0.7, [K('kondor')])]));
+      zeig(3, `we${we} | fa(oo,best) P(${sw},2) | K`, verzweigt([W('rechner')], we, [FAECHER(['kolibri', 'kolibri'], 'bester'), P(sw, 2)], [K('kondor')]));
     }
   }
-  for (const sw of [0.8, 0.85, 0.9]) {
-    for (const r of [1, 2, 3]) {
-      zeig(0, `r r + P(${sw},${r}) z1`, strasse([K('reiher'), K('reiher'), P(sw, r)]));
-      zeig(0, `r r + P(${sw},${r}) z2`, strasse([K('reiher'), K('reiher'), P(sw, r, 2)]));
-      zeig(0, `o r + P(${sw},${r}) z1`, strasse([K('kolibri'), K('reiher'), P(sw, r)]));
-    }
-  }
-  zeig(0, 'chain rrr', strasse([K('reiher'), K('reiher'), K('reiher')]));
-  zeig(0, 'chain rK', strasse([K('reiher'), K('kondor')]));
-  zeig(0, 'chain ooK', strasse([K('kolibri'), K('kolibri'), K('kondor')]));
-  zeig(0, 'chain orK', strasse([K('kolibri'), K('reiher'), K('kondor')]));
-  zeig(0, 'chain KK', strasse([K('kondor'), K('kondor')]));
-  zeig(0, 'chain oK', strasse([K('kolibri'), K('kondor')]));
-  zeig(0, 'chain Kr', strasse([K('kondor'), K('reiher')]));
-
-  // eslint-disable-next-line no-console
-  console.log('\n--- VI-1 ---');
-  for (const sw of [0.8, 0.85]) {
-    for (const r of [1, 2]) {
-      zeig(1, `weiche 0.45 | oo | r P(${sw},${r})`, verzweigt([], 0.45, [K('kolibri'), K('kolibri')], [K('reiher'), P(sw, r)]));
-      zeig(1, `weiche 0.4 | or | r P(${sw},${r})`, verzweigt([], 0.4, [K('kolibri'), K('reiher')], [K('reiher'), P(sw, r)]));
-      zeig(1, `nur r P(${sw},${r})`, strasse([K('reiher'), P(sw, r)]));
-      zeig(1, `r r P(${sw},${r})`, strasse([K('reiher'), K('reiher'), P(sw, r)]));
-    }
-  }
-  zeig(1, 'chain rr', strasse([K('reiher'), K('reiher')]));
-  zeig(1, 'chain rrr', strasse([K('reiher'), K('reiher'), K('reiher')]));
-  zeig(1, 'chain oo', strasse([K('kolibri'), K('kolibri')]));
-  zeig(1, 'anti P(0.9,6)', strasse([K('reiher'), P(0.9, 6)]));
-  zeig(1, 'anti r P K', strasse([K('reiher'), P(0.85, 2), K('kondor')]));
-
-  // eslint-disable-next-line no-console
-  console.log('\n--- VI-2 ---');
-  for (const sw of [0.7, 0.74, 0.78, 0.82]) {
-    for (const r of [1, 2, 3]) {
-      zeig(2, `r P(${sw},${r})`, strasse([K('reiher'), P(sw, r)]));
-      zeig(2, `K P(${sw + 0.15},${r})`, strasse([K('kondor'), P(sw + 0.15, r)]));
-    }
-  }
-  zeig(2, 'chain rr', strasse([K('reiher'), K('reiher')]));
-  zeig(2, 'chain rrr', strasse([K('reiher'), K('reiher'), K('reiher')]));
-  zeig(2, 'chain K', strasse([K('kondor')]));
-  zeig(2, 'chain rK', strasse([K('reiher'), K('kondor')]));
-  zeig(2, 'chain KK', strasse([K('kondor'), K('kondor')]));
-  zeig(2, 'tor r r [0.78] rep r P(0.8,1)', strasse([K('reiher'), K('reiher'), TOR(0.78, [K('reiher'), P(0.8, 1)])]));
-  zeig(2, 'tor K [0.85] rep K P(0.9,1)', strasse([K('kondor'), TOR(0.85, [K('kondor'), P(0.9, 1)])]));
-  zeig(2, 'tor r r [0.8] rep K', strasse([K('reiher'), K('reiher'), TOR(0.8, [K('kondor')])]));
-  zeig(2, 'anti 0.95 r8', strasse([K('reiher'), P(0.95, 8)]));
-  zeig(2, 'anti VI-1', verzweigt([], 0.45, [K('kolibri'), K('kolibri')], [K('reiher'), P(0.85, 2)]));
-
-  // eslint-disable-next-line no-console
-  console.log('\n--- VI-3 ---');
-  zeig(3, 'weiche o | o | r P(0.82,2)', verzweigt([K('kolibri')], 0.45, [K('kolibri')], [K('reiher'), P(0.82, 2)]));
-  zeig(3, 'weiche - | oo | r r P(0.82,2)', verzweigt([], 0.45, [K('kolibri'), K('kolibri')], [K('reiher'), K('reiher'), P(0.82, 2)]));
-  zeig(3, 'weiche - | or | r P(0.85,2)', verzweigt([], 0.45, [K('kolibri'), K('reiher')], [K('reiher'), P(0.85, 2)]));
-  zeig(3, 'faecher ooR bester + r P(0.82,1)', strasse([FAECHER(['kolibri', 'kolibri', 'reiher'], 'bester'), K('reiher'), P(0.82, 1)]));
-  zeig(3, 'faecher ooo verschm + r P(0.82,1)', strasse([FAECHER(['kolibri', 'kolibri', 'kolibri'], 'verschmelzen'), K('reiher'), P(0.82, 1)]));
-  zeig(3, 'faecher oo verschm + r P(0.85,2)', strasse([FAECHER(['kolibri', 'kolibri'], 'verschmelzen'), K('reiher'), P(0.85, 2)]));
-  zeig(3, 'chain rr', strasse([K('reiher'), K('reiher')]));
-  zeig(3, 'chain rrr', strasse([K('reiher'), K('reiher'), K('reiher')]));
-  zeig(3, 'chain K', strasse([K('kondor')]));
+  zeig(3, 'ref A we0.4 | o P(0.75,2) | r TOR(0.7)[K]', verzweigt([W('rechner')], 0.4, [K('kolibri'), P(0.75, 2)], [K('reiher'), TOR(0.7, [K('kondor')])]));
+  zeig(3, 'ref B r P(0.75,1) TOR(0.68)[K]', strasse([W('rechner'), K('reiher'), P(0.75, 1), TOR(0.68, [K('kondor')])]));
 });

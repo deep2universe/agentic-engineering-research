@@ -19,7 +19,7 @@
  *   VI-3 KETSU — Synthese: Verteiler, Weiche und Prüferin unter hartem Deckel.
  */
 
-import type { KernGroesse, SammlerModus, Werk } from '../sim/typen';
+import type { KernGroesse, SammlerModus, Werk, WerkzeugArt } from '../sim/typen';
 import type { LevelDefinition } from './level_typen';
 import { Bau, leeresFundament, monolith } from './bauhilfe';
 
@@ -36,6 +36,8 @@ const QUELLE_PARALLEL = '03_workflow_patterns.md#pattern-3-parallelization';
  * Ein Glied einer Fertigungsstraße. Vier Formen:
  *
  *  - `{ k }`      ein Modell-Kern.
+ *  - `{ w }`      ein Werkzeug. Beide Ausgänge führen auf dasselbe nächste
+ *                 Glied — der Ausfall wird durchgereicht, wie in Akt III.
  *  - `{ pruef }`  eine Prüferin. 'frei' geht auf das nächste Glied, 'zurueck'
  *                 auf das Glied `zurueck` Positionen davor — das ist der Kreis,
  *                 den dieser Akt einführt.
@@ -44,13 +46,19 @@ const QUELLE_PARALLEL = '03_workflow_patterns.md#pattern-3-parallelization';
  *  - `{ faecher }` ein Verteiler mit gleichartigen Zweigen und einem Sammler.
  */
 type Glied =
-  | { readonly k: KernGroesse; readonly spez?: 'recht' | 'analyse' | 'text' | 'finanz' | 'technik' }
+  | { readonly k: KernGroesse }
+  | { readonly w: WerkzeugArt }
   | { readonly pruef: number; readonly runden: number; readonly zurueck: number }
   | { readonly tor: number; readonly reparatur: readonly Glied[] }
   | { readonly faecher: readonly KernGroesse[]; readonly modus: SammlerModus };
 
 function K(k: KernGroesse): Glied {
   return { k };
+}
+
+/** Werkzeug ohne Ausfallbehandlung — der Ausfall wird durchgereicht. */
+function W(w: WerkzeugArt): Glied {
+  return { w };
 }
 
 /** Prüferin: Schwelle, Runden, und wie viele Glieder die Nacharbeit zurückgeht. */
@@ -84,7 +92,8 @@ function lege(b: Bau, f: Feld, glieder: readonly Glied[], z: number, ziel: strin
   const ids = glieder.map((g, i) => {
     const x = f.next();
     const id = `${praefix}${i}`;
-    if ('k' in g) return b.setze('kern', g.spez ? { groesse: g.k, spezialisierung: g.spez } : { groesse: g.k }, id, x, z);
+    if ('k' in g) return b.setze('kern', { groesse: g.k }, id, x, z);
+    if ('w' in g) return b.setze('werkzeug', { werkzeugArt: g.w }, id, x, z);
     if ('pruef' in g) return b.setze('pruefer', { schwelle: g.pruef, runden: g.runden }, id, x, z);
     if ('tor' in g) return b.setze('schranke', { schwelle: g.tor }, id, x, z);
     return b.setze('verteiler', { zweige: g.faecher.length }, id, x, z);
@@ -96,6 +105,9 @@ function lege(b: Bau, f: Feld, glieder: readonly Glied[], z: number, ziel: strin
     const nach = folge[i + 1]!;
     if ('k' in g) {
       b.verbinde(von, nach, 'aus');
+    } else if ('w' in g) {
+      b.verbinde(von, nach, 'ok');
+      b.verbinde(von, nach, 'fehler');
     } else if ('pruef' in g) {
       b.verbinde(von, nach, 'frei');
       b.verbinde(von, ids[i - g.zurueck]!, 'zurueck', 'ein');
@@ -227,7 +239,7 @@ export const AKT_6: LevelDefinition[] = [
     budget: { module: 3, dauer: 400 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Auftrag wird ausgeliefert.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.865, text: 'Mindestgüte 86,5 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.85, text: 'Mindestgüte 85 Prozent.' },
       {
         id: 'preis',
         metrik: 'kostenJeAuftrag',
@@ -245,8 +257,8 @@ export const AKT_6: LevelDefinition[] = [
       {
         name: 'Ein REIHER in der Schleife',
         ansatz:
-          'Nur zwei Module: ein mittlerer Kern und die Prüferin, die ihn bis zu dreimal antreten lässt. Kleinste Fläche, längster Weg.',
-        werk: strasse([K('reiher'), P(0.85, 3)]),
+          'Nur zwei Module: ein mittlerer Kern und eine Prüferin, die ihn bei knapper Schwelle bis zu viermal antreten lässt. Kleinste Fläche, längster Weg.',
+        werk: strasse([K('reiher'), P(0.8, 4)]),
       },
       {
         name: 'Zwei REIHER, dann die Schleife',
@@ -380,7 +392,7 @@ export const AKT_6: LevelDefinition[] = [
       anzahl: 28,
       takt: 5,
       domaenen: ['recht', 'technik'],
-      schwierigkeit: [0.62, 0.9],
+      schwierigkeit: [0.5, 0.88],
       mehrdeutigkeit: [0.1, 0.32],
     },
     budget: { kosten: 22000, dauer: 600 },
@@ -448,7 +460,7 @@ export const AKT_6: LevelDefinition[] = [
       anzahl: 32,
       takt: 4,
       domaenen: ['recht', 'finanz', 'analyse', 'text'],
-      schwierigkeit: [0.1, 0.8],
+      schwierigkeit: [0.08, 0.95],
       mehrdeutigkeit: [0.1, 0.35],
       anteilRechnerisch: 0.4,
     },

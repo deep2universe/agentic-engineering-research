@@ -82,6 +82,7 @@ export class Spiel {
     this.bau = new BauZustand(start.vorbau);
 
     renderwerk.szene.add(this.halle.wurzel, this.ansicht.wurzel);
+    renderwerk.setzeHauptlicht(this.halle.sonne);
     renderwerk.szene.background = new THREE.Color(0x080b11);
     renderwerk.szene.fog = new THREE.FogExp2(0x0e141c, 0.021);
 
@@ -565,7 +566,16 @@ export class Spiel {
 
     // Decke und Fachwerk ausblenden, sobald die Kamera darüber steht — sonst
     // schaut man durch das eigene Dach und die Träger zerschneiden das Bild.
-    this.halle.decke.visible = this.renderwerk.kamera.position.y < this.halle.masse.hoehe * 0.94;
+    /*
+     * Decke UND Fachwerk ausblenden, sobald die Kamera ueber die Traeger
+     * steigt. Nur die Decke zu verstecken genuegt nicht: das Fachwerk ist so
+     * massiv, dass es aus der Vogelperspektive das halbe Bild zerschneidet und
+     * die Bauflaeche unlesbar macht. Bei flachem Blickwinkel bleibt beides
+     * stehen und traegt den Industriecharakter.
+     */
+    const ueberDach = this.renderwerk.kamera.position.y > this.halle.masse.hoehe * 0.82;
+    this.halle.decke.visible = !ueberDach;
+    this.halle.fachwerk.visible = !ueberDach;
 
     if (this.sim && this.laeuft) {
       this.tickRest += dt * 1000 * this.tempo;
@@ -578,7 +588,7 @@ export class Spiel {
     }
     if (this.sim) {
       const alpha = Math.min(1, this.tickRest / TICK_MS);
-      this.ansicht.zeigeSimulation(this.sim.momentaufnahme(), alpha);
+      this.ansicht.zeigeSimulation(this.sim.momentaufnahme(), alpha, dt);
     }
 
     this.renderwerk.zeichne(this.spielzeit);

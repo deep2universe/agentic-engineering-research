@@ -75,6 +75,8 @@ export class Renderwerk {
   private readonly leinwand: HTMLCanvasElement;
   private readonly entsorger: Array<() => void> = [];
   private konvergenzFrames = 0;
+  /** Das schattenwerfende Hauptlicht der Szene, von der Welt angemeldet. */
+  private hauptlicht: THREE.DirectionalLight | null = null;
 
   /** Uniform für alle zeitabhängigen Shader. Wird bewusst NICHT aus `time` gespeist. */
   readonly zeit = uniform(0);
@@ -115,7 +117,7 @@ export class Renderwerk {
     renderer.setPixelRatio(Math.min(globalThis.devicePixelRatio ?? 1, preset.pixelDeckel));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.AgXToneMapping;
-    renderer.toneMappingExposure = 1.02;
+    renderer.toneMappingExposure = 0.72;
     renderer.shadowMap.enabled = true;
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     renderer.info.autoReset = false;
@@ -130,7 +132,7 @@ export class Renderwerk {
     // echt" und "wirkt wie ein Prototyp".
     const umgebung = erzeugeUmgebung(renderer);
     werk.szene.environment = umgebung.textur;
-    werk.szene.environmentIntensity = 0.9;
+    werk.szene.environmentIntensity = 0.4;
     werk.beiEntsorgung(() => umgebung.entsorge());
 
     werk.baueGraph();
@@ -215,6 +217,20 @@ export class Renderwerk {
     pipeline.outputNode = bild as never;
     this.pipeline = pipeline;
     this.konvergenzFrames = 0;
+  }
+
+  /**
+   * Meldet das schattenwerfende Hauptlicht an. Aktuell nur zur Auskunft; der
+   * Post-Graph braucht es nicht mehr, seit die Lichtschächte gestrichen sind
+   * (Begründung siehe `belege/renderer_spike_ergebnis.md`).
+   */
+  setzeHauptlicht(licht: THREE.DirectionalLight): void {
+    this.hauptlicht = licht;
+  }
+
+  /** Das angemeldete Hauptlicht, falls vorhanden. */
+  get schattenlicht(): THREE.DirectionalLight | null {
+    return this.hauptlicht;
   }
 
   setzeBildguete(g: Bildguete): void {

@@ -14,7 +14,18 @@ import * as THREE from 'three/webgpu';
 import type { Leitung, Modul, Werk } from '../sim/typen';
 import type { PaketAnsicht } from '../sim/simulation';
 import { ausgaengeVon, KATALOG } from '../sim/katalog';
-import { geistMaterial, hervorhebung, kernAufsatz, leitungsForm, leitungsMaterial, modulForm, modulMaterial, paketMaterial } from './aussehen';
+import {
+  geistMaterial,
+  hervorhebung,
+  kernAufsatz,
+  leitungsForm,
+  leitungsMaterial,
+  modulForm,
+  modulMaterial,
+  paketMaterial,
+  uPuls,
+  PAKET_FARB_ATTRIBUT,
+} from './aussehen';
 import type { Halle } from './halle';
 
 const MAX_PAKETE = 512;
@@ -54,13 +65,16 @@ export class WerkAnsicht {
 
     const paketGeo = new THREE.OctahedronGeometry(0.13, 0);
     this.hilfsgeometrie.push(paketGeo);
+    // Das Paketmaterial liest seine Farbe aus einem eigenen Instanz-Attribut,
+    // nicht aus `instanceColor`: so stellt ein einziges Material Domäne,
+    // Alarmzustand und Güte dar, ohne je ein zweites zu bauen.
+    this.paketFarben = new THREE.InstancedBufferAttribute(new Float32Array(MAX_PAKETE * 3), 3);
+    this.paketFarben.setUsage(THREE.DynamicDrawUsage);
+    paketGeo.setAttribute(PAKET_FARB_ATTRIBUT, this.paketFarben);
     this.pakete = new THREE.InstancedMesh(paketGeo, paketMaterial(), MAX_PAKETE);
     this.pakete.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
     this.pakete.frustumCulled = false;
     this.pakete.count = 0;
-    const farben = new Float32Array(MAX_PAKETE * 3);
-    this.paketFarben = new THREE.InstancedBufferAttribute(farben, 3);
-    this.pakete.instanceColor = this.paketFarben;
     this.wurzel.add(this.pakete);
   }
 
@@ -128,7 +142,7 @@ export class WerkAnsicht {
   private leitungsPfad(von: Modul, nach: Modul, vonPort: string): THREE.Vector3[] {
     const a = this.halle.feldZuWelt(von.x, von.z);
     const b = this.halle.feldZuWelt(nach.x, nach.z);
-    const hoehe = 0.42;
+    const hoehe = a.y + 0.42;
     // Der Ausgangsport verschiebt den Austrittspunkt seitlich, damit mehrere
     // Ausgänge eines Moduls unterscheidbar bleiben.
     const ports = ausgaengeVon(von).map((p) => p.id);
@@ -160,7 +174,11 @@ export class WerkAnsicht {
    * vorherigen und diesem Tick, damit die Bewegung bei jeder Bildrate flüssig
    * bleibt und trotzdem an die Simulationszeit gebunden ist.
    */
-  zeigeSimulation(sicht: readonly PaketAnsicht[], alpha: number): void {
+  zeigeSimulation(sicht: readonly PaketAnsicht[], alpha: number, dt = 1 / 60): void {
+    // Der Energiefluss läuft über ein Uniform, nicht über `time`: nur so sind
+    // Vergleichsbilder reproduzierbar. Bei Bewegungsreduktion steht er still.
+    this.leitungsAktiv.fluss.value =
+      (this.leitungsAktiv.fluss.value + dt * 0.55 * Number(uPuls.value)) % 1;
     const matrix = new THREE.Matrix4();
     const farbe = new THREE.Color();
     const lage = new THREE.Vector3();
@@ -178,7 +196,7 @@ export class WerkAnsicht {
       const basis = knoten.gruppe.position;
       // Wartende Pakete stauen sich sichtbar vor dem Modul, bearbeitete steigen
       // in ihm auf. Beides macht Warteschlangen ohne Zahlen erkennbar.
-      const y = p.wartend ? 0.3 : 0.34 + p.anteil * 0.5;
+      const y = basis.y + (p.wartend ? 0.3 : 0.42 + p.anteil * 0.72);
       const x = p.wartend ? basis.x - 0.62 : basis.x;
       const z = basis.z + (p.wartend ? ((n % 3) - 1) * 0.16 : 0);
       lage.set(x, y, z);
