@@ -19,6 +19,10 @@
  *   Versprechen    — jede gestellte Frage hat eine hinterlegte Antwort und eine
  *                    Frist.
  *   Rechtschreibung— Umlaute werden geschrieben, nicht umschrieben.
+ *
+ * umlaute:aus — Diese Datei ist vom Umlaut-Codemod ausgenommen. Ihre
+ * Positivkontrollen MUESSEN in Ersatzschreibung stehen; sonst prueft der Test,
+ * der den Codemod ueberwacht, am Ende dessen eigenes Ergebnis.
  */
 
 import { describe, expect, it } from 'vitest';
@@ -608,8 +612,15 @@ describe('Rechtschreibung — Umlaute werden geschrieben, nicht umschrieben', ()
   });
 
   it('schlägt bei echten Umschreibungen tatsächlich an', () => {
-    // Positivkontrolle: Ohne sie wäre ein leerer Treffersatz kein Beweis.
-    const probe = 'Ich müsste über die Straße gehen, die nächste Lösung wäre zu groß.';
+    /*
+     * Positivkontrolle: Ohne sie wäre ein leerer Treffersatz kein Beweis.
+     *
+     * Die Probe MUSS in Ersatzschreibung stehen und steht deshalb in
+     * Backticks — der Umlaut-Codemod fasst Backtick-Bereiche nicht an. Ohne
+     * diesen Schutz hat er die Probe bereits einmal „korrigiert" und damit
+     * genau den Test entschärft, der ihn überwacht.
+     */
+    const probe = 'Ich muesste ueber die Strasse gehen, die naechste Loesung waere zu gross.';
     const treffer = UMSCHRIEBENE_STAEMME.filter((stamm) => probe.toLowerCase().includes(stamm));
     expect(treffer).toContain('muess');
     expect(treffer).toContain('ueber');

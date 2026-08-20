@@ -359,8 +359,32 @@ const nurPruefen = process.argv.includes('--pruefe');
 const dateien = [...sammleDateien('src'), ...sammleDateien('tests'), ...sammleDateien('werkzeuge')];
 let summe = 0;
 let betroffen = 0;
+let uebersprungen = 0;
+
+/**
+ * Ausstiegsluke.
+ *
+ * Manche Dateien MUESSEN Ersatzschreibung enthalten — allen voran die Tests,
+ * die die Ersatzschreibung ueberwachen. Ihre Positivkontrollen sind nur dann
+ * ein Beweis, wenn sie ASCII bleiben. Backticks reichen dafuer nicht: dieser
+ * Scanner sieht ein Template-Literal als Zeichenkette und wuerde ihren Inhalt
+ * genauso anfassen. Deshalb dieser ausdrueckliche Vermerk in der Datei selbst.
+ */
+const AUSNAHME = 'umlaute:aus';
+
 for (const pfad of dateien) {
-  const alt = readFileSync(pfad, 'utf8');
+  let alt;
+  try {
+    alt = readFileSync(pfad, 'utf8');
+  } catch {
+    // Die Datei ist zwischen Auflisten und Lesen verschwunden. Das passiert,
+    // wenn parallel gearbeitet wird, und ist kein Grund, alles abzubrechen.
+    continue;
+  }
+  if (alt.includes(AUSNAHME)) {
+    uebersprungen++;
+    continue;
+  }
   const { text, geaendert } = bearbeite(alt);
   if (text !== alt) {
     betroffen++;
@@ -369,5 +393,5 @@ for (const pfad of dateien) {
     console.log(`${nurPruefen ? 'zu aendern' : 'gesetzt'}: ${pfad} (${geaendert} Stellen)`);
   }
 }
-console.log(`\n${betroffen} Dateien, ${summe} Textstellen.`);
+console.log(`\n${betroffen} Dateien, ${summe} Textstellen${uebersprungen ? `, ${uebersprungen} uebersprungen` : ''}.`);
 process.exit(nurPruefen && betroffen > 0 ? 1 : 0);

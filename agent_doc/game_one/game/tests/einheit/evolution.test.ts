@@ -33,7 +33,7 @@ import {
   type Bewertet,
   type EvoAufgabe,
 } from '../../src/sim/evolution';
-import { reihe } from '../../src/inhalt/bauhilfe';
+import { Bau, reihe } from '../../src/inhalt/bauhilfe';
 import type { AuftragsStrom, Metriken } from '../../src/sim/typen';
 
 const STROM: AuftragsStrom = {
@@ -44,13 +44,33 @@ const STROM: AuftragsStrom = {
   mehrdeutigkeit: [0.05, 0.35],
 };
 
-/** Eine Kette mit echtem Suchraum: zwei Kerne, eine Weiche, eine Prüferin. */
+/**
+ * Ein Werk mit echtem Suchraum UND beiden Weichenbahnen verdrahtet.
+ *
+ * Der erste Anlauf hat die Weiche mit `reihe()` gebaut — damit hing Bahn B in
+ * der Luft, jeder zweite Auftrag verschwand, und `kostenJeAuftrag` war
+ * unendlich. Das war kein Fehler der Suche, sondern ein kaputtes Werkstück,
+ * und ein kaputtes Werkstück beweist über eine Suche gar nichts.
+ */
 function werkstueck() {
-  return reihe([
-    { art: 'weiche', param: { kriterium: 'schwierigkeit', schwelle: 0.5 } },
-    { art: 'kern', param: { groesse: 'kondor' } },
-    { art: 'pruefer', param: { schwelle: 0.5, runden: 2 } },
-  ]);
+  const b = new Bau();
+  const q = b.setze('quelle', {}, 'q');
+  const w = b.setze('weiche', { kriterium: 'schwierigkeit', schwelle: 0.5 });
+  const klein = b.bei(5, 3).setze('kern', { groesse: 'kolibri' });
+  const gross = b.bei(5, 7).setze('kern', { groesse: 'kondor' });
+  const p = b.bei(9, 5).setze('pruefer', { schwelle: 0.5, runden: 2 });
+  const s = b.bei(13, 5).setze('senke', {}, 's');
+  b.verbinde(q, w);
+  b.verbinde(w, klein, 'a');
+  b.verbinde(w, gross, 'b');
+  b.verbinde(klein, p);
+  b.verbinde(gross, p);
+  // Die PRÜFERIN hat KEINEN Port 'aus'. Sie hat 'frei' und 'zurück' — und
+  // wer den Standardport nimmt, verdrahtet nichts und wundert sich, warum
+  // nichts ankommt. Genau das ist im ersten Anlauf passiert.
+  b.verbinde(p, s, 'frei');
+  b.verbinde(p, gross, 'zurueck');
+  return b.fertig();
 }
 
 function aufgabe(zusatz: Partial<EvoAufgabe> = {}): EvoAufgabe {

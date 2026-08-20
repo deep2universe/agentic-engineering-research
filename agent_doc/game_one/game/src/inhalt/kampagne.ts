@@ -14,6 +14,7 @@ import { AKT_4 } from './akt_04';
 import { AKT_5 } from './akt_05';
 import { AKT_6 } from './akt_06';
 import { AKT_7 } from './akt_07';
+import { AKT_8 } from './akt_08';
 
 export interface Akt {
   readonly nummer: number;
@@ -86,6 +87,15 @@ export const AKTE: readonly Akt[] = [
     neu: 'Speicher (verdichten, abrufen, abschotten, puffern)',
     lektion: 'Kontext ist ein Budget, kein Vorrat.',
     level: AKT_7,
+  },
+  {
+    nummer: 8,
+    titel: 'Die Wall',
+    untertitel: 'Was hereinkommt und was hinausgeht',
+    neu: 'Wall (Eingangs- und Ausgangsfilter)',
+    lektion:
+      'Kein einzelner Filter hält alles. Nur gestaffelte Verteidigung kommt nahe an vollständig heran — bezahlt mit Fehlalarmen.',
+    level: AKT_8,
   },
 ];
 

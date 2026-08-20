@@ -114,7 +114,7 @@ const WA = (m: WallModus): Glied => ({ wall: m });
 
 /**
  * Vertraulich-Bypass: Vorstufe, dann Weiche auf Vertraulichkeit. Bahn A geht
- * direkt weiter, Bahn B auf `schalter` Hand-Module, aufgeteilt ueber eine
+ * direkt weiter, Bahn B auf `schalter` Hand-Module, aufgeteilt über eine
  * zweite Weiche auf die Schwierigkeit.
  */
 interface BypassPlan {
@@ -174,6 +174,121 @@ function bypass(plan: BypassPlan): Werk {
   b.verbinde(h2, nachHand, 'frei');
   return b.fertig();
 }
+
+it('erkundet Akt IX Runde 7', () => {
+  for (const [vertr, takt] of [
+    [0.25, 7],
+    [0.25, 6],
+    [0.3, 8],
+  ] as const) {
+    const s3: AuftragsStrom = {
+      anzahl: 30,
+      takt,
+      domaenen: ['recht', 'finanz', 'technik'],
+      schwierigkeit: [0.3, 0.75],
+      mehrdeutigkeit: [0.15, 0.45],
+      anteilVertraulich: vertr,
+      anteilGiftig: 0.25,
+    };
+    console.log(`\n=== IX-3 Runde 7: vertr ${vertr}, takt ${takt} (saat 931) ===`);
+    const vor = [K('reiher'), K('reiher')];
+    zeig('A 2 Schalter immer + Walls', bypass({ vor, schalter: 2, modus: 'immer', vorHand: [], wallEin: true, wallAus: true }), s3, 931);
+    for (const sw of [0.12, 0.15, 0.18, 0.2]) {
+      zeig(
+        `B 1 Schalter ABRUF uns ${sw} + Walls`,
+        bypass({ vor, schalter: 1, modus: 'bei_unsicherheit', schwelle: sw, vorHand: [SP('abrufen')], wallEin: true, wallAus: true }),
+        s3,
+        931
+      );
+    }
+    zeig('ANTI 1 Schalter immer + Walls', bypass({ vor, schalter: 1, modus: 'immer', vorHand: [], wallEin: true, wallAus: true }), s3, 931);
+    zeig(
+      'ANTI in der Linie Hand(bV) + Walls',
+      strasse([WA('eingang'), K('reiher'), K('reiher'), H('bei_vertraulich'), WA('ausgang')]),
+      s3,
+      931
+    );
+    zeig(
+      'ANTI in der Linie Hand(immer) + Walls',
+      strasse([WA('eingang'), K('reiher'), K('reiher'), H('immer'), WA('ausgang')]),
+      s3,
+      931
+    );
+    zeig('ANTI 2 Schalter immer ohne Wall', bypass({ vor, schalter: 2, modus: 'immer', vorHand: [] }), s3, 931);
+    zeig('ANTI 2 Schalter immer nur WallEin', bypass({ vor, schalter: 2, modus: 'immer', vorHand: [], wallEin: true }), s3, 931);
+    zeig(
+      'ANTI 1 Schalter ABRUF uns 0.3 + Walls',
+      bypass({ vor, schalter: 1, modus: 'bei_unsicherheit', schwelle: 0.3, vorHand: [SP('abrufen')], wallEin: true, wallAus: true }),
+      s3,
+      931
+    );
+  }
+});
+
+it.skip('erkundet Akt IX Runde 6', () => {
+  const s3: AuftragsStrom = {
+    anzahl: 30,
+    takt: 7,
+    domaenen: ['recht', 'finanz', 'technik'],
+    schwierigkeit: [0.3, 0.75],
+    mehrdeutigkeit: [0.15, 0.45],
+    anteilVertraulich: 0.3,
+    anteilGiftig: 0.25,
+  };
+  console.log('\n=== IX-3 Runde 6: beide Walls (saat 931) ===');
+  const vor = [K('reiher'), K('reiher')];
+  zeig(
+    'A: Bypass 2 Schalter immer + Walls',
+    bypass({ vor, schalter: 2, modus: 'immer', vorHand: [], wallEin: true, wallAus: true }),
+    s3,
+    931
+  );
+  for (const sw of [0.1, 0.12, 0.15, 0.18, 0.2, 0.25, 0.3]) {
+    zeig(
+      `B: 1 Schalter ABRUF uns ${sw} + Walls`,
+      bypass({ vor, schalter: 1, modus: 'bei_unsicherheit', schwelle: sw, vorHand: [SP('abrufen')], wallEin: true, wallAus: true }),
+      s3,
+      931
+    );
+  }
+  for (const sw of [0.15, 0.2, 0.25]) {
+    zeig(
+      `B': 1 Schalter ohne Klaerung uns ${sw} + Walls`,
+      bypass({ vor, schalter: 1, modus: 'bei_unsicherheit', schwelle: sw, vorHand: [], wallEin: true, wallAus: true }),
+      s3,
+      931
+    );
+  }
+  for (const sw of [0.15, 0.2]) {
+    zeig(
+      `2 Schalter ABRUF uns ${sw} + Walls`,
+      bypass({ vor, schalter: 2, modus: 'bei_unsicherheit', schwelle: sw, vorHand: [SP('abrufen')], wallEin: true, wallAus: true }),
+      s3,
+      931
+    );
+  }
+  zeig(
+    'ANTI in der Linie Hand(bV) + Walls',
+    strasse([WA('eingang'), K('reiher'), K('reiher'), H('bei_vertraulich'), WA('ausgang')]),
+    s3,
+    931
+  );
+  zeig(
+    'ANTI in der Linie Hand(immer) + Walls',
+    strasse([WA('eingang'), K('reiher'), K('reiher'), H('immer'), WA('ausgang')]),
+    s3,
+    931
+  );
+  zeig('ANTI Bypass 1 Schalter immer + Walls', bypass({ vor, schalter: 1, modus: 'immer', vorHand: [], wallEin: true, wallAus: true }), s3, 931);
+  zeig('ANTI Bypass 2 Schalter immer ohne Wall', bypass({ vor, schalter: 2, modus: 'immer', vorHand: [] }), s3, 931);
+  zeig('ANTI Bypass 2 Schalter immer nur WallEin', bypass({ vor, schalter: 2, modus: 'immer', vorHand: [], wallEin: true }), s3, 931);
+  zeig(
+    'ANTI Bypass 2 Schalter immer nur WallAus',
+    bypass({ vor, schalter: 2, modus: 'immer', vorHand: [], wallAus: true }),
+    s3,
+    931
+  );
+});
 
 it('erkundet Akt IX Runde 5', () => {
   const s3: AuftragsStrom = {
@@ -410,7 +525,7 @@ it('erkundet Akt IX Runde 2', () => {
     anteilVertraulich: 0.4,
   };
   console.log('\n=== IX-2 Runde 2 (saat 921) ===');
-  zeig('SHO-Loesung REIHERx2+Hand(bV)', strasse([K('reiher'), K('reiher'), H('bei_vertraulich')]), s2, 921);
+  zeig('SHO-Lösung REIHERx2+Hand(bV)', strasse([K('reiher'), K('reiher'), H('bei_vertraulich')]), s2, 921);
   for (const sw of [0.45, 0.5]) {
     zeig(
       `Zwei Schalter (schwelle ${sw})`,
@@ -521,7 +636,7 @@ it.skip('erkundet Akt IX', () => {
     anteilVertraulich: 0.4,
   };
   console.log('\n--- IX-2 Kandidaten (saat 921) ---');
-  zeig('SHO-Loesung: REIHERx2 + Hand(bei_vertraulich)', strasse([K('reiher'), K('reiher'), H('bei_vertraulich')]), s2, 921);
+  zeig('SHO-Lösung: REIHERx2 + Hand(bei_vertraulich)', strasse([K('reiher'), K('reiher'), H('bei_vertraulich')]), s2, 921);
   zeig('Hand(immer)', strasse([K('reiher'), K('reiher'), H('immer')]), s2, 921);
   for (const sw of [0.2, 0.3, 0.35, 0.4, 0.45, 0.5, 0.6]) {
     zeig(

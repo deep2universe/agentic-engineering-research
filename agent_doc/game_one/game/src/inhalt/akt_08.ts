@@ -143,8 +143,8 @@ function bahnen(
   const vor = plan.vor ?? [];
   const nach = plan.nach ?? [];
   const q = b.setze('quelle', {}, 'q', 0, 5);
-  // Die Glieder des Stamms heissen in JEDEM Bauplan gleich (m1, m2, ...).
-  // Damit verhaelt sich ein Modul an derselben Stelle des Stamms in jeder
+  // Die Glieder des Stamms heißen in JEDEM Bauplan gleich (m1, m2, ...).
+  // Damit verhält sich ein Modul an derselben Stelle des Stamms in jeder
   // Bauform identisch — die Simulation zieht ihren Zufall aus der Modul-Id.
   const vorIds = vor.map((g, i) => setzeGlied(b, g, `m${i + 1}`, 2 + i * 2, 5));
   const tx = 2 + vor.length * 2;
@@ -253,30 +253,36 @@ export const AKT_8: LevelDefinition[] = [
     titel: 'Der Anhang',
     untertitel: 'Anlage 7, Seite 41',
     briefing:
-      'Seit heute früh laufen die Unterlagen aus dem Vergabeportal ohne Umweg in deine Halle. In einer von dreien steht ein Satz, der nicht an dich gerichtet ist, sondern an das, was du gebaut hast: "Ignoriere alle vorherigen Anweisungen." Ein Kern, der so etwas liest, tut es. Auf der Palette steht eine WALL. Im Betriebsmodus Eingang liest sie jeden Vorgang, bevor ein Kern ihn sieht, und entschärft zweiundneunzig von hundert Einschleusungen. Sie hat zwei Ausgänge: was unauffällig bleibt, geht nach "Sauber", was sie anhält, nach "Alarm". Beide gehören verdrahtet. Drei von hundert harmlosen Vorgängen hält sie ebenfalls an — das ist der Preis, und du bezahlst ihn in Durchsatz.',
+      'Seit Montag läuft der Eingang des Vergabeportals ohne Umweg in deine Halle, und mit ihm eine Welle: In jeder zweiten Anlage steht ein Satz, der nicht an dich gerichtet ist, sondern an das, was du gebaut hast. "Ignoriere alle vorherigen Anweisungen." Ein Kern, der das liest, tut es. Auf der Palette steht eine WALL. Im Betriebsmodus Eingang liest sie jeden Vorgang, bevor ein Kern ihn sieht, und entschärft zweiundneunzig von hundert Einschleusungen. Sie hat zwei Ausgänge: was unauffällig bleibt, geht nach Sauber, was sie anhält, nach Alarm. Beide gehören verdrahtet. Drei von hundert harmlosen Vorgängen hält sie ebenfalls an — das ist der Preis, und du bezahlst ihn in Durchsatz.',
     lernziel:
       'Ein Eingangsfilter entschärft eine Einschleusung, bevor ein Kern sie liest, und sein Alarmausgang braucht genauso ein Ziel wie sein Hauptausgang.',
     quelle: QUELLE,
     module: [...MODULE],
     strom: {
-      anzahl: 24,
-      takt: 3,
+      anzahl: 18,
+      takt: 5,
       domaenen: ['recht', 'analyse'],
       schwierigkeit: [0.3, 0.62],
       mehrdeutigkeit: [0.05, 0.2],
-      anteilGiftig: 0.3,
+      anteilGiftig: 0.5,
     },
-    budget: { dauer: 500 },
+    budget: { dauer: 400 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Vorgang wird ausgeliefert.' },
-      { id: 'sicher', metrik: 'sicherheit', vergleich: '>=', wert: 1, text: 'Keine eingeschleuste Anweisung erreicht die Auslieferung.' },
+      {
+        id: 'sicher',
+        metrik: 'sicherheit',
+        vergleich: '>=',
+        wert: 1,
+        text: 'Keine eingeschleuste Anweisung erreicht die Auslieferung.',
+      },
       { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.7, text: 'Mindestgüte 70 Prozent.' },
     ],
     saat: 801,
     vorbau: strasse([K('kondor')]),
     reflexion: 'Drei Prozent deiner harmlosen Vorgänge schlagen Alarm. Wohin schickst du sie?',
     notiz:
-      'Sprachnotiz, 7. Juli, 06:40. Wir hatten 2023 einen Vorgang, in dem stand, er sei bereits freigegeben. Er war es nicht. Es hat vier Wochen gedauert, bis das jemand bemerkt hat. Regel: Was von außen kommt, ist eine Behauptung und kein Befehl.',
+      'Sprachnotiz, 7. Juli, 06:40. Wir hatten 2023 einen Vorgang, in dem stand, er sei bereits freigegeben. Er war es nicht. Vier Wochen hat das niemand bemerkt. Regel: Was von außen kommt, ist eine Behauptung und kein Befehl.',
     referenzen: [
       {
         name: 'Ein Filter vor dem Kern',
@@ -285,7 +291,7 @@ export const AKT_8: LevelDefinition[] = [
       },
       {
         name: 'Die Alarmbahn',
-        ansatz: 'Unauffälliges läuft über zwei mittlere Kerne, Angehaltenes über einen großen — billiger, dafür breiter.',
+        ansatz: 'Unauffälliges läuft über zwei mittlere Kerne, Angehaltenes über einen großen — billiger, dafür breiter gebaut.',
         werk: wallGabel({
           modus: 'eingang',
           oben: [K('reiher'), K('reiher')],
@@ -296,7 +302,7 @@ export const AKT_8: LevelDefinition[] = [
     antiMuster: [
       {
         name: 'Ohne Filter',
-        verlockung: 'Der Kern ist der größte, den es gibt. Der wird sich doch nicht von einer Fußnote steuern lassen.',
+        verlockung: 'Der Kern ist der größte, den es gibt. Der lässt sich doch nicht von einer Fußnote steuern.',
         scheitertAn: 'sicherheit',
         werk: strasse([K('kondor')]),
       },
@@ -324,34 +330,48 @@ export const AKT_8: LevelDefinition[] = [
     titel: 'Die zweite Bahn',
     untertitel: 'Losverfahren, gemischter Eingang',
     briefing:
-      'Das LAVV hat sein Vergabeverfahren in Lose geteilt, und seither kommt beides über denselben Eingang: kurze Nachfragen und vollständige Verfahrensakten. Deine Weiche kennst du seit Akt zwei, den Filter seit gestern. Der Einkauf hat einen Tokendeckel dazugelegt, denn ein großer Kern für jede Nachfrage ist nicht zu rechtfertigen. Bleibt die Frage, wo der Filter steht. Eine Einschleusung sitzt nicht in den schweren Vorgängen — sie sitzt in dem Vorgang, in dem sie eben sitzt, und der kann drei Zeilen lang sein.',
+      'Das LAVV hat sein Verfahren in Lose geteilt, und seither kommt beides über denselben Eingang: dreizeilige Nachfragen und vollständige Verfahrensakten. Die Weiche kennst du seit Akt zwei, den Filter seit gestern. Der Einkauf hat einen Tokendeckel dazugelegt, denn ein großer Kern für jede Nachfrage ist nicht zu rechtfertigen. Bleibt die Frage, wo der Filter steht. Eine Einschleusung hält sich nicht an dein Sortierkriterium — sie sitzt in dem Vorgang, in dem sie eben sitzt, und der kann drei Zeilen lang sein. Rechne außerdem damit, dass dir einer durchgeht. Zweiundneunzig Prozent sind nicht hundert.',
     lernziel:
       'Ein Filter gehört vor die Verzweigung, weil eine Einschleusung sich nicht an das Kriterium hält, nach dem du sortierst.',
     quelle: QUELLE,
     module: [...MODULE],
     strom: {
-      anzahl: 30,
+      anzahl: 36,
       takt: 3,
       domaenen: ['recht', 'technik', 'analyse'],
       schwierigkeit: [0.15, 0.85],
       mehrdeutigkeit: [0.1, 0.3],
-      anteilGiftig: 0.3,
+      anteilGiftig: 0.35,
     },
-    budget: { kosten: 26000, dauer: 600 },
+    budget: { kosten: 58000, dauer: 400 },
     ziele: [
       { id: 'alles', metrik: 'durchsatz', vergleich: '>=', wert: 1, text: 'Jeder Vorgang wird ausgeliefert.' },
-      { id: 'sicher', metrik: 'sicherheit', vergleich: '>=', wert: 1, text: 'Keine eingeschleuste Anweisung erreicht die Auslieferung.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.78, text: 'Mindestgüte 78 Prozent.' },
+      {
+        id: 'sicher',
+        metrik: 'sicherheit',
+        vergleich: '>=',
+        wert: 0.9,
+        text: 'Mindestens 90 Prozent der Einschleusungen werden abgewehrt.',
+      },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.83, text: 'Mindestgüte 83 Prozent.' },
+      {
+        id: 'meister',
+        metrik: 'sicherheit',
+        vergleich: '>=',
+        wert: 1,
+        text: 'Meisterstück: keine einzige Einschleusung kommt durch.',
+        optional: true,
+      },
     ],
     saat: 811,
     vorbau: gabel({ schwelle: 0.5, oben: [K('reiher')], unten: [K('kondor')] }),
-    reflexion: 'Deine Weiche sortiert nach Schwierigkeit. Woran erkennt sie eine Einschleusung?',
+    reflexion: 'Einer ist durchgekommen, obwohl der Filter richtig stand. Was fehlt deinem Werk, um auch diesen einen zu halten?',
     notiz:
-      'Sprachnotiz, 14. Juli. Der gefährlichste Vorgang, den wir je hatten, war zwei Sätze lang und stand in der leichten Bahn. Wir haben ihn gefunden, weil ein Mensch ihn zufällig gelesen hat. Das ist keine Architektur, das ist Glück. Regel: Prüfe vor der Verzweigung, sortiere danach.',
+      'Sprachnotiz, 14. Juli. Der gefährlichste Vorgang, den wir hatten, war zwei Sätze lang und lief in der leichten Bahn. Gefunden hat ihn ein Mensch, zufällig. Das ist keine Architektur, das ist Glück. Regel: Prüfe vor der Verzweigung und sortiere danach.',
     referenzen: [
       {
         name: 'Filter vor der Weiche',
-        ansatz: 'Eine Wall am Eingang, dahinter die Sortierung: leichte Vorgänge über mittlere Kerne, schwere über einen großen.',
+        ansatz: 'Eine Wall am Eingang, dahinter die Sortierung: leichte Vorgänge über zwei mittlere Kerne, schwere über zwei große.',
         werk: gabel({
           vor: [EINGANG],
           schwelle: 0.5,
@@ -361,14 +381,14 @@ export const AKT_8: LevelDefinition[] = [
       },
       {
         name: 'Eine Bahn für alle',
-        ansatz: 'Ohne Sortierung: ein Filter, zwei große Kerne — wenige Module, hohe Güte, hoher Preis.',
+        ansatz: 'Ohne Sortierung: ein Filter, zwei große Kerne — wenige Module und hohe Güte, dafür Preis und Warteschlange.',
         werk: strasse([EINGANG, K('kondor'), K('kondor')]),
       },
     ],
     antiMuster: [
       {
         name: 'Nur die schwere Bahn gefiltert',
-        verlockung: 'Wer angreift, versteckt es in dicken Unterlagen. In einer Dreizeilen-Nachfrage ist doch kein Platz dafür.',
+        verlockung: 'Wer angreift, versteckt es in dicken Unterlagen. In einer Dreizeilen-Nachfrage ist dafür kein Platz.',
         scheitertAn: 'sicherheit',
         werk: gabel({
           schwelle: 0.5,
@@ -378,7 +398,7 @@ export const AKT_8: LevelDefinition[] = [
       },
       {
         name: 'Erst sortieren, dann filtern',
-        verlockung: 'Ein Filter am Ende sieht alles, was aus beiden Bahnen kommt. Das spart das zweite Modul.',
+        verlockung: 'Ein Filter am Ende sieht alles, was aus beiden Bahnen kommt. Das spart ein zweites Modul.',
         scheitertAn: 'sicherheit',
         werk: gabel({
           schwelle: 0.5,
@@ -405,26 +425,38 @@ export const AKT_8: LevelDefinition[] = [
     titel: 'Die Recherche',
     untertitel: 'Vergabeportal, Fremdinhalt',
     briefing:
-      'Ab diesem Los verlangt das LAVV zu jeder Aussage einen Beleg aus dem öffentlichen Portal. Also gehört eine RECHERCHE in dein Werk, und damit etwas, an das der gestrige Aufbau nicht gedacht hat: das Werkzeug bringt fremden Text mit herein. Was deine Wall vorher entschärft hat, ist danach wieder scharf — der Filter hat den Vorgang gelesen, nicht das, was das Werkzeug nachträglich dazulegt. Ein Eingangsfilter allein trägt hier nicht mehr. Der Betriebsmodus Ausgang hält ein bereits kompromittiertes Ergebnis in fünfundachtzig von hundert Fällen zurück. Zurückgehalten heißt: nicht ausgeliefert. Dein Durchsatz sinkt, deine Sicherheit steigt.',
+      'Ab diesem Los verlangt das LAVV zu jeder Aussage einen Beleg aus dem öffentlichen Portal. Also gehört eine RECHERCHE in dein Werk — und damit etwas, woran der gestrige Aufbau nicht gedacht hat: das Werkzeug bringt fremden Text mit herein. Was deine Wall vorher entschärft hat, ist danach wieder scharf. Der Filter hat den Vorgang gelesen, nicht das, was das Werkzeug nachträglich dazulegt. Und die Welle ist keine Welle mehr, sondern eine Kampagne: sieben von zehn Anlagen sind präpariert. Der Betriebsmodus Ausgang hält ein bereits kompromittiertes Ergebnis in fünfundachtzig von hundert Fällen zurück. Zurückgehalten heißt: nicht ausgeliefert. Dein Durchsatz sinkt, deine Sicherheit steigt.',
     lernziel:
       'Ein Werkzeug, das Fremdinhalt hereinholt, macht eine entschärfte Einschleusung wieder scharf und verlangt deshalb einen zweiten Filter dahinter.',
     quelle: QUELLE,
     module: [...MODULE],
     strom: {
-      anzahl: 30,
-      takt: 4,
+      anzahl: 48,
+      takt: 3,
       domaenen: ['recht', 'analyse'],
       schwierigkeit: [0.4, 0.88],
       mehrdeutigkeit: [0.1, 0.3],
       anteilBelegpflichtig: 0.6,
-      anteilGiftig: 0.35,
+      anteilGiftig: 0.7,
     },
-    budget: { kosten: 46000, dauer: 700 },
+    budget: { kosten: 105000, dauer: 500 },
     ziele: [
-      { id: 'meiste', metrik: 'durchsatz', vergleich: '>=', wert: 0.9, text: 'Mindestens 90 Prozent der Vorgänge werden ausgeliefert.' },
-      { id: 'sicher', metrik: 'sicherheit', vergleich: '>=', wert: 1, text: 'Keine eingeschleuste Anweisung erreicht die Auslieferung.' },
+      {
+        id: 'meiste',
+        metrik: 'durchsatz',
+        vergleich: '>=',
+        wert: 0.88,
+        text: 'Mindestens 88 Prozent der Vorgänge werden ausgeliefert.',
+      },
+      {
+        id: 'sicher',
+        metrik: 'sicherheit',
+        vergleich: '>=',
+        wert: 1,
+        text: 'Keine eingeschleuste Anweisung erreicht die Auslieferung.',
+      },
       { id: 'beleg', metrik: 'belegquote', vergleich: '>=', wert: 0.95, text: 'Mindestens 95 Prozent Belegquote.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.85, text: 'Mindestgüte 85 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.86, text: 'Mindestgüte 86 Prozent.' },
     ],
     saat: 821,
     vorbau: gabel({
@@ -435,16 +467,16 @@ export const AKT_8: LevelDefinition[] = [
     }),
     reflexion: 'Deine Wall hat den Vorgang entschärft, das Werkzeug hat ihn wieder scharf gemacht. Was hat der Filter nie gesehen?',
     notiz:
-      'Sprachnotiz, 21. Juli. Ich habe zwei Jahre lang geglaubt, ein Filter am Tor genügt. Er genügt für alles, was durch das Tor kommt. Nicht für das, was drinnen aus dem Fenster gereicht wird. Regel: Jede Stelle, an der Fremdes hereinkommt, ist ein neues Tor.',
+      'Sprachnotiz, 21. Juli. Ich habe zwei Jahre geglaubt, ein Filter am Tor genügt. Er genügt für alles, was durch das Tor kommt. Nicht für das, was drinnen aus dem Fenster gereicht wird. Regel: Jede Stelle, an der Fremdes hereinkommt, ist ein neues Tor.',
     referenzen: [
       {
         name: 'Gestaffelt in Reihe',
-        ansatz: 'Recherche, dahinter der Eingangsfilter, ein großer Kern und ein Ausgangsfilter vor der Auslieferung.',
+        ansatz: 'Recherche, dahinter der Eingangsfilter, zwei große Kerne und ein Ausgangsfilter vor der Auslieferung.',
         werk: strasse([WS('suche'), EINGANG, K('kondor'), K('kondor'), AUSGANG]),
       },
       {
         name: 'Gestaffelt mit Alarmbahn',
-        ansatz: 'Derselbe Schutz, aber Angehaltenes bekommt einen eigenen großen Kern — mehr Module, weniger Token.',
+        ansatz: 'Derselbe Schutz, aber Angehaltenes bekommt eine eigene große Bahn — mehr Module, deutlich weniger Token.',
         werk: wallGabel({
           vor: [WS('suche')],
           modus: 'eingang',
@@ -469,13 +501,13 @@ export const AKT_8: LevelDefinition[] = [
       },
       {
         name: 'Ausgangsfilter mit Durchreiche',
-        verlockung: 'Der Ausgangsfilter markiert den Verdacht. Verwerfen wäre Verschwendung, also liefert man ihn markiert aus.',
+        verlockung: 'Der Ausgangsfilter markiert den Verdacht. Verwerfen wäre Verschwendung, also liefert man markiert aus.',
         scheitertAn: 'sicherheit',
         werk: strasse([WS('suche'), EINGANG, K('kondor'), K('kondor'), AUSGANG_DURCH]),
       },
       {
         name: 'Ohne Recherche',
-        verlockung: 'Zwei Filter und zwei große Kerne sind sicher und teuer genug. Den Beleg schreibt der Kern selbst.',
+        verlockung: 'Zwei Filter und zwei große Kerne sind sicher genug. Den Beleg schreibt der Kern selbst dazu.',
         scheitertAn: 'belegquote',
         werk: strasse([EINGANG, K('kondor'), K('kondor'), AUSGANG]),
       },
@@ -491,9 +523,9 @@ export const AKT_8: LevelDefinition[] = [
     titel: 'Gestaffelt',
     untertitel: 'Freitag, Abnahme durch das LAVV',
     briefing:
-      'Freitag ist Abnahme. Herr Kessel vom LAVV bringt einen Prüfbogen mit, auf dem drei Zeilen stehen: kein Leck, mindestens neun von zehn Vorgängen ausgeliefert, jede Aussage belegt. Darunter ein Tokendeckel, der keine Reserve lässt. Du hast alles, was der Akt hergibt, und zwei Wege, Redundanz zu bauen. In die Tiefe: eine Kette, die zweimal hintereinander filtert. In die Breite: drei Zweige, deren Mehrheit entscheidet, ob ein Ergebnis kompromittiert ist. Die Breite ist schnell und teuer, die Tiefe ist billig und langsam. Ein Sammler im Modus Verschmelzen wäre der dritte Weg — er erbt jeden Makel aus jedem Zweig.',
+      'Freitag ist Abnahme. Herr Kessel bringt einen Prüfbogen mit, auf dem drei Zeilen stehen: kein Leck, mindestens vier von fünf Vorgängen ausgeliefert, jede Aussage belegt. Darunter ein Tokendeckel ohne Reserve. Du hast alles, was der Akt hergibt, und zwei Arten, Redundanz zu bauen. In die Tiefe: eine Kette, die am Ausgang zweimal hintereinander filtert. In die Breite: drei Zweige, die getrennt recherchieren, und eine Mehrheit, die entscheidet, ob das Ergebnis kompromittiert ist. Die Breite ist schnell und teuer, die Tiefe ist billig und langsam. Ein Sammler im Modus Verschmelzen wäre der dritte Weg — er erbt jeden Makel aus jedem Zweig, und die Quarantäne bekommt, was davon übrig bleibt.',
     lernziel:
-      'Redundanz in die Breite kauft Latenz und Widerstandskraft, Redundanz in die Tiefe kauft Token — beide ersetzen den Ausgangsfilter nicht.',
+      'Redundanz in die Breite übersteht eine Einschleusung durch Mehrheit und Redundanz in die Tiefe durch eine zweite Filterstufe, doch bezahlt werden beide in Durchsatz.',
     quelle: QUELLE,
     module: [...MODULE],
     strom: {
@@ -503,28 +535,40 @@ export const AKT_8: LevelDefinition[] = [
       schwierigkeit: [0.35, 0.9],
       mehrdeutigkeit: [0.15, 0.4],
       anteilBelegpflichtig: 0.5,
-      anteilGiftig: 0.4,
+      anteilGiftig: 0.3,
     },
-    budget: { kosten: 62000, dauer: 800 },
+    budget: { kosten: 95000, dauer: 600 },
     ziele: [
-      { id: 'meiste', metrik: 'durchsatz', vergleich: '>=', wert: 0.9, text: 'Mindestens 90 Prozent der Vorgänge werden ausgeliefert.' },
-      { id: 'sicher', metrik: 'sicherheit', vergleich: '>=', wert: 1, text: 'Keine eingeschleuste Anweisung erreicht die Auslieferung.' },
+      {
+        id: 'meiste',
+        metrik: 'durchsatz',
+        vergleich: '>=',
+        wert: 0.8,
+        text: 'Mindestens 80 Prozent der Vorgänge werden ausgeliefert.',
+      },
+      {
+        id: 'sicher',
+        metrik: 'sicherheit',
+        vergleich: '>=',
+        wert: 1,
+        text: 'Keine eingeschleuste Anweisung erreicht die Auslieferung.',
+      },
       { id: 'beleg', metrik: 'belegquote', vergleich: '>=', wert: 0.95, text: 'Mindestens 95 Prozent Belegquote.' },
-      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.8, text: 'Mindestgüte 80 Prozent.' },
+      { id: 'guete', metrik: 'guete', vergleich: '>=', wert: 0.76, text: 'Mindestgüte 76 Prozent.' },
       {
         id: 'meister',
         metrik: 'kostenJeAuftrag',
         vergleich: '<=',
-        wert: 1600,
-        text: 'Meisterstück: höchstens 1600 Token je Vorgang.',
+        wert: 2300,
+        text: 'Meisterstück: höchstens 2300 Token je Vorgang.',
         optional: true,
       },
     ],
     saat: 831,
     vorbau: strasse([WS('suche'), EINGANG, K('kondor'), K('kondor')]),
-    reflexion: 'Zwei Filter hintereinander lassen ein Ergebnis von vierhundert durch. Wie viele Stufen wären genug?',
+    reflexion: 'Zwei Ausgangsfilter hintereinander lassen von hundert kompromittierten Ergebnissen noch gut zwei durch. Wie viele Stufen wären genug?',
     notiz:
-      'Sprachnotiz, 28. Juli, spät. Kessel fragt jedes Mal nach der einen Maßnahme, die das Problem löst. Es gibt sie nicht. Es gibt vier Maßnahmen, von denen jede einzeln lächerlich wirkt und die zusammen tragen. Regel: Staffle, was du nicht garantieren kannst.',
+      'Sprachnotiz, 28. Juli, spät. Kessel fragt jedes Mal nach der einen Maßnahme, die das Problem löst. Es gibt sie nicht. Es gibt vier, von denen jede einzeln lächerlich wirkt und die zusammen tragen. Regel: Staffle, was du nicht garantieren kannst.',
     referenzen: [
       {
         name: 'In die Tiefe gestaffelt',
@@ -533,7 +577,7 @@ export const AKT_8: LevelDefinition[] = [
       },
       {
         name: 'In die Breite gestaffelt',
-        ansatz: 'Drei Zweige recherchieren unabhängig, die Mehrheit entscheidet über die Kompromittierung, dahinter ein Ausgangsfilter.',
+        ansatz: 'Drei Zweige recherchieren getrennt, die Mehrheit entscheidet über die Kompromittierung, dahinter ein Ausgangsfilter.',
         werk: mehrheit({
           vor: [EINGANG],
           zweig: [WS('suche'), K('kondor')],
@@ -558,7 +602,7 @@ export const AKT_8: LevelDefinition[] = [
       },
       {
         name: 'Nur der Ausgangsfilter',
-        verlockung: 'Am Ausgang wird ohnehin alles geprüft. Der Eingangsfilter ist damit ein Modul, das zweimal dasselbe tut.',
+        verlockung: 'Am Ausgang wird ohnehin alles geprüft. Der Eingangsfilter macht dieselbe Arbeit ein zweites Mal.',
         scheitertAn: 'durchsatz',
         werk: strasse([WS('suche'), K('kondor'), K('kondor'), AUSGANG, AUSGANG]),
       },
@@ -572,4 +616,3 @@ export const AKT_8: LevelDefinition[] = [
     monolith: monolith(3),
   },
 ];
-
