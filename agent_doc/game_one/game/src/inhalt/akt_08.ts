@@ -143,7 +143,10 @@ function bahnen(
   const vor = plan.vor ?? [];
   const nach = plan.nach ?? [];
   const q = b.setze('quelle', {}, 'q', 0, 5);
-  const vorIds = vor.map((g, i) => setzeGlied(b, g, `v${i + 1}`, 2 + i * 2, 5));
+  // Die Glieder des Stamms heissen in JEDEM Bauplan gleich (m1, m2, ...).
+  // Damit verhaelt sich ein Modul an derselben Stelle des Stamms in jeder
+  // Bauform identisch — die Simulation zieht ihren Zufall aus der Modul-Id.
+  const vorIds = vor.map((g, i) => setzeGlied(b, g, `m${i + 1}`, 2 + i * 2, 5));
   const tx = 2 + vor.length * 2;
   const t = trenner(b, tx, 5);
   const tiefe = Math.max(plan.oben.length, plan.unten.length);
@@ -211,7 +214,7 @@ function mehrheit(plan: MehrheitPlan): Werk {
   const nach = plan.nach ?? [];
   const zeilen = ZWEIG_ZEILEN[plan.zweige]!;
   const q = b.setze('quelle', {}, 'q', 0, 5);
-  const vorIds = vor.map((g, i) => setzeGlied(b, g, `v${i + 1}`, 2 + i * 2, 5));
+  const vorIds = vor.map((g, i) => setzeGlied(b, g, `m${i + 1}`, 2 + i * 2, 5));
   const vx = 2 + vor.length * 2;
   const vt = b.setze('verteiler', { zweige: plan.zweige }, 'vt', vx, 5);
   const sx = vx + 2 + plan.zweig.length * 2;
@@ -530,10 +533,10 @@ export const AKT_8: LevelDefinition[] = [
       },
       {
         name: 'In die Breite gestaffelt',
-        ansatz: 'Drei parallele Kerne, deren Mehrheit über die Kompromittierung entscheidet, danach ein Ausgangsfilter.',
+        ansatz: 'Drei Zweige recherchieren unabhängig, die Mehrheit entscheidet über die Kompromittierung, dahinter ein Ausgangsfilter.',
         werk: mehrheit({
-          vor: [WS('suche'), EINGANG],
-          zweig: [K('kondor')],
+          vor: [EINGANG],
+          zweig: [WS('suche'), K('kondor')],
           zweige: 3,
           modus: 'voting',
           nach: [AUSGANG],
@@ -546,8 +549,8 @@ export const AKT_8: LevelDefinition[] = [
         verlockung: 'Verschmelzen führt die Ergebnisse aller drei Zweige zusammen. Mehr Abdeckung kann nur besser sein.',
         scheitertAn: 'durchsatz',
         werk: mehrheit({
-          vor: [WS('suche'), EINGANG],
-          zweig: [K('kondor')],
+          vor: [EINGANG],
+          zweig: [WS('suche'), K('kondor')],
           zweige: 3,
           modus: 'verschmelzen',
           nach: [AUSGANG],
