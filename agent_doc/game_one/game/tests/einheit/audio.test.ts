@@ -1,19 +1,19 @@
 /**
  * Vertrag der prozeduralen Audio-Engine.
  *
- * Zwei Ebenen werden geprueft:
+ * Zwei Ebenen werden geprüft:
  *
  * 1. **Die reinen Rechenkerne aus `synthese.ts`** — Rauschen, Impulsantworten,
  *    Karplus-Strong, Skalen. Die laufen ohne jede Audio-Umgebung und werden
- *    darum IMMER geprueft.
+ *    darum IMMER geprüft.
  * 2. **Das Klangwerk selbst.** Node 22 bringt keinen `OfflineAudioContext`
- *    mit. Statt die Pruefung dann ersatzlos ausfallen zu lassen, faehrt sie
+ *    mit. Statt die Prüfung dann ersatzlos ausfallen zu lassen, faehrt sie
  *    auf einer Attrappe des Web-Audio-Graphen weiter: die Attrappe zeichnet
  *    jeden erzeugten Knoten, jede Verbindung und jede Parameterplanung auf.
- *    Damit laesst sich genau das pruefen, worauf es hier ankommt — Knotenzahl,
- *    Stimmenlimit, Frequenzen, sauberes Abraeumen. Wo echte Abtastwerte noetig
+ *    Damit lässt sich genau das prüfen, worauf es hier ankommt — Knotenzahl,
+ *    Stimmenlimit, Frequenzen, sauberes Abräumen. Wo echte Abtastwerte noetig
  *    sind (Schwebungsmessung), steht ein `it.skipIf`, das nur mit echtem
- *    `OfflineAudioContext` laeuft.
+ *    `OfflineAudioContext` läuft.
  */
 
 import { describe, expect, it } from 'vitest';
@@ -178,7 +178,7 @@ class KnotenAttrappe {
   }
 }
 
-/** Ein vollstaendig aufzeichnender Ersatz fuer einen `BaseAudioContext`. */
+/** Ein vollständig aufzeichnender Ersatz für einen `BaseAudioContext`. */
 class KontextAttrappe {
   readonly sampleRate = RATE;
   currentTime = 0;
@@ -232,8 +232,8 @@ class KontextAttrappe {
 }
 
 /**
- * Die Attrappe erfuellt den Vertrag strukturell, aber nicht nominal — daher
- * die Bruecke ueber `unknown`. `any` kommt nicht vor: jeder Aufruf, den das
+ * Die Attrappe erfüllt den Vertrag strukturell, aber nicht nominal — daher
+ * die Brücke über `unknown`. `any` kommt nicht vor: jeder Aufruf, den das
  * Klangwerk taetigt, ist oben mit echten Typen ausprogrammiert.
  */
 function baueWerk(einstellungen?: { musik?: number; klaenge?: number }): {
@@ -307,9 +307,9 @@ describe('Rauschen', () => {
 describe('Impulsantwort', () => {
   for (const [name, vorgabe] of [
     ['kurzer Raum', HALL_KURZ],
-    ['grosse Halle', HALL_LANG],
+    ['große Halle', HALL_LANG],
   ] as const) {
-    it(`${name}: Laenge, Endlichkeit und monoton fallende Energie`, () => {
+    it(`${name}: Länge, Endlichkeit und monoton fallende Energie`, () => {
       const kanaele = impulsantwortDaten(RATE, vorgabe);
       expect(kanaele).toHaveLength(2);
 
@@ -322,8 +322,8 @@ describe('Impulsantwort', () => {
         for (let i = 1; i < bloecke.length; i++) {
           expect(bloecke[i] ?? 0).toBeLessThan(bloecke[i - 1] ?? 0);
         }
-        // Nachhallzeit: nach der vollen Laenge ist die Energie um weit mehr
-        // als 40 dB gefallen (Moorer-Huellkurve, -60 dB bei T60).
+        // Nachhallzeit: nach der vollen Länge ist die Energie um weit mehr
+        // als 40 dB gefallen (Moorer-Hüllkurve, -60 dB bei T60).
         const erste = bloecke[0] ?? 1;
         const letzte = bloecke[bloecke.length - 1] ?? 0;
         expect(letzte).toBeLessThan(erste * 1e-4);
@@ -340,7 +340,7 @@ describe('Skalen und Akkorde', () => {
   it('Dorisch hat die Halbtonfolge 2-1-2-2-2-1', () => {
     const schritte = DORISCH.slice(1).map((halbton, i) => halbton - (DORISCH[i] ?? 0));
     expect(schritte).toEqual([2, 1, 2, 2, 2, 1]);
-    // Grosse Sexte, 9 Halbtoene — das unterscheidet Dorisch von Aeolisch.
+    // Große Sexte, 9 Halbtoene — das unterscheidet Dorisch von Aeolisch.
     expect(DORISCH[5]).toBe(9);
   });
 
@@ -356,7 +356,7 @@ describe('Skalen und Akkorde', () => {
     expect(abweichungen).toEqual([0, 0, 0, 0, 0, 1, 0]);
   });
 
-  it('rechnet Stufen ueber Oktavgrenzen hinweg', () => {
+  it('rechnet Stufen über Oktavgrenzen hinweg', () => {
     expect(stufeZuHalbton(DORISCH, 0)).toBe(0);
     expect(stufeZuHalbton(DORISCH, 7)).toBe(12);
     expect(stufeZuHalbton(DORISCH, 8)).toBe(14);
@@ -395,8 +395,8 @@ describe('Karplus-Strong', () => {
         daempfung: 0.996,
         saat: 0x0a0b_0c0d,
       });
-      // Vor dem Zaehlen die Obertoene wegfiltern — sonst zaehlt man deren
-      // Nulldurchgaenge mit und misst ein Vielfaches der Grundfrequenz.
+      // Vor dem Zählen die Obertoene wegfiltern — sonst zählt man deren
+      // Nulldurchgänge mit und misst ein Vielfaches der Grundfrequenz.
       const gefiltert = tiefpassKette(daten, RATE, frequenz * 1.3, 6);
       const periode = RATE / frequenz;
       const ab = Math.round(10 * periode);
@@ -404,14 +404,14 @@ describe('Karplus-Strong', () => {
       const gemessen = (nulldurchgaenge(gefiltert, ab, bis) * RATE) / (2 * (bis - ab));
 
       const soll = saitenGrundfrequenz(RATE, frequenz);
-      // Die Leitungslaenge ist ganzzahlig, darum weicht die erreichbare
-      // Tonhoehe minimal vom Wunsch ab — hoerbar ist das nicht.
+      // Die Leitungslänge ist ganzzahlig, darum weicht die erreichbare
+      // Tonhöhe minimal vom Wunsch ab — hörbar ist das nicht.
       expect(Math.abs(soll - frequenz) / frequenz).toBeLessThan(0.01);
       expect(Math.abs(gemessen - soll) / soll).toBeLessThan(0.02);
     });
   }
 
-  it('faellt monoton ab und bleibt endlich', () => {
+  it('fällt monoton ab und bleibt endlich', () => {
     const daten = karplusStrongDaten(RATE, {
       frequenzHz: 220,
       sekunden: 0.6,
@@ -446,11 +446,11 @@ describe('Karplus-Strong', () => {
 });
 
 // ===========================================================================
-// 5. Huellkurven-Helfer
+// 5. Hüllkurven-Helfer
 // ===========================================================================
 
-describe('Huellkurven', () => {
-  it('planen Anschlaege nur mit setValueAtTime und linearRampToValueAtTime', () => {
+describe('Hüllkurven', () => {
+  it('planen Anschläge nur mit setValueAtTime und linearRampToValueAtTime', () => {
     const param = new ParamAttrappe(0);
     const ende = anschlag(param as unknown as AudioParam, 1, {
       spitze: 0.5,
@@ -463,7 +463,7 @@ describe('Huellkurven', () => {
     expect(param.plan[3]).toMatchObject({ wert: 0 });
   });
 
-  it('schliesst jedes setTargetAtTime mit einem harten Zielwert ab', () => {
+  it('schließt jedes setTargetAtTime mit einem harten Zielwert ab', () => {
     const param = new ParamAttrappe(0.2);
     const abschluss = weichesZiel(param as unknown as AudioParam, 2, 0.8, 0.1, 0.2);
     expect(abschluss).toBeCloseTo(2.5, 6);
@@ -472,15 +472,15 @@ describe('Huellkurven', () => {
     expect(letzter?.wert).toBe(0.8);
   });
 
-  it('macht den Lautstaerkeregler nichtlinear', () => {
+  it('macht den Lautstärkeregler nichtlinear', () => {
     expect(reglerZuPegel(0)).toBe(0);
     expect(reglerZuPegel(1)).toBe(1);
-    // Halber Regler ist deutlich weniger als halbe Verstaerkung.
+    // Halber Regler ist deutlich weniger als halbe Verstärkung.
     expect(reglerZuPegel(0.5)).toBeLessThan(0.2);
     expect(reglerZuPegel(2)).toBe(1);
   });
 
-  it('daempft hohe Frequenzen in der Tiefpasskette', () => {
+  it('dämpft hohe Frequenzen in der Tiefpasskette', () => {
     const laenge = RATE;
     const tief = new Float32Array(laenge);
     const hoch = new Float32Array(laenge);
@@ -508,7 +508,7 @@ describe('Klangwerk: Aufbau', () => {
     await werk.starte();
 
     expect(werk.laeuft).toBe(true);
-    // Genau ZWEI Convolver im ganzen Spiel — der teuerste Knoten ueberhaupt.
+    // Genau ZWEI Convolver im ganzen Spiel — der teuerste Knoten überhaupt.
     expect(ctx.vonArt('convolver')).toHaveLength(2);
     expect(ctx.vonArt('kompressor')).toHaveLength(1);
     expect(ctx.vonArt('konstante')).toHaveLength(ALLE_ACHSEN.length);
@@ -525,7 +525,7 @@ describe('Klangwerk: Aufbau', () => {
     werk.entsorge();
   });
 
-  it('haelt alle Musik-Layer dauerhaft am Laufen', async () => {
+  it('hält alle Musik-Layer dauerhaft am Laufen', async () => {
     const { werk, ctx } = baueWerk();
     await werk.starte();
 
@@ -547,7 +547,7 @@ describe('Klangwerk: Aufbau', () => {
     werk.entsorge();
   });
 
-  it('faehrt Achsen ueber 1,5 s nach und klemmt sie auf 0..1', async () => {
+  it('faehrt Achsen über 1,5 s nach und klemmt sie auf 0..1', async () => {
     const { werk, ctx } = baueWerk();
     await werk.starte();
 
@@ -569,10 +569,10 @@ describe('Klangwerk: Aufbau', () => {
 });
 
 // ===========================================================================
-// 7. Klangwerk — Klaenge
+// 7. Klangwerk — Klänge
 // ===========================================================================
 
-describe('Klangwerk: Klaenge', () => {
+describe('Klangwerk: Klänge', () => {
   it('ui_fehler hat 440 Hz mit einer Schwebung von 25 Hz', async () => {
     const { werk, ctx } = baueWerk();
     await werk.starte();
@@ -589,7 +589,7 @@ describe('Klangwerk: Klaenge', () => {
     werk.entsorge();
   });
 
-  it('erzeugt jeden Klang und haelt die Laengengrenzen ein', async () => {
+  it('erzeugt jeden Klang und hält die Längengrenzen ein', async () => {
     const { werk, ctx } = baueWerk();
     await werk.starte();
 
@@ -616,7 +616,7 @@ describe('Klangwerk: Klaenge', () => {
     werk.entsorge();
   });
 
-  it('setzt Klaenge am Ort auf die richtige Stereoseite', async () => {
+  it('setzt Klänge am Ort auf die richtige Stereoseite', async () => {
     const { werk, ctx } = baueWerk();
     await werk.starte();
     werk.hoererAn({ x: 0, y: 2, z: 0 }, { x: 0, y: 0, z: -1 });
@@ -646,7 +646,7 @@ describe('Klangwerk: Klaenge', () => {
 // ===========================================================================
 
 describe('Klangwerk: Stimmenhaushalt', () => {
-  it('haelt bei 100 Ausloesungen hoechstens 24 Stimmen', async () => {
+  it('hält bei 100 Auslösungen höchstens 24 Stimmen', async () => {
     const { werk } = baueWerk();
     await werk.starte();
     expect(werk.stimmen).toBe(0);
@@ -655,8 +655,8 @@ describe('Klangwerk: Stimmenhaushalt', () => {
       werk.spiele(ALLE_KLAENGE[i % ALLE_KLAENGE.length] ?? 'sim_tick');
       expect(werk.stimmen).toBeLessThanOrEqual(24);
     }
-    // Die Grenze wird auch wirklich ausgeschoepft — sonst wuerde der Test
-    // auch dann gruen, wenn ueberhaupt keine Stimme entstuende.
+    // Die Grenze wird auch wirklich ausgeschoepft — sonst würde der Test
+    // auch dann gruen, wenn überhaupt keine Stimme entstuende.
     expect(werk.stimmen).toBe(24);
 
     werk.entsorge();
@@ -731,7 +731,7 @@ describe('Klangwerk: Stimmenhaushalt', () => {
     werk.entsorge();
   });
 
-  it('regelt Musik und Klaenge getrennt', async () => {
+  it('regelt Musik und Klänge getrennt', async () => {
     const { werk, ctx } = baueWerk({ musik: 0.5, klaenge: 0.5 });
     await werk.starte();
     werk.setzeLautstaerke(1, 0);
@@ -739,7 +739,7 @@ describe('Klangwerk: Stimmenhaushalt', () => {
       .vonArt('gain')
       .flatMap((g) => g.gain.plan)
       .filter((p) => p.art === 'linear');
-    // Genau zwei Busse werden nachgefahren: Musik hoch, Klaenge auf null.
+    // Genau zwei Busse werden nachgefahren: Musik hoch, Klänge auf null.
     expect(rampen).toHaveLength(2);
     expect(rampen.some((p) => p.wert === 0)).toBe(true);
     expect(rampen.some((p) => p.wert > 0)).toBe(true);
@@ -762,7 +762,7 @@ describe('Klangwerk im echten OfflineAudioContext', () => {
       const ergebnis = await ctx.startRendering();
 
       const daten = ergebnis.getChannelData(0);
-      // Huellkurve ueber 1-ms-Fenster: die Schwebung moduliert die Amplitude
+      // Hüllkurve über 1-ms-Fenster: die Schwebung moduliert die Amplitude
       // mit 25 Hz, also rund 25 Minima je Sekunde.
       const fenster = Math.round(RATE / 1000);
       const huelle: number[] = [];
@@ -773,7 +773,7 @@ describe('Klangwerk im echten OfflineAudioContext', () => {
         }
         huelle.push(spitze);
       }
-      // Die Huellkurve ist mit 1 kHz abgetastet. Ihr Spektrum zwischen 5 und
+      // Die Hüllkurve ist mit 1 kHz abgetastet. Ihr Spektrum zwischen 5 und
       // 60 Hz muss sein Maximum bei 25 Hz haben — das IST die Schwebung.
       // (Gemessen im echten Chromium: Maximum exakt bei 25,0 Hz.)
       const mittel = huelle.reduce((a, b) => a + b, 0) / Math.max(1, huelle.length);
@@ -800,7 +800,7 @@ describe('Klangwerk im echten OfflineAudioContext', () => {
     }
   );
 
-  it.skipIf(!hatEchtenOfflineKontext)('bleibt unter der Uebersteuerung', async () => {
+  it.skipIf(!hatEchtenOfflineKontext)('bleibt unter der Übersteuerung', async () => {
     const ctx = new OfflineAudioContext(2, RATE * 2, RATE);
     const werk = new Klangwerk({ musik: 1, klaenge: 1 }, ctx);
     await werk.starte();

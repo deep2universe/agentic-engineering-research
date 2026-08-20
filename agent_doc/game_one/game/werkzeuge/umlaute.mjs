@@ -313,8 +313,26 @@ function bearbeite(quelle) {
       // sie lang sind. Der erste Anlauf hat genau daran alle Import-Pfade
       // zerstoert.
       const istPfad = /^[./@#]/.test(inhalt) || (inhalt.includes('/') && !/\s/.test(inhalt));
+      /*
+       * Auch DOM-Bezeichner sind kein Fliesstext.
+       *
+       * `class: 'blatt fundstueck'` enthaelt ein Leerzeichen und sah damit
+       * nach Prosa aus — das Ergebnis war eine CSS-Klasse `fundstück`, zu der
+       * es keine Regel gibt. Der Fehler war stumm: kein Typfehler, kein Test,
+       * nur ein Dialog ohne Gestaltung. Deshalb wird jetzt geschaut, hinter
+       * welchem Schluessel die Zeichenkette steht.
+       *
+       * `title` und `aria-label` stehen bewusst NICHT in der Liste: das sind
+       * Texte, die vorgelesen werden, und die brauchen Umlaute.
+       */
+      const davor = out.replace(/\s+$/, '');
+      const istDomBezeichner = /(?:^|[^A-Za-z0-9_$])(?:'|")?(class|id|name|type|role|href|src|for)(?:'|")?\s*[:=]$/.test(
+        davor
+      );
       const istProsa =
-        !istPfad && (/\s/.test(inhalt) || /[A-ZÄÖÜ]/.test(inhalt) || inhalt.length >= MINDESTLAENGE);
+        !istPfad &&
+        !istDomBezeichner &&
+        (/\s/.test(inhalt) || /[A-ZÄÖÜ]/.test(inhalt) || inhalt.length >= MINDESTLAENGE);
       out += anfuehrung;
       uebernimm(inhalt, istProsa);
       out += quelle.slice(bis - 1, bis);

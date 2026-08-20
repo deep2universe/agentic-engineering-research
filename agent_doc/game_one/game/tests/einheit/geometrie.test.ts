@@ -427,7 +427,7 @@ describe('fundamentGeometrie', () => {
     expect(b.max.z - b.min.z).toBeGreaterThan(felderZ);
     expect(dreiecke(g)).toBeGreaterThan(0);
 
-    // Entscheidend ist nicht die Hülle, sondern die BAUFLAECHE: über dem
+    // Entscheidend ist nicht die Hülle, sondern die BAUFLÄCHE: über dem
     // Feldraster darf nichts höher als das flache Gitterrelief aufragen,
     // sonst stuende ein Modul auf einem Bolzen. Der Randbereich außerhalb
     // des Rasters darf dagegen als Kerb überstehen — er rahmt das Werk.

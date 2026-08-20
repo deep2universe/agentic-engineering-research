@@ -1,5 +1,5 @@
 /**
- * LOESBARKEITS-BEWEISE.
+ * LÖSBARKEITS-BEWEISE.
  *
  * Für jedes Level der Kampagne wird per Code bewiesen:
  *

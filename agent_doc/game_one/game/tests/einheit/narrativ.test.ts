@@ -76,8 +76,8 @@ function alleStellen(): Stelle[] {
 
   for (const r of RAETSEL) {
     s.push(
-      { quelle: `raetsel.${r.id}.frage`, text: r.frage, akt: r.gestelltInAkt },
-      { quelle: `raetsel.${r.id}.antwort`, text: r.antwort, akt: r.aufgeloestInAkt }
+      { quelle: `rätsel.${r.id}.frage`, text: r.frage, akt: r.gestelltInAkt },
+      { quelle: `rätsel.${r.id}.antwort`, text: r.antwort, akt: r.aufgeloestInAkt }
     );
   }
 
@@ -609,7 +609,7 @@ describe('Rechtschreibung — Umlaute werden geschrieben, nicht umschrieben', ()
 
   it('schlägt bei echten Umschreibungen tatsächlich an', () => {
     // Positivkontrolle: Ohne sie wäre ein leerer Treffersatz kein Beweis.
-    const probe = 'Ich muesste ueber die Strasse gehen, die naechste Loesung waere zu gross.';
+    const probe = 'Ich müsste über die Straße gehen, die nächste Lösung wäre zu groß.';
     const treffer = UMSCHRIEBENE_STAEMME.filter((stamm) => probe.toLowerCase().includes(stamm));
     expect(treffer).toContain('muess');
     expect(treffer).toContain('ueber');

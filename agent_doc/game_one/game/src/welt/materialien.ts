@@ -96,7 +96,7 @@ interface MasterEinstellung {
   /**
    * Wiederholungen je UV-Einheit.
    *
-   * Fuer die Master-Materialien ist die UV-Einheit EIN METER: die Weltgeometrie
+   * Für die Master-Materialien ist die UV-Einheit EIN METER: die Weltgeometrie
    * (Boden, Wand, Verkleidung) legt ihre UVs in Metern an, `holeMaterial()`
    * skaliert sie dann auf die physikalische Kachelgröße des Materials.
    * `kachelung = 0.5` heißt also "die Kachel ist zwei Meter breit".

@@ -29,7 +29,7 @@ const QUELLE_AGGREGATION = '05_multi_agent_patterns.md';
 // ---------------------------------------------------------------------------
 
 /**
- * Ein Glied einer Fertigungsstrasse: ein Kern oder ein Werkzeug. Werkzeuge
+ * Ein Glied einer Fertigungsstraße: ein Kern oder ein Werkzeug. Werkzeuge
  * haben zwei Ausgänge. Ist `sicher` gesetzt, hängt an ihrem Ausfall-Ausgang
  * eine Sicherung, die zweimal wiederholt und danach degradiert weiterreicht —
  * ohne sie geht jeder ausgefallene Abruf als fehlender Beleg in die Statistik.
@@ -194,7 +194,7 @@ export const AKT_5: LevelDefinition[] = [
     titel: 'Der Chor',
     untertitel: 'Fristsache, Rückmeldung bis 16 Uhr',
     briefing:
-      'Das LAVV hat seine Geschäftsordnung geändert. Neu ist Ziffer 4.2: Rückfragen sind "unverzüglich, spätestens am selben Werktag" zu beantworten. In Ticks heisst das: fünf. Deine Reihenschaltung aus den letzten Akten braucht acht. Auf der Palette am Tor stehen zwei neue Module. Der Verteiler klont ein Paket in bis zu vier Zweige, kostenlos und ohne Zeitverlust. Der Sammler führt die Klone wieder zusammen. Die Zweige laufen gleichzeitig — die Laufzeit ist die des längsten, nicht die Summe. Der Preis ist die Summe. Beides gilt gleichzeitig, und nur eines davon steht in der Geschäftsordnung.',
+      'Das LAVV hat seine Geschäftsordnung geändert. Neu ist Ziffer 4.2: Rückfragen sind "unverzüglich, spätestens am selben Werktag" zu beantworten. In Ticks heißt das: fünf. Deine Reihenschaltung aus den letzten Akten braucht acht. Auf der Palette am Tor stehen zwei neue Module. Der Verteiler klont ein Paket in bis zu vier Zweige, kostenlos und ohne Zeitverlust. Der Sammler führt die Klone wieder zusammen. Die Zweige laufen gleichzeitig — die Laufzeit ist die des längsten, nicht die Summe. Der Preis ist die Summe. Beides gilt gleichzeitig, und nur eines davon steht in der Geschäftsordnung.',
     lernziel:
       'Ein Fan-out kostet so viel wie alle seine Zweige zusammen und dauert so lang wie sein längster.',
     quelle: QUELLE,
@@ -227,24 +227,24 @@ export const AKT_5: LevelDefinition[] = [
     referenzen: [
       {
         name: 'Zwei gleiche Stimmen',
-        ansatz: 'Zweimal derselbe grosse Kern, der Sammler nimmt das bessere Ergebnis — wenige Module, hoher Preis.',
+        ansatz: 'Zweimal derselbe große Kern, der Sammler nimmt das bessere Ergebnis — wenige Module, hoher Preis.',
         werk: chor({ zweige: [STIMME_K, STIMME_K], modus: 'bester' }),
       },
       {
         name: 'Ungleiche Stimmen',
-        ansatz: 'Ein grosser Kern gegen eine Kette aus zwei mittleren — mehr Module, deutlich billiger.',
+        ansatz: 'Ein großer Kern gegen eine Kette aus zwei mittleren — mehr Module, deutlich billiger.',
         werk: chor({ zweige: [STIMME_K, STIMME_RR], modus: 'bester' }),
       },
     ],
     antiMuster: [
       {
-        name: 'Ein einzelner grosser Kern',
+        name: 'Ein einzelner großer Kern',
         verlockung: 'Ein KONDOR ist in vier Ticks fertig. Das hält die Frist mit einem einzigen Modul.',
         scheitertAn: 'guete',
         werk: strasse([K('kondor')]),
       },
       {
-        name: 'Zwei grosse Kerne in Reihe',
+        name: 'Zwei große Kerne in Reihe',
         verlockung: 'Zwei Durchgänge heben die Güte deutlich. Das hat in Akt I immer funktioniert.',
         scheitertAn: 'budget_latenz',
         werk: strasse([K('kondor'), K('kondor')]),
@@ -326,13 +326,13 @@ export const AKT_5: LevelDefinition[] = [
         }),
       },
       {
-        name: 'Drei grosse Stimmen',
-        verlockung: 'Grosse Kerne sind in vier Ticks fertig und treffen die Frist auch parallel.',
+        name: 'Drei große Stimmen',
+        verlockung: 'Große Kerne sind in vier Ticks fertig und treffen die Frist auch parallel.',
         scheitertAn: 'kostenJeAuftrag',
         werk: chor({ vor: [W('datenbank')], zweige: [STIMME_K, STIMME_K, STIMME_K], modus: 'bester' }),
       },
       {
-        name: 'Zwei grosse Kerne in Reihe',
+        name: 'Zwei große Kerne in Reihe',
         verlockung: 'Die Güte stimmt, der Preis ist vertretbar. Ein Tick mehr wird niemandem auffallen.',
         scheitertAn: 'budget_latenz',
         werk: strasse([W('datenbank'), K('kondor'), K('kondor')]),
@@ -428,7 +428,7 @@ export const AKT_5: LevelDefinition[] = [
         werk: strasse([W('datenbank'), K('reiher'), K('reiher'), K('reiher')]),
       },
       {
-        name: 'Ein grosser Kern für alles',
+        name: 'Ein großer Kern für alles',
         verlockung: 'Ein KONDOR ist schnell, billig genug und braucht kein einziges neues Modul.',
         scheitertAn: 'guete',
         werk: strasse([W('datenbank'), K('kondor')]),
@@ -490,7 +490,7 @@ export const AKT_5: LevelDefinition[] = [
       },
       {
         name: 'Zwei Fachzweige, verschmolzen',
-        ansatz: 'Je Zweig ein Werkzeug: der eine belegt, der andere rechnet. Der Sammler verschmilzt, ein grosser Kern zieht nach.',
+        ansatz: 'Je Zweig ein Werkzeug: der eine belegt, der andere rechnet. Der Sammler verschmilzt, ein großer Kern zieht nach.',
         werk: chor({
           zweige: [
             [WS('datenbank'), K('reiher')],

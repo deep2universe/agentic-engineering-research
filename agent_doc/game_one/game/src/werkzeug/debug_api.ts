@@ -69,7 +69,7 @@ export function haengeDebugApiEin(spiel: Spiel): DebugApi {
 
     ladeLevel: (id, saat) => {
       spiel.ladeLevel(id, saat);
-      // Erzaehlung wegraeumen: Tests bauen, sie lesen nicht. Die Akttafel
+      // Erzählung wegräumen: Tests bauen, sie lesen nicht. Die Akttafel
       // laege sonst vor jedem ersten Level eines Akts im Weg.
       spiel.hud.schliesseAkttafel();
       spiel.hud.schliesseFundstueck();

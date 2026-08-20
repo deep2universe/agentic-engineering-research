@@ -410,11 +410,11 @@ export class Klangwerk {
   }
 
   /**
-   * Blendet in 0,2 s aus und haelt den Scheduler an.
+   * Blendet in 0,2 s aus und hält den Scheduler an.
    *
-   * Der Kontext wird erst 0,3 s spaeter angehalten — waehrend einer Pause
-   * schreitet `currentTime` nicht fort, ein sofortiges `suspend()` wuerde die
-   * Ausblendrampe also mittendrin einfrieren und man hoerte einen Schnitt.
+   * Der Kontext wird erst 0,3 s später angehalten — während einer Pause
+   * schreitet `currentTime` nicht fort, ein sofortiges `suspend()` würde die
+   * Ausblendrampe also mittendrin einfrieren und man hörte einen Schnitt.
    */
   pausiere(): void {
     if (!this.aktiv || this.pausiert) return;
@@ -1426,7 +1426,7 @@ export class Klangwerk {
           const osz = this.osz(bau, i < 2 ? 'sine' : 'triangle', hz * cent(i % 2 === 0 ? -4 : 4));
           const g = this.gain(bau, 0);
           // Die Stimmen setzen gestaffelt ein (60 ms Abstand), enden aber
-          // gemeinsam — der Akkord baut sich auf und loest sich als Ganzes.
+          // gemeinsam — der Akkord baut sich auf und löst sich als Ganzes.
           const start = bau.zeit + i * 0.06;
           const schluss = bau.zeit + 2.4;
           setze(g.gain, start, 0);

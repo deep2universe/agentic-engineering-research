@@ -128,7 +128,7 @@ test.describe('Bauen im Browser', () => {
     });
     expect(ergebnis.erst).not.toBeNull();
     expect(ergebnis.zweit, 'Ein belegtes Feld darf nicht doppelt bebaut werden').toBeNull();
-    expect(ergebnis.ausserhalb, 'Ausserhalb des Fundaments darf nichts stehen').toBeNull();
+    expect(ergebnis.ausserhalb, 'Außerhalb des Fundaments darf nichts stehen').toBeNull();
     expect(ergebnis.selbst, 'Ein Modul darf nicht auf sich selbst zeigen').toBe(false);
     await pruefeSauberkeit(s);
   });

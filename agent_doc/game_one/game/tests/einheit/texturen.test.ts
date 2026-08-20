@@ -558,7 +558,7 @@ describe('Cache', () => {
     entsorgeAlleTexturen();
   });
 
-  it('hält höchstens HOECHSTZAHL_SAETZE Sätze und verdrängt den ältesten', () => {
+  it('hält höchstens HÖCHSTZAHL_SÄTZE Sätze und verdrängt den ältesten', () => {
     entsorgeAlleTexturen();
     const erster = erzeugeTexturSatz('glas', 1000, G);
     for (let i = 1; i <= HOECHSTZAHL_SAETZE; i++) erzeugeTexturSatz('glas', 1000 + i, G);

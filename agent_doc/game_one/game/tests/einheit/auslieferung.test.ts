@@ -36,7 +36,7 @@ describe.skipIf(!vorhanden)('Produktionsbündel', () => {
     for (const d of skripte) {
       const inhalt = readFileSync(d, 'utf8');
       expect(inhalt.includes('__spiel'), `${d} enthält die Debug-Schnittstelle`).toBe(false);
-      expect(inhalt.includes('haengeDebugApiEin'), `${d} enthält den Debug-Einhänger`).toBe(false);
+      expect(inhalt.includes('hängeDebugApiEin'), `${d} enthält den Debug-Einhänger`).toBe(false);
     }
   });
 
@@ -67,6 +67,6 @@ describe.skipIf(!vorhanden)('Produktionsbündel', () => {
 
   it('bleibt in einer Größe, die auch über eine schlechte Leitung lädt', () => {
     const gesamt = dateien.reduce((s, d) => s + statSync(d).size, 0);
-    expect(gesamt / 1024 / 1024, `Bündel ist ${(gesamt / 1024 / 1024).toFixed(1)} MB gross`).toBeLessThan(6);
+    expect(gesamt / 1024 / 1024, `Bündel ist ${(gesamt / 1024 / 1024).toFixed(1)} MB groß`).toBeLessThan(6);
   });
 });

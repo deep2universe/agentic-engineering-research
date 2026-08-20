@@ -131,7 +131,7 @@ describe('Sprache der Spieltexte', () => {
     // Nur eindeutige Hoeflichkeitsformen. Ein blosses "Sie" ist im Deutschen
     // meist die dritte Person Plural ("Sie nennen es …") und kein Siezen.
     const anrede =
-      /(^|[\s(„"])(Ihnen|Ihre[nmrs]?|Sie\s+(haben|sind|koennen|können|muessen|müssen|sollten|werden|finden|sehen))([\s.,;:!?"“)]|$)/;
+      /(^|[\s(„"])(Ihnen|Ihre[nmrs]?|Sie\s+(haben|sind|können|können|müssen|müssen|sollten|werden|finden|sehen))([\s.,;:!?"“)]|$)/;
     for (const l of ALLE_LEVEL) {
       if (l.notiz !== undefined) {
         expect(anrede.test(l.notiz), `${l.id}.notiz siezt: "${l.notiz}"`).toBe(false);
