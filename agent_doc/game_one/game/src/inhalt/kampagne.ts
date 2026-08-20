@@ -15,6 +15,8 @@ import { AKT_5 } from './akt_05';
 import { AKT_6 } from './akt_06';
 import { AKT_7 } from './akt_07';
 import { AKT_8 } from './akt_08';
+import { AKT_9 } from './akt_09';
+import { AKT_10 } from './akt_10';
 
 export interface Akt {
   readonly nummer: number;
@@ -96,6 +98,23 @@ export const AKTE: readonly Akt[] = [
     lektion:
       'Kein einzelner Filter hält alles. Nur gestaffelte Verteidigung kommt nahe an vollständig heran — bezahlt mit Fehlalarmen.',
     level: AKT_8,
+  },
+  {
+    nummer: 9,
+    titel: 'Die Hand',
+    untertitel: 'Jemand muss unterschreiben',
+    neu: 'Hand (menschliche Freigabe)',
+    lektion:
+      'Menschen sind teuer in Latenz und billig in Haftung — und die Hand bearbeitet immer nur einen Vorgang.',
+    level: AKT_9,
+  },
+  {
+    nummer: 10,
+    titel: 'Das Auge',
+    untertitel: 'Was du nicht siehst, verantwortest du trotzdem',
+    neu: 'Auge (Tracing)',
+    lektion: 'Was du nicht beobachtest, kannst du nicht verantworten.',
+    level: AKT_10,
   },
 ];
 
