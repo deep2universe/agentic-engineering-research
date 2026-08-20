@@ -13,7 +13,7 @@ zwei strukturell verschiedene Arten lösbar, dann ist das ein Test.
 
 ---
 
-## Die sechs Ebenen
+## Die sieben Ebenen
 
 ### 1. Typen
 
@@ -49,7 +49,7 @@ Der eigentliche Beweis läuft im Browser (Ebene 5).
 
 `tests/einheit/didaktischer_vertrag.test.ts`
 
-Vierzig Behauptungen über die Simulation, die zugleich die Lektionen des Spiels
+Dreiundvierzig Behauptungen über die Simulation, die zugleich die Lektionen des Spiels
 sind. Beispiele:
 
 - Ein KOLIBRI erreicht bei leichten Aufträgen dieselbe Güte wie ein KONDOR — zu
@@ -151,8 +151,6 @@ an der so ein Fehler auffällt, bevor ihn jemand meldet.
   ausfallen.
 - Ein Levelwechsel gibt alles wieder frei: Geometrie-, Material- und
   Texturzähler stehen danach auf ihrem Ausgangswert.
-
----
 
 ### 7. Verträge zwischen zwei Dateien
 
