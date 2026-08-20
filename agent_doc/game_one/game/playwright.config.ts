@@ -58,10 +58,26 @@ export default defineConfig({
    * fehlt, prüft dafür `tests/einheit/auslieferung.test.ts` gegen die echten
    * gebauten Dateien.
    */
-  webServer: {
-    command: 'VITE_TESTHOOKS=1 npx vite --port 5178 --strictPort',
-    url: 'http://127.0.0.1:5178',
-    reuseExistingServer: !process.env['CI'],
-    timeout: 180_000,
-  },
+  webServer: [
+    {
+      command: 'VITE_TESTHOOKS=1 npx vite --port 5178 --strictPort',
+      url: 'http://127.0.0.1:5178',
+      reuseExistingServer: !process.env['CI'],
+      timeout: 180_000,
+    },
+    /*
+     * Der zweite Server liefert das FERTIGE Buendel.
+     *
+     * Grund: Alles andere in dieser Datei prueft den Entwicklungsstand. Ein
+     * Buendel kann sauber bauen, jede statische Pruefung bestehen und beim
+     * Laden trotzdem abstuerzen — weil etwas wegoptimiert wurde, das doch
+     * gebraucht wird. Genau dieser Fall faellt sonst erst der Kundschaft auf.
+     */
+    {
+      command: 'npx vite build && npx vite preview --port 5179 --strictPort',
+      url: 'http://127.0.0.1:5179',
+      reuseExistingServer: !process.env['CI'],
+      timeout: 300_000,
+    },
+  ],
 });
