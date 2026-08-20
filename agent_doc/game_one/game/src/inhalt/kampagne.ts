@@ -18,6 +18,7 @@ import { AKT_8 } from './akt_08';
 import { AKT_9 } from './akt_09';
 import { AKT_10 } from './akt_10';
 import { AKT_11 } from './akt_11';
+import { AKT_12 } from './akt_12';
 
 export interface Akt {
   readonly nummer: number;
@@ -125,6 +126,14 @@ export const AKTE: readonly Akt[] = [
     lektion:
       'Wer eine einzelne Kennzahl vorgibt, bekommt eine Anlage, die genau diese Kennzahl bedient — und sonst nichts.',
     level: AKT_11,
+  },
+  {
+    nummer: 12,
+    titel: 'Monolith',
+    untertitel: 'Nicht abschalten. Zerlegen.',
+    neu: 'keine — dieser Akt erntet, was elf Akte gesät haben',
+    lektion: 'Ein Monolith wird nicht abgeschaltet, sondern zerlegt.',
+    level: AKT_12,
   },
 ];
 

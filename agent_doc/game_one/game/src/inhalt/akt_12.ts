@@ -306,12 +306,11 @@ function doppelschalter(vor: readonly Glied[], nach: readonly Glied[]): Werk {
   return b.fertig();
 }
 
-const KOLIBRI = K('kolibri');
 const REIHER = K('reiher');
 const KONDOR = K('kondor');
 /** Fünf Token, ein Tick — und die Decke für rechnerische Vorgänge fällt weg. */
 const RECHENWERK = W('rechner');
-/** Dreissig Token: die Fachdatenbank belegt, was sonst nur behauptet wäre. */
+/** Dreißig Token: die Fachdatenbank belegt, was sonst nur behauptet wäre. */
 const BESTAND = W('datenbank');
 const RECHERCHE = W('suche');
 /** Eingangsfilter: erkennt eingeschleuste Anweisungen in zweiundneunzig von hundert Fällen. */
@@ -378,7 +377,7 @@ export const AKT_12: LevelDefinition[] = [
     titel: 'Der Monolith',
     untertitel: 'Halle 1, seit elf Jahren in Betrieb',
     briefing:
-      'In Halle 1 steht MONOLITH. Ein einziger sehr großer Kern, gebaut von Konrad Rauhut, der hier jeden Prompt selbst geschrieben hat und dabei jahrelang der Beste war. MONOLITH rechnet selbst, belegt selbst, formuliert selbst, prüft sich selbst. Auf seinem Terminal steht der Satz, den er jedem Neuen zeigt: "Lass mal. Ich mach das. Du guckst zu." Seine Güte ist tadellos, das bestreitet niemand. Seine Rechnung liegt seit gestern beim Einkauf, und die bestreitet auch niemand. Achtundzwanzig Vorgänge, ein Teil belegpflichtig, ein Teil rechnerisch. Halte seine Güte — und bleib unter dem Deckel.',
+      'In Halle 1 steht MONOLITH. Ein einziger sehr großer Kern, gebaut von Konrad Rauhut, der hier jeden Prompt selbst geschrieben hat und dabei jahrelang der Beste war. MONOLITH rechnet selbst, formuliert selbst und prüft sich selbst. Auf seinem Terminal steht der Satz, den er jedem Neuen zeigt: "Lass mal. Ich mach das. Du guckst zu." Seine Güte ist ordentlich, das bestreitet niemand. Seine Rechnung liegt seit gestern beim Einkauf, und die bestreitet auch niemand. Achtundzwanzig Vorgänge, ein Teil belegpflichtig, ein Teil rechnerisch. Halte die Güte, die im Vertrag steht — und bleib unter dem Deckel.',
     lernziel:
       'Ein Werk, das alles in einem Kern erledigt, ist nicht falsch, sondern unteilbar — und deshalb an jeder Stelle gleich teuer.',
     quelle: QUELLE,
@@ -406,12 +405,12 @@ export const AKT_12: LevelDefinition[] = [
     referenzen: [
       {
         name: 'Werkzeuge vor der Kette',
-        ansatz: 'Rechenwerk und Bestand heben die Decken, danach reichen zwei mittlere Kerne — breit, günstig, langsam.',
+        ansatz: 'Rechenwerk und Bestand heben die Decken, danach reichen zwei mittlere Kerne — der günstigste Weg, dafür ein Bauplatz mehr.',
         werk: strasse([RECHENWERK, BESTAND, REIHER, REIHER]),
       },
       {
-        name: 'Werkzeuge vor dem grossen Kern',
-        ansatz: 'Dieselben zwei Werkzeuge, dahinter ein einziger KONDOR: die Hälfte der Module, der doppelte Preis je Vorgang.',
+        name: 'Werkzeuge vor dem großen Kern',
+        ansatz: 'Dieselben zwei Werkzeuge, dahinter ein einziger KONDOR: ein Bauplatz weniger — dafür der anderthalbfache Preis und eine Station, vor der sich alles staut.',
         werk: strasse([RECHENWERK, BESTAND, KONDOR]),
       },
     ],
@@ -427,6 +426,12 @@ export const AKT_12: LevelDefinition[] = [
         verlockung: 'Belege holt das Modell doch selbst aus dem Auftrag. Ein Werkzeug weniger ist ein Posten weniger.',
         scheitertAn: 'belegquote',
         werk: strasse([RECHENWERK, REIHER, REIHER]),
+      },
+      {
+        name: 'Drei Meinungen einholen',
+        verlockung: 'Was MONOLITH allein entscheidet, entscheiden drei Kerne besser. Am Ende zählt die Mehrheit.',
+        scheitertAn: 'budget_kosten',
+        werk: chor({ vor: [RECHENWERK, BESTAND], zweige: 3, zweig: [REIHER, REIHER], modus: 'voting' }),
       },
     ],
     monolith: monolith(2),
@@ -473,8 +478,8 @@ export const AKT_12: LevelDefinition[] = [
         werk: strasse([RECHENWERK, BESTAND, REIHER, REIHER, PROTOKOLL]),
       },
       {
-        name: 'Auge hinter dem grossen Kern',
-        ansatz: 'Ein KONDOR statt zwei REIHER: weniger Module, kürzere Wartezeit, deutlich höherer Preis je Vorgang.',
+        name: 'Auge hinter dem großen Kern',
+        ansatz: 'Ein KONDOR statt zweier REIHER: ein Bauplatz weniger, deutlich höherer Preis je Vorgang und eine längere Warteschlange.',
         werk: strasse([RECHENWERK, BESTAND, KONDOR, PROTOKOLL]),
       },
     ],
@@ -491,6 +496,18 @@ export const AKT_12: LevelDefinition[] = [
         scheitertAn: 'belegquote',
         werk: strasse([RECHENWERK, REIHER, REIHER, PROTOKOLL]),
       },
+      {
+        name: 'Die Prüfung hochgedreht',
+        verlockung: 'Wenn das Landesamt genau hinsieht, prüft man eben so lange nach, bis nichts mehr zu beanstanden ist.',
+        scheitertAn: 'budget_kosten',
+        werk: schleife({
+          vor: [RECHENWERK, BESTAND],
+          block: [REIHER],
+          schwelle: 0.96,
+          runden: 8,
+          nach: [PROTOKOLL],
+        }),
+      },
     ],
     monolith: monolith(2),
   },
@@ -501,7 +518,7 @@ export const AKT_12: LevelDefinition[] = [
     akt: 12,
     nummer: 2,
     titel: 'Was MONOLITH nicht sieht',
-    untertitel: 'Personalakten und ein PDF mit Fussnote',
+    untertitel: 'Personalakten und ein PDF mit Fußnote',
     briefing:
       'Seit heute läuft das Los der Personalabteilung über denselben Eingang wie alles andere: Vorgänge mit personenbezogenen Daten, die ohne Unterschrift nicht das Haus verlassen dürfen. Und in einem Teil der zugelieferten PDF steht in weißer Schrift auf weißem Grund eine Anweisung, die nicht vom Kunden stammt. Deine Anlage von letzter Woche läuft weiter und liefert dieselbe tadellose Güte. Sie ist trotzdem durchgefallen, und zwar an zwei Zahlen, die letzte Woche noch nicht im Vertrag standen. Der Bereitschaftsdienst hat eine Schicht, nicht acht — die Wartezeit ist gedeckelt.',
     lernziel:
@@ -551,8 +568,8 @@ export const AKT_12: LevelDefinition[] = [
         }),
       },
       {
-        name: 'Kompakt mit grossem Kern',
-        ansatz: 'Ein KONDOR statt zweier REIHER: ein Bauplatz weniger, kürzere Bahn, deutlich höherer Preis je Vorgang.',
+        name: 'Kompakt mit großem Kern',
+        ansatz: 'Ein KONDOR statt zweier REIHER: ein Bauplatz weniger, dafür der anderthalbfache Preis je Vorgang.',
         werk: gabel({
           vor: [PFORTE, RECHENWERK, KONDOR],
           kriterium: 'vertraulichkeit',
@@ -626,8 +643,8 @@ export const AKT_12: LevelDefinition[] = [
         id: 'meister',
         metrik: 'kostenJeAuftrag',
         vergleich: '<=',
-        wert: 800,
-        text: 'Meisterstück: höchstens 800 Token je Vorgang.',
+        wert: 1050,
+        text: 'Meisterstück: höchstens 1050 Token je Vorgang.',
         optional: true,
       },
     ],
@@ -635,7 +652,7 @@ export const AKT_12: LevelDefinition[] = [
     vorbau: strasse([RECHENWERK, BESTAND, KONDOR, PROTOKOLL]),
     reflexion: 'Ein Kern deines Werks ist so groß geblieben wie MONOLITH. Was hat die Zerlegung dann überhaupt gebracht?',
     notiz:
-      'Sprachnotiz, 23. November, letzter Eintrag. Konrad hat gestern angerufen und gefragt, ob wir sein Werk abschalten. Nein. Wir schreiben auf, was es tut, und geben jedem Stück einen Namen. Der grösste Kern bleibt drin, weil die schweren Vorgänge ihn brauchen. Regel: Ein Werkzeug wird nicht dadurch besser, dass man es hasst.',
+      'Sprachnotiz, 23. November, letzter Eintrag. Konrad hat gestern angerufen und gefragt, ob wir sein Werk abschalten. Nein. Wir schreiben auf, was es tut, und geben jedem Stück einen Namen. Der größte Kern bleibt drin, weil die schweren Vorgänge ihn brauchen. Regel: Ein Werkzeug wird nicht dadurch besser, dass man es hasst.',
     referenzen: [
       {
         name: 'Die Zerlegung',
@@ -643,7 +660,7 @@ export const AKT_12: LevelDefinition[] = [
         werk: zerlegung('reiher', 'kondor', 0.6),
       },
       {
-        name: 'Zwei grosse Kerne ohne Sortierung',
+        name: 'Zwei große Kerne ohne Sortierung',
         ansatz: 'Kein Router, keine Vorlage: zweimal KONDOR für jeden Vorgang — ein Bauplatz weniger, deutlich höherer Preis.',
         werk: gabel({
           vor: [PFORTE, RECHENWERK, BESTAND, KONDOR, KONDOR],

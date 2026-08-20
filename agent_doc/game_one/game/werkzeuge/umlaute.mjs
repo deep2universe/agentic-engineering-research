@@ -323,10 +323,14 @@ function bearbeite(quelle) {
        * welchem Schluessel die Zeichenkette steht.
        *
        * `title` und `aria-label` stehen bewusst NICHT in der Liste: das sind
-       * Texte, die vorgelesen werden, und die brauchen Umlaute.
+       * Texte, die vorgelesen werden, und die brauchen Umlaute. `name`
+       * ebenfalls nicht — in diesem Projekt traegt `name:` fast ueberall
+       * Prosa (Referenzloesungen, Portnamen, Modulnamen). Ein Anlauf mit
+       * `name` in der Liste liess prompt vier Loesungsnamen in
+       * Ersatzschreibung stehen.
        */
       const davor = out.replace(/\s+$/, '');
-      const istDomBezeichner = /(?:^|[^A-Za-z0-9_$])(?:'|")?(class|id|name|type|role|href|src|for)(?:'|")?\s*[:=]$/.test(
+      const istDomBezeichner = /(?:^|[^A-Za-z0-9_$])(?:'|")?(class|id|type|role|href|src|for)(?:'|")?\s*[:=]$/.test(
         davor
       );
       const istProsa =
