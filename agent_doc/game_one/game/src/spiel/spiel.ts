@@ -20,6 +20,7 @@ import { uPuls, uZeit } from '../welt/aussehen';
 import { Hud, type Modus } from '../ui/hud';
 import { befehlFuer, type Befehl } from '../ui/keymap';
 import { BauZustand } from './bauzustand';
+import { Klangregie } from './klangregie';
 import { Simulation } from '../sim/simulation';
 import { bewerte, type Bewertung } from '../sim/ziele';
 import { AKTE, ALLE_LEVEL, naechstesLevel } from '../inhalt/kampagne';
@@ -41,6 +42,11 @@ export interface SpielOptionen {
   /** Diagnose: ohne Post-Processing rendern. */
   readonly ohnePost?: boolean;
   readonly reduzierteBewegung?: boolean;
+  /**
+   * Kein Ton. Bildvergleichstests brauchen keinen AudioContext, und ein
+   * Browser, der zwanzig Testläufe lang Kontexte öffnet, wird langsam.
+   */
+  readonly ohneKlang?: boolean;
 }
 
 export class Spiel {
@@ -49,6 +55,7 @@ export class Spiel {
   readonly ansicht: WerkAnsicht;
   readonly kamera: Kamerafuehrung;
   readonly hud: Hud;
+  readonly klang: Klangregie;
   bau: BauZustand;
 
   level: LevelDefinition;
@@ -72,6 +79,11 @@ export class Spiel {
   private readonly zeiger: Zeigerquelle;
   private readonly abbau: Array<() => void> = [];
   private monolithWerte: Metriken | null = null;
+  /** Bis zu diesem Tick wurden Ereignisse bereits vertont. */
+  private vertontBis = 0;
+  private readonly klangErlaubt: boolean;
+  private letzteMetriken: Metriken | null = null;
+  private readonly blickHilfe = new THREE.Vector3();
 
   private constructor(renderwerk: Renderwerk, opt: SpielOptionen, start: LevelDefinition) {
     this.renderwerk = renderwerk;
@@ -80,6 +92,8 @@ export class Spiel {
     this.ansicht = new WerkAnsicht(this.halle);
     this.kamera = new Kamerafuehrung(renderwerk.kamera);
     this.bau = new BauZustand(start.vorbau);
+    this.klangErlaubt = opt.ohneKlang !== true;
+    this.klang = new Klangregie();
 
     renderwerk.szene.add(this.halle.wurzel, this.ansicht.wurzel);
     renderwerk.setzeHauptlicht(this.halle.sonne);
@@ -90,6 +104,7 @@ export class Spiel {
       aufModulWahl: (a) => {
         this.gewaehltesModul = a;
         this.setzeModus('bauen');
+        this.klang.spiele('ui_waehlen');
       },
       aufStart: () => this.starteOderPausiere(),
       aufZuruecksetzen: () => this.setzeZurueck(),
@@ -100,12 +115,14 @@ export class Spiel {
         this.hud.schliesseBriefing();
         this.phase = 'bauen';
         this.hud.setzeKontext(this.modus);
+        this.klang.spiele('seite_blaettern');
       },
       aufWeiter: () => this.weiter(),
       aufNochmal: () => {
         this.hud.schliesseErgebnis();
         this.phase = 'bauen';
         this.beendeSimulation();
+        this.klang.spiele('ui_abbruch');
       },
     });
 
@@ -120,6 +137,7 @@ export class Spiel {
     if (opt.reduzierteBewegung === true) this.setzeReduzierteBewegung(true);
     this.bindeTastatur();
     this.bindeGroesse(opt.leinwand);
+    this.bindeKlangstart();
     this.ladeLevel(start.id);
   }
 
@@ -199,12 +217,14 @@ export class Spiel {
     if (this.phase === 'simulation') {
       this.laeuft = !this.laeuft;
       this.hud.setzeStartText(this.laeuft ? 'Pause' : 'Weiter');
+      this.klang.spiele(this.laeuft ? 'sim_start' : 'sim_pause');
       return;
     }
     const befunde = this.bau.befunde();
     const fehler = befunde.filter((b) => b.stufe === 'fehler');
     if (fehler.length) {
       this.hud.melde(fehler[0]!.text, 'fehler');
+      this.klang.spiele('ui_fehler');
       if (fehler[0]!.modulId) this.ansicht.setzeHervorhebung([fehler[0]!.modulId], 'fehler');
       return;
     }
@@ -212,6 +232,8 @@ export class Spiel {
     this.phase = 'simulation';
     this.laeuft = true;
     this.tickRest = 0;
+    this.vertontBis = 0;
+    this.klang.spiele('sim_start');
     this.hud.setzeStartText('Pause');
     this.hud.melde(`${this.level.strom.anzahl} Aufträge laufen ein.`);
     this.ansicht.setzeHervorhebung([], 'auswahl');
@@ -220,6 +242,8 @@ export class Spiel {
   private beendeSimulation(): void {
     this.sim = null;
     this.laeuft = false;
+    this.vertontBis = 0;
+    this.letzteMetriken = null;
     this.ansicht.ruhe();
     this.hud.setzeStartText('Simulation starten');
     this.hud.zeigeMetriken(this.leereMetriken(), this.level);
@@ -244,10 +268,27 @@ export class Spiel {
     if (!this.sim) return;
     for (let i = 0; i < anzahl && !this.sim.fertig; i++) this.sim.tick();
     const m = this.sim.metriken();
+    this.letzteMetriken = m;
     this.hud.zeigeMetriken(m, this.level);
     const b = bewerte(this.level.ziele, this.level.budget, m);
     this.hud.zeigeZiele(this.level, b);
+    // Vertonung NACH der Auswertung der Kennzahlen, aber VOR `werteAus` —
+    // sonst überlagert das Abschlussmotiv die letzten Auslieferungen.
+    this.vertone();
     if (this.sim.fertig) this.werteAus();
+  }
+
+  /**
+   * Reicht die seit dem letzten Aufruf entstandenen Ereignisse an die
+   * Klangregie durch.
+   *
+   * Der Merker `vertontBis` ist nötig, weil ein Bild bei hohem Tempo mehrere
+   * Ticks abarbeitet: ohne ihn würde dieselbe Auslieferung mehrfach klingen.
+   */
+  private vertone(): void {
+    if (!this.sim) return;
+    this.klang.vertoneEreignisse(this.sim.ereignisse, this.vertontBis, this.tempo);
+    this.vertontBis = this.sim.taktZahl + 1;
   }
 
   private werteAus(): void {
@@ -257,6 +298,7 @@ export class Spiel {
     this.laeuft = false;
     this.phase = 'auswertung';
     this.hud.zeigeErgebnis(this.level, this.letzteBewertung, m);
+    this.klang.spiele(this.letzteBewertung.bestanden ? 'level_bestanden' : 'level_gescheitert');
   }
 
   // -------------------------------------------------------------------------
@@ -273,19 +315,23 @@ export class Spiel {
   setzeModul(art: ModulArt, x: number, z: number, param = {}): string | null {
     if (!this.level.module.includes(art)) {
       this.hud.melde(`${KATALOG[art].name} ist in diesem Auftrag nicht freigegeben.`, 'fehler');
+      this.klang.spiele('ui_fehler');
       return null;
     }
     if (!this.halle.imFundament(x, z)) {
       this.hud.melde('Außerhalb des Fundaments.', 'fehler');
+      this.klang.spiele('ui_fehler');
       return null;
     }
     const e = this.bau.setze(art, x, z, param);
     if (!e.ok) {
       this.hud.melde(e.grund, 'fehler');
+      this.klang.spiele('ui_fehler');
       return null;
     }
     this.ansicht.setzeWerk(this.bau.werk());
     this.aktualisiereSchattenbaum();
+    this.klangAmFeld('modul_setzen', x, z);
     return e.id;
   }
 
@@ -293,11 +339,22 @@ export class Spiel {
     const e = this.bau.verbinde(von, vonPort, nach, nachPort);
     if (!e.ok) {
       this.hud.melde(e.grund, 'fehler');
+      this.klang.spiele('ui_fehler');
       return false;
     }
     this.ansicht.setzeWerk(this.bau.werk());
     this.aktualisiereSchattenbaum();
+    this.klang.spiele('leitung_verbinden');
     return true;
+  }
+
+  /**
+   * Spielt einen Klang dort, wo gebaut wurde. Ein Modul am anderen Hallenende
+   * darf leiser und dumpfer klingen als eines direkt vor der Kamera — genau
+   * das trennt eine Halle von einer Tabellenkalkulation.
+   */
+  private klangAmFeld(klang: 'modul_setzen' | 'modul_entfernen', x: number, z: number): void {
+    this.klang.spieleAmOrt(klang, this.halle.feldZuWelt(x, z));
   }
 
   private klickAufFeld(x: number, z: number): void {
@@ -310,8 +367,10 @@ export class Spiel {
         if (getroffen && this.bau.entferne(getroffen.id)) {
           this.ansicht.setzeWerk(this.bau.werk());
           this.aktualisiereSchattenbaum();
+          this.klangAmFeld('modul_entfernen', x, z);
         } else if (getroffen) {
           this.hud.melde('Eingang und Auslieferung bleiben stehen.', 'fehler');
+          this.klang.spiele('ui_fehler');
         }
         break;
       case 'leitung':
@@ -504,6 +563,13 @@ export class Spiel {
       case 'briefing': {
         const akt = AKTE.find((a) => a.nummer === this.level.akt);
         this.hud.zeigeBriefing(this.level, akt?.titel ?? '', this.monolithWerte);
+        this.klang.spiele('seite_blaettern');
+        break;
+      }
+      case 'ton': {
+        const stumm = !this.klang.stumm;
+        this.klang.setzeStumm(stumm);
+        this.hud.melde(stumm ? 'Ton aus.' : 'Ton an.');
         break;
       }
       case 'abbrechen':
@@ -524,6 +590,33 @@ export class Spiel {
       default:
         break;
     }
+  }
+
+  /**
+   * Startet die Klangwelt beim ERSTEN Zeiger- oder Tastendruck irgendwo im
+   * Dokument.
+   *
+   * Der Umweg über `document` statt über die Leinwand ist Absicht: die erste
+   * Handlung im Spiel ist regelmäßig ein Klick auf "Verstanden" im Briefing —
+   * das ist ein DOM-Knopf, nicht die Leinwand. Ohne diesen Weg bliebe das
+   * Spiel bis zum ersten Bauklick stumm, und der Einstieg klänge tot.
+   *
+   * Die Zuhörer entfernen sich selbst; ein zweiter Startversuch käme sonst
+   * bei jedem Klick.
+   */
+  private bindeKlangstart(): void {
+    if (!this.klangErlaubt) return;
+    const wecke = (): void => {
+      loese();
+      void this.klang.starte();
+    };
+    const loese = (): void => {
+      globalThis.removeEventListener('pointerdown', wecke, true);
+      globalThis.removeEventListener('keydown', wecke, true);
+    };
+    globalThis.addEventListener('pointerdown', wecke, true);
+    globalThis.addEventListener('keydown', wecke, true);
+    this.abbau.push(loese);
   }
 
   private bindeGroesse(leinwand: HTMLCanvasElement): void {
@@ -567,11 +660,11 @@ export class Spiel {
     // Decke und Fachwerk ausblenden, sobald die Kamera darüber steht — sonst
     // schaut man durch das eigene Dach und die Träger zerschneiden das Bild.
     /*
-     * Decke UND Fachwerk ausblenden, sobald die Kamera ueber die Traeger
-     * steigt. Nur die Decke zu verstecken genuegt nicht: das Fachwerk ist so
+     * Decke UND Fachwerk ausblenden, sobald die Kamera über die Träger
+     * steigt. Nur die Decke zu verstecken genügt nicht: das Fachwerk ist so
      * massiv, dass es aus der Vogelperspektive das halbe Bild zerschneidet und
-     * die Bauflaeche unlesbar macht. Bei flachem Blickwinkel bleibt beides
-     * stehen und traegt den Industriecharakter.
+     * die Baufläche unlesbar macht. Bei flachem Blickwinkel bleibt beides
+     * stehen und trägt den Industriecharakter.
      */
     const ueberDach = this.renderwerk.kamera.position.y > this.halle.masse.hoehe * 0.82;
     this.halle.decke.visible = !ueberDach;
@@ -591,7 +684,36 @@ export class Spiel {
       this.ansicht.zeigeSimulation(this.sim.momentaufnahme(), alpha, dt);
     }
 
+    this.fuehreKlangNach();
     this.renderwerk.zeichne(this.spielzeit);
+  }
+
+  /**
+   * Koppelt Hörer und Musikachsen an das Bild.
+   *
+   * Das läuft bewusst jedes Bild und nicht nur bei Zustandswechseln: die
+   * Achsen werden im Klangwerk über rund anderthalb Sekunden nachgefahren, und
+   * der Fortschrittswert ändert sich mit jedem Tick. Ein Aufruf je Bild ist
+   * billig — es werden fünf Zahlen gesetzt — und ohne ihn ruckelt die Musik in
+   * Stufen statt zu atmen. Solange kein Ton läuft, sind alle Aufrufe leer.
+   */
+  private fuehreKlangNach(): void {
+    if (!this.klang.laeuft) return;
+    const k = this.renderwerk.kamera;
+    k.getWorldDirection(this.blickHilfe);
+    this.klang.richteHoerer(k.position, this.blickHilfe);
+
+    // Die Kennzahlen kommen aus dem letzten Tick, nicht frisch berechnet:
+    // `metriken()` sortiert für die Perzentile, und das je Bild zu tun wäre
+    // Arbeit für nichts. Zwischen zwei Ticks ändern sie sich ohnehin nicht.
+    const gesamt = this.level.strom.anzahl;
+    const m = this.sim ? this.letzteMetriken : null;
+    this.klang.fuehreNach({
+      phase: this.phase,
+      metriken: m,
+      fortschritt: m && gesamt > 0 ? Math.min(1, (m.geliefert + m.verworfen) / gesamt) : 0,
+      bestanden: this.phase === 'auswertung' ? (this.letzteBewertung?.bestanden ?? null) : null,
+    });
   }
 
   setzeReduzierteBewegung(an: boolean): void {
@@ -615,6 +737,7 @@ export class Spiel {
     this.schleifeAn = false;
     for (const f of this.abbau.splice(0)) f();
     this.zeiger.entsorge();
+    this.klang.entsorge();
     this.hud.entsorge();
     this.ansicht.entsorge();
     this.halle.entsorge();

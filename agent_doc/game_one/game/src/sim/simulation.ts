@@ -197,7 +197,8 @@ export class Simulation {
     for (const z of this.zustaende) this.nachId.set(z.modul.id, z);
   }
 
-  get tick_(): number {
+  /** Der aktuelle Takt. Ereignisse tragen dieselbe Zählung. */
+  get taktZahl(): number {
     return this.t;
   }
 

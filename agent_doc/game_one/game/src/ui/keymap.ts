@@ -45,7 +45,8 @@ export type Befehl =
   | 'wiederholen'
   | 'handbuch'
   | 'hilfe'
-  | 'briefing';
+  | 'briefing'
+  | 'ton';
 
 export interface Bindung {
   readonly befehl: Befehl;
@@ -103,6 +104,7 @@ export const KEYMAP: readonly Bindung[] = [
   { befehl: 'handbuch', taste: '?', anzeige: '?', bereich: 'Allgemein', text: 'Betriebshandbuch' },
   { befehl: 'hilfe', taste: '/', anzeige: '/', bereich: 'Allgemein', text: 'Tastenübersicht' },
   { befehl: 'briefing', code: 'KeyB', anzeige: 'B', bereich: 'Allgemein', text: 'Auftrag noch einmal lesen' },
+  { befehl: 'ton', code: 'KeyM', anzeige: 'M', bereich: 'Allgemein', text: 'Ton an und aus' },
   { befehl: 'abbrechen', code: 'Escape', anzeige: '⎋', bereich: 'Allgemein', text: 'Abbrechen' },
 ];
 
