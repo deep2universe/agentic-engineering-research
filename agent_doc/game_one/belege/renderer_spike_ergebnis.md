@@ -24,3 +24,36 @@
 5. **Emissive-Werte muessen klein sein.** Stufe 5 ist mit `emissiveNode = color(...).mul(1.2)` und `bloom(..., 1.8, …)` vollstaendig ueberstrahlt. Produktionsband: Emissive 0.05–0.35, Bloom-Staerke 0.8–1.6, AgX-Exposure 1.0–1.2.
 6. **Playwright-Browser-Download ist in dieser Umgebung proxy-blockiert.** Loesung: `executablePath` auf das vorinstallierte volle Chromium (`werkzeuge/browser.mjs`), niemals `chrome-headless-shell`.
 7. **`--enable-unsafe-swiftshader` ist zwingend** — ohne dieses Flag gibt es ab Chrome 130 gar keinen WebGL-Kontext.
+
+---
+
+## Nachtrag: der teuerste Fehler der Produktion
+
+Nach dem Zusammenbau war das gesamte Bild rot. Die Suche lief zunaechst in die
+falsche Richtung (Beleuchtung, Metallwerte, MRT-Emissive-Kanal). Entschieden hat
+erst eine harte Messung: derselbe Blick einmal mit und einmal ohne Post-Stack
+(`?post=0`), und statt einer Sichtpruefung die Kanalmittelwerte des PNG.
+
+```
+mit Post-Stack:   R 12.5  G 0.0  B 0.0
+ohne Post-Stack:  R 17.2  G 22.6  B 28.7
+```
+
+Gruen und Blau exakt null — das ist kein Farbstich, das ist eine Ausloeschung.
+
+**Ursache:** `farbe.mul(aoPass.getTextureNode())`. Die GTAO-Node liefert die
+Verdeckung im ROTKANAL; Gruen und Blau sind null. Multipliziert man das Bild mit
+der ganzen Textur statt nur mit `.r`, loescht man zwei Kanaele aus.
+
+```ts
+// falsch — loescht Gruen und Blau
+bild = farbe.mul(aoPass.getTextureNode());
+// richtig
+bild = farbe.mul(aoPass.getTextureNode().r);
+```
+
+**Lehre fuer die Verifikation:** Eine Sichtpruefung haette das nie eingegrenzt —
+ein rotes Bild sieht nach "Beleuchtung" aus. Erst die Kanalmittelwerte und der
+A/B-Vergleich gegen einen abschaltbaren Post-Stack haben es in einem Schritt
+gezeigt. Beides ist seither fest eingebaut: `?post=0` als Diagnoseschalter und
+die Kanalanalyse in `werkzeuge/schau.mjs`.

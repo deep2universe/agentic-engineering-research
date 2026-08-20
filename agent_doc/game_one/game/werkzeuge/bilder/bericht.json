@@ -1,0 +1,67 @@
+{
+  "levelId": "I-1",
+  "modus": "webgl2",
+  "bilder": [
+    {
+      "name": "01_briefing",
+      "beschreibung": "Briefing beim Betreten des Levels",
+      "mittel": 13.36,
+      "max": 239,
+      "hellAnteil": 0.273
+    },
+    {
+      "name": "02_leeres_werk",
+      "beschreibung": "Leeres Fundament, Auftragseingang und Auslieferung",
+      "mittel": 11.03,
+      "max": 239,
+      "hellAnteil": 0.231
+    },
+    {
+      "name": "03_gebautes_werk",
+      "beschreibung": "Referenzloesung steht",
+      "mittel": 11.04,
+      "max": 239,
+      "hellAnteil": 0.229
+    },
+    {
+      "name": "04_nahaufnahme",
+      "beschreibung": "Nahaufnahme der Pipeline",
+      "mittel": 20.87,
+      "max": 239,
+      "hellAnteil": 0.473
+    },
+    {
+      "name": "05_simulation",
+      "beschreibung": "Auftraege fliessen durch das Werk",
+      "mittel": 11.32,
+      "max": 239,
+      "hellAnteil": 0.233
+    },
+    {
+      "name": "06_auswertung",
+      "beschreibung": "Auswertung nach dem Lauf",
+      "mittel": 11.35,
+      "max": 239,
+      "hellAnteil": 0.225
+    },
+    {
+      "name": "07_ohne_hud",
+      "beschreibung": "Nur die Halle, ohne Oberflaeche",
+      "mittel": 10.86,
+      "max": 239,
+      "hellAnteil": 0.235
+    },
+    {
+      "name": "08_flach",
+      "beschreibung": "Flacher Blickwinkel",
+      "mittel": 14.23,
+      "max": 106,
+      "hellAnteil": 0.322
+    }
+  ],
+  "meldungen": [
+    "debug: [vite] connecting...",
+    "debug: [vite] connected.",
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+  ]
+}

@@ -67,9 +67,9 @@ export const AKT_1: LevelDefinition[] = [
         scheitertAn: 'durchsatz',
         werk: {
           module: [
-            { id: 'q', art: 'quelle', x: 0, z: 4, param: {} },
-            { id: 'k', art: 'kern', x: 6, z: 4, param: { groesse: 'reiher' } },
-            { id: 's', art: 'senke', x: 14, z: 4, param: {} },
+            { id: 'q', art: 'quelle', x: 0, z: 5, param: {} },
+            { id: 'k', art: 'kern', x: 6, z: 5, param: { groesse: 'reiher' } },
+            { id: 's', art: 'senke', x: 15, z: 5, param: {} },
           ],
           leitungen: [{ id: 'l1', von: 'q', vonPort: 'aus', nach: 'k', nachPort: 'ein' }],
         },

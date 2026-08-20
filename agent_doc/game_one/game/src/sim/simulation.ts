@@ -129,6 +129,20 @@ interface ModulZustand {
   durchlauf: number;
 }
 
+/** Was die 3D-Ansicht ueber ein Paket wissen muss — mehr nicht. */
+export interface PaketAnsicht {
+  readonly id: string;
+  readonly auftragId: string;
+  readonly modulId: string;
+  /** Bearbeitungsfortschritt im Modul, 0..1. */
+  readonly anteil: number;
+  readonly wartend: boolean;
+  readonly guete: number;
+  readonly kontext: number;
+  readonly kompromittiert: boolean;
+  readonly vertraulich: boolean;
+}
+
 export interface SimOptionen {
   readonly werk: Werk;
   readonly strom: AuftragsStrom;
@@ -935,6 +949,47 @@ export class Simulation {
   // -------------------------------------------------------------------------
   // Auswertung
   // -------------------------------------------------------------------------
+
+  /**
+   * Lesbarer Momentanzustand fuer die Darstellung. Die 3D-Ansicht liest
+   * ausschliesslich hier und schreibt niemals zurueck — das ist die Trennlinie,
+   * ohne die Golden-Master-Tests, Zeit-Debugger und Wiedergabe nicht
+   * funktionieren wuerden.
+   */
+  momentaufnahme(): PaketAnsicht[] {
+    const liste: PaketAnsicht[] = [];
+    for (const z of this.zustaende) {
+      if (z.belegung) {
+        const b = z.belegung;
+        const dauer = Math.max(1, b.fertigAb - (this.t - 1));
+        const verstrichen = Math.max(0, dauer - (b.fertigAb - this.t));
+        liste.push(this.ansicht(b.paket, z.modul.id, verstrichen / dauer, false));
+      }
+      for (let i = 0; i < z.warteschlange.length; i++) {
+        liste.push(this.ansicht(z.warteschlange[i]!, z.modul.id, 0, true));
+      }
+      for (const a of z.ausgabe) liste.push(this.ansicht(a.paket, z.modul.id, 0.9, false));
+      for (const [, pakete] of z.puffer) {
+        for (const p of pakete) liste.push(this.ansicht(p, z.modul.id, 0.5, true));
+      }
+    }
+    liste.sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0));
+    return liste;
+  }
+
+  private ansicht(p: Paket, modulId: string, anteil: number, wartend: boolean): PaketAnsicht {
+    return {
+      id: p.id,
+      auftragId: p.auftrag.id,
+      modulId,
+      anteil: Math.max(0, Math.min(1, anteil)),
+      wartend,
+      guete: p.guete,
+      kontext: p.kontext,
+      kompromittiert: p.kompromittiert,
+      vertraulich: p.auftrag.vertraulich,
+    };
+  }
 
   metriken(): Metriken {
     const geliefert = this.geliefert;

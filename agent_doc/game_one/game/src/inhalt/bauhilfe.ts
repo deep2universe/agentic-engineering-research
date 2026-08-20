@@ -7,12 +7,22 @@
 
 import type { Leitung, Modul, ModulArt, ModulParameter, Werk } from '../sim/typen';
 
+/**
+ * Das Baufundament ist 16 Felder breit und 10 tief (siehe
+ * `welt/halle.ts#STANDARD_MASSE`). Automatisch gesetzte Module laufen deshalb
+ * auf der Mittelspur mit zwei Feldern Abstand — so bleibt Platz fuer die
+ * Leitungsfuehrung, und ein Werk steht im Bild statt am Rand.
+ */
+export const MITTELSPUR = 5;
+export const ERSTE_SPALTE = 1;
+export const SPALTENABSTAND = 2;
+
 export class Bau {
   private readonly module: Modul[] = [];
   private readonly leitungen: Leitung[] = [];
   private readonly zaehler = new Map<string, number>();
-  private spalte = 0;
-  private zeile = 0;
+  private spalte = ERSTE_SPALTE;
+  private zeile = MITTELSPUR;
 
   /** Legt ein Modul an und liefert seine Id zurueck. */
   setze(art: ModulArt, param: ModulParameter = {}, id?: string, x?: number, z?: number): string {
@@ -20,7 +30,12 @@ export class Bau {
     const n = (this.zaehler.get(praefix) ?? 0) + 1;
     this.zaehler.set(praefix, n);
     const echteId = id ?? `${praefix}${n}`;
-    this.module.push({ id: echteId, art, x: x ?? this.spalte++, z: z ?? this.zeile, param });
+    let spaltePos = x;
+    if (spaltePos === undefined) {
+      spaltePos = this.spalte;
+      this.spalte += SPALTENABSTAND;
+    }
+    this.module.push({ id: echteId, art, x: spaltePos, z: z ?? this.zeile, param });
     return echteId;
   }
 
@@ -61,8 +76,8 @@ export function reihe(glieder: readonly { art: ModulArt; param?: ModulParameter 
 export function leeresFundament(): Werk {
   return {
     module: [
-      { id: 'q', art: 'quelle', x: 0, z: 4, param: {} },
-      { id: 's', art: 'senke', x: 14, z: 4, param: {} },
+      { id: 'q', art: 'quelle', x: 0, z: MITTELSPUR, param: {} },
+      { id: 's', art: 'senke', x: 15, z: MITTELSPUR, param: {} },
     ],
     leitungen: [],
   };
