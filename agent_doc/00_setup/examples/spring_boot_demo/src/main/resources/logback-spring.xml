@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Logs gehen parallel an Konsole und Loki (Loki4j). Labels: app, host, level. -->
+<configuration>
+  <!-- Debug bei Problemen: <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener"/> -->
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+  <springProperty scope="context" name="appName" source="spring.application.name"/>
+  <springProperty scope="context" name="lokiUrl" source="loki.url"/>
+
+  <appender name="LOKI" class="com.github.loki4j.logback.Loki4jAppender">
+    <http>
+      <url>${lokiUrl}</url>
+    </http>
+    <!-- Default batchTimeout = 60 s -> fuer Dev auf 2 s, damit Logs sofort in Grafana sichtbar sind -->
+    <batch>
+      <timeoutMs>2000</timeoutMs>
+    </batch>
+    <labels>
+      app = ${appName}
+      host = ${HOSTNAME}
+    </labels>
+    <structuredMetadata>
+      level = %level
+      thread = %thread
+      logger = %logger
+    </structuredMetadata>
+    <message>
+      <pattern>%-5level %logger{20} - %msg %ex</pattern>
+    </message>
+  </appender>
+
+  <root level="INFO">
+    <appender-ref ref="CONSOLE"/>
+    <appender-ref ref="LOKI"/>
+  </root>
+</configuration>

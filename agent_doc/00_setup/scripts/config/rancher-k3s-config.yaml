@@ -1,0 +1,13 @@
+# k3s-Konfiguration fuer den in rancher/rancher eingebetteten k3s
+# (wird nach /etc/rancher/k3s/config.yaml im Rancher-Container gemountet).
+kubelet-arg:
+  # Host hat cgroup v1 -> Kubelet >= 1.35 startet sonst nicht.
+  - "fail-cgroupv1=false"
+  # Kubelet sieht die 252-GB-Disk, die Sandbox-Quota ist aber viel kleiner (~30 GB).
+  # Prozentuale Default-Schwellen loesen sofort DiskPressure/Evictions aus -> absolute Werte.
+  - "eviction-hard=nodefs.available<1Gi,imagefs.available<1Gi,memory.available<200Mi"
+  - "image-gc-high-threshold=99"
+  - "image-gc-low-threshold=98"
+kube-proxy-arg:
+  # nf_conntrack_max ist in der Sandbox nicht schreibbar.
+  - "conntrack-max-per-core=0"

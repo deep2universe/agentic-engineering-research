@@ -1,0 +1,9 @@
+# Dashboard-Provisioning: alle JSON-Dateien aus /var/lib/grafana/dashboards laden.
+# (grafana.com ist aus der Sandbox gesperrt -> Dashboards nicht per ID importierbar.)
+apiVersion: 1
+providers:
+  - name: devstack
+    folder: Devstack
+    type: file
+    options:
+      path: /var/lib/grafana/dashboards

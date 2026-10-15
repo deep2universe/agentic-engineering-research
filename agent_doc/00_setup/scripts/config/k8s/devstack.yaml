@@ -1,0 +1,241 @@
+# Dev-Stack (Rancher-Variante) fuer den Rancher-"local"-Cluster.
+# Wird von scripts/30_rancher_deploy_stack.sh angewendet (kubectl ueber Rancher-Kubeconfig).
+# ConfigMaps (prometheus-config, alloy-config, grafana-datasources, postgres-init)
+# erzeugt das Skript aus den Dateien in scripts/config/ -> eine Quelle fuer beide Varianten.
+#
+# NodePorts 30100-30110 werden vom Rancher-Container 1:1 auf den Host gemappt.
+#   postgres 30100 | sonarqube 30101 | grafana 30102 | prometheus 30103 | loki 30104
+#   alloy-faro 30105 | otlp-http 30106 | otlp-grpc 30107 | alloy-ui 30108
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: postgres, namespace: devstack, labels: { app: postgres } }
+spec:
+  replicas: 1
+  strategy: { type: Recreate }
+  selector: { matchLabels: { app: postgres } }
+  template:
+    metadata: { labels: { app: postgres } }
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          env:
+            - { name: POSTGRES_DB, value: appdb }
+            - { name: POSTGRES_USER, value: devuser }
+            - { name: POSTGRES_PASSWORD, value: devpass }
+            - { name: PGDATA, value: /var/lib/postgresql/data/pgdata }
+          ports: [{ containerPort: 5432 }]
+          readinessProbe:
+            exec: { command: ["pg_isready", "-U", "devuser", "-d", "appdb"] }
+            periodSeconds: 5
+          volumeMounts:
+            - { name: data, mountPath: /var/lib/postgresql/data }
+            - { name: init, mountPath: /docker-entrypoint-initdb.d }
+      volumes:
+        # Rancher-k3s hat keinen local-path-Provisioner -> hostPath (Single-Node-Dev).
+        # Liegt im Rancher-Container unter /var/lib/rancher -> persistiert im Docker-Volume rancher-data.
+        - name: data
+          hostPath: { path: /var/lib/rancher/devstack/pg-data, type: DirectoryOrCreate }
+        - name: init
+          configMap: { name: postgres-init }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: postgres, namespace: devstack }
+spec:
+  type: NodePort
+  selector: { app: postgres }
+  ports: [{ port: 5432, targetPort: 5432, nodePort: 30100 }]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: sonarqube, namespace: devstack, labels: { app: sonarqube } }
+spec:
+  replicas: 1
+  progressDeadlineSeconds: 1200
+  strategy: { type: Recreate }
+  selector: { matchLabels: { app: sonarqube } }
+  template:
+    metadata: { labels: { app: sonarqube } }
+    spec:
+      securityContext: { fsGroup: 1000 }
+      initContainers:
+        # Wartet, bis Postgres (inkl. sonar-DB aus init.sql) erreichbar ist.
+        - name: wait-for-postgres
+          image: postgres:16-alpine
+          command: ["sh", "-c", "until pg_isready -h postgres -U sonar -d sonar; do sleep 2; done"]
+      containers:
+        - name: sonarqube
+          image: sonarqube:community
+          # Wrapper schaltet ES-Disk-Watermarks ab (Sandbox-Disk-Quota), siehe sonar-entrypoint.sh
+          command: ["/bin/bash", "/opt/sandbox/sonar-entrypoint.sh"]
+          env:
+            - { name: SONAR_JDBC_URL, value: "jdbc:postgresql://postgres:5432/sonar" }
+            - { name: SONAR_JDBC_USERNAME, value: sonar }
+            - { name: SONAR_JDBC_PASSWORD, value: sonar }
+            # Sandbox: Hard-Limit nofile=20000, nicht anhebbar (kein CAP_SYS_RESOURCE).
+            # Elasticsearch verlangt 65535 -> Bootstrap-Checks abschalten (nur Dev!).
+            - { name: SONAR_ES_BOOTSTRAP_CHECKS_DISABLE, value: "true" }
+          ports: [{ containerPort: 9000 }]
+          resources:
+            requests: { memory: 2Gi }
+            limits: { memory: 4Gi }
+          readinessProbe:
+            # /api/system/status liefert auch bei STARTING HTTP 200 -> auf "UP" pruefen
+            exec: { command: ["sh", "-c", "curl -s localhost:9000/api/system/status | grep -q '\"status\":\"UP\"'"] }
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          volumeMounts:
+            - { name: data, mountPath: /opt/sonarqube/data }
+            - { name: extensions, mountPath: /opt/sonarqube/extensions }
+            - { name: logs, mountPath: /opt/sonarqube/logs }
+            - { name: es-fix, mountPath: /opt/sandbox }
+      volumes:
+        - name: es-fix
+          configMap: { name: sonar-entrypoint }
+        - { name: data, emptyDir: {} }
+        - { name: extensions, emptyDir: {} }
+        - { name: logs, emptyDir: {} }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: sonarqube, namespace: devstack }
+spec:
+  type: NodePort
+  selector: { app: sonarqube }
+  ports: [{ port: 9000, targetPort: 9000, nodePort: 30101 }]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: prometheus, namespace: devstack, labels: { app: prometheus } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: prometheus } }
+  template:
+    metadata: { labels: { app: prometheus } }
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus:latest
+          args:
+            - --config.file=/etc/prometheus/prometheus.yml
+            - --web.enable-remote-write-receiver
+            - --web.enable-lifecycle
+          ports: [{ containerPort: 9090 }]
+          readinessProbe:
+            httpGet: { path: /-/ready, port: 9090 }
+          volumeMounts:
+            - { name: config, mountPath: /etc/prometheus }
+      volumes:
+        - name: config
+          configMap: { name: prometheus-config }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: prometheus, namespace: devstack }
+spec:
+  type: NodePort
+  selector: { app: prometheus }
+  ports: [{ port: 9090, targetPort: 9090, nodePort: 30103 }]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: loki, namespace: devstack, labels: { app: loki } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: loki } }
+  template:
+    metadata: { labels: { app: loki } }
+    spec:
+      containers:
+        - name: loki
+          image: grafana/loki:latest
+          args: ["-config.file=/etc/loki/local-config.yaml"]
+          ports: [{ containerPort: 3100 }]
+          readinessProbe:
+            httpGet: { path: /ready, port: 3100 }
+            initialDelaySeconds: 10
+---
+apiVersion: v1
+kind: Service
+metadata: { name: loki, namespace: devstack }
+spec:
+  type: NodePort
+  selector: { app: loki }
+  ports: [{ port: 3100, targetPort: 3100, nodePort: 30104 }]
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: alloy, namespace: devstack, labels: { app: alloy } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: alloy } }
+  template:
+    metadata: { labels: { app: alloy } }
+    spec:
+      containers:
+        - name: alloy
+          image: grafana/alloy:latest
+          args: ["run", "--server.http.listen-addr=0.0.0.0:12345", "/etc/alloy/config.alloy"]
+          ports:
+            - { containerPort: 12345 }
+            - { containerPort: 12347 }
+            - { containerPort: 4317 }
+            - { containerPort: 4318 }
+          volumeMounts:
+            - { name: config, mountPath: /etc/alloy }
+      volumes:
+        - name: config
+          configMap: { name: alloy-config }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: alloy, namespace: devstack }
+spec:
+  type: NodePort
+  selector: { app: alloy }
+  ports:
+    - { name: faro, port: 12347, targetPort: 12347, nodePort: 30105 }
+    - { name: otlp-http, port: 4318, targetPort: 4318, nodePort: 30106 }
+    - { name: otlp-grpc, port: 4317, targetPort: 4317, nodePort: 30107 }
+    - { name: ui, port: 12345, targetPort: 12345, nodePort: 30108 }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: grafana, namespace: devstack, labels: { app: grafana } }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: grafana } }
+  template:
+    metadata: { labels: { app: grafana } }
+    spec:
+      containers:
+        - name: grafana
+          image: grafana/grafana:latest
+          env:
+            - { name: GF_SECURITY_ADMIN_USER, value: admin }
+            - { name: GF_SECURITY_ADMIN_PASSWORD, value: admin }
+            - { name: GF_USERS_ALLOW_SIGN_UP, value: "false" }
+          ports: [{ containerPort: 3000 }]
+          readinessProbe:
+            httpGet: { path: /api/health, port: 3000 }
+          volumeMounts:
+            - { name: datasources, mountPath: /etc/grafana/provisioning/datasources }
+            - { name: dashboard-provider, mountPath: /etc/grafana/provisioning/dashboards }
+            - { name: dashboards, mountPath: /var/lib/grafana/dashboards }
+      volumes:
+        - name: datasources
+          configMap: { name: grafana-datasources }
+        - name: dashboard-provider
+          configMap: { name: grafana-dashboard-provider }
+        - name: dashboards
+          configMap: { name: grafana-dashboards }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: grafana, namespace: devstack }
+spec:
+  type: NodePort
+  selector: { app: grafana }
+  ports: [{ port: 3000, targetPort: 3000, nodePort: 30102 }]
