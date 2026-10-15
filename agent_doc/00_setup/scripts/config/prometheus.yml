@@ -1,0 +1,24 @@
+# Prometheus-Konfiguration (geteilt von Docker-Compose- und Rancher-Variante).
+# Spring-Boot-Apps: Actuator + micrometer-registry-prometheus -> /actuator/prometheus
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
+
+  - job_name: alloy
+    static_configs:
+      - targets: ["alloy:12345"]
+
+  # Spring-Boot-Anwendungen, die auf dem Host (ausserhalb der Container) laufen.
+  # Compose: host.docker.internal zeigt via extra_hosts auf den Docker-Host.
+  # Weitere Apps einfach als Target ergaenzen (z. B. host.docker.internal:8081).
+  - job_name: spring-boot
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets: ["host.docker.internal:8080"]
+    # Kein statisches "application"-Label setzen: Spring liefert es selbst
+    # (management.metrics.tags.application) -> sonst Kollision "exported_application".

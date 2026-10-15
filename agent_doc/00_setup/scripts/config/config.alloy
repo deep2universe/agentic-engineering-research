@@ -1,0 +1,59 @@
+// Grafana Alloy – Collector fuer Frontend (React/Faro) und Backend (OTLP).
+// Geteilt von Docker-Compose- und Rancher-Variante (Service-Namen loki/prometheus).
+
+logging {
+  level = "info"
+}
+
+// --- React / Browser: Grafana Faro Web SDK sendet an http://<host>:12347/collect
+faro.receiver "frontend" {
+  server {
+    listen_address       = "0.0.0.0"
+    listen_port          = 12347
+    cors_allowed_origins = ["*"]
+  }
+  output {
+    logs = [loki.process.frontend.receiver]
+  }
+}
+
+loki.process "frontend" {
+  stage.static_labels {
+    values = { source = "faro" }
+  }
+  forward_to = [loki.write.default.receiver]
+}
+
+// --- Spring Boot / beliebige Backends: OpenTelemetry OTLP (gRPC 4317, HTTP 4318)
+otelcol.receiver.otlp "default" {
+  grpc {
+    endpoint = "0.0.0.0:4317"
+  }
+  http {
+    endpoint = "0.0.0.0:4318"
+  }
+  output {
+    metrics = [otelcol.exporter.prometheus.default.input]
+    logs    = [otelcol.exporter.loki.default.input]
+  }
+}
+
+otelcol.exporter.prometheus "default" {
+  forward_to = [prometheus.remote_write.default.receiver]
+}
+
+otelcol.exporter.loki "default" {
+  forward_to = [loki.write.default.receiver]
+}
+
+prometheus.remote_write "default" {
+  endpoint {
+    url = "http://prometheus:9090/api/v1/write"
+  }
+}
+
+loki.write "default" {
+  endpoint {
+    url = "http://loki:3100/loki/api/v1/push"
+  }
+}

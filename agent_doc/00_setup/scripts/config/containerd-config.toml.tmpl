@@ -1,0 +1,45 @@
+# containerd-Template fuer k3s in der Claude-Code-Sandbox.
+# Unterschied zum k3s-Default: restrict_oom_score_adj = true
+# (der Sandbox fehlt CAP_SYS_RESOURCE, negative oom_score_adj-Werte -> runc-Fehler
+#  "can't get final child's PID from pipe: EOF").
+version = 3
+root = "{{ .NodeConfig.Containerd.Root }}"
+state = "{{ .NodeConfig.Containerd.State }}"
+
+[grpc]
+  address = "{{ deschemify .NodeConfig.Containerd.Address }}"
+
+[plugins.'io.containerd.internal.v1.opt']
+  path = "{{ .NodeConfig.Containerd.Opt }}"
+
+[plugins.'io.containerd.grpc.v1.cri']
+  stream_server_address = "127.0.0.1"
+  stream_server_port = "10010"
+
+[plugins.'io.containerd.cri.v1.runtime']
+  enable_selinux = false
+  restrict_oom_score_adj = true
+  enable_unprivileged_ports = true
+  enable_unprivileged_icmp = true
+  device_ownership_from_security_context = false
+
+[plugins.'io.containerd.cri.v1.images']
+  snapshotter = "{{ .NodeConfig.AgentConfig.Snapshotter }}"
+  disable_snapshot_annotations = true
+  use_local_image_pull = true
+
+[plugins.'io.containerd.cri.v1.images'.pinned_images]
+  sandbox = "{{ .NodeConfig.AgentConfig.PauseImage }}"
+
+[plugins.'io.containerd.cri.v1.runtime'.cni]
+  bin_dirs = ["{{ .NodeConfig.AgentConfig.CNIBinDir }}"]
+  conf_dir = "{{ .NodeConfig.AgentConfig.CNIConfDir }}"
+
+[plugins.'io.containerd.cri.v1.runtime'.containerd.runtimes.runc]
+  runtime_type = "io.containerd.runc.v2"
+
+[plugins.'io.containerd.cri.v1.runtime'.containerd.runtimes.runc.options]
+  SystemdCgroup = false
+
+[plugins.'io.containerd.cri.v1.images'.registry]
+  config_path = "{{ .NodeConfig.Containerd.Registry }}"
