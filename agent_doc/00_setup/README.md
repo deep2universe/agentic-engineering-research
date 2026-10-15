@@ -33,11 +33,25 @@ Stoppen: `./99_stop.sh compose` (mit `--purge` inkl. Volumes).
 | Postgres 16 | ✅ | Compose & Rancher | [04_postgres_sonarqube.md](04_postgres_sonarqube.md) |
 | SonarQube Community 26.10 | ✅ mit Workarounds | ES-Limits umgangen; Maven-Analyse getestet | [04_postgres_sonarqube.md](04_postgres_sonarqube.md) |
 | Grafana 13 + Prometheus 3 + Loki 3 + Alloy 1.20 | ✅ | Spring Boot (Metriken+Logs) und React (Faro) E2E getestet | [05_observability_spring_boot_react.md](05_observability_spring_boot_react.md) |
+| microsandbox 0.7.8 | ❌ | braucht `/dev/kvm` – fehlt (Sandbox ist PVM-Gast, keine Nested Virtualization) | [08_microvm_microsandbox.md](08_microvm_microsandbox.md) |
+| microVM via QEMU `-M microvm` (TCG) | ✅ | Docker-Image → microVM in ~5,7 s, Netz/Workspace/Ports; CPU ~15× langsamer | [08_microvm_microsandbox.md](08_microvm_microsandbox.md) |
+| gVisor (runsc) | ✅ | Docker-Runtime mit User-Space-Kernel, ≈ native Leistung – **Empfehlung für isolierte Code-Ausführung** | [08_microvm_microsandbox.md](08_microvm_microsandbox.md) |
 
 **Entscheidung:** Docker Compose als Standard für Development-Sessions, Rancher wenn Kubernetes
 Teil der Aufgabe ist → [06_entscheidung_docker_vs_rancher.md](06_entscheidung_docker_vs_rancher.md).
 Postgres, SonarQube und Grafana wurden wie gewünscht **auch über Rancher** gestartet und mit
 22/22 Checks verifiziert.
+
+## Isolierte Code-Ausführung (microVM / gVisor)
+
+```bash
+./55_gvisor_install.sh --test                                   # gVisor als Docker-Runtime
+docker run --rm --runtime=runsc -v "$PWD":/work -w /work python:3.12-alpine python3 script.py
+
+./50_microvm_setup.sh                                           # QEMU-microVM (ohne KVM, TCG)
+./51_microvm_run.sh --work "$PWD" python:3.12-alpine -- python3 /work/script.py
+./52_microsandbox_check.sh                                      # microsandbox, nur mit /dev/kvm
+```
 
 ## Rancher-Variante
 
@@ -61,6 +75,7 @@ Postgres, SonarQube und Grafana wurden wie gewünscht **auch über Rancher** ges
 ├── 05_observability_spring_boot_react.md
 ├── 06_entscheidung_docker_vs_rancher.md
 ├── 07_troubleshooting.md             ← Fehlerbilder, Diagnose, Agent-Fallen
+├── 08_microvm_microsandbox.md        ← KVM-Befund, microsandbox, QEMU-microVM, gVisor
 ├── _quellen.md
 ├── scripts/
 │   ├── lib.sh                        ← gemeinsame Helfer (wait_for, ensure_kubectl, prepare_ca_dir)
@@ -69,6 +84,10 @@ Postgres, SonarQube und Grafana wurden wie gewünscht **auch über Rancher** ges
 │   ├── 20_rancher_start.sh
 │   ├── 30_rancher_deploy_stack.sh
 │   ├── 40_compose_up.sh
+│   ├── 50_microvm_setup.sh           ← QEMU + Gastkernel (microVM ohne KVM)
+│   ├── 51_microvm_run.sh             ← Befehl in frischer microVM aus Docker-Image ausfuehren
+│   ├── 52_microsandbox_check.sh      ← microsandbox installieren/pruefen (braucht KVM)
+│   ├── 55_gvisor_install.sh          ← gVisor-Runtime fuer Docker
 │   ├── 90_verify.sh                  ← E2E-Test (compose|rancher)
 │   ├── 99_stop.sh                    ← compose|rancher|rancher-stack|k3s|all
 │   └── config/                       ← EINE Quelle für Compose und Rancher
@@ -78,6 +97,7 @@ Postgres, SonarQube und Grafana wurden wie gewünscht **auch über Rancher** ges
 │       ├── grafana/ (datasources, dashboard provider, devstack_overview.json)
 │       ├── postgres/init.sql
 │       ├── sonarqube/sonar-entrypoint.sh
+│       ├── microvm/init.sh           ← PID 1 in der microVM
 │       ├── rancher-k3s-config.yaml
 │       └── containerd-config.toml.tmpl
 └── examples/
@@ -90,4 +110,8 @@ Postgres, SonarQube und Grafana wurden wie gewünscht **auch über Rancher** ges
 - cgroup v1, root ohne `CAP_SYS_RESOURCE`, `nofile` hart 20000, Disk-Quota ~40 GB obwohl `df` 252 GB zeigt.
 - Egress über TLS-inspizierenden Proxy: Host vertraut ihm, **Container brauchen das CA-Bundle** `/root/.ccr/ca-bundle.crt`.
 - Gesperrt: GitHub-Downloads (außer freigegebene Repos), `start.spring.io`, `grafana.com`. Erreichbar: Docker Hub, Maven Central, npm.
+- Kein `/dev/kvm` → keine KVM-microVMs (microsandbox, Firecracker, Kata). Alternativen: gVisor, QEMU-TCG.
+- Docker Hub kann mit `429 Too Many Requests` antworten (anonymes Rate-Limit) → erneut versuchen, Images wiederverwenden.
+- Die Sandbox-VM kann zwischendurch **neu booten**: Prozesse (dockerd, k3s) sind weg, die Disk bleibt →
+  `00_docker_start.sh` erneut ausführen; Rancher startet per Restart-Policy von selbst.
 - Alle Daten sind **ephemer** – der Container wird nach der Session verworfen. Persistentes gehört ins Git-Repo.

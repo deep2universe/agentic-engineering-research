@@ -13,6 +13,8 @@
 | Disk | `df` zeigt 252 GB, **echte Quota ≈ 40 GB** (frei anfangs ~30 GB) | Tools mit %-Schwellen (Kubelet, Elasticsearch) rechnen falsch |
 | cgroups | **cgroup v1** (`/sys/fs/cgroup/memory`, …) | Kubernetes ≥ 1.35 verweigert Start ohne Flag |
 | init | kein systemd | Daemons per `nohup … &` starten |
+| Virtualisierung | Sandbox ist **PVM-Gast** (KVM-Hypervisor), `CONFIG_KVM=y`, aber **kein `/dev/kvm`**, keine vmx/svm-Flags | keine KVM-microVMs; gVisor oder QEMU-TCG nutzen (siehe 08) |
+| Reboots | VM kann während einer Session neu starten (beobachtet: Uptime 5 min, Disk unverändert) | `00_docker_start.sh` erneut ausführen |
 | `ulimit -n` | 20000 (hart, nicht anhebbar) | Elasticsearch-Bootstrap-Check (65535) schlägt fehl |
 | `vm.max_map_count` | 65530 (per `sysctl -w` auf 262144 setzbar ✅) | für SonarQube nötig, wird von `00_docker_start.sh` gesetzt |
 | Vorinstalliert | Docker 29.8 (CLI + dockerd + compose v5 + buildx), Java 21, Maven 3.9, Gradle 8.14, Node 20/21/22, `psql` 16, Chromium (`/opt/pw-browsers`) | – |
@@ -42,6 +44,10 @@
 | **github.com (Releases/Downloads)** | ❌ | nur für freigegebene Repos; k3s-Binary daher aus Docker-Image |
 | **start.spring.io** | ❌ 403 | Spring-Projekte von Hand/aus Template (`examples/spring_boot_demo`) |
 | **grafana.com** (Dashboard-Import per ID) | ❌ 403 | eigenes Dashboard wird provisioniert |
+| **gvisor.dev**, **get.microsandbox.dev** | ❌ | gVisor über `storage.googleapis.com/gvisor/releases`, microsandbox über npm/PyPI |
+| Ubuntu-Apt-Archiv | ✅ | `apt-get install` (QEMU, busybox-static, zstd), Kernel-Pakete per `apt-get download` |
+| storage.googleapis.com | ✅ | gVisor-Apt-Pool |
+| Docker Hub | ⚠️ 429 möglich | anonymes Pull-Rate-Limit, einmal beobachtet |
 
 Gesperrte Hosts nicht erneut versuchen; Status prüfen mit
 `curl -sS "$HTTPS_PROXY/__agentproxy/status"` (Feld `recentRelayFailures`).
@@ -59,5 +65,6 @@ Gesperrte Hosts nicht erneut versuchen; Status prüfen mit
 | 7 | SonarQube stoppt nach Minuten, `flood stage disk watermark [95%] exceeded`, `no_shard_available_action_exception` | ES-Watermarks in % von 252 GB | Wrapper-Entrypoint setzt ES-Disk-Settings per API | `config/sonarqube/sonar-entrypoint.sh` |
 | 8 | `kube-proxy: Failed to set sysctl nf_conntrack_max` | nicht schreibbar | `conntrack-max-per-core=0` | k3s-Konfig |
 | 9 | Playwright: `Executable doesn't exist …chromium_headless_shell-XXXX` | Playwright-Version ≠ vorinstallierter Browser | `executablePath: '/opt/pw-browsers/chromium'`, nie `playwright install` | `examples/react_faro_demo/faro_smoke_test.mjs` |
+| 10 | microVM hängt beim Boot (`tsc: Unable to calibrate against PIT`) | TCG-Timing | `tsc_early_khz=… lpj=… no_timer_check` | `51_microvm_run.sh` |
 
 Details und Diagnose-Kommandos: `07_troubleshooting.md`.

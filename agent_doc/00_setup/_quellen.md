@@ -100,3 +100,67 @@ Ausgaben, siehe Skripte). Die folgenden Web-Quellen dienten zur Bestätigung der
 - **URL:** https://registry.npmjs.org/
   **Zusammenfassung:** npm; `create-vite`, `@grafana/faro-web-sdk` 2.12.1, `playwright` 1.64.
   **Datum:** 2026-10-15
+
+## Suchstring: "microsandbox microVM libkrun install requirements KVM msb server"
+
+- **URL:** https://github.com/superradcompany/microsandbox
+  **Zusammenfassung:** Offizielles Repo (Beta): microVM-Sandboxes auf libkrun; Voraussetzung Linux mit KVM, macOS Apple Silicon oder Windows mit WHP.
+  **Datum:** 2026-10-15
+
+- **URL:** https://docs.vultr.com/how-to-set-up-agent-sandboxing-on-vultr-cloud-compute
+  **Zusammenfassung:** Anleitung: Host braucht CPU-Virtualisierungs-Flag und nutzbares /dev/kvm; Installation per `curl -sSL https://get.microsandbox.dev | sh`.
+  **Datum:** 2026-10-15
+
+- **URL:** https://cdn.jsdelivr.net/gh/superradcompany/microsandbox@0.7.7/DEVELOPMENT.md
+  **Zusammenfassung:** Entwickler-Doku 0.7.7 (Plattformen, Binaries unter ~/.microsandbox).
+  **Datum:** 2026-10-15
+
+- **URL:** https://rywalker.com/research/microsandbox
+  **Zusammenfassung:** Drittanalyse zu microsandbox (Einordnung als Agent-Sandbox).
+  **Datum:** 2026-10-15
+
+## Suchstring: "PVM pagetable-based virtual machine nested virtualization without VMX kvm_pvm"
+
+- **URL:** https://lwn.net/Articles/963718/
+  **Zusammenfassung:** LWN zu „KVM: x86/PVM“: neuer KVM-Vendor-Modus ohne Hardware-Virtualisierung (Shadow-Paging); erklärt `CONFIG_KVM_PVM`/`PVM_GUEST` in der Sandbox.
+  **Datum:** 2026-10-15
+
+- **URL:** https://lkml.iu.edu/hypermail/linux/kernel/2402.3/02173.html
+  **Zusammenfassung:** RFC-Patchserie (Feb 2024) „KVM: x86/PVM: Introduce a new hypervisor“.
+  **Datum:** 2026-10-15
+
+- **URL:** https://lpc.events/event/18/contributions/1766/
+  **Zusammenfassung:** LPC-2024-Vortrag zu PVM (Ant Group/Alibaba, Produktion für sichere Container).
+  **Datum:** 2026-10-15
+
+- **URL:** https://ranger.uta.edu/~jrao/papers/sosp23.pdf
+  **Zusammenfassung:** SOSP-2023-Paper zu PVM.
+  **Datum:** 2026-10-15
+
+## Suchstring: "gVisor runsc systrap platform docker runtime install without KVM"
+
+- **URL:** https://gvisor.dev/docs/user_guide/platforms/
+  **Zusammenfassung:** gVisor-Plattformen: systrap ist Default und braucht kein KVM; KVM-Plattform braucht /dev/kvm; Konfiguration über `runtimeArgs` in daemon.json.
+  **Datum:** 2026-10-15
+
+- **URL:** https://northflank.com/blog/what-is-gvisor
+  **Zusammenfassung:** Überblick gVisor (User-Space-Kernel, Isolation, Overhead).
+  **Datum:** 2026-10-15
+
+- **URL:** https://rywalker.com/research/gvisor
+  **Zusammenfassung:** Drittanalyse zu gVisor als Agent-Sandbox.
+  **Datum:** 2026-10-15
+
+## Suchstring: (keine Websuche) – praktisch genutzte Endpunkte (microVM/gVisor)
+
+- **URL:** https://storage.googleapis.com/gvisor/releases/dists/release/main/binary-amd64/Packages
+  **Zusammenfassung:** gVisor-Apt-Index (runsc 20261005.0, SHA256 zur Verifikation).
+  **Datum:** 2026-10-15
+
+- **URL:** https://registry.npmjs.org/microsandbox
+  **Zusammenfassung:** npm-Paket microsandbox 0.7.8 mit nativem msb-Binary (`@superradcompany/microsandbox-linux-x64-gnu`).
+  **Datum:** 2026-10-15
+
+- **URL:** http://archive.ubuntu.com/ubuntu/
+  **Zusammenfassung:** Ubuntu-Archiv: qemu-system-x86 8.2.2, busybox-static, zstd, linux-image/-modules 6.8.0-147-generic.
+  **Datum:** 2026-10-15
